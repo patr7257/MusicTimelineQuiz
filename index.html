@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Hitster: Music Quiz</title>
+  <style>
+    :root {
+      --bg0: #0a0916;
+      --bg1: #120b24;
+      --ink: #f3f0ff;
+      --muted: #a39fc4;
+      --accent: #7c5cff;
+      --accent2: #21d4c4;
+      --warm: #ffb454;
+      --good: #35e08f;
+      --bad: #ff6472;
+      --panel: rgba(24, 20, 46, 0.72);
+      --line: rgba(255,255,255,.10);
+      --shadow: 0 20px 50px rgba(0,0,0,.5);
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body {
+      font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+      color: var(--ink);
+      background: radial-gradient(1200px 800px at 50% -20%, #241546 0%, rgba(36,21,70,0) 55%), linear-gradient(165deg, var(--bg0), var(--bg1));
+      overflow: hidden;
+    }
+    button { font-family: inherit; cursor: pointer; }
+    .hidden { display: none !important; }
+    a { color: var(--accent2); }
+
+    /* Ambient background glows (low effect, chill) */
+    .glow { position: fixed; border-radius: 50%; filter: blur(80px); opacity: .5; pointer-events: none; z-index: 0; }
+    .g1 { width: 46vw; height: 46vw; left: -8vw; top: -6vw; background: radial-gradient(circle, #6b3cff, transparent 70%); animation: drift1 26s ease-in-out infinite; }
+    .g2 { width: 42vw; height: 42vw; right: -10vw; bottom: -12vw; background: radial-gradient(circle, #17b3a6, transparent 70%); animation: drift2 32s ease-in-out infinite; }
+    @keyframes drift1 { 0%,100%{ transform: translate(0,0); } 50%{ transform: translate(6vw, 4vh); } }
+    @keyframes drift2 { 0%,100%{ transform: translate(0,0); } 50%{ transform: translate(-5vw, -3vh); } }
+
+    /* Top bar */
+    .topbar {
+      position: fixed; top: 0; left: 0; right: 0; height: 56px; z-index: 40;
+      display: flex; align-items: center; gap: 12px; padding: 0 18px;
+      background: linear-gradient(180deg, rgba(10,9,22,.85), rgba(10,9,22,.2));
+      backdrop-filter: blur(8px);
+    }
+    .brand { font-weight: 800; letter-spacing: .3px; font-size: 18px; display: flex; align-items: center; gap: 8px; }
+    .brand .note { color: var(--warm); }
+    .spacer { flex: 1; }
+    .pill { font-size: 13px; color: var(--muted); background: rgba(255,255,255,.05); border: 1px solid var(--line); padding: 6px 12px; border-radius: 999px; }
+    .pill b { color: var(--ink); }
+    .cat-chip { display: inline-flex; align-items: center; gap: 6px; }
+    .cat-dot { width: 9px; height: 9px; border-radius: 50%; }
+    .btn {
+      border: 1px solid var(--line); background: rgba(255,255,255,.06); color: var(--ink);
+      padding: 9px 14px; border-radius: 11px; font-size: 14px; font-weight: 600;
+      transition: transform .08s, background .15s, box-shadow .15s;
+    }
+    .btn:hover { background: rgba(255,255,255,.12); }
+    .btn:active { transform: translateY(1px); }
+    .btn.primary { background: linear-gradient(180deg, #8f74ff, var(--accent)); border-color: #6c4de0; color: #fff; box-shadow: 0 8px 22px rgba(124,92,255,.4); }
+    .btn.primary:hover { filter: brightness(1.06); }
+    .btn.ghost { background: transparent; }
+    .btn:disabled { opacity: .4; cursor: not-allowed; box-shadow: none; }
+
+    /* Stage */
+    #game { position: fixed; inset: 56px 0 0 0; z-index: 1; }
+    .stage { position: absolute; inset: 6px 6px 208px 6px; }
+
+    /* Central music hub */
+    .hub { position: absolute; left: 50%; top: 41%; transform: translate(-50%,-50%); width: 300px; max-width: 50vw; z-index: 6; }
+    .disc-glow {
+      position: absolute; inset: -26px; border-radius: 26px; z-index: -1;
+      background: radial-gradient(circle at 50% 40%, rgba(124,92,255,.5), transparent 68%);
+      opacity: .8; transition: opacity .4s;
+    }
+    .hub.live .disc-glow { animation: pulse 2.4s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{ opacity:.55; } 50%{ opacity:1; } }
+    .hubcard {
+      background: linear-gradient(180deg, rgba(38,30,66,.95), rgba(24,18,44,.95));
+      border: 1px solid var(--line); border-radius: 22px; padding: 18px 18px 16px; text-align: center;
+      box-shadow: var(--shadow); backdrop-filter: blur(6px);
+    }
+    .hubcard h3 { margin: 0 0 12px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+    .qr { width: 200px; height: 200px; margin: 0 auto; background: #fff; border-radius: 14px; padding: 8px; box-shadow: 0 10px 26px rgba(0,0,0,.45); }
+    .qr img { width: 100%; height: 100%; image-rendering: pixelated; display: block; }
+    .scan-hint { font-size: 12px; color: var(--muted); margin-top: 10px; line-height: 1.4; }
+    .eq { display: flex; gap: 4px; justify-content: center; align-items: flex-end; height: 26px; margin-top: 12px; }
+    .eq span { width: 5px; height: 8px; border-radius: 3px; background: linear-gradient(180deg, var(--accent2), var(--accent)); opacity: .55; }
+    .hub.live .eq span { animation: bounce 900ms ease-in-out infinite; opacity: 1; }
+    .eq span:nth-child(2){ animation-delay: .12s } .eq span:nth-child(3){ animation-delay: .24s }
+    .eq span:nth-child(4){ animation-delay: .36s } .eq span:nth-child(5){ animation-delay: .18s }
+    .eq span:nth-child(6){ animation-delay: .30s } .eq span:nth-child(7){ animation-delay: .06s }
+    @keyframes bounce { 0%,100%{ height: 6px } 50%{ height: 24px } }
+    .waiting { color: var(--muted); font-size: 15px; padding: 20px 8px; line-height: 1.5; }
+    .waiting .big { font-size: 34px; display: block; margin-bottom: 8px; }
+    .reveal-year { font-size: 52px; font-weight: 900; line-height: 1; margin: 6px 0 4px; background: linear-gradient(180deg, #fff, var(--warm)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .reveal-title { font-weight: 700; font-size: 17px; }
+    .reveal-artist { color: var(--muted); font-size: 14px; margin-bottom: 6px; }
+    .verdict { margin-top: 8px; font-weight: 800; font-size: 18px; }
+    .verdict.good { color: var(--good); } .verdict.bad { color: var(--bad); }
+    .hub .row { display: flex; gap: 8px; justify-content: center; margin-top: 12px; flex-wrap: wrap; }
+
+    /* Player seats orbiting the hub */
+    .seat { position: absolute; width: 176px; transform: translate(-50%,-50%); z-index: 3; }
+    .seat-card { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 10px 12px; box-shadow: var(--shadow); backdrop-filter: blur(6px); }
+    .seat.active .seat-card { border-color: transparent; box-shadow: 0 0 0 2px var(--seat-color, var(--accent)), 0 18px 40px rgba(0,0,0,.5); }
+    .seat-head { display: flex; align-items: center; gap: 9px; margin-bottom: 8px; }
+    .avatar { width: 32px; height: 32px; border-radius: 50%; flex: 0 0 auto; display: grid; place-items: center; font-weight: 800; color: #10101f; font-size: 13px; }
+    .seat-name { font-weight: 700; font-size: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .seat-score { margin-left: auto; font-size: 12px; color: var(--muted); font-weight: 700; }
+    .mini-timeline { display: flex; gap: 4px; flex-wrap: wrap; }
+    .mini { position: relative; min-width: 32px; height: 40px; border-radius: 7px; padding: 2px 4px; background: rgba(0,0,0,.28); border: 1px solid var(--line); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .minicat { position: absolute; top: -6px; left: -5px; font-size: 9px; line-height: 1; padding: 1px 3px; border-radius: 999px; background: color-mix(in srgb, var(--c, #c9c4ff) 30%, #12122a); border: 1px solid color-mix(in srgb, var(--c, #c9c4ff) 60%, transparent); cursor: default; transition: transform .12s; }
+    .minicat:hover { transform: scale(1.25); }
+    .mini .y { font-weight: 800; font-size: 13px; }
+    .mini .t { font-size: 8px; color: var(--muted); max-width: 40px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .turn-badge { position: absolute; top: -11px; left: 50%; transform: translateX(-50%); background: var(--seat-color, var(--accent)); color: #10101f; font-size: 10px; font-weight: 800; padding: 3px 10px; border-radius: 999px; white-space: nowrap; letter-spacing: .5px; box-shadow: 0 4px 10px rgba(0,0,0,.4); }
+
+    /* Hero panel */
+    .hero { position: absolute; left: 0; right: 0; bottom: 0; height: 198px; z-index: 20; padding: 14px 20px 16px; display: flex; flex-direction: column; gap: 10px; background: linear-gradient(180deg, rgba(10,9,22,0), rgba(10,9,22,.92) 34%, rgba(10,9,22,.98)); }
+    .hero-head { display: flex; align-items: center; gap: 12px; }
+    .hero-avatar { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; font-weight: 900; color: #10101f; font-size: 18px; box-shadow: 0 0 0 3px rgba(255,255,255,.08); }
+    .hero-name { font-size: 22px; font-weight: 800; }
+    .hero-name .sub { display: block; font-size: 12px; color: var(--muted); font-weight: 600; }
+    .hero-actions { margin-left: auto; display: flex; gap: 10px; }
+    .instructions { color: var(--muted); font-size: 13px; }
+    .instructions b { color: var(--ink); }
+    .timeline { display: flex; align-items: stretch; gap: 0; overflow-x: auto; padding: 6px 2px 10px; }
+    .slot { flex: 0 0 auto; width: 32px; align-self: stretch; min-height: 74px; display: grid; place-items: center; margin: 0 2px; }
+    .slot button { width: 26px; height: 62px; border-radius: 8px; border: 1px dashed rgba(255,180,84,.55); background: rgba(255,180,84,.10); color: var(--warm); font-size: 18px; font-weight: 800; }
+    .slot button:hover { background: rgba(255,180,84,.24); }
+    .slot.chosen button { background: var(--warm); color: #241402; border-style: solid; }
+    .tcard { flex: 0 0 auto; width: 96px; min-height: 74px; border-radius: 12px; padding: 8px 6px; background: linear-gradient(180deg, rgba(56,44,96,.95), rgba(30,22,52,.95)); border: 1px solid var(--line); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; box-shadow: 0 6px 16px rgba(0,0,0,.4); }
+    .tcard .y { font-size: 22px; font-weight: 900; color: var(--warm); }
+    .tcard .t { font-size: 10px; font-weight: 700; margin-top: 2px; line-height: 1.1; }
+    .tcard .a { font-size: 9px; color: var(--muted); }
+    /* Category label chip shown on every card, with a hover effect */
+    .catchip { display: inline-flex; align-items: center; gap: 4px; padding: 2px 7px; border-radius: 999px; font-size: 9px; font-weight: 800; letter-spacing: .2px; color: #fff; white-space: nowrap; cursor: default; vertical-align: middle; background: color-mix(in srgb, var(--c, #c9c4ff) 20%, transparent); border: 1px solid color-mix(in srgb, var(--c, #c9c4ff) 55%, transparent); transition: transform .12s, background .15s; }
+    .catchip:hover { transform: translateY(-1px) scale(1.05); background: color-mix(in srgb, var(--c, #c9c4ff) 40%, transparent); }
+    .catchip .ce { font-size: 11px; line-height: 1; }
+    .catchip .cl { max-width: 0; overflow: hidden; opacity: 0; transition: max-width .2s ease, opacity .2s ease; }
+    .catchip.full .cl, .catchip:hover .cl { max-width: 160px; opacity: 1; }
+    .tcard .catchip { margin-bottom: 4px; }
+
+    /* Overlays */
+    .overlay { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; background: radial-gradient(900px 600px at 50% 10%, rgba(60,40,120,.5), rgba(6,6,16,.94)); padding: 20px; overflow: auto; }
+    .panel { width: min(600px, 95vw); background: linear-gradient(180deg, rgba(30,24,56,.96), rgba(18,13,36,.96)); border: 1px solid var(--line); border-radius: 22px; padding: 26px; box-shadow: var(--shadow); backdrop-filter: blur(8px); }
+    .panel h1 { margin: 0 0 4px; font-size: 27px; display: flex; align-items: center; gap: 10px; }
+    .panel h1 .note { color: var(--warm); }
+    .lede { margin: 0 0 20px; color: var(--muted); font-size: 14px; line-height: 1.5; }
+    .field { margin-bottom: 16px; }
+    .field > label { display: block; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; font-weight: 700; }
+    .field input, .field select { width: 100%; padding: 12px 14px; border-radius: 12px; font-size: 15px; background: rgba(0,0,0,.3); border: 1px solid var(--line); color: var(--ink); }
+    .field input:focus, .field select:focus { outline: 2px solid var(--accent); border-color: var(--accent); }
+    .seg { display: flex; gap: 8px; }
+    .seg button { flex: 1; padding: 12px; border-radius: 12px; background: rgba(0,0,0,.3); border: 1px solid var(--line); color: var(--ink); font-weight: 700; font-size: 15px; }
+    .seg button.on { background: linear-gradient(180deg, #8f74ff, var(--accent)); border-color: #6c4de0; box-shadow: 0 8px 20px rgba(124,92,255,.35); }
+    .names { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .cats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .cat-tile { position: relative; padding: 12px 8px; border-radius: 14px; background: rgba(0,0,0,.3); border: 1px solid var(--line); text-align: center; transition: transform .08s, border-color .15s, background .15s; }
+    .cat-tile:hover { background: rgba(255,255,255,.06); }
+    .cat-tile.on { border-color: var(--tile-color, var(--accent)); background: color-mix(in srgb, var(--tile-color, var(--accent)) 18%, transparent); }
+    .cat-tile .chk { position: absolute; top: 7px; right: 7px; width: 18px; height: 18px; border-radius: 5px; border: 1px solid var(--line); display: grid; place-items: center; font-size: 11px; font-weight: 900; color: transparent; }
+    .cat-tile.on .chk { background: var(--tile-color, var(--accent)); border-color: transparent; color: #10101f; }
+    .cat-tools { display: flex; gap: 8px; margin-bottom: 10px; }
+    .cat-tools button { padding: 6px 12px; font-size: 13px; }
+    .cat-tile .em { font-size: 24px; display: block; line-height: 1; }
+    .cat-tile .nm { display: block; font-size: 12px; font-weight: 700; margin-top: 7px; line-height: 1.2; }
+    .cat-tile .ct { display: block; font-size: 10px; color: var(--muted); margin-top: 3px; }
+    .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .note-sm { font-size: 12px; color: var(--muted); margin-top: 12px; line-height: 1.5; }
+    .warn { color: var(--warm); }
+    .win-emoji { font-size: 58px; text-align: center; }
+    .win-name { text-align: center; font-size: 30px; font-weight: 900; margin: 4px 0 2px; background: linear-gradient(180deg, #fff, var(--warm)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .win-sub { text-align: center; color: var(--muted); margin-bottom: 16px; }
+    .standings { list-style: none; padding: 0; margin: 0 0 18px; }
+    .standings li { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 11px; background: rgba(255,255,255,.04); margin-bottom: 6px; }
+    .standings .rank { width: 22px; font-weight: 800; color: var(--warm); }
+    .standings .sc { margin-left: auto; font-weight: 800; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .g1, .g2, .hub.live .disc-glow, .hub.live .eq span { animation: none !important; }
+    }
+    @media (max-width: 720px) {
+      .names, .cats, .row2 { grid-template-columns: 1fr 1fr; }
+      .seat { width: 140px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="glow g1"></div>
+  <div class="glow g2"></div>
+
+  <div class="topbar hidden" id="topbar">
+    <div class="brand"><span class="note">♪</span> Hitster</div>
+    <div class="pill" id="catPill">-</div>
+    <div class="pill">Win at <b id="targetLabel">-</b></div>
+    <div class="spacer"></div>
+    <div class="pill">Cards left <b id="deckLeft">-</b></div>
+    <button class="btn ghost" id="newGameBtn">New game</button>
+  </div>
+
+  <div id="game" class="hidden">
+    <div class="stage" id="stage">
+      <div class="hub" id="hub">
+        <div class="disc-glow"></div>
+        <div class="hubcard" id="hubcard"></div>
+      </div>
+    </div>
+    <div class="hero" id="hero">
+      <div class="hero-head">
+        <div class="hero-avatar" id="heroAvatar">?</div>
+        <div class="hero-name" id="heroName">Player<span class="sub" id="heroSub"></span></div>
+        <div class="hero-actions" id="heroActions"></div>
+      </div>
+      <div class="instructions" id="instructions"></div>
+      <div class="timeline" id="timeline"></div>
+    </div>
+  </div>
+
+  <!-- Setup -->
+  <div class="overlay" id="setup">
+    <div class="panel">
+      <h1><span class="note">♪</span> Hitster music quiz</h1>
+      <p class="lede">Hear a song, then drop it into your timeline by the year it came out. Right spot, you keep the card. First to the target wins.</p>
+
+      <div class="field">
+        <label>Players</label>
+        <div class="seg" id="countSeg">
+          <button data-n="2">2</button>
+          <button data-n="3" class="on">3</button>
+          <button data-n="4">4</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Names</label>
+        <div class="names" id="names"></div>
+      </div>
+
+      <div class="field">
+        <label>Categories: tick any to mix the deck</label>
+        <div class="cat-tools">
+          <button class="btn ghost" id="catAll" type="button">Select all</button>
+          <button class="btn ghost" id="catNone" type="button">Clear</button>
+        </div>
+        <div class="cats" id="cats"></div>
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <label>Cards to win</label>
+          <select id="target">
+            <option value="4">4 (quick)</option>
+            <option value="5" selected>5</option>
+            <option value="6">6</option>
+            <option value="8">8</option>
+            <option value="10">10 (long)</option>
+          </select>
+        </div>
+        <div class="field" style="display:flex;align-items:flex-end">
+          <button class="btn primary" id="startBtn" style="width:100%">Start game</button>
+        </div>
+      </div>
+      <div class="note-sm" id="setupNote">
+        Each player scans the on-screen QR with their phone camera to play the song on Spotify. The link goes straight to the track, so whoever scans should just press play, not read the title. The screen keeps the year hidden until you reveal.
+      </div>
+    </div>
+  </div>
+
+  <!-- Winner -->
+  <div class="overlay hidden" id="winner">
+    <div class="panel">
+      <div class="win-emoji">🏆</div>
+      <div class="win-name" id="winName">-</div>
+      <div class="win-sub" id="winSub">-</div>
+      <ol class="standings" id="standings"></ol>
+      <button class="btn primary" id="againBtn" style="width:100%">Play again</button>
+    </div>
+  </div>
+
+  <script src="qrcode.js"></script>
+  <script src="songs.js"></script>
+  <script>
+  (function () {
+    "use strict";
+
+    var PALETTE = ["#5be0c9", "#f7b955", "#ff77a9", "#9b8cff"];
+    var DB = window.HITSTER_DB || { categories: [], songs: [] };
+    var state = null, rafId = null;
+    var setup = { count: 3, cats: new Set() };
+    var DEFAULT_NOTE = "Each player scans the on-screen QR with their phone camera to play the song on Spotify. The link goes straight to the track, so whoever scans should just press play, not read the title. The screen keeps the year hidden until you reveal.";
+
+    function $(id) { return document.getElementById(id); }
+    function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+    function initials(n) { var p = (n || "").trim().split(/\s+/).filter(Boolean); if (!p.length) return "?"; return (p.length === 1 ? p[0].slice(0, 2) : p[0][0] + p[p.length - 1][0]).toUpperCase(); }
+    function sortTl(tl) { return tl.slice().sort(function (a, b) { return a.year - b.year; }); }
+    function escapeHtml(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+    function catMeta(key) { for (var i = 0; i < DB.categories.length; i++) if (DB.categories[i].key === key) return DB.categories[i]; return null; }
+    function songsForCat(key) { return DB.songs.filter(function (s) { return s.cat === key; }); }
+    function poolSongs() { return DB.songs.filter(function (s) { return setup.cats.has(s.cat); }); }
+    function pillMeta() {
+      if (setup.cats.size === DB.categories.length) return { label: "All mixed", emoji: "🎲", color: "#c9c4ff" };
+      if (setup.cats.size === 1) return catMeta(setup.cats.values().next().value);
+      return { label: setup.cats.size + " categories", emoji: "🎛️", color: "#c9c4ff" };
+    }
+    function qrSrc(card) { if (card.qr) return card.qr; try { var q = qrcode(0, "M"); q.addData(card.url); q.make(); return q.createDataURL(6, 4); } catch (e) { return ""; } }
+    function catChip(catKey, full) {
+      var m = catMeta(catKey) || { emoji: "🎵", label: "Unknown", color: "#c9c4ff" };
+      return '<span class="catchip' + (full ? " full" : "") + '" style="--c:' + m.color + '" title="Category: ' + escapeHtml(m.label) + '">' +
+        '<span class="ce">' + m.emoji + '</span><span class="cl">' + escapeHtml(m.label) + '</span></span>';
+    }
+
+    // ---------- setup UI ----------
+    function renderNames() {
+      var wrap = $("names"); wrap.innerHTML = "";
+      var defaults = ["Patrick", "Karl", "Karina", "Player 4"];
+      for (var i = 0; i < setup.count; i++) {
+        var inp = document.createElement("input");
+        inp.id = "p" + i; inp.maxLength = 16; inp.placeholder = "Player " + (i + 1);
+        if (i < defaults.length && i < 3) inp.placeholder = "e.g. " + defaults[i];
+        wrap.appendChild(inp);
+      }
+    }
+    function renderCats() {
+      var wrap = $("cats"); wrap.innerHTML = "";
+      DB.categories.forEach(function (c) {
+        var n = songsForCat(c.key).length;
+        var el = document.createElement("button");
+        el.type = "button";
+        el.className = "cat-tile" + (setup.cats.has(c.key) ? " on" : "");
+        el.style.setProperty("--tile-color", c.color);
+        el.innerHTML = '<span class="chk">✓</span><span class="em">' + c.emoji + '</span><span class="nm">' + escapeHtml(c.label) + '</span><span class="ct">' + n + ' songs</span>';
+        el.onclick = function () { if (setup.cats.has(c.key)) setup.cats.delete(c.key); else setup.cats.add(c.key); renderCats(); validateSetup(); };
+        wrap.appendChild(el);
+      });
+    }
+    function validateSetup() {
+      var songs = poolSongs(), need = setup.count + 2;
+      if (setup.cats.size === 0) { $("startBtn").disabled = true; $("setupNote").innerHTML = '<span class="warn">Tick at least one category to build the deck.</span>'; return; }
+      var ok = songs.length >= need;
+      $("startBtn").disabled = !ok;
+      $("setupNote").innerHTML = ok
+        ? DEFAULT_NOTE + ' <b>' + songs.length + '</b> songs in the deck.'
+        : '<span class="warn">Only ' + songs.length + ' songs in the ticked categories, not enough for ' + setup.count + ' players. Tick more categories.</span>';
+    }
+
+    Array.prototype.slice.call($("countSeg").children).forEach(function (b) {
+      b.onclick = function () {
+        Array.prototype.slice.call($("countSeg").children).forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on"); setup.count = parseInt(b.dataset.n, 10); renderNames(); validateSetup();
+      };
+    });
+
+    // ---------- start ----------
+    function startGame() {
+      var names = [];
+      for (var i = 0; i < setup.count; i++) { var v = ($("p" + i).value || "").trim(); names.push(v || ("Player " + (i + 1))); }
+      var target = parseInt($("target").value, 10);
+      var pool = poolSongs();
+      if (setup.cats.size === 0 || pool.length < setup.count + 2) { alert("Tick at least one category with enough songs."); return; }
+      var deck = shuffle(pool);
+      var players = names.map(function (n, i) { return { name: n, color: PALETTE[i % PALETTE.length], timeline: [] }; });
+      for (var p = 0; p < players.length; p++) if (deck.length) players[p].timeline.push(deck.pop());
+
+      var meta = pillMeta();
+      state = { players: players, deck: deck, current: 0, target: target, n: players.length,
+        catMeta: meta, phase: "draw", card: null, chosenSlot: null, result: null, displayRotation: 0, locked: false };
+
+      $("setup").classList.add("hidden"); $("winner").classList.add("hidden");
+      $("topbar").classList.remove("hidden"); $("game").classList.remove("hidden");
+      $("catPill").innerHTML = '<span class="cat-chip"><span class="cat-dot" style="background:' + meta.color + '"></span>' + meta.emoji + ' ' + escapeHtml(meta.label) + '</span>';
+      $("targetLabel").textContent = state.target;
+
+      buildSeats();
+      state.displayRotation = 0;
+      layoutSeats();
+      render();
+    }
+
+    // ---------- seats ----------
+    function buildSeats() {
+      var stage = $("stage");
+      Array.prototype.slice.call(stage.querySelectorAll(".seat")).forEach(function (e) { e.remove(); });
+      state.players.forEach(function (p, i) {
+        var seat = document.createElement("div");
+        seat.className = "seat"; seat.dataset.index = i;
+        seat.style.setProperty("--seat-color", p.color);
+        seat.innerHTML = '<div class="turn-badge hidden">NOW PLAYING</div><div class="seat-card"><div class="seat-head"><div class="avatar"></div><div class="seat-name"></div><div class="seat-score"></div></div><div class="mini-timeline"></div></div>';
+        stage.appendChild(seat);
+      });
+    }
+    function layoutSeats() {
+      var seats = $("stage").querySelectorAll(".seat");
+      var n = state.n, step = 360 / n, rx = 34, ry = 33;
+      for (var i = 0; i < seats.length; i++) {
+        var a = (i * step + state.displayRotation) * Math.PI / 180;
+        var x = 50 + rx * Math.sin(a), y = 42 + ry * Math.cos(a);
+        var fr = (Math.cos(a) + 1) / 2;
+        var scale = 0.72 + 0.34 * fr;
+        // The current player sits in the hero bar at the front, so fade a seat out
+        // as it reaches the front slot: only the opponents visibly orbit.
+        var opacity = Math.max(0, 1 - fr * fr);
+        var s = seats[i];
+        s.style.left = x + "%"; s.style.top = y + "%";
+        s.style.transform = "translate(-50%,-50%) scale(" + scale.toFixed(3) + ")";
+        s.style.zIndex = String(2 + Math.round((1 - fr) * 8));
+        s.style.opacity = opacity.toFixed(2);
+        s.style.pointerEvents = opacity < 0.15 ? "none" : "auto";
+        s.classList.toggle("active", i === state.current);
+        s.querySelector(".turn-badge").classList.add("hidden");
+      }
+    }
+    function animateRotationTo(target) {
+      if (rafId) cancelAnimationFrame(rafId);
+      var start = state.displayRotation, delta = target - start, t0 = null, dur = 650;
+      function step(ts) {
+        if (t0 === null) t0 = ts;
+        var t = Math.min(1, (ts - t0) / dur);
+        var e = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        state.displayRotation = start + delta * e; layoutSeats();
+        if (t < 1) rafId = requestAnimationFrame(step); else { rafId = null; state.displayRotation = target; layoutSeats(); }
+      }
+      rafId = requestAnimationFrame(step);
+    }
+
+    // ---------- render ----------
+    function render() { renderSeats(); renderHub(); renderHero(); $("deckLeft").textContent = state.deck.length; }
+
+    function renderSeats() {
+      var seats = $("stage").querySelectorAll(".seat");
+      for (var i = 0; i < seats.length; i++) {
+        var p = state.players[i], s = seats[i];
+        s.querySelector(".avatar").style.background = p.color;
+        s.querySelector(".avatar").textContent = initials(p.name);
+        s.querySelector(".seat-name").textContent = p.name;
+        s.querySelector(".seat-score").textContent = p.timeline.length + " / " + state.target;
+        var mini = s.querySelector(".mini-timeline"); mini.innerHTML = "";
+        sortTl(p.timeline).forEach(function (c) {
+          var m = catMeta(c.cat) || { emoji: "🎵", label: "Unknown", color: "#c9c4ff" };
+          var d = document.createElement("div"); d.className = "mini";
+          d.innerHTML = '<span class="minicat" style="--c:' + m.color + '" title="Category: ' + escapeHtml(m.label) + '">' + m.emoji + '</span>' +
+            '<div class="y">' + c.year + '</div><div class="t">' + escapeHtml(c.title) + '</div>';
+          mini.appendChild(d);
+        });
+      }
+    }
+
+    function renderHub() {
+      var hub = $("hub"), c = $("hubcard");
+      hub.classList.toggle("live", state.phase === "place");
+      if (state.phase === "draw") {
+        c.innerHTML = '<div class="waiting"><span class="big">🎧</span>Press <b>Draw song</b> to flip a QR code, then scan it to hear the track.</div>';
+      } else if (state.phase === "place") {
+        c.innerHTML = '<h3>Scan to play</h3><div class="qr"><img alt="Spotify QR" src="' + qrSrc(state.card) + '" /></div>' +
+          '<div class="eq"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>' +
+          '<div class="scan-hint">Scan with your phone, press play, do not read the title. Then pick where it fits below.</div>' +
+          '<div class="row">' + catChip(state.card.cat, true) + '</div>' +
+          '<div class="row"><a class="btn ghost" href="' + state.card.url + '" target="_blank" rel="noopener">Open in Spotify</a></div>';
+      } else if (state.phase === "revealed") {
+        var card = state.card, r = state.result;
+        c.innerHTML = '<div class="reveal-year">' + card.year + '</div><div class="reveal-title">' + escapeHtml(card.title) +
+          '</div><div class="reveal-artist">' + escapeHtml(card.artist) + '</div>' +
+          '<div class="row" style="margin-top:8px">' + catChip(card.cat, true) + '</div>' +
+          '<div class="verdict ' + (r.correct ? "good" : "bad") + '">' + (r.correct ? "Correct, card kept" : "Wrong, discarded") + '</div>';
+      }
+    }
+
+    function renderHero() {
+      var p = state.players[state.current];
+      $("heroAvatar").style.background = p.color; $("heroAvatar").textContent = initials(p.name);
+      $("heroName").firstChild.textContent = p.name;
+      var sub = $("heroSub"), actions = $("heroActions"), instr = $("instructions");
+      actions.innerHTML = ""; var tl = sortTl(p.timeline);
+      if (state.phase === "draw") {
+        sub.textContent = "your turn: draw a song";
+        instr.innerHTML = "Draw a song, everyone can scan the QR to hear it. Then place it in <b>your</b> timeline by release year.";
+        addBtn(actions, "Draw song", "primary", onDraw); renderTimeline(tl, false);
+      } else if (state.phase === "place") {
+        sub.textContent = "listen, then pick a slot";
+        instr.innerHTML = "Tap a <b>+</b> slot where the song fits by year, then press Reveal. Heard it already? Press <b>Skip song</b> for a fresh one.";
+        addBtn(actions, "Reveal", "primary", onReveal).disabled = (state.chosenSlot === null);
+        addBtn(actions, "Skip song", "ghost", onSkip);
+        renderTimeline(tl, true);
+      } else if (state.phase === "revealed") {
+        sub.textContent = state.result.correct ? "nice, card added" : "no card this time";
+        instr.innerHTML = state.result.correct ? "It slots into your timeline. Pass on." : "Not the right spot. Pass on.";
+        addBtn(actions, "Next player", "primary", onNext); renderTimeline(sortTl(p.timeline), false);
+      }
+    }
+
+    function renderTimeline(tl, placing) {
+      var wrap = $("timeline"); wrap.innerHTML = "";
+      for (var k = 0; k <= tl.length; k++) { if (placing) wrap.appendChild(makeSlot(k)); if (k < tl.length) wrap.appendChild(makeTCard(tl[k])); }
+      if (!placing && tl.length === 0) { var e = document.createElement("div"); e.className = "instructions"; e.textContent = "No cards yet."; wrap.appendChild(e); }
+    }
+    function makeSlot(k) {
+      var slot = document.createElement("div"); slot.className = "slot" + (state.chosenSlot === k ? " chosen" : "");
+      var b = document.createElement("button"); b.textContent = "+"; b.onclick = function () { state.chosenSlot = k; renderHero(); };
+      slot.appendChild(b); return slot;
+    }
+    function makeTCard(c) {
+      var d = document.createElement("div"); d.className = "tcard";
+      d.innerHTML = catChip(c.cat, true) + '<div class="y">' + c.year + '</div><div class="t">' + escapeHtml(c.title) + '</div><div class="a">' + escapeHtml(c.artist) + '</div>';
+      return d;
+    }
+    function addBtn(parent, label, cls, fn) { var b = document.createElement("button"); b.className = "btn " + (cls || ""); b.textContent = label; b.onclick = fn; parent.appendChild(b); return b; }
+
+    // ---------- turns ----------
+    function onDraw() { if (state.locked || state.phase === "over") return; if (!state.deck.length) { endGame("deck"); return; } state.card = state.deck.pop(); state.chosenSlot = null; state.result = null; state.phase = "place"; render(); }
+    function onSkip() {
+      // Discard the current (already-heard) song and draw a fresh one for the same player, no penalty.
+      if (state.locked || state.phase !== "place") return;
+      if (!state.deck.length) { endGame("deck"); return; }
+      state.card = state.deck.pop();
+      state.chosenSlot = null;
+      render();
+    }
+    function onReveal() {
+      if (state.locked || state.chosenSlot === null) return;
+      var p = state.players[state.current], tl = sortTl(p.timeline), k = state.chosenSlot, y = state.card.year;
+      var leftOk = (k === 0) || (tl[k - 1].year <= y), rightOk = (k === tl.length) || (y <= tl[k].year);
+      var correct = leftOk && rightOk;
+      if (correct) p.timeline.push(state.card);
+      state.result = { correct: correct }; state.phase = "revealed"; render();
+      if (correct && p.timeline.length >= state.target) {
+        // Lock immediately and capture the winner now, so a fast Next tap cannot change it.
+        state.locked = true;
+        var winnerIdx = state.current;
+        setTimeout(function () { endGame("target", winnerIdx); }, 900);
+      }
+    }
+    function onNext() {
+      if (state.locked || state.phase === "over") return;
+      if (!state.deck.length) { endGame("deck"); return; }
+      state.current = (state.current + 1) % state.n; state.phase = "draw"; state.card = null; state.chosenSlot = null; state.result = null;
+      animateRotationTo(-state.current * (360 / state.n)); render();
+    }
+
+    function endGame(reason, winnerIdx) {
+      var ranked = state.players.map(function (p, i) { return { p: p, i: i, n: p.timeline.length }; }).sort(function (a, b) { return b.n - a.n; });
+      var top = ranked[0], winner = (typeof winnerIdx === "number") ? state.players[winnerIdx] : top.p;
+      var tie = ranked.length > 1 && ranked[1].n === top.n && reason === "deck";
+      $("winName").textContent = tie ? "It is a tie" : winner.name + " wins";
+      $("winSub").textContent = reason === "deck" ? "The deck ran out. Standings by cards collected." : "First to " + state.target + " cards.";
+      var ol = $("standings"); ol.innerHTML = "";
+      ranked.forEach(function (r, idx) {
+        var li = document.createElement("li");
+        li.innerHTML = '<span class="rank">' + (idx + 1) + '</span><span class="avatar" style="width:24px;height:24px;font-size:11px;background:' + r.p.color + '">' + initials(r.p.name) + '</span><span>' + escapeHtml(r.p.name) + '</span><span class="sc">' + r.n + ' cards</span>';
+        ol.appendChild(li);
+      });
+      state.phase = "over"; $("winner").classList.remove("hidden");
+    }
+
+    // ---------- wiring ----------
+    $("startBtn").onclick = startGame;
+    $("againBtn").onclick = function () { $("winner").classList.add("hidden"); $("setup").classList.remove("hidden"); $("topbar").classList.add("hidden"); $("game").classList.add("hidden"); };
+    $("newGameBtn").onclick = function () { if (!confirm("Start a new game? Current progress is lost.")) return; $("topbar").classList.add("hidden"); $("game").classList.add("hidden"); $("setup").classList.remove("hidden"); };
+    window.addEventListener("resize", function () { if (state && state.phase !== "over") layoutSeats(); });
+
+    // init
+    DB.categories.forEach(function (c) { setup.cats.add(c.key); });
+    $("catAll").onclick = function () { DB.categories.forEach(function (c) { setup.cats.add(c.key); }); renderCats(); validateSetup(); };
+    $("catNone").onclick = function () { setup.cats.clear(); renderCats(); validateSetup(); };
+    renderNames(); renderCats(); validateSetup();
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "5CQ30WqJwcep0pYcV4AMNc",
+    "artist": "Led Zeppelin",
+    "title": "Stairway to Heaven",
+    "year": 1971,
+    "spotifyTitle": "Stairway to Heaven - Remaster",
+    "thumb": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02c8a11e48c91a982d086afc69"
+  },
+  {
+    "id": "3gdewACMIVMEWVbyb8O9sY",
+    "artist": "Elton John",
+    "title": "Rocket Man",
+    "year": 1972,
+    "spotifyTitle": "Rocket Man (I Think It's Going To Be A Long, Long Time)",
+    "thumb": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e023009007708ab5134936a58b3"
+  },
+  {
+    "id": "1AhDOtG9vPSOmsWgNW0BEY",
+    "artist": "Queen",
+    "title": "Bohemian Rhapsody",
+    "year": 1975,
+    "spotifyTitle": "Bohemian Rhapsody - Remastered 2011",
+    "thumb": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02ce4f1737bc8a646c8c4bd25a"
+  },
+  {
+    "id": "0yLdNVWF3Srea0uzk55zFn",
+    "artist": "Miley Cyrus",
+    "title": "Flowers",
+    "year": 2023,
+    "spotifyTitle": "Flowers",
+    "thumb": "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0266fd0917f38d472c8576754e"
+  },
+  {
+    "id": "1lCRw5FEZ1gPDNPzy1K4zW",
+    "artist": "Gloria Gaynor",
+    "title": "I Will Survive",
+    "year": 1978,
+    "spotifyTitle": "We Are The Champions - Remastered 2011",
+    "thumb": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0293c65b02f4a72cd6eccf446d"
+  },
+  {
+    "id": "4pbG9SUmWIvsROVLF0zF9s",
+    "artist": "Adele",
+    "title": "Rolling in the Deep",
+    "year": 2010,
+    "spotifyTitle": "I Want To Hold Your Hand - Remastered 2015",
+    "thumb": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02582d56ce20fe0146ffa0e5cf"
+  },
+  {
+    "id": "3AJwUDP919kvQ9QcozQPxg",
+    "artist": "Fleetwood Mac",
+    "title": "Go Your Own Way",
+    "year": 1977,
+    "spotifyTitle": "Yellow",
+    "thumb": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e029164bafe9aaa168d93f4816a"
+  },
+  {
+    "id": "5aAx2yezTd8zXrkmtKl66Z",
+    "artist": "Coldplay",
+    "title": "Viva la Vida",
+    "year": 2008,
+    "spotifyTitle": "Starboy",
+    "thumb": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e024718e2b124f79258be7bc452"
+  },
+  {
+    "id": "7ouMYWpwJ422jRcDASZB7P",
+    "artist": "Nirvana",
+    "title": "In Bloom",
+    "year": 1991,
+    "spotifyTitle": "Knights of Cydonia",
+    "thumb": "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0228933b808bfb4cbbd0385400"
+  }
+]
