@@ -32,6 +32,7 @@ HERE = Path(__file__).resolve().parent
 SEED = HERE / "deck-seed.json"
 SONGS_JS = HERE.parent / "songs.js"
 DECK_JSON = HERE / "deck.json"
+FETCH_CACHE = HERE / "fetch-cache.json"
 
 try:
     import qrcode
@@ -60,6 +61,42 @@ def qr_data_uri(url: str) -> str:
     return "data:image/png;base64," + base64.b64encode(buf.getvalue()).decode("ascii")
 
 
+# ---------- fetch checkpoint ----------
+# A persistent cache of every song resolved during a fetch run, saved to disk right
+# after each successful resolve so a rate limit, crash, or Ctrl-C never loses work
+# already paid for in API calls. Same shape as a deck.json entry, keyed the same way.
+def load_fetch_cache() -> dict:
+    if not FETCH_CACHE.exists():
+        return {}
+    try:
+        return json.loads(FETCH_CACHE.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+def save_fetch_cache(cache: dict) -> None:
+    tmp = FETCH_CACHE.with_suffix(".json.tmp")
+    tmp.write_text(json.dumps(cache, ensure_ascii=False, indent=2), encoding="utf-8")
+    os.replace(tmp, FETCH_CACHE)
+
+
+class RateLimited(Exception):
+    """Raised when Spotify's rate limit cannot be waited out safely."""
+    def __init__(self, seconds: int):
+        self.seconds = seconds
+        super().__init__(f"rate limited, Retry-After {seconds}s")
+
+
+class TokenExpired(Exception):
+    """Raised when the search endpoint answers 401 (the access token aged out)."""
+
+
+def format_duration(seconds: int) -> str:
+    if seconds >= 60:
+        return f"{seconds / 60:.1f} minutes"
+    return f"{seconds} seconds"
+
+
 # ---------- Spotify Web API ----------
 def get_token(client_id: str, client_secret: str) -> str:
     import requests
@@ -83,10 +120,16 @@ def _do_search(token: str, q: str, market: str, tries: int = 0):
         headers={"Authorization": f"Bearer {token}"},
         timeout=15,
     )
-    if resp.status_code == 429 and tries < 2:
-        wait = min(int(resp.headers.get("Retry-After", "2")) + 1, 25)
-        print(f"[rate limited {wait}s]", end="", flush=True)
-        time.sleep(wait)
+    if resp.status_code == 401:
+        raise TokenExpired()
+    if resp.status_code == 429:
+        wait = int(float(resp.headers.get("Retry-After", "2")))
+        # A short wait is worth riding out (up to 4 tries total); a long one, or one
+        # that keeps recurring, means honesty beats silently dropping songs.
+        if wait > 60 or tries >= 3:
+            raise RateLimited(wait)
+        print(f"[rate limited {wait + 1}s]", end="", flush=True)
+        time.sleep(wait + 1)
         return _do_search(token, q, market, tries + 1)
     if resp.status_code != 200:
         return []
@@ -100,6 +143,7 @@ def resolve(token: str, title: str, artist: str, market: str = "DK"):
     best = pick_best(_do_search(token, f'track:"{title}" artist:"{artist}"', market), title, artist)
     if best:
         return best
+    time.sleep(0.6)  # these are two separate API calls, space them like any other call
     return pick_best(_do_search(token, f"{title} {artist}", market), title, artist)
 
 
@@ -123,24 +167,54 @@ def pick_best(items, title, artist):
     return best
 
 
-def build_online():
+def build_online(wait=False):
     seed = json.loads(SEED.read_text(encoding="utf-8"))
     force_full = "--force-full" in sys.argv
 
-    # Incremental: reuse everything already resolved (from a previous deck.json) and
-    # only fetch songs still missing. This keeps request counts tiny so Spotify's
-    # rate limit is not tripped, and never re-fetches what already works.
-    existing = {}
-    if not force_full and DECK_JSON.exists():
-        try:
-            prev = json.loads(DECK_JSON.read_text(encoding="utf-8"))
-            for s in prev.get("songs", []):
-                existing[s["cat"] + "|" + norm(s["title"])] = s
-        except Exception:
-            existing = {}
-
     def key_of(cat, title):
         return cat + "|" + norm(title)
+
+    # Persistent fetch checkpoint: every song resolved in any past run (including one
+    # interrupted by a rate limit or Ctrl-C before songs.js/deck.json were written).
+    # Kept separate from "existing" so it can still be appended to and saved even
+    # under --force-full, where existing is intentionally ignored.
+    fetch_cache = load_fetch_cache()
+
+    # Incremental: reuse everything already resolved (from a previous deck.json, plus
+    # the fetch checkpoint) and only fetch songs still missing. This keeps request
+    # counts tiny so Spotify's rate limit is not tripped, and never re-fetches what
+    # already works.
+    existing = {}
+    if not force_full:
+        if DECK_JSON.exists():
+            try:
+                prev = json.loads(DECK_JSON.read_text(encoding="utf-8"))
+                for s in prev.get("songs", []):
+                    existing[s["cat"] + "|" + norm(s["title"])] = s
+            except Exception:
+                existing = {}
+        for key, s in fetch_cache.items():
+            existing.setdefault(key, s)
+
+    # Songs resolved during this process, so a --wait resume pass reuses them instead
+    # of refetching. Consulted even under --force-full: a resume pass must never redo
+    # calls this same run already paid for.
+    session_resolved = {}
+
+    def try_reuse(cat, e, seen_ids):
+        reuse = session_resolved.get(key_of(cat, e["title"]))
+        if reuse is None and not force_full:
+            reuse = existing.get(key_of(cat, e["title"]))
+        if not (reuse and reuse.get("id") and reuse.get("qr") and reuse["id"] not in seen_ids):
+            return None
+        # Keep source metadata in sync with the seed, even for a cached/reused entry,
+        # so adding or editing "source" in deck-seed.json takes effect without a refetch.
+        if "source" in e:
+            reuse["source"] = e["source"]
+        elif "source" in reuse:
+            del reuse["source"]
+        seen_ids.add(reuse["id"])
+        return reuse
 
     missing = [(cat, e) for cat, entries in seed["songs"].items() for e in entries
                if key_of(cat, e["title"]) not in existing]
@@ -148,56 +222,125 @@ def build_online():
           + (" (--force-full: refetching all)" if force_full else "") + ".")
 
     token = None
+    creds = None
+    token_at = 0.0
     if missing or force_full:
         print("Spotify credentials (from https://developer.spotify.com/dashboard):")
         client_id = os.environ.get("SPOTIFY_CLIENT_ID") or input("  Client ID: ").strip()
         client_secret = os.environ.get("SPOTIFY_CLIENT_SECRET") or getpass("  Client secret (hidden): ").strip()
+        creds = (client_id, client_secret)  # held in memory only, never written to disk
         token = get_token(client_id, client_secret)
+        token_at = time.time()
         print("Token OK. o=reused  .=fetched  _=no match  ==duplicate\n", flush=True)
     else:
         print("Nothing to fetch, rebuilding songs.js from cache.\n")
 
-    songs = []
-    seen_ids = set()
-    dropped = []
-    for cat, entries in seed["songs"].items():
-        kept = 0
-        print(f"  {cat:8s}: ", end="", flush=True)
-        for e in entries:
-            reuse = existing.get(key_of(cat, e["title"])) if not force_full else None
-            if reuse and reuse.get("id") and reuse.get("qr") and reuse["id"] not in seen_ids:
-                # Keep source metadata in sync with the seed, even for a cached/reused entry,
-                # so adding or editing "source" in deck-seed.json takes effect without a refetch.
+    def refresh_token(reason):
+        nonlocal token, token_at
+        print(f"[token refresh: {reason}] ", end="", flush=True)
+        token = get_token(creds[0], creds[1])
+        token_at = time.time()
+
+    def resolve_fresh(e):
+        # Client-credentials tokens live about 1 hour; refresh proactively before
+        # the edge, and reactively if the search endpoint says 401 anyway.
+        if time.time() - token_at > 50 * 60:
+            refresh_token("50 minutes since last token")
+        try:
+            return resolve(token, e["title"], e["artist"])
+        except TokenExpired:
+            refresh_token("search returned 401")
+            return resolve(token, e["title"], e["artist"])
+
+    def fetch_pass():
+        songs = []
+        seen_ids = set()
+        dropped = []
+        fetched = 0
+        limited = None
+        for cat, entries in seed["songs"].items():
+            if limited:
+                break
+            kept = 0
+            print(f"  {cat:8s}: ", end="", flush=True)
+            for e in entries:
+                reuse = try_reuse(cat, e, seen_ids)
+                if reuse:
+                    songs.append(reuse)
+                    kept += 1
+                    print("o", end="", flush=True)
+                    continue
+                try:
+                    best = resolve_fresh(e) if token else None
+                except RateLimited as rl:
+                    limited = rl
+                    break
+                time.sleep(0.6)  # gentle spacing between live calls to avoid re-tripping the rate limit
+                if not best:
+                    dropped.append(f"[{cat}] {e['artist']} - {e['title']} (no DK match)")
+                    print("_", end="", flush=True)
+                    continue
+                tid = best["id"]
+                if tid in seen_ids:
+                    dropped.append(f"[{cat}] {e['artist']} - {e['title']} (dup of another card)")
+                    print("=", end="", flush=True)
+                    continue
+                seen_ids.add(tid)
+                url = f"https://open.spotify.com/track/{tid}"
+                song = {"id": tid, "title": e["title"], "artist": e["artist"],
+                        "year": e["year"], "cat": cat, "url": url, "qr": qr_data_uri(url)}
                 if "source" in e:
-                    reuse["source"] = e["source"]
-                elif "source" in reuse:
-                    del reuse["source"]
-                seen_ids.add(reuse["id"])
-                songs.append(reuse)
+                    song["source"] = e["source"]
+                songs.append(song)
                 kept += 1
-                print("o", end="", flush=True)
-                continue
-            best = resolve(token, e["title"], e["artist"]) if token else None
-            time.sleep(0.4)  # gentle spacing between live calls to avoid re-tripping the rate limit
-            if not best:
-                dropped.append(f"[{cat}] {e['artist']} - {e['title']} (no DK match)")
-                print("_", end="", flush=True)
-                continue
-            tid = best["id"]
-            if tid in seen_ids:
-                dropped.append(f"[{cat}] {e['artist']} - {e['title']} (dup of another card)")
-                print("=", end="", flush=True)
-                continue
-            seen_ids.add(tid)
-            url = f"https://open.spotify.com/track/{tid}"
-            song = {"id": tid, "title": e["title"], "artist": e["artist"],
-                    "year": e["year"], "cat": cat, "url": url, "qr": qr_data_uri(url)}
-            if "source" in e:
-                song["source"] = e["source"]
-            songs.append(song)
-            kept += 1
-            print(".", end="", flush=True)
-        print(f"  {kept}/{len(entries)}", flush=True)
+                fetched += 1
+                print(".", end="", flush=True)
+                # Save the checkpoint immediately so this track survives a later abort,
+                # and remember it in-session so a --wait resume pass reuses it.
+                key = key_of(cat, e["title"])
+                fetch_cache[key] = song
+                session_resolved[key] = song
+                save_fetch_cache(fetch_cache)
+            print(f"  {kept}/{len(entries)}", flush=True)
+        return songs, seen_ids, dropped, fetched, limited
+
+    fetched_total = 0
+    while True:
+        songs, seen_ids, dropped, fetched, limited = fetch_pass()
+        fetched_total += fetched
+        if not limited:
+            break  # pass completed: every song was reused, fetched, or dropped legitimately
+        if not wait:
+            # Graceful stop. The break above stops fetching immediately, but categories or
+            # entries the loop had not reached yet may still have a perfectly good
+            # cached/reused resolution. Pull those in too so the rebuild reflects
+            # everything resolved so far, not just what this pass happened to reach.
+            for cat, entries in seed["songs"].items():
+                for e in entries:
+                    reuse = try_reuse(cat, e, seen_ids)
+                    if reuse:
+                        songs.append(reuse)
+
+            still_missing = len(missing) - fetched_total
+            print(f"\nSpotify rate limited, asks for {format_duration(limited.seconds)}. "
+                  f"Progress saved: {fetched_total} fetched this run, {still_missing} still missing. "
+                  "Re-run the same command later, it resumes from the checkpoint.")
+            print("Tip: run with --wait to sleep out the cooldown and finish unattended.")
+            if existing and len(songs) < 0.5 * len(existing):
+                print(f"Only {len(songs)} songs vs {len(existing)} cached, below the safety threshold. "
+                      "Kept the existing songs.js; the checkpoint alone preserves this run's progress.")
+            else:
+                write_db(seed["categories"], songs)
+                print(f"Rebuilt songs.js from {len(songs)} resolved songs so far.")
+            return
+        # --wait: sleep out the cooldown (plus a buffer) and resume automatically.
+        pause = limited.seconds + 120
+        resume_at = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time() + pause))
+        print(f"\nSpotify rate limited, asks for {format_duration(limited.seconds)}. "
+              f"--wait: sleeping {format_duration(pause)} (Retry-After plus a 120 second buffer), "
+              f"resuming around {resume_at}. Ctrl-C is safe, progress is checkpointed per song.")
+        time.sleep(pause)
+        refresh_token("resuming after cooldown")
 
     # Safety: never clobber a healthy deck with a much smaller one (e.g. a rate-limited run).
     if existing and len(songs) < 0.5 * len(existing):
@@ -265,8 +408,10 @@ def write_db(categories, songs):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--offline-sample", action="store_true", help="build from verified*.json without Spotify credentials")
+    ap.add_argument("--force-full", action="store_true", help="refetch every song, ignoring the deck.json cache")
+    ap.add_argument("--wait", action="store_true", help="sleep out long Spotify cooldowns and resume automatically until done")
     args = ap.parse_args()
     if args.offline_sample:
         build_offline()
     else:
-        build_online()
+        build_online(wait=args.wait)
