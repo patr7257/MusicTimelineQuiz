@@ -5,156 +5,204 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Hitster: Music Quiz</title>
   <style>
+    @font-face {
+      font-family: "Righteous";
+      src: url("fonts/righteous.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
     :root {
-      --bg0: #0a0916;
-      --bg1: #120b24;
-      --ink: #f3f0ff;
-      --muted: #a39fc4;
-      --accent: #7c5cff;
-      --accent2: #21d4c4;
-      --warm: #ffb454;
-      --good: #35e08f;
-      --bad: #ff6472;
-      --panel: rgba(24, 20, 46, 0.72);
-      --line: rgba(255,255,255,.10);
-      --shadow: 0 20px 50px rgba(0,0,0,.5);
+      /* Vinyl Lounge palette (issue #32). The variable NAMES are unchanged from
+         the old theme so every existing rule keeps resolving; only the warm
+         values changed, then components are restyled on top. */
+      --cream: #f3e7cf;
+      --paper: #faf1dd;
+      --paper-deep: #ecdcbc;
+      --orange: #c1502e;
+      --orange-deep: #93381e;
+      --gold: #d9a441;
+      --gold-deep: #a87a24;
+      --brown: #3b2a1e;
+      --brown-deep: #241710;
+      --avocado: #7a8450;
+      --avocado-deep: #59623a;
+
+      --bg0: #241710;
+      --bg1: #3b2a1e;
+      --ink: #f3e7cf;
+      --muted: #cbb187;
+      --accent: #c1502e;
+      --accent2: #d9a441;
+      --warm: #d9a441;
+      --good: #8b9660;
+      --bad: #db5a35;
+      --panel: #faf1dd;
+      --line: rgba(59, 42, 30, 0.28);
+      --shadow: 0 14px 30px rgba(36, 23, 16, 0.45);
       --radius: 18px;
+
+      --disp: "Righteous", "Trebuchet MS", "Segoe UI", sans-serif;
+      --body-font: Georgia, "Times New Roman", "Segoe UI", serif;
+      --hero-h: clamp(232px, 30vh, 300px);
+      --wood: linear-gradient(rgba(36, 23, 16, 0.18), rgba(36, 23, 16, 0.34)), repeating-linear-gradient(92deg, #6b4529 0 6px, #7a5334 6px 11px, #5e3c23 11px 15px, #74502f 15px 22px, #654226 22px 27px);
     }
     * { box-sizing: border-box; }
     html, body { height: 100%; margin: 0; }
     body {
-      font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+      font-family: var(--body-font);
       color: var(--ink);
-      background: radial-gradient(1200px 800px at 50% -20%, #241546 0%, rgba(36,21,70,0) 55%), linear-gradient(165deg, var(--bg0), var(--bg1));
+      background:
+        radial-gradient(1100px 720px at 50% -12%, #4a3320 0%, rgba(74,51,32,0) 58%),
+        radial-gradient(900px 620px at 14% 112%, rgba(122,132,80,.18), transparent 60%),
+        linear-gradient(168deg, var(--bg1), var(--bg0));
       overflow: hidden;
     }
     button { font-family: inherit; cursor: pointer; }
     .hidden { display: none !important; }
-    a { color: var(--accent2); }
+    a { color: var(--gold); }
 
-    /* Ambient background glows (low effect, chill) */
-    .glow { position: fixed; border-radius: 50%; filter: blur(80px); opacity: .5; pointer-events: none; z-index: 0; }
-    .g1 { width: 46vw; height: 46vw; left: -8vw; top: -6vw; background: radial-gradient(circle, #6b3cff, transparent 70%); animation: drift1 26s ease-in-out infinite; }
-    .g2 { width: 42vw; height: 42vw; right: -10vw; bottom: -12vw; background: radial-gradient(circle, #17b3a6, transparent 70%); animation: drift2 32s ease-in-out infinite; }
+    /* Themed scrollbars everywhere (issue #30 item 9): cream track, wood/gold thumb */
+    * { scrollbar-width: thin; scrollbar-color: var(--gold) var(--paper-deep); }
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-track { background: var(--paper-deep); border-radius: 999px; }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--gold), var(--gold-deep)); border-radius: 999px; border: 2px solid var(--paper-deep); }
+    ::-webkit-scrollbar-thumb:hover { background: var(--gold-deep); }
+
+    /* Ambient warm light pools plus a faint groove-ring texture over the stage */
+    .glow { position: fixed; border-radius: 50%; filter: blur(90px); opacity: .5; pointer-events: none; z-index: 0; }
+    .g1 { width: 46vw; height: 46vw; left: -8vw; top: -8vw; background: radial-gradient(circle, rgba(217,164,65,.55), transparent 70%); animation: drift1 26s ease-in-out infinite; }
+    .g2 { width: 42vw; height: 42vw; right: -10vw; bottom: -12vw; background: radial-gradient(circle, rgba(193,80,46,.5), transparent 70%); animation: drift2 32s ease-in-out infinite; }
+    body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none; background: repeating-radial-gradient(circle at 50% 42%, rgba(243,231,207,.035) 0 2px, transparent 2px 30px); }
     @keyframes drift1 { 0%,100%{ transform: translate(0,0); } 50%{ transform: translate(6vw, 4vh); } }
     @keyframes drift2 { 0%,100%{ transform: translate(0,0); } 50%{ transform: translate(-5vw, -3vh); } }
 
-    /* Top bar */
+    /* Top bar: wood console strip */
     .topbar {
       position: fixed; top: 0; left: 0; right: 0; height: 56px; z-index: 40;
       display: flex; align-items: center; gap: 12px; padding: 0 18px;
-      background: linear-gradient(180deg, rgba(10,9,22,.85), rgba(10,9,22,.2));
-      backdrop-filter: blur(8px);
+      background: var(--wood);
+      box-shadow: 0 6px 16px rgba(36,23,16,.4), inset 0 2px 0 rgba(255,240,210,.22);
     }
-    .brand { font-weight: 800; letter-spacing: .3px; font-size: 18px; display: flex; align-items: center; gap: 8px; }
-    .brand .note { color: var(--warm); }
+    .brand { font-family: var(--disp); font-weight: 400; letter-spacing: 2px; font-size: 22px; color: var(--paper); text-shadow: 2px 2px 0 var(--orange-deep); display: flex; align-items: center; gap: 9px; }
+    .brand .note { color: var(--gold); text-shadow: none; }
     .spacer { flex: 1; }
-    .pill { font-size: 13px; color: var(--muted); background: rgba(255,255,255,.05); border: 1px solid var(--line); padding: 6px 12px; border-radius: 999px; }
-    .pill b { color: var(--ink); }
+    .pill { font-family: var(--disp); font-size: 12px; letter-spacing: 1px; color: var(--brown); background: var(--paper); border: 2px solid var(--brown-deep); padding: 5px 12px; border-radius: 999px; box-shadow: 0 3px 0 rgba(36,23,16,.4); }
+    .pill b { color: var(--orange-deep); }
     .cat-chip { display: inline-flex; align-items: center; gap: 6px; }
-    .cat-dot { width: 9px; height: 9px; border-radius: 50%; }
+    .cat-dot { width: 9px; height: 9px; border-radius: 50%; border: 1px solid rgba(36,23,16,.4); }
     .btn {
-      border: 1px solid var(--line); background: rgba(255,255,255,.06); color: var(--ink);
-      padding: 9px 14px; border-radius: 11px; font-size: 14px; font-weight: 600;
-      transition: transform .08s, background .15s, box-shadow .15s;
+      font-family: var(--disp); letter-spacing: 1px; border: 2px solid var(--brown-deep);
+      background: var(--paper-deep); color: var(--brown);
+      padding: 8px 14px; border-radius: 12px; font-size: 13px; font-weight: 400;
+      box-shadow: 0 4px 0 rgba(36,23,16,.45);
+      transition: transform .07s, box-shadow .07s, filter .15s;
     }
-    .btn:hover { background: rgba(255,255,255,.12); }
-    .btn:active { transform: translateY(1px); }
-    .btn.primary { background: linear-gradient(180deg, #8f74ff, var(--accent)); border-color: #6c4de0; color: #fff; box-shadow: 0 8px 22px rgba(124,92,255,.4); }
-    .btn.primary:hover { filter: brightness(1.06); }
-    .btn.ghost { background: transparent; }
-    .btn:disabled { opacity: .4; cursor: not-allowed; box-shadow: none; }
+    .btn:hover { filter: brightness(1.04); }
+    .btn:active { transform: translateY(3px); box-shadow: 0 1px 0 rgba(36,23,16,.45); }
+    .btn.primary { background: linear-gradient(180deg, #d55f3a, var(--orange)); border-color: var(--orange-deep); color: var(--paper); box-shadow: 0 5px 0 var(--orange-deep); }
+    .btn.primary:hover { filter: brightness(1.05); }
+    .btn.ghost { background: var(--paper-deep); color: var(--brown); }
+    .btn:disabled { opacity: .45; cursor: not-allowed; box-shadow: none; transform: none; }
 
     /* Stage */
     #game { position: fixed; inset: 56px 0 0 0; z-index: 1; }
-    .stage { position: absolute; inset: 6px 6px 288px 6px; }
+    .stage { position: absolute; inset: 6px 6px calc(var(--hero-h) + 8px) 6px; }
 
-    /* Central music hub, vertically centered in the stage and capped to the
-       stage height so the card can never clip off the top or bottom */
-    .hub { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 300px; max-width: 50vw; max-height: 100%; z-index: 6; display: flex; flex-direction: column; }
+    /* Central music hub: a cream record sleeve, sized fluidly (vmin) so the
+       QR and reveal never clip off the top or bottom on any 16:9 desktop size */
+    .hub { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: clamp(220px, 34vmin, 330px); max-width: 50vw; max-height: 100%; z-index: 6; display: flex; flex-direction: column; }
     .disc-glow {
-      position: absolute; inset: -26px; border-radius: 26px; z-index: -1;
-      background: radial-gradient(circle at 50% 40%, rgba(124,92,255,.5), transparent 68%);
+      position: absolute; inset: -26px; border-radius: 30px; z-index: -1;
+      background: radial-gradient(circle at 50% 42%, rgba(217,164,65,.55), transparent 66%);
       opacity: .8; transition: opacity .4s;
     }
     .hub.live .disc-glow { animation: pulse 2.4s ease-in-out infinite; }
-    @keyframes pulse { 0%,100%{ opacity:.55; } 50%{ opacity:1; } }
+    @keyframes pulse { 0%,100%{ opacity:.5; } 50%{ opacity:1; } }
     .hubcard {
-      background: linear-gradient(180deg, rgba(38,30,66,.95), rgba(24,18,44,.95));
-      border: 1px solid var(--line); border-radius: 22px; padding: 18px 18px 16px; text-align: center;
-      box-shadow: var(--shadow); backdrop-filter: blur(6px);
+      background: linear-gradient(160deg, #fdf6e6, var(--paper) 55%, var(--paper-deep));
+      border: 3px solid var(--brown); border-radius: 20px; padding: clamp(12px, 2vmin, 18px); text-align: center;
+      color: var(--brown);
+      box-shadow: var(--shadow), inset 0 0 0 4px var(--paper), inset 0 0 0 6px rgba(193,80,46,.30);
       flex: 1 1 auto; min-height: 0; max-height: 100%; overflow-y: auto;
     }
-    .hubcard h3 { margin: 0 0 12px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
-    .qr { width: 200px; height: 200px; margin: 0 auto; background: #fff; border-radius: 14px; padding: 8px; box-shadow: 0 10px 26px rgba(0,0,0,.45); }
+    .hubcard h3 { margin: 0 0 12px; font-family: var(--disp); font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--orange-deep); }
+    .qr { width: clamp(150px, 26vmin, 220px); height: clamp(150px, 26vmin, 220px); margin: 0 auto; background: #fff; border-radius: 12px; padding: 8px; border: 3px solid var(--orange); box-shadow: 0 8px 20px rgba(36,23,16,.4), inset 0 0 0 3px #fff; }
     .qr img { width: 100%; height: 100%; image-rendering: pixelated; display: block; pointer-events: none; }
     .qr.draggable { cursor: grab; touch-action: none; }
     .qr.draggable:active { cursor: grabbing; }
-    .scan-hint { font-size: 12px; color: var(--muted); margin-top: 10px; line-height: 1.4; }
+    .scan-hint { font-size: 12px; color: rgba(59,42,30,.72); margin-top: 10px; line-height: 1.4; }
     .eq { display: flex; gap: 4px; justify-content: center; align-items: flex-end; height: 26px; margin-top: 12px; }
-    .eq span { width: 5px; height: 8px; border-radius: 3px; background: linear-gradient(180deg, var(--accent2), var(--accent)); opacity: .55; }
+    .eq span { width: 6px; height: 8px; border-radius: 3px 3px 0 0; background: var(--gold); opacity: .7; }
+    .eq span:nth-child(2){ background: var(--orange); } .eq span:nth-child(3){ background: var(--avocado); }
+    .eq span:nth-child(4){ background: var(--orange); } .eq span:nth-child(5){ background: var(--gold); }
+    .eq span:nth-child(6){ background: var(--avocado); } .eq span:nth-child(7){ background: var(--orange); }
     .hub.live .eq span { animation: bounce 900ms ease-in-out infinite; opacity: 1; }
     .eq span:nth-child(2){ animation-delay: .12s } .eq span:nth-child(3){ animation-delay: .24s }
     .eq span:nth-child(4){ animation-delay: .36s } .eq span:nth-child(5){ animation-delay: .18s }
     .eq span:nth-child(6){ animation-delay: .30s } .eq span:nth-child(7){ animation-delay: .06s }
     @keyframes bounce { 0%,100%{ height: 6px } 50%{ height: 24px } }
-    .waiting { color: var(--muted); font-size: 15px; padding: 20px 8px; line-height: 1.5; }
-    .waiting .big { font-size: 34px; display: block; margin-bottom: 8px; }
-    .reveal-year { font-size: 52px; font-weight: 900; line-height: 1; margin: 6px 0 4px; background: linear-gradient(180deg, #fff, var(--warm)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .reveal-title { font-weight: 700; font-size: 17px; }
-    .reveal-artist { color: var(--muted); font-size: 14px; margin-bottom: 6px; }
-    .verdict { margin-top: 8px; font-weight: 800; font-size: 18px; }
-    .verdict.good { color: var(--good); } .verdict.bad { color: var(--bad); }
+    .waiting { color: rgba(59,42,30,.78); font-size: 15px; padding: 20px 8px; line-height: 1.5; }
+    .waiting .big { font-size: clamp(28px, 6vmin, 38px); display: block; margin-bottom: 8px; }
+    .waiting b { color: var(--orange-deep); }
+    .reveal-year { font-family: var(--disp); font-size: clamp(40px, 9vmin, 62px); font-weight: 400; line-height: 1; margin: 6px 0 4px; background: linear-gradient(180deg, var(--gold), var(--orange)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .reveal-title { font-family: var(--disp); font-weight: 400; font-size: clamp(15px, 2.4vmin, 19px); color: var(--brown); }
+    .reveal-artist { color: rgba(59,42,30,.72); font-style: italic; font-size: 14px; margin-bottom: 6px; }
+    .verdict { font-family: var(--disp); margin-top: 8px; font-weight: 400; font-size: clamp(15px, 2.6vmin, 19px); }
+    .verdict.good { color: var(--avocado-deep); } .verdict.bad { color: var(--orange-deep); }
     .hub .row { display: flex; gap: 8px; justify-content: center; margin-top: 12px; flex-wrap: wrap; }
-    .steal-count { font-size: 60px; font-weight: 900; line-height: 1; text-align: center; margin-top: 8px; background: linear-gradient(180deg, #fff, var(--warm)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .steal-count { font-family: var(--disp); font-size: clamp(40px, 11vmin, 68px); font-weight: 400; line-height: 1; text-align: center; margin-top: 8px; background: linear-gradient(180deg, var(--gold), var(--orange)); -webkit-background-clip: text; background-clip: text; color: transparent; }
     .steal-count.paused { opacity: .45; }
 
-    /* Player seats, docked to the stage edges so they never overlap the hub */
-    .seat { position: absolute; width: 176px; transform: translate(-50%,-50%); z-index: 3; transition: left .5s ease, top .5s ease, opacity .3s ease; }
-    .seat-card { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 10px 12px; box-shadow: var(--shadow); backdrop-filter: blur(6px); }
-    .seat-head { display: flex; align-items: center; gap: 9px; margin-bottom: 8px; }
-    .avatar { width: 32px; height: 32px; border-radius: 50%; flex: 0 0 auto; display: grid; place-items: center; font-weight: 800; color: #10101f; font-size: 13px; }
-    .seat-name { font-weight: 700; font-size: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .seat-score { margin-left: auto; font-size: 12px; color: var(--muted); font-weight: 700; }
-    .seat-coins { display: flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 800; color: var(--warm); margin-bottom: 8px; }
-    .mini-timeline { display: flex; gap: 4px; flex-wrap: wrap; }
-    .mini { position: relative; min-width: 32px; height: 40px; border-radius: 7px; padding: 2px 4px; background: rgba(0,0,0,.28); border: 1px solid var(--line); display: flex; flex-direction: column; align-items: center; justify-content: center; }
-    .minicat { position: absolute; top: -6px; left: -5px; font-size: 9px; line-height: 1; padding: 1px 3px; border-radius: 999px; background: color-mix(in srgb, var(--c, #c9c4ff) 30%, #12122a); border: 1px solid color-mix(in srgb, var(--c, #c9c4ff) 60%, transparent); cursor: default; transition: transform .12s; }
+    /* Player seats: cream record-sleeve panels docked to the stage edges */
+    .seat { position: absolute; width: clamp(142px, 14vw, 186px); transform: translate(-50%,-50%); z-index: 3; transition: left .5s ease, top .5s ease, opacity .3s ease; }
+    .seat-card { position: relative; background: var(--paper); border: 3px solid var(--brown); border-radius: 16px; padding: 11px 13px; color: var(--brown); box-shadow: var(--shadow); }
+    .seat-card::before { content: ""; position: absolute; inset: 5px; border: 2px dashed rgba(59,42,30,.18); border-radius: 11px; pointer-events: none; }
+    .seat-head { position: relative; display: flex; align-items: center; gap: 9px; margin-bottom: 8px; }
+    .avatar { width: 34px; height: 34px; border-radius: 50%; flex: 0 0 auto; display: grid; place-items: center; font-family: var(--disp); font-weight: 400; color: var(--brown-deep); font-size: 13px; border: 2px solid var(--brown-deep); box-shadow: 0 3px 0 rgba(36,23,16,.3); }
+    .seat-name { position: relative; font-family: var(--disp); font-weight: 400; letter-spacing: .5px; font-size: 16px; color: var(--brown); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .seat-score { margin-left: auto; font-family: var(--disp); font-size: 12px; color: var(--gold-deep); }
+    .seat-coins { position: relative; display: flex; align-items: center; gap: 5px; font-family: var(--disp); font-size: 12px; color: var(--gold-deep); margin-bottom: 8px; }
+    .mini-timeline { position: relative; display: flex; gap: 4px; flex-wrap: wrap; }
+    .mini { position: relative; min-width: 32px; height: 40px; border-radius: 7px; padding: 2px 4px; background: var(--paper-deep); border: 2px solid var(--brown); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .minicat { position: absolute; top: -6px; left: -5px; font-size: 9px; line-height: 1; padding: 1px 3px; border-radius: 999px; background: color-mix(in srgb, var(--c, #d9a441) 55%, var(--paper)); border: 1px solid color-mix(in srgb, var(--c, #d9a441) 70%, var(--brown)); cursor: default; transition: transform .12s; }
     .minicat:hover { transform: scale(1.25); }
-    .mini .y { font-weight: 800; font-size: 13px; }
-    .mini .t { font-size: 8px; color: var(--muted); max-width: 40px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .steal-btn { width: 100%; margin-top: 8px; padding: 7px 10px; font-size: 12px; background: linear-gradient(180deg, #ffcf87, var(--warm)); border-color: #c98a2c; color: #241402; font-weight: 800; }
+    .mini .y { font-family: var(--disp); font-size: 13px; color: var(--brown); }
+    .mini .t { font-size: 8px; color: rgba(59,42,30,.65); max-width: 40px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .steal-btn { width: 100%; margin-top: 8px; padding: 8px 10px; font-size: 12px; background: linear-gradient(180deg, var(--gold), #c9932f); border-color: var(--gold-deep); color: var(--brown-deep); box-shadow: 0 4px 0 var(--gold-deep); }
     .steal-btn:hover { filter: brightness(1.05); }
 
-    /* Hero panel: the centerpiece showing the current player's timeline */
-    .hero { position: absolute; left: 0; right: 0; bottom: 0; height: 280px; z-index: 20; padding: 16px 20px 18px; display: flex; flex-direction: column; gap: 10px; background: linear-gradient(180deg, rgba(10,9,22,0), rgba(10,9,22,.92) 30%, rgba(10,9,22,.98)); }
+    /* Hero panel: the current player's console, cream text on a dark wood fade */
+    .hero { position: absolute; left: 0; right: 0; bottom: 0; height: var(--hero-h); z-index: 20; padding: 16px 20px 18px; display: flex; flex-direction: column; gap: 10px; background: linear-gradient(180deg, rgba(36,23,16,0), rgba(36,23,16,.9) 30%, rgba(36,23,16,.98)); box-shadow: inset 0 3px 0 rgba(217,164,65,.45); }
     .hero-head { display: flex; align-items: center; gap: 12px; }
-    .hero-avatar { width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center; font-weight: 900; color: #10101f; font-size: 19px; box-shadow: 0 0 0 3px rgba(255,255,255,.08); flex: 0 0 auto; }
-    .hero-name { font-size: 23px; font-weight: 800; }
-    .hero-name .sub { display: block; font-size: 12px; color: var(--muted); font-weight: 600; }
-    .hero-coins { font-size: 15px; font-weight: 800; color: var(--warm); background: rgba(255,180,84,.12); border: 1px solid rgba(255,180,84,.35); padding: 6px 13px; border-radius: 999px; white-space: nowrap; }
+    .hero-avatar { width: clamp(42px, 5.5vmin, 54px); height: clamp(42px, 5.5vmin, 54px); border-radius: 50%; display: grid; place-items: center; font-family: var(--disp); font-weight: 400; color: var(--brown-deep); font-size: clamp(16px, 2.4vmin, 20px); border: 2px solid var(--brown-deep); box-shadow: 0 4px 0 rgba(0,0,0,.35), 0 0 0 4px rgba(243,231,207,.10); flex: 0 0 auto; }
+    .hero-name { font-family: var(--disp); font-size: clamp(18px, 2.8vmin, 24px); color: var(--paper); letter-spacing: .5px; }
+    .hero-name .sub { display: block; font-family: var(--body-font); font-size: 12px; color: var(--muted); letter-spacing: 0; }
+    .hero-coins { font-family: var(--disp); font-size: 15px; color: var(--gold); background: rgba(217,164,65,.14); border: 1px solid rgba(217,164,65,.42); padding: 6px 13px; border-radius: 999px; white-space: nowrap; }
     .hero-actions { margin-left: auto; display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
-    .instructions { color: var(--muted); font-size: 13px; }
-    .instructions b { color: var(--ink); }
-    .bonus-banner { font-size: 13px; font-weight: 700; padding: 8px 12px; border-radius: 10px; display: inline-block; }
-    .bonus-banner.good { color: var(--good); background: rgba(53,224,143,.12); border: 1px solid rgba(53,224,143,.35); }
-    .bonus-banner.bad { color: var(--bad); background: rgba(255,100,114,.12); border: 1px solid rgba(255,100,114,.35); }
+    .instructions { color: var(--muted); font-size: 13px; line-height: 1.4; }
+    .instructions b { color: var(--paper); }
+    .bonus-banner { font-family: var(--disp); font-size: 12px; letter-spacing: .5px; padding: 8px 12px; border-radius: 10px; display: inline-block; }
+    .bonus-banner.good { color: #b6c37a; background: rgba(122,132,80,.20); border: 1px solid rgba(122,132,80,.55); }
+    .bonus-banner.bad { color: #f0a487; background: rgba(219,90,53,.18); border: 1px solid rgba(219,90,53,.5); }
     .timeline { display: flex; align-items: stretch; justify-content: center; gap: 0; overflow-x: auto; flex: 1; padding: 8px 2px 12px; }
-    .slot { flex: 0 0 auto; width: 48px; align-self: stretch; min-height: 118px; display: grid; place-items: center; margin: 0 3px; }
-    .slot button { width: 42px; height: 100px; border-radius: 10px; border: 2px dashed rgba(255,180,84,.55); background: rgba(255,180,84,.10); color: var(--warm); font-size: 26px; font-weight: 800; }
-    .slot button:hover { background: rgba(255,180,84,.24); }
-    .slot.drag-over button { background: var(--warm); color: #241402; border-style: solid; transform: scale(1.08); }
-    .slot.steal-chosen button { border-color: var(--steal-color, var(--accent)); border-style: solid; background: color-mix(in srgb, var(--steal-color, var(--accent)) 30%, transparent); color: var(--steal-color, var(--accent)); }
-    .tcard { position: relative; flex: 0 0 auto; width: 150px; min-height: 118px; border-radius: 14px; padding: 12px 10px; margin: 0 3px; background: linear-gradient(180deg, rgba(56,44,96,.95), rgba(30,22,52,.95)); border: 1px solid var(--line); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; box-shadow: 0 6px 16px rgba(0,0,0,.4); }
-    .tcard .y { font-size: 34px; font-weight: 900; color: var(--warm); }
-    .tcard .t { font-size: 13px; font-weight: 700; margin-top: 4px; line-height: 1.15; }
-    .tcard .a { font-size: 11px; color: var(--muted); }
-    .tcard.tentative { border: 2px solid var(--warm); animation: tentPulse 1.2s ease-in-out infinite; }
-    @keyframes tentPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(255,180,84,.55); } 50% { box-shadow: 0 0 0 9px rgba(255,180,84,0); } }
-    .new-badge { position: absolute; top: -10px; right: -8px; background: var(--warm); color: #241402; font-size: 10px; font-weight: 900; padding: 3px 8px; border-radius: 999px; box-shadow: 0 4px 10px rgba(0,0,0,.4); letter-spacing: .4px; }
-    /* Category label chip shown on every card, with a hover effect */
-    .catchip { display: inline-flex; align-items: center; gap: 4px; padding: 2px 7px; border-radius: 999px; font-size: 9px; font-weight: 800; letter-spacing: .2px; color: #fff; white-space: nowrap; cursor: default; vertical-align: middle; background: color-mix(in srgb, var(--c, #c9c4ff) 20%, transparent); border: 1px solid color-mix(in srgb, var(--c, #c9c4ff) 55%, transparent); transition: transform .12s, background .15s; }
-    .catchip:hover { transform: translateY(-1px) scale(1.05); background: color-mix(in srgb, var(--c, #c9c4ff) 40%, transparent); }
+    .slot { flex: 0 0 auto; width: clamp(46px, 4.4vw, 56px); align-self: stretch; min-height: clamp(104px, 15vh, 122px); display: grid; place-items: center; margin: 0 3px; }
+    .slot button { width: clamp(42px, 4vw, 50px); height: clamp(96px, 13vh, 112px); border-radius: 10px; border: 2px dashed var(--gold); background: rgba(217,164,65,.14); color: var(--gold); font-family: var(--disp); font-size: 26px; }
+    .slot button:hover { background: rgba(217,164,65,.3); }
+    .slot.drag-over button { background: var(--gold); color: var(--brown-deep); border-style: solid; transform: scale(1.08); }
+    .slot.steal-chosen button { border-color: var(--steal-color, var(--gold)); border-style: solid; background: color-mix(in srgb, var(--steal-color, var(--gold)) 35%, transparent); color: var(--paper); }
+    .tcard { position: relative; flex: 0 0 auto; width: clamp(122px, 12vw, 154px); min-height: clamp(104px, 15vh, 122px); border-radius: 12px; padding: 12px 10px; margin: 0 3px; background: linear-gradient(160deg, #fdf6e6, var(--paper) 55%, var(--paper-deep)); border: 3px solid var(--brown); color: var(--brown); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; box-shadow: 5px 6px 0 rgba(59,42,30,.28); }
+    .tcard::before { content: ""; width: clamp(22px, 2.6vw, 30px); height: clamp(22px, 2.6vw, 30px); border-radius: 50%; margin-bottom: 5px; background: repeating-radial-gradient(circle, #1c1714 0 1.5px, #2c241d 1.5px 3px); box-shadow: inset 0 0 0 2px #0f0c0a; }
+    .tcard .y { font-family: var(--disp); font-size: clamp(26px, 3.4vw, 34px); color: var(--orange); }
+    .tcard .t { font-family: var(--disp); font-size: 13px; color: var(--brown); margin-top: 3px; line-height: 1.15; }
+    .tcard .a { font-size: 11px; font-style: italic; color: rgba(59,42,30,.7); }
+    .tcard.tentative { border-color: var(--orange-deep); background: linear-gradient(160deg, #f6d998, var(--gold) 70%, #c9932f); animation: tentPulse 1.2s ease-in-out infinite; }
+    .tcard.tentative .y { color: var(--orange-deep); }
+    @keyframes tentPulse { 0%,100% { box-shadow: 5px 6px 0 rgba(147,56,30,.4), 0 0 0 0 rgba(217,164,65,.6); } 50% { box-shadow: 5px 6px 0 rgba(147,56,30,.4), 0 0 0 9px rgba(217,164,65,0); } }
+    .new-badge { position: absolute; top: -11px; right: -9px; transform: rotate(8deg); background: var(--orange); color: var(--paper); font-family: var(--disp); font-size: 10px; padding: 3px 9px; border-radius: 999px; border: 2px solid var(--paper); box-shadow: 0 3px 0 var(--orange-deep); letter-spacing: 1px; }
+    /* Category label chip shown on every card, with a hover reveal */
+    .catchip { display: inline-flex; align-items: center; gap: 4px; padding: 2px 7px; border-radius: 999px; font-family: var(--disp); font-size: 9px; letter-spacing: .3px; color: var(--brown-deep); white-space: nowrap; cursor: default; vertical-align: middle; background: color-mix(in srgb, var(--c, #d9a441) 45%, var(--paper)); border: 1.5px solid color-mix(in srgb, var(--c, #d9a441) 70%, var(--brown)); transition: transform .12s, background .15s; }
+    .catchip:hover { transform: translateY(-1px) scale(1.05); background: color-mix(in srgb, var(--c, #d9a441) 62%, var(--paper)); }
     .catchip .ce { font-size: 11px; line-height: 1; }
     .catchip .cl { max-width: 0; overflow: hidden; opacity: 0; transition: max-width .2s ease, opacity .2s ease; }
     .catchip.full .cl, .catchip:hover .cl { max-width: 160px; opacity: 1; }
@@ -162,94 +210,62 @@
 
     /* Drag ghost that follows the pointer while dragging the hub card to a slot */
     .drag-ghost { position: fixed; top: 0; left: 0; width: 64px; height: 64px; pointer-events: none; z-index: 200; opacity: .88; transform: translate(-50%,-50%); }
-    .drag-ghost img { width: 100%; height: 100%; border-radius: 8px; box-shadow: 0 10px 24px rgba(0,0,0,.5); background: #fff; }
+    .drag-ghost img { width: 100%; height: 100%; border-radius: 8px; box-shadow: 0 10px 24px rgba(36,23,16,.5); background: #fff; border: 2px solid var(--orange); }
 
-    /* Overlays */
-    .overlay { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; background: radial-gradient(900px 600px at 50% 10%, rgba(60,40,120,.5), rgba(6,6,16,.94)); padding: 20px; overflow: auto; }
-    .panel { width: min(600px, 95vw); background: linear-gradient(180deg, rgba(30,24,56,.96), rgba(18,13,36,.96)); border: 1px solid var(--line); border-radius: 22px; padding: 26px; box-shadow: var(--shadow); backdrop-filter: blur(8px); }
-    .panel h1 { margin: 0 0 4px; font-size: 27px; display: flex; align-items: center; gap: 10px; }
-    .panel h1 .note { color: var(--warm); }
-    .lede { margin: 0 0 20px; color: var(--muted); font-size: 14px; line-height: 1.5; }
+    /* Overlays: record-sleeve paper panels on a warm dim backdrop */
+    .overlay { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; background: radial-gradient(900px 600px at 50% 8%, rgba(122,69,41,.55), rgba(20,12,8,.95)); padding: 20px; overflow: auto; }
+    .panel { width: min(600px, 95vw); background: linear-gradient(160deg, #fdf6e6, var(--paper) 60%, var(--paper-deep)); border: 3px solid var(--brown); border-radius: 22px; padding: 26px; color: var(--brown); box-shadow: var(--shadow), inset 0 0 0 5px var(--paper), inset 0 0 0 7px rgba(217,164,65,.28); }
+    .panel h1 { margin: 0 0 4px; font-family: var(--disp); font-weight: 400; letter-spacing: 1px; font-size: 27px; color: var(--brown); display: flex; align-items: center; gap: 10px; }
+    .panel h1 .note { color: var(--orange); }
+    .lede { margin: 0 0 20px; color: rgba(59,42,30,.75); font-size: 14px; line-height: 1.5; }
     .field { margin-bottom: 16px; }
-    .field > label { display: block; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; font-weight: 700; }
-    .field input, .field select { width: 100%; padding: 12px 14px; border-radius: 12px; font-size: 15px; background: rgba(0,0,0,.3); border: 1px solid var(--line); color: var(--ink); }
-    .field input:focus, .field select:focus { outline: 2px solid var(--accent); border-color: var(--accent); }
+    .field > label { display: block; font-family: var(--disp); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--orange-deep); margin-bottom: 8px; }
+    .field input, .field select { width: 100%; padding: 12px 14px; border-radius: 10px; font-family: var(--body-font); font-size: 15px; background: #fffaf0; border: 2px solid var(--brown); color: var(--brown-deep); }
+    .field input:focus, .field select:focus { outline: 3px solid var(--gold); outline-offset: 0; border-color: var(--orange); }
     .seg { display: flex; gap: 8px; }
-    .seg button { flex: 1; padding: 12px; border-radius: 12px; background: rgba(0,0,0,.3); border: 1px solid var(--line); color: var(--ink); font-weight: 700; font-size: 15px; }
-    .seg button.on { background: linear-gradient(180deg, #8f74ff, var(--accent)); border-color: #6c4de0; box-shadow: 0 8px 20px rgba(124,92,255,.35); }
+    .seg button { flex: 1; padding: 12px; border-radius: 12px; background: var(--paper-deep); border: 2px solid var(--brown); color: var(--brown); font-family: var(--disp); font-size: 15px; box-shadow: 0 4px 0 rgba(36,23,16,.35); transition: transform .07s, box-shadow .07s; }
+    .seg button:active { transform: translateY(3px); box-shadow: 0 1px 0 rgba(36,23,16,.35); }
+    .seg button.on { background: linear-gradient(180deg, #d55f3a, var(--orange)); border-color: var(--orange-deep); color: var(--paper); box-shadow: 0 4px 0 var(--orange-deep); }
     .names { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .cats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-    .cat-tile { position: relative; padding: 12px 8px; border-radius: 14px; background: rgba(0,0,0,.3); border: 1px solid var(--line); text-align: center; transition: transform .08s, border-color .15s, background .15s; }
-    .cat-tile:hover { background: rgba(255,255,255,.06); }
-    .cat-tile.on { border-color: var(--tile-color, var(--accent)); background: color-mix(in srgb, var(--tile-color, var(--accent)) 18%, transparent); }
-    .cat-tile .chk { position: absolute; top: 7px; right: 7px; width: 18px; height: 18px; border-radius: 5px; border: 1px solid var(--line); display: grid; place-items: center; font-size: 11px; font-weight: 900; color: transparent; }
-    .cat-tile.on .chk { background: var(--tile-color, var(--accent)); border-color: transparent; color: #10101f; }
+    .cat-tile { position: relative; padding: 12px 8px; border-radius: 14px; background: var(--paper-deep); border: 2px solid var(--brown); color: var(--brown); text-align: center; transition: transform .08s, border-color .15s, background .15s; }
+    .cat-tile:hover { background: #fff3dc; }
+    .cat-tile.on { border-color: var(--tile-color, var(--orange)); background: color-mix(in srgb, var(--tile-color, var(--orange)) 22%, var(--paper)); }
+    .cat-tile .chk { position: absolute; top: 7px; right: 7px; width: 18px; height: 18px; border-radius: 5px; border: 2px solid var(--brown); display: grid; place-items: center; font-size: 11px; font-weight: 900; color: transparent; }
+    .cat-tile.on .chk { background: var(--tile-color, var(--orange)); border-color: transparent; color: var(--paper); }
     .cat-tools { display: flex; gap: 8px; margin-bottom: 10px; }
     .cat-tools button { padding: 6px 12px; font-size: 13px; }
     .cat-tile .em { font-size: 24px; display: block; line-height: 1; }
-    .cat-tile .nm { display: block; font-size: 12px; font-weight: 700; margin-top: 7px; line-height: 1.2; }
-    .cat-tile .ct { display: block; font-size: 10px; color: var(--muted); margin-top: 3px; }
+    .cat-tile .nm { display: block; font-family: var(--disp); font-size: 12px; margin-top: 7px; line-height: 1.2; color: var(--brown); }
+    .cat-tile .ct { display: block; font-size: 10px; color: rgba(59,42,30,.65); margin-top: 3px; }
     .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .note-sm { font-size: 12px; color: var(--muted); margin-top: 12px; line-height: 1.5; }
-    .warn { color: var(--warm); }
+    .note-sm { font-size: 12px; color: rgba(59,42,30,.7); margin-top: 12px; line-height: 1.5; }
+    .note-sm b { color: var(--orange-deep); }
+    .warn { color: var(--orange-deep); font-weight: 700; }
     .win-emoji { font-size: 58px; text-align: center; }
-    .win-name { text-align: center; font-size: 30px; font-weight: 900; margin: 4px 0 2px; background: linear-gradient(180deg, #fff, var(--warm)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .win-sub { text-align: center; color: var(--muted); margin-bottom: 16px; }
+    .win-name { text-align: center; font-family: var(--disp); font-size: 32px; margin: 4px 0 2px; background: linear-gradient(180deg, var(--gold), var(--orange)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .win-sub { text-align: center; color: rgba(59,42,30,.72); margin-bottom: 16px; }
     .standings { list-style: none; padding: 0; margin: 0 0 18px; }
-    .standings li { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 11px; background: rgba(255,255,255,.04); margin-bottom: 6px; }
-    .standings .rank { width: 22px; font-weight: 800; color: var(--warm); }
-    .standings .sc { margin-left: auto; font-weight: 800; }
+    .standings li { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 11px; background: var(--paper-deep); border: 2px solid rgba(59,42,30,.2); margin-bottom: 6px; color: var(--brown); }
+    .standings .rank { width: 22px; font-family: var(--disp); color: var(--orange-deep); }
+    .standings .sc { margin-left: auto; font-family: var(--disp); }
 
     @media (prefers-reduced-motion: reduce) {
       .g1, .g2, .hub.live .disc-glow, .hub.live .eq span, .tcard.tentative { animation: none !important; }
     }
+
+    /* The board sizes are fluid (clamp with vmin/vh/vw plus a hero-height
+       token that the stage inset tracks), so the whole game screen scales
+       continuously from tablet width to 2560x1440 with no manual zoom and no
+       vertical scroll on 16:9 desktops. Only a couple of structural
+       breakpoints remain, for setup grid columns and hiding non-essentials. */
     @media (max-width: 720px) {
       .names, .cats, .row2 { grid-template-columns: 1fr 1fr; }
-      .seat { width: 132px; }
-      .hub { max-width: 42vw; }
-      .hero { height: 246px; }
-      .stage { inset: 6px 6px 254px 6px; }
-      .tcard { width: 118px; min-height: 100px; }
-      .tcard .y { font-size: 26px; }
-      .slot { width: 40px; min-height: 100px; }
-      .slot button { width: 34px; height: 84px; font-size: 22px; }
+      .hub { max-width: 44vw; }
     }
     @media (max-width: 480px) {
-      .seat { width: 108px; }
-      .hub { max-width: 38vw; width: 220px; }
+      .hub { max-width: 40vw; }
       .hero-coins { display: none; }
-    }
-
-    /* Shrink the hub card before it would ever clip on short viewports.
-       Covers the place, steal, and revealed phases (qr, steal-count, reveal-year). */
-    @media (max-height: 950px) {
-      .qr { width: 170px; height: 170px; }
-      .hubcard { padding: 14px 14px 12px; }
-      .hubcard h3 { margin-bottom: 9px; }
-      .scan-hint { margin-top: 8px; }
-      .eq { margin-top: 9px; }
-      .waiting { padding: 16px 8px; }
-    }
-    @media (max-height: 800px) {
-      .qr { width: 140px; height: 140px; }
-      .hubcard { padding: 12px 12px 10px; }
-      .hubcard h3 { font-size: 11px; margin-bottom: 7px; }
-      .eq { display: none; }
-      .waiting { font-size: 13px; padding: 10px 8px; }
-      .waiting .big { font-size: 24px; margin-bottom: 4px; }
-      .scan-hint { font-size: 11px; margin-top: 6px; }
-      .steal-count { font-size: 44px; margin-top: 4px; }
-      .reveal-year { font-size: 38px; margin: 4px 0 3px; }
-    }
-    @media (max-height: 680px) {
-      .qr { width: 120px; height: 120px; }
-      .hubcard { padding: 10px 10px 8px; }
-      .hubcard h3 { margin-bottom: 5px; }
-      .reveal-year { font-size: 30px; }
-      .reveal-title { font-size: 15px; }
-      .steal-count { font-size: 34px; }
-      .waiting { font-size: 12px; padding: 8px 6px; }
-      .waiting .big { font-size: 20px; margin-bottom: 3px; }
     }
 
     /* Fullscreen toggle pinned to the top right while the setup screen shows */
@@ -257,6 +273,39 @@
     /* Fullscreen buttons: classic expand-corners icon next to a short label */
     .fs-btn { display: inline-flex; align-items: center; gap: 7px; }
     .fs-btn svg { display: block; flex: 0 0 auto; }
+
+    /* Year-span control (issue #30 item 1): two overlapping range inputs sharing
+       one track, with a gold fill between the handles. Bounds come from the
+       song DB at runtime, never hardcoded. */
+    .year-range { position: relative; height: 40px; margin-top: 4px; }
+    .yr-track { position: absolute; left: 2px; right: 2px; top: 17px; height: 6px; border-radius: 999px; background: var(--paper-deep); border: 1px solid var(--brown); }
+    .yr-fill { position: absolute; top: -1px; bottom: -1px; background: linear-gradient(90deg, var(--gold), var(--orange)); border-radius: 999px; }
+    .year-range input[type="range"] { position: absolute; left: 0; right: 0; top: 6px; width: 100%; height: 28px; margin: 0; background: none; -webkit-appearance: none; appearance: none; pointer-events: none; }
+    .year-range input[type="range"]:focus { outline: none; }
+    .year-range input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; pointer-events: auto; width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(180deg, #fdf6e6, var(--paper-deep)); border: 3px solid var(--orange); box-shadow: 0 3px 0 rgba(36,23,16,.4); cursor: grab; }
+    .year-range input[type="range"]::-webkit-slider-thumb:active { cursor: grabbing; }
+    .year-range input[type="range"]:focus::-webkit-slider-thumb { outline: 3px solid var(--gold); outline-offset: 1px; }
+    .year-range input[type="range"]::-moz-range-thumb { pointer-events: auto; width: 24px; height: 24px; border-radius: 50%; background: #fdf6e6; border: 3px solid var(--orange); box-shadow: 0 3px 0 rgba(36,23,16,.4); cursor: grab; }
+    .year-range input[type="range"]::-webkit-slider-runnable-track { background: none; border: none; }
+    .year-range input[type="range"]::-moz-range-track { background: none; border: none; }
+    #yearRangeLabel { color: var(--brown); font-family: var(--body-font); text-transform: none; letter-spacing: 0; }
+
+    /* Fullscreen QR overlay (issue #30 item 2): the current song QR blown up as
+       large as fits, kept pixel-sharp so it stays scannable. */
+    #qrFullOverlay { cursor: zoom-out; }
+    .qr-full-inner { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    #qrFullImg { width: min(84vh, 84vw); height: min(84vh, 84vw); image-rendering: pixelated; background: #fff; padding: clamp(10px, 2.4vmin, 24px); border-radius: 18px; border: 4px solid var(--orange); box-shadow: var(--shadow); display: block; }
+    .qr-full-hint { font-family: var(--disp); color: var(--paper); letter-spacing: 1px; font-size: clamp(13px, 2.2vmin, 18px); text-shadow: 2px 2px 0 var(--orange-deep); }
+
+    /* Reusable confirm modal (issue #30 item 4): paper panel, two chunky keys. */
+    .confirm-panel { width: min(420px, 92vw); }
+    .confirm-panel h1 { font-size: 23px; }
+    .confirm-actions { display: flex; gap: 12px; margin-top: 8px; }
+    .confirm-actions .btn { flex: 1; padding: 12px; font-size: 15px; }
+
+    /* Hidden Spotify embed host (issue #30 item 6): present for the iframe API
+       but visually gone. NOT display:none, or the embed refuses to play. */
+    #spotifyHost { position: fixed; left: -10000px; top: 0; width: 300px; height: 80px; opacity: 0; pointer-events: none; overflow: hidden; }
   </style>
 </head>
 <body>
@@ -324,6 +373,15 @@
         <div class="cats" id="cats"></div>
       </div>
 
+      <div class="field">
+        <label>Year range: <span id="yearRangeLabel">-</span></label>
+        <div class="year-range" id="yearRange">
+          <div class="yr-track"><div class="yr-fill" id="yrFill"></div></div>
+          <input type="range" id="yearMin" step="1" aria-label="Earliest year" />
+          <input type="range" id="yearMax" step="1" aria-label="Latest year" />
+        </div>
+      </div>
+
       <div class="row2">
         <div class="field">
           <label>Cards to win</label>
@@ -354,7 +412,7 @@
         <button class="btn primary" id="startBtn" style="width:100%">Start game</button>
       </div>
       <div class="note-sm" id="setupNote">
-        Each player scans the on-screen QR with their phone camera to play the song on Spotify. The link goes straight to the track, so whoever scans should just press play, not read the title. The screen keeps the year and category hidden until you reveal.
+        Players scan the on-screen QR to hear each song on Spotify, then place it by year.
       </div>
     </div>
   </div>
@@ -381,17 +439,51 @@
     </div>
   </div>
 
+  <!-- Fullscreen QR: the current song QR blown up as large as it fits -->
+  <div class="overlay hidden" id="qrFullOverlay">
+    <div class="qr-full-inner">
+      <img id="qrFullImg" alt="Spotify QR code" />
+      <div class="qr-full-hint">Scan to play. Tap anywhere or press Esc to close.</div>
+    </div>
+  </div>
+
+  <!-- Reusable confirm modal -->
+  <div class="overlay hidden" id="confirmOverlay">
+    <div class="panel confirm-panel">
+      <h1 id="confirmTitle">Are you sure?</h1>
+      <p class="lede" id="confirmMsg"></p>
+      <div class="confirm-actions">
+        <button class="btn ghost" id="confirmCancel" type="button">Cancel</button>
+        <button class="btn primary" id="confirmOk" type="button">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden host for the Spotify Embed IFrame API (item 6). Kept off-layout
+       and transparent, never display:none, so the embed can actually play. -->
+  <div id="spotifyHost" aria-hidden="true"></div>
+
   <script src="qrcode.js"></script>
   <script src="songs.js"></script>
   <script>
   (function () {
     "use strict";
 
-    var PALETTE = ["#5be0c9", "#f7b955", "#ff77a9", "#9b8cff"];
+    // Vinyl Lounge player colours: burnt orange, gold, avocado, warm rose.
+    var PALETTE = ["#c1502e", "#d9a441", "#7a8450", "#c9736a"];
     var DB = window.HITSTER_DB || { categories: [], songs: [] };
     var state = null;
-    var setup = { count: 3, cats: new Set() };
-    var DEFAULT_NOTE = "Each player scans the on-screen QR with their phone camera to play the song on Spotify. The link goes straight to the track, so whoever scans should just press play, not read the title. The screen keeps the year and category hidden until you reveal.";
+    // Absolute year bounds derived from the song DB (never hardcoded).
+    var yearBounds = (function () {
+      var lo = Infinity, hi = -Infinity;
+      (DB.songs || []).forEach(function (s) {
+        if (typeof s.year === "number") { if (s.year < lo) lo = s.year; if (s.year > hi) hi = s.year; }
+      });
+      if (!isFinite(lo) || !isFinite(hi)) { lo = 1970; hi = 2026; }
+      return { lo: lo, hi: hi };
+    })();
+    var setup = { count: 3, cats: new Set(), yearMin: yearBounds.lo, yearMax: yearBounds.hi };
+    var DEFAULT_NOTE = "Players scan the on-screen QR to hear each song on Spotify, then place it by year.";
     var dragState = { active: false, ghost: null };
 
     // ---------- phone bonus guesses: backend availability, room, matching ----------
@@ -399,6 +491,7 @@
     var guessPollTimerId = null;
     var ROOM_CHARS = "ABCDEFGHJKMNPQRSTUVWXYZ23456789"; // unambiguous: no 0/O, 1/I/L
     var SOURCE_TYPES = ["movie", "musical", "disney"];
+    var STEAL_SECONDS = 10.0; // steal window length (issue #30 item 7)
 
     function generateRoomCode() {
       var code = "";
@@ -536,6 +629,103 @@
       $("phonesOverlay").classList.remove("hidden");
     }
 
+    // ---------- reusable confirm modal (item 4) ----------
+    var confirmCb = null;
+    function showConfirm(opts) {
+      opts = opts || {};
+      $("confirmTitle").textContent = opts.title || "Are you sure?";
+      $("confirmMsg").textContent = opts.message || "";
+      $("confirmOk").textContent = opts.okLabel || "Confirm";
+      $("confirmCancel").textContent = opts.cancelLabel || "Cancel";
+      confirmCb = typeof opts.onConfirm === "function" ? opts.onConfirm : null;
+      $("confirmOverlay").classList.remove("hidden");
+    }
+    function hideConfirm() { $("confirmOverlay").classList.add("hidden"); confirmCb = null; }
+
+    // ---------- fullscreen QR (item 2) ----------
+    function openQrFull() {
+      if (!state || !state.card) return;
+      $("qrFullImg").src = qrSrc(state.card);
+      $("qrFullOverlay").classList.remove("hidden");
+    }
+    function closeQrFull() { $("qrFullOverlay").classList.add("hidden"); }
+
+    // ---------- hidden playback on the TV (item 6) ----------
+    // The Spotify Embed IFrame API is loaded lazily on first "Play here" click,
+    // never at page load, so an offline / file:// session stays free of any
+    // external request. It fails gracefully: if the script cannot load, the
+    // Play here button is hidden on the next render.
+    var spotifyScriptState = "none"; // none | loading | ready | failed
+    var spotifyApi = null;
+    var spotifyController = null;
+    var spotifyPlaying = false;
+    var spotifyReadyQueue = [];
+    function canPlayHere() {
+      return /^https?:$/.test(location.protocol) && !!(state && state.card && state.card.id) && spotifyScriptState !== "failed";
+    }
+    function flushSpotifyQueue() {
+      var q = spotifyReadyQueue.slice(); spotifyReadyQueue = [];
+      for (var i = 0; i < q.length; i++) { try { q[i](); } catch (e) { /* ignore */ } }
+    }
+    function ensureSpotifyScript(cb) {
+      if (spotifyScriptState === "ready" || spotifyScriptState === "failed") { cb(); return; }
+      spotifyReadyQueue.push(cb);
+      if (spotifyScriptState === "loading") return;
+      if (!/^https?:$/.test(location.protocol)) { spotifyScriptState = "failed"; flushSpotifyQueue(); return; }
+      spotifyScriptState = "loading";
+      window.onSpotifyIframeApiReady = function (IFrameAPI) { spotifyApi = IFrameAPI; spotifyScriptState = "ready"; flushSpotifyQueue(); };
+      var s = document.createElement("script");
+      s.src = "https://open.spotify.com/embed/iframe-api/v1";
+      s.async = true;
+      s.onerror = function () { spotifyScriptState = "failed"; flushSpotifyQueue(); };
+      document.head.appendChild(s);
+      // Guard against a silent failure to load (blocked / offline): give up after a bit.
+      setTimeout(function () { if (spotifyScriptState === "loading") { spotifyScriptState = "failed"; flushSpotifyQueue(); } }, 8000);
+    }
+    function freshEmbedTarget() {
+      var host = $("spotifyHost");
+      host.innerHTML = "";
+      var el = document.createElement("div");
+      host.appendChild(el);
+      return el;
+    }
+    // Silent teardown, called on every round transition so a track never leaks
+    // into the next round. Callers render() afterwards, which repaints the button.
+    function teardownSpotify() {
+      spotifyPlaying = false;
+      if (spotifyController) {
+        try { spotifyController.pause(); } catch (e) { /* ignore */ }
+        try { spotifyController.destroy(); } catch (e) { /* ignore */ }
+        spotifyController = null;
+      }
+      var host = $("spotifyHost");
+      if (host) host.innerHTML = "";
+    }
+    function renderHubPlayBtn() {
+      var btn = $("playHereBtn");
+      if (!btn) return;
+      btn.disabled = false;
+      btn.textContent = spotifyPlaying ? "■ Stop" : "▶ Play here";
+    }
+    function onPlayHereToggle() {
+      if (spotifyPlaying) { teardownSpotify(); renderHubPlayBtn(); return; }
+      var id = state && state.card && state.card.id;
+      if (!id) return;
+      var btn = $("playHereBtn");
+      if (btn) { btn.disabled = true; btn.textContent = "Loading..."; }
+      ensureSpotifyScript(function () {
+        if (spotifyScriptState !== "ready" || !spotifyApi) { spotifyScriptState = "failed"; spotifyPlaying = false; renderHub(); return; }
+        // The user gesture that opened this handler satisfies the autoplay policy.
+        var el = freshEmbedTarget();
+        spotifyApi.createController(el, { uri: "spotify:track:" + id, width: 300, height: 80 }, function (ctrl) {
+          spotifyController = ctrl;
+          try { ctrl.play(); } catch (e) { /* some builds autoplay on load */ }
+        });
+        spotifyPlaying = true;
+        renderHubPlayBtn();
+      });
+    }
+
     function $(id) { return document.getElementById(id); }
     function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
     function initials(n) { var p = (n || "").trim().split(/\s+/).filter(Boolean); if (!p.length) return "?"; return (p.length === 1 ? p[0].slice(0, 2) : p[0][0] + p[p.length - 1][0]).toUpperCase(); }
@@ -543,7 +733,7 @@
     function escapeHtml(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
     function catMeta(key) { for (var i = 0; i < DB.categories.length; i++) if (DB.categories[i].key === key) return DB.categories[i]; return null; }
     function songsForCat(key) { return DB.songs.filter(function (s) { return s.cat === key; }); }
-    function poolSongs() { return DB.songs.filter(function (s) { return setup.cats.has(s.cat); }); }
+    function poolSongs() { return DB.songs.filter(function (s) { return setup.cats.has(s.cat) && s.year >= setup.yearMin && s.year <= setup.yearMax; }); }
     function pillMeta() {
       if (setup.cats.size === DB.categories.length) return { label: "All mixed", emoji: "🎲", color: "#c9c4ff" };
       if (setup.cats.size === 1) return catMeta(setup.cats.values().next().value);
@@ -582,12 +772,43 @@
     }
     function validateSetup() {
       var songs = poolSongs(), need = setup.count + 2;
+      var span = setup.yearMin + " to " + setup.yearMax;
       if (setup.cats.size === 0) { $("startBtn").disabled = true; $("setupNote").innerHTML = '<span class="warn">Tick at least one category to build the deck.</span>'; return; }
       var ok = songs.length >= need;
       $("startBtn").disabled = !ok;
       $("setupNote").innerHTML = ok
-        ? DEFAULT_NOTE + ' <b>' + songs.length + '</b> songs in the deck.'
-        : '<span class="warn">Only ' + songs.length + ' songs in the ticked categories, not enough for ' + setup.count + ' players. Tick more categories.</span>';
+        ? DEFAULT_NOTE + ' <b>' + songs.length + '</b> songs match your categories and years ' + span + '.'
+        : '<span class="warn">Only ' + songs.length + ' songs match your categories and years ' + span + ', not enough for ' + setup.count + ' players. Widen the year range or tick more categories.</span>';
+    }
+
+    // ---------- year-span control (item 1) ----------
+    function updateYearFill() {
+      var span = (yearBounds.hi - yearBounds.lo) || 1;
+      var a = (setup.yearMin - yearBounds.lo) / span * 100;
+      var b = (setup.yearMax - yearBounds.lo) / span * 100;
+      var fill = $("yrFill");
+      if (fill) { fill.style.left = a + "%"; fill.style.right = (100 - b) + "%"; }
+      var lbl = $("yearRangeLabel");
+      if (lbl) lbl.textContent = setup.yearMin + " to " + setup.yearMax;
+    }
+    function setupYearRange() {
+      var mn = $("yearMin"), mx = $("yearMax");
+      if (!mn || !mx) return;
+      mn.min = mx.min = String(yearBounds.lo);
+      mn.max = mx.max = String(yearBounds.hi);
+      mn.value = String(setup.yearMin);
+      mx.value = String(setup.yearMax);
+      mn.oninput = function () {
+        var v = parseInt(this.value, 10);
+        if (v > setup.yearMax) { v = setup.yearMax; this.value = String(v); }
+        setup.yearMin = v; updateYearFill(); validateSetup();
+      };
+      mx.oninput = function () {
+        var v = parseInt(this.value, 10);
+        if (v < setup.yearMin) { v = setup.yearMin; this.value = String(v); }
+        setup.yearMax = v; updateYearFill(); validateSetup();
+      };
+      updateYearFill();
     }
 
     Array.prototype.slice.call($("countSeg").children).forEach(function (b) {
@@ -627,6 +848,11 @@
       layoutSeats();
       render();
       publishRoomState();
+      teardownSpotify();
+      // Phones QR on start (item 3): if the backend is up, show the room QR once
+      // so everyone can connect before the first draw. The topbar Phones button
+      // keeps working as before. Skipped entirely when the backend is absent.
+      if (backendAvailable) openPhonesOverlay();
     }
 
     // ---------- seats ----------
@@ -716,11 +942,18 @@
       if (state.phase === "draw") {
         c.innerHTML = '<div class="waiting"><span class="big">🎧</span>Press <b>Draw song</b> to flip a QR code, then scan it to hear the track.</div>';
       } else if (state.phase === "place") {
+        var canPlay = canPlayHere();
+        var playBtn = canPlay
+          ? '<button class="btn ghost" type="button" id="playHereBtn">' + (spotifyPlaying ? "■ Stop" : "▶ Play here") + '</button>'
+          : "";
+        var playNote = canPlay ? '<div class="scan-hint">Play here plays on this screen only, keep it hidden from players.</div>' : "";
         c.innerHTML = '<h3>Scan to play</h3><div class="qr"><img alt="Spotify QR" src="' + qrSrc(state.card) + '" /></div>' +
           '<div class="eq"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>' +
-          '<div class="scan-hint">Scan with your phone, press play, do not read the title. Then drag the card (or tap a + slot) below to place it.</div>' +
-          '<div class="row"><a class="btn ghost" href="' + state.card.url + '" target="_blank" rel="noopener">Open in Spotify</a></div>';
+          '<div class="row"><button class="btn ghost" type="button" id="qrBigBtn">Show QR big</button>' + playBtn +
+          '<a class="btn ghost" href="' + state.card.url + '" target="_blank" rel="noopener">Open in Spotify</a></div>' + playNote;
         makeDraggableHub();
+        var big = $("qrBigBtn"); if (big) big.onclick = openQrFull;
+        var ph = $("playHereBtn"); if (ph) ph.onclick = onPlayHereToggle;
       } else if (state.phase === "steal") {
         if (state.stealPickerIdx !== null) {
           var stealer = state.players[state.stealPickerIdx];
@@ -760,8 +993,12 @@
         sub.textContent = "listen, then pick a slot";
         instr.innerHTML = "Tap a <b>+</b> slot, or drag the card down from the hub, to place the song in <b>your</b> timeline by year. Then press <b>Lock in answer</b>.";
         addBtn(actions, "Lock in answer", "primary", onLockIn).disabled = (state.chosenSlot === null);
-        addBtn(actions, "Skip duplicate", "ghost", onSkipDuplicate);
-        var skipCoin = addBtn(actions, "Skip with coin", "ghost", onSkipCoin);
+        addBtn(actions, "Skip duplicate", "ghost", function () {
+          showConfirm({ title: "Skip this song?", message: "Discard the current song and draw a new one for you. No penalty.", okLabel: "Skip", onConfirm: onSkipDuplicate });
+        });
+        var skipCoin = addBtn(actions, "Skip with coin", "ghost", function () {
+          showConfirm({ title: "Skip with a coin?", message: "Spend one Hitster coin to discard this song and draw a new one.", okLabel: "Spend coin", onConfirm: onSkipCoin });
+        });
         if (p.coins < 1) { skipCoin.disabled = true; skipCoin.title = "No coins left"; }
         renderTimeline(tl, { interactiveSlots: true, tentativeSlot: state.chosenSlot });
       } else if (state.phase === "steal" && state.stealPickerIdx !== null) {
@@ -893,6 +1130,7 @@
     function onDraw() {
       if (state.locked || state.phase === "over") return;
       if (!state.deck.length) { endGame("deck"); return; }
+      teardownSpotify();
       state.card = state.deck.pop(); state.chosenSlot = null; state.result = null; state.phase = "place";
       state.round += 1;
       state.bonus = { guessedBy: null, awarded: false, result: null };
@@ -903,6 +1141,7 @@
 
     function discardAndRedraw() {
       if (!state.deck.length) { endGame("deck"); return; }
+      teardownSpotify();
       state.card = state.deck.pop();
       state.chosenSlot = null;
       state.round += 1;
@@ -927,12 +1166,13 @@
 
     function onLockIn() {
       if (state.locked || state.phase !== "place" || state.chosenSlot === null) return;
+      teardownSpotify();
       stopGuessPolling();
       state.stealers = []; state.stealUsed = {}; state.stealPickerIdx = null; state.stealPick = null;
       state.stealEligibleIdx = [];
       for (var i = 0; i < state.n; i++) { if (i !== state.current && state.players[i].coins >= 1) state.stealEligibleIdx.push(i); }
       if (state.stealEligibleIdx.length === 0) { resolveRound(); return; }
-      state.phase = "steal"; state.stealRemaining = 5.0;
+      state.phase = "steal"; state.stealRemaining = STEAL_SECONDS;
       startStealTimer(); render();
       publishRoomState();
     }
@@ -972,6 +1212,7 @@
     }
 
     function resolveRound() {
+      teardownSpotify();
       stopStealTimer();
       stopGuessPolling();
       var p = state.players[state.current], tl = sortTl(p.timeline), k = state.chosenSlot, y = state.card.year;
@@ -1005,6 +1246,7 @@
 
     function onNext() {
       if (state.locked || state.phase === "over") return;
+      teardownSpotify();
       if (!state.deck.length) { endGame("deck"); return; }
       state.current = (state.current + 1) % state.n; state.phase = "draw"; state.card = null; state.chosenSlot = null; state.result = null;
       state.stealers = []; state.stealUsed = {}; state.stealPickerIdx = null; state.stealPick = null; state.stealEligibleIdx = [];
@@ -1070,17 +1312,37 @@
 
     // ---------- wiring ----------
     $("startBtn").onclick = startGame;
-    $("againBtn").onclick = function () { if (state) { stopStealTimer(); stopGuessPolling(); } $("winner").classList.add("hidden"); $("setup").classList.remove("hidden"); $("topbar").classList.add("hidden"); $("game").classList.add("hidden"); };
-    $("newGameBtn").onclick = function () { if (!confirm("Start a new game? Current progress is lost.")) return; if (state) { stopStealTimer(); stopGuessPolling(); } $("topbar").classList.add("hidden"); $("game").classList.add("hidden"); $("setup").classList.remove("hidden"); };
+    $("againBtn").onclick = function () { if (state) { stopStealTimer(); stopGuessPolling(); teardownSpotify(); } $("winner").classList.add("hidden"); $("setup").classList.remove("hidden"); $("topbar").classList.add("hidden"); $("game").classList.add("hidden"); };
+    $("newGameBtn").onclick = function () {
+      showConfirm({ title: "Start a new game?", message: "Current progress will be lost.", okLabel: "New game", onConfirm: function () {
+        if (state) { stopStealTimer(); stopGuessPolling(); teardownSpotify(); }
+        $("topbar").classList.add("hidden"); $("game").classList.add("hidden"); $("setup").classList.remove("hidden");
+      } });
+    };
     $("phonesBtn").onclick = openPhonesOverlay;
     $("phonesCloseBtn").onclick = function () { $("phonesOverlay").classList.add("hidden"); };
+
+    // Confirm modal wiring: keys plus a backdrop click to cancel.
+    $("confirmOk").onclick = function () { var cb = confirmCb; hideConfirm(); if (cb) cb(); };
+    $("confirmCancel").onclick = hideConfirm;
+    $("confirmOverlay").onclick = function (e) { if (e.target === $("confirmOverlay")) hideConfirm(); };
+
+    // Fullscreen QR: click anywhere on the backdrop or the image to close.
+    $("qrFullOverlay").onclick = closeQrFull;
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key !== "Escape" && e.key !== "Esc") return;
+      if (!$("qrFullOverlay").classList.contains("hidden")) { closeQrFull(); }
+      else if (!$("confirmOverlay").classList.contains("hidden")) { hideConfirm(); }
+    });
+
     window.addEventListener("resize", function () { if (state && state.phase !== "over") layoutSeats(); });
 
     // init
     DB.categories.forEach(function (c) { setup.cats.add(c.key); });
     $("catAll").onclick = function () { DB.categories.forEach(function (c) { setup.cats.add(c.key); }); renderCats(); validateSetup(); };
     $("catNone").onclick = function () { setup.cats.clear(); renderCats(); validateSetup(); };
-    renderNames(); renderCats(); validateSetup();
+    renderNames(); renderCats(); setupYearRange(); validateSetup();
     probeBackend();
   })();
   </script>

@@ -5,68 +5,116 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Hitster: Bonus guess</title>
   <style>
+    @font-face {
+      font-family: "Righteous";
+      src: url("fonts/righteous.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
     :root {
-      --bg0: #0a0916;
-      --bg1: #120b24;
-      --ink: #f3f0ff;
-      --muted: #a39fc4;
-      --accent: #7c5cff;
-      --accent2: #21d4c4;
-      --warm: #ffb454;
-      --good: #35e08f;
-      --bad: #ff6472;
-      --panel: rgba(24, 20, 46, 0.72);
-      --line: rgba(255,255,255,.10);
-      --shadow: 0 20px 50px rgba(0,0,0,.5);
+      /* Vinyl Lounge palette (issue #32), matched to index.html. Variable NAMES
+         kept from the old theme so the existing rules keep resolving. */
+      --cream: #f3e7cf;
+      --paper: #faf1dd;
+      --paper-deep: #ecdcbc;
+      --orange: #c1502e;
+      --orange-deep: #93381e;
+      --gold: #d9a441;
+      --gold-deep: #a87a24;
+      --brown: #3b2a1e;
+      --brown-deep: #241710;
+      --avocado: #7a8450;
+      --avocado-deep: #59623a;
+
+      --bg0: #241710;
+      --bg1: #3b2a1e;
+      --ink: #f3e7cf;
+      --muted: #cbb187;
+      --accent: #c1502e;
+      --accent2: #d9a441;
+      --warm: #d9a441;
+      --good: #59623a;
+      --bad: #93381e;
+      --panel: #faf1dd;
+      --line: rgba(59, 42, 30, 0.28);
+      --shadow: 0 14px 30px rgba(36, 23, 16, 0.45);
       --radius: 18px;
+
+      --disp: "Righteous", "Trebuchet MS", "Segoe UI", sans-serif;
+      --body-font: Georgia, "Times New Roman", "Segoe UI", serif;
+      --wood: linear-gradient(rgba(36, 23, 16, 0.18), rgba(36, 23, 16, 0.34)), repeating-linear-gradient(92deg, #6b4529 0 6px, #7a5334 6px 11px, #5e3c23 11px 15px, #74502f 15px 22px, #654226 22px 27px);
     }
     * { box-sizing: border-box; }
     html, body { height: 100%; margin: 0; }
     body {
-      font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+      font-family: var(--body-font);
       color: var(--ink);
-      background: radial-gradient(1200px 800px at 50% -20%, #241546 0%, rgba(36,21,70,0) 55%), linear-gradient(165deg, var(--bg0), var(--bg1));
+      background:
+        radial-gradient(1000px 700px at 50% -12%, #4a3320 0%, rgba(74,51,32,0) 58%),
+        linear-gradient(168deg, var(--bg1), var(--bg0));
       min-height: 100%;
       padding: 20px 16px 40px;
     }
     button { font-family: inherit; cursor: pointer; }
     .hidden { display: none !important; }
+
+    /* Themed scrollbars (issue #30 item 9): cream track, wood/gold thumb */
+    * { scrollbar-width: thin; scrollbar-color: var(--gold) var(--paper-deep); }
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-track { background: var(--paper-deep); border-radius: 999px; }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--gold), var(--gold-deep)); border-radius: 999px; border: 2px solid var(--paper-deep); }
+    ::-webkit-scrollbar-thumb:hover { background: var(--gold-deep); }
+
     .wrap { max-width: 480px; margin: 0 auto; }
-    .brand { font-weight: 800; letter-spacing: .3px; font-size: 20px; display: flex; align-items: center; gap: 8px; margin-bottom: 18px; }
-    .brand .note { color: var(--warm); }
+    .brand { font-family: var(--disp); font-weight: 400; letter-spacing: 1.5px; font-size: 22px; color: var(--paper); text-shadow: 2px 2px 0 var(--orange-deep); display: flex; align-items: center; gap: 9px; margin-bottom: 18px; }
+    .brand .note { color: var(--gold); text-shadow: none; }
     .panel {
-      background: linear-gradient(180deg, rgba(30,24,56,.96), rgba(18,13,36,.96));
-      border: 1px solid var(--line); border-radius: 22px; padding: 22px;
-      box-shadow: var(--shadow); backdrop-filter: blur(8px);
+      background: linear-gradient(160deg, #fdf6e6, var(--paper) 60%, var(--paper-deep));
+      border: 3px solid var(--brown); border-radius: 22px; padding: 22px; color: var(--brown);
+      box-shadow: var(--shadow), inset 0 0 0 5px var(--paper), inset 0 0 0 7px rgba(217,164,65,.28);
     }
-    .lede { margin: 0 0 18px; color: var(--muted); font-size: 14px; line-height: 1.5; }
+    .lede { margin: 0 0 18px; color: rgba(59,42,30,.75); font-size: 14px; line-height: 1.5; }
     .names { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .name-btn {
-      border: 1px solid var(--line); background: rgba(255,255,255,.06); color: var(--ink);
-      padding: 14px 10px; border-radius: 12px; font-size: 15px; font-weight: 700;
+      font-family: var(--disp); letter-spacing: .5px; border: 2px solid var(--brown-deep); background: var(--paper-deep); color: var(--brown);
+      padding: 16px 10px; border-radius: 12px; font-size: 16px; box-shadow: 0 4px 0 rgba(36,23,16,.4);
+      transition: transform .07s, box-shadow .07s;
     }
-    .name-btn:active { transform: translateY(1px); }
+    .name-btn:active { transform: translateY(3px); box-shadow: 0 1px 0 rgba(36,23,16,.4); }
     .field { margin-bottom: 16px; }
-    .field > label { display: block; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; font-weight: 700; }
-    .field input, .field select { width: 100%; padding: 13px 14px; border-radius: 12px; font-size: 16px; background: rgba(0,0,0,.3); border: 1px solid var(--line); color: var(--ink); }
-    .field input:focus, .field select:focus { outline: 2px solid var(--accent); border-color: var(--accent); }
+    .field > label { display: block; font-family: var(--disp); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--orange-deep); margin-bottom: 8px; }
+    .field input, .field select { width: 100%; padding: 14px; border-radius: 10px; font-family: var(--body-font); font-size: 16px; background: #fffaf0; border: 2px solid var(--brown); color: var(--brown-deep); }
+    .field input:focus, .field select:focus { outline: 3px solid var(--gold); outline-offset: 0; border-color: var(--orange); }
     .seg { display: flex; gap: 8px; }
-    .seg button { flex: 1; padding: 12px; border-radius: 12px; background: rgba(0,0,0,.3); border: 1px solid var(--line); color: var(--ink); font-weight: 700; font-size: 14px; }
-    .seg button.on { background: linear-gradient(180deg, #8f74ff, var(--accent)); border-color: #6c4de0; box-shadow: 0 8px 20px rgba(124,92,255,.35); }
+    .seg button { flex: 1; padding: 12px; border-radius: 12px; background: var(--paper-deep); border: 2px solid var(--brown); color: var(--brown); font-family: var(--disp); font-size: 14px; box-shadow: 0 4px 0 rgba(36,23,16,.35); transition: transform .07s, box-shadow .07s; }
+    .seg button:active { transform: translateY(3px); box-shadow: 0 1px 0 rgba(36,23,16,.35); }
+    .seg button.on { background: linear-gradient(180deg, #d55f3a, var(--orange)); border-color: var(--orange-deep); color: var(--paper); box-shadow: 0 4px 0 var(--orange-deep); }
     .btn {
-      border: 1px solid var(--line); background: rgba(255,255,255,.06); color: var(--ink);
-      padding: 13px 16px; border-radius: 12px; font-size: 15px; font-weight: 700; width: 100%;
+      font-family: var(--disp); letter-spacing: .5px; border: 2px solid var(--brown-deep); background: var(--paper-deep); color: var(--brown);
+      padding: 15px 16px; border-radius: 12px; font-size: 16px; width: 100%; box-shadow: 0 5px 0 rgba(36,23,16,.4);
+      transition: transform .07s, box-shadow .07s, filter .15s;
     }
-    .btn.primary { background: linear-gradient(180deg, #8f74ff, var(--accent)); border-color: #6c4de0; color: #fff; box-shadow: 0 8px 22px rgba(124,92,255,.4); }
-    .btn:disabled { opacity: .4; cursor: not-allowed; box-shadow: none; }
-    .waiting { text-align: center; color: var(--muted); font-size: 16px; padding: 30px 10px; line-height: 1.6; }
+    .btn:active { transform: translateY(3px); box-shadow: 0 2px 0 rgba(36,23,16,.4); }
+    .btn.primary { background: linear-gradient(180deg, #d55f3a, var(--orange)); border-color: var(--orange-deep); color: var(--paper); box-shadow: 0 5px 0 var(--orange-deep); }
+    .btn:disabled { opacity: .45; cursor: not-allowed; box-shadow: none; transform: none; }
+    .waiting { text-align: center; color: rgba(59,42,30,.78); font-size: 16px; padding: 30px 10px; line-height: 1.6; }
     .waiting .big { font-size: 40px; display: block; margin-bottom: 10px; }
-    .sent { text-align: center; color: var(--good); font-size: 17px; font-weight: 700; padding: 24px 10px; }
-    .who { text-align: center; color: var(--muted); font-size: 13px; margin-top: -6px; margin-bottom: 16px; }
-    .who b { color: var(--ink); }
-    .err { color: var(--bad); font-size: 13px; margin-top: 10px; text-align: center; }
+    .waiting b { color: var(--orange-deep); }
+    .sent { text-align: center; font-family: var(--disp); color: var(--avocado-deep); font-size: 18px; padding: 24px 10px; }
+    .who { text-align: center; color: rgba(59,42,30,.7); font-size: 13px; margin-top: -6px; margin-bottom: 16px; }
+    .who b { color: var(--orange-deep); }
+    .err { color: var(--orange-deep); font-weight: 700; font-size: 13px; margin-top: 10px; text-align: center; }
     .switch-name { text-align: center; margin-top: 14px; }
-    .switch-name button { background: none; border: none; color: var(--muted); font-size: 12px; text-decoration: underline; }
+    .switch-name button { background: none; border: none; color: rgba(59,42,30,.65); font-size: 12px; text-decoration: underline; }
+
+    /* Light confirm modal on submit (issue #30 item 4). */
+    .overlay { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; background: radial-gradient(900px 600px at 50% 8%, rgba(122,69,41,.55), rgba(20,12,8,.95)); padding: 20px; }
+    .confirm-panel { width: min(360px, 92vw); }
+    .confirm-panel h1 { margin: 0 0 6px; font-family: var(--disp); font-weight: 400; letter-spacing: 1px; font-size: 22px; color: var(--brown); }
+    .confirm-panel p { margin: 0 0 16px; color: rgba(59,42,30,.75); font-size: 14px; line-height: 1.5; }
+    .confirm-actions { display: flex; gap: 12px; }
+    .confirm-actions .btn { flex: 1; }
   </style>
 </head>
 <body>
@@ -74,6 +122,17 @@
     <div class="brand"><span class="note">♪</span> Hitster bonus guess</div>
     <div class="panel" id="panel">
       <div class="waiting"><span class="big">⏳</span>Loading room...</div>
+    </div>
+  </div>
+
+  <div class="overlay hidden" id="confirmOverlay">
+    <div class="panel confirm-panel">
+      <h1 id="confirmTitle">Send this guess?</h1>
+      <p id="confirmMsg">You get one bonus guess per round.</p>
+      <div class="confirm-actions">
+        <button class="btn" id="confirmCancel" type="button">Cancel</button>
+        <button class="btn primary" id="confirmOk" type="button">Send</button>
+      </div>
     </div>
   </div>
 
@@ -210,7 +269,30 @@
           b.onclick = function () { guessType = b.getAttribute("data-t"); renderForm(name, state); };
         });
       }
-      $("submitBtn").onclick = function () { submitGuess(name, state); };
+      $("submitBtn").onclick = function () { onSubmitClick(name, state); };
+    }
+
+    // Confirm modal: submit is the only committal action on the phone, so a
+    // light confirm here is worthwhile (issue #30 item 4). Validate first, so
+    // we never confirm an empty form.
+    var confirmCb = null;
+    function showConfirm(onConfirm) {
+      confirmCb = typeof onConfirm === "function" ? onConfirm : null;
+      $("confirmOverlay").classList.remove("hidden");
+    }
+    function hideConfirm() { $("confirmOverlay").classList.add("hidden"); confirmCb = null; }
+    $("confirmOk").onclick = function () { var cb = confirmCb; hideConfirm(); if (cb) cb(); };
+    $("confirmCancel").onclick = hideConfirm;
+    $("confirmOverlay").onclick = function (e) { if (e.target === $("confirmOverlay")) hideConfirm(); };
+
+    function onSubmitClick(name, state) {
+      if (submitting) return;
+      if (guessType === "source") {
+        if (!($("sourceName").value || "").trim()) { showFormErr("Enter the movie, musical, or Disney film name."); return; }
+      } else {
+        if (!($("artist").value || "").trim() || !($("title").value || "").trim()) { showFormErr("Fill in both artist and title."); return; }
+      }
+      showConfirm(function () { submitGuess(name, state); });
     }
 
     function submitGuess(name, state) {
