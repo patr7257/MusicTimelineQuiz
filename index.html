@@ -14,8 +14,8 @@
     }
     :root {
       /* Vinyl Lounge palette (issue #32). The variable NAMES are unchanged from
-         the old theme so every existing rule keeps resolving; only the warm
-         values changed, then components are restyled on top. */
+         the old dark theme so every existing rule keeps resolving; only the
+         values changed, then the v3 components are restyled on top. */
       --cream: #f3e7cf;
       --paper: #faf1dd;
       --paper-deep: #ecdcbc;
@@ -35,7 +35,7 @@
       --accent: #c1502e;
       --accent2: #d9a441;
       --warm: #d9a441;
-      --good: #8b9660;
+      --good: #7a8450;
       --bad: #db5a35;
       --panel: #faf1dd;
       --line: rgba(59, 42, 30, 0.28);
@@ -77,7 +77,7 @@
     @keyframes drift1 { 0%,100%{ transform: translate(0,0); } 50%{ transform: translate(6vw, 4vh); } }
     @keyframes drift2 { 0%,100%{ transform: translate(0,0); } 50%{ transform: translate(-5vw, -3vh); } }
 
-    /* Top bar: wood console strip */
+    /* CSS-S1: top bar (wood console strip) + buttons */
     .topbar {
       position: fixed; top: 0; left: 0; right: 0; height: 56px; z-index: 40;
       display: flex; align-items: center; gap: 12px; padding: 0 18px;
@@ -89,6 +89,7 @@
     .spacer { flex: 1; }
     .pill { font-family: var(--disp); font-size: 12px; letter-spacing: 1px; color: var(--brown); background: var(--paper); border: 2px solid var(--brown-deep); padding: 5px 12px; border-radius: 999px; box-shadow: 0 3px 0 rgba(36,23,16,.4); }
     .pill b { color: var(--orange-deep); }
+    .pill.final { background: linear-gradient(180deg, #f6d998, var(--gold)); color: var(--brown-deep); border-color: var(--orange-deep); letter-spacing: .5px; }
     .cat-chip { display: inline-flex; align-items: center; gap: 6px; }
     .cat-dot { width: 9px; height: 9px; border-radius: 50%; border: 1px solid rgba(36,23,16,.4); }
     .btn {
@@ -105,12 +106,12 @@
     .btn.ghost { background: var(--paper-deep); color: var(--brown); }
     .btn:disabled { opacity: .45; cursor: not-allowed; box-shadow: none; transform: none; }
 
-    /* Stage */
+    /* CSS-S8: stage, hub, seats, hero, timeline */
     #game { position: fixed; inset: 56px 0 0 0; z-index: 1; }
     .stage { position: absolute; inset: 6px 6px calc(var(--hero-h) + 8px) 6px; }
 
-    /* Central music hub: a cream record sleeve, sized fluidly (vmin) so the
-       QR and reveal never clip off the top or bottom on any 16:9 desktop size */
+    /* Central music hub (a cream record sleeve), sized fluidly (vmin) so the QR
+       and reveal never clip off the top or bottom on any 16:9 desktop size. */
     .hub { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: clamp(220px, 34vmin, 330px); max-width: 50vw; max-height: 100%; z-index: 6; display: flex; flex-direction: column; }
     .disc-glow {
       position: absolute; inset: -26px; border-radius: 30px; z-index: -1;
@@ -132,6 +133,7 @@
     .qr.draggable { cursor: grab; touch-action: none; }
     .qr.draggable:active { cursor: grabbing; }
     .scan-hint { font-size: 12px; color: rgba(59,42,30,.72); margin-top: 10px; line-height: 1.4; }
+    .scan-hint b { color: var(--orange-deep); }
     .eq { display: flex; gap: 4px; justify-content: center; align-items: flex-end; height: 26px; margin-top: 12px; }
     .eq span { width: 6px; height: 8px; border-radius: 3px 3px 0 0; background: var(--gold); opacity: .7; }
     .eq span:nth-child(2){ background: var(--orange); } .eq span:nth-child(3){ background: var(--avocado); }
@@ -155,9 +157,10 @@
     .steal-count.paused { opacity: .45; }
 
     /* Player seats: cream record-sleeve panels docked to the stage edges */
-    .seat { position: absolute; width: clamp(142px, 14vw, 186px); transform: translate(-50%,-50%); z-index: 3; transition: left .5s ease, top .5s ease, opacity .3s ease; }
+    .seat { position: absolute; width: clamp(142px, 14vw, 186px); transform: translate(-50%,-50%); z-index: 3; transition: left .5s ease, top .5s ease, opacity .3s ease; cursor: pointer; }
     .seat-card { position: relative; background: var(--paper); border: 3px solid var(--brown); border-radius: 16px; padding: 11px 13px; color: var(--brown); box-shadow: var(--shadow); }
     .seat-card::before { content: ""; position: absolute; inset: 5px; border: 2px dashed rgba(59,42,30,.18); border-radius: 11px; pointer-events: none; }
+    .seat.focused .seat-card { outline: 2px solid var(--seat-color, var(--orange)); outline-offset: 2px; }
     .seat-head { position: relative; display: flex; align-items: center; gap: 9px; margin-bottom: 8px; }
     .avatar { width: 34px; height: 34px; border-radius: 50%; flex: 0 0 auto; display: grid; place-items: center; font-family: var(--disp); font-weight: 400; color: var(--brown-deep); font-size: 13px; border: 2px solid var(--brown-deep); box-shadow: 0 3px 0 rgba(36,23,16,.3); }
     .seat-name { position: relative; font-family: var(--disp); font-weight: 400; letter-spacing: .5px; font-size: 16px; color: var(--brown); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -182,23 +185,40 @@
     .hero-actions { margin-left: auto; display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
     .instructions { color: var(--muted); font-size: 13px; line-height: 1.4; }
     .instructions b { color: var(--paper); }
-    .bonus-banner { font-family: var(--disp); font-size: 12px; letter-spacing: .5px; padding: 8px 12px; border-radius: 10px; display: inline-block; }
-    .bonus-banner.good { color: #b6c37a; background: rgba(122,132,80,.20); border: 1px solid rgba(122,132,80,.55); }
-    .bonus-banner.bad { color: #f0a487; background: rgba(219,90,53,.18); border: 1px solid rgba(219,90,53,.5); }
-    .timeline { display: flex; align-items: stretch; justify-content: center; gap: 0; overflow-x: auto; flex: 1; padding: 8px 2px 12px; }
-    .slot { flex: 0 0 auto; width: clamp(46px, 4.4vw, 56px); align-self: stretch; min-height: clamp(104px, 15vh, 122px); display: grid; place-items: center; margin: 0 3px; }
-    .slot button { width: clamp(42px, 4vw, 50px); height: clamp(96px, 13vh, 112px); border-radius: 10px; border: 2px dashed var(--gold); background: rgba(217,164,65,.14); color: var(--gold); font-family: var(--disp); font-size: 26px; }
-    .slot button:hover { background: rgba(217,164,65,.3); }
-    .slot.drag-over button { background: var(--gold); color: var(--brown-deep); border-style: solid; transform: scale(1.08); }
-    .slot.steal-chosen button { border-color: var(--steal-color, var(--gold)); border-style: solid; background: color-mix(in srgb, var(--steal-color, var(--gold)) 35%, transparent); color: var(--paper); }
+    /* Pending phone-guess chips (answer text never shown; only who guessed + type) */
+    .guess-strip { display: flex; flex-wrap: wrap; gap: 6px; }
+    .guess-chip { display: inline-flex; align-items: center; gap: 6px; font-family: var(--disp); font-size: 12px; padding: 5px 10px; border-radius: 999px; border: 2px solid var(--brown); background: var(--paper); color: var(--brown); }
+    .guess-chip .gc-dot { width: 9px; height: 9px; border-radius: 50%; flex: 0 0 auto; }
+    .guess-chip .gc-tag { color: rgba(59,42,30,.7); }
+    .guess-chip.pending { animation: guessPulse 1.3s ease-in-out infinite; }
+    .guess-chip.correct { color: var(--avocado-deep); background: rgba(122,132,80,.18); border-color: var(--avocado); }
+    .guess-chip.wrong { color: var(--orange-deep); background: rgba(219,90,53,.16); border-color: var(--bad); }
+    @keyframes guessPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(217,164,65,.55); } 50% { box-shadow: 0 0 0 6px rgba(217,164,65,0); } }
+    /* flex-start (not center) so long timelines scroll fully to both edges; the
+       auto margins keep short timelines visually centered but let overflow reach. */
+    .timeline { display: flex; align-items: stretch; justify-content: flex-start; gap: 0; overflow-x: auto; flex: 1; padding: 8px 2px 12px; }
+    .timeline > :first-child { margin-left: auto; }
+    .timeline > :last-child { margin-right: auto; }
+    /* Gaps are passive drop zones: a thin dashed sliver by default, expanding while a
+       drag is in progress (body.dragging) so there is a clear target between cards. */
+    .slot { flex: 0 0 auto; width: 14px; align-self: stretch; min-height: clamp(104px, 15vh, 122px); margin: 0 2px; border-radius: 10px; border: 2px dashed rgba(217,164,65,.55); background: rgba(217,164,65,.12); transition: width .16s ease, background .15s; }
+    body.dragging .slot { width: 44px; background: rgba(217,164,65,.2); }
+    .slot.drag-over { background: var(--gold); border-style: solid; transform: scale(1.04); }
+    /* Steal gaps stay tappable (click-to-pick), so they show at full width always. */
+    .slot.steal-gap { width: 44px; background: rgba(217,164,65,.16); cursor: pointer; }
+    .slot.steal-gap:hover { background: rgba(217,164,65,.3); }
+    .slot.steal-chosen { border-color: var(--steal-color, var(--orange)); border-style: solid; background: color-mix(in srgb, var(--steal-color, var(--orange)) 30%, transparent); }
     .tcard { position: relative; flex: 0 0 auto; width: clamp(122px, 12vw, 154px); min-height: clamp(104px, 15vh, 122px); border-radius: 12px; padding: 12px 10px; margin: 0 3px; background: linear-gradient(160deg, #fdf6e6, var(--paper) 55%, var(--paper-deep)); border: 3px solid var(--brown); color: var(--brown); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; box-shadow: 5px 6px 0 rgba(59,42,30,.28); }
     .tcard::before { content: ""; width: clamp(22px, 2.6vw, 30px); height: clamp(22px, 2.6vw, 30px); border-radius: 50%; margin-bottom: 5px; background: repeating-radial-gradient(circle, #1c1714 0 1.5px, #2c241d 1.5px 3px); box-shadow: inset 0 0 0 2px #0f0c0a; }
     .tcard .y { font-family: var(--disp); font-size: clamp(26px, 3.4vw, 34px); color: var(--orange); }
     .tcard .t { font-family: var(--disp); font-size: 13px; color: var(--brown); margin-top: 3px; line-height: 1.15; }
     .tcard .a { font-size: 11px; font-style: italic; color: rgba(59,42,30,.7); }
-    .tcard.tentative { border-color: var(--orange-deep); background: linear-gradient(160deg, #f6d998, var(--gold) 70%, #c9932f); animation: tentPulse 1.2s ease-in-out infinite; }
+    .tcard.tentative { border-color: var(--orange-deep); background: linear-gradient(160deg, #f6d998, var(--gold) 70%, #c9932f); animation: tentPulse 1.2s ease-in-out infinite; cursor: grab; touch-action: none; }
+    .tcard.tentative:active { cursor: grabbing; }
     .tcard.tentative .y { color: var(--orange-deep); }
     @keyframes tentPulse { 0%,100% { box-shadow: 5px 6px 0 rgba(147,56,30,.4), 0 0 0 0 rgba(217,164,65,.6); } 50% { box-shadow: 5px 6px 0 rgba(147,56,30,.4), 0 0 0 9px rgba(217,164,65,0); } }
+    /* View mode: viewing another player's timeline read-only */
+    .viewing-pill { display: inline-block; font-family: var(--disp); font-size: 10px; letter-spacing: 1px; padding: 2px 8px; border-radius: 999px; background: var(--gold); color: var(--brown-deep); margin-right: 6px; vertical-align: middle; }
     .new-badge { position: absolute; top: -11px; right: -9px; transform: rotate(8deg); background: var(--orange); color: var(--paper); font-family: var(--disp); font-size: 10px; padding: 3px 9px; border-radius: 999px; border: 2px solid var(--paper); box-shadow: 0 3px 0 var(--orange-deep); letter-spacing: 1px; }
     /* Category label chip shown on every card, with a hover reveal */
     .catchip { display: inline-flex; align-items: center; gap: 4px; padding: 2px 7px; border-radius: 999px; font-family: var(--disp); font-size: 9px; letter-spacing: .3px; color: var(--brown-deep); white-space: nowrap; cursor: default; vertical-align: middle; background: color-mix(in srgb, var(--c, #d9a441) 45%, var(--paper)); border: 1.5px solid color-mix(in srgb, var(--c, #d9a441) 70%, var(--brown)); transition: transform .12s, background .15s; }
@@ -208,11 +228,20 @@
     .catchip.full .cl, .catchip:hover .cl { max-width: 160px; opacity: 1; }
     .tcard .catchip { margin-bottom: 4px; }
 
-    /* Drag ghost that follows the pointer while dragging the hub card to a slot */
+    /* CSS-S9: drag ghost that follows the pointer while dragging the hub card to a slot */
     .drag-ghost { position: fixed; top: 0; left: 0; width: 64px; height: 64px; pointer-events: none; z-index: 200; opacity: .88; transform: translate(-50%,-50%); }
     .drag-ghost img { width: 100%; height: 100%; border-radius: 8px; box-shadow: 0 10px 24px rgba(36,23,16,.5); background: #fff; border: 2px solid var(--orange); }
 
-    /* Overlays: record-sleeve paper panels on a warm dim backdrop */
+    /* CSS-S10: steal wheel (conic disc stays in PLAYER colors, panel is themed) */
+    .wheel-wrap { position: relative; width: min(70vmin, 420px); height: min(70vmin, 420px); }
+    .wheel-disc { position: absolute; inset: 0; border-radius: 50%; box-shadow: var(--shadow), inset 0 0 0 6px rgba(250,241,221,.85); will-change: transform; }
+    .wheel-labels { position: absolute; inset: 0; }
+    .wheel-label { position: absolute; inset: 0; }
+    .wheel-label > span { position: absolute; top: 7%; left: 50%; transform-origin: center; font-family: var(--disp); font-weight: 400; font-size: 15px; color: var(--brown-deep); white-space: nowrap; text-shadow: 0 1px 2px rgba(250,241,221,.6); }
+    .wheel-pointer { position: absolute; top: -8px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 15px solid transparent; border-right: 15px solid transparent; border-top: 24px solid var(--gold); z-index: 3; filter: drop-shadow(0 3px 5px rgba(0,0,0,.5)); }
+    .wheel-caption { position: absolute; left: 0; right: 0; bottom: -54px; text-align: center; font-family: var(--disp); font-size: 18px; color: var(--paper); text-shadow: 2px 2px 0 var(--orange-deep); }
+
+    /* CSS-S6: overlays (record-sleeve paper panels on a warm dim backdrop), setup, winner */
     .overlay { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; background: radial-gradient(900px 600px at 50% 8%, rgba(122,69,41,.55), rgba(20,12,8,.95)); padding: 20px; overflow: auto; }
     .panel { width: min(600px, 95vw); background: linear-gradient(160deg, #fdf6e6, var(--paper) 60%, var(--paper-deep)); border: 3px solid var(--brown); border-radius: 22px; padding: 26px; color: var(--brown); box-shadow: var(--shadow), inset 0 0 0 5px var(--paper), inset 0 0 0 7px rgba(217,164,65,.28); }
     .panel h1 { margin: 0 0 4px; font-family: var(--disp); font-weight: 400; letter-spacing: 1px; font-size: 27px; color: var(--brown); display: flex; align-items: center; gap: 10px; }
@@ -250,15 +279,30 @@
     .standings .rank { width: 22px; font-family: var(--disp); color: var(--orange-deep); }
     .standings .sc { margin-left: auto; font-family: var(--disp); }
 
+    /* CSS-S5: dashboard rows + connected-phone dot (v3-only, extended to the theme) */
+    .dash-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 12px 14px; border-radius: 12px; background: var(--paper-deep); border: 2px solid var(--brown); margin-bottom: 8px; color: var(--brown); }
+    .dash-row.highlight { border-color: var(--orange); box-shadow: 0 0 0 2px rgba(193,80,46,.3); }
+    .dash-main { flex: 1 1 auto; cursor: pointer; min-width: 0; }
+    .dash-name { font-family: var(--disp); font-weight: 400; font-size: 15px; color: var(--brown); }
+    .dash-sub { font-size: 12px; color: rgba(59,42,30,.7); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .dash-status { font-family: var(--disp); font-size: 11px; text-transform: uppercase; letter-spacing: .5px; padding: 3px 9px; border-radius: 999px; background: var(--paper); border: 1px solid var(--brown); color: rgba(59,42,30,.7); }
+    .dash-status.active { color: var(--avocado-deep); background: rgba(122,132,80,.18); }
+    .dash-status.paused { color: var(--gold-deep); background: rgba(217,164,65,.18); }
+    .dash-status.finished { color: rgba(59,42,30,.6); }
+    .dash-expand { flex: 1 1 100%; display: flex; gap: 8px; align-items: center; margin-top: 6px; }
+    .dash-expand input { flex: 1; padding: 10px 12px; border-radius: 10px; background: #fffaf0; border: 2px solid var(--brown); color: var(--brown-deep); font-family: var(--body-font); }
+    .dash-err { color: var(--orange-deep); }
+    .seat.connected .seat-name::after { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--good); margin-left: 6px; vertical-align: middle; box-shadow: 0 0 6px rgba(122,132,80,.8); }
+
     @media (prefers-reduced-motion: reduce) {
-      .g1, .g2, .hub.live .disc-glow, .hub.live .eq span, .tcard.tentative { animation: none !important; }
+      .g1, .g2, .hub.live .disc-glow, .hub.live .eq span, .tcard.tentative, .guess-chip.pending { animation: none !important; }
     }
 
-    /* The board sizes are fluid (clamp with vmin/vh/vw plus a hero-height
-       token that the stage inset tracks), so the whole game screen scales
-       continuously from tablet width to 2560x1440 with no manual zoom and no
-       vertical scroll on 16:9 desktops. Only a couple of structural
-       breakpoints remain, for setup grid columns and hiding non-essentials. */
+    /* The board sizes are fluid (clamp with vmin/vh/vw plus a hero-height token
+       that the stage inset tracks), so the whole game screen scales continuously
+       from tablet width to 2560x1440 with no manual zoom and no vertical scroll on
+       16:9 desktops. Only a couple of structural breakpoints remain, for the setup
+       grid columns and hiding non-essentials. */
     @media (max-width: 720px) {
       .names, .cats, .row2 { grid-template-columns: 1fr 1fr; }
       .hub { max-width: 44vw; }
@@ -268,15 +312,15 @@
       .hero-coins { display: none; }
     }
 
-    /* Fullscreen toggle pinned to the top right while the setup screen shows */
+    /* CSS-S12: fullscreen toggle pinned to the top right while the setup screen shows */
     .setup-fs-btn { position: fixed; top: 16px; right: 16px; z-index: 70; }
     /* Fullscreen buttons: classic expand-corners icon next to a short label */
     .fs-btn { display: inline-flex; align-items: center; gap: 7px; }
     .fs-btn svg { display: block; flex: 0 0 auto; }
 
     /* Year-span control (issue #30 item 1): two overlapping range inputs sharing
-       one track, with a gold fill between the handles. Bounds come from the
-       song DB at runtime, never hardcoded. */
+       one track, with a gold fill between the handles. Bounds come from the song
+       DB at runtime, never hardcoded. */
     .year-range { position: relative; height: 40px; margin-top: 4px; }
     .yr-track { position: absolute; left: 2px; right: 2px; top: 17px; height: 6px; border-radius: 999px; background: var(--paper-deep); border: 1px solid var(--brown); }
     .yr-fill { position: absolute; top: -1px; bottom: -1px; background: linear-gradient(90deg, var(--gold), var(--orange)); border-radius: 999px; }
@@ -303,9 +347,10 @@
     .confirm-actions { display: flex; gap: 12px; margin-top: 8px; }
     .confirm-actions .btn { flex: 1; padding: 12px; font-size: 15px; }
 
-    /* Hidden Spotify embed host (issue #30 item 6): present for the iframe API
-       but visually gone. NOT display:none, or the embed refuses to play. */
+    /* Hidden Spotify embed host (issue #30 item 6): present for the iframe API but
+       visually gone. NOT display:none, or the embed refuses to play. */
     #spotifyHost { position: fixed; left: -10000px; top: 0; width: 300px; height: 80px; opacity: 0; pointer-events: none; overflow: hidden; }
+
   </style>
 </head>
 <body>
@@ -316,9 +361,11 @@
     <div class="brand"><span class="note">♪</span> Hitster</div>
     <div class="pill" id="catPill">-</div>
     <div class="pill">Win at <b id="targetLabel">-</b></div>
+    <div class="pill final hidden" id="roundPill"></div>
     <div class="spacer"></div>
     <div class="pill">Cards left <b id="deckLeft">-</b></div>
     <button class="btn ghost hidden" id="phonesBtn" type="button">Phones</button>
+    <button class="btn ghost hidden" id="pauseBtn" type="button">Pause</button>
     <button class="btn ghost fs-btn" id="fullscreenBtn" type="button" aria-label="Toggle fullscreen">Fullscreen</button>
     <button class="btn ghost" id="newGameBtn">New game</button>
   </div>
@@ -338,8 +385,39 @@
         <div class="hero-actions" id="heroActions"></div>
       </div>
       <div class="instructions" id="instructions"></div>
-      <div id="bonusBanner"></div>
+      <div class="guess-strip hidden" id="guessStrip"></div>
       <div class="timeline" id="timeline"></div>
+    </div>
+  </div>
+
+  <!-- Dashboard (shown first when the backend is up) -->
+  <div class="overlay hidden" id="dashboard">
+    <div class="panel">
+      <h1><span class="note">♪</span> Hitster games</h1>
+      <p class="lede">Start a new game, or continue one you saved. Games are stored online so you can pause and pick up later, or take over from another screen.</p>
+      <div class="field">
+        <button class="btn primary" id="dashNewBtn" style="width:100%">New game</button>
+      </div>
+      <div class="field">
+        <label>Continue a saved game</label>
+        <div id="continueSection"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Take over: the save was rejected because another host adopted the game -->
+  <div class="overlay hidden" id="takeoverOverlay">
+    <div class="panel">
+      <h1><span class="note">⚠️</span> Opened elsewhere</h1>
+      <p class="lede">This game was opened on another screen, so saving from here stopped. Take it over to keep playing here (you will need the game password), or leave it to the other screen.</p>
+      <div class="field">
+        <input type="password" id="takeoverPw" placeholder="Game password" maxlength="32" />
+        <div class="note-sm" id="takeoverErr"></div>
+      </div>
+      <div class="row2">
+        <button class="btn ghost" id="takeoverCancelBtn">Back to games</button>
+        <button class="btn primary" id="takeoverBtn">Take over</button>
+      </div>
     </div>
   </div>
 
@@ -349,6 +427,17 @@
     <div class="panel">
       <h1><span class="note">♪</span> Hitster music quiz</h1>
       <p class="lede">Hear a song, then drop it into your timeline by the year it came out. Right spot, you keep the card. First to the target wins.</p>
+
+      <div class="row2 hidden" id="onlineFields">
+        <div class="field">
+          <label>Game name</label>
+          <input id="gameName" maxlength="40" placeholder="e.g. Friday night" />
+        </div>
+        <div class="field">
+          <label>Password (for phones + resume)</label>
+          <input id="gamePassword" maxlength="32" placeholder="4 to 32 characters" />
+        </div>
+      </div>
 
       <div class="field">
         <label>Players</label>
@@ -412,7 +501,7 @@
         <button class="btn primary" id="startBtn" style="width:100%">Start game</button>
       </div>
       <div class="note-sm" id="setupNote">
-        Players scan the on-screen QR to hear each song on Spotify, then place it by year.
+        Each player scans the on-screen QR with their phone camera to play the song on Spotify. The link goes straight to the track, so whoever scans should just press play, not read the title. The screen keeps the year and category hidden until you reveal.
       </div>
     </div>
   </div>
@@ -421,10 +510,19 @@
   <div class="overlay hidden" id="phonesOverlay">
     <div class="panel">
       <h1><span class="note">📱</span> Phones</h1>
-      <p class="lede">Everyone scans this once at the start. On your turn, use your own phone for one bonus guess per round to earn a Hitster coin.</p>
+      <p class="lede">Scan to join with the game id and password (you can join anytime). On your turn you can place from your phone, make one bonus guess per round for a coin, and press STEAL during a steal window.</p>
       <div class="qr" id="phonesQr"></div>
       <div style="text-align:center;font-size:24px;font-weight:800;letter-spacing:4px;margin:14px 0" id="phonesCode">----</div>
       <button class="btn primary" id="phonesCloseBtn" style="width:100%">Close</button>
+    </div>
+  </div>
+
+  <!-- Steal wheel (shown only when 2+ opponents steal the same slot) -->
+  <div class="overlay hidden" id="wheelOverlay">
+    <div class="wheel-wrap">
+      <div class="wheel-pointer"></div>
+      <div class="wheel-disc" id="wheelDisc"><div class="wheel-labels" id="wheelLabels"></div></div>
+      <div class="wheel-caption" id="wheelCaption"></div>
     </div>
   </div>
 
@@ -439,7 +537,7 @@
     </div>
   </div>
 
-  <!-- Fullscreen QR: the current song QR blown up as large as it fits -->
+  <!-- Fullscreen QR: the current song QR blown up as large as it fits (issue #30 item 2) -->
   <div class="overlay hidden" id="qrFullOverlay">
     <div class="qr-full-inner">
       <img id="qrFullImg" alt="Spotify QR code" />
@@ -447,7 +545,7 @@
     </div>
   </div>
 
-  <!-- Reusable confirm modal -->
+  <!-- Reusable confirm modal (issue #30 item 4) -->
   <div class="overlay hidden" id="confirmOverlay">
     <div class="panel confirm-panel">
       <h1 id="confirmTitle">Are you sure?</h1>
@@ -459,7 +557,7 @@
     </div>
   </div>
 
-  <!-- Hidden host for the Spotify Embed IFrame API (item 6). Kept off-layout
+  <!-- Hidden host for the Spotify Embed IFrame API (issue #30 item 6). Kept off-layout
        and transparent, never display:none, so the embed can actually play. -->
   <div id="spotifyHost" aria-hidden="true"></div>
 
@@ -469,6 +567,7 @@
   (function () {
     "use strict";
 
+    /* ================== S1: CONSTANTS + DOM UTILITIES ================== */
     // Vinyl Lounge player colours: burnt orange, gold, avocado, warm rose.
     var PALETTE = ["#c1502e", "#d9a441", "#7a8450", "#c9736a"];
     var DB = window.HITSTER_DB || { categories: [], songs: [] };
@@ -483,15 +582,16 @@
       return { lo: lo, hi: hi };
     })();
     var setup = { count: 3, cats: new Set(), yearMin: yearBounds.lo, yearMax: yearBounds.hi };
-    var DEFAULT_NOTE = "Players scan the on-screen QR to hear each song on Spotify, then place it by year.";
+    var DEFAULT_NOTE = "Each player scans the on-screen QR with their phone camera to play the song on Spotify. The link goes straight to the track, so whoever scans should just press play, not read the title. The screen keeps the year and category hidden until you reveal.";
     var dragState = { active: false, ghost: null };
 
-    // ---------- phone bonus guesses: backend availability, room, matching ----------
     var backendAvailable = false;
-    var guessPollTimerId = null;
     var ROOM_CHARS = "ABCDEFGHJKMNPQRSTUVWXYZ23456789"; // unambiguous: no 0/O, 1/I/L
     var SOURCE_TYPES = ["movie", "musical", "disney"];
     var STEAL_SECONDS = 10.0; // steal window length (issue #30 item 7)
+    // Equalizer tie resolution: "sudden" = sudden-death cycles among the tied finishers,
+    // "shared" = the tied finishers share the win. Flip this one constant to switch.
+    var TIE_MODE = "sudden";
 
     function generateRoomCode() {
       var code = "";
@@ -499,11 +599,33 @@
       return code;
     }
 
+    function $(id) { return document.getElementById(id); }
+    function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+    function initials(n) { var p = (n || "").trim().split(/\s+/).filter(Boolean); if (!p.length) return "?"; return (p.length === 1 ? p[0].slice(0, 2) : p[0][0] + p[p.length - 1][0]).toUpperCase(); }
+    function sortTl(tl) { return tl.slice().sort(function (a, b) { return a.year - b.year; }); }
+    function escapeHtml(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+    function catMeta(key) { for (var i = 0; i < DB.categories.length; i++) if (DB.categories[i].key === key) return DB.categories[i]; return null; }
+    function songsForCat(key) { return DB.songs.filter(function (s) { return s.cat === key; }); }
+    function poolSongs() { return DB.songs.filter(function (s) { return setup.cats.has(s.cat) && s.year >= setup.yearMin && s.year <= setup.yearMax; }); }
+    function pillMeta() {
+      if (setup.cats.size === DB.categories.length) return { label: "All mixed", emoji: "🎲", color: "#c9c4ff" };
+      if (setup.cats.size === 1) return catMeta(setup.cats.values().next().value);
+      return { label: setup.cats.size + " categories", emoji: "🎛️", color: "#c9c4ff" };
+    }
+    function qrSrc(card) { if (card.qr) return card.qr; try { var q = qrcode(0, "M"); q.addData(card.url); q.make(); return q.createDataURL(6, 4); } catch (e) { return ""; } }
+    function catChip(catKey, full) {
+      var m = catMeta(catKey) || { emoji: "🎵", label: "Unknown", color: "#c9c4ff" };
+      return '<span class="catchip' + (full ? " full" : "") + '" style="--c:' + m.color + '" title="Category: ' + escapeHtml(m.label) + '">' +
+        '<span class="ce">' + m.emoji + '</span><span class="cl">' + escapeHtml(m.label) + '</span></span>';
+    }
+
+    /* ================== S2: GUESS MATCHING ================== */
     function normalizeStr(s) {
       s = String(s == null ? "" : s);
       if (s.normalize) s = s.normalize("NFD");
-      s = s.replace(/[\u0300-\u036f]/g, ""); // strip combining diacritics
+      s = s.replace(/[̀-ͯ]/g, ""); // strip combining diacritics
       s = s.toLowerCase();
+      s = s.replace(/[‘’ʼ'`´]/g, ""); // drop apostrophe-like chars so possessives collapse (backstreet's -> backstreets)
       try {
         s = s.replace(/[^\p{L}\p{N}\s]/gu, " ");
       } catch (e) {
@@ -537,7 +659,32 @@
       var threshold = Math.max(a.length, b.length) <= 8 ? 1 : 2;
       return levenshtein(a, b) <= threshold;
     }
-    function matchesTitle(guessTitle, cardTitle) { return fuzzyEq(normalizeStr(guessTitle), normalizeStr(stripParens(cardTitle))); }
+    // Normalized accept strings for a card title. Covers possessive collapse plus
+    // parenthetical alt titles like "Everybody (Backstreet's Back)".
+    function titleVariants(card) {
+      var raw = String(card && card.title != null ? card.title : "");
+      var out = [];
+      var srcNorm = (card && card.source && card.source.name) ? normalizeStr(card.source.name) : null;
+      function add(v, isParen) {
+        var nv = normalizeStr(v);
+        if (nv.length < 3) return;                          // too short to be a real title
+        if (isParen && srcNorm && fuzzyEq(nv, srcNorm)) return; // production name is not an alt title
+        if (out.indexOf(nv) !== -1) return;                 // dedupe
+        out.push(nv);
+      }
+      add(raw, false);              // (1) full title, paren words inlined by normalizeStr
+      add(stripParens(raw), false); // (2) title with paren groups removed
+      var re = /[\(\[]([^\)\]]+)[\)\]]/g, m; // (3) each paren group content (covers leading-paren titles)
+      while ((m = re.exec(raw)) !== null) { add(m[1], true); }
+      return out;
+    }
+    function matchesTitle(guessTitle, card) {
+      var g = normalizeStr(guessTitle);
+      if (!g) return false;
+      var vs = titleVariants(card);
+      for (var i = 0; i < vs.length; i++) if (fuzzyEq(g, vs[i])) return true;
+      return false;
+    }
     function matchesArtist(guessArtist, cardArtist) {
       var g = normalizeStr(guessArtist);
       if (fuzzyEq(g, normalizeStr(cardArtist))) return true;
@@ -547,206 +694,301 @@
     }
     function matchesSourceName(guessName, cardSourceName) { return fuzzyEq(normalizeStr(guessName), normalizeStr(cardSourceName)); }
 
+    /* ================== S3: NET LAYER ================== */
+    // Thin adapter over the v3 contract endpoints (see PROTOCOL.md). Every call is
+    // guarded: when the backend is unavailable (file:// or Redis unset) all calls
+    // resolve to null/no-op so the offline single-screen game keeps working.
+    var NET = {
+      available: false,
+      base: "/api/hitster/games",
+      _json: function (res) { return res.ok ? res.json().catch(function () { return null; }) : null; },
+      // Probe: any 2xx/404 from GET /api/hitster/games means the backend is up.
+      probe: function () {
+        if (!/^https?:$/.test(location.protocol) || !window.fetch) { NET.available = false; return Promise.resolve(false); }
+        return fetch(NET.base, { method: "GET" }).then(function (res) {
+          NET.available = (res.status >= 200 && res.status < 300) || res.status === 404;
+          return NET.available;
+        }).catch(function () { NET.available = false; return false; });
+      },
+      createGame: function (name, pw, stateBlob) {
+        if (!NET.available) return Promise.resolve(null);
+        return fetch(NET.base, {
+          method: "POST", headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name: name, password: pw, state: stateBlob })
+        }).then(NET._json).catch(function () { return null; });
+      },
+      listGames: function () {
+        if (!NET.available) return Promise.resolve([]);
+        return fetch(NET.base, { method: "GET" }).then(function (res) { return res.ok ? res.json().catch(function () { return []; }) : []; }).catch(function () { return []; });
+      },
+      resumeGame: function (id, pw) {
+        if (!NET.available) return Promise.resolve(null);
+        return fetch(NET.base + "/" + encodeURIComponent(id) + "/resume", {
+          method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ password: pw })
+        }).then(function (res) { return res.ok ? res.json().catch(function () { return null; }) : (res.status === 403 ? { error: "forbidden" } : null); }).catch(function () { return null; });
+      },
+      loadState: function (id, hostToken) {
+        if (!NET.available) return Promise.resolve(null);
+        return fetch(NET.base + "/" + encodeURIComponent(id) + "/state", { method: "GET", headers: { "x-hitster-host-token": hostToken } })
+          .then(NET._json).catch(function () { return null; });
+      },
+      // Returns { ok, status, version?, currentVersion? }. 401/409 surface via status.
+      saveState: function (id, hostToken, baseVersion, blob) {
+        if (!NET.available) return Promise.resolve({ ok: false, status: 0 });
+        return fetch(NET.base + "/" + encodeURIComponent(id) + "/state", {
+          method: "PUT", headers: { "Content-Type": "application/json", "x-hitster-host-token": hostToken },
+          body: JSON.stringify({ baseVersion: baseVersion, state: blob })
+        }).then(function (res) {
+          return res.json().catch(function () { return {}; }).then(function (body) {
+            return { ok: res.ok, status: res.status, version: body && body.version, currentVersion: body && body.currentVersion };
+          });
+        }).catch(function () { return { ok: false, status: 0 }; });
+      },
+      pollIntents: function (id, hostToken, round) {
+        if (!NET.available) return Promise.resolve(null);
+        return fetch(NET.base + "/" + encodeURIComponent(id) + "/intents?round=" + round, { method: "GET", headers: { "x-hitster-host-token": hostToken } })
+          .then(NET._json).catch(function () { return null; });
+      }
+    };
     function updatePhonesBtnVisibility() {
-      var b = $("phonesBtn");
-      if (b) b.classList.toggle("hidden", !backendAvailable);
-    }
-    function probeBackend() {
-      if (!/^https?:$/.test(location.protocol) || !window.fetch) { backendAvailable = false; updatePhonesBtnVisibility(); return; }
-      fetch("/api/hitster/room?room=PING").then(function (res) {
-        backendAvailable = (res.status === 200 || res.status === 404);
-        updatePhonesBtnVisibility();
-      }).catch(function () { backendAvailable = false; updatePhonesBtnVisibility(); });
+      var online = !!(NET.available && state && state.gameId);
+      var b = $("phonesBtn"); if (b) b.classList.toggle("hidden", !online);
+      var pb = $("pauseBtn"); if (pb) pb.classList.toggle("hidden", !online);
     }
 
-    function publishRoomState() {
-      if (!backendAvailable || !state || !state.room) return;
-      var body = {
-        room: state.room,
-        state: {
-          round: state.round,
-          phase: state.phase,
-          guessOpen: state.phase === "place",
-          currentPlayer: state.players[state.current].name,
-          players: state.players.map(function (p) { return p.name; }),
-          hasSource: !!(state.card && state.card.source),
-          sourceTypes: SOURCE_TYPES
+    /* ================== S4: PERSISTENCE ================== */
+    var HOST_LS = "hitster_host";
+    var _idMap = null;
+    function buildIdMap() {
+      if (_idMap) return _idMap;
+      _idMap = {};
+      (DB.songs || []).forEach(function (s) { _idMap[s.id] = s; });
+      return _idMap;
+    }
+    // Store a card as a lightweight object (id + projectable fields), never the full song:
+    // dropping the baked-in QR data URI keeps every save small.
+    function liteCard(c) { return c ? { id: c.id, title: c.title, artist: c.artist, year: c.year, cat: c.cat, source: c.source || null } : null; }
+    // Resolve a stored card back to the full DB song (with QR) when the id is known;
+    // fall back to the stored lightweight object so a player never loses a placed card.
+    function resolveCard(c) { if (!c) return null; var full = buildIdMap()[c.id]; return full || c; }
+
+    // Full host state -> a JSON-safe blob matching the PROTOCOL FullGameState shape (plus
+    // opaque host-only extras). Songs become ids/lightweight objects; transients are dropped.
+    function serializeState() {
+      if (!state) return null;
+      var eq = state.final ? {
+        firstToTarget: state.final.finishers[0],
+        firstToTargetRounds: state.players[state.final.finishers[0]] ? state.players[state.final.finishers[0]].roundsPlayed : 0,
+        queueIdx: state.final.queue.slice()
+      } : null;
+      return {
+        gameId: state.gameId || null,
+        name: state.name || null,
+        version: state.version || 0,
+        status: state.phase === "over" ? "finished" : (state.paused ? "paused" : "active"),
+        createdAt: state.createdAt || 0,
+        updatedAt: Date.now(),
+        settings: { target: state.target, coinsPerPlayer: state.coinsPerPlayer, cats: state.catsList || [] },
+        players: state.players.map(function (p) {
+          return { idx: p.idx, name: p.name, color: p.color, coins: p.coins, roundsPlayed: p.roundsPlayed, claimed: !!p.claimed, timeline: p.timeline.map(liteCard) };
+        }),
+        deckIds: state.deck.map(function (c) { return c.id; }),
+        current: state.current, round: state.round, phase: state.phase,
+        card: liteCard(state.card),
+        placement: { tentativeSlot: state.chosenSlot, lockedSlot: (state.phase === "steal" || state.phase === "revealed") ? state.chosenSlot : null, locked: state.phase !== "place" },
+        steal: buildStealBlob(),
+        pendingGuesses: (state.pending || []).map(function (g) {
+          return { round: g.round, playerIdx: g.playerIdx, type: g.type, artist: g.artist, title: g.title, sourceType: g.sourceType, sourceName: g.sourceName, at: g.at || 0, judged: g.judged || null, coinAwarded: !!g.coinAwarded };
+        }),
+        equalizer: eq,
+        result: state.result || null,
+        // host-only extras (opaque to the server, used to rebuild the host on resume)
+        _host: {
+          viewIdx: state.viewIdx, n: state.n, coinsPerPlayer: state.coinsPerPlayer, catsList: state.catsList || [],
+          chosenSlot: state.chosenSlot, locked: state.locked, room: state.room,
+          stealers: state.stealers, stealUsed: state.stealUsed, stealEligibleIdx: state.stealEligibleIdx,
+          stealPickerIdx: state.stealPickerIdx, stealPick: state.stealPick,
+          wheelWinner: state.wheelWinner || null, final: state.final || null
         }
       };
-      fetch("/api/hitster/room", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body)
-      }).catch(function () { /* ignore, game keeps working offline */ });
     }
 
-    function stopGuessPolling() { if (guessPollTimerId) { clearInterval(guessPollTimerId); guessPollTimerId = null; } }
-    function startGuessPolling() {
-      stopGuessPolling();
-      if (!backendAvailable || !state || !state.room) return;
-      guessPollTimerId = setInterval(pollGuessesTick, 2000);
+    // Inverse of serializeState: rebuild a full host state from a stored blob.
+    function hydrateState(blob) {
+      if (!blob) return null;
+      var map = buildIdMap();
+      var h = blob._host || {};
+      var deck = (blob.deckIds || []).map(function (id) { return map[id]; }).filter(Boolean); // silently drop unknown ids
+      var players = (blob.players || []).map(function (p) {
+        return { idx: p.idx, name: p.name, color: p.color, coins: p.coins, roundsPlayed: p.roundsPlayed || 0, claimed: !!p.claimed, timeline: (p.timeline || []).map(resolveCard).filter(Boolean) };
+      });
+      var target = (blob.settings && blob.settings.target) || h.target || 10;
+      var catsList = (blob.settings && blob.settings.cats) || h.catsList || [];
+      var final = h.final || (blob.equalizer ? { finishers: [blob.equalizer.firstToTarget], queue: (blob.equalizer.queueIdx || []).slice(), mode: TIE_MODE, suddenDeath: false, tied: null } : null);
+      return {
+        players: players, deck: deck, current: blob.current || 0, viewIdx: (h.viewIdx != null ? h.viewIdx : (blob.current || 0)),
+        target: target, n: players.length, coinsPerPlayer: (blob.settings && blob.settings.coinsPerPlayer),
+        catsList: catsList, catMeta: catMetaFromKeys(catsList),
+        phase: blob.phase || "place", card: resolveCard(blob.card),
+        chosenSlot: (h.chosenSlot != null ? h.chosenSlot : (blob.placement && blob.placement.tentativeSlot != null ? blob.placement.tentativeSlot : null)),
+        result: blob.result || null, locked: (blob.phase === "over") || !!h.locked,
+        stealers: h.stealers || [], stealUsed: h.stealUsed || {}, stealPickerIdx: (h.stealPickerIdx != null ? h.stealPickerIdx : null), stealPick: (h.stealPick != null ? h.stealPick : null),
+        stealEligibleIdx: h.stealEligibleIdx || [], stealRemaining: 0, stealTimerId: null,
+        revealInFlight: false, wheelWinner: h.wheelWinner || null, final: final,
+        room: h.room || blob.gameId, round: blob.round || 0,
+        pending: blob.pendingGuesses || [], bonus: { guessedBy: null, awarded: false, result: null },
+        gameId: blob.gameId, name: blob.name, version: blob.version || 0, status: blob.status, createdAt: blob.createdAt || 0,
+        paused: false
+      };
     }
-    function pollGuessesTick() {
-      if (!state || state.phase !== "place" || state.bonus.result) { stopGuessPolling(); return; }
-      var room = state.room, round = state.round;
-      fetch("/api/hitster/guess?room=" + encodeURIComponent(room) + "&round=" + round)
-        .then(function (res) { return res.ok ? res.json() : null; })
-        .then(function (guesses) {
-          if (!guesses || !state || state.phase !== "place" || state.room !== room || state.round !== round || state.bonus.result) return;
-          var current = state.players[state.current].name;
-          for (var i = 0; i < guesses.length; i++) {
-            if (guesses[i].player === current) { resolveBonusGuess(guesses[i]); return; }
-          }
-        })
-        .catch(function () { /* ignore, retry next tick */ });
-    }
-    function resolveBonusGuess(guess) {
-      var card = state.card;
-      var correct = false;
-      if (guess.type === "artist-title") {
-        correct = matchesTitle(guess.title, card.title) && matchesArtist(guess.artist, card.artist);
-      } else if (guess.type === "source" && card.source) {
-        correct = guess.sourceType === card.source.type && matchesSourceName(guess.sourceName, card.source.name);
-      }
-      state.bonus.guessedBy = guess.player;
-      state.bonus.result = correct ? "correct" : "wrong";
-      if (correct) { state.players[state.current].coins += 1; state.bonus.awarded = true; }
-      render();
-    }
-
-    function openPhonesOverlay() {
-      if (!state) return;
-      var url = location.origin + "/hitster/guess?room=" + state.room;
-      $("phonesCode").textContent = state.room;
-      var qrHtml;
-      try {
-        var q = qrcode(0, "M");
-        q.addData(url);
-        q.make();
-        qrHtml = '<img alt="Phone link QR" src="' + q.createDataURL(6, 4) + '" />';
-      } catch (e) { qrHtml = ""; }
-      $("phonesQr").innerHTML = qrHtml;
-      $("phonesOverlay").classList.remove("hidden");
+    function catMetaFromKeys(keys) {
+      if (!keys || !keys.length) return { label: "All mixed", emoji: "🎲", color: "#c9c4ff" };
+      if (keys.length === DB.categories.length) return { label: "All mixed", emoji: "🎲", color: "#c9c4ff" };
+      if (keys.length === 1) return catMeta(keys[0]) || { label: keys[0], emoji: "🎵", color: "#c9c4ff" };
+      return { label: keys.length + " categories", emoji: "🎛️", color: "#c9c4ff" };
     }
 
-    // ---------- reusable confirm modal (item 4) ----------
-    var confirmCb = null;
-    function showConfirm(opts) {
-      opts = opts || {};
-      $("confirmTitle").textContent = opts.title || "Are you sure?";
-      $("confirmMsg").textContent = opts.message || "";
-      $("confirmOk").textContent = opts.okLabel || "Confirm";
-      $("confirmCancel").textContent = opts.cancelLabel || "Cancel";
-      confirmCb = typeof opts.onConfirm === "function" ? opts.onConfirm : null;
-      $("confirmOverlay").classList.remove("hidden");
+    // PROTOCOL steal blob (absolute windowEndsAt, eligible idx, presses, active wheel).
+    function buildStealBlob() {
+      if (state.phase !== "steal") return null;
+      return {
+        windowEndsAt: Date.now() + Math.max(0, state.stealRemaining) * 1000,
+        eligibleIdx: state.stealEligibleIdx.slice(),
+        presses: state.stealers.map(function (st) { return { playerIdx: st.idx, slot: st.slot, at: 0 }; }),
+        wheel: state.wheelWinner ? { slot: state.wheelWinner.slot, candidates: [], winnerIdx: state.wheelWinner.idx } : null
+      };
     }
-    function hideConfirm() { $("confirmOverlay").classList.add("hidden"); confirmCb = null; }
 
-    // ---------- fullscreen QR (item 2) ----------
-    function openQrFull() {
-      if (!state || !state.card) return;
-      $("qrFullImg").src = qrSrc(state.card);
-      $("qrFullOverlay").classList.remove("hidden");
+    // Debounced full-state save. Tracks lastAckedVersion as the baseVersion. On 401/409 the
+    // save loops stop and the take-over overlay appears (the game was opened elsewhere).
+    var _dirtyTimer = null, _saveInFlight = false, _saveAgain = false;
+    function markDirty() {
+      if (!NET.available || !state || !state.gameId || !state.hostToken) return;
+      if (_dirtyTimer) return;
+      _dirtyTimer = setTimeout(function () { _dirtyTimer = null; doSave(); }, 400);
     }
-    function closeQrFull() { $("qrFullOverlay").classList.add("hidden"); }
-
-    // ---------- hidden playback on the TV (item 6) ----------
-    // The Spotify Embed IFrame API is loaded lazily on first "Play here" click,
-    // never at page load, so an offline / file:// session stays free of any
-    // external request. It fails gracefully: if the script cannot load, the
-    // Play here button is hidden on the next render.
-    var spotifyScriptState = "none"; // none | loading | ready | failed
-    var spotifyApi = null;
-    var spotifyController = null;
-    var spotifyPlaying = false;
-    var spotifyReadyQueue = [];
-    function canPlayHere() {
-      return /^https?:$/.test(location.protocol) && !!(state && state.card && state.card.id) && spotifyScriptState !== "failed";
+    function flushDirty() {
+      if (_dirtyTimer) { clearTimeout(_dirtyTimer); _dirtyTimer = null; }
+      doSave();
     }
-    function flushSpotifyQueue() {
-      var q = spotifyReadyQueue.slice(); spotifyReadyQueue = [];
-      for (var i = 0; i < q.length; i++) { try { q[i](); } catch (e) { /* ignore */ } }
-    }
-    function ensureSpotifyScript(cb) {
-      if (spotifyScriptState === "ready" || spotifyScriptState === "failed") { cb(); return; }
-      spotifyReadyQueue.push(cb);
-      if (spotifyScriptState === "loading") return;
-      if (!/^https?:$/.test(location.protocol)) { spotifyScriptState = "failed"; flushSpotifyQueue(); return; }
-      spotifyScriptState = "loading";
-      window.onSpotifyIframeApiReady = function (IFrameAPI) { spotifyApi = IFrameAPI; spotifyScriptState = "ready"; flushSpotifyQueue(); };
-      var s = document.createElement("script");
-      s.src = "https://open.spotify.com/embed/iframe-api/v1";
-      s.async = true;
-      s.onerror = function () { spotifyScriptState = "failed"; flushSpotifyQueue(); };
-      document.head.appendChild(s);
-      // Guard against a silent failure to load (blocked / offline): give up after a bit.
-      setTimeout(function () { if (spotifyScriptState === "loading") { spotifyScriptState = "failed"; flushSpotifyQueue(); } }, 8000);
-    }
-    function freshEmbedTarget() {
-      var host = $("spotifyHost");
-      host.innerHTML = "";
-      var el = document.createElement("div");
-      host.appendChild(el);
-      return el;
-    }
-    // Silent teardown, called on every round transition so a track never leaks
-    // into the next round. Callers render() afterwards, which repaints the button.
-    function teardownSpotify() {
-      spotifyPlaying = false;
-      if (spotifyController) {
-        try { spotifyController.pause(); } catch (e) { /* ignore */ }
-        try { spotifyController.destroy(); } catch (e) { /* ignore */ }
-        spotifyController = null;
-      }
-      var host = $("spotifyHost");
-      if (host) host.innerHTML = "";
-    }
-    function renderHubPlayBtn() {
-      var btn = $("playHereBtn");
-      if (!btn) return;
-      btn.disabled = false;
-      btn.textContent = spotifyPlaying ? "■ Stop" : "▶ Play here";
-    }
-    function onPlayHereToggle() {
-      if (spotifyPlaying) { teardownSpotify(); renderHubPlayBtn(); return; }
-      var id = state && state.card && state.card.id;
-      if (!id) return;
-      var btn = $("playHereBtn");
-      if (btn) { btn.disabled = true; btn.textContent = "Loading..."; }
-      ensureSpotifyScript(function () {
-        if (spotifyScriptState !== "ready" || !spotifyApi) { spotifyScriptState = "failed"; spotifyPlaying = false; renderHub(); return; }
-        // The user gesture that opened this handler satisfies the autoplay policy.
-        var el = freshEmbedTarget();
-        spotifyApi.createController(el, { uri: "spotify:track:" + id, width: 300, height: 80 }, function (ctrl) {
-          spotifyController = ctrl;
-          try { ctrl.play(); } catch (e) { /* some builds autoplay on load */ }
-        });
-        spotifyPlaying = true;
-        renderHubPlayBtn();
+    function doSave() {
+      if (!NET.available || !state || !state.gameId || !state.hostToken) return;
+      if (_saveInFlight) { _saveAgain = true; return; }
+      _saveInFlight = true;
+      var base = state.version || 0;
+      var blob = serializeState();
+      NET.saveState(state.gameId, state.hostToken, base, blob).then(function (r) {
+        _saveInFlight = false;
+        if (!r) return;
+        if (r.status === 401 || r.status === 409) { onSaveConflict(); return; }
+        if (r.ok && typeof r.version === "number") { state.version = r.version; }
+        if (_saveAgain) { _saveAgain = false; doSave(); }
       });
     }
-
-    function $(id) { return document.getElementById(id); }
-    function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
-    function initials(n) { var p = (n || "").trim().split(/\s+/).filter(Boolean); if (!p.length) return "?"; return (p.length === 1 ? p[0].slice(0, 2) : p[0][0] + p[p.length - 1][0]).toUpperCase(); }
-    function sortTl(tl) { return tl.slice().sort(function (a, b) { return a.year - b.year; }); }
-    function escapeHtml(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
-    function catMeta(key) { for (var i = 0; i < DB.categories.length; i++) if (DB.categories[i].key === key) return DB.categories[i]; return null; }
-    function songsForCat(key) { return DB.songs.filter(function (s) { return s.cat === key; }); }
-    function poolSongs() { return DB.songs.filter(function (s) { return setup.cats.has(s.cat) && s.year >= setup.yearMin && s.year <= setup.yearMax; }); }
-    function pillMeta() {
-      if (setup.cats.size === DB.categories.length) return { label: "All mixed", emoji: "🎲", color: "#c9c4ff" };
-      if (setup.cats.size === 1) return catMeta(setup.cats.values().next().value);
-      return { label: setup.cats.size + " categories", emoji: "🎛️", color: "#c9c4ff" };
+    function onSaveConflict() {
+      stopIntentPolling();
+      stopStealTimer();
+      var ov = $("takeoverOverlay");
+      if (ov) ov.classList.remove("hidden");
     }
-    function qrSrc(card) { if (card.qr) return card.qr; try { var q = qrcode(0, "M"); q.addData(card.url); q.make(); return q.createDataURL(6, 4); } catch (e) { return ""; } }
-    function catChip(catKey, full) {
-      var m = catMeta(catKey) || { emoji: "🎵", label: "Unknown", color: "#c9c4ff" };
-      return '<span class="catchip' + (full ? " full" : "") + '" style="--c:' + m.color + '" title="Category: ' + escapeHtml(m.label) + '">' +
-        '<span class="ce">' + m.emoji + '</span><span class="cl">' + escapeHtml(m.label) + '</span></span>';
+    function saveHostLS() {
+      try { if (state && state.gameId && state.hostToken) localStorage.setItem(HOST_LS, JSON.stringify({ gameId: state.gameId, hostToken: state.hostToken })); } catch (e) {}
+    }
+    function loadHostLS() {
+      try { return JSON.parse(localStorage.getItem(HOST_LS) || "null"); } catch (e) { return null; }
     }
 
-    // ---------- setup UI ----------
+    /* ================== S5: DASHBOARD UI ================== */
+    function relTime(ts) {
+      if (!ts) return "";
+      var d = Math.max(0, Date.now() - ts), m = Math.floor(d / 60000);
+      if (m < 1) return "just now";
+      if (m < 60) return m + " min ago";
+      var h = Math.floor(m / 60); if (h < 24) return h + "h ago";
+      return Math.floor(h / 24) + "d ago";
+    }
+    function showDashboard() {
+      stopIntentPolling(); stopStealTimer();
+      $("game").classList.add("hidden"); $("topbar").classList.add("hidden");
+      $("winner").classList.add("hidden"); $("setup").classList.add("hidden");
+      var last = loadHostLS();
+      $("dashboard").classList.remove("hidden");
+      renderContinueList(last && last.gameId);
+    }
+    function renderContinueList(highlightId) {
+      var wrap = $("continueSection");
+      if (!wrap) return;
+      wrap.innerHTML = '<div class="note-sm">Loading saved games...</div>';
+      NET.listGames().then(function (rows) {
+        wrap.innerHTML = "";
+        if (!rows || !rows.length) { wrap.innerHTML = '<div class="note-sm">No saved games yet. Start a new one above.</div>'; return; }
+        rows.forEach(function (g) {
+          var row = document.createElement("div");
+          row.className = "dash-row" + (g.gameId === highlightId ? " highlight" : "");
+          var players = (g.players || []).join(", ");
+          row.innerHTML =
+            '<div class="dash-main"><div class="dash-name">' + escapeHtml(g.name || g.gameId) + '</div>' +
+            '<div class="dash-sub">' + escapeHtml(players) + ' &middot; ' + escapeHtml(relTime(g.updatedAt)) + '</div></div>' +
+            '<span class="dash-status ' + escapeHtml(g.status || "") + '">' + escapeHtml(g.status || "") + '</span>' +
+            '<div class="dash-expand hidden"><input type="password" class="dash-pw" placeholder="Password" maxlength="32" />' +
+            '<button class="btn primary dash-resume" type="button">Resume</button><div class="dash-err note-sm"></div></div>';
+          var expand = row.querySelector(".dash-expand");
+          var pw = row.querySelector(".dash-pw");
+          var err = row.querySelector(".dash-err");
+          row.querySelector(".dash-main").onclick = function () { expand.classList.toggle("hidden"); if (!expand.classList.contains("hidden")) pw.focus(); };
+          row.querySelector(".dash-resume").onclick = function () {
+            err.textContent = "";
+            doResume(g.gameId, pw.value, function (msg) { err.textContent = msg || "Could not resume."; });
+          };
+          wrap.appendChild(row);
+        });
+      });
+    }
+    // Resume: rotate hostToken via /resume, hydrate, rebuild seats, restart loops.
+    function doResume(gameId, pw, onErr) {
+      NET.resumeGame(gameId, pw).then(function (r) {
+        if (!r || r.error === "forbidden") { onErr && onErr("Wrong password."); return; }
+        if (!r.hostToken || !r.state) { onErr && onErr("Could not resume."); return; }
+        state = hydrateState(r.state);
+        state.gameId = gameId; state.hostToken = r.hostToken; state.version = (typeof r.version === "number" ? r.version : state.version);
+        saveHostLS();
+        enterActiveGame();
+        // Re-save right away so the stored status flips from paused back to active
+        // (hydrateState clears the paused flag but nothing else would persist it).
+        markDirty(); flushDirty();
+        // If a wheel spin was persisted mid-flight, finish judging without animating.
+        if (state.wheelWinner) resumeWheelResolution();
+      });
+    }
+    function enterActiveGame() {
+      $("dashboard").classList.add("hidden"); $("setup").classList.add("hidden"); $("winner").classList.add("hidden"); $("takeoverOverlay").classList.add("hidden");
+      $("topbar").classList.remove("hidden"); $("game").classList.remove("hidden");
+      var meta = state.catMeta || catMetaFromKeys(state.catsList);
+      $("catPill").innerHTML = '<span class="cat-chip"><span class="cat-dot" style="background:' + meta.color + '"></span>' + meta.emoji + ' ' + escapeHtml(meta.label) + '</span>';
+      $("targetLabel").textContent = state.target;
+      buildSeats(); layoutSeats(); render();
+      updatePhonesBtnVisibility();
+      startIntentPolling();
+      if (state.phase === "steal") { state.stealRemaining = STEAL_SECONDS; startStealTimer(); } // fresh window on reload
+    }
+    // Deterministic mid-spin resume: the winner was persisted, so apply the steal result
+    // without animating the wheel.
+    function resumeWheelResolution() {
+      if (!state.wheelWinner || state.phase !== "steal") { state.wheelWinner = null; return; }
+      var winnerIdx = state.wheelWinner.idx;
+      state.stealers = state.stealers.filter(function (st) { return st.idx === winnerIdx || st.slot !== state.wheelWinner.slot; });
+      state.wheelWinner = null;
+      resolveRound();
+    }
+    function onPause() {
+      if (!state) { showDashboard(); return; }
+      state.paused = true;
+      flushDirty();
+      stopIntentPolling(); stopStealTimer();
+      showDashboard();
+    }
+
+    /* ================== S6: SETUP UI ================== */
     function renderNames() {
       var wrap = $("names"); wrap.innerHTML = "";
       var defaults = ["Patrick", "Karl", "Karina", "Player 4"];
@@ -781,7 +1023,7 @@
         : '<span class="warn">Only ' + songs.length + ' songs match your categories and years ' + span + ', not enough for ' + setup.count + ' players. Widen the year range or tick more categories.</span>';
     }
 
-    // ---------- year-span control (item 1) ----------
+    // ---------- year-span control (issue #30 item 1) ----------
     function updateYearFill() {
       var span = (yearBounds.hi - yearBounds.lo) || 1;
       var a = (setup.yearMin - yearBounds.lo) / span * 100;
@@ -811,14 +1053,7 @@
       updateYearFill();
     }
 
-    Array.prototype.slice.call($("countSeg").children).forEach(function (b) {
-      b.onclick = function () {
-        Array.prototype.slice.call($("countSeg").children).forEach(function (x) { x.classList.remove("on"); });
-        b.classList.add("on"); setup.count = parseInt(b.dataset.n, 10); renderNames(); validateSetup();
-      };
-    });
-
-    // ---------- start ----------
+    /* ================== S7: TURN ENGINE ================== */
     function startGame() {
       var names = [];
       for (var i = 0; i < setup.count; i++) { var v = ($("p" + i).value || "").trim(); names.push(v || ("Player " + (i + 1))); }
@@ -827,35 +1062,48 @@
       var pool = poolSongs();
       if (setup.cats.size === 0 || pool.length < setup.count + 2) { alert("Tick at least one category with enough songs."); return; }
       var deck = shuffle(pool);
-      var players = names.map(function (n, i) { return { name: n, color: PALETTE[i % PALETTE.length], timeline: [], coins: coinsPerPlayer }; });
+      // roundsPlayed (PROTOCOL field) counts turns actually taken; used by the equalizer.
+      var players = names.map(function (n, i) { return { idx: i, name: n, color: PALETTE[i % PALETTE.length], timeline: [], coins: coinsPerPlayer, roundsPlayed: 0, claimed: false }; });
       for (var p = 0; p < players.length; p++) if (deck.length) players[p].timeline.push(deck.pop());
 
       var meta = pillMeta();
+      var catsList = []; setup.cats.forEach(function (k) { catsList.push(k); });
+      var gameName = (($("gameName") && $("gameName").value) || "").trim() || "Hitster game";
+      var password = (($("gamePassword") && $("gamePassword").value) || "").trim();
       state = {
-        players: players, deck: deck, current: 0, target: target, n: players.length,
-        catMeta: meta, phase: "draw", card: null, chosenSlot: null, result: null, locked: false,
+        players: players, deck: deck, current: 0, viewIdx: 0, target: target, n: players.length,
+        coinsPerPlayer: coinsPerPlayer, catsList: catsList,
+        catMeta: meta, phase: "place", card: null, chosenSlot: null, result: null, locked: false,
         stealers: [], stealUsed: {}, stealPickerIdx: null, stealPick: null, stealEligibleIdx: [],
         stealRemaining: 0, stealTimerId: null,
-        room: generateRoomCode(), round: 0, bonus: { guessedBy: null, awarded: false, result: null }
+        revealInFlight: false, wheelWinner: null, final: null,
+        room: generateRoomCode(), round: 0, pending: [],
+        gameId: null, hostToken: null, version: 0, name: gameName, password: password, createdAt: Date.now(), paused: false
       };
 
-      $("setup").classList.add("hidden"); $("winner").classList.add("hidden");
+      $("dashboard").classList.add("hidden"); $("setup").classList.add("hidden"); $("winner").classList.add("hidden");
       $("topbar").classList.remove("hidden"); $("game").classList.remove("hidden");
       $("catPill").innerHTML = '<span class="cat-chip"><span class="cat-dot" style="background:' + meta.color + '"></span>' + meta.emoji + ' ' + escapeHtml(meta.label) + '</span>';
       $("targetLabel").textContent = state.target;
 
       buildSeats();
       layoutSeats();
-      render();
-      publishRoomState();
-      teardownSpotify();
-      // Phones QR on start (item 3): if the backend is up, show the room QR once
-      // so everyone can connect before the first draw. The topbar Phones button
-      // keeps working as before. Skipped entirely when the backend is absent.
-      if (backendAvailable) openPhonesOverlay();
+      beginTurnDraw();   // player 1 gets their first song automatically, no draw press
+
+      // Create the backend game once (online only), then start intent polling.
+      if (NET.available) {
+        NET.createGame(state.name, state.password, serializeState()).then(function (r) {
+          if (r && r.gameId) {
+            state.gameId = r.gameId; state.hostToken = r.hostToken; state.version = r.version || 1;
+            saveHostLS(); updatePhonesBtnVisibility(); startIntentPolling();
+            // Phones QR on start (issue #30 item 3): once the game is registered,
+            // show the join QR so everyone can connect before the first placement.
+            openPhonesOverlay();
+          }
+        });
+      }
     }
 
-    // ---------- seats ----------
     function buildSeats() {
       var stage = $("stage");
       Array.prototype.slice.call(stage.querySelectorAll(".seat")).forEach(function (e) { e.remove(); });
@@ -900,8 +1148,304 @@
       }
     }
 
-    // ---------- render ----------
-    function render() { renderSeats(); renderHub(); renderHero(); $("deckLeft").textContent = state.deck.length; }
+    // Auto-draw: draws the current player's song and opens the place phase. Called by
+    // startGame (player 1) and by onNext (after advancing). Increments roundsPlayed and
+    // snaps the view back to the current player.
+    function beginTurnDraw() {
+      if (state.locked || state.phase === "over") return;
+      if (!state.deck.length) { endGame("deck"); return; }
+      teardownSpotify();
+      state.card = state.deck.pop(); state.chosenSlot = null; state.result = null; state.phase = "place";
+      state.revealInFlight = false; state.wheelWinner = null;
+      state.round += 1;
+      state.players[state.current].roundsPlayed += 1;
+      state.viewIdx = state.current;
+      state.pending = [];
+      render();
+      markDirty();
+    }
+
+    function discardAndRedraw() {
+      // A fresh song for the SAME turn: does not count as a new round played.
+      if (!state.deck.length) { endGame("deck"); return; }
+      teardownSpotify();
+      state.card = state.deck.pop();
+      state.chosenSlot = null;
+      state.round += 1;
+      state.viewIdx = state.current;
+      state.pending = [];
+      render();
+      markDirty();
+    }
+    function onSkipDuplicate() {
+      // Discard the current (already-heard) song and draw a fresh one for the same player, no penalty.
+      if (state.locked || state.phase !== "place") return;
+      discardAndRedraw();
+    }
+    function onSkipCoin() {
+      // Same discard-and-redraw, but costs the current player one Hitster coin.
+      if (state.locked || state.phase !== "place") return;
+      var p = state.players[state.current];
+      if (p.coins < 1) return;
+      p.coins -= 1;
+      discardAndRedraw();
+    }
+
+    function onLockIn() {
+      if (dragState.active) forceEndDrag();   // finalize any in-flight drag before committing
+      if (state.locked || state.phase !== "place" || state.chosenSlot === null) return;
+      teardownSpotify();
+      state.stealers = []; state.stealUsed = {}; state.stealPickerIdx = null; state.stealPick = null;
+      state.stealEligibleIdx = [];
+      // B1: a player at target - 1 cards cannot steal (match-point rule).
+      for (var i = 0; i < state.n; i++) { if (i !== state.current && state.players[i].coins >= 1 && state.players[i].timeline.length < state.target - 1) state.stealEligibleIdx.push(i); }
+      if (state.stealEligibleIdx.length === 0) { resolveRound(); return; }
+      state.phase = "steal"; state.stealRemaining = STEAL_SECONDS;
+      startStealTimer(); render();
+      markDirty();
+    }
+    function startStealTimer() {
+      stopStealTimer();
+      state.stealTimerId = setInterval(function () {
+        state.stealRemaining -= 0.1;
+        if (state.stealRemaining <= 0.001) { state.stealRemaining = 0; stopStealTimer(); resolveRound(); }
+        else { renderHub(); }
+      }, 100);
+    }
+    function stopStealTimer() { if (state && state.stealTimerId) { clearInterval(state.stealTimerId); state.stealTimerId = null; } }
+
+    function onStealPress(idx) {
+      if (state.phase !== "steal" || state.stealPickerIdx !== null) return;
+      if (idx === state.current) return;
+      if (state.stealEligibleIdx.indexOf(idx) === -1 || state.stealUsed[idx]) return;
+      stopStealTimer();
+      state.players[idx].coins -= 1; // spent immediately, whether or not the steal succeeds
+      state.stealUsed[idx] = true;
+      state.stealPickerIdx = idx; state.stealPick = null;
+      render();
+      markDirty();
+    }
+    function onConfirmSteal() {
+      if (state.stealPickerIdx === null || state.stealPick === null) return;
+      state.stealers.push({ idx: state.stealPickerIdx, slot: state.stealPick });
+      state.stealPickerIdx = null; state.stealPick = null;
+      var allUsed = state.stealEligibleIdx.length > 0 && state.stealEligibleIdx.every(function (idx) { return state.stealUsed[idx]; });
+      if (allUsed || state.stealRemaining <= 0) { resolveRound(); return; }
+      startStealTimer(); render();
+      markDirty();
+    }
+    function onRevealNow() {
+      if (state.phase !== "steal") return;
+      stopStealTimer();
+      state.stealPickerIdx = null; state.stealPick = null;
+      resolveRound();
+    }
+
+    // Step 1: judge the turn player's placement. If correct, reveal immediately. If wrong,
+    // resolve any steal attempts (same-slot collisions go through a wheel) then reveal.
+    // The revealInFlight latch means the timer, "Reveal now", and wheel callbacks cannot
+    // double-commit the same round.
+    function resolveRound() {
+      if (state.revealInFlight) return;
+      state.revealInFlight = true;
+      stopStealTimer();
+      teardownSpotify();
+      clearPhonePickTimers();
+      state.stealPickerIdx = null; state.stealPick = null;
+      var p = state.players[state.current], tl = sortTl(p.timeline), k = state.chosenSlot, y = state.card.year;
+      var leftOk = (k === 0) || (tl[k - 1].year <= y), rightOk = (k === tl.length) || (y <= tl[k].year);
+      var correct = leftOk && rightOk;
+      state._roundCorrect = correct;
+      if (correct) { p.timeline.push(state.card); finishReveal(null); return; }
+      resolveStealsThenReveal(tl, y);
+    }
+
+    // Group stealers by the slot they picked, preserving lock order.
+    function groupStealersBySlot(stealers) {
+      var bySlot = {}, order = [];
+      for (var i = 0; i < stealers.length; i++) {
+        var key = String(stealers[i].slot);
+        if (!bySlot[key]) { bySlot[key] = []; order.push(key); }
+        bySlot[key].push(stealers[i]);
+      }
+      return { bySlot: bySlot, order: order };
+    }
+
+    // Resolve steal attempts. Any same-slot group of 2+ is decided by a spin wheel; the
+    // winner is chosen up front (persisted to state.wheelWinner so a reload resolves
+    // deterministically) and only then animated. Single-slot stealers pass straight through.
+    function resolveStealsThenReveal(tl, y) {
+      var g = groupStealersBySlot(state.stealers);
+      var slotWinner = {}; // slot key -> the stealer object that gets the attempt
+      var collisions = [];
+      for (var oi = 0; oi < g.order.length; oi++) {
+        var key = g.order[oi];
+        if (g.bySlot[key].length === 1) slotWinner[key] = g.bySlot[key][0];
+        else collisions.push(key);
+      }
+      var ci = 0;
+      function nextWheel() {
+        if (ci >= collisions.length) { judgeAndReveal(); return; }
+        var key = collisions[ci++];
+        var group = g.bySlot[key];
+        var cands = group.map(function (st) { return st.idx; });
+        var winnerIdx = cands[Math.floor(Math.random() * cands.length)];
+        state.wheelWinner = { slot: parseInt(key, 10), idx: winnerIdx };
+        runStealWheel(cands, winnerIdx, function () {
+          for (var w = 0; w < group.length; w++) if (group[w].idx === winnerIdx) { slotWinner[key] = group[w]; break; }
+          state.wheelWinner = null;
+          nextWheel();
+        });
+      }
+      function judgeAndReveal() {
+        // First correct attempt in original lock order wins; collision losers get no attempt.
+        var stolenBy = null;
+        for (var i = 0; i < state.stealers.length; i++) {
+          var st = state.stealers[i];
+          if (slotWinner[String(st.slot)] !== st) continue;
+          var sk = st.slot;
+          var sLeftOk = (sk === 0) || (tl[sk - 1].year <= y), sRightOk = (sk === tl.length) || (y <= tl[sk].year);
+          if (sLeftOk && sRightOk) { stolenBy = st.idx; state.players[st.idx].timeline.push(state.card); break; }
+        }
+        finishReveal(stolenBy);
+      }
+      nextWheel();
+    }
+
+    // Step 2: commit the result, resolve pending guesses (the single payout point),
+    // reveal, and run the win / equalizer check.
+    function finishReveal(stolenBy) {
+      state.result = { correct: state._roundCorrect, stolenBy: stolenBy, attempted: state.stealers.length > 0 };
+      state.phase = "revealed";
+      resolvePending();
+      render();
+      markDirty();
+      var winnerIdx = null;
+      if (state.result.correct && state.players[state.current].timeline.length >= state.target) winnerIdx = state.current;
+      else if (stolenBy !== null && state.players[stolenBy].timeline.length >= state.target) winnerIdx = stolenBy;
+      if (winnerIdx !== null) onPlayerReachedTarget(winnerIdx);
+    }
+
+    // Equalizer: when the first player reaches target, every other player at target - 1 with
+    // fewer roundsPlayed gets one final turn. If nobody qualifies, the game ends now.
+    function onPlayerReachedTarget(idx) {
+      if (state.final) {
+        if (state.final.suddenDeath) return; // sudden death is driven by settleFinal cycles
+        if (state.final.finishers.indexOf(idx) === -1) state.final.finishers.push(idx);
+        updateRoundPill();
+        markDirty();
+        return;
+      }
+      var queue = [];
+      for (var j = 1; j < state.n; j++) {
+        var c = (idx + j) % state.n;
+        if (state.players[c].timeline.length >= state.target - 1 && state.players[c].roundsPlayed < state.players[idx].roundsPlayed) queue.push(c);
+      }
+      if (queue.length === 0) {
+        // Instant win, locked so a fast Next tap cannot change it.
+        state.locked = true;
+        setTimeout(function () { endGame("target", [idx]); }, 900);
+        return;
+      }
+      state.final = { finishers: [idx], queue: queue, mode: TIE_MODE, suddenDeath: false };
+      updateRoundPill();
+      markDirty();
+    }
+
+    function topTied(idxs) {
+      var maxCards = -1;
+      for (var i = 0; i < idxs.length; i++) maxCards = Math.max(maxCards, state.players[idxs[i]].timeline.length);
+      return idxs.filter(function (i) { return state.players[i].timeline.length === maxCards; });
+    }
+    function startFinalTurn(idx) {
+      state.current = idx;
+      state.card = null; state.chosenSlot = null; state.result = null;
+      state.stealers = []; state.stealUsed = {}; state.stealPickerIdx = null; state.stealPick = null; state.stealEligibleIdx = [];
+      layoutSeats();
+      beginTurnDraw();
+    }
+    // Called when a final-turn queue empties. Ends the game or starts the next sudden-death cycle.
+    function settleFinal() {
+      var f = state.final;
+      if (!f.suddenDeath) {
+        if (f.finishers.length === 1) { endGame("target", [f.finishers[0]]); return; }
+        if (f.mode === "shared") { endGame("target-shared", f.finishers.slice()); return; }
+        var tied = topTied(f.finishers);
+        if (tied.length === 1) { endGame("target", [tied[0]]); return; }
+        f.suddenDeath = true; f.tied = tied; f.queue = tied.slice();
+        updateRoundPill();
+        startFinalTurn(f.queue.shift());
+        return;
+      }
+      // A full sudden-death cycle just finished.
+      var lead = topTied(f.tied);
+      if (lead.length === 1) { endGame("sudden", [lead[0]]); return; }
+      if (!state.deck.length) { endGame("deck", f.tied.slice()); return; }
+      f.queue = f.tied.slice();
+      startFinalTurn(f.queue.shift());
+    }
+
+    function onNext() {
+      if (state.locked || state.phase === "over") return;
+      teardownSpotify();
+      if (state.final) {
+        if (state.final.queue.length > 0) { startFinalTurn(state.final.queue.shift()); return; }
+        settleFinal();
+        return;
+      }
+      if (!state.deck.length) { endGame("deck"); return; }
+      state.current = (state.current + 1) % state.n;
+      state.card = null; state.chosenSlot = null; state.result = null;
+      state.stealers = []; state.stealUsed = {}; state.stealPickerIdx = null; state.stealPick = null; state.stealEligibleIdx = [];
+      layoutSeats();
+      beginTurnDraw();   // draw the next player's song immediately
+    }
+
+    // endGame now takes an ARRAY of winner indices. Empty/absent means decide by standings.
+    function endGame(reason, winnerIdxs) {
+      stopStealTimer();
+      stopIntentPolling();
+      var ranked = state.players.map(function (p, i) { return { p: p, i: i, n: p.timeline.length }; }).sort(function (a, b) { return b.n - a.n; });
+      var winners = Array.isArray(winnerIdxs) ? winnerIdxs.slice() : (typeof winnerIdxs === "number" ? [winnerIdxs] : []);
+      var deckTie = false;
+      if (winners.length === 0) {
+        var top = ranked[0];
+        winners = ranked.filter(function (r) { return r.n === top.n; }).map(function (r) { return r.i; });
+        deckTie = winners.length > 1;
+      }
+      var names = winners.map(function (i) { return state.players[i].name; });
+      var shared = winners.length > 1;
+      if (deckTie) $("winName").textContent = "It is a tie";
+      else if (shared) $("winName").textContent = names.join(" and ") + " share the win";
+      else $("winName").textContent = (names[0] || "Nobody") + " wins";
+      $("winSub").textContent = reason === "deck" ? "The deck ran out. Standings by cards collected."
+        : reason === "sudden" ? "Won on sudden death."
+        : reason === "target-shared" ? "Tied at the target: the win is shared."
+        : "First to " + state.target + " cards.";
+      var ol = $("standings"); ol.innerHTML = "";
+      ranked.forEach(function (r, idx) {
+        var li = document.createElement("li");
+        li.innerHTML = '<span class="rank">' + (idx + 1) + '</span><span class="avatar" style="width:24px;height:24px;font-size:11px;background:' + r.p.color + '">' + initials(r.p.name) + '</span><span>' + escapeHtml(r.p.name) + '</span><span class="sc">' + r.n + ' cards</span>';
+        ol.appendChild(li);
+      });
+      state.phase = "over"; state.final = null; updateRoundPill();
+      flushDirty();   // persist the finished result immediately
+      $("winner").classList.remove("hidden");
+    }
+
+    function updateRoundPill() {
+      var el = $("roundPill"); if (!el) return;
+      if (!state || !state.final || state.phase === "over") { el.classList.add("hidden"); el.textContent = ""; return; }
+      if (state.final.suddenDeath) { el.textContent = "SUDDEN DEATH"; }
+      else {
+        var nextIdx = state.final.queue.length ? state.final.queue[0] : state.current;
+        el.textContent = "FINAL ROUND: " + state.players[nextIdx].name + " can equalize";
+      }
+      el.classList.remove("hidden");
+    }
+
+    /* ================== S8: RENDER ================== */
+    function render() { renderSeats(); renderHub(); renderHero(); updateRoundPill(); $("deckLeft").textContent = state.deck.length; }
 
     function renderSeats() {
       var seats = $("stage").querySelectorAll(".seat");
@@ -920,28 +1464,44 @@
             '<div class="y">' + c.year + '</div><div class="t">' + escapeHtml(c.title) + '</div>';
           mini.appendChild(d);
         });
+        s.classList.toggle("focused", state.viewIdx === i && i !== state.current);
+        s.classList.toggle("connected", !!p.claimed);
+        s.onclick = function (ev) { onSeatClick(i, ev); };
         var stealBtn = s.querySelector(".steal-btn");
         var isOpponent = i !== state.current;
         var eligibleNow = state.stealEligibleIdx.indexOf(i) !== -1;
-        var show = state.phase === "steal" && isOpponent && eligibleNow;
-        stealBtn.classList.toggle("hidden", !show);
-        if (show) {
+        var atMatchPoint = p.timeline.length >= state.target - 1;
+        var showSteal = state.phase === "steal" && isOpponent && eligibleNow;
+        // B1: a coin-holding opponent barred ONLY by the match-point rule sees a disabled tag.
+        var showMatchPoint = state.phase === "steal" && isOpponent && !eligibleNow && p.coins >= 1 && atMatchPoint;
+        stealBtn.classList.toggle("hidden", !(showSteal || showMatchPoint));
+        if (showMatchPoint) { stealBtn.textContent = "At match point"; stealBtn.disabled = true; }
+        else if (showSteal) {
           if (state.stealPickerIdx === i) { stealBtn.textContent = "Choosing..."; stealBtn.disabled = true; }
           else if (state.stealUsed[i]) { stealBtn.textContent = "Steal used"; stealBtn.disabled = true; }
           else if (state.stealPickerIdx !== null) { stealBtn.textContent = "Steal! (1 🪙)"; stealBtn.disabled = true; }
           else { stealBtn.textContent = "Steal! (1 🪙)"; stealBtn.disabled = false; }
         }
-        stealBtn.onclick = function () { onStealPress(i); };
+        stealBtn.onclick = function (ev) { if (ev) ev.stopPropagation(); onStealPress(i); };
       };
       for (var i = 0; i < seats.length; i++) _loop(i);
+    }
+
+    // Tapping a seat toggles the read-only view of that player's timeline; tapping the
+    // current player's own seat, or the same seat again, returns to the live turn.
+    function onSeatClick(i, ev) {
+      if (dragState.active) return;
+      if (ev && ev.target && ev.target.closest && ev.target.closest(".steal-btn")) return;
+      if (i === state.current) state.viewIdx = state.current;
+      else state.viewIdx = (state.viewIdx === i) ? state.current : i;
+      renderSeats(); renderHero();
     }
 
     function renderHub() {
       var hub = $("hub"), c = $("hubcard");
       hub.classList.toggle("live", state.phase === "place");
-      if (state.phase === "draw") {
-        c.innerHTML = '<div class="waiting"><span class="big">🎧</span>Press <b>Draw song</b> to flip a QR code, then scan it to hear the track.</div>';
-      } else if (state.phase === "place") {
+      if (state.phase === "place") {
+        var curName = state.players[state.current].name;
         var canPlay = canPlayHere();
         var playBtn = canPlay
           ? '<button class="btn ghost" type="button" id="playHereBtn">' + (spotifyPlaying ? "■ Stop" : "▶ Play here") + '</button>'
@@ -949,6 +1509,7 @@
         var playNote = canPlay ? '<div class="scan-hint">Play here plays on this screen only, keep it hidden from players.</div>' : "";
         c.innerHTML = '<h3>Scan to play</h3><div class="qr"><img alt="Spotify QR" src="' + qrSrc(state.card) + '" /></div>' +
           '<div class="eq"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>' +
+          '<div class="scan-hint">New song for <b>' + escapeHtml(curName) + '</b>, scan when ready. Press play, do not read the title, then drag the card below into a gap.</div>' +
           '<div class="row"><button class="btn ghost" type="button" id="qrBigBtn">Show QR big</button>' + playBtn +
           '<a class="btn ghost" href="' + state.card.url + '" target="_blank" rel="noopener">Open in Spotify</a></div>' + playNote;
         makeDraggableHub();
@@ -978,33 +1539,37 @@
     }
 
     function renderHero() {
-      var p = state.players[state.current];
+      var hero = $("hero");
+      var isView = state.viewIdx !== state.current;
+      var p = state.players[state.viewIdx];
+      var cur = state.players[state.current];
+      hero.style.borderLeft = isView ? ("4px solid " + p.color) : "";
       $("heroAvatar").style.background = p.color; $("heroAvatar").textContent = initials(p.name);
       $("heroName").firstChild.textContent = p.name;
       $("heroCoins").textContent = "🪙 " + p.coins;
       var sub = $("heroSub"), actions = $("heroActions"), instr = $("instructions");
       actions.innerHTML = ""; var tl = sortTl(p.timeline);
-      if (state.phase === "draw") {
-        sub.textContent = "your turn: draw a song";
-        instr.innerHTML = "Draw a song, everyone can scan the QR to hear it. Then place it in <b>your</b> timeline by release year.";
-        addBtn(actions, "Draw song", "primary", onDraw);
+      if (isView) {
+        // Read-only peek at another player's timeline while it stays someone else's turn.
+        sub.innerHTML = '<span class="viewing-pill">VIEWING</span>' + escapeHtml(p.name) + "'s timeline";
+        instr.innerHTML = "It is <b>" + escapeHtml(cur.name) + "</b>'s turn. You are viewing <b>" + escapeHtml(p.name) + "</b>'s cards.";
+        addBtn(actions, "Back to turn", "ghost", function () { state.viewIdx = state.current; renderSeats(); renderHero(); });
         renderTimeline(tl, {});
-      } else if (state.phase === "place") {
-        sub.textContent = "listen, then pick a slot";
-        instr.innerHTML = "Tap a <b>+</b> slot, or drag the card down from the hub, to place the song in <b>your</b> timeline by year. Then press <b>Lock in answer</b>.";
+        renderGuessStrip();
+        return;
+      }
+      if (state.phase === "place") {
+        sub.textContent = "listen, then drag the card into place";
+        instr.innerHTML = "Drag the card from the hub into a gap in <b>your</b> timeline by release year. Re-drag it freely to adjust, then press <b>Lock in answer</b>.";
         addBtn(actions, "Lock in answer", "primary", onLockIn).disabled = (state.chosenSlot === null);
-        addBtn(actions, "Skip duplicate", "ghost", function () {
-          showConfirm({ title: "Skip this song?", message: "Discard the current song and draw a new one for you. No penalty.", okLabel: "Skip", onConfirm: onSkipDuplicate });
-        });
-        var skipCoin = addBtn(actions, "Skip with coin", "ghost", function () {
-          showConfirm({ title: "Skip with a coin?", message: "Spend one Hitster coin to discard this song and draw a new one.", okLabel: "Spend coin", onConfirm: onSkipCoin });
-        });
+        addBtn(actions, "Skip duplicate", "ghost", onSkipDuplicate);
+        var skipCoin = addBtn(actions, "Skip with coin", "ghost", onSkipCoin);
         if (p.coins < 1) { skipCoin.disabled = true; skipCoin.title = "No coins left"; }
-        renderTimeline(tl, { interactiveSlots: true, tentativeSlot: state.chosenSlot });
+        renderPlaceTimeline(true);
       } else if (state.phase === "steal" && state.stealPickerIdx !== null) {
         var stealer = state.players[state.stealPickerIdx];
         sub.textContent = stealer.name + " is choosing a steal spot";
-        instr.innerHTML = "<b>" + escapeHtml(stealer.name) + "</b> spent a coin to steal. Tap a slot in <b>" + escapeHtml(p.name) + "'s</b> timeline below (not the marked NEW slot), then confirm.";
+        instr.innerHTML = "<b>" + escapeHtml(stealer.name) + "</b> spent a coin to steal. Tap a gap in <b>" + escapeHtml(p.name) + "'s</b> timeline below (not the marked NEW slot), then confirm.";
         addBtn(actions, "Confirm steal", "primary", onConfirmSteal).disabled = (state.stealPick === null);
         renderTimeline(tl, { tentativeSlot: state.chosenSlot, stealSlots: true, stealColor: stealer.color });
       } else if (state.phase === "steal") {
@@ -1015,57 +1580,78 @@
       } else if (state.phase === "revealed") {
         sub.textContent = state.result.correct ? "nice, card added" : "no card this time";
         instr.innerHTML = state.result.correct ? "It slots into your timeline. Pass on." : "Not the right spot. Pass on.";
-        addBtn(actions, "Next player", "primary", onNext);
+        var nextLabel = "Next player";
+        if (state.final) {
+          if (state.final.queue.length) nextLabel = (state.final.suddenDeath ? "Sudden death: " : "Final turn: ") + state.players[state.final.queue[0]].name;
+          else nextLabel = "Settle the round";
+        }
+        addBtn(actions, nextLabel, "primary", onNext);
         renderTimeline(sortTl(p.timeline), {});
       }
-      renderBonusBanner();
+      renderGuessStrip();
     }
 
-    function renderBonusBanner() {
-      var el = $("bonusBanner");
+    // Pending phone-guess chips between the instructions and the timeline. A chip pulses
+    // while unjudged, then turns good/bad at reveal. Answer text is never shown until reveal.
+    function renderGuessStrip() {
+      var el = $("guessStrip");
       if (!el) return;
-      if (!state.bonus || !state.bonus.result) { el.innerHTML = ""; return; }
-      var good = state.bonus.result === "correct";
-      el.innerHTML = '<span class="bonus-banner ' + (good ? "good" : "bad") + '">' +
-        (good
-          ? ("🪙 " + escapeHtml(state.bonus.guessedBy) + " nailed the bonus guess from their phone, +1 coin")
-          : (escapeHtml(state.bonus.guessedBy) + "'s bonus guess from their phone was wrong, no coin")) +
-        '</span>';
+      var list = state.pending || [];
+      if (!list.length) { el.innerHTML = ""; el.classList.add("hidden"); return; }
+      el.classList.remove("hidden");
+      var html = "";
+      for (var i = 0; i < list.length; i++) {
+        var g = list[i];
+        var pl = state.players[g.playerIdx] || { color: "#c9c4ff", name: g.player || "?" };
+        var cls = "guess-chip" + (g.judged ? (" " + g.judged) : " pending");
+        var tag = g.type === "source" ? "where it's from" : "artist + title";
+        var extra = g.judged === "correct" && g.coinAwarded ? " +1 🪙" : "";
+        html += '<span class="' + cls + '"><span class="gc-dot" style="background:' + pl.color + '"></span>' +
+          escapeHtml(pl.name) + ' <span class="gc-tag">' + tag + '</span>' + extra + '</span>';
+      }
+      el.innerHTML = html;
     }
 
+    // Render the current player's placement timeline. showTentative=false is used only
+    // for the single controlled re-render at the start of a tentative-card re-drag.
+    function renderPlaceTimeline(showTentative) {
+      var p = state.players[state.current];
+      renderTimeline(sortTl(p.timeline), { placeGaps: true, tentativeSlot: showTentative ? state.chosenSlot : null });
+    }
     function renderTimeline(tl, cfg) {
       cfg = cfg || {};
       var wrap = $("timeline"); wrap.innerHTML = "";
       for (var k = 0; k <= tl.length; k++) {
         if (cfg.tentativeSlot === k) {
           wrap.appendChild(makeTentativeCard());
-        } else if (cfg.interactiveSlots) {
-          wrap.appendChild(makeSlot(k));
+        } else if (cfg.placeGaps) {
+          wrap.appendChild(makeGap(k));
         } else if (cfg.stealSlots) {
-          wrap.appendChild(makeStealSlot(k, cfg.stealColor));
+          wrap.appendChild(makeStealGap(k, cfg.stealColor));
         }
         if (k < tl.length) wrap.appendChild(makeTCard(tl[k]));
       }
-      if (!cfg.interactiveSlots && !cfg.stealSlots && cfg.tentativeSlot == null && tl.length === 0) {
+      if (!cfg.placeGaps && !cfg.stealSlots && cfg.tentativeSlot == null && tl.length === 0) {
         var e = document.createElement("div"); e.className = "instructions"; e.textContent = "No cards yet."; wrap.appendChild(e);
       }
     }
-    function makeSlot(k) {
+    // Passive drop-zone gap (drag-only, no button, no click). Data-k identifies the slot.
+    function makeGap(k) {
       var slot = document.createElement("div"); slot.className = "slot"; slot.dataset.k = String(k);
-      var b = document.createElement("button"); b.type = "button"; b.textContent = "+";
-      b.onclick = function () { state.chosenSlot = k; renderHero(); };
-      slot.appendChild(b); return slot;
+      return slot;
     }
-    function makeStealSlot(k, color) {
-      var slot = document.createElement("div"); slot.className = "slot" + (state.stealPick === k ? " steal-chosen" : "");
+    // Steal gaps keep click-to-pick (the stealer taps rather than drags).
+    function makeStealGap(k, color) {
+      var slot = document.createElement("div"); slot.className = "slot steal-gap" + (state.stealPick === k ? " steal-chosen" : ""); slot.dataset.k = String(k);
       slot.style.setProperty("--steal-color", color || "var(--accent)");
-      var b = document.createElement("button"); b.type = "button"; b.textContent = "+";
-      b.onclick = function () { state.stealPick = k; renderHero(); };
-      slot.appendChild(b); return slot;
+      slot.onclick = function () { state.stealPick = k; renderHero(); };
+      return slot;
     }
     function makeTentativeCard() {
       var d = document.createElement("div"); d.className = "tcard tentative";
       d.innerHTML = '<span class="new-badge">NEW</span><div class="y">?</div><div class="t">New card</div>';
+      // The tentative card is itself a drag handle for re-placing before lock-in.
+      d.onpointerdown = function (ev) { beginPlacementDrag(ev, "tentative"); };
       return d;
     }
     function makeTCard(c) {
@@ -1075,33 +1661,51 @@
     }
     function addBtn(parent, label, cls, fn) { var b = document.createElement("button"); b.className = "btn " + (cls || ""); b.textContent = label; b.onclick = fn; parent.appendChild(b); return b; }
 
-    // ---------- drag and drop (pointer events, works for mouse and touch) ----------
+    /* ================== S9: DRAG AND DROP ================== */
+    // Pointer events, works for mouse and touch. Placement is drag-only: drag from the
+    // hub QR or re-drag the tentative card into a gap. Move/up listeners live on the
+    // document (not the origin node) because re-rendering removes the origin element.
     function makeDraggableHub() {
       if (!window.PointerEvent) return;
       var qrEl = document.querySelector("#hubcard .qr");
       if (!qrEl) return;
       qrEl.classList.add("draggable");
-      qrEl.onpointerdown = function (ev) {
-        if (state.phase !== "place") return;
-        dragState.active = true;
-        try { qrEl.setPointerCapture(ev.pointerId); } catch (e) { /* not fatal */ }
-        dragState.ghost = document.createElement("div");
-        dragState.ghost.className = "drag-ghost";
-        dragState.ghost.innerHTML = '<img alt="" src="' + qrSrc(state.card) + '" />';
-        document.body.appendChild(dragState.ghost);
-        moveGhost(ev.clientX, ev.clientY);
-        ev.preventDefault();
-      };
-      qrEl.onpointermove = function (ev) {
-        if (!dragState.active) return;
-        moveGhost(ev.clientX, ev.clientY);
-        updateSlotHighlight(ev.clientX, ev.clientY);
-      };
-      qrEl.onpointerup = function (ev) { endDrag(ev.clientX, ev.clientY); };
-      qrEl.onpointercancel = function () { endDrag(null, null); };
+      qrEl.onpointerdown = function (ev) { beginPlacementDrag(ev, "hub"); };
     }
+    function beginPlacementDrag(ev, source) {
+      if (!window.PointerEvent) return;
+      if (state.phase !== "place" || state.viewIdx !== state.current || dragState.active) return;
+      dragState.active = true;
+      dragState.prevSlot = state.chosenSlot;   // restored if the drop misses every gap
+      dragState.lastX = ev.clientX; dragState.lastY = ev.clientY;
+      document.body.classList.add("dragging");
+      dragState.ghost = document.createElement("div");
+      dragState.ghost.className = "drag-ghost";
+      dragState.ghost.innerHTML = '<img alt="" src="' + qrSrc(state.card) + '" />';
+      document.body.appendChild(dragState.ghost);
+      // Re-dragging the tentative card: one controlled re-render WITHOUT it so every gap
+      // (including its old slot) is a drop target. No other re-render happens mid-drag.
+      if (source === "tentative") renderPlaceTimeline(false);
+      moveGhost(ev.clientX, ev.clientY);
+      document.addEventListener("pointermove", onDragMove, true);
+      document.addEventListener("pointerup", onDragUp, true);
+      document.addEventListener("pointercancel", onDragCancel, true);
+      ev.preventDefault();
+    }
+    function onDragMove(ev) {
+      if (!dragState.active) return;
+      dragState.lastX = ev.clientX; dragState.lastY = ev.clientY;
+      moveGhost(ev.clientX, ev.clientY);
+      updateSlotHighlight(ev.clientX, ev.clientY);
+      dragAutoScroll(ev.clientX);
+      ev.preventDefault();
+    }
+    function onDragUp(ev) { endDrag(ev.clientX, ev.clientY); }
+    function onDragCancel() { endDrag(null, null); }
+    function forceEndDrag() { if (dragState.active) endDrag(null, null); }
     function moveGhost(x, y) { if (dragState.ghost) { dragState.ghost.style.left = x + "px"; dragState.ghost.style.top = y + "px"; } }
     function findSlotAt(x, y) {
+      // Live getBoundingClientRect so hit-testing stays correct while auto-scrolling.
       var slots = document.querySelectorAll("#timeline .slot");
       for (var i = 0; i < slots.length; i++) {
         var r = slots[i].getBoundingClientRect();
@@ -1115,164 +1719,340 @@
       var hit = findSlotAt(x, y);
       if (hit) hit.classList.add("drag-over");
     }
+    // Auto-scroll the timeline when the pointer nears its left/right edge during a drag.
+    var autoScrollRAF = null, autoScrollSpeed = 0;
+    function dragAutoScroll(clientX) {
+      var wrap = $("timeline");
+      if (!wrap) { stopAutoScroll(); return; }
+      var r = wrap.getBoundingClientRect(), edge = 60, speed = 0;
+      if (clientX < r.left + edge) speed = -(r.left + edge - clientX);
+      else if (clientX > r.right - edge) speed = (clientX - (r.right - edge));
+      autoScrollSpeed = speed;
+      if (speed === 0) { stopAutoScroll(); return; }
+      if (autoScrollRAF) return;
+      var step = function () {
+        if (!dragState.active || autoScrollSpeed === 0) { autoScrollRAF = null; return; }
+        wrap.scrollLeft += autoScrollSpeed * 0.5;
+        updateSlotHighlight(dragState.lastX, dragState.lastY);
+        autoScrollRAF = requestAnimationFrame(step);
+      };
+      autoScrollRAF = requestAnimationFrame(step);
+    }
+    function stopAutoScroll() { autoScrollSpeed = 0; if (autoScrollRAF) { cancelAnimationFrame(autoScrollRAF); autoScrollRAF = null; } }
     function endDrag(x, y) {
       if (!dragState.active) return;
       dragState.active = false;
+      stopAutoScroll();
+      document.removeEventListener("pointermove", onDragMove, true);
+      document.removeEventListener("pointerup", onDragUp, true);
+      document.removeEventListener("pointercancel", onDragCancel, true);
+      document.body.classList.remove("dragging");
       if (dragState.ghost) { dragState.ghost.remove(); dragState.ghost = null; }
       var slots = document.querySelectorAll("#timeline .slot");
       for (var i = 0; i < slots.length; i++) slots[i].classList.remove("drag-over");
-      if (x === null || y === null) return;
-      var hit = findSlotAt(x, y);
-      if (hit && hit.dataset.k !== undefined) { state.chosenSlot = parseInt(hit.dataset.k, 10); renderHero(); }
-    }
-
-    // ---------- turns ----------
-    function onDraw() {
-      if (state.locked || state.phase === "over") return;
-      if (!state.deck.length) { endGame("deck"); return; }
-      teardownSpotify();
-      state.card = state.deck.pop(); state.chosenSlot = null; state.result = null; state.phase = "place";
-      state.round += 1;
-      state.bonus = { guessedBy: null, awarded: false, result: null };
-      render();
-      publishRoomState();
-      startGuessPolling();
-    }
-
-    function discardAndRedraw() {
-      if (!state.deck.length) { endGame("deck"); return; }
-      teardownSpotify();
-      state.card = state.deck.pop();
-      state.chosenSlot = null;
-      state.round += 1;
-      state.bonus = { guessedBy: null, awarded: false, result: null };
-      render();
-      publishRoomState();
-      startGuessPolling();
-    }
-    function onSkipDuplicate() {
-      // Discard the current (already-heard) song and draw a fresh one for the same player, no penalty.
-      if (state.locked || state.phase !== "place") return;
-      discardAndRedraw();
-    }
-    function onSkipCoin() {
-      // Same discard-and-redraw, but costs the current player one Hitster coin.
-      if (state.locked || state.phase !== "place") return;
-      var p = state.players[state.current];
-      if (p.coins < 1) return;
-      p.coins -= 1;
-      discardAndRedraw();
-    }
-
-    function onLockIn() {
-      if (state.locked || state.phase !== "place" || state.chosenSlot === null) return;
-      teardownSpotify();
-      stopGuessPolling();
-      state.stealers = []; state.stealUsed = {}; state.stealPickerIdx = null; state.stealPick = null;
-      state.stealEligibleIdx = [];
-      for (var i = 0; i < state.n; i++) { if (i !== state.current && state.players[i].coins >= 1) state.stealEligibleIdx.push(i); }
-      if (state.stealEligibleIdx.length === 0) { resolveRound(); return; }
-      state.phase = "steal"; state.stealRemaining = STEAL_SECONDS;
-      startStealTimer(); render();
-      publishRoomState();
-    }
-    function startStealTimer() {
-      stopStealTimer();
-      state.stealTimerId = setInterval(function () {
-        state.stealRemaining -= 0.1;
-        if (state.stealRemaining <= 0.001) { state.stealRemaining = 0; stopStealTimer(); resolveRound(); }
-        else { renderHub(); }
-      }, 100);
-    }
-    function stopStealTimer() { if (state.stealTimerId) { clearInterval(state.stealTimerId); state.stealTimerId = null; } }
-
-    function onStealPress(idx) {
-      if (state.phase !== "steal" || state.stealPickerIdx !== null) return;
-      if (idx === state.current) return;
-      if (state.stealEligibleIdx.indexOf(idx) === -1 || state.stealUsed[idx]) return;
-      stopStealTimer();
-      state.players[idx].coins -= 1; // spent immediately, whether or not the steal succeeds
-      state.stealUsed[idx] = true;
-      state.stealPickerIdx = idx; state.stealPick = null;
-      render();
-    }
-    function onConfirmSteal() {
-      if (state.stealPickerIdx === null || state.stealPick === null) return;
-      state.stealers.push({ idx: state.stealPickerIdx, slot: state.stealPick });
-      state.stealPickerIdx = null; state.stealPick = null;
-      var allUsed = state.stealEligibleIdx.length > 0 && state.stealEligibleIdx.every(function (idx) { return state.stealUsed[idx]; });
-      if (allUsed || state.stealRemaining <= 0) { resolveRound(); return; }
-      startStealTimer(); render();
-    }
-    function onRevealNow() {
-      if (state.phase !== "steal") return;
-      stopStealTimer();
-      state.stealPickerIdx = null; state.stealPick = null;
-      resolveRound();
-    }
-
-    function resolveRound() {
-      teardownSpotify();
-      stopStealTimer();
-      stopGuessPolling();
-      var p = state.players[state.current], tl = sortTl(p.timeline), k = state.chosenSlot, y = state.card.year;
-      var leftOk = (k === 0) || (tl[k - 1].year <= y), rightOk = (k === tl.length) || (y <= tl[k].year);
-      var correct = leftOk && rightOk;
-      var stolenBy = null;
-      if (correct) {
-        p.timeline.push(state.card);
+      var hit = (x === null || y === null) ? null : findSlotAt(x, y);
+      if (hit && hit.dataset.k !== undefined) {
+        state.chosenSlot = parseInt(hit.dataset.k, 10);
       } else {
-        for (var si = 0; si < state.stealers.length; si++) {
-          var st = state.stealers[si], sk = st.slot;
-          var sLeftOk = (sk === 0) || (tl[sk - 1].year <= y), sRightOk = (sk === tl.length) || (y <= tl[sk].year);
-          if (sLeftOk && sRightOk) { stolenBy = st.idx; state.players[st.idx].timeline.push(state.card); break; }
+        // Missed every gap: restore the slot chosen before this drag began.
+        state.chosenSlot = (dragState.prevSlot === undefined) ? state.chosenSlot : dragState.prevSlot;
+      }
+      dragState.prevSlot = undefined;
+      renderHero();
+      flushDirty();   // committed slot change: push immediately so phones mirror the tentative slot
+    }
+
+    /* ================== S10: STEAL WHEEL ================== */
+    // Spin a wheel of the tied stealers' colors and land on the pre-chosen winner. The
+    // winner is decided by the caller (Math.random) and passed in; this only animates.
+    function runStealWheel(candidates, winnerIdx, done) {
+      var overlay = $("wheelOverlay"), disc = $("wheelDisc"), labels = $("wheelLabels"), caption = $("wheelCaption");
+      if (!overlay || !disc) { done(); return; } // no UI available, resolve immediately
+      var n = candidates.length, seg = 360 / n, stops = [], labelsHtml = "";
+      for (var i = 0; i < n; i++) {
+        var col = state.players[candidates[i]].color;
+        stops.push(col + " " + (i * seg) + "deg " + ((i + 1) * seg) + "deg");
+        var mid = i * seg + seg / 2;
+        labelsHtml += '<div class="wheel-label" style="transform: rotate(' + mid + 'deg)">' +
+          '<span style="transform: translate(-50%,0) rotate(' + (-mid) + 'deg)">' + escapeHtml(state.players[candidates[i]].name) + '</span></div>';
+      }
+      disc.style.background = "conic-gradient(" + stops.join(",") + ")";
+      if (labels) labels.innerHTML = labelsHtml;
+      caption.textContent = "Same spot: spinning to pick who gets the steal";
+      overlay.classList.remove("hidden");
+
+      var winPos = candidates.indexOf(winnerIdx);
+      var targetAngle = winPos * seg + seg / 2;           // angle of the winning segment centre
+      var rest = 360 - targetAngle;                        // brings that segment under the top pointer
+      var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      function finish() {
+        caption.textContent = state.players[winnerIdx].name + " gets the steal attempt";
+        setTimeout(function () {
+          overlay.classList.add("hidden");
+          disc.style.transition = ""; disc.style.transform = "";
+          done();
+        }, 900);
+      }
+      if (reduced) {
+        disc.style.transition = "none";
+        disc.style.transform = "rotate(" + rest + "deg)";
+        caption.textContent = state.players[winnerIdx].name + " gets the steal attempt";
+        setTimeout(function () { overlay.classList.add("hidden"); disc.style.transform = ""; done(); }, 1200);
+        return;
+      }
+      disc.style.transition = "none";
+      disc.style.transform = "rotate(0deg)";
+      void disc.offsetWidth;                               // force reflow so the next transform animates
+      disc.style.transition = "transform 3s cubic-bezier(.12,.8,.15,1)";
+      disc.style.transform = "rotate(" + (360 * 5 + rest) + "deg)";
+      var fired = false;
+      function onEnd() { if (fired) return; fired = true; disc.removeEventListener("transitionend", onEnd); finish(); }
+      disc.addEventListener("transitionend", onEnd);
+      setTimeout(onEnd, 3400);                             // fallback if transitionend never fires
+    }
+
+    /* ================== S11: PHONE INTENT DISPATCH ================== */
+    var _intentTimer = null;
+    function startIntentPolling() {
+      stopIntentPolling();
+      if (!NET.available || !state || !state.gameId || !state.hostToken) return;
+      _intentTimer = setInterval(intentTick, 1500);
+    }
+    function stopIntentPolling() { if (_intentTimer) { clearInterval(_intentTimer); _intentTimer = null; } }
+    function intentTick() {
+      if (!state || state.phase === "over" || !state.gameId || !state.hostToken) return;
+      var round = state.round;
+      NET.pollIntents(state.gameId, state.hostToken, round).then(function (resp) {
+        if (!resp || !state || state.round !== round) return;
+        // Claims: mark connected phones for the seat dot.
+        if (resp.claims) {
+          Object.keys(resp.claims).forEach(function (k) { var i = parseInt(k, 10); if (state.players[i]) state.players[i].claimed = true; });
         }
-      }
-      state.result = { correct: correct, stolenBy: stolenBy, attempted: state.stealers.length > 0 };
-      state.phase = "revealed";
-      render();
-      publishRoomState();
-      if (correct && p.timeline.length >= state.target) {
-        // Lock immediately and capture the winner now, so a fast Next tap cannot change it.
-        state.locked = true;
-        var winnerIdx = state.current;
-        setTimeout(function () { endGame("target", winnerIdx); }, 900);
-      } else if (stolenBy !== null && state.players[stolenBy].timeline.length >= state.target) {
-        state.locked = true;
-        var stealWinnerIdx = stolenBy;
-        setTimeout(function () { endGame("target", stealWinnerIdx); }, 900);
-      }
-    }
-
-    function onNext() {
-      if (state.locked || state.phase === "over") return;
-      teardownSpotify();
-      if (!state.deck.length) { endGame("deck"); return; }
-      state.current = (state.current + 1) % state.n; state.phase = "draw"; state.card = null; state.chosenSlot = null; state.result = null;
-      state.stealers = []; state.stealUsed = {}; state.stealPickerIdx = null; state.stealPick = null; state.stealEligibleIdx = [];
-      state.bonus = { guessedBy: null, awarded: false, result: null };
-      layoutSeats(); render();
-      publishRoomState();
-    }
-
-    function endGame(reason, winnerIdx) {
-      stopStealTimer();
-      stopGuessPolling();
-      var ranked = state.players.map(function (p, i) { return { p: p, i: i, n: p.timeline.length }; }).sort(function (a, b) { return b.n - a.n; });
-      var top = ranked[0], winner = (typeof winnerIdx === "number") ? state.players[winnerIdx] : top.p;
-      var tie = ranked.length > 1 && ranked[1].n === top.n && reason === "deck";
-      $("winName").textContent = tie ? "It is a tie" : winner.name + " wins";
-      $("winSub").textContent = reason === "deck" ? "The deck ran out. Standings by cards collected." : "First to " + state.target + " cards.";
-      var ol = $("standings"); ol.innerHTML = "";
-      ranked.forEach(function (r, idx) {
-        var li = document.createElement("li");
-        li.innerHTML = '<span class="rank">' + (idx + 1) + '</span><span class="avatar" style="width:24px;height:24px;font-size:11px;background:' + r.p.color + '">' + initials(r.p.name) + '</span><span>' + escapeHtml(r.p.name) + '</span><span class="sc">' + r.n + ' cards</span>';
-        ol.appendChild(li);
+        // Last-writer-wins tentative slot from the current player.
+        if (resp.tentative) applyIntent({ type: "tentative", playerIdx: resp.tentative.playerIdx, round: resp.tentative.round, slot: resp.tentative.slot });
+        // Ordered intents. Reprocessing the whole list is safe: mutators are idempotent /
+        // deduped per player+round.
+        if (resp.intents && resp.intents.length) {
+          for (var i = 0; i < resp.intents.length; i++) applyIntent(resp.intents[i]);
+        }
+        renderSeats();
       });
-      state.phase = "over"; $("winner").classList.remove("hidden");
+    }
+    // Apply one intent from a phone. Every branch re-checks the same guards the on-screen
+    // controls use, so a phone can never act out of turn or out of phase.
+    function applyIntent(it) {
+      if (!it || typeof it.playerIdx !== "number") return;
+      var isCurrent = it.playerIdx === state.current;
+      switch (it.type) {
+        case "tentative":
+          if (isCurrent && state.phase === "place" && !dragState.active && typeof it.slot === "number" && it.slot !== state.chosenSlot) {
+            state.chosenSlot = it.slot; renderHero();
+          }
+          break;
+        case "lockin":
+          if (isCurrent && state.phase === "place") {
+            if (typeof it.slot === "number") state.chosenSlot = it.slot;
+            onLockIn();
+          }
+          break;
+        case "guess":
+          // Only the current player's guess counts; one pending chip per round.
+          if (!isCurrent) break;
+          if (!state.pending) state.pending = [];
+          for (var pi = 0; pi < state.pending.length; pi++) {
+            if (state.pending[pi].playerIdx === it.playerIdx && state.pending[pi].round === state.round) return;
+          }
+          state.pending.push({
+            round: state.round, playerIdx: it.playerIdx, player: state.players[it.playerIdx] ? state.players[it.playerIdx].name : "",
+            type: it.guessType, artist: it.artist, title: it.title, sourceType: it.sourceType, sourceName: it.sourceName,
+            at: it.at || Date.now(), judged: null, coinAwarded: false
+          });
+          render(); markDirty();
+          break;
+        case "steal-press":
+          // NOTE: intentTick reprocesses the whole round list every poll, so this
+          // branch runs repeatedly; arm timers only when the press is NEWLY accepted.
+          var pickerBefore = state.stealPickerIdx;
+          onStealPress(it.playerIdx);
+          if (state.phase === "steal" && state.stealPickerIdx === it.playerIdx && pickerBefore !== it.playerIdx) {
+            // A phone picker has no Confirm control, so it must never hold the round
+            // open forever: if no slot pick arrives within 10s, drop the press and
+            // resume the steal window (the coin stays spent, same as walking away).
+            clearPhonePickTimers();
+            _phonePickBailTimer = setTimeout(function () {
+              if (state && state.phase === "steal" && state.stealPickerIdx === it.playerIdx && state.stealPick === null) {
+                state.stealPickerIdx = null; state.stealPick = null;
+                if (state.stealRemaining > 0) { startStealTimer(); render(); markDirty(); }
+                else { resolveRound(); }
+              }
+            }, 10000);
+          }
+          break;
+        case "steal-slot":
+          if (state.phase === "steal" && state.stealPickerIdx === it.playerIdx && typeof it.slot === "number") {
+            var pickChanged = state.stealPick !== it.slot;
+            if (pickChanged) { state.stealPick = it.slot; renderHero(); }
+            // Auto-confirm phone picks after a short settle window; a repick within
+            // it resets the timer, so "last pick wins" still holds. Re-arm only on
+            // a changed pick (or if no timer is pending, e.g. after a host reload),
+            // never on plain reprocessing, or the timer would reset every poll.
+            if (pickChanged || !_phonePickConfirmTimer) {
+              if (_phonePickConfirmTimer) clearTimeout(_phonePickConfirmTimer);
+              _phonePickConfirmTimer = setTimeout(function () {
+                if (state && state.phase === "steal" && state.stealPickerIdx === it.playerIdx && state.stealPick !== null) {
+                  clearPhonePickTimers();
+                  onConfirmSteal();
+                }
+              }, 2000);
+            }
+          }
+          break;
+      }
+    }
+    var _phonePickConfirmTimer = null, _phonePickBailTimer = null;
+    function clearPhonePickTimers() {
+      if (_phonePickConfirmTimer) { clearTimeout(_phonePickConfirmTimer); _phonePickConfirmTimer = null; }
+      if (_phonePickBailTimer) { clearTimeout(_phonePickBailTimer); _phonePickBailTimer = null; }
     }
 
-    // ---------- fullscreen ----------
+    // Judge every pending guess at reveal and pay out. The SINGLE payout point.
+    function resolvePending() {
+      if (!state.pending || !state.pending.length || !state.card) return;
+      for (var i = 0; i < state.pending.length; i++) {
+        var g = state.pending[i];
+        if (g.judged) continue;
+        var correct = false;
+        if (g.type === "artist-title") correct = matchesTitle(g.title, state.card) && matchesArtist(g.artist, state.card.artist);
+        else if (g.type === "source" && state.card.source) correct = (g.sourceType === state.card.source.type) && matchesSourceName(g.sourceName, state.card.source.name);
+        g.judged = correct ? "correct" : "wrong";
+        applyGuessPayout(g);
+      }
+    }
+    // +1 coin ONLY when the guess is the CURRENT player's, it was correct, AND their own
+    // placement was correct this round. Steals never pay. Called only from resolvePending.
+    function applyGuessPayout(entry) {
+      if (entry.coinAwarded) return;
+      if (entry.playerIdx === state.current && entry.judged === "correct" && state._roundCorrect) {
+        state.players[state.current].coins += 1;
+        entry.coinAwarded = true;
+      }
+    }
+
+    function openPhonesOverlay() {
+      if (!state) return;
+      var joinId = state.gameId || state.room;
+      var url = location.origin + "/hitster/guess?game=" + joinId;
+      $("phonesCode").textContent = joinId + (state.password ? ("  ·  pw: " + state.password) : "");
+      var qrHtml;
+      try {
+        var q = qrcode(0, "M");
+        q.addData(url);
+        q.make();
+        qrHtml = '<img alt="Phone link QR" src="' + q.createDataURL(6, 4) + '" />';
+      } catch (e) { qrHtml = ""; }
+      $("phonesQr").innerHTML = qrHtml;
+      $("phonesOverlay").classList.remove("hidden");
+    }
+
+    /* ================== S11b: CONFIRM MODAL + FULLSCREEN QR + HIDDEN PLAYBACK ================== */
+    // Reusable themed confirm modal (issue #30 item 4), replaces native confirm().
+    var confirmCb = null;
+    function showConfirm(opts) {
+      opts = opts || {};
+      $("confirmTitle").textContent = opts.title || "Are you sure?";
+      $("confirmMsg").textContent = opts.message || "";
+      $("confirmOk").textContent = opts.okLabel || "Confirm";
+      $("confirmCancel").textContent = opts.cancelLabel || "Cancel";
+      confirmCb = typeof opts.onConfirm === "function" ? opts.onConfirm : null;
+      $("confirmOverlay").classList.remove("hidden");
+    }
+    function hideConfirm() { $("confirmOverlay").classList.add("hidden"); confirmCb = null; }
+
+    // Fullscreen QR (issue #30 item 2): the current song QR blown up as large as it fits.
+    function openQrFull() {
+      if (!state || !state.card) return;
+      $("qrFullImg").src = qrSrc(state.card);
+      $("qrFullOverlay").classList.remove("hidden");
+    }
+    function closeQrFull() { $("qrFullOverlay").classList.add("hidden"); }
+
+    // Hidden playback on the TV (issue #30 item 6). The Spotify Embed IFrame API is
+    // loaded lazily on the first "Play here" click, never at page load, so an offline /
+    // file:// session stays free of any external request. It fails gracefully: if the
+    // script cannot load, the Play here button is hidden on the next render.
+    var spotifyScriptState = "none"; // none | loading | ready | failed
+    var spotifyApi = null;
+    var spotifyController = null;
+    var spotifyPlaying = false;
+    var spotifyReadyQueue = [];
+    function canPlayHere() {
+      return /^https?:$/.test(location.protocol) && !!(state && state.card && state.card.id) && spotifyScriptState !== "failed";
+    }
+    function flushSpotifyQueue() {
+      var q = spotifyReadyQueue.slice(); spotifyReadyQueue = [];
+      for (var i = 0; i < q.length; i++) { try { q[i](); } catch (e) { /* ignore */ } }
+    }
+    function ensureSpotifyScript(cb) {
+      if (spotifyScriptState === "ready" || spotifyScriptState === "failed") { cb(); return; }
+      spotifyReadyQueue.push(cb);
+      if (spotifyScriptState === "loading") return;
+      if (!/^https?:$/.test(location.protocol)) { spotifyScriptState = "failed"; flushSpotifyQueue(); return; }
+      spotifyScriptState = "loading";
+      window.onSpotifyIframeApiReady = function (IFrameAPI) { spotifyApi = IFrameAPI; spotifyScriptState = "ready"; flushSpotifyQueue(); };
+      var s = document.createElement("script");
+      s.src = "https://open.spotify.com/embed/iframe-api/v1";
+      s.async = true;
+      s.onerror = function () { spotifyScriptState = "failed"; flushSpotifyQueue(); };
+      document.head.appendChild(s);
+      // Guard against a silent failure to load (blocked / offline): give up after a bit.
+      setTimeout(function () { if (spotifyScriptState === "loading") { spotifyScriptState = "failed"; flushSpotifyQueue(); } }, 8000);
+    }
+    function freshEmbedTarget() {
+      var host = $("spotifyHost");
+      host.innerHTML = "";
+      var el = document.createElement("div");
+      host.appendChild(el);
+      return el;
+    }
+    // Silent teardown, called on every round transition so a track never leaks into the
+    // next round. Callers render() afterwards, which repaints the button.
+    function teardownSpotify() {
+      spotifyPlaying = false;
+      if (spotifyController) {
+        try { spotifyController.pause(); } catch (e) { /* ignore */ }
+        try { spotifyController.destroy(); } catch (e) { /* ignore */ }
+        spotifyController = null;
+      }
+      var host = $("spotifyHost");
+      if (host) host.innerHTML = "";
+    }
+    function renderHubPlayBtn() {
+      var btn = $("playHereBtn");
+      if (!btn) return;
+      btn.disabled = false;
+      btn.textContent = spotifyPlaying ? "■ Stop" : "▶ Play here";
+    }
+    function onPlayHereToggle() {
+      if (spotifyPlaying) { teardownSpotify(); renderHubPlayBtn(); return; }
+      var id = state && state.card && state.card.id;
+      if (!id) return;
+      var btn = $("playHereBtn");
+      if (btn) { btn.disabled = true; btn.textContent = "Loading..."; }
+      ensureSpotifyScript(function () {
+        if (spotifyScriptState !== "ready" || !spotifyApi) { spotifyScriptState = "failed"; spotifyPlaying = false; renderHub(); return; }
+        // The user gesture that opened this handler satisfies the autoplay policy.
+        var el = freshEmbedTarget();
+        spotifyApi.createController(el, { uri: "spotify:track:" + id, width: 300, height: 80 }, function (ctrl) {
+          spotifyController = ctrl;
+          try { ctrl.play(); } catch (e) { /* some builds autoplay on load */ }
+        });
+        spotifyPlaying = true;
+        renderHubPlayBtn();
+      });
+    }
+
+    /* ================== S12: FULLSCREEN + WIRING + INIT ================== */
     function fsSupported() { return !!(document.documentElement.requestFullscreen); }
     function toggleFullscreen() {
       if (document.fullscreenElement) { document.exitFullscreen(); }
@@ -1298,6 +2078,14 @@
       var b2 = $("setupFullscreenBtn");
       if (b2) { b2.innerHTML = html; b2.setAttribute("aria-label", title); if (!b2.disabled) b2.title = title; }
     }
+
+    Array.prototype.slice.call($("countSeg").children).forEach(function (b) {
+      b.onclick = function () {
+        Array.prototype.slice.call($("countSeg").children).forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on"); setup.count = parseInt(b.dataset.n, 10); renderNames(); validateSetup();
+      };
+    });
+
     if (fsSupported()) {
       $("fullscreenBtn").onclick = toggleFullscreen;
       $("setupFullscreenBtn").onclick = toggleFullscreen;
@@ -1310,15 +2098,27 @@
     }
     updateFsBtns();
 
-    // ---------- wiring ----------
+    // Route to the dashboard when the backend is up, otherwise the plain offline setup.
+    function goHome() {
+      if (state) { stopStealTimer(); stopIntentPolling(); }
+      $("winner").classList.add("hidden"); $("topbar").classList.add("hidden"); $("game").classList.add("hidden");
+      if (NET.available) showDashboard();
+      else { $("dashboard").classList.add("hidden"); $("setup").classList.remove("hidden"); }
+    }
+    function showSetup() {
+      $("dashboard").classList.add("hidden"); $("winner").classList.add("hidden");
+      $("topbar").classList.add("hidden"); $("game").classList.add("hidden");
+      $("onlineFields").classList.toggle("hidden", !NET.available);
+      $("setup").classList.remove("hidden");
+    }
+
     $("startBtn").onclick = startGame;
-    $("againBtn").onclick = function () { if (state) { stopStealTimer(); stopGuessPolling(); teardownSpotify(); } $("winner").classList.add("hidden"); $("setup").classList.remove("hidden"); $("topbar").classList.add("hidden"); $("game").classList.add("hidden"); };
+    $("againBtn").onclick = goHome;
     $("newGameBtn").onclick = function () {
-      showConfirm({ title: "Start a new game?", message: "Current progress will be lost.", okLabel: "New game", onConfirm: function () {
-        if (state) { stopStealTimer(); stopGuessPolling(); teardownSpotify(); }
-        $("topbar").classList.add("hidden"); $("game").classList.add("hidden"); $("setup").classList.remove("hidden");
-      } });
+      showConfirm({ title: "Leave this game?", message: "It stays saved online, you can resume it later.", okLabel: "Leave", onConfirm: goHome });
     };
+    $("dashNewBtn").onclick = showSetup;
+    $("pauseBtn").onclick = onPause;
     $("phonesBtn").onclick = openPhonesOverlay;
     $("phonesCloseBtn").onclick = function () { $("phonesOverlay").classList.add("hidden"); };
 
@@ -1326,16 +2126,20 @@
     $("confirmOk").onclick = function () { var cb = confirmCb; hideConfirm(); if (cb) cb(); };
     $("confirmCancel").onclick = hideConfirm;
     $("confirmOverlay").onclick = function (e) { if (e.target === $("confirmOverlay")) hideConfirm(); };
-
     // Fullscreen QR: click anywhere on the backdrop or the image to close.
     $("qrFullOverlay").onclick = closeQrFull;
-
     document.addEventListener("keydown", function (e) {
       if (e.key !== "Escape" && e.key !== "Esc") return;
       if (!$("qrFullOverlay").classList.contains("hidden")) { closeQrFull(); }
       else if (!$("confirmOverlay").classList.contains("hidden")) { hideConfirm(); }
     });
-
+    $("takeoverCancelBtn").onclick = function () { $("takeoverOverlay").classList.add("hidden"); showDashboard(); };
+    $("takeoverBtn").onclick = function () {
+      $("takeoverErr").textContent = "";
+      var gid = state && state.gameId;
+      if (!gid) { $("takeoverOverlay").classList.add("hidden"); showDashboard(); return; }
+      doResume(gid, $("takeoverPw").value, function (msg) { $("takeoverErr").textContent = msg || "Could not take over."; });
+    };
     window.addEventListener("resize", function () { if (state && state.phase !== "over") layoutSeats(); });
 
     // init
@@ -1343,7 +2147,29 @@
     $("catAll").onclick = function () { DB.categories.forEach(function (c) { setup.cats.add(c.key); }); renderCats(); validateSetup(); };
     $("catNone").onclick = function () { setup.cats.clear(); renderCats(); validateSetup(); };
     renderNames(); renderCats(); setupYearRange(); validateSetup();
-    probeBackend();
+    // Probe once, then route: backend up -> dashboard, offline -> setup (zero persistence).
+    $("setup").classList.add("hidden");
+    NET.probe().then(function (up) {
+      backendAvailable = up;
+      updatePhonesBtnVisibility();
+      $("onlineFields").classList.toggle("hidden", !up);
+      if (!up) { $("dashboard").classList.add("hidden"); $("setup").classList.remove("hidden"); return; }
+      // Silent resume: a reload of an ACTIVE game picks up where it left off via the
+      // stored hostToken (no password re-entry). Paused or finished games, or a token
+      // rejected because another host resumed (401), land on the dashboard instead.
+      var saved = loadHostLS();
+      if (!saved || !saved.gameId || !saved.hostToken) { showDashboard(); return; }
+      NET.loadState(saved.gameId, saved.hostToken).then(function (r) {
+        if (!r || !r.state) { showDashboard(); return; }
+        var blob = r.state;
+        if (blob.status === "paused" || blob.status === "finished" || blob.phase === "over") { showDashboard(); return; }
+        state = hydrateState(blob);
+        state.gameId = saved.gameId; state.hostToken = saved.hostToken;
+        if (typeof r.version === "number") state.version = r.version;
+        enterActiveGame();
+        if (state.wheelWinner) resumeWheelResolution();
+      });
+    });
   })();
   </script>
 </body>

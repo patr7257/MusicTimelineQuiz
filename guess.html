@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Hitster: Bonus guess</title>
+  <title>Hitster: play</title>
   <style>
     @font-face {
       font-family: "Righteous";
@@ -14,7 +14,7 @@
     }
     :root {
       /* Vinyl Lounge palette (issue #32), matched to index.html. Variable NAMES
-         kept from the old theme so the existing rules keep resolving. */
+         kept from the old dark theme so the existing rules keep resolving. */
       --cream: #f3e7cf;
       --paper: #faf1dd;
       --paper-deep: #ecdcbc;
@@ -34,8 +34,8 @@
       --accent: #c1502e;
       --accent2: #d9a441;
       --warm: #d9a441;
-      --good: #59623a;
-      --bad: #93381e;
+      --good: #7a8450;
+      --bad: #db5a35;
       --panel: #faf1dd;
       --line: rgba(59, 42, 30, 0.28);
       --shadow: 0 14px 30px rgba(36, 23, 16, 0.45);
@@ -45,7 +45,7 @@
       --body-font: Georgia, "Times New Roman", "Segoe UI", serif;
       --wood: linear-gradient(rgba(36, 23, 16, 0.18), rgba(36, 23, 16, 0.34)), repeating-linear-gradient(92deg, #6b4529 0 6px, #7a5334 6px 11px, #5e3c23 11px 15px, #74502f 15px 22px, #654226 22px 27px);
     }
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
     html, body { height: 100%; margin: 0; }
     body {
       font-family: var(--body-font);
@@ -54,9 +54,10 @@
         radial-gradient(1000px 700px at 50% -12%, #4a3320 0%, rgba(74,51,32,0) 58%),
         linear-gradient(168deg, var(--bg1), var(--bg0));
       min-height: 100%;
-      padding: 20px 16px 40px;
+      padding: 20px 14px 40px;
     }
-    button { font-family: inherit; cursor: pointer; }
+    button { font-family: inherit; cursor: pointer; touch-action: manipulation; }
+    input, select { touch-action: manipulation; }
     .hidden { display: none !important; }
 
     /* Themed scrollbars (issue #30 item 9): cream track, wood/gold thumb */
@@ -67,72 +68,126 @@
     ::-webkit-scrollbar-thumb:hover { background: var(--gold-deep); }
 
     .wrap { max-width: 480px; margin: 0 auto; }
-    .brand { font-family: var(--disp); font-weight: 400; letter-spacing: 1.5px; font-size: 22px; color: var(--paper); text-shadow: 2px 2px 0 var(--orange-deep); display: flex; align-items: center; gap: 9px; margin-bottom: 18px; }
+    .brand { font-family: var(--disp); font-weight: 400; letter-spacing: 1.5px; font-size: 22px; color: var(--paper); text-shadow: 2px 2px 0 var(--orange-deep); display: flex; align-items: center; gap: 9px; margin-bottom: 14px; }
     .brand .note { color: var(--gold); text-shadow: none; }
+    .reconnect {
+      position: fixed; top: 8px; left: 50%; transform: translateX(-50%); z-index: 80;
+      font-family: var(--disp); font-size: 12px; color: var(--brown-deep); background: var(--gold);
+      border: 2px solid var(--gold-deep); padding: 6px 14px; border-radius: 999px; box-shadow: 0 3px 0 rgba(36,23,16,.4);
+    }
     .panel {
       background: linear-gradient(160deg, #fdf6e6, var(--paper) 60%, var(--paper-deep));
-      border: 3px solid var(--brown); border-radius: 22px; padding: 22px; color: var(--brown);
+      border: 3px solid var(--brown); border-radius: 22px; padding: 20px; color: var(--brown);
       box-shadow: var(--shadow), inset 0 0 0 5px var(--paper), inset 0 0 0 7px rgba(217,164,65,.28);
     }
-    .lede { margin: 0 0 18px; color: rgba(59,42,30,.75); font-size: 14px; line-height: 1.5; }
-    .names { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .lede { margin: 0 0 16px; color: rgba(59,42,30,.75); font-size: 14px; line-height: 1.5; }
+    .names, .roster { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .name-btn {
       font-family: var(--disp); letter-spacing: .5px; border: 2px solid var(--brown-deep); background: var(--paper-deep); color: var(--brown);
-      padding: 16px 10px; border-radius: 12px; font-size: 16px; box-shadow: 0 4px 0 rgba(36,23,16,.4);
+      padding: 16px 10px; border-radius: 12px; font-size: 16px; text-align: center; box-shadow: 0 4px 0 rgba(36,23,16,.4);
       transition: transform .07s, box-shadow .07s;
     }
     .name-btn:active { transform: translateY(3px); box-shadow: 0 1px 0 rgba(36,23,16,.4); }
-    .field { margin-bottom: 16px; }
+    .name-btn[disabled] { opacity: .45; cursor: not-allowed; box-shadow: none; }
+    .name-btn.mine { border-color: var(--orange); background: color-mix(in srgb, var(--orange) 22%, var(--paper)); }
+    .name-btn .tag { display: block; font-family: var(--body-font); font-size: 11px; color: rgba(59,42,30,.7); margin-top: 4px; letter-spacing: 0; }
+    .field { margin-bottom: 14px; }
     .field > label { display: block; font-family: var(--disp); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--orange-deep); margin-bottom: 8px; }
-    .field input, .field select { width: 100%; padding: 14px; border-radius: 10px; font-family: var(--body-font); font-size: 16px; background: #fffaf0; border: 2px solid var(--brown); color: var(--brown-deep); }
+    .field input, .field select { width: 100%; padding: 13px 14px; border-radius: 10px; font-family: var(--body-font); font-size: 16px; background: #fffaf0; border: 2px solid var(--brown); color: var(--brown-deep); }
     .field input:focus, .field select:focus { outline: 3px solid var(--gold); outline-offset: 0; border-color: var(--orange); }
-    .seg { display: flex; gap: 8px; }
-    .seg button { flex: 1; padding: 12px; border-radius: 12px; background: var(--paper-deep); border: 2px solid var(--brown); color: var(--brown); font-family: var(--disp); font-size: 14px; box-shadow: 0 4px 0 rgba(36,23,16,.35); transition: transform .07s, box-shadow .07s; }
+    .seg { display: flex; gap: 8px; margin-bottom: 4px; }
+    .seg button { flex: 1; padding: 12px; border-radius: 12px; background: var(--paper-deep); border: 2px solid var(--brown); color: var(--brown); font-family: var(--disp); font-size: 13px; box-shadow: 0 4px 0 rgba(36,23,16,.35); transition: transform .07s, box-shadow .07s; }
     .seg button:active { transform: translateY(3px); box-shadow: 0 1px 0 rgba(36,23,16,.35); }
     .seg button.on { background: linear-gradient(180deg, #d55f3a, var(--orange)); border-color: var(--orange-deep); color: var(--paper); box-shadow: 0 4px 0 var(--orange-deep); }
     .btn {
       font-family: var(--disp); letter-spacing: .5px; border: 2px solid var(--brown-deep); background: var(--paper-deep); color: var(--brown);
-      padding: 15px 16px; border-radius: 12px; font-size: 16px; width: 100%; box-shadow: 0 5px 0 rgba(36,23,16,.4);
+      padding: 14px 16px; border-radius: 12px; font-size: 16px; width: 100%; box-shadow: 0 5px 0 rgba(36,23,16,.4);
       transition: transform .07s, box-shadow .07s, filter .15s;
     }
     .btn:active { transform: translateY(3px); box-shadow: 0 2px 0 rgba(36,23,16,.4); }
     .btn.primary { background: linear-gradient(180deg, #d55f3a, var(--orange)); border-color: var(--orange-deep); color: var(--paper); box-shadow: 0 5px 0 var(--orange-deep); }
     .btn:disabled { opacity: .45; cursor: not-allowed; box-shadow: none; transform: none; }
-    .waiting { text-align: center; color: rgba(59,42,30,.78); font-size: 16px; padding: 30px 10px; line-height: 1.6; }
+    .btn.small { width: auto; padding: 9px 14px; font-size: 13px; }
+    .waiting { text-align: center; color: rgba(59,42,30,.78); font-size: 16px; padding: 26px 8px; line-height: 1.6; }
     .waiting .big { font-size: 40px; display: block; margin-bottom: 10px; }
     .waiting b { color: var(--orange-deep); }
-    .sent { text-align: center; font-family: var(--disp); color: var(--avocado-deep); font-size: 18px; padding: 24px 10px; }
-    .who { text-align: center; color: rgba(59,42,30,.7); font-size: 13px; margin-top: -6px; margin-bottom: 16px; }
+    .sent { text-align: center; font-family: var(--disp); color: var(--avocado-deep); font-size: 16px; padding: 16px 10px; }
+    .who { text-align: center; color: rgba(59,42,30,.7); font-size: 13px; margin-bottom: 14px; }
     .who b { color: var(--orange-deep); }
     .err { color: var(--orange-deep); font-weight: 700; font-size: 13px; margin-top: 10px; text-align: center; }
-    .switch-name { text-align: center; margin-top: 14px; }
-    .switch-name button { background: none; border: none; color: rgba(59,42,30,.65); font-size: 12px; text-decoration: underline; }
+    .link-btn { background: none; border: none; color: rgba(59,42,30,.65); font-size: 12px; text-decoration: underline; padding: 6px; }
+    .center { text-align: center; }
+    .section { margin-top: 18px; padding-top: 16px; border-top: 2px dashed rgba(59,42,30,.22); }
+    .section:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+    .row-between { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+    .coin-pill { font-family: var(--disp); font-size: 13px; color: var(--gold-deep); background: rgba(217,164,65,.18); border: 2px solid var(--gold); padding: 6px 12px; border-radius: 999px; white-space: nowrap; }
+    .badge { display: inline-block; font-family: var(--disp); font-size: 11px; letter-spacing: .3px; text-transform: uppercase; color: var(--paper); background: var(--orange); border: 2px solid var(--orange-deep); padding: 4px 10px; border-radius: 999px; margin-bottom: 10px; box-shadow: 0 3px 0 var(--orange-deep); }
+    .pending-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+    .chip { font-family: var(--disp); font-size: 11px; padding: 5px 9px; border-radius: 999px; border: 2px solid var(--brown); background: var(--paper); color: var(--brown); display: inline-flex; align-items: center; gap: 5px; }
+    .chip .dot { width: 8px; height: 8px; border-radius: 50%; flex: 0 0 auto; border: 1px solid rgba(36,23,16,.4); }
+    .chip.correct { color: var(--avocado-deep); border-color: var(--avocado); background: rgba(122,132,80,.18); }
+    .chip.wrong { color: var(--orange-deep); border-color: var(--bad); background: rgba(219,90,53,.16); }
 
-    /* Light confirm modal on submit (issue #30 item 4). */
-    .overlay { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; background: radial-gradient(900px 600px at 50% 8%, rgba(122,69,41,.55), rgba(20,12,8,.95)); padding: 20px; }
-    .confirm-panel { width: min(360px, 92vw); }
-    .confirm-panel h1 { margin: 0 0 6px; font-family: var(--disp); font-weight: 400; letter-spacing: 1px; font-size: 22px; color: var(--brown); }
-    .confirm-panel p { margin: 0 0 16px; color: rgba(59,42,30,.75); font-size: 14px; line-height: 1.5; }
-    .confirm-actions { display: flex; gap: 12px; }
-    .confirm-actions .btn { flex: 1; }
+    .timeline-strip { display: flex; align-items: stretch; gap: 0; overflow-x: auto; padding: 6px 2px 10px; -webkit-overflow-scrolling: touch; }
+    .slot-gap { flex: 0 0 auto; width: 34px; align-self: stretch; min-height: 92px; margin: 0 2px; border-radius: 9px; border: 2px dashed var(--gold); background: rgba(217,164,65,.16); color: var(--gold-deep); font-family: var(--disp); font-size: 20px; }
+    .slot-gap.blocked { border-color: rgba(59,42,30,.4); background: rgba(59,42,30,.08); color: rgba(59,42,30,.55); font-size: 9px; letter-spacing: 1px; cursor: not-allowed; }
+    .slot-gap.chosen, .slot-gap.drag-over { background: var(--gold); color: var(--brown-deep); border-style: solid; transform: scale(1.06); }
+    .slot-gap[disabled] { opacity: .5; }
+    .tcard { position: relative; flex: 0 0 auto; width: 118px; min-height: 92px; border-radius: 12px; padding: 10px 8px; margin: 0 2px; background: linear-gradient(160deg, #fdf6e6, var(--paper) 55%, var(--paper-deep)); border: 3px solid var(--brown); color: var(--brown); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; box-shadow: 4px 5px 0 rgba(59,42,30,.28); }
+    .tcard .y { font-family: var(--disp); font-size: 26px; color: var(--orange); }
+    .tcard .t { font-family: var(--disp); font-size: 11px; margin-top: 3px; line-height: 1.15; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--brown); }
+    .tcard .a { font-size: 10px; font-style: italic; color: rgba(59,42,30,.7); max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .tcard.tentative { border-color: var(--orange-deep); background: linear-gradient(160deg, #f6d998, var(--gold) 70%, #c9932f); animation: tentPulse 1.2s ease-in-out infinite; }
+    .tcard.tentative .y { color: var(--orange-deep); }
+    @keyframes tentPulse { 0%,100% { box-shadow: 4px 5px 0 rgba(147,56,30,.4), 0 0 0 0 rgba(217,164,65,.6); } 50% { box-shadow: 4px 5px 0 rgba(147,56,30,.4), 0 0 0 8px rgba(217,164,65,0); } }
+    .catchip { display: inline-block; font-family: var(--disp); font-size: 8px; letter-spacing: .2px; color: var(--brown-deep); background: rgba(217,164,65,.4); border: 1px solid var(--gold-deep); padding: 1px 5px; border-radius: 999px; margin-top: 4px; }
+    .new-card-row { display: flex; justify-content: center; margin-bottom: 10px; }
+    .new-card {
+      width: 84px; height: 60px; border-radius: 12px; border: 3px solid var(--orange);
+      background: linear-gradient(160deg, #f6d998, var(--gold) 70%, #c9932f); display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: var(--brown-deep); font-family: var(--disp); font-size: 20px; user-select: none; touch-action: none; box-shadow: 0 4px 0 var(--orange-deep);
+    }
+    .new-card .cap { font-family: var(--body-font); font-size: 9px; letter-spacing: .3px; text-transform: uppercase; color: var(--orange-deep); margin-top: 2px; }
+    .dragging-clone { position: fixed; z-index: 300; pointer-events: none; opacity: .9; width: 84px; height: 60px; }
+
+    .steal-giant {
+      width: 100%; padding: 26px 16px; border-radius: 20px; border: 3px solid var(--gold-deep); margin-top: 6px;
+      background: linear-gradient(180deg, #f6d998, var(--gold)); color: var(--brown-deep);
+      font-family: var(--disp); font-size: 22px; letter-spacing: .4px; box-shadow: 0 0 0 0 rgba(217,164,65,.6), 0 14px 30px rgba(36,23,16,.45);
+      animation: stealPulse 1.4s ease-in-out infinite;
+    }
+    .steal-giant:disabled { opacity: .5; animation: none; }
+    @keyframes stealPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(217,164,65,.55), 0 14px 30px rgba(36,23,16,.45); }
+      50% { box-shadow: 0 0 0 16px rgba(217,164,65,0), 0 14px 30px rgba(36,23,16,.45); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .steal-giant { animation: none; }
+      .tcard.tentative { animation: none !important; }
+    }
+    .countdown-num { font-family: var(--disp); font-size: 42px; text-align: center; margin: 6px 0; background: linear-gradient(180deg, var(--gold), var(--orange)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .match-point-note { text-align: center; color: rgba(59,42,30,.7); font-size: 13px; padding: 10px; background: var(--paper-deep); border: 2px solid rgba(59,42,30,.2); border-radius: 10px; }
+    .wheel-banner { text-align: center; padding: 14px 10px; border-radius: 12px; background: rgba(217,164,65,.18); border: 2px solid var(--gold); margin-top: 12px; }
+    .wheel-banner .title { font-family: var(--disp); font-size: 12px; text-transform: uppercase; letter-spacing: .5px; color: var(--orange-deep); margin-bottom: 6px; }
+    .wheel-banner .cands { font-size: 14px; font-weight: 700; color: var(--brown); }
+    .wheel-banner .winner { font-family: var(--disp); font-size: 18px; margin-top: 6px; color: var(--brown); }
+    .wheel-banner .winner.mine { color: var(--avocado-deep); }
+
+    .standings-list { display: flex; flex-direction: column; gap: 10px; }
+    .standings-row { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 12px; background: var(--paper-deep); border: 2px solid rgba(59,42,30,.2); color: var(--brown); }
+    .standings-row .place { font-family: var(--disp); font-size: 15px; color: var(--orange-deep); width: 22px; }
+    .avatar-dot { width: 26px; height: 26px; border-radius: 50%; flex: 0 0 auto; border: 2px solid var(--brown-deep); }
+    .standings-row .nm { flex: 1; font-family: var(--disp); }
+    .standings-row .cnt { font-family: var(--disp); color: var(--gold-deep); font-size: 13px; }
+
   </style>
 </head>
 <body>
+  <div class="reconnect hidden" id="reconnect">Reconnecting...</div>
   <div class="wrap">
-    <div class="brand"><span class="note">♪</span> Hitster bonus guess</div>
+    <div class="brand"><span class="note">&#9834;</span> Hitster</div>
     <div class="panel" id="panel">
-      <div class="waiting"><span class="big">⏳</span>Loading room...</div>
-    </div>
-  </div>
-
-  <div class="overlay hidden" id="confirmOverlay">
-    <div class="panel confirm-panel">
-      <h1 id="confirmTitle">Send this guess?</h1>
-      <p id="confirmMsg">You get one bonus guess per round.</p>
-      <div class="confirm-actions">
-        <button class="btn" id="confirmCancel" type="button">Cancel</button>
-        <button class="btn primary" id="confirmOk" type="button">Send</button>
-      </div>
+      <div class="waiting"><span class="big">&#8987;</span>Loading...</div>
     </div>
   </div>
 
@@ -140,250 +195,981 @@
   (function () {
     "use strict";
 
-    function $(id) { return document.getElementById(id); }
-    function escapeHtml(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
-    function qs(name) { var m = new RegExp("[?&]" + name + "=([^&]*)").exec(location.search); return m ? decodeURIComponent(m[1].replace(/\+/g, " ")) : null; }
+    // ---------------------------------------------------------------------
+    // Pure helpers (no DOM / network access, sanity-tested with node -e)
+    // ---------------------------------------------------------------------
 
-    var room = (qs("room") || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, function (c) {
+        return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+      });
+    }
+
+    function qs(name) {
+      var m = new RegExp("[?&]" + name + "=([^&]*)").exec(location.search);
+      return m ? decodeURIComponent(m[1].replace(/\+/g, " ")) : null;
+    }
+
+    // Game ids are 4-8 chars from the CFI-safe alphabet (see PROTOCOL.md);
+    // sanitize any pasted/typed input down to that shape.
+    function sanitizeGameId(raw) {
+      return String(raw || "").toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 8);
+    }
+
+    // Trailing throttle: at most one call per `wait` ms, always firing with
+    // the MOST RECENT arguments (never the stale first call). Used to cap
+    // how often a dragged tentative-slot pick is sent to the server.
+    function throttleTrailing(fn, wait) {
+      var timer = null;
+      var lastArgs = null;
+      var lastCallTime = 0;
+      function invoke() {
+        lastCallTime = Date.now();
+        timer = null;
+        fn.apply(null, lastArgs);
+      }
+      var wrapped = function () {
+        lastArgs = arguments;
+        var now = Date.now();
+        var remaining = wait - (now - lastCallTime);
+        if (remaining <= 0) {
+          if (timer) { clearTimeout(timer); timer = null; }
+          invoke();
+        } else if (!timer) {
+          timer = setTimeout(invoke, remaining);
+        }
+      };
+      wrapped.cancel = function () { if (timer) { clearTimeout(timer); timer = null; } };
+      return wrapped;
+    }
+
+    // Number of tappable gaps in a timeline of N cards is N+1 (before the
+    // first card, between each pair, after the last one).
+    function gapCount(timelineLength) { return timelineLength + 1; }
+
+    function clampSlot(slot, timelineLength) {
+      var n = Math.round(slot);
+      if (n < 0) return 0;
+      if (n > timelineLength) return timelineLength;
+      return n;
+    }
+
+    // A non-current player is "at match point" (can't steal even with coins)
+    // exactly when the host omitted them from eligibleIdx for a reason OTHER
+    // than being the current player. The phone projection never receives
+    // settings.target, so this is inferred by elimination against the
+    // documented host rule (coins >= 1, not current, timeline < target - 1).
+    function isAtMatchPoint(isCurrent, coins, eligibleIdxList, myIdx) {
+      if (isCurrent) return false;
+      if (coins < 1) return false;
+      return eligibleIdxList.indexOf(myIdx) === -1;
+    }
+
+    function secondsRemaining(endsAt, now) {
+      return Math.max(0, Math.round((endsAt - now) / 1000));
+    }
+
+    // ---------------------------------------------------------------------
+    // DOM / storage / network below this line
+    // ---------------------------------------------------------------------
+
+    function $(id) { return document.getElementById(id); }
     var panel = $("panel");
-    var storageKey = "hitster_guess_name_" + room;
-    var pollTimer = null;
-    var lastSubmittedRound = null;
-    var currentState = null;
-    var submitting = false;
-    var guessType = "artist-title";
-    var lastRenderKey = null;
+    var reconnectEl = $("reconnect");
 
     function render(html) { panel.innerHTML = html; }
 
-    // The render key captures only the fields that decide WHICH screen or
-    // form is shown. As long as the key does not change, the poll must not
-    // touch the DOM, so a player who is mid-typing never gets wiped out.
-    function computeRenderKey(state) {
-      var name = chosenName();
-      var known = name && state.players.indexOf(name) !== -1;
-      var alreadySubmitted = lastSubmittedRound === state.round;
-      return [
-        known ? "known" : "unknown",
-        name || "",
-        state.round,
-        state.guessOpen ? "1" : "0",
-        state.currentPlayer,
-        state.hasSource ? "1" : "0",
-        alreadySubmitted ? "1" : "0"
-      ].join("|");
-    }
+    function showReconnecting(on) { reconnectEl.classList.toggle("hidden", !on); }
 
-    // Only rebuilds the DOM when the given key differs from the last one
-    // that was actually rendered. Call this from every place that renders
-    // in response to polled data (or a transient fetch error) so repeated
-    // ticks with unchanged state never disturb inputs the player is typing.
-    function applyRender(key, renderFn) {
-      if (key === lastRenderKey) return;
-      lastRenderKey = key;
-      renderFn();
-    }
+    // ---- device identity + per-game session -------------------------------
 
-    // Called after a user action (picking/switching name, submitting a
-    // guess) that changes what should be shown outside of a poll tick, so
-    // the next poll with unchanged state does not redundantly re-render.
-    function syncRenderKey() {
-      if (currentState) lastRenderKey = computeRenderKey(currentState);
-    }
-
-    function renderNoRoom() {
-      render('<div class="waiting"><span class="big">🚫</span>No room code in the link. Scan the QR code shown on the main screen.</div>');
-    }
-
-    function renderError(msg) {
-      render('<div class="waiting"><span class="big">📡</span>' + escapeHtml(msg) + '</div><div class="err">Retrying...</div>');
-    }
-
-    function chosenName() {
-      try { return localStorage.getItem(storageKey); } catch (e) { return null; }
-    }
-    function setChosenName(name) {
-      try { localStorage.setItem(storageKey, name); } catch (e) { /* ignore, storage unavailable */ }
-    }
-    function clearChosenName() {
-      try { localStorage.removeItem(storageKey); } catch (e) { /* ignore */ }
-    }
-
-    function renderPickName(state) {
-      var html = '<p class="lede">Tap your name to join the bonus round.</p><div class="names">';
-      state.players.forEach(function (p) {
-        html += '<button type="button" class="name-btn" data-name="' + escapeHtml(p) + '">' + escapeHtml(p) + '</button>';
-      });
-      html += '</div>';
-      render(html);
-      var btns = panel.querySelectorAll(".name-btn");
-      for (var i = 0; i < btns.length; i++) {
-        btns[i].onclick = function (ev) {
-          setChosenName(ev.currentTarget.getAttribute("data-name"));
-          renderForState(currentState);
-          syncRenderKey();
-        };
-      }
-    }
-
-    function renderWaitingTurn(name, state) {
-      render(
-        '<div class="waiting"><span class="big">👀</span>Watching the main screen.<br />It is <b>' + escapeHtml(state.currentPlayer) + "'s</b> turn.</div>" +
-        '<div class="switch-name"><button type="button" id="switchBtn">Not ' + escapeHtml(name) + '? Switch player</button></div>'
-      );
-      var b = $("switchBtn");
-      if (b) b.onclick = function () { clearChosenName(); renderForState(currentState); syncRenderKey(); };
-    }
-
-    function renderSent(name) {
-      render('<div class="sent">🪙 Sent! Watch the main screen for the result.</div>');
-    }
-
-    function renderForm(name, state) {
-      var showSource = !!state.hasSource;
-      var html = '<div class="who">Playing as <b>' + escapeHtml(name) + '</b>, make your bonus guess.</div>';
-      html += '<div class="field"><label>Guess type</label><div class="seg" id="typeSeg">' +
-        '<button type="button" data-t="artist-title" class="' + (guessType === "artist-title" ? "on" : "") + '">Artist + title</button>';
-      if (showSource) {
-        html += '<button type="button" data-t="source" class="' + (guessType === "source" ? "on" : "") + '">Where is it from</button>';
-      }
-      html += '</div></div>';
-
-      if (guessType === "source" && showSource) {
-        html += '<div class="field"><label>Type</label><select id="sourceType">' +
-          '<option value="movie">Movie</option><option value="musical">Musical</option><option value="disney">Disney</option></select></div>' +
-          '<div class="field"><label>Name (movie / musical title)</label><input id="sourceName" maxlength="60" placeholder="e.g. Titanic" /></div>';
+    function randomId(len) {
+      var chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+      var out = "";
+      if (window.crypto && crypto.getRandomValues) {
+        var arr = new Uint8Array(len);
+        crypto.getRandomValues(arr);
+        for (var i = 0; i < len; i++) out += chars[arr[i] % chars.length];
       } else {
-        html += '<div class="field"><label>Artist</label><input id="artist" maxlength="60" placeholder="Artist name" /></div>' +
-          '<div class="field"><label>Title</label><input id="title" maxlength="60" placeholder="Song title" /></div>';
+        for (var j = 0; j < len; j++) out += chars[Math.floor(Math.random() * chars.length)];
       }
-
-      html += '<button type="button" class="btn primary" id="submitBtn">Submit bonus guess</button>' +
-        '<div class="err hidden" id="formErr"></div>';
-
-      render(html);
-
-      var seg = $("typeSeg");
-      if (seg) {
-        Array.prototype.slice.call(seg.children).forEach(function (b) {
-          b.onclick = function () { guessType = b.getAttribute("data-t"); renderForm(name, state); };
-        });
-      }
-      $("submitBtn").onclick = function () { onSubmitClick(name, state); };
+      return out;
     }
 
-    // Confirm modal: submit is the only committal action on the phone, so a
-    // light confirm here is worthwhile (issue #30 item 4). Validate first, so
-    // we never confirm an empty form.
-    var confirmCb = null;
-    function showConfirm(onConfirm) {
-      confirmCb = typeof onConfirm === "function" ? onConfirm : null;
-      $("confirmOverlay").classList.remove("hidden");
-    }
-    function hideConfirm() { $("confirmOverlay").classList.add("hidden"); confirmCb = null; }
-    $("confirmOk").onclick = function () { var cb = confirmCb; hideConfirm(); if (cb) cb(); };
-    $("confirmCancel").onclick = hideConfirm;
-    $("confirmOverlay").onclick = function (e) { if (e.target === $("confirmOverlay")) hideConfirm(); };
-
-    function onSubmitClick(name, state) {
-      if (submitting) return;
-      if (guessType === "source") {
-        if (!($("sourceName").value || "").trim()) { showFormErr("Enter the movie, musical, or Disney film name."); return; }
-      } else {
-        if (!($("artist").value || "").trim() || !($("title").value || "").trim()) { showFormErr("Fill in both artist and title."); return; }
-      }
-      showConfirm(function () { submitGuess(name, state); });
+    function mintDeviceId() {
+      try {
+        var existing = localStorage.getItem("hitster_device_id");
+        if (existing) return existing;
+      } catch (e) { /* storage unavailable */ }
+      var id = randomId(24);
+      try { localStorage.setItem("hitster_device_id", id); } catch (e) { /* ignore */ }
+      return id;
     }
 
-    function submitGuess(name, state) {
-      if (submitting) return;
-      var body = { room: room, round: state.round, player: name, type: guessType };
-      if (guessType === "source") {
-        var sourceType = $("sourceType").value;
-        var sourceName = ($("sourceName").value || "").trim();
-        if (!sourceName) { showFormErr("Enter the movie, musical, or Disney film name."); return; }
-        body.sourceType = sourceType;
-        body.sourceName = sourceName;
-      } else {
-        var artist = ($("artist").value || "").trim();
-        var title = ($("title").value || "").trim();
-        if (!artist || !title) { showFormErr("Fill in both artist and title."); return; }
-        body.artist = artist;
-        body.title = title;
-      }
-      submitting = true;
-      fetch("/api/hitster/guess", {
+    function sessionKey(id) { return "hitster_phone_" + id; }
+
+    function loadSession(id) {
+      try {
+        var raw = localStorage.getItem(sessionKey(id));
+        if (!raw) return null;
+        var obj = JSON.parse(raw);
+        if (obj && obj.pw && obj.deviceId && typeof obj.playerIdx === "number" && obj.playerToken) return obj;
+        return null;
+      } catch (e) { return null; }
+    }
+    function saveSession(id, s) { try { localStorage.setItem(sessionKey(id), JSON.stringify(s)); } catch (e) { /* ignore */ } }
+    function clearSession(id) { try { localStorage.removeItem(sessionKey(id)); } catch (e) { /* ignore */ } }
+
+    // ---- global state -------------------------------------------------
+
+    var gameId = sanitizeGameId(qs("game") || "");
+    var deviceId = mintDeviceId();
+    var pendingPw = null;        // password held in memory only until claim succeeds
+    var session = null;          // {pw, deviceId, playerIdx, playerToken} once claimed
+    var mode = "entry";          // entry | password | claim | main
+    var projection = null;
+    var lastVersion = 0;
+    var lastScreenKey = null;
+    var pollTimer = null;
+    var pollGeneration = 0;
+
+    var claimInFlight = false;
+    var passwordInFlight = false;
+
+    var guessType = "artist-title";
+    var guessSentRoundLocal = null;
+
+    var isDragging = false;
+    var localTentativeSlot = null;
+    var tentativeRoundLocal = null;
+    var placementLockedOptimistic = false;
+
+    var stealPressedRoundLocal = null;
+    var localStealSlot = null;
+
+    var countdownTimer = null;
+
+    var sendTentativeThrottled = throttleTrailing(function (slot) {
+      sendIntent("tentative", { slot: slot });
+    }, 300);
+
+    // ---- API helpers ----------------------------------------------------
+
+    function apiBase() { return "/api/hitster/games/" + encodeURIComponent(gameId); }
+
+    function fetchPhone(pw, v) {
+      return fetch(apiBase() + "/phone?pw=" + encodeURIComponent(pw) + "&v=" + v);
+    }
+
+    function sendIntent(type, payload, cb) {
+      if (!session || !projection) { if (cb) cb(false); return; }
+      var body = {
+        playerIdx: session.playerIdx,
+        playerToken: session.playerToken,
+        round: projection.round,
+        type: type,
+      };
+      for (var k in (payload || {})) body[k] = payload[k];
+      fetch(apiBase() + "/intent", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       }).then(function (res) {
-        submitting = false;
-        if (res.status === 409) { lastSubmittedRound = state.round; renderSent(name); syncRenderKey(); return; }
-        if (!res.ok) { showFormErr("Could not send, try again."); return; }
-        lastSubmittedRound = state.round;
-        renderSent(name);
-        syncRenderKey();
+        showReconnecting(false);
+        if (res.status === 403) { handleAuthLost(); if (cb) cb(false); return; }
+        if (!res.ok && res.status !== 409) { if (cb) cb(false); return; }
+        if (cb) cb(true); // 200 and 409 (already done) both count as success
       }).catch(function () {
-        submitting = false;
-        showFormErr("Network error, try again.");
+        showReconnecting(true);
+        if (cb) cb(false);
       });
     }
 
-    function showFormErr(msg) {
-      var e = $("formErr");
+    // ---- session-loss handling -------------------------------------------
+
+    function handleAuthLost() {
+      // playerToken no longer matches the claims record (slot released or
+      // re-claimed elsewhere). Keep pw/deviceId so re-claiming needs no
+      // retyping, but drop back to the claim screen.
+      if (session) pendingPw = session.pw;
+      session = null;
+      clearSession(gameId); // stale playerToken is no longer valid; re-claim will mint a fresh one
+      mode = "claim";
+      forceRerender();
+    }
+
+    function handleGameGone() {
+      clearSession(gameId);
+      session = null;
+      projection = null;
+      mode = "entry";
+      showGameGoneEntry();
+    }
+
+    // ---- render-key gating ----------------------------------------------
+    // The screen is only rebuilt from scratch when computeScreenKey()
+    // changes. Version is the dominant ingredient so a poll tick that truly
+    // changed nothing never touches the DOM; local UI toggles (guess type,
+    // locked-in, pressed) are folded in too so a user action can switch
+    // screens immediately without waiting on the next poll. Anything that
+    // changes constantly (coins, timelines, countdown, chip lists) is
+    // refreshed by patchDynamic() every tick regardless of the key, via
+    // targeted DOM writes that never touch an <input> a player is typing in.
+
+    function myIdx() { return session ? session.playerIdx : -1; }
+
+    function findMyPendingGuess(p) {
+      if (!p || !p.pendingGuesses) return null;
+      for (var i = 0; i < p.pendingGuesses.length; i++) {
+        if (p.pendingGuesses[i].playerIdx === myIdx()) return p.pendingGuesses[i];
+      }
+      return null;
+    }
+
+    function computeScreenKey() {
+      if (mode === "entry") return "entry";
+      if (mode === "password") return "password";
+      if (mode === "claim") return "claim:" + lastVersion;
+      if (mode !== "main" || !projection) return "main:none";
+
+      var p = projection;
+      if (p.status === "paused") return "main:paused";
+      if (p.phase === "over" || p.status === "finished") return "main:over";
+      if (p.phase === "lobby") return "main:lobby:" + p.players.length;
+
+      var iAmCurrent = p.currentPlayerIdx === myIdx();
+      var myGuess = findMyPendingGuess(p);
+      var guessSent = !!myGuess || guessSentRoundLocal === p.round;
+
+      if (p.phase === "place" || p.phase === "equalizer") {
+        if (iAmCurrent) {
+          var locked = (p.placement && p.placement.locked) || placementLockedOptimistic;
+          return "main:place:cur:" + locked + ":" + guessSent + ":" + guessType;
+        }
+        return "main:place:wait";
+      }
+
+      if (p.phase === "steal") {
+        var eligible = !!(p.steal && p.steal.eligibleIdx.indexOf(myIdx()) !== -1);
+        var pressed = eligible && !!(p.steal && (stealPressedRoundLocal === p.round ||
+          (p.steal.presses || []).some(function (pr) { return pr.playerIdx === myIdx(); })));
+        var wheel = p.steal && p.steal.wheel;
+        var wheelState = wheel ? ("wheel:" + (wheel.winnerIdx != null ? "done:" + wheel.winnerIdx : "spin")) : "nowheel";
+        return "main:steal:" + eligible + ":" + pressed + ":" + wheelState;
+      }
+
+      if (p.phase === "revealed") return "main:revealed:" + p.round;
+
+      return "main:unknown:" + p.phase;
+    }
+
+    function applyRender(key, renderFn) {
+      if (key === lastScreenKey) return;
+      lastScreenKey = key;
+      renderFn();
+    }
+
+    function forceRerender() {
+      lastScreenKey = null;
+      applyRender(computeScreenKey(), dispatchRender);
+      patchDynamic();
+    }
+
+    // ---------------------------------------------------------------------
+    // Screens: entry / password / claim
+    // ---------------------------------------------------------------------
+
+    function showGameGoneEntry() {
+      render(
+        '<div class="waiting"><span class="big">&#128683;</span>That game no longer exists.</div>' +
+        '<div class="field"><label>Game code</label><input id="gameInput" maxlength="8" autocapitalize="characters" autocomplete="off" placeholder="ABC234" /></div>' +
+        '<button type="button" class="btn primary" id="joinBtn">Join</button>'
+      );
+      wireEntryForm();
+    }
+
+    function renderEntry() {
+      render(
+        '<p class="lede">Enter the game code shown on the main screen.</p>' +
+        '<div class="field"><label>Game code</label><input id="gameInput" maxlength="8" autocapitalize="characters" autocomplete="off" placeholder="ABC234" /></div>' +
+        '<button type="button" class="btn primary" id="joinBtn">Join</button>' +
+        '<div class="err hidden" id="entryErr"></div>'
+      );
+      wireEntryForm();
+    }
+
+    function wireEntryForm() {
+      var input = $("gameInput");
+      var btn = $("joinBtn");
+      if (input) input.oninput = function () { input.value = sanitizeGameId(input.value); };
+      if (btn) btn.onclick = function () {
+        var val = sanitizeGameId(input ? input.value : "");
+        if (val.length < 4) {
+          var e = $("entryErr");
+          if (e) { e.textContent = "Enter at least 4 characters."; e.classList.remove("hidden"); }
+          return;
+        }
+        gameId = val;
+        try { history.replaceState(null, "", location.pathname + "?game=" + gameId); } catch (e2) { /* ignore */ }
+        var stored = loadSession(gameId);
+        if (stored) {
+          session = stored;
+          pendingPw = stored.pw;
+          mode = "main";
+          forceRerender();
+          startPolling();
+        } else {
+          mode = "password";
+          forceRerender();
+        }
+      };
+    }
+
+    function renderPassword(errorMsg) {
+      render(
+        '<p class="lede">Enter the password for game <b>' + escapeHtml(gameId) + '</b>.</p>' +
+        '<div class="field"><label>Password</label><input id="pwInput" type="text" maxlength="32" autocomplete="off" placeholder="Password" /></div>' +
+        '<button type="button" class="btn primary" id="pwBtn">Join game</button>' +
+        '<div class="err ' + (errorMsg ? "" : "hidden") + '" id="pwErr">' + escapeHtml(errorMsg || "") + '</div>' +
+        '<div class="center"><button type="button" class="link-btn" id="backBtn">Wrong game? Enter a different code</button></div>'
+      );
+      var input = $("pwInput");
+      var btn = $("pwBtn");
+      if (btn) btn.onclick = function () { submitPassword((input && input.value) || ""); };
+      if (input) input.onkeydown = function (ev) { if (ev.key === "Enter") submitPassword(input.value || ""); };
+      var back = $("backBtn");
+      if (back) back.onclick = function () {
+        gameId = "";
+        try { history.replaceState(null, "", location.pathname); } catch (e) { /* ignore */ }
+        mode = "entry";
+        forceRerender();
+      };
+    }
+
+    function showPasswordErr(msg) {
+      var e = $("pwErr");
       if (e) { e.textContent = msg; e.classList.remove("hidden"); }
     }
 
-    function renderForState(state) {
-      if (!state) { renderError("Waiting for the room to open."); return; }
-      var name = chosenName();
-      if (!name || state.players.indexOf(name) === -1) { renderPickName(state); return; }
-      var myTurn = state.guessOpen && state.currentPlayer === name;
-      var alreadySubmitted = lastSubmittedRound === state.round;
-      if (myTurn && !alreadySubmitted) { renderForm(name, state); return; }
-      if (myTurn && alreadySubmitted) { renderSent(name); return; }
-      renderWaitingTurn(name, state);
+    function submitPassword(pwValue) {
+      if (passwordInFlight) return;
+      if (pwValue.length < 4 || pwValue.length > 32) { showPasswordErr("Password must be 4 to 32 characters."); return; }
+      passwordInFlight = true;
+      fetchPhone(pwValue, 0).then(function (res) {
+        passwordInFlight = false;
+        if (res.status === 403) { showPasswordErr("Wrong password."); return null; }
+        if (res.status === 404) { showPasswordErr("No game found with that code."); return null; }
+        if (!res.ok) { showPasswordErr("Could not reach the game, try again."); return null; }
+        return res.json();
+      }).then(function (data) {
+        if (!data) return;
+        pendingPw = pwValue;
+        lastVersion = data.version;
+        projection = data.state || null;
+        mode = "claim";
+        forceRerender();
+        startPolling();
+      }).catch(function () {
+        passwordInFlight = false;
+        showPasswordErr("Network error, try again.");
+      });
+    }
+
+    function renderClaim() {
+      if (!projection) { render('<div class="waiting"><span class="big">&#8987;</span>Loading players...</div>'); return; }
+      var html = '<p class="lede">Tap your name to join.</p><div class="roster">';
+      projection.players.forEach(function (p, idx) {
+        var mine = session && session.playerIdx === idx;
+        var takenByOther = p.claimed && !mine;
+        html += '<button type="button" class="name-btn' + (mine ? " mine" : "") + '" data-idx="' + idx + '"' +
+          (takenByOther ? " disabled" : "") + '>' + escapeHtml(p.name) +
+          (mine ? '<span class="tag">you</span>' : (takenByOther ? '<span class="tag">taken</span>' : "")) +
+          "</button>";
+      });
+      html += '</div><div class="err hidden" id="claimErr"></div>';
+      render(html);
+      var btns = panel.querySelectorAll(".name-btn");
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].onclick = function (ev) {
+          var idx = parseInt(ev.currentTarget.getAttribute("data-idx"), 10);
+          claimSlot(idx);
+        };
+      }
+    }
+
+    function showClaimErr(msg) {
+      var e = $("claimErr");
+      if (e) { e.textContent = msg; e.classList.remove("hidden"); }
+    }
+
+    function claimSlot(idx) {
+      if (claimInFlight || !pendingPw) return;
+      claimInFlight = true;
+      fetch(apiBase() + "/claim", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ pw: pendingPw, playerIdx: idx, deviceId: deviceId }),
+      }).then(function (res) {
+        claimInFlight = false;
+        if (res.status === 409) { showClaimErr("That slot was just taken by another phone."); return null; }
+        if (res.status === 403) { mode = "password"; forceRerender(); showPasswordErr("Wrong password, try again."); return null; }
+        if (!res.ok) { showClaimErr("Could not claim that slot, try again."); return null; }
+        return res.json();
+      }).then(function (data) {
+        if (!data) return;
+        session = { pw: pendingPw, deviceId: deviceId, playerIdx: idx, playerToken: data.playerToken };
+        saveSession(gameId, session);
+        mode = "main";
+        forceRerender();
+      }).catch(function () {
+        claimInFlight = false;
+        showClaimErr("Network error, try again.");
+      });
+    }
+
+    // ---------------------------------------------------------------------
+    // Screens: main loop
+    // ---------------------------------------------------------------------
+
+    function playerColorDot(color) { return '<span class="dot" style="background:' + escapeHtml(color || "#c9c4ff") + '"></span>'; }
+
+    function renderReadOnlyTimeline(timeline) {
+      var html = '<div class="timeline-strip">';
+      (timeline || []).forEach(function (c) {
+        html += '<div class="tcard"><div class="y">' + escapeHtml(c.year) + '</div><div class="t">' + escapeHtml(c.title) + '</div>' +
+          '<div class="a">' + escapeHtml(c.artist) + '</div>' +
+          (c.cat ? '<span class="catchip">' + escapeHtml(c.cat) + '</span>' : "") + '</div>';
+      });
+      if (!timeline || !timeline.length) html += '<div class="waiting" style="padding:10px;">No cards yet.</div>';
+      html += '</div>';
+      return html;
+    }
+
+    function renderPendingChips(p) {
+      if (!p.pendingGuesses || !p.pendingGuesses.length) return "";
+      var html = '<div class="pending-chips">';
+      p.pendingGuesses.forEach(function (g) {
+        var pl = p.players[g.playerIdx];
+        var cls = g.judged === "correct" ? "correct" : (g.judged === "wrong" ? "wrong" : "");
+        var label = g.type === "source" ? "source" : "artist+title";
+        var status = g.judged === "correct" ? "correct" : (g.judged === "wrong" ? "wrong" : "pending");
+        html += '<span class="chip ' + cls + '">' + playerColorDot(pl && pl.color) + escapeHtml(pl ? pl.name : "?") +
+          ": " + label + " (" + status + ")</span>";
+      });
+      html += "</div>";
+      return html;
+    }
+
+    function renderLobby() {
+      var p = projection;
+      var html = '<p class="lede">Waiting for the host to start the game.</p><div class="roster">';
+      p.players.forEach(function (pl, idx) {
+        var mine = idx === myIdx();
+        html += '<div class="name-btn' + (mine ? " mine" : "") + '" style="cursor:default;">' + escapeHtml(pl.name) +
+          (mine ? '<span class="tag">you</span>' : (pl.claimed ? '<span class="tag">joined</span>' : '<span class="tag">open</span>')) + "</div>";
+      });
+      html += "</div>";
+      render(html);
+    }
+
+    function renderPaused() {
+      render('<div class="waiting"><span class="big">&#9208;&#65039;</span>Game paused by the host.<br />Hang tight, it will resume soon.</div>');
+    }
+
+    function renderOver() {
+      var p = projection;
+      var ranked = p.players.slice().sort(function (a, b) { return (b.cards || 0) - (a.cards || 0); });
+      var html = '<p class="lede center">Final standings</p><div class="standings-list">';
+      ranked.forEach(function (pl, i) {
+        html += '<div class="standings-row"><span class="place">' + (i + 1) + '</span>' +
+          '<span class="avatar-dot" style="background:' + escapeHtml(pl.color || "#c9c4ff") + '"></span>' +
+          '<span class="nm">' + escapeHtml(pl.name) + (pl.idx === myIdx() ? " (you)" : "") + '</span>' +
+          '<span class="cnt">' + (pl.cards || 0) + ' cards &middot; ' + (pl.coins || 0) + ' coins</span></div>';
+      });
+      html += "</div>";
+      render(html);
+    }
+
+    // -- placement (current player) --
+
+    function renderPlaceCurrent() {
+      var p = projection;
+      var me = p.players[myIdx()];
+      var locked = (p.placement && p.placement.locked) || placementLockedOptimistic;
+      var myGuess = findMyPendingGuess(p);
+      var guessSent = !!myGuess || guessSentRoundLocal === p.round;
+
+      if (tentativeRoundLocal !== p.round) {
+        // New round: drop any stale local pick and start from the server's view.
+        tentativeRoundLocal = p.round;
+        localTentativeSlot = (p.placement && p.placement.tentativeSlot != null) ? p.placement.tentativeSlot : null;
+        placementLockedOptimistic = false;
+      }
+
+      var html = '<div class="row-between"><span class="badge">Your turn</span><span class="coin-pill" id="myCoins">' + (me ? me.coins : 0) + ' coins</span></div>';
+
+      html += '<div class="section" id="guessSection">' + renderGuessSectionInner(p, guessSent) + "</div>";
+
+      html += '<div class="section">';
+      html += '<div class="field"><label>Place the new card</label></div>';
+      if (locked) {
+        html += '<div class="sent">Placement locked in! Waiting for reveal.</div>';
+        html += renderTimelineWithGhost(me ? me.timeline : [], localTentativeSlot, true);
+      } else {
+        html += '<div class="new-card-row"><div class="new-card" id="newCard">?<span class="cap">new song</span></div></div>';
+        html += renderTimelineWithGhost(me ? me.timeline : [], localTentativeSlot, false);
+        html += '<button type="button" class="btn primary" id="lockinBtn"' + (localTentativeSlot == null ? " disabled" : "") + '>Lock in placement</button>';
+      }
+      html += "</div>";
+
+      render(html);
+      wireGuessSection(p);
+      if (!locked) {
+        wireSlotGaps(panel.querySelector(".section:last-child .timeline-strip"), choosePlacementSlot);
+        wireNewCardDrag(panel.querySelector(".section:last-child"), choosePlacementSlot);
+        var lockinBtn = $("lockinBtn");
+        if (lockinBtn) lockinBtn.onclick = onLockin;
+      }
+    }
+
+    function renderTimelineWithGhost(timeline, ghostSlot, readOnly, blockedSlot) {
+      var html = '<div class="timeline-strip">';
+      var n = timeline ? timeline.length : 0;
+      for (var i = 0; i <= n; i++) {
+        if (ghostSlot === i) {
+          html += '<div class="tcard tentative"><div class="y">?</div><div class="t">New song</div></div>';
+        } else if (blockedSlot === i) {
+          // The current player's locked slot: stealers must pick a different gap.
+          html += '<button type="button" class="slot-gap blocked" disabled>NEW</button>';
+        } else if (!readOnly) {
+          html += '<button type="button" class="slot-gap" data-slot="' + i + '"></button>';
+        }
+        if (i < n) {
+          var c = timeline[i];
+          html += '<div class="tcard"><div class="y">' + escapeHtml(c.year) + '</div><div class="t">' + escapeHtml(c.title) + '</div>' +
+            (c.cat ? '<span class="catchip">' + escapeHtml(c.cat) + '</span>' : "") + '</div>';
+        }
+      }
+      html += "</div>";
+      return html;
+    }
+
+    function choosePlacementSlot(idx) {
+      localTentativeSlot = idx;
+      var strip = panel.querySelector(".section:last-child .timeline-strip");
+      if (strip) {
+        var timeline = (projection.players[myIdx()] || {}).timeline || [];
+        strip.outerHTML = renderTimelineWithGhost(timeline, idx, false);
+        wireSlotGaps(panel.querySelector(".section:last-child .timeline-strip"), choosePlacementSlot);
+      }
+      var btn = $("lockinBtn");
+      if (btn) btn.disabled = false;
+      sendTentativeThrottled(idx);
+    }
+
+    function onLockin() {
+      if (localTentativeSlot == null) return;
+      var btn = $("lockinBtn");
+      if (btn) btn.disabled = true;
+      sendTentativeThrottled.cancel();
+      sendIntent("tentative", { slot: localTentativeSlot });
+      sendIntent("lockin", { slot: localTentativeSlot }, function (ok) {
+        if (ok) { placementLockedOptimistic = true; forceRerender(); }
+        else if (btn) btn.disabled = false;
+      });
+    }
+
+    function wireSlotGaps(container, onPick) {
+      if (!container) return;
+      var gaps = container.querySelectorAll(".slot-gap");
+      for (var i = 0; i < gaps.length; i++) {
+        gaps[i].onclick = (function (g) {
+          return function () { onPick(parseInt(g.getAttribute("data-slot"), 10)); };
+        })(gaps[i]);
+      }
+    }
+
+    function clearDragOver(container) {
+      var gaps = container.querySelectorAll(".slot-gap.drag-over");
+      for (var i = 0; i < gaps.length; i++) gaps[i].classList.remove("drag-over");
+    }
+
+    function wireNewCardDrag(container, onPick) {
+      if (!container) return;
+      var card = container.querySelector("#newCard");
+      if (!card) return;
+      var floating = null;
+
+      function positionFloating(x, y) {
+        if (floating) { floating.style.left = (x - 42) + "px"; floating.style.top = (y - 30) + "px"; }
+      }
+      function findGap(x, y) {
+        var el = document.elementFromPoint(x, y);
+        return el && el.closest ? el.closest(".slot-gap") : null;
+      }
+      function onMove(ev) {
+        var t = ev.touches ? ev.touches[0] : ev;
+        positionFloating(t.clientX, t.clientY);
+        var stripNow = container.querySelector(".timeline-strip");
+        if (stripNow) clearDragOver(stripNow);
+        var gap = findGap(t.clientX, t.clientY);
+        if (gap) gap.classList.add("drag-over");
+      }
+      function onUp(ev) {
+        document.removeEventListener("pointermove", onMove);
+        document.removeEventListener("pointerup", onUp);
+        var t = ev.changedTouches ? ev.changedTouches[0] : ev;
+        var gap = findGap(t.clientX, t.clientY);
+        var stripNow = container.querySelector(".timeline-strip");
+        if (stripNow) clearDragOver(stripNow);
+        if (floating) { floating.remove(); floating = null; }
+        isDragging = false;
+        if (gap) onPick(parseInt(gap.getAttribute("data-slot"), 10));
+      }
+      card.addEventListener("pointerdown", function (ev) {
+        ev.preventDefault();
+        isDragging = true;
+        floating = card.cloneNode(true);
+        floating.classList.add("dragging-clone");
+        document.body.appendChild(floating);
+        positionFloating(ev.clientX, ev.clientY);
+        document.addEventListener("pointermove", onMove);
+        document.addEventListener("pointerup", onUp);
+      });
+    }
+
+    // -- guess form (embedded in the current-player screen) --
+
+    function renderGuessSectionInner(p, guessSent) {
+      if (guessSent) return '<div class="sent">Guess locked in, waiting for reveal.</div>';
+      var showSource = !!p.hasSource;
+      var html = '<div class="field"><label>Bonus guess</label><div class="seg" id="typeSeg">' +
+        '<button type="button" data-t="artist-title" class="' + (guessType === "artist-title" ? "on" : "") + '">Artist + title</button>';
+      if (showSource) html += '<button type="button" data-t="source" class="' + (guessType === "source" ? "on" : "") + '">Where is it from</button>';
+      html += "</div></div>";
+
+      if (guessType === "source" && showSource) {
+        html += '<div class="field"><label>Type</label><select id="sourceType">' +
+          (p.sourceTypes || []).map(function (t) { return '<option value="' + escapeHtml(t) + '">' + escapeHtml(t) + "</option>"; }).join("") +
+          '</select></div><div class="field"><label>Name</label><input id="sourceName" maxlength="60" placeholder="e.g. Titanic" /></div>';
+      } else {
+        html += '<div class="field"><label>Artist</label><input id="artist" maxlength="60" placeholder="Artist name" /></div>' +
+          '<div class="field"><label>Title</label><input id="title" maxlength="60" placeholder="Song title" /></div>';
+      }
+      html += '<button type="button" class="btn primary" id="submitGuessBtn">Submit bonus guess</button><div class="err hidden" id="guessErr"></div>';
+      return html;
+    }
+
+    function wireGuessSection(p) {
+      var seg = $("typeSeg");
+      if (seg) {
+        Array.prototype.slice.call(seg.children).forEach(function (b) {
+          b.onclick = function () { guessType = b.getAttribute("data-t"); forceRerender(); };
+        });
+      }
+      var btn = $("submitGuessBtn");
+      if (btn) btn.onclick = function () { submitGuess(p); };
+    }
+
+    function submitGuess(p) {
+      // NOTE: the outer intent `type` is always "guess" (set by sendIntent);
+      // the guess kind travels as `guessType` so it never collides with that.
+      var payload = { guessType: guessType };
+      if (guessType === "source") {
+        var sourceType = $("sourceType") ? $("sourceType").value : "";
+        var sourceName = (($("sourceName") && $("sourceName").value) || "").trim();
+        if (!sourceName) { showGuessErr("Enter the movie, musical, or Disney film name."); return; }
+        payload.sourceType = sourceType;
+        payload.sourceName = sourceName.slice(0, 80);
+      } else {
+        var artist = (($("artist") && $("artist").value) || "").trim();
+        var title = (($("title") && $("title").value) || "").trim();
+        if (!artist || !title) { showGuessErr("Fill in both artist and title."); return; }
+        payload.artist = artist.slice(0, 80);
+        payload.title = title.slice(0, 80);
+      }
+      var btn = $("submitGuessBtn");
+      if (btn) btn.disabled = true;
+      sendIntent("guess", payload, function (ok) {
+        if (ok) { guessSentRoundLocal = p.round; forceRerender(); }
+        else { if (btn) btn.disabled = false; showGuessErr("Could not send, try again."); }
+      });
+    }
+
+    function showGuessErr(msg) {
+      var e = $("guessErr");
+      if (e) { e.textContent = msg; e.classList.remove("hidden"); }
+    }
+
+    // -- waiting view (non-current, phase place/equalizer) --
+
+    function renderPlaceWaiting() {
+      var p = projection;
+      var current = p.players[p.currentPlayerIdx];
+      var me = p.players[myIdx()];
+      var html = "";
+      if (p.equalizer) html += '<div class="badge">Equalizer round</div>';
+      html += '<div class="waiting"><span class="big">&#128064;</span>Watching the main screen.<br />It is <b style="color:' +
+        escapeHtml((current && current.color) || "#c9c4ff") + '">' + escapeHtml(current ? current.name : "?") + "'s</b> turn.</div>";
+      html += '<div class="row-between"><span></span><span class="coin-pill" id="myCoins">' + (me ? me.coins : 0) + ' coins</span></div>';
+      html += '<div class="field"><label>Your timeline</label></div>';
+      html += '<div id="myTimelineBox">' + renderReadOnlyTimeline(me ? me.timeline : []) + "</div>";
+      html += '<div id="pendingChipsBox">' + renderPendingChips(p) + "</div>";
+      render(html);
+    }
+
+    // -- steal phase --
+
+    function renderSteal() {
+      var p = projection;
+      var me = p.players[myIdx()];
+      var current = p.players[p.currentPlayerIdx];
+      var eligible = !!(p.steal && p.steal.eligibleIdx.indexOf(myIdx()) !== -1);
+      var pressed = eligible && !!(p.steal && (stealPressedRoundLocal === p.round ||
+        (p.steal.presses || []).some(function (pr) { return pr.playerIdx === myIdx(); })));
+      var matchPoint = isAtMatchPoint(p.currentPlayerIdx === myIdx(), me ? me.coins : 0, (p.steal && p.steal.eligibleIdx) || [], myIdx());
+
+      var html = '<div class="waiting" style="padding:10px 8px;"><span class="big">&#127919;</span>Steal window!<br />' +
+        (current ? "It was <b>" + escapeHtml(current.name) + "'s</b> turn." : "") + "</div>";
+      html += '<div class="row-between"><span></span><span class="coin-pill" id="myCoins">' + (me ? me.coins : 0) + ' coins</span></div>';
+
+      if (eligible && !pressed) {
+        html += '<div class="countdown-num" id="stealCountdown">--</div>';
+        html += '<button type="button" class="steal-giant" id="stealBtn">STEAL!</button>';
+      } else if (eligible && pressed) {
+        html += '<div class="countdown-num" id="stealCountdown">--</div>';
+        html += '<div class="sent">You are in! Pick where to steal it.</div>';
+        html += '<div id="stealTimelineBox">' + renderTimelineWithGhost((current || {}).timeline, localStealSlot, false, lockedSlotOf(p)) + "</div>";
+      } else if (matchPoint) {
+        html += '<div class="match-point-note">At match point: stealing not allowed.</div>';
+      } else {
+        html += '<div class="waiting" style="padding:10px;">Not your steal to make this round.</div>';
+      }
+
+      html += '<div id="wheelBox"></div>';
+      html += '<div class="field" style="margin-top:14px;"><label>Your timeline</label></div>';
+      html += '<div id="myTimelineBox">' + renderReadOnlyTimeline(me ? me.timeline : []) + "</div>";
+      html += '<div id="pendingChipsBox">' + renderPendingChips(p) + "</div>";
+
+      render(html);
+
+      var stealBtn = $("stealBtn");
+      if (stealBtn) stealBtn.onclick = onStealPress;
+      if (eligible && pressed) {
+        wireSlotGaps($("stealTimelineBox").querySelector(".timeline-strip"), chooseStealSlot);
+      }
+      patchWheelBanner(p);
+      restartCountdown();
+    }
+
+    function onStealPress() {
+      if (!projection) return;
+      stealPressedRoundLocal = projection.round;
+      forceRerender();
+      sendIntent("steal-press", {});
+    }
+
+    function lockedSlotOf(p) {
+      return p && p.placement && p.placement.locked && typeof p.placement.tentativeSlot === "number"
+        ? p.placement.tentativeSlot : null;
+    }
+
+    function chooseStealSlot(idx) {
+      localStealSlot = idx;
+      var box = $("stealTimelineBox");
+      if (box) {
+        var current = projection.players[projection.currentPlayerIdx];
+        box.innerHTML = renderTimelineWithGhost((current || {}).timeline, idx, false, lockedSlotOf(projection));
+        wireSlotGaps(box.querySelector(".timeline-strip"), chooseStealSlot);
+      }
+      sendIntent("steal-slot", { slot: idx });
+    }
+
+    function patchWheelBanner(p) {
+      var box = $("wheelBox");
+      if (!box) return;
+      var wheel = p.steal && p.steal.wheel;
+      if (!wheel) { box.innerHTML = ""; return; }
+      var names = (wheel.candidates || []).map(function (idx) { return (p.players[idx] || {}).name || "?"; }).join(", ");
+      var html = '<div class="wheel-banner"><div class="title">Steal showdown</div><div class="cands">' + escapeHtml(names) + "</div>";
+      if (wheel.winnerIdx != null) {
+        var mine = wheel.winnerIdx === myIdx();
+        var winnerName = (p.players[wheel.winnerIdx] || {}).name || "?";
+        html += '<div class="winner' + (mine ? " mine" : "") + '">' + (mine ? "You got the steal!" : escapeHtml(winnerName) + " got the steal.") + "</div>";
+      }
+      html += "</div>";
+      box.innerHTML = html;
+    }
+
+    function restartCountdown() {
+      if (countdownTimer) clearInterval(countdownTimer);
+      countdownTimer = setInterval(function () {
+        var el = $("stealCountdown");
+        if (!el || !projection || !projection.steal) return;
+        el.textContent = secondsRemaining(projection.steal.endsAt, Date.now());
+      }, 1000);
+      var el = $("stealCountdown");
+      if (el && projection && projection.steal) el.textContent = secondsRemaining(projection.steal.endsAt, Date.now());
+    }
+
+    // -- revealed phase --
+    // Note: projectForPhone does not include a `result` object (see
+    // PROTOCOL.md), so the round outcome is derived from what IS projected:
+    // each player's own judged pending-guess entry plus their timeline.
+    // Full round narrative (correct/stolen/etc.) stays on the main screen.
+
+    function renderRevealed() {
+      var p = projection;
+      var myGuess = findMyPendingGuess(p);
+      var html = '<div class="badge">Round revealed</div>';
+      html += '<div class="waiting" style="padding:10px 8px;"><span class="big">&#127881;</span>Check the main screen for the full result.</div>';
+      if (myGuess && myGuess.judged) {
+        var cls = myGuess.judged === "correct" ? "correct" : "wrong";
+        var text = myGuess.judged === "correct"
+          ? (myGuess.coinAwarded ? "Your bonus guess was correct! +1 coin." : "Your bonus guess was correct, but no bonus coin (your placement was not).")
+          : "Your bonus guess was wrong.";
+        html += '<div class="chip ' + cls + '" style="display:block;text-align:center;padding:10px;">' + escapeHtml(text) + "</div>";
+      }
+      html += '<div class="field" style="margin-top:14px;"><label>Standings</label></div><div class="standings-list">';
+      p.players.forEach(function (pl) {
+        html += '<div class="standings-row"><span class="avatar-dot" style="background:' + escapeHtml(pl.color || "#c9c4ff") + '"></span>' +
+          '<span class="nm">' + escapeHtml(pl.name) + (pl.idx === myIdx() ? " (you)" : "") + '</span>' +
+          '<span class="cnt">' + (pl.cards || 0) + ' cards</span></div>';
+      });
+      html += "</div>";
+      render(html);
+    }
+
+    // ---- dispatcher + dynamic patching -----------------------------------
+
+    function dispatchRender() {
+      if (mode === "entry") { renderEntry(); return; }
+      if (mode === "password") { renderPassword(); return; }
+      if (mode === "claim") { renderClaim(); return; }
+      if (!projection) { render('<div class="waiting"><span class="big">&#8987;</span>Loading...</div>'); return; }
+      var p = projection;
+      if (p.status === "paused") { renderPaused(); return; }
+      if (p.phase === "over" || p.status === "finished") { renderOver(); return; }
+      if (p.phase === "lobby") { renderLobby(); return; }
+      var iAmCurrent = p.currentPlayerIdx === myIdx();
+      if (p.phase === "place" || p.phase === "equalizer") {
+        if (iAmCurrent) renderPlaceCurrent(); else renderPlaceWaiting();
+        return;
+      }
+      if (p.phase === "steal") { renderSteal(); return; }
+      if (p.phase === "revealed") { renderRevealed(); return; }
+      render('<div class="waiting">Waiting for the next round...</div>');
+    }
+
+    // Refreshes fast-changing bits (coins, timelines, pending chips, steal
+    // countdown/wheel, remote tentative mirror) every poll tick WITHOUT
+    // rebuilding the screen, so a half-typed guess or an in-progress drag
+    // is never disturbed.
+    function patchDynamic() {
+      if (mode !== "main" || !projection) return;
+      var p = projection;
+      var me = p.players[myIdx()];
+      var coinsEl = $("myCoins");
+      if (coinsEl && me) coinsEl.textContent = me.coins + " coins";
+
+      var tlBox = $("myTimelineBox");
+      if (tlBox && me) tlBox.innerHTML = renderReadOnlyTimeline(me.timeline);
+
+      var chipsBox = $("pendingChipsBox");
+      if (chipsBox) chipsBox.innerHTML = renderPendingChips(p);
+
+      // Mirror the host-authoritative tentative slot for the current placer
+      // while they are not actively dragging locally.
+      if (p.phase === "place" && p.currentPlayerIdx === myIdx() && !isDragging &&
+          !((p.placement && p.placement.locked) || placementLockedOptimistic)) {
+        var serverSlot = p.placement ? p.placement.tentativeSlot : null;
+        if (serverSlot != null && serverSlot !== localTentativeSlot) {
+          localTentativeSlot = serverSlot;
+          var strip = panel.querySelector(".section:last-child .timeline-strip");
+          if (strip) {
+            strip.outerHTML = renderTimelineWithGhost(me ? me.timeline : [], serverSlot, false);
+            wireSlotGaps(panel.querySelector(".section:last-child .timeline-strip"), choosePlacementSlot);
+          }
+          var lockBtn = $("lockinBtn");
+          if (lockBtn) lockBtn.disabled = false;
+        }
+      }
+
+      if (p.phase === "steal") patchWheelBanner(p);
+    }
+
+    // ---------------------------------------------------------------------
+    // Poll loop
+    // ---------------------------------------------------------------------
+
+    function currentPollDelay() {
+      return (projection && projection.status === "paused") ? 5000 : 2000;
     }
 
     function poll() {
-      if (!room) return;
-      fetch("/api/hitster/room?room=" + encodeURIComponent(room))
-        .then(function (res) {
-          if (res.status === 404) {
-            currentState = null;
-            applyRender("error:404", function () { renderError("Room not found yet. Ask the host to start the game."); });
-            return null;
+      if (mode !== "claim" && mode !== "main") return Promise.resolve();
+      var pw = session ? session.pw : pendingPw;
+      if (!pw) return Promise.resolve();
+      return fetchPhone(pw, lastVersion).then(function (res) {
+        if (res.status === 403) { showReconnecting(false); handleAuthLost(); return; }
+        if (res.status === 404) { showReconnecting(false); handleGameGone(); return; }
+        if (!res.ok) { showReconnecting(true); return; }
+        showReconnecting(false);
+        return res.json().then(function (data) {
+          if (!data || data.unchanged) return;
+          lastVersion = data.version;
+          projection = data.state;
+          if (mode === "main" && session && projection.players[session.playerIdx] && !projection.players[session.playerIdx].claimed) {
+            handleAuthLost();
+            return;
           }
-          if (res.status === 503) {
-            currentState = null;
-            applyRender("error:503", function () { renderError("Bonus guesses are not available right now."); });
-            return null;
-          }
-          if (!res.ok) {
-            currentState = null;
-            applyRender("error:bad-status", function () { renderError("Could not reach the game."); });
-            return null;
-          }
-          return res.json();
-        })
-        .then(function (state) {
-          if (!state) return;
-          currentState = state;
-          applyRender(computeRenderKey(state), function () { renderForState(state); });
-        })
-        .catch(function () {
-          currentState = null;
-          applyRender("error:network", function () { renderError("Could not reach the game."); });
+          applyRender(computeScreenKey(), dispatchRender);
+          patchDynamic();
         });
+      }).catch(function () {
+        showReconnecting(true);
+      });
     }
 
-    if (!room) {
-      renderNoRoom();
-    } else {
-      poll();
-      pollTimer = setInterval(poll, 2000);
+    function startPolling() {
+      var myGen = ++pollGeneration;
+      function tick() {
+        if (myGen !== pollGeneration) return;
+        poll().then(function () {
+          if (myGen !== pollGeneration) return;
+          pollTimer = setTimeout(tick, currentPollDelay());
+        });
+      }
+      if (pollTimer) clearTimeout(pollTimer);
+      tick();
     }
-    window.addEventListener("beforeunload", function () { if (pollTimer) clearInterval(pollTimer); });
+
+    // ---------------------------------------------------------------------
+    // Boot
+    // ---------------------------------------------------------------------
+
+    function boot() {
+      if (!gameId) { mode = "entry"; renderEntry(); return; }
+      var stored = loadSession(gameId);
+      if (stored) {
+        session = stored;
+        pendingPw = stored.pw;
+        mode = "main";
+        render('<div class="waiting"><span class="big">&#8987;</span>Rejoining...</div>');
+        startPolling();
+      } else {
+        mode = "password";
+        renderPassword();
+      }
+    }
+
+    boot();
+
+    window.addEventListener("beforeunload", function () {
+      if (pollTimer) clearTimeout(pollTimer);
+      if (countdownTimer) clearInterval(countdownTimer);
+      pollGeneration++;
+    });
   })();
   </script>
 </body>
