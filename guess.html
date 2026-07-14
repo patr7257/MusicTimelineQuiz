@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Hitster: Bonus guess</title>
+  <style>
+    :root {
+      --bg0: #0a0916;
+      --bg1: #120b24;
+      --ink: #f3f0ff;
+      --muted: #a39fc4;
+      --accent: #7c5cff;
+      --accent2: #21d4c4;
+      --warm: #ffb454;
+      --good: #35e08f;
+      --bad: #ff6472;
+      --panel: rgba(24, 20, 46, 0.72);
+      --line: rgba(255,255,255,.10);
+      --shadow: 0 20px 50px rgba(0,0,0,.5);
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body {
+      font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+      color: var(--ink);
+      background: radial-gradient(1200px 800px at 50% -20%, #241546 0%, rgba(36,21,70,0) 55%), linear-gradient(165deg, var(--bg0), var(--bg1));
+      min-height: 100%;
+      padding: 20px 16px 40px;
+    }
+    button { font-family: inherit; cursor: pointer; }
+    .hidden { display: none !important; }
+    .wrap { max-width: 480px; margin: 0 auto; }
+    .brand { font-weight: 800; letter-spacing: .3px; font-size: 20px; display: flex; align-items: center; gap: 8px; margin-bottom: 18px; }
+    .brand .note { color: var(--warm); }
+    .panel {
+      background: linear-gradient(180deg, rgba(30,24,56,.96), rgba(18,13,36,.96));
+      border: 1px solid var(--line); border-radius: 22px; padding: 22px;
+      box-shadow: var(--shadow); backdrop-filter: blur(8px);
+    }
+    .lede { margin: 0 0 18px; color: var(--muted); font-size: 14px; line-height: 1.5; }
+    .names { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .name-btn {
+      border: 1px solid var(--line); background: rgba(255,255,255,.06); color: var(--ink);
+      padding: 14px 10px; border-radius: 12px; font-size: 15px; font-weight: 700;
+    }
+    .name-btn:active { transform: translateY(1px); }
+    .field { margin-bottom: 16px; }
+    .field > label { display: block; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; font-weight: 700; }
+    .field input, .field select { width: 100%; padding: 13px 14px; border-radius: 12px; font-size: 16px; background: rgba(0,0,0,.3); border: 1px solid var(--line); color: var(--ink); }
+    .field input:focus, .field select:focus { outline: 2px solid var(--accent); border-color: var(--accent); }
+    .seg { display: flex; gap: 8px; }
+    .seg button { flex: 1; padding: 12px; border-radius: 12px; background: rgba(0,0,0,.3); border: 1px solid var(--line); color: var(--ink); font-weight: 700; font-size: 14px; }
+    .seg button.on { background: linear-gradient(180deg, #8f74ff, var(--accent)); border-color: #6c4de0; box-shadow: 0 8px 20px rgba(124,92,255,.35); }
+    .btn {
+      border: 1px solid var(--line); background: rgba(255,255,255,.06); color: var(--ink);
+      padding: 13px 16px; border-radius: 12px; font-size: 15px; font-weight: 700; width: 100%;
+    }
+    .btn.primary { background: linear-gradient(180deg, #8f74ff, var(--accent)); border-color: #6c4de0; color: #fff; box-shadow: 0 8px 22px rgba(124,92,255,.4); }
+    .btn:disabled { opacity: .4; cursor: not-allowed; box-shadow: none; }
+    .waiting { text-align: center; color: var(--muted); font-size: 16px; padding: 30px 10px; line-height: 1.6; }
+    .waiting .big { font-size: 40px; display: block; margin-bottom: 10px; }
+    .sent { text-align: center; color: var(--good); font-size: 17px; font-weight: 700; padding: 24px 10px; }
+    .who { text-align: center; color: var(--muted); font-size: 13px; margin-top: -6px; margin-bottom: 16px; }
+    .who b { color: var(--ink); }
+    .err { color: var(--bad); font-size: 13px; margin-top: 10px; text-align: center; }
+    .switch-name { text-align: center; margin-top: 14px; }
+    .switch-name button { background: none; border: none; color: var(--muted); font-size: 12px; text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="brand"><span class="note">♪</span> Hitster bonus guess</div>
+    <div class="panel" id="panel">
+      <div class="waiting"><span class="big">⏳</span>Loading room...</div>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    "use strict";
+
+    function $(id) { return document.getElementById(id); }
+    function escapeHtml(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+    function qs(name) { var m = new RegExp("[?&]" + name + "=([^&]*)").exec(location.search); return m ? decodeURIComponent(m[1].replace(/\+/g, " ")) : null; }
+
+    var room = (qs("room") || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
+    var panel = $("panel");
+    var storageKey = "hitster_guess_name_" + room;
+    var pollTimer = null;
+    var lastSubmittedRound = null;
+    var currentState = null;
+    var submitting = false;
+    var guessType = "artist-title";
+    var lastRenderKey = null;
+
+    function render(html) { panel.innerHTML = html; }
+
+    // The render key captures only the fields that decide WHICH screen or
+    // form is shown. As long as the key does not change, the poll must not
+    // touch the DOM, so a player who is mid-typing never gets wiped out.
+    function computeRenderKey(state) {
+      var name = chosenName();
+      var known = name && state.players.indexOf(name) !== -1;
+      var alreadySubmitted = lastSubmittedRound === state.round;
+      return [
+        known ? "known" : "unknown",
+        name || "",
+        state.round,
+        state.guessOpen ? "1" : "0",
+        state.currentPlayer,
+        state.hasSource ? "1" : "0",
+        alreadySubmitted ? "1" : "0"
+      ].join("|");
+    }
+
+    // Only rebuilds the DOM when the given key differs from the last one
+    // that was actually rendered. Call this from every place that renders
+    // in response to polled data (or a transient fetch error) so repeated
+    // ticks with unchanged state never disturb inputs the player is typing.
+    function applyRender(key, renderFn) {
+      if (key === lastRenderKey) return;
+      lastRenderKey = key;
+      renderFn();
+    }
+
+    // Called after a user action (picking/switching name, submitting a
+    // guess) that changes what should be shown outside of a poll tick, so
+    // the next poll with unchanged state does not redundantly re-render.
+    function syncRenderKey() {
+      if (currentState) lastRenderKey = computeRenderKey(currentState);
+    }
+
+    function renderNoRoom() {
+      render('<div class="waiting"><span class="big">🚫</span>No room code in the link. Scan the QR code shown on the main screen.</div>');
+    }
+
+    function renderError(msg) {
+      render('<div class="waiting"><span class="big">📡</span>' + escapeHtml(msg) + '</div><div class="err">Retrying...</div>');
+    }
+
+    function chosenName() {
+      try { return localStorage.getItem(storageKey); } catch (e) { return null; }
+    }
+    function setChosenName(name) {
+      try { localStorage.setItem(storageKey, name); } catch (e) { /* ignore, storage unavailable */ }
+    }
+    function clearChosenName() {
+      try { localStorage.removeItem(storageKey); } catch (e) { /* ignore */ }
+    }
+
+    function renderPickName(state) {
+      var html = '<p class="lede">Tap your name to join the bonus round.</p><div class="names">';
+      state.players.forEach(function (p) {
+        html += '<button type="button" class="name-btn" data-name="' + escapeHtml(p) + '">' + escapeHtml(p) + '</button>';
+      });
+      html += '</div>';
+      render(html);
+      var btns = panel.querySelectorAll(".name-btn");
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].onclick = function (ev) {
+          setChosenName(ev.currentTarget.getAttribute("data-name"));
+          renderForState(currentState);
+          syncRenderKey();
+        };
+      }
+    }
+
+    function renderWaitingTurn(name, state) {
+      render(
+        '<div class="waiting"><span class="big">👀</span>Watching the main screen.<br />It is <b>' + escapeHtml(state.currentPlayer) + "'s</b> turn.</div>" +
+        '<div class="switch-name"><button type="button" id="switchBtn">Not ' + escapeHtml(name) + '? Switch player</button></div>'
+      );
+      var b = $("switchBtn");
+      if (b) b.onclick = function () { clearChosenName(); renderForState(currentState); syncRenderKey(); };
+    }
+
+    function renderSent(name) {
+      render('<div class="sent">🪙 Sent! Watch the main screen for the result.</div>');
+    }
+
+    function renderForm(name, state) {
+      var showSource = !!state.hasSource;
+      var html = '<div class="who">Playing as <b>' + escapeHtml(name) + '</b>, make your bonus guess.</div>';
+      html += '<div class="field"><label>Guess type</label><div class="seg" id="typeSeg">' +
+        '<button type="button" data-t="artist-title" class="' + (guessType === "artist-title" ? "on" : "") + '">Artist + title</button>';
+      if (showSource) {
+        html += '<button type="button" data-t="source" class="' + (guessType === "source" ? "on" : "") + '">Where is it from</button>';
+      }
+      html += '</div></div>';
+
+      if (guessType === "source" && showSource) {
+        html += '<div class="field"><label>Type</label><select id="sourceType">' +
+          '<option value="movie">Movie</option><option value="musical">Musical</option><option value="disney">Disney</option></select></div>' +
+          '<div class="field"><label>Name (movie / musical title)</label><input id="sourceName" maxlength="60" placeholder="e.g. Titanic" /></div>';
+      } else {
+        html += '<div class="field"><label>Artist</label><input id="artist" maxlength="60" placeholder="Artist name" /></div>' +
+          '<div class="field"><label>Title</label><input id="title" maxlength="60" placeholder="Song title" /></div>';
+      }
+
+      html += '<button type="button" class="btn primary" id="submitBtn">Submit bonus guess</button>' +
+        '<div class="err hidden" id="formErr"></div>';
+
+      render(html);
+
+      var seg = $("typeSeg");
+      if (seg) {
+        Array.prototype.slice.call(seg.children).forEach(function (b) {
+          b.onclick = function () { guessType = b.getAttribute("data-t"); renderForm(name, state); };
+        });
+      }
+      $("submitBtn").onclick = function () { submitGuess(name, state); };
+    }
+
+    function submitGuess(name, state) {
+      if (submitting) return;
+      var body = { room: room, round: state.round, player: name, type: guessType };
+      if (guessType === "source") {
+        var sourceType = $("sourceType").value;
+        var sourceName = ($("sourceName").value || "").trim();
+        if (!sourceName) { showFormErr("Enter the movie, musical, or Disney film name."); return; }
+        body.sourceType = sourceType;
+        body.sourceName = sourceName;
+      } else {
+        var artist = ($("artist").value || "").trim();
+        var title = ($("title").value || "").trim();
+        if (!artist || !title) { showFormErr("Fill in both artist and title."); return; }
+        body.artist = artist;
+        body.title = title;
+      }
+      submitting = true;
+      fetch("/api/hitster/guess", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      }).then(function (res) {
+        submitting = false;
+        if (res.status === 409) { lastSubmittedRound = state.round; renderSent(name); syncRenderKey(); return; }
+        if (!res.ok) { showFormErr("Could not send, try again."); return; }
+        lastSubmittedRound = state.round;
+        renderSent(name);
+        syncRenderKey();
+      }).catch(function () {
+        submitting = false;
+        showFormErr("Network error, try again.");
+      });
+    }
+
+    function showFormErr(msg) {
+      var e = $("formErr");
+      if (e) { e.textContent = msg; e.classList.remove("hidden"); }
+    }
+
+    function renderForState(state) {
+      if (!state) { renderError("Waiting for the room to open."); return; }
+      var name = chosenName();
+      if (!name || state.players.indexOf(name) === -1) { renderPickName(state); return; }
+      var myTurn = state.guessOpen && state.currentPlayer === name;
+      var alreadySubmitted = lastSubmittedRound === state.round;
+      if (myTurn && !alreadySubmitted) { renderForm(name, state); return; }
+      if (myTurn && alreadySubmitted) { renderSent(name); return; }
+      renderWaitingTurn(name, state);
+    }
+
+    function poll() {
+      if (!room) return;
+      fetch("/api/hitster/room?room=" + encodeURIComponent(room))
+        .then(function (res) {
+          if (res.status === 404) {
+            currentState = null;
+            applyRender("error:404", function () { renderError("Room not found yet. Ask the host to start the game."); });
+            return null;
+          }
+          if (res.status === 503) {
+            currentState = null;
+            applyRender("error:503", function () { renderError("Bonus guesses are not available right now."); });
+            return null;
+          }
+          if (!res.ok) {
+            currentState = null;
+            applyRender("error:bad-status", function () { renderError("Could not reach the game."); });
+            return null;
+          }
+          return res.json();
+        })
+        .then(function (state) {
+          if (!state) return;
+          currentState = state;
+          applyRender(computeRenderKey(state), function () { renderForState(state); });
+        })
+        .catch(function () {
+          currentState = null;
+          applyRender("error:network", function () { renderError("Could not reach the game."); });
+        });
+    }
+
+    if (!room) {
+      renderNoRoom();
+    } else {
+      poll();
+      pollTimer = setInterval(poll, 2000);
+    }
+    window.addEventListener("beforeunload", function () { if (pollTimer) clearInterval(pollTimer); });
+  })();
+  </script>
+</body>
+</html>

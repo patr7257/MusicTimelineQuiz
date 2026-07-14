@@ -67,10 +67,10 @@
 
     /* Stage */
     #game { position: fixed; inset: 56px 0 0 0; z-index: 1; }
-    .stage { position: absolute; inset: 6px 6px 208px 6px; }
+    .stage { position: absolute; inset: 6px 6px 288px 6px; }
 
     /* Central music hub */
-    .hub { position: absolute; left: 50%; top: 41%; transform: translate(-50%,-50%); width: 300px; max-width: 50vw; z-index: 6; }
+    .hub { position: absolute; left: 50%; top: 38%; transform: translate(-50%,-50%); width: 300px; max-width: 50vw; z-index: 6; }
     .disc-glow {
       position: absolute; inset: -26px; border-radius: 26px; z-index: -1;
       background: radial-gradient(circle at 50% 40%, rgba(124,92,255,.5), transparent 68%);
@@ -85,7 +85,9 @@
     }
     .hubcard h3 { margin: 0 0 12px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
     .qr { width: 200px; height: 200px; margin: 0 auto; background: #fff; border-radius: 14px; padding: 8px; box-shadow: 0 10px 26px rgba(0,0,0,.45); }
-    .qr img { width: 100%; height: 100%; image-rendering: pixelated; display: block; }
+    .qr img { width: 100%; height: 100%; image-rendering: pixelated; display: block; pointer-events: none; }
+    .qr.draggable { cursor: grab; touch-action: none; }
+    .qr.draggable:active { cursor: grabbing; }
     .scan-hint { font-size: 12px; color: var(--muted); margin-top: 10px; line-height: 1.4; }
     .eq { display: flex; gap: 4px; justify-content: center; align-items: flex-end; height: 26px; margin-top: 12px; }
     .eq span { width: 5px; height: 8px; border-radius: 3px; background: linear-gradient(180deg, var(--accent2), var(--accent)); opacity: .55; }
@@ -102,41 +104,52 @@
     .verdict { margin-top: 8px; font-weight: 800; font-size: 18px; }
     .verdict.good { color: var(--good); } .verdict.bad { color: var(--bad); }
     .hub .row { display: flex; gap: 8px; justify-content: center; margin-top: 12px; flex-wrap: wrap; }
+    .steal-count { font-size: 60px; font-weight: 900; line-height: 1; text-align: center; margin-top: 8px; background: linear-gradient(180deg, #fff, var(--warm)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .steal-count.paused { opacity: .45; }
 
-    /* Player seats orbiting the hub */
-    .seat { position: absolute; width: 176px; transform: translate(-50%,-50%); z-index: 3; }
+    /* Player seats, docked to the stage edges so they never overlap the hub */
+    .seat { position: absolute; width: 176px; transform: translate(-50%,-50%); z-index: 3; transition: left .5s ease, top .5s ease, opacity .3s ease; }
     .seat-card { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 10px 12px; box-shadow: var(--shadow); backdrop-filter: blur(6px); }
-    .seat.active .seat-card { border-color: transparent; box-shadow: 0 0 0 2px var(--seat-color, var(--accent)), 0 18px 40px rgba(0,0,0,.5); }
     .seat-head { display: flex; align-items: center; gap: 9px; margin-bottom: 8px; }
     .avatar { width: 32px; height: 32px; border-radius: 50%; flex: 0 0 auto; display: grid; place-items: center; font-weight: 800; color: #10101f; font-size: 13px; }
     .seat-name { font-weight: 700; font-size: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .seat-score { margin-left: auto; font-size: 12px; color: var(--muted); font-weight: 700; }
+    .seat-coins { display: flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 800; color: var(--warm); margin-bottom: 8px; }
     .mini-timeline { display: flex; gap: 4px; flex-wrap: wrap; }
     .mini { position: relative; min-width: 32px; height: 40px; border-radius: 7px; padding: 2px 4px; background: rgba(0,0,0,.28); border: 1px solid var(--line); display: flex; flex-direction: column; align-items: center; justify-content: center; }
     .minicat { position: absolute; top: -6px; left: -5px; font-size: 9px; line-height: 1; padding: 1px 3px; border-radius: 999px; background: color-mix(in srgb, var(--c, #c9c4ff) 30%, #12122a); border: 1px solid color-mix(in srgb, var(--c, #c9c4ff) 60%, transparent); cursor: default; transition: transform .12s; }
     .minicat:hover { transform: scale(1.25); }
     .mini .y { font-weight: 800; font-size: 13px; }
     .mini .t { font-size: 8px; color: var(--muted); max-width: 40px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .turn-badge { position: absolute; top: -11px; left: 50%; transform: translateX(-50%); background: var(--seat-color, var(--accent)); color: #10101f; font-size: 10px; font-weight: 800; padding: 3px 10px; border-radius: 999px; white-space: nowrap; letter-spacing: .5px; box-shadow: 0 4px 10px rgba(0,0,0,.4); }
+    .steal-btn { width: 100%; margin-top: 8px; padding: 7px 10px; font-size: 12px; background: linear-gradient(180deg, #ffcf87, var(--warm)); border-color: #c98a2c; color: #241402; font-weight: 800; }
+    .steal-btn:hover { filter: brightness(1.05); }
 
-    /* Hero panel */
-    .hero { position: absolute; left: 0; right: 0; bottom: 0; height: 198px; z-index: 20; padding: 14px 20px 16px; display: flex; flex-direction: column; gap: 10px; background: linear-gradient(180deg, rgba(10,9,22,0), rgba(10,9,22,.92) 34%, rgba(10,9,22,.98)); }
+    /* Hero panel: the centerpiece showing the current player's timeline */
+    .hero { position: absolute; left: 0; right: 0; bottom: 0; height: 280px; z-index: 20; padding: 16px 20px 18px; display: flex; flex-direction: column; gap: 10px; background: linear-gradient(180deg, rgba(10,9,22,0), rgba(10,9,22,.92) 30%, rgba(10,9,22,.98)); }
     .hero-head { display: flex; align-items: center; gap: 12px; }
-    .hero-avatar { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; font-weight: 900; color: #10101f; font-size: 18px; box-shadow: 0 0 0 3px rgba(255,255,255,.08); }
-    .hero-name { font-size: 22px; font-weight: 800; }
+    .hero-avatar { width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center; font-weight: 900; color: #10101f; font-size: 19px; box-shadow: 0 0 0 3px rgba(255,255,255,.08); flex: 0 0 auto; }
+    .hero-name { font-size: 23px; font-weight: 800; }
     .hero-name .sub { display: block; font-size: 12px; color: var(--muted); font-weight: 600; }
-    .hero-actions { margin-left: auto; display: flex; gap: 10px; }
+    .hero-coins { font-size: 15px; font-weight: 800; color: var(--warm); background: rgba(255,180,84,.12); border: 1px solid rgba(255,180,84,.35); padding: 6px 13px; border-radius: 999px; white-space: nowrap; }
+    .hero-actions { margin-left: auto; display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
     .instructions { color: var(--muted); font-size: 13px; }
     .instructions b { color: var(--ink); }
-    .timeline { display: flex; align-items: stretch; gap: 0; overflow-x: auto; padding: 6px 2px 10px; }
-    .slot { flex: 0 0 auto; width: 32px; align-self: stretch; min-height: 74px; display: grid; place-items: center; margin: 0 2px; }
-    .slot button { width: 26px; height: 62px; border-radius: 8px; border: 1px dashed rgba(255,180,84,.55); background: rgba(255,180,84,.10); color: var(--warm); font-size: 18px; font-weight: 800; }
+    .bonus-banner { font-size: 13px; font-weight: 700; padding: 8px 12px; border-radius: 10px; display: inline-block; }
+    .bonus-banner.good { color: var(--good); background: rgba(53,224,143,.12); border: 1px solid rgba(53,224,143,.35); }
+    .bonus-banner.bad { color: var(--bad); background: rgba(255,100,114,.12); border: 1px solid rgba(255,100,114,.35); }
+    .timeline { display: flex; align-items: stretch; justify-content: center; gap: 0; overflow-x: auto; flex: 1; padding: 8px 2px 12px; }
+    .slot { flex: 0 0 auto; width: 48px; align-self: stretch; min-height: 118px; display: grid; place-items: center; margin: 0 3px; }
+    .slot button { width: 42px; height: 100px; border-radius: 10px; border: 2px dashed rgba(255,180,84,.55); background: rgba(255,180,84,.10); color: var(--warm); font-size: 26px; font-weight: 800; }
     .slot button:hover { background: rgba(255,180,84,.24); }
-    .slot.chosen button { background: var(--warm); color: #241402; border-style: solid; }
-    .tcard { flex: 0 0 auto; width: 96px; min-height: 74px; border-radius: 12px; padding: 8px 6px; background: linear-gradient(180deg, rgba(56,44,96,.95), rgba(30,22,52,.95)); border: 1px solid var(--line); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; box-shadow: 0 6px 16px rgba(0,0,0,.4); }
-    .tcard .y { font-size: 22px; font-weight: 900; color: var(--warm); }
-    .tcard .t { font-size: 10px; font-weight: 700; margin-top: 2px; line-height: 1.1; }
-    .tcard .a { font-size: 9px; color: var(--muted); }
+    .slot.drag-over button { background: var(--warm); color: #241402; border-style: solid; transform: scale(1.08); }
+    .slot.steal-chosen button { border-color: var(--steal-color, var(--accent)); border-style: solid; background: color-mix(in srgb, var(--steal-color, var(--accent)) 30%, transparent); color: var(--steal-color, var(--accent)); }
+    .tcard { position: relative; flex: 0 0 auto; width: 150px; min-height: 118px; border-radius: 14px; padding: 12px 10px; margin: 0 3px; background: linear-gradient(180deg, rgba(56,44,96,.95), rgba(30,22,52,.95)); border: 1px solid var(--line); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; box-shadow: 0 6px 16px rgba(0,0,0,.4); }
+    .tcard .y { font-size: 34px; font-weight: 900; color: var(--warm); }
+    .tcard .t { font-size: 13px; font-weight: 700; margin-top: 4px; line-height: 1.15; }
+    .tcard .a { font-size: 11px; color: var(--muted); }
+    .tcard.tentative { border: 2px solid var(--warm); animation: tentPulse 1.2s ease-in-out infinite; }
+    @keyframes tentPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(255,180,84,.55); } 50% { box-shadow: 0 0 0 9px rgba(255,180,84,0); } }
+    .new-badge { position: absolute; top: -10px; right: -8px; background: var(--warm); color: #241402; font-size: 10px; font-weight: 900; padding: 3px 8px; border-radius: 999px; box-shadow: 0 4px 10px rgba(0,0,0,.4); letter-spacing: .4px; }
     /* Category label chip shown on every card, with a hover effect */
     .catchip { display: inline-flex; align-items: center; gap: 4px; padding: 2px 7px; border-radius: 999px; font-size: 9px; font-weight: 800; letter-spacing: .2px; color: #fff; white-space: nowrap; cursor: default; vertical-align: middle; background: color-mix(in srgb, var(--c, #c9c4ff) 20%, transparent); border: 1px solid color-mix(in srgb, var(--c, #c9c4ff) 55%, transparent); transition: transform .12s, background .15s; }
     .catchip:hover { transform: translateY(-1px) scale(1.05); background: color-mix(in srgb, var(--c, #c9c4ff) 40%, transparent); }
@@ -144,6 +157,10 @@
     .catchip .cl { max-width: 0; overflow: hidden; opacity: 0; transition: max-width .2s ease, opacity .2s ease; }
     .catchip.full .cl, .catchip:hover .cl { max-width: 160px; opacity: 1; }
     .tcard .catchip { margin-bottom: 4px; }
+
+    /* Drag ghost that follows the pointer while dragging the hub card to a slot */
+    .drag-ghost { position: fixed; top: 0; left: 0; width: 64px; height: 64px; pointer-events: none; z-index: 200; opacity: .88; transform: translate(-50%,-50%); }
+    .drag-ghost img { width: 100%; height: 100%; border-radius: 8px; box-shadow: 0 10px 24px rgba(0,0,0,.5); background: #fff; }
 
     /* Overlays */
     .overlay { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; background: radial-gradient(900px 600px at 50% 10%, rgba(60,40,120,.5), rgba(6,6,16,.94)); padding: 20px; overflow: auto; }
@@ -182,11 +199,23 @@
     .standings .sc { margin-left: auto; font-weight: 800; }
 
     @media (prefers-reduced-motion: reduce) {
-      .g1, .g2, .hub.live .disc-glow, .hub.live .eq span { animation: none !important; }
+      .g1, .g2, .hub.live .disc-glow, .hub.live .eq span, .tcard.tentative { animation: none !important; }
     }
     @media (max-width: 720px) {
       .names, .cats, .row2 { grid-template-columns: 1fr 1fr; }
-      .seat { width: 140px; }
+      .seat { width: 132px; }
+      .hub { max-width: 42vw; }
+      .hero { height: 246px; }
+      .stage { inset: 6px 6px 254px 6px; }
+      .tcard { width: 118px; min-height: 100px; }
+      .tcard .y { font-size: 26px; }
+      .slot { width: 40px; min-height: 100px; }
+      .slot button { width: 34px; height: 84px; font-size: 22px; }
+    }
+    @media (max-width: 480px) {
+      .seat { width: 108px; }
+      .hub { max-width: 38vw; width: 220px; }
+      .hero-coins { display: none; }
     }
   </style>
 </head>
@@ -200,6 +229,8 @@
     <div class="pill">Win at <b id="targetLabel">-</b></div>
     <div class="spacer"></div>
     <div class="pill">Cards left <b id="deckLeft">-</b></div>
+    <button class="btn ghost hidden" id="phonesBtn" type="button">Phones</button>
+    <button class="btn ghost" id="fullscreenBtn" type="button">Fullscreen</button>
     <button class="btn ghost" id="newGameBtn">New game</button>
   </div>
 
@@ -214,9 +245,11 @@
       <div class="hero-head">
         <div class="hero-avatar" id="heroAvatar">?</div>
         <div class="hero-name" id="heroName">Player<span class="sub" id="heroSub"></span></div>
+        <div class="hero-coins" id="heroCoins">🪙 0</div>
         <div class="hero-actions" id="heroActions"></div>
       </div>
       <div class="instructions" id="instructions"></div>
+      <div id="bonusBanner"></div>
       <div class="timeline" id="timeline"></div>
     </div>
   </div>
@@ -254,20 +287,45 @@
         <div class="field">
           <label>Cards to win</label>
           <select id="target">
-            <option value="4">4 (quick)</option>
-            <option value="5" selected>5</option>
+            <option value="5">5 (quick)</option>
             <option value="6">6</option>
+            <option value="7">7</option>
             <option value="8">8</option>
-            <option value="10">10 (long)</option>
+            <option value="9">9</option>
+            <option value="10" selected>10</option>
+            <option value="11">11</option>
+            <option value="12">12 (long)</option>
           </select>
         </div>
-        <div class="field" style="display:flex;align-items:flex-end">
-          <button class="btn primary" id="startBtn" style="width:100%">Start game</button>
+        <div class="field">
+          <label>Hitster coins per player</label>
+          <select id="coinsPerPlayer">
+            <option value="0">0 (no steals)</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3" selected>3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
         </div>
       </div>
-      <div class="note-sm" id="setupNote">
-        Each player scans the on-screen QR with their phone camera to play the song on Spotify. The link goes straight to the track, so whoever scans should just press play, not read the title. The screen keeps the year hidden until you reveal.
+      <div class="field">
+        <button class="btn primary" id="startBtn" style="width:100%">Start game</button>
       </div>
+      <div class="note-sm" id="setupNote">
+        Each player scans the on-screen QR with their phone camera to play the song on Spotify. The link goes straight to the track, so whoever scans should just press play, not read the title. The screen keeps the year and category hidden until you reveal.
+      </div>
+    </div>
+  </div>
+
+  <!-- Phones: QR + room code for the bonus-guess page -->
+  <div class="overlay hidden" id="phonesOverlay">
+    <div class="panel">
+      <h1><span class="note">📱</span> Phones</h1>
+      <p class="lede">Everyone scans this once at the start. On your turn, use your own phone for one bonus guess per round to earn a Hitster coin.</p>
+      <div class="qr" id="phonesQr"></div>
+      <div style="text-align:center;font-size:24px;font-weight:800;letter-spacing:4px;margin:14px 0" id="phonesCode">----</div>
+      <button class="btn primary" id="phonesCloseBtn" style="width:100%">Close</button>
     </div>
   </div>
 
@@ -290,9 +348,152 @@
 
     var PALETTE = ["#5be0c9", "#f7b955", "#ff77a9", "#9b8cff"];
     var DB = window.HITSTER_DB || { categories: [], songs: [] };
-    var state = null, rafId = null;
+    var state = null;
     var setup = { count: 3, cats: new Set() };
-    var DEFAULT_NOTE = "Each player scans the on-screen QR with their phone camera to play the song on Spotify. The link goes straight to the track, so whoever scans should just press play, not read the title. The screen keeps the year hidden until you reveal.";
+    var DEFAULT_NOTE = "Each player scans the on-screen QR with their phone camera to play the song on Spotify. The link goes straight to the track, so whoever scans should just press play, not read the title. The screen keeps the year and category hidden until you reveal.";
+    var dragState = { active: false, ghost: null };
+
+    // ---------- phone bonus guesses: backend availability, room, matching ----------
+    var backendAvailable = false;
+    var guessPollTimerId = null;
+    var ROOM_CHARS = "ABCDEFGHJKMNPQRSTUVWXYZ23456789"; // unambiguous: no 0/O, 1/I/L
+    var SOURCE_TYPES = ["movie", "musical", "disney"];
+
+    function generateRoomCode() {
+      var code = "";
+      for (var i = 0; i < 4; i++) code += ROOM_CHARS.charAt(Math.floor(Math.random() * ROOM_CHARS.length));
+      return code;
+    }
+
+    function normalizeStr(s) {
+      s = String(s == null ? "" : s);
+      if (s.normalize) s = s.normalize("NFD");
+      s = s.replace(/[\u0300-\u036f]/g, ""); // strip combining diacritics
+      s = s.toLowerCase();
+      try {
+        s = s.replace(/[^\p{L}\p{N}\s]/gu, " ");
+      } catch (e) {
+        s = s.replace(/[^a-z0-9\s]/gi, " "); // fallback for engines without unicode property escapes
+      }
+      s = s.replace(/\s+/g, " ").trim();
+      return s;
+    }
+    function stripParens(s) { return String(s == null ? "" : s).replace(/\s*[\(\[][^\)\]]*[\)\]]\s*/g, " ").trim(); }
+    function splitArtists(s) { return String(s == null ? "" : s).split(/\s*,\s*|\s*&\s*|\s+x\s+|\s+feat\.?\s+|\s+ft\.?\s+/i).map(function (x) { return x.trim(); }).filter(Boolean); }
+
+    function levenshtein(a, b) {
+      var m = a.length, n = b.length;
+      if (m === 0) return n;
+      if (n === 0) return m;
+      var prevRow = [], j;
+      for (j = 0; j <= n; j++) prevRow[j] = j;
+      for (var i = 1; i <= m; i++) {
+        var curRow = [i];
+        for (j = 1; j <= n; j++) {
+          var cost = (a.charAt(i - 1) === b.charAt(j - 1)) ? 0 : 1;
+          curRow[j] = Math.min(prevRow[j] + 1, curRow[j - 1] + 1, prevRow[j - 1] + cost);
+        }
+        prevRow = curRow;
+      }
+      return prevRow[n];
+    }
+    function fuzzyEq(a, b) {
+      if (a === b) return true;
+      if (!a || !b) return false;
+      var threshold = Math.max(a.length, b.length) <= 8 ? 1 : 2;
+      return levenshtein(a, b) <= threshold;
+    }
+    function matchesTitle(guessTitle, cardTitle) { return fuzzyEq(normalizeStr(guessTitle), normalizeStr(stripParens(cardTitle))); }
+    function matchesArtist(guessArtist, cardArtist) {
+      var g = normalizeStr(guessArtist);
+      if (fuzzyEq(g, normalizeStr(cardArtist))) return true;
+      var parts = splitArtists(cardArtist);
+      for (var i = 0; i < parts.length; i++) if (fuzzyEq(g, normalizeStr(parts[i]))) return true;
+      return false;
+    }
+    function matchesSourceName(guessName, cardSourceName) { return fuzzyEq(normalizeStr(guessName), normalizeStr(cardSourceName)); }
+
+    function updatePhonesBtnVisibility() {
+      var b = $("phonesBtn");
+      if (b) b.classList.toggle("hidden", !backendAvailable);
+    }
+    function probeBackend() {
+      if (!/^https?:$/.test(location.protocol) || !window.fetch) { backendAvailable = false; updatePhonesBtnVisibility(); return; }
+      fetch("/api/hitster/room?room=PING").then(function (res) {
+        backendAvailable = (res.status === 200 || res.status === 404);
+        updatePhonesBtnVisibility();
+      }).catch(function () { backendAvailable = false; updatePhonesBtnVisibility(); });
+    }
+
+    function publishRoomState() {
+      if (!backendAvailable || !state || !state.room) return;
+      var body = {
+        room: state.room,
+        state: {
+          round: state.round,
+          phase: state.phase,
+          guessOpen: state.phase === "place",
+          currentPlayer: state.players[state.current].name,
+          players: state.players.map(function (p) { return p.name; }),
+          hasSource: !!(state.card && state.card.source),
+          sourceTypes: SOURCE_TYPES
+        }
+      };
+      fetch("/api/hitster/room", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body)
+      }).catch(function () { /* ignore, game keeps working offline */ });
+    }
+
+    function stopGuessPolling() { if (guessPollTimerId) { clearInterval(guessPollTimerId); guessPollTimerId = null; } }
+    function startGuessPolling() {
+      stopGuessPolling();
+      if (!backendAvailable || !state || !state.room) return;
+      guessPollTimerId = setInterval(pollGuessesTick, 2000);
+    }
+    function pollGuessesTick() {
+      if (!state || state.phase !== "place" || state.bonus.result) { stopGuessPolling(); return; }
+      var room = state.room, round = state.round;
+      fetch("/api/hitster/guess?room=" + encodeURIComponent(room) + "&round=" + round)
+        .then(function (res) { return res.ok ? res.json() : null; })
+        .then(function (guesses) {
+          if (!guesses || !state || state.phase !== "place" || state.room !== room || state.round !== round || state.bonus.result) return;
+          var current = state.players[state.current].name;
+          for (var i = 0; i < guesses.length; i++) {
+            if (guesses[i].player === current) { resolveBonusGuess(guesses[i]); return; }
+          }
+        })
+        .catch(function () { /* ignore, retry next tick */ });
+    }
+    function resolveBonusGuess(guess) {
+      var card = state.card;
+      var correct = false;
+      if (guess.type === "artist-title") {
+        correct = matchesTitle(guess.title, card.title) && matchesArtist(guess.artist, card.artist);
+      } else if (guess.type === "source" && card.source) {
+        correct = guess.sourceType === card.source.type && matchesSourceName(guess.sourceName, card.source.name);
+      }
+      state.bonus.guessedBy = guess.player;
+      state.bonus.result = correct ? "correct" : "wrong";
+      if (correct) { state.players[state.current].coins += 1; state.bonus.awarded = true; }
+      render();
+    }
+
+    function openPhonesOverlay() {
+      if (!state) return;
+      var url = location.origin + "/hitster/guess?room=" + state.room;
+      $("phonesCode").textContent = state.room;
+      var qrHtml;
+      try {
+        var q = qrcode(0, "M");
+        q.addData(url);
+        q.make();
+        qrHtml = '<img alt="Phone link QR" src="' + q.createDataURL(6, 4) + '" />';
+      } catch (e) { qrHtml = ""; }
+      $("phonesQr").innerHTML = qrHtml;
+      $("phonesOverlay").classList.remove("hidden");
+    }
 
     function $(id) { return document.getElementById(id); }
     function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
@@ -360,15 +561,21 @@
       var names = [];
       for (var i = 0; i < setup.count; i++) { var v = ($("p" + i).value || "").trim(); names.push(v || ("Player " + (i + 1))); }
       var target = parseInt($("target").value, 10);
+      var coinsPerPlayer = parseInt($("coinsPerPlayer").value, 10);
       var pool = poolSongs();
       if (setup.cats.size === 0 || pool.length < setup.count + 2) { alert("Tick at least one category with enough songs."); return; }
       var deck = shuffle(pool);
-      var players = names.map(function (n, i) { return { name: n, color: PALETTE[i % PALETTE.length], timeline: [] }; });
+      var players = names.map(function (n, i) { return { name: n, color: PALETTE[i % PALETTE.length], timeline: [], coins: coinsPerPlayer }; });
       for (var p = 0; p < players.length; p++) if (deck.length) players[p].timeline.push(deck.pop());
 
       var meta = pillMeta();
-      state = { players: players, deck: deck, current: 0, target: target, n: players.length,
-        catMeta: meta, phase: "draw", card: null, chosenSlot: null, result: null, displayRotation: 0, locked: false };
+      state = {
+        players: players, deck: deck, current: 0, target: target, n: players.length,
+        catMeta: meta, phase: "draw", card: null, chosenSlot: null, result: null, locked: false,
+        stealers: [], stealUsed: {}, stealPickerIdx: null, stealPick: null, stealEligibleIdx: [],
+        stealRemaining: 0, stealTimerId: null,
+        room: generateRoomCode(), round: 0, bonus: { guessedBy: null, awarded: false, result: null }
+      };
 
       $("setup").classList.add("hidden"); $("winner").classList.add("hidden");
       $("topbar").classList.remove("hidden"); $("game").classList.remove("hidden");
@@ -376,9 +583,9 @@
       $("targetLabel").textContent = state.target;
 
       buildSeats();
-      state.displayRotation = 0;
       layoutSeats();
       render();
+      publishRoomState();
     }
 
     // ---------- seats ----------
@@ -389,42 +596,41 @@
         var seat = document.createElement("div");
         seat.className = "seat"; seat.dataset.index = i;
         seat.style.setProperty("--seat-color", p.color);
-        seat.innerHTML = '<div class="turn-badge hidden">NOW PLAYING</div><div class="seat-card"><div class="seat-head"><div class="avatar"></div><div class="seat-name"></div><div class="seat-score"></div></div><div class="mini-timeline"></div></div>';
+        seat.innerHTML = '<div class="seat-card">' +
+          '<div class="seat-head"><div class="avatar"></div><div class="seat-name"></div><div class="seat-score"></div></div>' +
+          '<div class="seat-coins"><span>🪙</span><span class="seat-coin-n">0</span></div>' +
+          '<div class="mini-timeline"></div>' +
+          '<button class="btn steal-btn hidden" type="button">Steal!</button>' +
+          '</div>';
         stage.appendChild(seat);
       });
     }
+    // Docked positions per opponent count (max 3 opponents since max 4 players),
+    // always parked toward the left/right edges of the stage, well clear of the
+    // centered hub, so seats never overlap the QR card at 2, 3, or 4 players.
+    function dockPositions(count) {
+      if (count <= 1) return [{ x: 88, y: 36 }];
+      if (count === 2) return [{ x: 12, y: 36 }, { x: 88, y: 36 }];
+      return [{ x: 12, y: 20 }, { x: 88, y: 20 }, { x: 12, y: 64 }];
+    }
     function layoutSeats() {
       var seats = $("stage").querySelectorAll(".seat");
-      var n = state.n, step = 360 / n, rx = 34, ry = 33;
+      var opponents = [];
+      for (var j = 1; j < state.n; j++) opponents.push((state.current + j) % state.n);
+      var docks = dockPositions(opponents.length);
       for (var i = 0; i < seats.length; i++) {
-        var a = (i * step + state.displayRotation) * Math.PI / 180;
-        var x = 50 + rx * Math.sin(a), y = 42 + ry * Math.cos(a);
-        var fr = (Math.cos(a) + 1) / 2;
-        var scale = 0.72 + 0.34 * fr;
-        // The current player sits in the hero bar at the front, so fade a seat out
-        // as it reaches the front slot: only the opponents visibly orbit.
-        var opacity = Math.max(0, 1 - fr * fr);
         var s = seats[i];
-        s.style.left = x + "%"; s.style.top = y + "%";
-        s.style.transform = "translate(-50%,-50%) scale(" + scale.toFixed(3) + ")";
-        s.style.zIndex = String(2 + Math.round((1 - fr) * 8));
-        s.style.opacity = opacity.toFixed(2);
-        s.style.pointerEvents = opacity < 0.15 ? "none" : "auto";
-        s.classList.toggle("active", i === state.current);
-        s.querySelector(".turn-badge").classList.add("hidden");
+        var order = opponents.indexOf(i);
+        if (order === -1) {
+          // The current player has no seat; they are the hero at the bottom.
+          s.style.opacity = "0"; s.style.pointerEvents = "none";
+          continue;
+        }
+        var pos = docks[order];
+        s.style.left = pos.x + "%"; s.style.top = pos.y + "%";
+        s.style.transform = "translate(-50%,-50%)";
+        s.style.opacity = "1"; s.style.pointerEvents = "auto"; s.style.zIndex = "3";
       }
-    }
-    function animateRotationTo(target) {
-      if (rafId) cancelAnimationFrame(rafId);
-      var start = state.displayRotation, delta = target - start, t0 = null, dur = 650;
-      function step(ts) {
-        if (t0 === null) t0 = ts;
-        var t = Math.min(1, (ts - t0) / dur);
-        var e = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-        state.displayRotation = start + delta * e; layoutSeats();
-        if (t < 1) rafId = requestAnimationFrame(step); else { rafId = null; state.displayRotation = target; layoutSeats(); }
-      }
-      rafId = requestAnimationFrame(step);
     }
 
     // ---------- render ----------
@@ -432,12 +638,13 @@
 
     function renderSeats() {
       var seats = $("stage").querySelectorAll(".seat");
-      for (var i = 0; i < seats.length; i++) {
+      var _loop = function (i) {
         var p = state.players[i], s = seats[i];
         s.querySelector(".avatar").style.background = p.color;
         s.querySelector(".avatar").textContent = initials(p.name);
         s.querySelector(".seat-name").textContent = p.name;
         s.querySelector(".seat-score").textContent = p.timeline.length + " / " + state.target;
+        s.querySelector(".seat-coin-n").textContent = p.coins;
         var mini = s.querySelector(".mini-timeline"); mini.innerHTML = "";
         sortTl(p.timeline).forEach(function (c) {
           var m = catMeta(c.cat) || { emoji: "🎵", label: "Unknown", color: "#c9c4ff" };
@@ -446,7 +653,20 @@
             '<div class="y">' + c.year + '</div><div class="t">' + escapeHtml(c.title) + '</div>';
           mini.appendChild(d);
         });
-      }
+        var stealBtn = s.querySelector(".steal-btn");
+        var isOpponent = i !== state.current;
+        var eligibleNow = state.stealEligibleIdx.indexOf(i) !== -1;
+        var show = state.phase === "steal" && isOpponent && eligibleNow;
+        stealBtn.classList.toggle("hidden", !show);
+        if (show) {
+          if (state.stealPickerIdx === i) { stealBtn.textContent = "Choosing..."; stealBtn.disabled = true; }
+          else if (state.stealUsed[i]) { stealBtn.textContent = "Steal used"; stealBtn.disabled = true; }
+          else if (state.stealPickerIdx !== null) { stealBtn.textContent = "Steal! (1 🪙)"; stealBtn.disabled = true; }
+          else { stealBtn.textContent = "Steal! (1 🪙)"; stealBtn.disabled = false; }
+        }
+        stealBtn.onclick = function () { onStealPress(i); };
+      };
+      for (var i = 0; i < seats.length; i++) _loop(i);
     }
 
     function renderHub() {
@@ -457,15 +677,29 @@
       } else if (state.phase === "place") {
         c.innerHTML = '<h3>Scan to play</h3><div class="qr"><img alt="Spotify QR" src="' + qrSrc(state.card) + '" /></div>' +
           '<div class="eq"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>' +
-          '<div class="scan-hint">Scan with your phone, press play, do not read the title. Then pick where it fits below.</div>' +
-          '<div class="row">' + catChip(state.card.cat, true) + '</div>' +
+          '<div class="scan-hint">Scan with your phone, press play, do not read the title. Then drag the card (or tap a + slot) below to place it.</div>' +
           '<div class="row"><a class="btn ghost" href="' + state.card.url + '" target="_blank" rel="noopener">Open in Spotify</a></div>';
+        makeDraggableHub();
+      } else if (state.phase === "steal") {
+        if (state.stealPickerIdx !== null) {
+          var stealer = state.players[state.stealPickerIdx];
+          c.innerHTML = '<div class="waiting"><span class="big">🕵️</span>' + escapeHtml(stealer.name) + ' is choosing a steal spot.</div>' +
+            '<div class="steal-count paused">' + Math.max(0, Math.ceil(state.stealRemaining)) + '</div>';
+        } else {
+          c.innerHTML = '<div class="waiting"><span class="big">💰</span>Steal window! Opponents holding a coin can steal this card.</div>' +
+            '<div class="steal-count">' + Math.max(0, Math.ceil(state.stealRemaining)) + '</div>';
+        }
       } else if (state.phase === "revealed") {
         var card = state.card, r = state.result;
+        var verdict;
+        if (r.correct) verdict = "Correct, card kept";
+        else if (r.stolenBy !== null) verdict = "Wrong. " + escapeHtml(state.players[r.stolenBy].name) + " stole the card!";
+        else if (r.attempted) verdict = "Wrong, and the steal failed too.";
+        else verdict = "Wrong, discarded";
         c.innerHTML = '<div class="reveal-year">' + card.year + '</div><div class="reveal-title">' + escapeHtml(card.title) +
           '</div><div class="reveal-artist">' + escapeHtml(card.artist) + '</div>' +
           '<div class="row" style="margin-top:8px">' + catChip(card.cat, true) + '</div>' +
-          '<div class="verdict ' + (r.correct ? "good" : "bad") + '">' + (r.correct ? "Correct, card kept" : "Wrong, discarded") + '</div>';
+          '<div class="verdict ' + (r.correct || r.stolenBy !== null ? "good" : "bad") + '">' + verdict + '</div>';
       }
     }
 
@@ -473,34 +707,88 @@
       var p = state.players[state.current];
       $("heroAvatar").style.background = p.color; $("heroAvatar").textContent = initials(p.name);
       $("heroName").firstChild.textContent = p.name;
+      $("heroCoins").textContent = "🪙 " + p.coins;
       var sub = $("heroSub"), actions = $("heroActions"), instr = $("instructions");
       actions.innerHTML = ""; var tl = sortTl(p.timeline);
       if (state.phase === "draw") {
         sub.textContent = "your turn: draw a song";
         instr.innerHTML = "Draw a song, everyone can scan the QR to hear it. Then place it in <b>your</b> timeline by release year.";
-        addBtn(actions, "Draw song", "primary", onDraw); renderTimeline(tl, false);
+        addBtn(actions, "Draw song", "primary", onDraw);
+        renderTimeline(tl, {});
       } else if (state.phase === "place") {
         sub.textContent = "listen, then pick a slot";
-        instr.innerHTML = "Tap a <b>+</b> slot where the song fits by year, then press Reveal. Heard it already? Press <b>Skip song</b> for a fresh one.";
-        addBtn(actions, "Reveal", "primary", onReveal).disabled = (state.chosenSlot === null);
-        addBtn(actions, "Skip song", "ghost", onSkip);
-        renderTimeline(tl, true);
+        instr.innerHTML = "Tap a <b>+</b> slot, or drag the card down from the hub, to place the song in <b>your</b> timeline by year. Then press <b>Lock in answer</b>.";
+        addBtn(actions, "Lock in answer", "primary", onLockIn).disabled = (state.chosenSlot === null);
+        addBtn(actions, "Skip duplicate", "ghost", onSkipDuplicate);
+        var skipCoin = addBtn(actions, "Skip with coin", "ghost", onSkipCoin);
+        if (p.coins < 1) { skipCoin.disabled = true; skipCoin.title = "No coins left"; }
+        renderTimeline(tl, { interactiveSlots: true, tentativeSlot: state.chosenSlot });
+      } else if (state.phase === "steal" && state.stealPickerIdx !== null) {
+        var stealer = state.players[state.stealPickerIdx];
+        sub.textContent = stealer.name + " is choosing a steal spot";
+        instr.innerHTML = "<b>" + escapeHtml(stealer.name) + "</b> spent a coin to steal. Tap a slot in <b>" + escapeHtml(p.name) + "'s</b> timeline below (not the marked NEW slot), then confirm.";
+        addBtn(actions, "Confirm steal", "primary", onConfirmSteal).disabled = (state.stealPick === null);
+        renderTimeline(tl, { tentativeSlot: state.chosenSlot, stealSlots: true, stealColor: stealer.color });
+      } else if (state.phase === "steal") {
+        sub.textContent = "opponents may steal, revealing soon";
+        instr.innerHTML = "Any opponent holding a coin can steal this card. Press <b>Reveal now</b> to skip the wait.";
+        addBtn(actions, "Reveal now", "primary", onRevealNow);
+        renderTimeline(tl, { tentativeSlot: state.chosenSlot });
       } else if (state.phase === "revealed") {
         sub.textContent = state.result.correct ? "nice, card added" : "no card this time";
         instr.innerHTML = state.result.correct ? "It slots into your timeline. Pass on." : "Not the right spot. Pass on.";
-        addBtn(actions, "Next player", "primary", onNext); renderTimeline(sortTl(p.timeline), false);
+        addBtn(actions, "Next player", "primary", onNext);
+        renderTimeline(sortTl(p.timeline), {});
       }
+      renderBonusBanner();
     }
 
-    function renderTimeline(tl, placing) {
+    function renderBonusBanner() {
+      var el = $("bonusBanner");
+      if (!el) return;
+      if (!state.bonus || !state.bonus.result) { el.innerHTML = ""; return; }
+      var good = state.bonus.result === "correct";
+      el.innerHTML = '<span class="bonus-banner ' + (good ? "good" : "bad") + '">' +
+        (good
+          ? ("🪙 " + escapeHtml(state.bonus.guessedBy) + " nailed the bonus guess from their phone, +1 coin")
+          : (escapeHtml(state.bonus.guessedBy) + "'s bonus guess from their phone was wrong, no coin")) +
+        '</span>';
+    }
+
+    function renderTimeline(tl, cfg) {
+      cfg = cfg || {};
       var wrap = $("timeline"); wrap.innerHTML = "";
-      for (var k = 0; k <= tl.length; k++) { if (placing) wrap.appendChild(makeSlot(k)); if (k < tl.length) wrap.appendChild(makeTCard(tl[k])); }
-      if (!placing && tl.length === 0) { var e = document.createElement("div"); e.className = "instructions"; e.textContent = "No cards yet."; wrap.appendChild(e); }
+      for (var k = 0; k <= tl.length; k++) {
+        if (cfg.tentativeSlot === k) {
+          wrap.appendChild(makeTentativeCard());
+        } else if (cfg.interactiveSlots) {
+          wrap.appendChild(makeSlot(k));
+        } else if (cfg.stealSlots) {
+          wrap.appendChild(makeStealSlot(k, cfg.stealColor));
+        }
+        if (k < tl.length) wrap.appendChild(makeTCard(tl[k]));
+      }
+      if (!cfg.interactiveSlots && !cfg.stealSlots && cfg.tentativeSlot == null && tl.length === 0) {
+        var e = document.createElement("div"); e.className = "instructions"; e.textContent = "No cards yet."; wrap.appendChild(e);
+      }
     }
     function makeSlot(k) {
-      var slot = document.createElement("div"); slot.className = "slot" + (state.chosenSlot === k ? " chosen" : "");
-      var b = document.createElement("button"); b.textContent = "+"; b.onclick = function () { state.chosenSlot = k; renderHero(); };
+      var slot = document.createElement("div"); slot.className = "slot"; slot.dataset.k = String(k);
+      var b = document.createElement("button"); b.type = "button"; b.textContent = "+";
+      b.onclick = function () { state.chosenSlot = k; renderHero(); };
       slot.appendChild(b); return slot;
+    }
+    function makeStealSlot(k, color) {
+      var slot = document.createElement("div"); slot.className = "slot" + (state.stealPick === k ? " steal-chosen" : "");
+      slot.style.setProperty("--steal-color", color || "var(--accent)");
+      var b = document.createElement("button"); b.type = "button"; b.textContent = "+";
+      b.onclick = function () { state.stealPick = k; renderHero(); };
+      slot.appendChild(b); return slot;
+    }
+    function makeTentativeCard() {
+      var d = document.createElement("div"); d.className = "tcard tentative";
+      d.innerHTML = '<span class="new-badge">NEW</span><div class="y">?</div><div class="t">New card</div>';
+      return d;
     }
     function makeTCard(c) {
       var d = document.createElement("div"); d.className = "tcard";
@@ -509,38 +797,184 @@
     }
     function addBtn(parent, label, cls, fn) { var b = document.createElement("button"); b.className = "btn " + (cls || ""); b.textContent = label; b.onclick = fn; parent.appendChild(b); return b; }
 
+    // ---------- drag and drop (pointer events, works for mouse and touch) ----------
+    function makeDraggableHub() {
+      if (!window.PointerEvent) return;
+      var qrEl = document.querySelector("#hubcard .qr");
+      if (!qrEl) return;
+      qrEl.classList.add("draggable");
+      qrEl.onpointerdown = function (ev) {
+        if (state.phase !== "place") return;
+        dragState.active = true;
+        try { qrEl.setPointerCapture(ev.pointerId); } catch (e) { /* not fatal */ }
+        dragState.ghost = document.createElement("div");
+        dragState.ghost.className = "drag-ghost";
+        dragState.ghost.innerHTML = '<img alt="" src="' + qrSrc(state.card) + '" />';
+        document.body.appendChild(dragState.ghost);
+        moveGhost(ev.clientX, ev.clientY);
+        ev.preventDefault();
+      };
+      qrEl.onpointermove = function (ev) {
+        if (!dragState.active) return;
+        moveGhost(ev.clientX, ev.clientY);
+        updateSlotHighlight(ev.clientX, ev.clientY);
+      };
+      qrEl.onpointerup = function (ev) { endDrag(ev.clientX, ev.clientY); };
+      qrEl.onpointercancel = function () { endDrag(null, null); };
+    }
+    function moveGhost(x, y) { if (dragState.ghost) { dragState.ghost.style.left = x + "px"; dragState.ghost.style.top = y + "px"; } }
+    function findSlotAt(x, y) {
+      var slots = document.querySelectorAll("#timeline .slot");
+      for (var i = 0; i < slots.length; i++) {
+        var r = slots[i].getBoundingClientRect();
+        if (x >= r.left && x <= r.right && y >= r.top && y <= r.bottom) return slots[i];
+      }
+      return null;
+    }
+    function updateSlotHighlight(x, y) {
+      var slots = document.querySelectorAll("#timeline .slot");
+      for (var i = 0; i < slots.length; i++) slots[i].classList.remove("drag-over");
+      var hit = findSlotAt(x, y);
+      if (hit) hit.classList.add("drag-over");
+    }
+    function endDrag(x, y) {
+      if (!dragState.active) return;
+      dragState.active = false;
+      if (dragState.ghost) { dragState.ghost.remove(); dragState.ghost = null; }
+      var slots = document.querySelectorAll("#timeline .slot");
+      for (var i = 0; i < slots.length; i++) slots[i].classList.remove("drag-over");
+      if (x === null || y === null) return;
+      var hit = findSlotAt(x, y);
+      if (hit && hit.dataset.k !== undefined) { state.chosenSlot = parseInt(hit.dataset.k, 10); renderHero(); }
+    }
+
     // ---------- turns ----------
-    function onDraw() { if (state.locked || state.phase === "over") return; if (!state.deck.length) { endGame("deck"); return; } state.card = state.deck.pop(); state.chosenSlot = null; state.result = null; state.phase = "place"; render(); }
-    function onSkip() {
-      // Discard the current (already-heard) song and draw a fresh one for the same player, no penalty.
-      if (state.locked || state.phase !== "place") return;
+    function onDraw() {
+      if (state.locked || state.phase === "over") return;
+      if (!state.deck.length) { endGame("deck"); return; }
+      state.card = state.deck.pop(); state.chosenSlot = null; state.result = null; state.phase = "place";
+      state.round += 1;
+      state.bonus = { guessedBy: null, awarded: false, result: null };
+      render();
+      publishRoomState();
+      startGuessPolling();
+    }
+
+    function discardAndRedraw() {
       if (!state.deck.length) { endGame("deck"); return; }
       state.card = state.deck.pop();
       state.chosenSlot = null;
+      state.round += 1;
+      state.bonus = { guessedBy: null, awarded: false, result: null };
+      render();
+      publishRoomState();
+      startGuessPolling();
+    }
+    function onSkipDuplicate() {
+      // Discard the current (already-heard) song and draw a fresh one for the same player, no penalty.
+      if (state.locked || state.phase !== "place") return;
+      discardAndRedraw();
+    }
+    function onSkipCoin() {
+      // Same discard-and-redraw, but costs the current player one Hitster coin.
+      if (state.locked || state.phase !== "place") return;
+      var p = state.players[state.current];
+      if (p.coins < 1) return;
+      p.coins -= 1;
+      discardAndRedraw();
+    }
+
+    function onLockIn() {
+      if (state.locked || state.phase !== "place" || state.chosenSlot === null) return;
+      stopGuessPolling();
+      state.stealers = []; state.stealUsed = {}; state.stealPickerIdx = null; state.stealPick = null;
+      state.stealEligibleIdx = [];
+      for (var i = 0; i < state.n; i++) { if (i !== state.current && state.players[i].coins >= 1) state.stealEligibleIdx.push(i); }
+      if (state.stealEligibleIdx.length === 0) { resolveRound(); return; }
+      state.phase = "steal"; state.stealRemaining = 5.0;
+      startStealTimer(); render();
+      publishRoomState();
+    }
+    function startStealTimer() {
+      stopStealTimer();
+      state.stealTimerId = setInterval(function () {
+        state.stealRemaining -= 0.1;
+        if (state.stealRemaining <= 0.001) { state.stealRemaining = 0; stopStealTimer(); resolveRound(); }
+        else { renderHub(); }
+      }, 100);
+    }
+    function stopStealTimer() { if (state.stealTimerId) { clearInterval(state.stealTimerId); state.stealTimerId = null; } }
+
+    function onStealPress(idx) {
+      if (state.phase !== "steal" || state.stealPickerIdx !== null) return;
+      if (idx === state.current) return;
+      if (state.stealEligibleIdx.indexOf(idx) === -1 || state.stealUsed[idx]) return;
+      stopStealTimer();
+      state.players[idx].coins -= 1; // spent immediately, whether or not the steal succeeds
+      state.stealUsed[idx] = true;
+      state.stealPickerIdx = idx; state.stealPick = null;
       render();
     }
-    function onReveal() {
-      if (state.locked || state.chosenSlot === null) return;
+    function onConfirmSteal() {
+      if (state.stealPickerIdx === null || state.stealPick === null) return;
+      state.stealers.push({ idx: state.stealPickerIdx, slot: state.stealPick });
+      state.stealPickerIdx = null; state.stealPick = null;
+      var allUsed = state.stealEligibleIdx.length > 0 && state.stealEligibleIdx.every(function (idx) { return state.stealUsed[idx]; });
+      if (allUsed || state.stealRemaining <= 0) { resolveRound(); return; }
+      startStealTimer(); render();
+    }
+    function onRevealNow() {
+      if (state.phase !== "steal") return;
+      stopStealTimer();
+      state.stealPickerIdx = null; state.stealPick = null;
+      resolveRound();
+    }
+
+    function resolveRound() {
+      stopStealTimer();
+      stopGuessPolling();
       var p = state.players[state.current], tl = sortTl(p.timeline), k = state.chosenSlot, y = state.card.year;
       var leftOk = (k === 0) || (tl[k - 1].year <= y), rightOk = (k === tl.length) || (y <= tl[k].year);
       var correct = leftOk && rightOk;
-      if (correct) p.timeline.push(state.card);
-      state.result = { correct: correct }; state.phase = "revealed"; render();
+      var stolenBy = null;
+      if (correct) {
+        p.timeline.push(state.card);
+      } else {
+        for (var si = 0; si < state.stealers.length; si++) {
+          var st = state.stealers[si], sk = st.slot;
+          var sLeftOk = (sk === 0) || (tl[sk - 1].year <= y), sRightOk = (sk === tl.length) || (y <= tl[sk].year);
+          if (sLeftOk && sRightOk) { stolenBy = st.idx; state.players[st.idx].timeline.push(state.card); break; }
+        }
+      }
+      state.result = { correct: correct, stolenBy: stolenBy, attempted: state.stealers.length > 0 };
+      state.phase = "revealed";
+      render();
+      publishRoomState();
       if (correct && p.timeline.length >= state.target) {
         // Lock immediately and capture the winner now, so a fast Next tap cannot change it.
         state.locked = true;
         var winnerIdx = state.current;
         setTimeout(function () { endGame("target", winnerIdx); }, 900);
+      } else if (stolenBy !== null && state.players[stolenBy].timeline.length >= state.target) {
+        state.locked = true;
+        var stealWinnerIdx = stolenBy;
+        setTimeout(function () { endGame("target", stealWinnerIdx); }, 900);
       }
     }
+
     function onNext() {
       if (state.locked || state.phase === "over") return;
       if (!state.deck.length) { endGame("deck"); return; }
       state.current = (state.current + 1) % state.n; state.phase = "draw"; state.card = null; state.chosenSlot = null; state.result = null;
-      animateRotationTo(-state.current * (360 / state.n)); render();
+      state.stealers = []; state.stealUsed = {}; state.stealPickerIdx = null; state.stealPick = null; state.stealEligibleIdx = [];
+      state.bonus = { guessedBy: null, awarded: false, result: null };
+      layoutSeats(); render();
+      publishRoomState();
     }
 
     function endGame(reason, winnerIdx) {
+      stopStealTimer();
+      stopGuessPolling();
       var ranked = state.players.map(function (p, i) { return { p: p, i: i, n: p.timeline.length }; }).sort(function (a, b) { return b.n - a.n; });
       var top = ranked[0], winner = (typeof winnerIdx === "number") ? state.players[winnerIdx] : top.p;
       var tie = ranked.length > 1 && ranked[1].n === top.n && reason === "deck";
@@ -555,10 +989,29 @@
       state.phase = "over"; $("winner").classList.remove("hidden");
     }
 
+    // ---------- fullscreen ----------
+    function fsSupported() { return !!(document.documentElement.requestFullscreen); }
+    function updateFsBtn() {
+      var b = $("fullscreenBtn"); if (!b) return;
+      b.textContent = document.fullscreenElement ? "Exit fullscreen" : "Fullscreen";
+    }
+    if (fsSupported()) {
+      $("fullscreenBtn").onclick = function () {
+        if (document.fullscreenElement) { document.exitFullscreen(); }
+        else { document.documentElement.requestFullscreen().catch(function () { /* ignore, stays windowed */ }); }
+      };
+      document.addEventListener("fullscreenchange", updateFsBtn);
+    } else {
+      $("fullscreenBtn").disabled = true;
+      $("fullscreenBtn").title = "Fullscreen is not supported in this browser";
+    }
+
     // ---------- wiring ----------
     $("startBtn").onclick = startGame;
-    $("againBtn").onclick = function () { $("winner").classList.add("hidden"); $("setup").classList.remove("hidden"); $("topbar").classList.add("hidden"); $("game").classList.add("hidden"); };
-    $("newGameBtn").onclick = function () { if (!confirm("Start a new game? Current progress is lost.")) return; $("topbar").classList.add("hidden"); $("game").classList.add("hidden"); $("setup").classList.remove("hidden"); };
+    $("againBtn").onclick = function () { if (state) { stopStealTimer(); stopGuessPolling(); } $("winner").classList.add("hidden"); $("setup").classList.remove("hidden"); $("topbar").classList.add("hidden"); $("game").classList.add("hidden"); };
+    $("newGameBtn").onclick = function () { if (!confirm("Start a new game? Current progress is lost.")) return; if (state) { stopStealTimer(); stopGuessPolling(); } $("topbar").classList.add("hidden"); $("game").classList.add("hidden"); $("setup").classList.remove("hidden"); };
+    $("phonesBtn").onclick = openPhonesOverlay;
+    $("phonesCloseBtn").onclick = function () { $("phonesOverlay").classList.add("hidden"); };
     window.addEventListener("resize", function () { if (state && state.phase !== "over") layoutSeats(); });
 
     // init
@@ -566,6 +1019,7 @@
     $("catAll").onclick = function () { DB.categories.forEach(function (c) { setup.cats.add(c.key); }); renderCats(); validateSetup(); };
     $("catNone").onclick = function () { setup.cats.clear(); renderCats(); validateSetup(); };
     renderNames(); renderCats(); validateSetup();
+    probeBackend();
   })();
   </script>
 </body>

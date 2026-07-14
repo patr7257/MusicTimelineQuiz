@@ -166,6 +166,12 @@ def build_online():
         for e in entries:
             reuse = existing.get(key_of(cat, e["title"])) if not force_full else None
             if reuse and reuse.get("id") and reuse.get("qr") and reuse["id"] not in seen_ids:
+                # Keep source metadata in sync with the seed, even for a cached/reused entry,
+                # so adding or editing "source" in deck-seed.json takes effect without a refetch.
+                if "source" in e:
+                    reuse["source"] = e["source"]
+                elif "source" in reuse:
+                    del reuse["source"]
                 seen_ids.add(reuse["id"])
                 songs.append(reuse)
                 kept += 1
@@ -184,8 +190,11 @@ def build_online():
                 continue
             seen_ids.add(tid)
             url = f"https://open.spotify.com/track/{tid}"
-            songs.append({"id": tid, "title": e["title"], "artist": e["artist"],
-                          "year": e["year"], "cat": cat, "url": url, "qr": qr_data_uri(url)})
+            song = {"id": tid, "title": e["title"], "artist": e["artist"],
+                    "year": e["year"], "cat": cat, "url": url, "qr": qr_data_uri(url)}
+            if "source" in e:
+                song["source"] = e["source"]
+            songs.append(song)
             kept += 1
             print(".", end="", flush=True)
         print(f"  {kept}/{len(entries)}", flush=True)
@@ -211,11 +220,14 @@ def build_offline():
             verified += json.loads(p.read_text(encoding="utf-8"))
     seed = json.loads(SEED.read_text(encoding="utf-8"))
 
-    # index seed by normalized title for category lookup
+    # index seed by normalized title for category (and source metadata) lookup
     cat_of = {}
+    source_of = {}
     for cat, entries in seed["songs"].items():
         for e in entries:
             cat_of[norm(e["title"])] = cat
+            if "source" in e:
+                source_of[norm(e["title"])] = e["source"]
 
     songs = []
     seen = set()
@@ -226,7 +238,7 @@ def build_offline():
             continue
         seen.add(t["id"])
         url = f"https://open.spotify.com/track/{t['id']}"
-        songs.append({
+        song = {
             "id": t["id"],
             "title": t["title"],
             "artist": t["artist"],
@@ -234,7 +246,10 @@ def build_offline():
             "cat": cat_of.get(norm(t["title"]), "pop"),
             "url": url,
             "qr": qr_data_uri(url),
-        })
+        }
+        if norm(t["title"]) in source_of:
+            song["source"] = source_of[norm(t["title"])]
+        songs.append(song)
     write_db(seed["categories"], songs)
     print(f"Offline sample: {len(songs)} songs written for UI testing.")
 
