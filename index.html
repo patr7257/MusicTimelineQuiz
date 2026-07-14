@@ -69,8 +69,9 @@
     #game { position: fixed; inset: 56px 0 0 0; z-index: 1; }
     .stage { position: absolute; inset: 6px 6px 288px 6px; }
 
-    /* Central music hub */
-    .hub { position: absolute; left: 50%; top: 38%; transform: translate(-50%,-50%); width: 300px; max-width: 50vw; z-index: 6; }
+    /* Central music hub, vertically centered in the stage and capped to the
+       stage height so the card can never clip off the top or bottom */
+    .hub { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 300px; max-width: 50vw; max-height: 100%; z-index: 6; display: flex; flex-direction: column; }
     .disc-glow {
       position: absolute; inset: -26px; border-radius: 26px; z-index: -1;
       background: radial-gradient(circle at 50% 40%, rgba(124,92,255,.5), transparent 68%);
@@ -82,6 +83,7 @@
       background: linear-gradient(180deg, rgba(38,30,66,.95), rgba(24,18,44,.95));
       border: 1px solid var(--line); border-radius: 22px; padding: 18px 18px 16px; text-align: center;
       box-shadow: var(--shadow); backdrop-filter: blur(6px);
+      flex: 1 1 auto; min-height: 0; max-height: 100%; overflow-y: auto;
     }
     .hubcard h3 { margin: 0 0 12px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
     .qr { width: 200px; height: 200px; margin: 0 auto; background: #fff; border-radius: 14px; padding: 8px; box-shadow: 0 10px 26px rgba(0,0,0,.45); }
@@ -217,6 +219,44 @@
       .hub { max-width: 38vw; width: 220px; }
       .hero-coins { display: none; }
     }
+
+    /* Shrink the hub card before it would ever clip on short viewports.
+       Covers the place, steal, and revealed phases (qr, steal-count, reveal-year). */
+    @media (max-height: 950px) {
+      .qr { width: 170px; height: 170px; }
+      .hubcard { padding: 14px 14px 12px; }
+      .hubcard h3 { margin-bottom: 9px; }
+      .scan-hint { margin-top: 8px; }
+      .eq { margin-top: 9px; }
+      .waiting { padding: 16px 8px; }
+    }
+    @media (max-height: 800px) {
+      .qr { width: 140px; height: 140px; }
+      .hubcard { padding: 12px 12px 10px; }
+      .hubcard h3 { font-size: 11px; margin-bottom: 7px; }
+      .eq { display: none; }
+      .waiting { font-size: 13px; padding: 10px 8px; }
+      .waiting .big { font-size: 24px; margin-bottom: 4px; }
+      .scan-hint { font-size: 11px; margin-top: 6px; }
+      .steal-count { font-size: 44px; margin-top: 4px; }
+      .reveal-year { font-size: 38px; margin: 4px 0 3px; }
+    }
+    @media (max-height: 680px) {
+      .qr { width: 120px; height: 120px; }
+      .hubcard { padding: 10px 10px 8px; }
+      .hubcard h3 { margin-bottom: 5px; }
+      .reveal-year { font-size: 30px; }
+      .reveal-title { font-size: 15px; }
+      .steal-count { font-size: 34px; }
+      .waiting { font-size: 12px; padding: 8px 6px; }
+      .waiting .big { font-size: 20px; margin-bottom: 3px; }
+    }
+
+    /* Fullscreen toggle pinned to the top right while the setup screen shows */
+    .setup-fs-btn { position: fixed; top: 16px; right: 16px; z-index: 70; }
+    /* Fullscreen buttons: classic expand-corners icon next to a short label */
+    .fs-btn { display: inline-flex; align-items: center; gap: 7px; }
+    .fs-btn svg { display: block; flex: 0 0 auto; }
   </style>
 </head>
 <body>
@@ -230,7 +270,7 @@
     <div class="spacer"></div>
     <div class="pill">Cards left <b id="deckLeft">-</b></div>
     <button class="btn ghost hidden" id="phonesBtn" type="button">Phones</button>
-    <button class="btn ghost" id="fullscreenBtn" type="button">Fullscreen</button>
+    <button class="btn ghost fs-btn" id="fullscreenBtn" type="button" aria-label="Toggle fullscreen">Fullscreen</button>
     <button class="btn ghost" id="newGameBtn">New game</button>
   </div>
 
@@ -256,6 +296,7 @@
 
   <!-- Setup -->
   <div class="overlay" id="setup">
+    <button class="btn ghost fs-btn setup-fs-btn" id="setupFullscreenBtn" type="button" aria-label="Toggle fullscreen">Fullscreen</button>
     <div class="panel">
       <h1><span class="note">♪</span> Hitster music quiz</h1>
       <p class="lede">Hear a song, then drop it into your timeline by the year it came out. Right spot, you keep the card. First to the target wins.</p>
@@ -991,20 +1032,41 @@
 
     // ---------- fullscreen ----------
     function fsSupported() { return !!(document.documentElement.requestFullscreen); }
-    function updateFsBtn() {
-      var b = $("fullscreenBtn"); if (!b) return;
-      b.textContent = document.fullscreenElement ? "Exit fullscreen" : "Fullscreen";
+    function toggleFullscreen() {
+      if (document.fullscreenElement) { document.exitFullscreen(); }
+      else { document.documentElement.requestFullscreen().catch(function () { /* ignore, stays windowed */ }); }
+    }
+    // Classic fullscreen glyphs as inline SVG (emoji like the squared-corners
+    // character render as gray boxes on Windows, so never use those here).
+    function fsIconSvg(exit) {
+      var paths = exit
+        ? ["M8 3v3a2 2 0 0 1-2 2H3", "M21 8h-3a2 2 0 0 1-2-2V3", "M3 16h3a2 2 0 0 1 2 2v3", "M16 21v-3a2 2 0 0 1 2-2h3"]
+        : ["M8 3H5a2 2 0 0 0-2 2v3", "M16 3h3a2 2 0 0 1 2 2v3", "M21 16v3a2 2 0 0 1-2 2h-3", "M8 21H5a2 2 0 0 1-2-2v-3"];
+      var svg = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">';
+      for (var i = 0; i < paths.length; i++) svg += '<path d="' + paths[i] + '"/>';
+      return svg + "</svg>";
+    }
+    function updateFsBtns() {
+      var exit = !!document.fullscreenElement;
+      var label = exit ? "Exit" : "Fullscreen";
+      var title = exit ? "Exit fullscreen" : "Enter fullscreen";
+      var html = fsIconSvg(exit) + "<span>" + label + "</span>";
+      var b1 = $("fullscreenBtn");
+      if (b1) { b1.innerHTML = html; b1.setAttribute("aria-label", title); if (!b1.disabled) b1.title = title; }
+      var b2 = $("setupFullscreenBtn");
+      if (b2) { b2.innerHTML = html; b2.setAttribute("aria-label", title); if (!b2.disabled) b2.title = title; }
     }
     if (fsSupported()) {
-      $("fullscreenBtn").onclick = function () {
-        if (document.fullscreenElement) { document.exitFullscreen(); }
-        else { document.documentElement.requestFullscreen().catch(function () { /* ignore, stays windowed */ }); }
-      };
-      document.addEventListener("fullscreenchange", updateFsBtn);
+      $("fullscreenBtn").onclick = toggleFullscreen;
+      $("setupFullscreenBtn").onclick = toggleFullscreen;
+      document.addEventListener("fullscreenchange", updateFsBtns);
     } else {
       $("fullscreenBtn").disabled = true;
       $("fullscreenBtn").title = "Fullscreen is not supported in this browser";
+      $("setupFullscreenBtn").disabled = true;
+      $("setupFullscreenBtn").title = "Fullscreen is not supported in this browser";
     }
+    updateFsBtns();
 
     // ---------- wiring ----------
     $("startBtn").onclick = startGame;
