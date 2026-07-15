@@ -35,7 +35,7 @@ No build, no server. Just open `index.html` in a browser.
 PowerShell (opens in your default browser):
 
 ```
-cd "C:\Users\pr\repos\patrickrobelweb\hobby-projects\hitster"; ii index.html
+cd "C:\Users\pr\repos\hitster"; ii index.html
 ```
 
 ## How to play
@@ -136,7 +136,7 @@ user login). The script prompts for them and stores nothing.
 3. Run and paste them at the prompts:
 
 ```
-cd "C:\Users\pr\repos\patrickrobelweb\hobby-projects\hitster"; python tools\build_deck.py
+cd "C:\Users\pr\repos\hitster"; python tools\build_deck.py
 ```
 
 ### Offline sample (no credentials)
@@ -144,12 +144,12 @@ cd "C:\Users\pr\repos\patrickrobelweb\hobby-projects\hitster"; python tools\buil
 Builds a small database from the already-verified tracks, for testing the UI:
 
 ```
-cd "C:\Users\pr\repos\patrickrobelweb\hobby-projects\hitster"; python tools\build_deck.py --offline-sample
+cd "C:\Users\pr\repos\hitster"; python tools\build_deck.py --offline-sample
 ```
 
 ## Expanding the deck
 
-To add songs, work through these steps in order (from `hobby-projects/hitster`):
+To add songs, work through these steps in order (from the repo root):
 
 1. Edit `tools/deck-seed.json`: append entries to the relevant category arrays. A song is
    `{ "title", "artist", "year" }`; disney and movie entries also need
@@ -177,14 +177,15 @@ To add songs, work through these steps in order (from `hobby-projects/hitster`):
    ```
    python tools/audit_deck.py
    ```
-5. Sync the built game into the website and commit:
+5. Sync the built game into the website repo (a sibling clone of `patrickrobelweb`,
+   which serves the game at patrickrobel.dk/hitster) and commit:
 
    ```
-   cd ../../website; pnpm sync:hitster
+   cd "C:\Users\pr\repos\patrickrobelweb\website"; pnpm sync:hitster
    ```
 
-   Then commit `tools/deck-seed.json`, the regenerated `songs.js`, and the synced
-   `website/public/hitster/` files together.
+   Then commit `tools/deck-seed.json` and the regenerated `songs.js` here, and the
+   synced `website/public/hitster/` files in the website repo.
 
 ## Files
 
@@ -205,10 +206,11 @@ To add songs, work through these steps in order (from `hobby-projects/hitster`):
   Spotify-backed rebuild is not available. Run with `node tools/inject-sources.mjs`.
 - `tools/validate-tracks.mjs`, `tools/build-songs.mjs` : the earlier oEmbed-based verifier
 
-The website side (`website/src/lib/hitster-redis.ts`, `website/src/app/api/hitster/`) holds the
-Redis-backed API the phone page and the game talk to; `website/scripts/sync-hitster.mjs` copies
-`index.html`, `guess.html`, `qrcode.js`, and `songs.js` into `website/public/hitster/` for
-deploy, run it after any change here.
+The website side lives in the separate `patrickrobelweb` repo
+(`website/src/lib/hitster-redis.ts`, `website/src/app/api/hitster/`): it holds the
+Redis-backed API the phone page and the game talk to; its `website/scripts/sync-hitster.mjs`
+copies `index.html`, `guess.html`, `qrcode.js`, and `songs.js` from this repo (expected as a
+sibling clone) into `website/public/hitster/` for deploy, run it after any change here.
 
 ## Saved games: E2E test games and the wipe script
 
@@ -229,8 +231,8 @@ Normal saved games get roughly a week of persistence and show up in the saved-ga
   403 `admin password not configured`; wrong password gets 403; unknown game gets 404. The
   trash icon in the saved-games UI uses this endpoint.
 - **Wipe script:** for occasionally clearing out saved games by hand (leftover E2E games from
-  before this guard existed, or any other cleanup), use `scripts/wipe-hitster-games.ps1` in the
-  repo root. It prompts for the Upstash REST URL and token (never pass them as arguments, they
+  before this guard existed, or any other cleanup), use `scripts/wipe-hitster-games.ps1` in
+  this repo. It prompts for the Upstash REST URL and token (never pass them as arguments, they
   are never written to disk), prints a dry run of every game found (id, name, players,
   created/updated time), then asks for an explicit "yes" before deleting anything. Only keys
   starting with `hitster:` are ever touched.
@@ -238,7 +240,7 @@ Normal saved games get roughly a week of persistence and show up in the saved-ga
 Run it with:
 
 ```
-cd "C:\Users\pr\repos\patrickrobelweb"; .\scripts\wipe-hitster-games.ps1
+cd "C:\Users\pr\repos\hitster"; .\scripts\wipe-hitster-games.ps1
 ```
 
 It will prompt for, in order: the Upstash REST URL, then the Upstash REST token (input hidden).
