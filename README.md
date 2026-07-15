@@ -147,6 +147,45 @@ Builds a small database from the already-verified tracks, for testing the UI:
 cd "C:\Users\pr\repos\patrickrobelweb\hobby-projects\hitster"; python tools\build_deck.py --offline-sample
 ```
 
+## Expanding the deck
+
+To add songs, work through these steps in order (from `hobby-projects/hitster`):
+
+1. Edit `tools/deck-seed.json`: append entries to the relevant category arrays. A song is
+   `{ "title", "artist", "year" }`; disney and movie entries also need
+   `"source": { "type": "disney" | "movie" | "musical", "name": "..." }`.
+2. Validate the seed before building:
+
+   ```
+   python tools/validate_seed.py
+   ```
+
+   It fails (exit 1) on empty fields, a year outside 1940 to 2026, a disney/movie entry with no
+   source, or any duplicate song (same title + artist) anywhere in the file, and prints a
+   per-category count and a per-decade histogram. Fix everything it lists until it is clean.
+3. Build the deck. This is incremental: only new seeds are fetched, already-resolved tracks
+   are reused from the fetch cache. Needs Spotify credentials (see above); `--wait` slows the
+   requests down to stay under Spotify's rate limit:
+
+   ```
+   python tools/build_deck.py --wait
+   ```
+4. Audit the built deck against real Spotify metadata (no credentials needed) and fix any
+   flagged track (wrong artist, wrong title, or a suspicious release year) back in the seed,
+   then rebuild:
+
+   ```
+   python tools/audit_deck.py
+   ```
+5. Sync the built game into the website and commit:
+
+   ```
+   cd ../../website; pnpm sync:hitster
+   ```
+
+   Then commit `tools/deck-seed.json`, the regenerated `songs.js`, and the synced
+   `website/public/hitster/` files together.
+
 ## Files
 
 - `index.html` : the whole host game (HTML + CSS + JS)

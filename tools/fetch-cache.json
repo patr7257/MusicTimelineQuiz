@@ -979,5 +979,1473 @@
     "cat": "movie",
     "url": "https://open.spotify.com/track/4O6ZaZrRCFfiZZKjnrXqlk",
     "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nM1WO44dMQyjje2pG8z9jzU3oE6ggHpAigQpFiw2LmxrCoL6kOMz+HP1/esT8HPfzjl1AOzhABkexylXcVqf4GacT0H9NopVDpDgfe1eGPGoVN/k8g884cwRP3AI8x2BYAP9yAESvDMH4O+wAb4JHsYLonvLDZTlW6ddOpN7Ud3Z/GFIjqgBBoTAiB9mlpuG1IKmeJQkuIburUK8Cz18PIAESuMO34ifrA24iD693wDvC2D1WMJFT+KjuL8auXreIWb8Nlno02eKDOcZxhGHWhuku3xTPFhlq7btyA3wLlqYRqMbfYhJ9TYjaOWBGaeutL8YDmSPsb3E+rUHbFOsNsR+oDUCe8Fe43khTYr01eziedmauXrOO58/mN3nFFd8N38fEA37qrpiv4dJ+R9nn071gcXjwP84qy72510WHN861RX73zrMvhKEnewb4F30OXjgp8sLsZHxO//5e/cX3iEXfzU7pUIAAAAASUVORK5CYII="
+  },
+  "rock|jailhouse rock": {
+    "id": "4gphxUgq0JSFv2BCLhNDiE",
+    "title": "Jailhouse Rock",
+    "artist": "Elvis Presley",
+    "year": 1957,
+    "cat": "rock",
+    "url": "https://open.spotify.com/track/4gphxUgq0JSFv2BCLhNDiE",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABVUlEQVR4nMVWQWoEMQyTQ+/OD/b/z5ofKC9QkVNKaY9aqFmWcQ5CtmTjEn7HWX+egP97q6rtr11VN1kRXks4BweSthMkeB9ANTYaPJvc1THeBA829xVnxXj9FLo39zs0EnFe0IPuSZDglQro7/SY6wrwIEeru8WbMMNroNUQKRfcMV5LbAqgXYMO8cBLEq56iK4IbwIgmzTLlB/bZTaa1gOM+0cSJjccFfPrWy0hypbO+C2gjoANYR/iCfcBBHbbJ2M/tmI9Bkm2DAecoV8almMaabHzeXONkOhZy+cNHMv4/7aRIR7s5hm6GZXYf7b0KGKGyvsnS2IwL37beqV4gC14t0zcP8e1n3e098KK8DBVWthBzPezTGoWs+XI9ws8t4a7/cvwvu6DF4jXUWm/5z7gwdbZKG2m95/oW8i3y9NdIT+MvvPzekbq548B/IEd3n/vfvsEFMwN1c2ZiK4AAAAASUVORK5CYII="
+  },
+  "rock|johnny b goode": {
+    "id": "2QfiRTz5Yc8DdShCxG1tB2",
+    "title": "Johnny B. Goode",
+    "artist": "Chuck Berry",
+    "year": 1958,
+    "cat": "rock",
+    "url": "https://open.spotify.com/track/2QfiRTz5Yc8DdShCxG1tB2",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYUlEQVR4nM1WQWrEMBDTmL3LP+j/n5UfaF6gImehsKWHMgutQ7JOYMXII8ku43X0+vYJ+LtvVbUz21V1v6wRHm2g0E17n5c1wHsARZQ2XAXv4hgPALcbYP/uv+tHPKhAXJzjwbQJwsoktyZ45QL4pT2A16y+jFOaUqHtUX0wATp8g5m5hhon1RB2ha0w0zNs5ZFZrhS6BngPNGFUClMrJWLqD2+IxQv71IhhPygB6S4kCTP9xR8sJV/cLFCc5l+3o2hjQ+iPKV+IJAVFfuLQb3CQQEXXMjTUC4IV0ymmC/G533jU7LRWccsa4JWBjRa2N9Auz/a36A9JQKUvJ2g0z1MF68TLvB+UbzSLpzea8nVi79mWCGi9IZ91MAM9Xb8YWFHy0yljvvf+dkeM87NmeIhvLeqg6i14gQzj8fo9zpNX8i8HGQ/Pfzjrd/akFOjpfonT3/A9rhv7IwRfxr86734CgGv4N/CHsj0AAAAASUVORK5CYII="
+  },
+  "rock|satisfaction": {
+    "id": "2PzU4IB8Dr6mxV3lHuaG34",
+    "title": "(I Can't Get No) Satisfaction",
+    "artist": "The Rolling Stones",
+    "year": 1965,
+    "cat": "rock",
+    "url": "https://open.spotify.com/track/2PzU4IB8Dr6mxV3lHuaG34",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYklEQVR4nM1Wy21DMQyjjdypDbL/WG8DegIWVNNDm56iAK0R+MEGQsjmx1rGz3H20xbwd3trrTrr1KmDXmCCB9MmZdMis9AE7wYsAkVoQaws9gBv93wEFFSv/Pf7uPXsBbB/b8AzCjzCvVy92AO89SjtMQ7Aa8ZvBkxQDr223qAXwLIBClM8i9EeBIrGGA8ClBs0TXKMJ9nKl4YFzvA2wLVAHQjG3dfUv2E4Nxcmwu7Mv1GKISvV5bga64WhQ8kYyuC0PoAkBZmIaMZ4OTAVyaTCuV7ceSoEr8+9B3g3sINvwedOeJqnCAlUX19oibj3CA8Jgo4XQWN/IPoLG58x8wY+yNQXhzQb83xhExtQARy+l3jkc7cdZOf0HvcHXl3jlZdJw/eXqc1lVJR4zlh/ISNZ3wbGMK92zzR4VSUP6h39AQorDr6/UMtv76Wca2yLjP2Br9alDZKQnvUbT1v/qt/9ANAkBARf0pT7AAAAAElFTkSuQmCC"
+  },
+  "rock|purple haze": {
+    "id": "0wJoRiX5K5BxlqZTolB2LD",
+    "title": "Purple Haze",
+    "artist": "Jimi Hendrix",
+    "year": 1967,
+    "cat": "rock",
+    "url": "https://open.spotify.com/track/0wJoRiX5K5BxlqZTolB2LD",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABX0lEQVR4nM1WW2oDMQwcm/yPb9D7H2tvMDrBlFFCP9pASxVoHchGwiskz8NZxudV+0sK+LvcWutg1alTuAd7UA+mTcp5mgk0qXcDFoFDaAE+Cfag3u7vgnBA/ebdZzlzFVjnu30/yrnb0gX5dLCf7/tRbnkB/AgL4DXDNwsm2Oja1gv4QlgyAsm4ntKfIEA0OONf+iIcFZs997Q/KGcGi5aUkfeg3g0kFqWCVviCmX43sCDUG3G4pDBmj/FVJnUAtsb4EiKCa7NmjC8Q+gkymzFjvlBRhoj80Bhf6KBU6M8VLe9RfyAdcTQBI2PN8XU0wviBXuEHappEwMK8HkK79qpAMuefrJwa269yjntUD37M2fcRx3zOetwhZI+8Z/3h7srRB4OxZv7CmCkPcSK6mvsL0hNadrk3p/N2vbu9OE4zq/fIUcWriii9xk9zjK3jsX4RFjPeFyJO/Xn98/+77zR7FF/8QlY2AAAAAElFTkSuQmCC"
+  },
+  "rock|whole lotta love": {
+    "id": "2EbfJIOLyZcyHEZosJC0dT",
+    "title": "Whole Lotta Love",
+    "artist": "Led Zeppelin",
+    "year": 1969,
+    "cat": "rock",
+    "url": "https://open.spotify.com/track/2EbfJIOLyZcyHEZosJC0dT",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABdUlEQVR4nMWWUWrEMAxER6b/4xvk/sfKDUYnmDJeKKVbaKkWaog3FsnbSB5JLuPr6PVkAv7PVlUb1bt347FYAx5Mm5Qfv5k04b0BRfQmVIB38RUxoIQNa//h3e9s2t1gXfrhuV/5a2xwC5e4z2J989z6pa1cAD+WDfCe+WtbfaMRZ7PAC/RCWHY2Bh7pBaZoWPm83HHKkwQngg6NL/g+JGgWLSt/sAa8FfVVUgTa3Jue6eXY5HhcwH2ybg14MOkA47GVyqCpXmASZGaFuEY8KPITlE0Wh/UKBnNJoR0xaphvwsadDSb6xrAerACUycIFpgKuAa9c7gvtDupOrelh/GApWhEkzPOXDPJ0orMbY14iB4pKvZrmL6KXtCNHNGlNU/1lhBYUHfganw/cnRy+05lm9X6BNvraRKSn7nF9ScjOfiTloPF5I5FLm7yg0jXv5xlU+d6dLB77myOVjpJPxxzr7+HuqfopXTPe2wF+Yvs/z7bP4x3S+vgc8egNTwAAAABJRU5ErkJggg=="
+  },
+  "rock|paranoid": {
+    "id": "3hwuHzRicnu6Ji9i1JLzor",
+    "title": "Paranoid",
+    "artist": "Black Sabbath",
+    "year": 1970,
+    "cat": "rock",
+    "url": "https://open.spotify.com/track/3hwuHzRicnu6Ji9i1JLzor",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYUlEQVR4nMWWQYpDMQxD5dC9coPe/1j/BvIJNCjtYpiuBn+oodBk8VAiWz9l/K1eH1vA9/aqaqN69wZeizXi0UaBCm5ngQnvARRDgqvgncUa6UtRwkZ+qYXPWv/a07M6GnUHzwIaugjvs1gDXrmAXOCrGuA14cEp2KAYr23NeLRJwpJjDKY8K/oUL0RjzJMiMv/wFrpGPOaI4dKQwDv0gZBMR92Ulxsk6UgzBN7gr6LSMRhjfTzdJ6b/ZHCm74EubhAtgFvQLP/iq5zrY87K6FwjnjMf72QRbuCR6cEIzRWO/XU4YIYjzTfOAzDIdIwU8HzeMmdMVOXYw/ldL41b187X4yTrGulDGkXHlzPJN/RLZu6gkghTXkCGM2vJhaEf66QKWMTOwbun90cw+kSlm6FpHpzixvWESs973lyN5tVN5JW1ZjwLrWasuXa+mGvsL04TphU1zOfHAf5if/Vt+1k/k5oCXoctlKQAAAAASUVORK5CYII="
+  },
+  "rock|born to be wild": {
+    "id": "2VPGmrcBw5X4yAu3B8UZNE",
+    "title": "Born to Be Wild",
+    "artist": "Steppenwolf",
+    "year": 1968,
+    "cat": "rock",
+    "url": "https://open.spotify.com/track/2VPGmrcBw5X4yAu3B8UZNE",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABd0lEQVR4nMWWbWrmMAyEH5v+l26Q+x8rNxidQMs4FMq+hS2rF6oEEhtn0MeMlNX8bbVftuD39tZaWauysjgLJnh0dEeo/ezwQhO8D1hBZaBKOle8IwcBZKL8j2+/21PcRXDpH+d+FG+TVIpL8Sz2N+f2D/dWryfcxwrinvnXB5UV92X3hnzm4Qu01BCiR3yh+3BPiFAcyD3CQ+f2W0TH0L+NqGbRyi6till9t2m3CBXKOAlkGC+uRLQikIPWsL74NpRhp/nDZGkHGnKb8XMP8D4oXQlKazctOYb5C/vYCkL9Bj7TDtfenTQO491EltyqWoTZN41XwkRRh0lj/e0RHt1tCtpBi3jOF/Pvs82gqX65uZXcZ3aER8ge+Yer67zhbsVwXtI2F8IScejj/ocdc3u24szsPcDbRDfV6yJJVDXNX7gtK3zZV0318Zg83vLIjjfgpedl3YEFt2d4LUrLaqOo0Ljf4xRaGSbiUB/P/8EX7F/9t321Pw4O7o8ZuUcPAAAAAElFTkSuQmCC"
+  },
+  "rock|highway to hell": {
+    "id": "2zYzyRzz6pRmhPzyfMEC8s",
+    "title": "Highway to Hell",
+    "artist": "AC/DC",
+    "year": 1979,
+    "cat": "rock",
+    "url": "https://open.spotify.com/track/2zYzyRzz6pRmhPzyfMEC8s",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYUlEQVR4nM1WMW7tMAyjgrdTN8j9j/VuQJ2ABZ1O/6NDoQKthyTOQJASRbuMf9dc//0Cfu9fVfU0CoU5G+zwaINowdNngyXnakDompvP5lrgvc5z7hEI9He5fIEHGA21+gfwjG423qnhwb0WeOVClH6uAfje4MFnwRSl860dHiVCOHDQHg+EDJo2hT2eacI0Dj+SW72M4MBBeW35KQxP3U4h93oVVk9745y9XvDwMiEaa72I/awQJLis34WbXWowAwfOfn7fLSZZlEBIBa8FHuyotJmV+m37kVBhRhiID73DS96zn2ARRpF9rfj5mTlENaml3hcKbmjEORHtXZ7CkmUcT5/Nej5E+jHz0xPt85kAnUw9k3yt8JDOxoAJ/TRF+/tBz9RjFmrXjxdQ6QSdM3MK0Op+Ve4hxqXoPmM8+zuXGnccU4oJrwUezrlmKOwyxvvzEkiw8Hg5R90Kr/74ffcD2RUMCFiBIIgAAAAASUVORK5CYII="
+  },
+  "rock|should i stay or should i go": {
+    "id": "4hg7t6CAM0AJ362uxEIOMI",
+    "title": "Should I Stay or Should I Go",
+    "artist": "The Clash",
+    "year": 1982,
+    "cat": "rock",
+    "url": "https://open.spotify.com/track/4hg7t6CAM0AJ362uxEIOMI",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYklEQVR4nM1WQYrkQAyTQ9/lH+T/z8oPVC/QIPcwMDu39cJOQdJxQQtZkisp4891rh9bwP/bq6puIL81BXZ4tIHuRjqf4tpxrsZznsMmOgU2eK+536BYPux/o+mjwzLuv/nv93UBFsj74BQ6BTZ45QL4VR6AzwYPzoJD0pxCu367TulNTuhzdvmDTVqUAYEQueL3QkMFjYhite4lPwgSbMigpJ1+SK/0YBmB2/UbYiNfvGWe1/xMMJ6ANML1WuGRSruy4orXeIp003eUDNFrhWfGXshmQqOtH5rgRUYxiV7zy/TaQzKWrPNiwcqcjS9r/TBGfDodR7T2g9PvuEys/dCMhUbG4GubZ8+ADDkk19cKL4uKhjmit3gvvN8fvE8TyIVlv07LOZxHybUfRHISK8JtOx/X3G+cDkPr8fZ99D79kHEbj9d5ib1zSGfcsJzfC6cKN9Q4B8doLb83fmz9qu/dD2SoGIz9CRa2AAAAAElFTkSuQmCC"
+  },
+  "pop|can t help falling in love": {
+    "id": "44AyOl4qVkzS48vBsbNXaC",
+    "title": "Can't Help Falling in Love",
+    "artist": "Elvis Presley",
+    "year": 1961,
+    "cat": "pop",
+    "url": "https://open.spotify.com/track/44AyOl4qVkzS48vBsbNXaC",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbElEQVR4nM1Wy23FMAyjjHenN8j+Y2UDagIWdNpD21OrQ2s8BLHxQtAi9Snj6+r17Qj4u7Oq2rt69wbOBjM82mgAAdzZYMi5NqANuktns2Z4CByBgn7z7ef1Os9LwOZ9PWfry39+eGYdYsTus8EEr1yB+lgN8J7h4YHBdV9PAHuCB1MARUM2TFAzPAfrxPCgcoqX8BFQrEyG6xrhSbQIk6ZkesrPPqjKG+3xfW0zMrzTHPMDoUMwcmCMx2gBJHyIyHN985CsvNIzfgsiXQJ671Ac1lPEy4RSBxieQ/+94uUbm53bdqoDhnr4KS9M7Kxh/BAppDg6WJ7rwQsbR9urqjXub7h3yl6jYaQ1YaovQi9Jdww403edBL7grnQ5J/fWCK8yElTn3o2d0r+GfjFBUvmd0rVmeOCTGKkKoKZ+yWKTTDeXMPZLYC6V7hZjGMzng75xmtGNTG1rWv+YRp4KeHJ4FL9nPvi0/tW8+wZUHufxR87nywAAAABJRU5ErkJggg=="
+  },
+  "pop|i want to hold your hand": {
+    "id": "5J3Mf6dyqeGy67yuQ7ql9B",
+    "title": "I Want to Hold Your Hand",
+    "artist": "The Beatles",
+    "year": 1963,
+    "cat": "pop",
+    "url": "https://open.spotify.com/track/5J3Mf6dyqeGy67yuQ7ql9B",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZ0lEQVR4nM1WQW4kQQgzpb2bH/T/n9U/MC8gMp1cdnYPIyIldWgNpZFlsKGIxt+nzssV8HN3EZERlZWFCbDDYzdal1LICbDkHIm4CkhoAmzw/sxXSXQh+C6X/9wRqkp8an1e/4Y37lpIFtBOuLXDiw7T+zoF8N7goX3UBNmWt1u7fDNHB8KOKYdnxY9mRQgSmhKX/ArKLI64YU9jxw8jqlpujaF4VngyTEOyFmxt9TDalSQKUdN2Z8UPAAWOk1tc59twpugmp45r/wGB6koJl39j6Rdm55WAB+rY5izw8GT6jBYJ4rZ+BqN7AwO79AuM97h6bNhLfY+BhJJRM1H7fuPMv8nUg2vtP7UEyvPPkmzrZ3aWo90mrqf28xltUNLdttVjVoK8QdxA7vWgLfJ0MNhY84NXAkS5eBWkvuM9T16opOZZP+t9I6uDdeO63+fyz/rJpWNLXM4/zHx+uoPzdu70iF++734AE1n3uGGzN6gAAAAASUVORK5CYII="
+  },
+  "pop|hey jude": {
+    "id": "1eT2CjXwFXNx6oY5ydvzKU",
+    "title": "Hey Jude",
+    "artist": "The Beatles",
+    "year": 1968,
+    "cat": "pop",
+    "url": "https://open.spotify.com/track/1eT2CjXwFXNx6oY5ydvzKU",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABY0lEQVR4nM1Wu63kQAyjBpdTHbj/stwBVQEfOJvdhVrgnhzYckDoQ3KmjL9jzj+/gP/3r6p6anoauAk2eDBtQjYtMok2eH+AIoCGpuFOcnZ4iXb3+Lb8jZmaM2C1voFnAQO9gPsmZ4FXLiAD/MQAfHf7TUAG5U+iXb8NNJ/yi0xwatcvTDHcgwDRwI5/cDbgqNh5iH2/NApWu1Sz5AuiN4iQzDS+1NsJR8wh0Zh+v7APGMo6LN8haonHtAtSJGxu9xt5EIKCqvDn7PB4xSHmI0Vq6Vcq8mVd8YYuWPKZVyOKPZuxm7Oqb1402oMHGM3Sn8vlQXP4Jm1Cs9cHchyl8+xEaz47W2VEt54f4iqxUzu+cHl9VniJ23OwHBaeXX1IYUqNOdC59b/UNn6c3UIz6/OyGijM8+KZgtb3l4wtNnrb3s7vfF6FoSbiWJ7n+Fi8lNcl9Jp/934QIl/rWuqjfvl99wfsbftqy4OheAAAAABJRU5ErkJggg=="
+  },
+  "pop|sir duke": {
+    "id": "4pNiE4LCVV74vfIBaUHm1b",
+    "title": "Sir Duke",
+    "artist": "Stevie Wonder",
+    "year": 1976,
+    "cat": "pop",
+    "url": "https://open.spotify.com/track/4pNiE4LCVV74vfIBaUHm1b",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYklEQVR4nM1WQW4EMQgzo72bH+z/n5UfOC+gMlNV7W4P2zJSi3IBKRZghxCFR9vHUwj4u1hEJGLnzo3TOUZ4rEKKSiDTDiZ4NyCIjURFihm8qgcJIn959zFWuTawoU+xr3a8HqtG0SKY7Ryv332yqAD44W6Aa4KHsqHYPLejGR6rSKJUBhXGeHJiMhdigRziQYLcQVddvCA/VLlMlnPkFK/O/CR3ENSs3hsSEgXsqHdBH6P82E2D3D+L+5L+QbRuJM35BUHIVdOKGeNRZVYtZic7xrOGnSa6jfN62WzIAuxnrBme+o31QzYfc36rLMCSLD57xwwPBc+Wsl4sQw3/I6ICXClP05/cPb7NDy0UeAp2wVN+z/l8QvnpzfDO/UABqPbyp6kL9gMwiSSgvcfzpeVnyfSUHs8/G3HHuhstk9P9xUYFF3AH9xX7wVYQvGMZGdP5B/axAvsbme0bT6F/te++AVBt+2wubNuYAAAAAElFTkSuQmCC"
+  },
+  "pop|thriller": {
+    "id": "2LlQb7Uoj1kKyGhlkBf9aC",
+    "title": "Thriller",
+    "artist": "Michael Jackson",
+    "year": 1982,
+    "cat": "pop",
+    "url": "https://open.spotify.com/track/2LlQb7Uoj1kKyGhlkBf9aC",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABY0lEQVR4nM2WUYrkQAxDX4X9l2/Q9z9WbqA6gQdV99f0wsC6YacgEJtE2JYt12q+n329ueD/+dZaVWvXrs0xmOGpmw3UrqoYDGNeBS7U3D7GNcMDjGBB/cO/f/M9uO8t4x+++9n3B5oyy6LoGEzwVi+S7Ots0D3Bo3PcWJZ0jGuEJ4Najdu00BhPTR8u8qZpfOEAB8vO6zS+trpFS0m9x/FxEsXuDNsH+OhDaspo22M8EhzBCs0a5ysFkZTvDPKUj9SvZbcDOI3vgkd33WLXSjsP9WD16mLjaFXk5cFwfulwIb/mmCkfITZAikKfKb5m8fHslefzgX7hmWzozTPrlwtUPsty07VCyjWKj8hLWEn9TiteI7yclJAIdFTGUz5I4Y7ISBr3izoqoLaOUs/xOEG9lq/G/adkmcJlbZ4yXh+4b7DtnZ3umR4863eGN6sjU+cP8NtJNaIfdZjp1ZvrV913vwCsAhnRlsnpwQAAAABJRU5ErkJggg=="
+  },
+  "pop|uptown girl": {
+    "id": "5zA8vzDGqPl2AzZkEYQGKh",
+    "title": "Uptown Girl",
+    "artist": "Billy Joel",
+    "year": 1983,
+    "cat": "pop",
+    "url": "https://open.spotify.com/track/5zA8vzDGqPl2AzZkEYQGKh",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYElEQVR4nM1WW2rDQBDTGP/P3sD3P5ZvoD2Bisbkpy0EqkIbSGCXRIxGD6eEz699fLkC/u6uqlbVXljAHJDhtR7KaxfWHI5s5vJgC2gU53BkeAAEAbv5k99+d7d63xv39e577+9OD7eIjR5BhEyPUnlzr9cG+s7m0wODi8vjhX6GrEKzBUlQo5nhicYhCBi1UzyAaBpL9CZTPBrJTNvUFc9HCmyS6tmeQrxub5CezbvsDO/E5rKZb7B6bI1wPmEYNy1N5/pyTEiLArcXsz7g1Vo3sKssSNin8Fjm6pTANkz5mqEdLT2G+Q3/TUZg2zh/R4QH2675UI71gKVtp9e1YK3z/WECMu85HBEeZDFgmWW+cf+NsJZ4KibMLyYUT9YmbSHf0126cEH7aoAVPi8xFp4Uc/yS9x/M0ptz61ucI8A755PFkp+9KF5x/6ldy7Knh/ER4cFjWV6nN85v/fP/ux/hdw1VtsXXmAAAAABJRU5ErkJggg=="
+  },
+  "pop|material girl": {
+    "id": "7bkyXSi4GtVfD7itZRUR3e",
+    "title": "Material Girl",
+    "artist": "Madonna",
+    "year": 1984,
+    "cat": "pop",
+    "url": "https://open.spotify.com/track/7bkyXSi4GtVfD7itZRUR3e",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABdUlEQVR4nMVWQY7jMAyjjd6pH+T/z8oPqBdwQGcPi50BdjAqMCqa1EZKSCbFaBn/Ru9PW8Dv7a21qldXV+MsMMGDaZOwaZFZaIL3AhYBFNQFVxZ7gLefm4CqXH/w3y/2xLtzr/889616jUK1cDWfxf7iuf3NveUF5ACfaID3jN8ERFCh2rbeoRdYdkAxxpMNK+SKBqd4luF0sfPhML8dct0LVnm5mzN+X7jTIe6G4IL7Gur5goS+iIXS6ZA9wENOjHKyk0FprhfIAClC8RjN8BCboqDIUEl2z/CYr/50yDS/DUmFm+g073GZPcpPZNLKD4vAtF6e9j1E5/yG/L7QUTRwtVJssPcsPx5LeGzmGM0e4O1wcKNwF9DHZTDWC6RYDJV6p3wcf/Zp3JQ+5HefkcALkpm6qTfMB0qGocNTPpAKaSmJRYcazxuJK0YaYq73zFyNxbvTxTXGs9B6ZoO8zqd8RCenzY4Cp+/f1wH8C9u/Odt+jg8uLfTa2bSbHQAAAABJRU5ErkJggg=="
+  },
+  "pop|when doves cry": {
+    "id": "6sby78fghipoXHQLeeZFFH",
+    "title": "When Doves Cry",
+    "artist": "Prince",
+    "year": 1984,
+    "cat": "pop",
+    "url": "https://open.spotify.com/track/6sby78fghipoXHQLeeZFFH",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaklEQVR4nM1WuQ3YQAyjDumpDbz/WN6AmoABz0CKpFSARI2tKwhK1FfG7zbnjyfg371VVXdNo4HrYIdHGyOgAxkHG7wfQBFoEJxyxzkrfjHDwFAJec0PoVdqvu0LeBZ4B7AgA7y41g6vXB/UZwPw3eDBMVmiTV7nrPAogKIhCya4wjsAaPAtdYpmqFX+EDXyFS0lkzt+N16LuMkTvI+XqCj7qkJvWS9wQmZkgC2ZO33L5R4QL4BHlb47K34EZIqUEUW2enygkh3oiHKWetD1ElMVsst5Wi6jB56+2uLBsn9lSclhWpd5OCs8mpcY4S+NWuavddvi9ZTw7OfpzHPHAB4UtNQDX/+mNTKvrnNWeDBSx5mmmYTe1nPsjhZmxHDZv0h/kJckxPxpfx+ART3p5Nnv38p6U7dYKL7bfdnza10OxNrty+8+UHE8qcDW8xfug/F3Ibw5EbDDmyr0VEWJJ8jL/P3x9F/duz8Bw73uTpNsDgQAAAAASUVORK5CYII="
+  },
+  "pop|vogue": {
+    "id": "3WFgRhgECxQYyy8Ldhk2PG",
+    "title": "Vogue",
+    "artist": "Madonna",
+    "year": 1990,
+    "cat": "pop",
+    "url": "https://open.spotify.com/track/3WFgRhgECxQYyy8Ldhk2PG",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABVUlEQVR4nM2WwW3FMAxDqeDfqQ2y/1jZgJ5ABfX/qT2yQBskhp3DA2VRsmvw/TnXj1/A3/2rqq46fRrYBTIeZ0AB/TTaC4Saq4FukOdoF1fGAyAQKPRv7WnzeQ7FnPcCBq0DKzy7QMKrqUV9HnOfTN+8Mbif2/JCP2PsFYoDjTAElfHGrBEEeMaU55fL0tom5VEaEUPuNOZp4CBNdeVNrM87CFFwwA77ingQ6VcSDU95zu4skXQhx/kVbD7NjOsk1HcB96hEnConubJ+gHnr2mNk8xHXx9AGdLyzhlHoP1mYPWPneHZFPBjpChboL80HeW4cF+64nz5ZP337T59I7Zw4XjcX2dPbCX8hv/PZvW0xef1i24sPTZGM46X9bFm0Y5DzYFGrzlJD/712JKbZToyP9iu/bzSOdES04vvGCEfOC30Oh/chbH492tNu99n+1T+/734Bvg0Kv+qo5zMAAAAASUVORK5CYII="
+  },
+  "pop|nothing compares 2 u": {
+    "id": "5GHY1DFWKz3Prg2V0Iodqo",
+    "title": "Nothing Compares 2 U",
+    "artist": "Sinéad O'Connor",
+    "year": 1990,
+    "cat": "pop",
+    "url": "https://open.spotify.com/track/5GHY1DFWKz3Prg2V0Iodqo",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABW0lEQVR4nM1WwW3EMAyjgv6pDW7/sbIBPQEL2vdqUbSFDmgdJBcbB4EiKSllfFzr+nQE/N1ZVXUB+a29wSwebaC7SeBsrhnmanjdC6A6G0zive1n4SGW16+xfHEm3Czh8d3/fnRmgeYKSmWDSbxyAVHirLB4T+LBWVBAknujWb5dq7Sx3UKvNfMfbNKiHFUIcYYvfrkrajABu9VD/iDJ2hwGnznCB8csEEEhsmiWLwJMpmmZ3A68RvEEbpDCjjr0C0yGPoRBg1N94Sd1NgXF0pr6D+LGx5hmrAdpmE9NwqWm9avcp7eYmvovlbazVdiL0NcoHo0DT4y64/pw+kAK46j8gnyp7b8YMQNO03wdozCvm0nN+zOVK+im8d7wnB+P1QRy4wX5mhEldYKpHsSZQwfmtD6u/exap7NKnn4P7aVeGb7Vq/UC/uT0LUbn+fwAGClimHn/q3/+vfsOHGIa7BBNW3UAAAAASUVORK5CYII="
+  },
+  "pop|toxic": {
+    "id": "6I9VzXrHxO9rA9A5euc8Ak",
+    "title": "Toxic",
+    "artist": "Britney Spears",
+    "year": 2003,
+    "cat": "pop",
+    "url": "https://open.spotify.com/track/6I9VzXrHxO9rA9A5euc8Ak",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABWklEQVR4nM1WwW3EMAyjgvvT+2+XDegJWNB5tfcrD2gNBI4NhBAlUsoYP9e+3q6Av7ubmbUBzKw5B3R4tMHBBm+vHNDgvYAhFha8F7yGH8mBcGPpd99+W69nW1jE0qrxYNrMLubNphq88QDBe9YGeHf5sy0kdbrxHK4CDyFLh6/N864Oz6RFOUVmHnX52+A4DvE49VXlXzhMJUgU4o6Wb1IYulTqolIviOSc4ERQJ5VXh0enDArvc6HSv/e+T+6OmlX2AxggT4A6G1u+56GiaxnJ4FXhMWFZcKoB1npRLJIurXjtA3z1iCWBhnCt5wgmWVRagur4GJPpdNKopo6PaXqnL0d7vX8Zf4ApSc51fFmnxAFNpVXrmbFv3EumuV79fOODGsp1fZM7pc8fzmW/up6NxL3mmU7o/w+I0cokHtfzg0d9KXSc189LJLxM3qOZOKSbl29X/+p/9wsg0AHx5VQTDQAAAABJRU5ErkJggg=="
+  },
+  "pop|since u been gone": {
+    "id": "6JY1IdkZGeIcPegKxjSKeb",
+    "title": "Since U Been Gone",
+    "artist": "Kelly Clarkson",
+    "year": 2004,
+    "cat": "pop",
+    "url": "https://open.spotify.com/track/6JY1IdkZGeIcPegKxjSKeb",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZUlEQVR4nM1WQU4EMQxzK+7uD+b/z5ofOC8wckAIsRzQBgm6h24qjeUkjttlfF21H46Avztba51adeoUOsAED6ZNyAZNJtAE7wVYBA7hteCTYA/w9vsuHEDnqW8fz+yq7Pp09nS+xsEp4SqeDvYPv93fnC0vgB9hAbxn+dpW3ahONgHmeiFgRTcUPNILTNGwIPQ/zPQHJ0+lgpEzOeaHpJh8QxPglJ8capCMVFIzfhvn+A0xo3ZnTvaIH+kUTUhXutF7hofkKbLBkvEe4G2UeA5Qd+aklmbzmxwV7ws7tRg17i/T3tAzkvce4Zk9IyGabY6n5BjQqBCa99ddQ1kKxzFe669vIsYV5v7SYg7FtHjuBwYDGNHgF/wgixnhYLWl7vH9cTfa0pU7ruZ+r9AiO+O5XkiJ+cWlNfWDLF7gfUXN/K031+JdlZfM1F+6fu0wzl0yng/EWFK6XCQ9djO9PBz9q/fuK3nuBCYblRfkAAAAAElFTkSuQmCC"
+  },
+  "pop|single ladies": {
+    "id": "5R9a4t5t5O0IsznsrKPVro",
+    "title": "Single Ladies (Put a Ring on It)",
+    "artist": "Beyoncé",
+    "year": 2008,
+    "cat": "pop",
+    "url": "https://open.spotify.com/track/5R9a4t5t5O0IsznsrKPVro",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABW0lEQVR4nM2WQW5jMQxDKWP29A1y/2PlBtQJWFBJN53ZDFSgFfB/YgP/QRYlwmV8jT5/bQE/t1dVtwFU3ZoFdjzaYKFh+WaBDe8PUEThwn2lW1zzJtS4rpc4Z80jKo/+79vz7z0LDflJcxbY8MqV9D6jAT43PDhBmZSita0djwCdg9qc/1rmR1pUkCAEbvMTkS5G0hv42fEsW5AoZVS2+YkkZLzz3OvBwKIuoCnl2fEw6ioKi/k5C94B2FaPH+BOb59VfkgBKSidKHqtxzTei2ZszwtHXlsy8+aah3SJ0scYkXe8MhoPxVcu0C6xt/lhiveatbTjWfEYFaZ6I8leD1gZs4xGnGvvBwYi8vg9tPY/v3ML1Vz7H8afpwFnUr7hvDkt0n0x/r2/hDbWMvXb8d57BJ6PNEss5qx5VOEKF2Vqe99wULpuAY/9fagLDKXE24jrL/3ga/yq++4HVjwCYg9LwZgAAAAASUVORK5CYII="
+  },
+  "pop|anti hero": {
+    "id": "0V3wPSX9ygBnCm8psDIegu",
+    "title": "Anti-Hero",
+    "artist": "Taylor Swift",
+    "year": 2022,
+    "cat": "pop",
+    "url": "https://open.spotify.com/track/0V3wPSX9ygBnCm8psDIegu",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABcElEQVR4nMVWUWolMQyTw/u3b/Duf6zcQD6BivxYWLaFLfWDGiYzMRlhJ7KcEP61Pp9cwO/5IqI6urqAmWCDB6WUSb3eHrjBewCRAArsgsqTs8A7M3YR5ecH/37lU3ZPjP9Z9y2fOAHehF6T8/W6b/lCAXgDX9ZA3t352iAhmUhP+Aa+ADJlkMQWT0x52wj4a42XBnIVCyZ07vAOaLSAWOp7G7t6eyDUQXWDxYKWeMeDnp2JQF0gdvzz/ikh0vsHkHu+zHFYWkAxd/oCwTyeU0mAjves8JgUUkalybPP1+XBkRbyDfkm5eJwnbwiPQu8h6EqocCT1U4baz2QK440V/bxwRwWRu07cd/AZ9OP5t879AomCjFd07Tenu8ffR6skdSzvh8wXLi4KGd8Vnjp3qHIab503zwLPDjDnG5Ecw/c5juWyPt8EszaxTf8s4VudboBY98v6boYJdzWB4YomA7szy2fHwP4F7Z+82772T4ApI4BPUBP/KAAAAAASUVORK5CYII="
+  },
+  "hiphop|rapper s delight": {
+    "id": "2XbwFs07dfm2MGQuYmRMZT",
+    "title": "Rapper's Delight",
+    "artist": "The Sugarhill Gang",
+    "year": 1979,
+    "cat": "hiphop",
+    "url": "https://open.spotify.com/track/2XbwFs07dfm2MGQuYmRMZT",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABa0lEQVR4nM2Wy23EQAxDqcHeqQ7cf1nugKpAAZWcNgESRAskuhgzsB/0pRyNZ6vz6Qr4u7uIyACQETEH7HjsBjOzCMwBG94DCEKFpPJOH7DPQeCSovI33351J94Mh/rNez+Kt5EsFgqcAza86IA5H1YA7w0PbUNTxtIH7XiEILVAqSlxyWs7RTUgEOKO90AhjHK0QqauVT3QjrDVDbU4kZ8djyTHu2mX3sUb7Sa53NOePBW40qvoYgLVqCSUgFY8uEUEZ6/torjPnwuLwTmXW970sBuw6aZZzwcot4pnw2SseTPBgpPocHe8g66MKPRl4H3HVk/zcg5RxQwkuNM/519oJ9AqOMU+K55cYPcfu/mC+pLeGx7hea7ra4OmWYxc6wve98c0M2ntOiseXd2hjn/LehwgEkq2d1v5XwHbfUSLgHPI97E7O/9slRZSRL7Av7a4eHm0t9Lav4qw3lukIVbu/PP+eLJ/9b/7BoOgAqk2fgJHAAAAAElFTkSuQmCC"
+  },
+  "hiphop|u can t touch this": {
+    "id": "1B75hgRqe7A4fwee3g3Wmu",
+    "title": "U Can't Touch This",
+    "artist": "MC Hammer",
+    "year": 1990,
+    "cat": "hiphop",
+    "url": "https://open.spotify.com/track/1B75hgRqe7A4fwee3g3Wmu",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nM1WQWoDQQzTDLnLP9j/Pys/kF+golnaQ0OhxYXW2U3Whgh7ZcuzjM/W+yUE/F1srVVYXV2N29kDPJg2KZsWGUcTvAewiC5CXXAtzup93D9iVeuH/91fxozVQP0C3iNghRJwNes4e4C3vAB+uA3wOeM3BhM0b0e/0C+EpYAKYzwxvQchTxjjQSn6PJEmZ3gn5m5Y5X52D/l9pM6V6YDKBfc1nF/AOmWCSvGz+U2nmAodDjY05ve+ozG5OM0PkSkIwUqWY7yTlZVmPs2oGb8+AtjIJ1cN5xchJF/KK5zPh6VQcoq2NdSD5XVkudxslIrqsb4g5J61dDLdMzxmNKywizSMxnxAisQwlY/7L3YLVtZvunCPzwdaLRlPVJLcIzwmN18861Lds315eplW3h6z5zQ+b8SK7jKWrvk+P6ZlNe6TzMar7e/HLLRyDrqYdT7j42hy5PR9yQ31ef3z8+4b5Ur+eLCz8hkAAAAASUVORK5CYII="
+  },
+  "hiphop|baby got back": {
+    "id": "1SAkL1mYNJlaqnBQxVZrRl",
+    "title": "Baby Got Back",
+    "artist": "Sir Mix-A-Lot",
+    "year": 1992,
+    "cat": "hiphop",
+    "url": "https://open.spotify.com/track/1SAkL1mYNJlaqnBQxVZrRl",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaklEQVR4nM1WQaodMQyTw9/LN3j3P9bcQD6BivI+FPrbRetCG7IYByI0lmynjB/XnC9HwL87q6qumkYDN8AOjzaslxrTN8AG7wMoojwYJi6u8QBoDA/n9+6eX+IxBF8P/4pGFhoFCOoE2OCVC+B37wF8NnhwlkwQ5js4C7yDbhQHhPrpSXhW/AhaTPYMU0t+sCFSlOVoQy7xEEoKnBWWO7zrv6JKwNAdqc8C7+Dmrk3gVf1oiYf0P2bHyTbX+fPVVOkyb0ht/aKY+ipMRJizwDvpU+5OM+3PyjsrfkjSFB1iv63/ykWo4PsBjLicRwocBwU9GGNXvx+AWmBaQoHCa5+/wChlLJre+88SqPQ/cOsXOB5RLEjeWlnzcygGFMzf7vDe7wNEEgjo6a0evPTSnC1eVc6KH+rW2giDKVL7+cEMOH2W3Zpf2L0wnHlef3D3Z/mTwezMunW/qkIPnsg7kXj53vhy9F+9d78Bqkb4bxFpLo4AAAAASUVORK5CYII="
+  },
+  "hiphop|no diggity": {
+    "id": "6MdqqkQ8sSC0WB4i8PyRuQ",
+    "title": "No Diggity",
+    "artist": "Blackstreet",
+    "year": 1996,
+    "cat": "hiphop",
+    "url": "https://open.spotify.com/track/6MdqqkQ8sSC0WB4i8PyRuQ",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABWElEQVR4nM1WwW3DMBCjjPypDbz/WNmAmoAFpXyavloWaOXYgYSE4N3xeB7G+1rXlyPg787GGHMCmGOMvUGHRyfkOZehs7kKvOG5iCcwCSzm8+xzMHFLC/rJfz+vx37qXhzG4N5db7/55pkFygsrcFabvwEcWlkLYJU/OAsOSZPZqMMjBClxyqbEEs+kRRmRH8QWT0w9FNhUo+ZHOZexKarOHyAGi+erz59CKkm0smv5SQTBgNExBLX5UyjmsWOv+Z0MRntRS41nSkh1Y4MpiVo8BGQLxyGqzq/mcT2txQFHP1fHT1t7SR9z936wmzYBn25WrWem59LH6Y7aD0BF1XGDU5OrwiNNkAk2Pt3rxZFgrhSjxXvgzI/FlQmcG2W8dqLdpkoDtZ9GdoyOT8N18Z6ze2nCM9px9z50+KUOmSS/4Vd8OcxWdYaw2vmBMzEzjGr/G//8ffcDC80q5bYWrJYAAAAASUVORK5CYII="
+  },
+  "hiphop|no scrubs": {
+    "id": "1KGi9sZVMeszgZOWivFpxs",
+    "title": "No Scrubs",
+    "artist": "TLC",
+    "year": 1999,
+    "cat": "hiphop",
+    "url": "https://open.spotify.com/track/1KGi9sZVMeszgZOWivFpxs",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZklEQVR4nM1WwY3cQAyjBvenOtj+y3IHVAUMOBvkkdwrWiAxYMDygyApiTNl/P7M+eMX8O/+VVV3TU8Dt8AGD6ZNi4aVL1NLztUoToq+BfYeaAzP60r+BB67Z14P9Ak8C80HENwpsMErF8Bf5QB8NnhfyEAPWISKtzgLvINOe9GEWpiUZ4EHG7YIQYIpezl/hel+CINqfICf8irbkcZoux8FVTGdHYMRflb85OxsKBKUlvxwReLGARDcLZ4hBy4pI8bLs8JjFi0jE25IY84C7+Bhu7oSVwNG/dnxM0Lr7Z7ErX/iT50Zlpip5f7OVFQW9LiJD+zHJZeYJrzUe3JivFBS0HRP47PjxwwLsx0QvfQPvsGSeQbT4/1+OBGYZAGDtvYvV4JW1Gakl+cv3leCJHQUe5t/MN8ykwrXv+08v597sr2kjM9Z4zW6OPO8/orLN/4pBCN6n3/I/SD2ifFyOX/1n993fwAMXvy0RAtr6QAAAABJRU5ErkJggg=="
+  },
+  "hiphop|ms jackson": {
+    "id": "0I3q5fE6wg7LIfHGngUTnV",
+    "title": "Ms. Jackson",
+    "artist": "OutKast",
+    "year": 2000,
+    "cat": "hiphop",
+    "url": "https://open.spotify.com/track/0I3q5fE6wg7LIfHGngUTnV",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nM1WQW4EIQxz0N7ND+b/z5ofOC9wZUbqoe2pWalFaCBIYwXsGMr42np9WwL+bq2qdlfv3o0TYIIH0yZhwyITaIL3AopobLgg7uJbzkAIIvZv/v1hzftusAI7x/NB0Q3xCdYAr1wAP8MGeM/ys60WGnc2busteoElAxQ80gtMMdoLF5mN8SBHzZkZJmd4LxBtNNzbHXKmehFQfamh4uZULzg7tANE5wBn9QvzdIXYgGnM7wHUYy0Cp/kFihBkxheGfgWLMikRmWisl+196rYTNrBH9QvjHFwoYYZxfu4iNoQL2IrXrFl+kBGZRH2hWWM943zDyiFoDfBWPsLW/bASY1ij/BDZHYtJehzrL+0xLJCOCtf4faBKjsw1zJnfr8gP9I5mAHWP/SoWkJNTrhFout+0lMV9xRSS5RrgvZ7hUvlGE+x3vA/6bgIXAjm9f8920x0DTNnN3hvflv7Ve/cDHaT2Hq5O30IAAAAASUVORK5CYII="
+  },
+  "hiphop|family affair": {
+    "id": "3aw9iWUQ3VrPQltgwvN9Xu",
+    "title": "Family Affair",
+    "artist": "Mary J. Blige",
+    "year": 2001,
+    "cat": "hiphop",
+    "url": "https://open.spotify.com/track/3aw9iWUQ3VrPQltgwvN9Xu",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXUlEQVR4nM2Wwa0cMQxDn4290x1M/2VNB1QFCuj8U3LUAokxMCwfCFEUNV7Nn6v2X1fw7+7WWmetOnXgBszw1A2G5z3n3GAP8D6whDhCRZ+lb9TgPQ3LDuVv4D1db8HjMd4HmuMCQd2ACd7qdaF+VnDfCR6dZWNZ0g32CE8GtTrItNAYT00bc09M8/sxsNVG4iv5OUzVcg6e4RG7CTtSSB7nh31pRhAn2T3A+1B+KLpwvFvDeUBLoUvKl5OmfH9vdkRJJ8747pvZsqhMP3Fm/o2+l2hyu7ab8nVUtdIumc5DfUl+3MRSu8ZjvBgtcjgunupB+jlfu3WjWf1yd15EpalZ+dXtuX99VY7IPdU3i1QvBsnn+fuAuj/Nl3vao/wUppFB35nPylTOYM5UQMP+23dXIT0Yh/Ie4H3u7kN1HcRTmr432tR7fYJPhNkjvForsq4q0s6a9fP6z9+7vwBmpPyOs/FYgwAAAABJRU5ErkJggg=="
+  },
+  "hiphop|gold digger": {
+    "id": "1PS1QMdUqOal0ai3Gt7sDQ",
+    "title": "Gold Digger",
+    "artist": "Kanye West",
+    "year": 2005,
+    "cat": "hiphop",
+    "url": "https://open.spotify.com/track/1PS1QMdUqOal0ai3Gt7sDQ",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYUlEQVR4nMVWQWrEQAyTQ+7yD/r/Z+UH8gtc5GyhdOmhONAJyTIDKzS2ZDsaP1cdb0fA/51FRFZUVhZmgw0emt2k/Hm92uCdQBCVhCrQGdzd97x/xMwS8k//PX4966wCE3oCrwUQukxyNscCLzqM9rUK4LWLXw8qgkrMph7QC9CWDCj0Si/oFpst50JsYKe/wUP7nu2HS34nCnIaurJDVUs9w6z8lew2Ulu/MdueYyXsuOC2HqChlm6m0ja/BGSlUKREbvMLY0ADCmFZr9CgGrRqqH5Az7I95MoyLNf3bXbbHG2oxgP8QMnyG4K9xTNFaDAdTK714kvq1ZbW+TjvNHzgygvI6SDHih8sO8fNxQ97PXtN2zDWlNRjPR8obFwU0iSPFT/eChz5uT7v6wHp0uJ6MJ1dD8xITF45HSQfmrmKiutuxMc6fpImjBbM3m9wCMd2006W/vg28N6A/zjbvq9PGmL9vTdPB3gAAAAASUVORK5CYII="
+  },
+  "hiphop|empire state of mind": {
+    "id": "2igwFfvr1OAGX9SKDCPBwO",
+    "title": "Empire State of Mind",
+    "artist": "JAY-Z",
+    "year": 2009,
+    "cat": "hiphop",
+    "url": "https://open.spotify.com/track/2igwFfvr1OAGX9SKDCPBwO",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXklEQVR4nM2WS44EIQxDHdR7c4O6/7HqBuYEHhm6N/NZjNLSDIsqgcSTE4dAGZ/HGl+WgL9bq6pZAPYvE/R4tEHMSUJ7gg7vARRxlyYBzEzQ5AGYusTS9PzN3vEjT1yshP2rveP7NQsEF1ZcsXq8cuGlK7UH8O7w4Awounwm6sU7a5WOOGGu1a0/8DKutctlLlxdP26gruSNkDDvHg+mKOmVQzXzB5MiUzFxxOGPFk+Mp6ajT/mOJo9RZ0UqxTfEK2xlkt7Ak4GdOgoi36PPjMM5eer6Qe5SiSO2iJ6+B4TplPFaKBDN/ozISgPcETuhq8eDk7MnOdWjbr8SY67SEZxzMlo8RV38CDp8tf3l7i7n385fRjJIGad0RouHpzggjYZtHh0TEqp0qKPHQ0RF5zlw3fso48pTQ5PW7fZ9dMadK71mHkWjnT95vxLSANv9HvF3F3V6TLf/1T9/734AWHIKpwLyPvYAAAAASUVORK5CYII="
+  },
+  "dance|better off alone": {
+    "id": "5XVjNRubJUW0iPhhSWpLCj",
+    "title": "Better Off Alone",
+    "artist": "Alice Deejay",
+    "year": 1999,
+    "cat": "dance",
+    "url": "https://open.spotify.com/track/5XVjNRubJUW0iPhhSWpLCj",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZUlEQVR4nM1WyY3kQAyjjP5TGTj/sJwBFQEXrB7MY/q10AC7gmFb9SB0UCyV8dPm+jgC/t1ZVXXXNHpwHOzw6HfKNTf6ONcC7wUUATSJKXecaxVf7JGBgY6DPd7d83zDYZmv0UKJaDgONnjlAlLAtw3AZ4MHx2SIJnmca4VHARQNWTDBFd51Qhw+pS4wCWPXD6WE07o9QP9tLB9miamfSTOfbf0yYbIk04S17gdsUlRCTZu15J8bQzwZEwDa6V/iQ1IO9wiBO77giJUhpSmnnlryj3YLmK6MSG35QoOEjrhI2ufrcIT6muM1ns/MQkQgtdcDvuMKp08xteWLMiBW/hKn1vxT4E62zMRdKzwkV4XTUcLf6IdPjxH25dF+P2Bk9OlBR1CvFR7P9BZ1Q9Ben5GVoFFQ3nx+ZUeSyb4Vwuzu39cbrjG5PojSXg/MQ77QL4TRLt+pQrNq0gqFhDu9/zj6r/bdPzdoA+47zYWdAAAAAElFTkSuQmCC"
+  },
+  "dance|pump up the jam": {
+    "id": "21qnJAMtzC6S5SESuqQLEK",
+    "title": "Pump Up the Jam",
+    "artist": "Technotronic",
+    "year": 1989,
+    "cat": "dance",
+    "url": "https://open.spotify.com/track/21qnJAMtzC6S5SESuqQLEK",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXklEQVR4nM1WwW0DMQyjjP6pDbL/WNmAmoAFnaKP9qkArQ8Hx/cgKJGiU8bPNefXJ+DvvlVVN5C97gE7PDold9PQ63AWeB9AEc9Ss4nOAUs8AK2HWGqncOzx1GA52xbvABYoDqYe94ANXrkAfh8H4HODB2fBIenIa2tXb9eUJtzG6pmd/2DTFmXEfnm1wwMZHPMaGtrhlaNBJClxOhRnWS9Eh6YEXWXOit+Ak0kT0M8wnR0/ibiawGT4aofHaCsphYPgFk9p3auP0BvwzCuI8gMpXVs8Qbd7GTwu+R1M2AGaQfW19Nnx050zUnKQ9/rSTOxl4qx9/yxasaFim3Ue6BUEGTWRb/CzI0dC5ssw2uczlSf5HOucFR5CStkpZvi0rpcv1HuFLPU4QCWrfHN1KlTPDg/AowfQI97m9j4i0rXbwRt/7+ifYujMSUyjvb7MjXkjKyO3vN9+rn/1f/cTbvASoiRwQ8AAAAAASUVORK5CYII="
+  },
+  "dance|rhythm is a dancer": {
+    "id": "5uFYYOyT3EclOVhiFzPJSz",
+    "title": "Rhythm Is a Dancer",
+    "artist": "SNAP!",
+    "year": 1992,
+    "cat": "dance",
+    "url": "https://open.spotify.com/track/5uFYYOyT3EclOVhiFzPJSz",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABa0lEQVR4nM2Wu40kMQxEn4TzyQw6/7A6g2IEtaCEM+5nDGjcyphpNtAPpFgqapnfV+0/XsH/e7fWylyVZHECZrywQbAqM0+wB7wfsAKSCKqcHewZD3iJpPTht/ufvIf3zY+/3X/nmVRBkLgDJrzl1aifq7nvjMfF8CjrBnvAwyEIh5GFg9BU43bxLuUiqKFesOicUFj9OMwPh2QbRxct4yFPNhG61IZqxuOgFMK2uuw94C2voJTxnmPSzlDD/QNFdMkRcv/sEY8jP8lqdAzrpTM6Wr6ynuqZtoBu7wlahjNe+5WLRO2q0d1hqmcfgwl0BD3dvz5n3YxjBz1NNJ55eWyAhzLj+UalOMNSziU03D9aIqYPb0tmrOde16uOxYz1TCfVf+oTF0O/2vd+EMt6WoU9SfYov+j0ur06qWqW353nB/ig0+l3fucSlN4ieHJcr/vI3S7fiveIxzm6vX1t+lO93PvBL+tb3Xe/AOXr8TDsncgVAAAAAElFTkSuQmCC"
+  },
+  "dance|around the world": {
+    "id": "1pKYYY0dkg23sQQXi0Q5zN",
+    "title": "Around the World",
+    "artist": "Daft Punk",
+    "year": 1997,
+    "cat": "dance",
+    "url": "https://open.spotify.com/track/1pKYYY0dkg23sQQXi0Q5zN",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABV0lEQVR4nM1WyW0EMQyjBvunOkj/ZU0HdAUKqN3XBnkEDJAYmEN+EJRE0a7B+zrXly3g7/aqqgvwtzZAhscZEN0ktQFCztVQ3QcC2gESvMe+SxRLPf1DLt/s6eOwhlg4hPwGTfWNA26ABK+mYJzXOgDvBA/jBY0AcgNl9es6Jf/yFvqcLF/McEbUAAIhZvwwJEBpyJEAMcWTq/eqoaSM3wOwis8UURA6nDe4oeZHP5SQ1s9doIvnN5H3Q3IjtoJuR8yPRrFuBFnSivUiurt2fprvFeHNCmYMtM6a8oMHZLU8MmjKTxoYjPvkeiHwRJRb4/SvCG+cpii5jsZUrOeB+wtPiH5BL2OheDLWp1O8pz+7r8s09Bc8VbzfneMYj+OU11TND7Gf+hyi+dme8/mgszSQ7AX2wCu+b2AOmnf7EqOT108W3wqH8XxgD/KdjnEds/rVP7/vfgKUFx2ybw959AAAAABJRU5ErkJggg=="
+  },
+  "dance|blue": {
+    "id": "7lMIJ4EFWRVoAIPDpeGyM3",
+    "title": "Blue (Da Ba Dee)",
+    "artist": "Eiffel 65",
+    "year": 1998,
+    "cat": "dance",
+    "url": "https://open.spotify.com/track/7lMIJ4EFWRVoAIPDpeGyM3",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYklEQVR4nMWWXWoDQQyDNUPe5Rvs/Y+VG8gnUNEklNL0pTiQ2Zd4IR/+kTW7jN+n98sr4HPv1lrVq6sLOAFmPNooUMFVAkx4N2ARUMG94EqwZzwALFe1T8nv6KnQDfSlMe8GpH1BXuVHsAe85QXwO2yA91l+PtTqM2FP9QzTJgFLJihYM55lw4JA0SCHPIlwOug8HOcHyU6ZtAxwyku5D2qyo2e86EUsQH1BDeAa6QXpGCAp3dMb5ktBJEgT0ny+AEkImXPIYx7lTDViNjXk3ZJg8Z7VjcX857/7z/x0Ond+JEmM9+OpZJ82SuP5IkRROWM9I/6S2T5tZqq/DdQx5Xs1eu73cNw57YtwcjVN55ET2tH1sdQ9vj8U3XHpysXUc7/X8YK4VQS0ZzyQem5b0pvuW07uo/jfo+I95mF5+Y7mWeA94O00DK0mmNx4aao/pNxUHClO9/fxffCD/dFv29fzBVLs+LEvdJ/cAAAAAElFTkSuQmCC"
+  },
+  "dance|adagio for strings": {
+    "id": "6TnnyFi6wLxV74NFpgNX0r",
+    "title": "Adagio for Strings",
+    "artist": "Tiësto",
+    "year": 2004,
+    "cat": "dance",
+    "url": "https://open.spotify.com/track/6TnnyFi6wLxV74NFpgNX0r",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXklEQVR4nMVWwW0DMQyjjfzpDbL/WLcBPQEL+tqiaJ4MECGA43sQEkXRGsb/2PPlE/C5b2OMhbHXXhv3ZRZ4MG1SNmgyFzV4D2AQWITHEFcus8Cb36ew8NOaWePJO+Rh1Xg4/BmQQmLN3/AA+HvdAK8uvwRMMEdCb9AL4VQLCjWeaFgQkH/s8QRHKk6WSXRWeFAIhEXLeEN+Ti8g+R16mdhLwjYxuAei61nmZyLtSLmpWW0/kE4wdctiV29MIPJTBo5RTIunqIQ5qJOsWv5ASEDw0NY746UCnrLAzTjWrPJTqlQsgRmVur+gD4dHz/Eblfwhv8jQPByqxKPjCGL0cmQ9KzwcoSTD2H6vv0T87+j6WOqs9wOP88ZdWHHo2b9vzIAc3+rnA6RuEvPOqd43whyE/YSGnuV8PO6Da/vCvjeZWfOn46QZt/79wNkPGOXcQiz5+7Pwnlfzk7vta3wB7KAV14IlDncAAAAASUVORK5CYII="
+  },
+  "dance|feel so close": {
+    "id": "1gihuPhrLraKYrJMAEONyc",
+    "title": "Feel So Close",
+    "artist": "Calvin Harris",
+    "year": 2011,
+    "cat": "dance",
+    "url": "https://open.spotify.com/track/1gihuPhrLraKYrJMAEONyc",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABcUlEQVR4nMWW3W3DMAyET4Lfjxt4/7G0wXECFifloWgDNC0DlAhiS7A/8E9Hj8JXy/ltC/i/vTFG5MjISOwFejxWIUAFgPACHd4FDIIrUBlSDL4jBxlABP/07rO9QiaQPz730l7JN1oEz2I+f+6lvVED5jwsAa4OD2VD0XUmvVCPR3McqAqg0OWVWE6bAN+xyzug4ymLbf8kVTlMliMGW7zpv5G3EspdlF6/oKhd4pJhKvX8g5uEO4uG7cvs8Qoi/Stnk13/TCMEuchitXl0zIdW28/Z4E1QFVg86rJ+9+4TK5B7Jjl17pb2eSufWgctp7GpBxcC4qi80y29pWu2/KNLXEdmBEvDbPCm1VQILI/LoKsyW/7BjeK82T30+892Zgj30evxzvxYYIJDtwdT9r8PwHHD81eem7PBgyO04OMcOfT1CuSWFWNdETW/X2xRgwsW6H68ZYmWL0ek1ew/uAM9gd2KXX2+NvATuzmP3r33Ae5TAO+i8MFbAAAAAElFTkSuQmCC"
+  },
+  "dance|animals": {
+    "id": "0A9mHc7oYUoCECqByV8cQR",
+    "title": "Animals",
+    "artist": "Martin Garrix",
+    "year": 2013,
+    "cat": "dance",
+    "url": "https://open.spotify.com/track/0A9mHc7oYUoCECqByV8cQR",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABWUlEQVR4nM1Wy23FMAyjgtzpDbL/WN2AmkAFhYd3aI98QGsERuwDYYsfqwY/R1+/toC/26uqcwCcqtoFMjzOoM85GGgXSPBuoAgBhyCOF8hrcECpcPL63TsLzRpUjncBI5BPo33XUYZXUwDfywb4leBhPDB7SNM7owyPEGQ8z5QY4g1pnDErxs7wbjS0vBK0DCfzh11BjWagEffmV4RHivM6HYQYTzM+n6k1J8jwXv59oLaDG3EePAJrupcN4ijkQ7Ols2YgS1opHzAhFrNFo5gPLqlYRsCQD6x/jWlmQU7qNzuYsgytnFQv8BXlpwMypOLzzQI5WOwP/10RnkRfU2NqmPuNdItAZ/2mzCf4daRSfn5T/d1+1Jz0j/1rw2X+XRkTNpu/QZjPsPpo0M/U79r5dK+yTXbaD+3QaaBPHSfqFddPjujtDVL/XugqPO1eqG2WME/rn/e735lzBppQegsfAAAAAElFTkSuQmCC"
+  },
+  "dance|waiting for love": {
+    "id": "2P4OICZRVAQcYAV2JReRfj",
+    "title": "Waiting for Love",
+    "artist": "Avicii",
+    "year": 2015,
+    "cat": "dance",
+    "url": "https://open.spotify.com/track/2P4OICZRVAQcYAV2JReRfj",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABY0lEQVR4nMVWQYoDMQyTQ+/KD+b/z5ofKC/QogwsZdtDqQc2UIoNI6zIVlzG37PGSwr4v1xVTdSamAtXMFp4tFGiCsRMgA7eAyiCk3AVPIv33IEwQc2vvn3NiWsB69BT7mu+RsoSjpNXMD78drzJlQvgb7gAnh08OAcyKJIJ1MOjzRBVWoVCD2+EY0AKNXUpPFr1SYRzgw5fsstXgp0KaYVxG8+IHFJqI8WuHooUKZGUhBvwCG1NgtnUF06LOM2n3TXs1pfx2AWmDdPTauIxP4sI824/I/oSEWIDd/kOHDM3dyA9CPbnA5tlhNni9v1A13Tsv/iNmngwMxyxGRFq49HRQhm2vl/BIbk9IWDI0I2+P3uvHTGE5vyOvRJ4rch87kcTfb93OiXXF4HV1ZeZNjFGnadYzfc3ZxrnJKDjnp2LKGrlQZ9tPAtL2YOi8WrrgW2Agbsekp4ejw34hN3c/+7O/QCqTP9SO7+nTQAAAABJRU5ErkJggg=="
+  },
+  "dance|this is what you came for": {
+    "id": "0azC730Exh71aQlOt9Zj3y",
+    "title": "This Is What You Came For",
+    "artist": "Calvin Harris",
+    "year": 2016,
+    "cat": "dance",
+    "url": "https://open.spotify.com/track/0azC730Exh71aQlOt9Zj3y",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABY0lEQVR4nM1WwW3gMAyjgv7pDbL/WNmAnoAF5X7u+qsCtH4kkYEQlCjRLuP/ta9vW8Dv7VXVqtoLa6MDzPBogwDWvrESYMi5VtAA760OrhkegEcGSj/699/10c9bpbB8Bc9Y2gKx4ASY4JULLcdZG+Az4+eGWbqTcQfXAA+mAIqGbJigpng2LQgIKjzFQ/gFK0TzfY3wINiESVPymJ9EkJKsrt6YH+yMsMhAesavXEzXeZ8xoV7oF0WGEITzvkZ4ENJ8yTUxX8hXbS0LbFN4Zvzso0Q6T8r3NcKTGybKsgupKR6g1iR9kzpeIzxQMb/DMlOiab+onSDToaSsmb4LO1rESbHvDQ/7GQRiA2Y7oad69PTa6Wq+UT8k0a4hxIychno4NnXG9x1/ZlpP+JqRGd7Z417kvdLYa3b+nvuByhUHZM5NDPlZ2FoGbjx9Mbpe0Bc5fs/ZNKrfuR8c2Dzz/kv33U+Djgf+rBVx0QAAAABJRU5ErkJggg=="
+  },
+  "disco|my girl": {
+    "id": "745H5CctFr12Mo7cqa1BMH",
+    "title": "My Girl",
+    "artist": "The Temptations",
+    "year": 1964,
+    "cat": "disco",
+    "url": "https://open.spotify.com/track/745H5CctFr12Mo7cqa1BMH",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYklEQVR4nM1WUWpDMQyTQ//lG/T+x+oN5BN4yOlgbJ8ebKEU8j6EIslKovF91fnxCfi7bxGREZVIYDbY4bEbEJAVmbM5O85hYgkQL83m7PAAKBsopJF/A++pehVFrfEeQCOFEMeQxs6P6LByn6sAvjZ4aC9Jopp3c1Z4FECx0S00wSVeq5st6KJiy6/RFlATZYJbfpAJomn1rKF2eNKIKEMZc8tveNmSMURLfg9UJ4oqqJ43iWfHT/AhSdFq7v0AeE2Zql6e98CMUkBF2pDazS8mzlR7Shye9XzAqTOWVezteeEIXxGNaBm1zZ9a7XrRxG/fL/LPOkIT7LPAe/guEugmhdLFUEs/CPPq9siB6/n1mlaYOuDaX0yi751Oct2ndPu55vk7/UzQeBpz4dicBV501vu6rA6Isbsv3++NQkn1vtPPDq+Fkn154pWO4Vng4Y6uMA1oh7d9fx+8X///03v3A6b5EgnopRKrAAAAAElFTkSuQmCC"
+  },
+  "disco|dancing in the street": {
+    "id": "6rLqjzGV5VMLDWEnuUqi8q",
+    "title": "Dancing in the Street",
+    "artist": "Martha Reeves & The Vandellas",
+    "year": 1964,
+    "cat": "disco",
+    "url": "https://open.spotify.com/track/6rLqjzGV5VMLDWEnuUqi8q",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbUlEQVR4nMVWwW3EMAyjjfypDbL/WN6AmkAFdQFa9F6FCpyAJJYfBGVRdFbhd+R+2wI+t7fWilwZGYlOMMNjFULUDUQ4wQTvAhYBBJSBCid7xK8jTK70SjbeY/9pr3jyITrHq6alQyE62QO8VQvgt/YAngkeyoGi+8xONKs3gGBk9QlGrlm9KMrEBIFigRzxQ0Fdrlf0YlYvqoSSHxYKc35lh6Ekr0iN6y2VyampaoxH9hHKyOD8/NhdEFmk9A/9BUl2pTDLKZ7oOv2BilbhHuBduJXB9Ojyee0B3saxlaqdhVkx9Ct41twSLwjLUDO/igOEuQHMIDS6Ly8gXOQNu+mxAWLoz4QUfYyPs+4BHuwq1rGH15M81p/D09u6tk9rfn+ccK2ry5314/V/AN5EeOgyx/oDLUF51ExvVu+zR/GEJ9iQe4B3vT6h5ZbcY/3Bly5lsZSN1U6zR3hoFdPKaWnP8K4G/IH90X/b9/gCRB3tY2hEC9MAAAAASUVORK5CYII="
+  },
+  "disco|respect": {
+    "id": "7s25THrKz86DM225dOYwnr",
+    "title": "Respect",
+    "artist": "Aretha Franklin",
+    "year": 1967,
+    "cat": "disco",
+    "url": "https://open.spotify.com/track/7s25THrKz86DM225dOYwnr",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXUlEQVR4nM1WwW3gMAyjgv6pDbL/WNmAnoAHKq9eX1cV6AlOYAcIQZsSrTL+jnN9+QT83req6qrTpw9mgR0ebRBAn0ZngSXnahw1SJSywP4MBANH3/r3c3zM+8bzNMD+CTyjhRKB4zZ2epQLI8cbB+Czw8MLg1vhuc1nmAIoGrZggtrhWTQt6EWFl3iEQUEcZHDLj4JFmJzpcr9XDq8gnEeNeyS5dvzgFG0Oj1aea4UHcrSQMrPXehgiM5yx1gOal2bXcS/t9NBtR4VTTTOGda34OdmiKTtJ2fe1wpMdKbJfytjra73EkBrWXl9agBzIEN3Xr5InYRbYtb9w0oWTMGNb2p4fIMHmOOFa30SyGByL2euL3B8hmbrj3k+dop0KTsYs8T6AyvWm00Kf4vMT9zlOg3dgWbv78sVTq3zSJ9S+h7PSD42vPv/679d49Z2K8zjrTo+3P/gU/1W/+wdkXwKLzu2lJgAAAABJRU5ErkJggg=="
+  },
+  "disco|i heard it through the grapevine": {
+    "id": "1tqT6DhmsrtQgyCKUwotiw",
+    "title": "I Heard It Through the Grapevine",
+    "artist": "Marvin Gaye",
+    "year": 1968,
+    "cat": "disco",
+    "url": "https://open.spotify.com/track/1tqT6DhmsrtQgyCKUwotiw",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZklEQVR4nM1WQWplMQyTP7OXb/Duf6zcQD6BivK7auli8MD0QQgJPCHLsuMyvn7z+nYF/L+7quoC0NlywA6PNohuELoHbPD+AEWo1AzHHLDEQ3AoFtr9N/++frw7GJb8hsMSzwL1DFB9D9jglQuIdO9vAJ6dfr6ofW5CvPUzHJvIN2ibErXEI4NjxH5Z2vpFxegWQLSeZT76ZCdKnOcAXOpnJkyCUhjKq3hfGOgwcODVcOe/62YatG5q4B2/ciMCtvjpbS31UxIbXhQU72jrP4gxYGqD8NbPyYRomXbIbvnZyoJSvOa+3hSPKEi+Wda2n7bIrgH6NLh7j+K39IDbWFIc63gVozgBM6X3D/xiAuRthRFS2/zaUCJO1e3xcFtf+FEk13i8HevC3Q6zy8frPpMKz2lMZgXs3/NH82aq453/3vMGJoDTE+PMfj44ka3SDRrbeW2q8GQkwsy5j9yuP3+7+lXz7gcBeOu3bcvxlQAAAABJRU5ErkJggg=="
+  },
+  "disco|i want you back": {
+    "id": "5LxvwujISqiB8vpRYv887S",
+    "title": "I Want You Back",
+    "artist": "The Jackson 5",
+    "year": 1969,
+    "cat": "disco",
+    "url": "https://open.spotify.com/track/5LxvwujISqiB8vpRYv887S",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaElEQVR4nM1WQY7cMAyjgrlTP5j/Pys/oF7ABT27Bbo9dTVA60MCGQlBSTTlMr6vuf7YAv7dXlV1AeiqOgF2eLRBdCOZJ8CSczVU96CJToB9DQqUBtAP/v19Pc5THJaTdNb17Zu/3LPA4WAKSoANXrkA/goH4L3Bg7Og8PIr0C7frikdhiP0zFZ/II2eIHYPet/fAlM3UJzWc4UHU5ZwahgVals/9TwpFFG4kzSW/aVEmxapo8BrhScSJC2Y5lYvCLGQkvOOw2jLD/GBNAQ6RK8dP6Z+lM2IZtlfpBOQncQdsms8h9qrs1Ej13g8DsioxlrW70LNyMRMlN1v0TPPmTs0hW2+QZByemOEeIOeHRkzfhqGaz84HoObGvBAXgu8Bz7nB6eJzOAd3sk3hgBQh9+2HwHT1ynG9nw8zvOJcRnGgL2al9frdee2MZ3bi95QPzkDOEnHaa4Vv6nC88zJgTy941f/+X33AyvC/7ozByroAAAAAElFTkSuQmCC"
+  },
+  "disco|signed sealed delivered i m yours": {
+    "id": "7MaWQOSdpVNvQFXu2KspC6",
+    "title": "Signed, Sealed, Delivered I'm Yours",
+    "artist": "Stevie Wonder",
+    "year": 1970,
+    "cat": "disco",
+    "url": "https://open.spotify.com/track/7MaWQOSdpVNvQFXu2KspC6",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaUlEQVR4nMVWW2oDMRDTLPmXb5D7H8s30JxARd58lIZ+lAnUy5LYsEJjaR5l/Fx9vR0B/3dWVasBrKo6G8zwaAONbpvrbK4B3gMo4rkXXBBXcYwXCZZPyPzTt9evZ3SvBVGfwLPQBW8+dTaY4JULuMPMaoB7xs+2sAXsjXtzDfBg5voIy+b5r+H9kWoIqxKtMPMzbBlKFjtPiF4DvAfK7a4QUzsUMeTH6EswPBUTXiM8StFCCiSNMZ5NWYrCYTrWt1sLC6kyag3rAQyRpKDYT3HPNcJTYk7QiG009DNsHpQIQ2vqP/jlZlrn/YC+DLtcn6PzWF9gLzRqowA8p/nLSHwrkkwZ8kPwoknyBHHfGC8tEuF2jwpjfW2fqhDQFAcN8wNIduQOT6Z8IN5TsUDF1nP/IXmrNN+gDuvf9fplTCiY6yPzAQvLWKjNcb887otPlI401gNnPrirVXJl2t++Dbx31/zH2fZ9fQEyXP95FbODFQAAAABJRU5ErkJggg=="
+  },
+  "disco|boogie wonderland": {
+    "id": "6ztstiyZL6FXzh4aG46ZPD",
+    "title": "Boogie Wonderland",
+    "artist": "Earth, Wind & Fire",
+    "year": 1979,
+    "cat": "disco",
+    "url": "https://open.spotify.com/track/6ztstiyZL6FXzh4aG46ZPD",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaElEQVR4nM2WQY7cUAhEH1bv69+g738s3wBOUBF4kkUmUqIwUuKFZVB36UMV9Qnz81PXpxT8u1xEnEPFORUTsMOTTQbifvt0wAbvBSFKoqgzAfsenOQGk3/x31/njnSo3//uD3JOdDJuwqcDNnjhAP0IC3Rv8HA/kpXK+Xbu8GSBRD5kWEu8TKfkwcSp7fmcGqVYpNXo1w7PcuOojzmf1wLvRTiDHI7LUeTSXxSk4NyhLHjv9Nf9o7XSvWvgr+hfoh7dbFaW+rs48G520/BW1Lpet06M9EhxPR/6KLatgL3+Eht3tcwIb+etZ2Pk3D38gvmloR5DcB9zV+8LV98bNMvVal7zq/asljXudm75GLUMxTPDez48DpNobHqpv/h+f9xvyEN5t79M78ZFm9znGrl2ePSEyHo0vfSD17wzivuAqleFa42H7lKvHKd5vnZ4bsvqwx2mYpb6Yxr4LEPjrju9fEr9V/vuN3cKCBLUXMhUAAAAAElFTkSuQmCC"
+  },
+  "disco|treasure": {
+    "id": "55h7vJchibLdUkxdlX3fK7",
+    "title": "Treasure",
+    "artist": "Bruno Mars",
+    "year": 2012,
+    "cat": "disco",
+    "url": "https://open.spotify.com/track/55h7vJchibLdUkxdlX3fK7",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nMVWQWoEMQyTh97lH/T/z5ofKC9QkRdKaQtL8ULNHJKwK2xLclLG9zjXjyPg/86qqg+Arq7ZYIdHGyycY7mzwQbvDSii0fBpuIuv6MEBbnRw//7f386o040bevK752cwbYKymJVNbfDKBfBzewDeu/wSlEmJs9GyXoAGrGBmrSUftEChO9UKOz3DlKB00DBJbOuFFVNI1Cx2eG9QuSEWb5ZSMJb5yclQIqI/7fR3RXwV4bWEQre2fns/DrOZBzph5lrWSxLCyE/h+9rhAY5/CciIFK8dHh3TyRQNLv0BT6WCrXhuqz9MZhxz+NFGrfsnY0w3NW/7lytIj0kaF6/zo1JxZqCYeb/GS98iwUzBF+SXgOMLPqC15oOasTCIa/0xRJAxRgS9zo8Ir0PG8LudVxNk3x1z5IlwrfF4lzqdrNjuWvfPMe/IcHtfYvidT8b4eHkffXnwPmbhP75tf8YHGB0L54pBfBMAAAAASUVORK5CYII="
+  },
+  "disco|leave the door open": {
+    "id": "4pryE6cN2gFL1FVF5fYINl",
+    "title": "Leave the Door Open",
+    "artist": "Silk Sonic",
+    "year": 2021,
+    "cat": "disco",
+    "url": "https://open.spotify.com/track/4pryE6cN2gFL1FVF5fYINl",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXklEQVR4nM1W0WkFMQyTw/uXN7j9x8oGygQucv5aSltcaAOX4HAI2VaEo/B+nfXhCvi7u4jIAHxGB5jhsQpEJgh0gCHnSOjsQxHpABO8V+95Sgzlj7l8crcrGOKX/33rrgSeOsBhB5jgRQW6E3cdgHuCh/KCKKBuoFm+GScEwUkjz5npD1VkFVWAQH8a6yW4bxE3Us+wH7ktwEKI0RzPLF+hWCIooaRhP16mJEDpBl8Rrhm/Iq0UoU/O+DWAdBMtQWM8ERBxRU3O+VGiBVi0aGqmv9YzOl/ePk/5uSOumtViyDG/IuTCOe1GXiM8mpUlaN30U14zfjCvki1LRtdULyy/ERfSBj3Xs0cEGuoKRnN/pqWsgplO/blHggRPppB2wTXix3Zo2pjNb+jPKIIeDdrv5/VbvT9QQg9Lu6bzUK+NDW5PL6lfqJ/a+/yGp/6ycCLwAOnhgJzyi38+774BzjAKHsoUZmcAAAAASUVORK5CYII="
+  },
+  "banger|sandstorm": {
+    "id": "6Sy9BUbgFse0n0LPA5lwy5",
+    "title": "Sandstorm",
+    "artist": "Darude",
+    "year": 1999,
+    "cat": "banger",
+    "url": "https://open.spotify.com/track/6Sy9BUbgFse0n0LPA5lwy5",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABcUlEQVR4nM2WwW0lMQxDn4x/pztw/2VNB1IFCuifHHZzixbY6DQyMIRMUbSi+TtqfTuC/3cWETuidu3iJszw1E1z8iBuwrDm2OwuKmvfhDkHTzRdx4D/hFOxq07pJ//+GQs62RQkmU6Y4EWHy/uKAj0TvBcWdKEQGbrJGuDRUtMtqdXKlnKG13SnPtlT5gzvRRCiRBe54cz6Qbuszuxs95ZhfbQnDHERRQ/xFuzORqJOYCky9Bfi2FnE4wNN+TN5MoeoU07XCE+Z6jRvlo2/1gDvxXOqN77sflAN/YD2LZWWCjT+XjM8vXVi/iTff43wcFVWtSXoSc7p/OIHxJ51J3iq52hL0H4g5M4w81Oii8Nzrg8mGvofjd7EyU2e+193X1/O66ljPwivBLchlrSfzDWqT5bIXRKswKn/rbsSiIr7aoZJXDO8G/Y/PHY13YccG78gz3P8ADPzF9rGEuJw9ZLDfbIi2G7u25737L7xy/fdD8LA6Wmnhh4vAAAAAElFTkSuQmCC"
+  },
+  "banger|blue monday": {
+    "id": "6hHc7Pks7wtBIW8Z6A0iFq",
+    "title": "Blue Monday",
+    "artist": "New Order",
+    "year": 1983,
+    "cat": "banger",
+    "url": "https://open.spotify.com/track/6hHc7Pks7wtBIW8Z6A0iFq",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXElEQVR4nM2WwW0EMQwDR4v70x1c/2VtB3QFCuhcPrmnDkiMxQLyg6BISVY1v8++3q7g7+6qalXttdfmBMzw1I2A515rJWDIuRawoLl9gmuGB9wWlNdcv8f5P9k/YHO8Zpl9NDwBE7zq4gWVs0H3BI/OcWN1Sye4RngyyGrcpoVGeBeg3rrLqxBbMz/oppGTry2F6zXC01GOiKckPNUvsiHbh2jCa4SH7G6/uM39BSVl2yg5f6BeWiJQyV5TPzApPqeoj9+e6tctt+NKS2N+aouoh0J2jNdpXxNnO9N57EcfCcNO36VzjfCgY8ap6HTcnJ/lU8oiM2buR2wIx9Cb60c6rjNnziTsD/jbkfBUXz7P9wNVHs11s/KCXCN+yvQLrTTxuP4eUKk9CrN26f7IjrRprdSL13QfyrEoe1t52hnitdl3+uSJ1x7vQ7sqttaOgHlJhvvG29W/2ne/ADwmDPl3evwTAAAAAElFTkSuQmCC"
+  },
+  "banger|what is love": {
+    "id": "7JkZ2hQdDonRURJjlMuh8q",
+    "title": "What Is Love",
+    "artist": "Haddaway",
+    "year": 1993,
+    "cat": "banger",
+    "url": "https://open.spotify.com/track/7JkZ2hQdDonRURJjlMuh8q",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZklEQVR4nM2WUWoEMQxDldB/+QZz/2PNDeQTqChT+tHSj+KFdthdcGAfcmIps4yvT+9vS8Dfra21qlZXV+MUmPBg2pRoWn6KPeC9AYsoNhoopcCQB0Ag3FfXr/67f1xjVfd1Q6/gWSjeEelKgQlveQH8LBvgPdNnW7dCEk6BGa8Kiw1CdaNT7gEPJmgRggRTw/nbEO66bsIgCvnskT7Izo9s8UjcQ54QYLCG5SHPiGfpACljrM9nlM8kJxWmvLT6kS0Ss4t7xCPEjDHzPTr3gLfRhFYtoOO89nReaPJ4LZkFcbp/afL0eU4DGudzcxmtdKyK1j3SZ/Jp9pxNqj3iAaCgY7lX+M2Z5ERMWiXHfkMsdixMH4doqM+R+FxyoU3z77wSVNJPQuXK3CN9PLGSo43npvOH5D0dh1gnYab+PY9I9JVz6dl99KzVUhN3X7k28Yr9U2IhpzzOP3wESwJ17o/1z9933wHWQRImJPy8bQAAAABJRU5ErkJggg=="
+  },
+  "banger|insane in the brain": {
+    "id": "1oTHteQbmJw15rPxPVXUTv",
+    "title": "Insane in the Brain",
+    "artist": "Cypress Hill",
+    "year": 1993,
+    "cat": "banger",
+    "url": "https://open.spotify.com/track/1oTHteQbmJw15rPxPVXUTv",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nM1WwY1lMQgz0d6hg/RfVjowFXhkRnP5e2SlnegrX7yDZbCBhPB5+vz1Cfh/3yKiIrq6GhNgh5cSiMty6ABLzlEotYOaABu8P3MrBPXt4Yg9HhKN+9IM1/mKqA6ATljc4YXC7H5OA/l2+Wpgbg/oBGeBd1CFSHN8eGiHZ4EHCSkmCApKUlz2B7rqJYRGAHfLD5RkWjJNMFf8QjArBUdlh730X1MKJVABdK/znSQTIkecXb6QNU353zq7imeFl2CKAzW22frlJVjXg2A6T+v6yVqQE5Dr+mU6Z1kYX+v+ABhP7o3XKo/As+InJS2DfSNqnS++55/caf/Ef/pGyTT0dr7AGlhd+5lemDt+ZwxzExEPNz20sH8fdLk3HlBemWeBB6X8Y8LXqHJ2eBgxbOSp397PQLY9cy+5n3+JdMt5k3MU5vK9IdTzyiyPaK+ls+8PuXxWwytzu48+zq96734BS6Hs9d61OLwAAAAASUVORK5CYII="
+  },
+  "banger|cotton eye joe": {
+    "id": "06hsdMbBxWGqBO0TV0Zrkf",
+    "title": "Cotton Eye Joe",
+    "artist": "Rednex",
+    "year": 1994,
+    "cat": "banger",
+    "url": "https://open.spotify.com/track/06hsdMbBxWGqBO0TV0Zrkf",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaUlEQVR4nMVWUYrlMAyTw/tXbtD7H6s3kE+gRXnDMOxjPxYXJtCSFCpsy5ZSxt+r18cn4Pe+VdVG9e4NvA9rgAfTJmHDInPQBO8FFNHacAHexUdqsIWkm+cJPKsaAPUEnpXAdBPJWjO8Stn4fWyA94zfLIigDOagJ/oFlhxQjPHE9B6Es+MUTzrpAk6sHMcHyQ4uLQOczceCsauJhor7tOCaxefERyuhJUwN+aCB0GEFc86vcRihIjPT+r3QzQuRmHDcmbk1ik8nKr0nhOnCNcJjxkNHWSTN8cTML3Q2D8wHTqMk12SNoR6U983eLkdQsQmN/PKV1yV4R1Vv3kN9Rvr5VC36F1bG9WOIRVTwwE35Pfoc20DsN6Ss8f3Axchg4wjMGuHRRnvzmK+6x35ZG+i7rhvums7v67y54b7iwnvzATxA5Xvr+q9/1z/9Ul/Wm9kb99+5H8SBs03rzPL9ceF9A/7i3fZz/QEOef99w5BYXgAAAABJRU5ErkJggg=="
+  },
+  "banger|harder better faster stronger": {
+    "id": "5W3cjX2J3tjhG8zb6u0qHn",
+    "title": "Harder, Better, Faster, Stronger",
+    "artist": "Daft Punk",
+    "year": 2001,
+    "cat": "banger",
+    "url": "https://open.spotify.com/track/5W3cjX2J3tjhG8zb6u0qHn",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXUlEQVR4nMVWsY3EMAyjjOvpDbL/WLcBPQEfVK44/JcK8AaCWC4ISpRol/F7nfXnCPi/s6ra2VXtuoM1wqMNFA789u5gDfBeQBEbGy5IuzjG66UDuG5x1hxPBaKwx3gwbeYv2h1oglcuIHj3OgDfM37+0KJ1BxrmC9CEJbP3GvJjF82AQQjT+uGwjAK8FX01ml90ySxITMYY8oMBkslV+aRp/SBbpBRNGMw1wiMcWoLDFUN+C+ARuEM0cNd03iCCFFoMcThvcFLsFswGwryfDfd0pG8iyhrh8abV45sKzvuFDZmku3s05MdgQNFFCTXFMz7ViyRzfogKdArYB3rA78lAIm4w7hc7DRPPZ4z1ifvjDR5wHz7gf4xD38Ycexnye/X74CgkL5yKIawZXtaFo60LjuMvzPqFbS99HUUeDf3PPRw7RiPn7bZG/NDvg6YWSYb9/GrAL+zh++/psx/w5Qr5Ee+JQgAAAABJRU5ErkJggg=="
+  },
+  "banger|danza kuduro": {
+    "id": "0rCxlp7KdpW1JR8uG6Uno0",
+    "title": "Danza Kuduro",
+    "artist": "Don Omar",
+    "year": 2010,
+    "cat": "banger",
+    "url": "https://open.spotify.com/track/0rCxlp7KdpW1JR8uG6Uno0",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABX0lEQVR4nM1WQWpEUQiLj+7jDeb+x/o30BOkxD+rltIWB1oXA8onRI2ZF8LH6POpBPxdLSIyo7OzMQk2eBAlVlFU6U7OjnMkko1O5CTY4L3dJENQZ+VvuXxVY3Y/gPruu5/UVEhcBuMk2OCFAsZ5RgO8dvt1lASCz+Qs8A4yEUQSgrKdnhU/QiqiUAWx1vwuZOZlekDUnl8VVVWeoeWyvw90WH9AkmBv78OjI8hu31st8WChDKK7tVx2/RrCkxsFqrDdL0QUDcqRjWqtF6IyAzYsr2OrF0/wVh9KKK7nN2A3LOVjOSu8ImcLw4+qtZ4vCN3jWQ08tn6a6MjHPT1esfRn3PJznyRAH/JZ4UEYqxL4Ej8QpCQiCg9q6wew8G5L9d/5tHxW/KhpmU2EXXrLz14le4yG6trv7zBisqqX76Ezv4lsdl+W4brfeV+B1ousm3rFflEWtee322/88/fuO2LK+egxepu1AAAAAElFTkSuQmCC"
+  },
+  "banger|gangnam style": {
+    "id": "03UrZgTINDqvnUMbbIMhql",
+    "title": "Gangnam Style",
+    "artist": "PSY",
+    "year": 2012,
+    "cat": "banger",
+    "url": "https://open.spotify.com/track/03UrZgTINDqvnUMbbIMhql",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZklEQVR4nM1WwW0DMQyjjPzpDbL/WLcBPQELKo8CbYAGVYDWD+vOuBMkkaJcxtd11rcj4O/OqmqjzsY+eLysgT+YNgk/bDZN/N2AIg42VIB38S01kLBB/erfJ2fmOcDhT9+9dGYh6V6Myct6/t1LZ+UC+Mk9gNcM3yzYYBvbI3wXNrC5y1ei3adm+cIWnbIJyBNm/IMhQuligwyzNewPyQ7KdGg4jk9KYIhXE9TUHy0xsIKysq+ZPyRbCE4V9Yb6IQJDOkmDY3wDKwSpzVCv4JSNtIJFgp3qnyMDV9oEu5sEw/rx0RUhYAgzxaPRaOM4HepBeZ80xeFJvkXojPnHYJtxJCbENfPnbhCx857zGfGiDMzMI475nBVtbl+tCGt8P7gq+tIspIbzja1+RexMuczNNcSXwVfZMtmn+WYxY/J+V7R/Ft/tYe7KgDu5yYzzzZWqx68V/RvzL+k2lVu6hv1R//y++wGDOQEV9YfhUwAAAABJRU5ErkJggg=="
+  },
+  "banger|timber": {
+    "id": "3cHyrEgdyYRjgJKSOiOtcS",
+    "title": "Timber",
+    "artist": "Pitbull",
+    "year": 2013,
+    "cat": "banger",
+    "url": "https://open.spotify.com/track/3cHyrEgdyYRjgJKSOiOtcS",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABY0lEQVR4nM1WwU0EQQxzVvd3Orj+y9oOPBUYORwf4IOCBPNYKSOt5cROJmV8Puf6cgX83V1Vddfp08AE2OHRBgT0KfQE145zhViDRmmCa4H3mK+KQHlS/o2ats59eJL2Eu8BGB0couEE2OCVK1Af5wC8N3hwjizRfAXXCo8CKBqyYYLa6msU71JDxOFOjzCaFhZtpZI7frBFizA5hVziXfkUoXOr0B0LXit+lExoJLH2+kJBoySRNNd+iUsIvuYMt3oEY5K2o+46X3G8rFAzuebHuAVKl2BqqGW+Zrild9PCSz0e0EEDN/rAff/k3+t7frSRMSCNNHu/xIBpNaf79vOl4JNJep6u6bxrxQ+xsWFzJqHX82WEjcRxItf9hpfxZiSQ2PqFymNe1HMe4rVfiJBKi+SZo3b83u94YA6/u3fv72vf6GwbwBOt53bfsHBuOWgnixF+QV/Hgx6Fd/Wrf77vvgF9LvrdIvxQMwAAAABJRU5ErkJggg=="
+  },
+  "banger|bailando": {
+    "id": "6PSKhwo0mVcOdjUOhVJd5p",
+    "title": "Bailando",
+    "artist": "Enrique Iglesias",
+    "year": 2014,
+    "cat": "banger",
+    "url": "https://open.spotify.com/track/6PSKhwo0mVcOdjUOhVJd5p",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nMVWwY3DMAyjjPzpDbr/WNmAnoAH2ve4a1+FClRAnNhICFGipJTxbGu8HAHfO6uqiVpzTeBsRguPNiaoBxZmNujgXUAxSFBNaRY/EQMCmIif73/73669KlRR8AYcT++8eWbFOd0MXDajgVeuQ/fYAnh38OAYbNDk3qiHR5sMa5ug0MYTnbAJ+wls4Y0sFaVMr0dCqaZetOAFeE2X12rqGZYEUZKVjKjHN/mQmTUpoZvxgwlDcdKyCPX1AhGI+ILLrn8QSQoysZ/VxGOuUA1kX88wGcgo2R/gS+4agQNltPEUxtAWDRJGdevXEreiqUwTtfvzlOZpgkzBjZ5/8K6NBA/4QH4ZoSBdUIf/aOHFUr1hm5T08M78UAlg6bFn3Wj3e6WtkEh/buslNE8LTIqb/e/6vZP3Jptl9P3DGUnJcHseWVjKfxB5Bw5N/QFxMcrJdGvW77UB/2B/9d/21X4AgRYD6GdiK4wAAAAASUVORK5CYII="
+  },
+  "happy|la bamba": {
+    "id": "6nMzaWZFYKXo2O6OqbfBnO",
+    "title": "La Bamba",
+    "artist": "Ritchie Valens",
+    "year": 1958,
+    "cat": "happy",
+    "url": "https://open.spotify.com/track/6nMzaWZFYKXo2O6OqbfBnO",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABY0lEQVR4nMVW223DMBCjhPxTG3j/sbwBbwIWVNqiaAL0cQZiOB8SYoImebSG8f2q+bAFvG5vjLFq1MIC9gIdPJg2CRsWmYU6eDdgEKUF14LX4CUaLGDl959nn+zZZ4Ggfvjfr/asENMJ5a3VwxseAD+XBfDs+Zsr9lIEs9AVeYElbwW7eBaTPSgMDfbyF16CouCONdv8pHDMdFhGnx/l8JPurvT9QGaWjn6Q1OZnIziwEuamfhNYQz5wsI4RFbt9FfEIIfGDoufs4VEmlcgoQrb7TylAVgqmzr88O5/vrQxHpMMBpgFnAw/eb6xM7x4OdfO3w0IlLbokz7pH2k6/BHj28LxHWLF2B0Zt/fAxu3e+s4E3A+gDGgNYNEfbX7wXQSYlX3T1+DF9wINYka+qy2+bih2ZtHS/r8B8QKj4kW7QBecNoqgqXnQ+qHRCrFlFXeAvcseXdp5vG/ALtl95tn283gCeuA0Z/7VAtAAAAABJRU5ErkJggg=="
+  },
+  "happy|twist and shout": {
+    "id": "5ZBeML7Lf3FMEVviTyvi8l",
+    "title": "Twist and Shout",
+    "artist": "The Beatles",
+    "year": 1963,
+    "cat": "happy",
+    "url": "https://open.spotify.com/track/5ZBeML7Lf3FMEVviTyvi8l",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABVklEQVR4nM2Wy60dMQxDj423pzu4/Zc1HdAVKKAG2SRLXSAR5mcvCEkUOV7Fn3H3X1vw7/bWWofDuov7LvYIT1VcjhH0ggneDywF6uRyFgzxEl7J75xebKZ4l+rsfKZ4lKqESrZKWXiCt2rRTLxxQc8svw4kd4ZVNcqPLjStk208x6OBVCrLlGd4P9Thk8e98AnBzzS/cl6pFjHOT8/JXVxnY6iPjbnPhRvBqd97yC9KmRlr42G9VJB6arClKb+bD+d4WS3hXAz1YRwFq7881C9daXQmRXMZ7z3C82+PgRQ971/pOOangh7BPcuviPNZiu9HxHuER1tCdBZOrHH/QgZJr0v+Ar9qq+oJRGN+E3Sp6SNf6B/xesVRQ8nY7zPKr00Hcd4/utZu4qu/Pf6fL/E0+LnHXzhzGX/SxuU4zB73r/ps5Zdsz/lVz6Arf48Z3vrPz7u/AManBlGqKZ/gAAAAAElFTkSuQmCC"
+  },
+  "happy|i got you": {
+    "id": "5haXbSJqjjM0TCJ5XkfEaC",
+    "title": "I Got You (I Feel Good)",
+    "artist": "James Brown",
+    "year": 1965,
+    "cat": "happy",
+    "url": "https://open.spotify.com/track/5haXbSJqjjM0TCJ5XkfEaC",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZ0lEQVR4nM2WQYrlMAxEn0zvSzfI/Y/lG8gnqEFO0wwzS32YMYSgLArJr6QozJ/nrL8+wb/7FhEZcfLk4QbM9GRT9VQW3ICJ3heEeDjfcWisB1QIH8ULZ431KB1uwR/QM5mcwp2emfEIB+gnPKA9y89X5jmi8g3WQG91sSEhdm5Oh2ugh41coqjCKquG+bEztzAiIGd8MWUX5feFPczPELjJ5uPHZzwjHvycR1exH4b1ii4TV9E4Zjyw3UyxdTkP7w+rfWKX6sox5XGedGZwraLj2f19oco8OFpuf8B/lrotGoykNuKa6SFK7uFX3XtjvrRVqidC0xj6ZRFFZFLsdk3/R9YwP9c7Ynpq1fj+uCrv3Hr9uMbzOaygMlXdwWu8H5C7KfdAGPtPbvu9nStTU75EdlfsIjkh1Qd2JDXbc7mc6T7UJ08vLvu8e8ya31+1WXx7Zey/Lvf+lS6NYb99r1S/n/9q3/0FI7fjqucd5LQAAAAASUVORK5CYII="
+  },
+  "happy|sweet caroline": {
+    "id": "62AuGbAkt8Ox2IrFFb8GKV",
+    "title": "Sweet Caroline",
+    "artist": "Neil Diamond",
+    "year": 1969,
+    "cat": "happy",
+    "url": "https://open.spotify.com/track/62AuGbAkt8Ox2IrFFb8GKV",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABUklEQVR4nM1WwW0EIRAzq/w9HaT/sujAU4Ejs49IyXOQEnbvFnhYBnsMy/jZ+vk1Bfzd3Fqr0qtV6x08Izza6Ea3tysDTPA+gEWUCl6Aa/HGHhDY+a9be/q5q9jUGA+mzXxFmhlogreybcF7WwPcM35plEkpWtsjfshi6aw3mOlrqAepKFHVDUSRZ8QPOu9RhiSm67WVopAoiWH7jPAIUTCih4SxHogUzA8RGGN+xy5hdkgO9+8Bqneh4D5+5lzfIwIUJwrDeoMVzLeI45z5/jEUUx2mEgqa+oUBtI9X5v5TkiqL5nGNLuSBwjCAYrCfIZ4px4Y++TznZxEBFPKM8ZJ+CZaUHm7ki8MtmZ8TBDfOj50uqwOqnucBT+onZvJ5Znh4UzlWCb0Z3jvXAnbtZFbduW8sVLCWrAv3A38fmOM8wLkfxH6J55TzzC+/pv7VffcLAfIJzdlrqL4AAAAASUVORK5CYII="
+  },
+  "happy|mr blue sky": {
+    "id": "2RlgNHKcydI9sayD2Df2xp",
+    "title": "Mr. Blue Sky",
+    "artist": "Electric Light Orchestra",
+    "year": 1977,
+    "cat": "happy",
+    "url": "https://open.spotify.com/track/2RlgNHKcydI9sayD2Df2xp",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZklEQVR4nMWWS2oEQQxDVUX28g1y/2PNDeQTKMiTRUjIInggRfdMV0M//JHtOsb31ffHK+D/3p1zqk9XV2M22PBg2oRs8vPWhvcGHAIo6By4srk7HgAWQ0T96dv7K0/VCNH1ghxZg3xQfm7ugnd8gATwuRrgY5ffLMig57a11wsJSyYorHmiEzYBeeKWZxlOFTu2xtC74kG04yYdG7muj2eFNNTRS78v9cwSUWQfPkYwWOYDI5d4bE2i744niHxeieIufpMPEELkl9xseaLS90JVjN35e9wstHjSEwC8Y1u/HJ+TjEh7HT/F4/zFaWndD8BQ8hsr9/XLFO9MopGOXsDTqC/6YwJwVzyMUNJimC6z7gce1Sh6KaqaLzgf+GSk44FKh74rHm00j1EZwd37/jLCi2Ay5/SCfprIuYs6ykC/ex50PLn4y7f313mpGb0zQNb1gTkfRMgpuozOvf6+sP2fZ9uf6wPBgQbprCOAswAAAABJRU5ErkJggg=="
+  },
+  "happy|build me up buttercup": {
+    "id": "1Hgvy8kokRufdMCTGQ5JkQ",
+    "title": "Build Me Up Buttercup",
+    "artist": "The Foundations",
+    "year": 1968,
+    "cat": "happy",
+    "url": "https://open.spotify.com/track/1Hgvy8kokRufdMCTGQ5JkQ",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaElEQVR4nM2WwY0cMQwES8L+Wxls/mFNBs0IaLS8MAz7yQPuhIFmNI9CU01SWs2/o/Z/v+D7/q21Tq06deAumPBodUtkaikLT3gvWAIfXIs+WewBb9+5MOe0E/KM97pzL5DWB7hn+tog/ADnLvaAt660P8sCPTN/M2ghx+ruHvm7OXB0qhNvMnEWLy2rs23mfmmmj24Lp4o7NDHndUztiIvTU54sgvJ1pT3mhaFoFFE4q9/oa7AdbPJ6rE9YQonbbU31hSYZh+ro3TOeotFxxTcZPasP2acqpVvUk56wx/r4JKCV9x7xnFbv37Fm/74i/6LSt4an9fEirZ4S4p1oa9zvhc/pOga06LkfpHYTcsKd5d++hhy8FrzVrK+4H7huDyxORO4RT93wPuJgnMzeAx45idKYrTQs8HT/7pDfz0nfCnLPeXVKrkcpX+b3g4oht11N/SAnm+6TDMwxMqy3vy68n8+fdN/9BThZ9dTFGh/dAAAAAElFTkSuQmCC"
+  },
+  "happy|shut up and dance": {
+    "id": "4kbj5MwxO1bq9wjT5g9HaA",
+    "title": "Shut Up and Dance",
+    "artist": "WALK THE MOON",
+    "year": 2014,
+    "cat": "happy",
+    "url": "https://open.spotify.com/track/4kbj5MwxO1bq9wjT5g9HaA",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nM1WMU4EQQxzVvTOD/b/z7ofOC8w8qxEAaJAQYIp7pQpLNtxZlPG5zPXlyvg7+6qqgtAV9UpsMOjI7l78neKa8e5Gp7XsKlOgQ3e2/ktUSyX+4dcvrnTPSzjgcMSzwJ1DyZarR1euQB+lAPwtcGDcyAK5FNop7drShAwL6FndvmDTVuUAYMQueIHRyckk5IV5dcOT8GJh35wtcuzmlC7iEFCvcsLLNkUaZkhu+vvSXNMtOAkhls8prfx0DKoNZ7ShuQGaW6IXis8U5EaFzN567zwzNkJSoYOv6A3QwulNeYyf7Bi2lEsQvt+QDzWwTEvdl4rPAdFoanEBmu9iXD68WHltcIjDaTJEQys5y0nUcmYZIC37/NZCRr3dAsditeKH9PdDFvSHOna7weKdwNMEfqF7/ld9XRGL2/3oXMcdhWqveP3+Hc+IfB5rrb+TRVuorMcPG/hbt/4cvWv9t13YIMYUANV4YkAAAAASUVORK5CYII="
+  },
+  "happy|dance monkey": {
+    "id": "2XU0oxnq2qxCpomAAuJY8K",
+    "title": "Dance Monkey",
+    "artist": "Tones and I",
+    "year": 2019,
+    "cat": "happy",
+    "url": "https://open.spotify.com/track/2XU0oxnq2qxCpomAAuJY8K",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXElEQVR4nM2Wy63dMAxEj4y3Jztw/2W5g1EFE4x8F0Gy5AUSwT95cUByhpKW+XPs669f8O/+rbWatZuGd3KNeGXTlBa7OxMmvB9YBTTejTuTaxRfxpboRkn5Gzzfa1Ogb/As2OhB1WdyDXjLi0T2GRvqmenhQ2WVIsrczw1dvfxs2L3XLF9cslM2gcpQmvFQERdjqlx4xPshLtnEzl7ae+hnnHRVkiyr8rhGPFLAXFip4rR+p2gBHVUS8DXjGbl0sPn6hr4nQFVeHvNKuUNNnON8Fd/pXVmE5vnWcTN+SzjmOakeYU4ZPfZfui02dlxdNfZLVJDLjmH8Bf9Zp3o6GY95HKPgNMob7zXiZdTptHoF1lQPKt2hdEqQmp8PqL7p9O/e4/U+FqZePbLma76fl6jn7s+Gfg3Xe+DW8gP32Yqvqf9K0nlZjPuDcz6Ikc2Rebi//Xbg/Xz+T+fdX94TATnpyoYhAAAAAElFTkSuQmCC"
+  },
+  "happy|i ain t worried": {
+    "id": "4h9wh7iOZ0GGn8QVp4RAOB",
+    "title": "I Ain't Worried",
+    "artist": "OneRepublic",
+    "year": 2022,
+    "cat": "happy",
+    "url": "https://open.spotify.com/track/4h9wh7iOZ0GGn8QVp4RAOB",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaklEQVR4nM1WsQ0cMQyjjO/pDX7/sbwBNQED2kiAJKWKxLgzTlcQpCxRLuPP1euvX8C/+1dVu6p3b+AGmOHRT3IA9w3WAO8DFAFtEl3eCdaIX5ZgoKkbYI73RZ/m+SaFY73GFkrEBhNgglcugL/CBnhmeHgw+OpnsAZ4cE6BomELJqgZnmXTgh4qPMRTdkG0Ujac86NFmHyCp/yiEYTkl70pHqjkjRGbQxnjmRQpCQzBsV5CeQImB3nN+CGb5OtbOZQ1wFuXWbq3a4fiHvevNxqKG5xrNWdYz07aEL35Hvcbcxq3BP3SqFn+GifV5+Ores/89Fbfo3XrhZrpXcDZznRDy6h49Rrxg4H07m25m881wsu6XspYDIf99kHmB+P0p8CUIqZ+ZYLXEzD358+7HwC9xd6VHlkDvHV3NsxMc53h/P3cXVvlzjzPu2b8LPRJ1Zi9o32N8LoKG1Wdsa72rJ7fleC39V/dd38A2efzbaL21qQAAAAASUVORK5CYII="
+  },
+  "danish|langebro": {
+    "id": "2pm6RVDlT37hsYRErVYYLY",
+    "title": "Langebro",
+    "artist": "Gasolin'",
+    "year": 1971,
+    "cat": "danish",
+    "url": "https://open.spotify.com/track/2pm6RVDlT37hsYRErVYYLY",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXklEQVR4nM1WsY3EMAyjjeupDbL/WNmAmoAPOlfdlzrg3wgQ2wUhiRStZXyu3r+ugL+7W2tVF1av7nPADI82oBKMeg57gPcCFrMp6PJz2DO8rLoBdn2vpuS1DI3xXkjdioUbpTpF3AO85QWcAp7VAO8JHnwWTfG91wyPEiGIkqA5ng4QzezOcQ/1woIL3VF1JLNH8YFWfskWTN57gLcB4bJgBgwa9gdsJkaKBg+qhvwa5CGWaROM+c0np3yKeMb6c0iwZT2BaqiXbsWuQkaFYQzzlREfJaNoj/kwaDig0Z491d9SjOp6XIYFTfVn2Iqa+aSsYb/hAEYxqeIw31c8Xli64qWle+wHTJtFyCdWzPl13txULrKe+gsSE9O8p48Z99rj+WA1Gp0Wpmbv2zMfCJUyVi9APZ8PKiw3YvtfmQ8EXOCldZxhD/3KfA+VDDFT/zs4ClSezak/r38+7/4AjoX5Gk+MBXoAAAAASUVORK5CYII="
+  },
+  "danish|st rk tobak": {
+    "id": "4gMJHBI57wq3DgJNzafvuh",
+    "title": "Stærk Tobak",
+    "artist": "Shu-bi-dua",
+    "year": 1973,
+    "cat": "danish",
+    "url": "https://open.spotify.com/track/4gMJHBI57wq3DgJNzafvuh",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABY0lEQVR4nMWWTWrFQAyD5SF7+Qa5/7HmBvIJXDRpofQtHaghvJksPvwnvUTjb9T6eAX837uIyIpKZOFcMOOxGykqgUxfMOFdQBBAQpHo9GWN8nMQQuLk+EpPhSqgoDd4rVPuJpjnsga86HC5P1EA94SHdkANNnkumvHYTRKtboLCmCe22ybAJ3LMA9odbHOd6BrxJHW7TPoIzPK7AHrCKqgYbMz0e+GGwCAqKN013OcL2MzdhWyz/LMGPHgU8qZQ7W6O5wuRpAzlOWvIox/pyXOa3wUqkht5ZHxauEb50fmdRWSL4Gyfw1O9d3YxgW1vrWH/WhavxSEreOwHlrBsM5Yy9QLvka/4il/BFKG9NG7fdP8c52/XrGOpa5YfniqfZSbf8Ptjo27fkfCa8cBj+LQr2PM19CsHEzup0D33vxMKCkVUcqrfbluf99kKGc8Dx1jozfmW36zeXx+8D/Afv20/4wuzx/tpKpBZpQAAAABJRU5ErkJggg=="
+  },
+  "danish|du er ikke alene": {
+    "id": "1V2SY8kx9p7a1hgwbLpoyk",
+    "title": "Du Er Ikke Alene",
+    "artist": "Sebastian",
+    "year": 1978,
+    "cat": "danish",
+    "url": "https://open.spotify.com/track/1V2SY8kx9p7a1hgwbLpoyk",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYUlEQVR4nM2WMXLEMAwDl57roR/4/8+6H0AvYAa6JMWlZGYSFbbpAgOKAKRq3te+fvyCv/tXVYvaiwWv4hrhqZtluYCVggneA0rsJXqXvUq/sgc2a3Fa/g28pvaBHeM9Ara4DffWq7gGeNUF+i436DnBo7NwZ85SCs/wFBzRdguZKV5bTRujfA3xqtks3xv6pRaP/EtjxxRfNKURvwtzVyyC6X23Z/oLv8y0Q+2UM360Mte2SbuSx3oRgdEn7nj/9tZis59Jg50ZXyN+VjjaEXOP9XxxW2vvY92Q1CwP6GO4cDtbOPUHnSjAuNV5D/Og+jhOpScsc4/9piPBdJ1peK6/jsdi38ZJaA/9pgyDjtNAQz1z8lmhGKwz6WvGD5Rdi5gVSM/zvkNLYp7PBEq2rVdgedbv4zzF4rnk8j0/z7OqS1450Jem94022ztt574hT/OeKFDEwdnI8Xn5vv7VffcDfAoCGnk2PGYAAAAASUVORK5CYII="
+  },
+  "danish|disco tango": {
+    "id": "5JpYM0yLDfKfoPWqydsqgj",
+    "title": "Disco Tango",
+    "artist": "Tommy Seebach",
+    "year": 1979,
+    "cat": "danish",
+    "url": "https://open.spotify.com/track/5JpYM0yLDfKfoPWqydsqgj",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYklEQVR4nM2Wy23EQAxDKWPvVAfpvyx3wKmAAce7QD6nRAaSOdiegf2gDyWrjK9rHd+OgL87q6peQO61N5jxaIOFBcqdDSa8B1BEo+FqqYt3xGABJ6D+zbef12NfqdVE8zo7vrzzwzMLq+CT1N5gwisX8LTrcpznhAdnUbysy9KMR4COo9FNnjWMH6lFoSuq1prpGba8jYRJkJj6G5wFiUJc5pTHWMWUGyB5ygtItHQlG1MeY5IkOGwP4/eIiFUuGVrzfgAjWoag5Fc35AOKn5FMbBzqGSk2OHFLXjTXn3fNkVZqDTfoWa/wMdGc8sIKMFcnjhrqj4ncJlHQ2F+m5LZdqZAbeHZ6FncXxA359eXshibTGuYDSNy0xRykxv7yRY3LM/sOoDotATzfuCrCOcb/c4A4M3Lk74mpXkhG1amTcT94JCMtqI12OSPMMeKtyrhGlF2saHrG+zDwPh//07z7Dizd/vUrmYqpAAAAAElFTkSuQmCC"
+  },
+  "danish|kald det k rlighed": {
+    "id": "4iArHiBejqLpJBKzok0EC3",
+    "title": "Kald Det Kærlighed",
+    "artist": "Lars Lilholt Band",
+    "year": 1986,
+    "cat": "danish",
+    "url": "https://open.spotify.com/track/4iArHiBejqLpJBKzok0EC3",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXklEQVR4nM1WQaodMQyTw9/LN3j3P9bcQDmBi/xKFy1/UfSgzQwDDoxQZNlODX5f9/yxBfy7varqBtBVtQEyPI6P3I2B3sEJ8L6AIp5S048DhHgAWi+x/vbf8+2eXg9LVI6H4fgdrXoOlODVFMBf4QX4ZPy8oBFA85yJ+B103XoL9zzoezP/YUiOqAEGhJjxs1+0TiGu0K0O9YPJ6a0hpVg/vfC6aBdGXzRS/WR267wB5ehkeCA2J/YL0/NiCLk2rOAgzi9GBEW40KAleiK8oYQ96JpGWf3axLbMbGOwo1O/QNYNuhe3B5P65d2qRHuZZqu4fkUztJAcpvqNUeQvIAkpnuiEQONUf8LPM26ldJ5tmNh/25/p3rLWSfFMij8949x84LxuCACXX5wP7hzaXvAB/c5+90I07gVieh/a9XjyFqrN8sT6yYaGh5xb6on43aodIODjbHfGr/7z++4PXSQJuhKjuJoAAAAASUVORK5CYII="
+  },
+  "danish|bag duggede ruder": {
+    "id": "0q8ZPnbhkO9j93rN5cEWSR",
+    "title": "Bag Duggede Ruder",
+    "artist": "TV-2",
+    "year": 1983,
+    "cat": "danish",
+    "url": "https://open.spotify.com/track/0q8ZPnbhkO9j93rN5cEWSR",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaElEQVR4nM2WQY7dMAxDn4K/p24w9z9WbkCfgIXyByg6s6sGaL1I7AAhaIqiXeHrONe3T/DvvlVVz6yr6r24VnhKOMU5SnoWbPBeUKJpUkW69BMayNygv/r3z/F6v9otHR4hWfKLOZAbxbNgg1ep3xtlgHXv+CV51OO+eS+uBR4RKCJOhqjipX4azUzXAXx2fq5waKsg7amvV/37onJCDcH7mFr7T9MSpHQ3hmW/EWRbsoWlWN7WN2CbzGQKfS3re+zJgzNuvpd5QLCQjMeJnum1w8OjYTSPAfRSPw3FEEVZ68fUILKmcadRlv3GYIlHviFK9vzIlOJxTpKdfhdSqsbJ45zqs84rxxmKUwxNXF87PD0RKIYhe7wZ07ZzzA30Tr/3+eGJUtVzkOzyb2wcSbNlP1ve54smrd4tB8u8up7nQdwfZaL+ifuBKHeqqfT2/CC0oXMMH9v7EGO6kfCz6+Kd/+o/v+/+AnyT4GdCaYP7AAAAAElFTkSuQmCC"
+  },
+  "danish|bad craziness": {
+    "id": "7GMrLfQsbwauTkS2X7bUID",
+    "title": "Bad Craziness",
+    "artist": "D-A-D",
+    "year": 1991,
+    "cat": "danish",
+    "url": "https://open.spotify.com/track/7GMrLfQsbwauTkS2X7bUID",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYklEQVR4nM2WQWoFMQxD5fD3yg3+/Y81N5BPoKJMS6Gli+IPbRaZSRYPx5aFy/i6en27Av7urqp2Adj55IAZj86T92627sOaxVwb6qspYueACe9x9g2Lpc3fxvLDndgs88ZhyLPAi40uKAdMeOUC+Kk9gNeEB2fBFMiU19bsvbu61AJwWbt7pj+YpE0ZEAhxFh+c7FEys6XUGvJEWTZkEfKYdxcDoepQ14gnynSS6DAx5xGmo+o0yFAvMK20RTJovaC+yjMTF0PjmOcjOig/EeCM90DDZQjYAvq5Pe0PMzU+3sI0ioY8GT7pCw3zfkMEeMhJJKf9kdzFpcQP+hrwFlpPdRcYakWDaxQfI5S0Bm/BjPWXxhVFpRhzPwBup09s5Av0YscQjqkeqoY8MKNBqqt5/tbZn1ccIV5wcToPva8L6F2beIVejgOe2SA9t0bxdRWe1M5wYMZlZvPGt6t/Ne++Ad/SDnZGlhh2AAAAAElFTkSuQmCC"
+  },
+  "danish|silverflame": {
+    "id": "2fwfZDXNBxx2alE6clKQcZ",
+    "title": "Silverflame",
+    "artist": "Dizzy Mizz Lizzy",
+    "year": 1994,
+    "cat": "danish",
+    "url": "https://open.spotify.com/track/2fwfZDXNBxx2alE6clKQcZ",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXklEQVR4nMWWQWolQQxDXxXZq27w73+svoHqBB7kZGBIVsEfxnRDuxbCtmR1reJ73P3jCP7f2Vrr3HUPBzphhqcqDvKCc5IwwfuAJfCh1rJOkj2qr+PkSZ2Jzc/YvzorPRct/A68Mlz8gD6TPcBbtRrnKy7omeBRCaqQS0riGZ6qJFGuEjJTvLJKZYys4g14RWWChehC9wgP91KkTAqkIZ5Dh3DoEKopHrhnaNJrprjH/BKgbtce6wWcRpWv8nh+OHMzmV+4GePJeR0xl6b17azE0dOry71zf3kO5rziLJLigHs8P4deSY4aPeTXkV+GZ7LEc71Ucxub6XXxvD5UDrspcOwH3Sspr+1gqr+//txYbal7fD+ode3i6R878/sBdV7983UUvYf8qvX3yQee9psQLz2vYxzIPcbjxdVzr3qL99hPnb2IEpnvB2k3q9G2VUM9fzTgP9jD+9+7z/4AjGf/qee63igAAAAASUVORK5CYII="
+  },
+  "danish|sadan nogen som os": {
+    "id": "4JVzugKZLHSNeyHJaeeVn5",
+    "title": "Sådan Nogen Som Os",
+    "artist": "Poul Krebs",
+    "year": 1995,
+    "cat": "danish",
+    "url": "https://open.spotify.com/track/4JVzugKZLHSNeyHJaeeVn5",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABWUlEQVR4nM1WsW3EQAyjjO95G2T/sbwBNYECykiKBCkCFokbWweYEI886mrw9enr2xLwd2tVdfqgUN1bIMPjDKijJs4WSPBeQBE4ONDbPMWV4QFolcA+v/v3+hEPIA9486R4GM7QL4lDF0rwagrgZ9kA76y/fdwfIPpbIV+JGIiSoBwPhATuPgo53qwMHPcGkZkexsNDWJBfWX8vHPXb8m4CZa2vrD/t/omCeSvla/MNLayjUCFfjDj6cA3BGI9D2si2H5nrgW45sCDo+OtO9dCy5pJ1tl4RHqDx8XCxsiicKeNsPk4ZNU+n/tOGC2W6GDvxivCwUWBd7Rw7+sr6k8WQrWJxYjyK7utJQWeq8nyGj66czzkesDvoLFgPpn6xGHV3o+9lm903NgM2nOnk3/NyxfO8eHx8CdsZ+Z1LO4OJEk7M1xPpQVxnx/PSZrEH7eV4HtU/v+++A/r8EbnVThFuAAAAAElFTkSuQmCC"
+  },
+  "danish|dub i dub": {
+    "id": "34zbPJOhBLVd4sYbHSV7nr",
+    "title": "Dub-I-Dub",
+    "artist": "Me & My",
+    "year": 1995,
+    "cat": "danish",
+    "url": "https://open.spotify.com/track/34zbPJOhBLVd4sYbHSV7nr",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZ0lEQVR4nMWWwa3cMAxEn4S9kx1s/2VtB6MKJhj5J4fkyAUiGLCpw8NIHNJc5u919j9b8P/21lrNOn368AR7xCubptRAJ2DCe8EqUOPVuBPskb67Oo/1BJuRPkDrUCyeZO8Bb3NlFfqU/GjcA97yCu33OlCfCQ9noaJUdQPNeGVXFZYcKFOeVS4Lgcq5zj3gLXNos8DLDcej+n1xeAfn014+PfQzzkGTEeUmsWt03g1viVWx82nFMXukr8qlqDSmSmO/6B43pJLy3iMe8TJCropjpjxFWPlWSMROeTE00tMUmPMqBUcK7n7MeUpWxYVK3+gHuvLia3KTe8YrIwf7nHbMu9KS5thl2l8w1yjxdCXHYz9n3d9uYLel7pk+Iiz1kaKb5mPf+QC/i65GZ95fqLSEiMx/TuP+dy+u/Xln7qj+xnzA8fIH3mmnzOeDoxMvczJoMc8vea4DPfTz62cG+sMezn/f3vsFXiv/m3qg/BcAAAAASUVORK5CYII="
+  },
+  "danish|cartoon heroes": {
+    "id": "7vJgjjXD9spt5fgaSPox9z",
+    "title": "Cartoon Heroes",
+    "artist": "Aqua",
+    "year": 2000,
+    "cat": "danish",
+    "url": "https://open.spotify.com/track/7vJgjjXD9spt5fgaSPox9z",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXElEQVR4nM1WwW3EMAyjgv6pDbL/WNmAmoAFfe2n7at6tA4Qnw0cIZE0nTK+jrm+bQF/t1dVXUDmOgvs8Oi03M1MZ3Htaq6G6xmA6Cyw56BBqX7335/2HhdL8h7vDTCa4ADFs8AGr1wh7nOExWeDB2dAFsjIa2vHX9eUToWP1TO7fmGSNqOFQIi7+mDQwTEpCBCXeFSM8sGhtMZT9BVBEQ62dv6jgDtwAw/QXvp5cMfKmnar48Vry5/Dmx0CsdZXcQqPIIfGLV4KRNQ1o4zX+tIxXYAcJ27ro/U6wjBALv0Cx3cBo2hqy9+ViAqHlQB8bi3zD8E6XYZDOca+VnhKi9H3I2fW/L0uymR9DLPWI4PKc6JrnQf1uj/u6Vyc+Xntvw+IOUGj6XXex8RMjaltez6u874T9Qlpibv63l7TxNZPT+wz2/PrkzAi0/s6X3BS4JyOeHp5fuuff+++A0LAAUehoB8+AAAAAElFTkSuQmCC"
+  },
+  "danish|der star et billede af dig pa mit bord": {
+    "id": "0dIaYiwgjDbEagTfViXBhO",
+    "title": "Der Står Et Billede Af Dig På Mit Bord",
+    "artist": "Rollo & King",
+    "year": 2001,
+    "cat": "danish",
+    "url": "https://open.spotify.com/track/0dIaYiwgjDbEagTfViXBhO",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nM2Wu43EQAxDKWNzqgP3X5Y74FTAA7Ub3YYK7iYwoAke9CE1LuP3OdfXFfB3d1XVXafRBxNgx6ONI6Ce7k6AZc7VABokHk1w7XgABAJFhLzjwQTJQYoTaJmfBRnJ8EyADa9cg/qcA/DZ1ZsjQxTJCa4Vj8K0LuTpprbzpcGnVH2Iw+18DWe6YkbB5HqteJAtwmRKN7f9S9toSY787HV+k2DGO9D1fCGOK6T4I9RrxePMJMRAt36D41xzKp14l1/53FApK4tQFsyz4wHFA2UDPgDuHS96Udqmj4/XepYEI5KOAqX9fK3gZEXZe70wbkutb+Vs66URsbwFk7Wlpf4cx8W4swnX74dhN3wKujmr61rxKr8EFR33g84Lci37Z+bMWnAEdO14CEjvRzO61s5vnSfjfWI73Cu/vearxvGJee/DVf9eUUwftYFbylyw3fdg6oym88pt+/d19a/+d38ArwoNHkTnFI4AAAAASUVORK5CYII="
+  },
+  "danish|the second you sleep": {
+    "id": "5MzphLubufqPp6GYQAjhQD",
+    "title": "The Second You Sleep",
+    "artist": "Saybia",
+    "year": 2002,
+    "cat": "danish",
+    "url": "https://open.spotify.com/track/5MzphLubufqPp6GYQAjhQD",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZ0lEQVR4nM1WwW3EMAyjjf6pDbL/WNmAmoAFnUfRFn0UOqB1ACfyg1BEivIyvq7e346Avztba1Wtrq7GCTDDow3p0gXUCTDMeRWKjT7xqhne29m1CDe7fpvLD3iAGiXiFXhG5X/hZZQx42N5AfzQHsB7ggdnyQRpPsEe4ZGGTVJ5TE7xQJsQZJjSDG/jRtdqwpENcM34RZojHeLsRD72AO8t7C65G2hjxW72KD/ZYeJwnHSnfECIWGABoXqK59RPkUxe+d4jPCpgVuCS5Qxv477KVQV0Oq/5Aj4YLZ8AGveHH4MOsxH18H+RwgVJMcFgz/KLn5YXjpdej+nvuf5wSicL8/opM43RCjXuXzwmcPQcuBf0h50uQ6RCx1P3+H7AkogbqIzMPcqPUSBjzo4f6AV+n7Ehhel4v+Z3JJYuNGMN4/tQVtyAuPsR9Ma0fkrXMfYXPe4RHjJBjg+EjWl/nAH0ef2r++47Ro4I23WF8agAAAAASUVORK5CYII="
+  },
+  "danish|move your feet": {
+    "id": "4DX82Vc8qAH4jJPvKxvwg6",
+    "title": "Move Your Feet",
+    "artist": "Junior Senior",
+    "year": 2002,
+    "cat": "danish",
+    "url": "https://open.spotify.com/track/4DX82Vc8qAH4jJPvKxvwg6",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nMVWQYokMQyTQ9+VH8z/n9U/kF+gQa7LMMseFjdsKKpIoIRl2XLK+L36/HEE/L+zqroN4Nat2WCHRxsodFu+szkLvBdQxBcuXJBucY0XCYB3KPOf/j1/PSP7Xoha48G0CcgizWy0wSsX8NDMaoDvHV/bQoi+u5/NWeAhZGnCshMoveJ7BgEQbqWq1Vs9IE2QMEwm0LPC0+QMEjWUt3iTPRGUJ9otHqFBicSCta2/C91pNpeLaK/87wV0qwS4AV3ftb4gSEEmQ3jHF2mOaPI0MbTW10zhSaZp7evPeTRdEpHX/Vbu6/hpTHp89azig+gxUlH01v8QDx1tAxWt1/0hR4vESEQbrf0eiLFwrgrr/s16yo+ZINjmL+MtLGWKgdQH5huTvRQf1vFxkhec+Sz96sy7RbxzKzLvh+4HunH90nJensdhGuk50fUB/0NSOG41s26Vv9cA/sBe3v8+ffYNC2kDsLm4yMAAAAAASUVORK5CYII="
+  },
+  "danish|rocket brothers": {
+    "id": "3LMlFQkPq3LvoCyATVu0Fq",
+    "title": "Rocket Brothers",
+    "artist": "Kashmir",
+    "year": 2003,
+    "cat": "danish",
+    "url": "https://open.spotify.com/track/3LMlFQkPq3LvoCyATVu0Fq",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaklEQVR4nMVWQY4DMQhzot6dH+T/z8oPzAu8cuay2p4qKm0uE1BrATaQYfw9Nd9cwP/5xhirRq1ahWugh0cbC9QGsGKgg/cCBoME1YJXjNnDu0drlbC+VFO7ClhbbbwXkPIluH34GLOBNzyAFPA5BfB08OAciKD4GOrh0SYJK1Kh0MYTDQsCciObeE6eqaATawKdDbxXKIhaXMvDVU09j8yX4eiFwwtQb74ky3BKi5QgdetHGbJCrKPEPr9QlBIudKOcLTwo8gtoPnQbL3KhbodcMarfH5DvaFGCVQ9PFzA6ZqhBn99kKwXUSr/MBt5MlsLGroNTH//37Th0JLqMGdzRMN9/hQ98xsFeJ7tD6WZ0+w1pNDvB4QvzynaICFR6pIf37I+TK8ddJGrOFya80PDQ0Z8HuPrL6rjh9fJ9fNzkWQzB60tvrqIqC11tPAt1sjeYfLe6+gNSwijnKrq73349eHNtvv++7fsBPbT68DDBr5MAAAAASUVORK5CYII="
+  },
+  "danish|human": {
+    "id": "6YeRUOJOWsOI2qKJD5MwSc",
+    "title": "Human",
+    "artist": "Carpark North",
+    "year": 2005,
+    "cat": "danish",
+    "url": "https://open.spotify.com/track/6YeRUOJOWsOI2qKJD5MwSc",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABa0lEQVR4nMVWUU5DMQxzq/07N9j9j/Vu4JzAyGUgGF+QSfRjWqPNcuLE6TKeT+8fIeD/Ymutwurqarxf9giPNhaoAlG5YIJ3AxbBLrgXXIuvqEFDqKL+8t/v53Y+T8boR2w//eaXMQso6CJY57IHeMsL4Oe1AV4TPDgHIihHa1szPNokYdkBxRhPdsomQAxFzfCgJP3OFIfoHuFJjqgOuTTgvH5CoJQKRhWN6yembKQggXM8JmscVab57vT0xYU721UWZ34FZzxOqiagfN0jPJ3BkILmF/SzTUaH8MzgzfhtoFrEcRY3a+hXsBWCR+XwHPcfHslKShWH83sDm1kc2UbAHdfY72Mty11Co1Ge9p/TKIjM6cWxvoZ9h9bqrN84/p7xQ+zF4Rh2Qz32eR80K48DQD3mx4yskLELV439CmS0ULaS0oh7/D5Ae/lK+3Ger31mw2bsZb7fcAzwY8kN/ep2AL9gD99/r469ART+/gxRtoMFAAAAAElFTkSuQmCC"
+  },
+  "danish|007 is also gonna die": {
+    "id": "3QLh0DHDw2Hsy1Z5XtIa1E",
+    "title": "007 Is Also Gonna Die",
+    "artist": "Nephew",
+    "year": 2009,
+    "cat": "danish",
+    "url": "https://open.spotify.com/track/3QLh0DHDw2Hsy1Z5XtIa1E",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaElEQVR4nM1WQW4EMQgzUe/OD+b/z8oPzAuozKiH7p5aRmpziAa0axkwhCi8nlxvLuDvfBGxI3LnTrSBGR6rAAHXubDbWDPOscG9AWbKBuY5OCgg+Kv/fj8ffV+VZ/Nct2+9/OaHvhKEDWKnbGCCFxXAV6BAAjwTPJSPSqJItrFGeBRAsaASiuAIbzXF5AntAJGc5Q9VFjMgVsmZnPFzvM4fiiz2h2Z4EpukqljOpIb8YMQur8GH9Y1ymyVxgE0FoRzrRZYJi46e03hd3qID7VE91rPMzA3SFJ3DNcMruiT+VmEeb7X84Hg9nfkAP+vEmnHQmuplH6ZH6mn70uy9hJusg1W/S3qgfyG3hzujHRrqj13Y8kAArJ01wvNxQTwKLMAxP4DWs/uED+iZjtRj3lfN80eYVNfEVIf6W33T4/ky5tmzfejeDxTMyn7TH9kPUq5LMQ2HGV5GYCMj7+2AGu4bb65/te9+AnGjDKc3O+gVAAAAAElFTkSuQmCC"
+  },
+  "danish|mest ondt": {
+    "id": "3BYccIpnjqBBWtr1S2EBr8",
+    "title": "Mest Ondt",
+    "artist": "Burhan G",
+    "year": 2010,
+    "cat": "danish",
+    "url": "https://open.spotify.com/track/3BYccIpnjqBBWtr1S2EBr8",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYUlEQVR4nMVWQYrgMAyTw9zl//+uP1BeoEUuC8POXgYPjA9NHaiQY0V1Gf/GPV+2gN/bq6q+QNaaBDs82kDhkmJPchZ4H0ARrYaqxS6u8SZ0AfbbnLPGYwPE09/79vx/z8IF/JCeBBu8coXa30jVzwYPTlAkpTfRDo/AW6jNedeSHxmCBgRC2OJBL0mYBrnGs2UJEiUT5JYfgkQwS1qibT88KEovaG35jYyH2duTHb8P4Lka4Bs1R9tnxQ/g6ESRn+h9P1JzWgs5gFrrGVFMNG3s9ae3Zlpz77CuNx1WFjHZXn+RXYSSP0geZ4dHI94yB5k7p/X9cMqcw5sDPQu8E/l1ofv2WOHS7zGWDCuOReY0tdYzc2sjQDK9Pis8jkPHnF8B7vgdoBq4aj70rbj12fFDfkMeS51M+5mLvug4aj3WD8wHAto35tK9nV9ugZmqypnaMi7s8D4NvOOFvznbfo0/GMf/G+Thik8AAAAASUVORK5CYII="
+  },
+  "danish|har du glemt": {
+    "id": "4ufqrfmGcjclTt9GXThmuZ",
+    "title": "Har Du Glemt",
+    "artist": "Medina",
+    "year": 2012,
+    "cat": "danish",
+    "url": "https://open.spotify.com/track/4ufqrfmGcjclTt9GXThmuZ",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABcklEQVR4nM1WQWoEMQyTw97lH/T/z5ofKC9QUaYU2r2UeqH1YScJrLAVyU4Z32OvpyPg786qqtGoXdj3Zg3wYNqEIUr3RhO8B1CEikCHyizWAG/dH1643O7f/PdLPM5vu4zW1gFceI718zMLagJXwKwZXrkAfm53Sl8DPPiEbkye9RrgLXR372RmGMhyjfITJYG39M52DfEIElZ0DWOq53YuAZvn0571A/gUq9yDJcZ3a86fIRtBHvoXZtoBxcOf+IL8nHIlQCQ1018u1B8Vh8kgrxEek2Jwj56n/C1I3aCbfcBr6o8UytTM6O8F/CH2yFUw5hje7wNuCMD1BtztGUO/4QyNCypv7ua0vzj8yZFfmsxcLzwu083l2B+JODe+o2O9NZ4fF8Dy4REYzY+VlhLJbO6dPIfzDYc/pF2Jh7/pPEqIXeAuG5y9h+6zhrhB1xmba4D3iEryEtrIe62xNXxP7ip0IA1QyXWml6ejf/XefQeEx/maK/dJ9QAAAABJRU5ErkJggg=="
+  },
+  "danish|for evigt": {
+    "id": "59fQzvSv0wPQorW2Bh0pns",
+    "title": "For Evigt",
+    "artist": "Volbeat",
+    "year": 2016,
+    "cat": "danish",
+    "url": "https://open.spotify.com/track/59fQzvSv0wPQorW2Bh0pns",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZklEQVR4nM2Wu20GMQyDaSM9tcHtP9ZtQE/AgDokxR+kCBQgcXOWi+/0pL2M13X2lyPg787WWnUKCwunDcx4tEGUYFQbGPq8CkeodYptYMJ7ez51Azysn/ryHU9Awcv1Czyjiqob5eok7gFveQH8NA/Ae8KDe9EUYGavGY8SYYiSoTlPlASa2bW5h/UtHgLnABdS4D3yz5SQUBUr8e8ZzyYzaEqhNc6fBUlP8kAO84d2rv2yEfS8vgF1EmV4zKMJJWyJZH6wB7zlzBiuQ+hEBTnT+/SHO+ouMs1pPZDms1oTqGn+3gBFl6803/0I6x7wNnR1xHccvK57qH9wZy3KIpDd0XvEU0YY6ekeuvH8UqQ/VBDp7D3iZaW0mWP2pOwRD0+cT+7Sg5rOmyMHiN53Q2v+PjCKeXScdaBfuM8Xw6lcvjXjPWctzSCWoGk/J3/9qIw0p9ia15cmHTllFGGof6/rX7133wFjiARQaLUKEgAAAABJRU5ErkJggg=="
+  },
+  "danish|ung kniv": {
+    "id": "3LyOoM4J9QzrD0GbPuzEyz",
+    "title": "Ung Kniv",
+    "artist": "The Minds of 99",
+    "year": 2017,
+    "cat": "danish",
+    "url": "https://open.spotify.com/track/3LyOoM4J9QzrD0GbPuzEyz",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaUlEQVR4nM1WwW3EMAyjgvtTG2T/sbIBNYEKKnePXl+tCrQGEsNCItAiRTsa76OOLyHg72IRkQl4jllgl4/dKGSyqVlgiTkSqqsAZHqBfQ1OnFIU9IN/P4/HvK8EQ3zGjrdvvhlrgWLNxr3AJl90AC9gQAG8NvnQHpC5pent1m6/GRUaJq5WVu30h26yRTUg0I92/BYUhuciqlLnkg+MkhshVhpfLfWXPe1LZPECcsuvWqSL2IKEHb8P1InilI7orKUfoAk1GrIK3Sg7fOhRCq0b3bO2+pPsfd20aLTGRxkU2s0GLvmAk7S6h1mQa3xsGtW947VeYG8ZdMO01Lv+PdC4Iu336cZjbPUnEzLALB1X8ljlo49Ikt46sOfj5c+2QBqglnxgrM8gDfMX9NI0t5g+8XTs7weJuXRU2PGP9Xl+Wiqdznnu/PQZG9evNNQdvrt+lp/bxCfwrn43v3NiQu7gpZ7jn993PwC5+gxejfPXTAAAAABJRU5ErkJggg=="
+  },
+  "danish|deja vu": {
+    "id": "0tingGcGmcXnRozU493hbr",
+    "title": "Deja Vu",
+    "artist": "Scarlet Pleasure",
+    "year": 2017,
+    "cat": "danish",
+    "url": "https://open.spotify.com/track/0tingGcGmcXnRozU493hbr",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABVklEQVR4nM1Wu23FQAyjjNdTG7z9x/IG1AQMeH5VUipAcpV1BcGPpHMZ389cP66Av7urqq6angZOgR0e/Ujuqe5TXDvO1SAaJG6lwN6DWwZGiOTfwHuz7gHeWuO9AKM1AoHpFNjglQuB+pwBeO/4+YHBWz08xbXAgymApiEbJqhtHjZwl7qGGGrlHywIFET7hLLjF720opSRbnqN58yGguk4qR0eYDMxBEr2ll8yFSlJ5BF/rfAIZHpjXz6414s0n6xAY61XdDKRDsVtPyOpnngR3fFQS35GooDtWLjk94p97YF6jL4BrveBFRfTMPla9wuDZWe9wNB6fj8ohx2I/Xwg6Z7ZffRfK7ycZ1edFbOeN2TWDsmM8V4vnSWfhHkU7/BeQAVO0+J08V6/v+e809WAWLv38rkTNNLkP0Y7fo9/Ognn5dy/RzhNnOViMTtrhVf//H/3C6NEB1MFoI2oAAAAAElFTkSuQmCC"
+  },
+  "danish|tranquillo": {
+    "id": "69T50mZU6jlxdrrZrrxRNW",
+    "title": "Tranquillo",
+    "artist": "Gilli",
+    "year": 2018,
+    "cat": "danish",
+    "url": "https://open.spotify.com/track/69T50mZU6jlxdrrZrrxRNW",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXElEQVR4nM1WUWrFMAyTQ/+VG/T+x+oNlBNoyA8G2/7mB1s+WlyokC1FSRnf11k/PgF/962q9gawq6oLzPBoA3tvEHoVa4B3AUU8wCa4mQLzGdy4pQPoF/9+XVc/Hz4so+c45meBuA/OgVJgglcugJ/lAfhM8OAsOLwceW3N+t11qnXgsfY5M//BJi3KUTcWnPFLk3nJpCRAHOKxydmQQWk4PziABIMFWp7yCzHKkZaQNeUnkmzDmI2q4fyY8YVZNI7Ya8bPoEIwwnCOR0rMBJP8jN5r7D+1sLY054eYj1Z2RguioV+URuOZ9Io38GMazSR7s7zBzwktKXNUomGN8MR0GvNlg7zBzzbj47Teg9Q8n6nkVPJ5infhdX7wPn1JSBiucb/svZF9ktea4YFt49dpzmHer35unA3fcY2n51H4RYc4p9vXfH7qi0EH1jxfgI4sQYmXIb/65/fdDwWvHtjJwWs1AAAAAElFTkSuQmCC"
+  },
+  "danish|f ler mig selv 100": {
+    "id": "7iuM7vnvSjX9qqcuFtij1T",
+    "title": "Føler Mig Selv 100",
+    "artist": "Andreas Odbjerg",
+    "year": 2020,
+    "cat": "danish",
+    "url": "https://open.spotify.com/track/7iuM7vnvSjX9qqcuFtij1T",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nM1WQWoEMQyTh97lH+z/nzU/kF+gouxSaHurC20OCQ6MsCXZmTK+rrm+XQF/d1dV3QC6qk6AHR5tTHcPqRNgg/cGFOFBU41OgD0H3ZQKrR98+3m9nf3GsAz0b+AZTWAwOYydHuUC+BEOwHuDB2fBFshnoJ0eXVOa5HYbPbP1H0jjMam5eiLJtdW3GN4AoVuPFR4sQZadHdCSP9gELYMiZJhrPIs4e/ynXX7lwQOhbtoN3NzNP5iUdNhL0an9WuEp1KVuKBT+gh4Skp8Z02ivx3FJhH0qox0eDItCkgzoGi/kKbI8rbOdB+nfxszgdK928yB6Ht50ag6JWvqFTM1pNTsPnJZ+9jHKmfVplC1/GSoU7piaB/Ja5Yfn+5FTjMra/x/AnNN1mt7qSzB9+3rj9v1BpMozSeOd5Ty9XmcPcHd1JuG1y89p2vgwby/X8x6n4053KDxu5/23q3/1v/sOZaEGV2Z0TG4AAAAASUVORK5CYII="
+  },
+  "danish|mucki bar": {
+    "id": "4XhW9iOypxiiNyIMpirPFv",
+    "title": "Mucki Bar",
+    "artist": "Tobias Rahim",
+    "year": 2022,
+    "cat": "danish",
+    "url": "https://open.spotify.com/track/4XhW9iOypxiiNyIMpirPFv",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXklEQVR4nM1WQW7DMAyjjN7pH+T/z8oPqBdwYHLrCqyYCmwG2tpCQsgiRbWM59XrWwj4u1hVbVTv3sB9WAM8mDYpG87GpiZ4D6AIYMMFeOewBnjr/tkKon717ouY3A3Uj8+9FbMCpZPineN6/dxbsUrZUsB7NcBzxm8WTFC8D/qAXgBHMqAwxhOdsgnIjlO8ADkVzK3JcX7WdVMnOWma3wNlFKM/lTfcM73kjlaaV9kkTY3xqNBhBXPOr6EohZGNxGl+aQ9CUEgW5njMxwqax3peYWCzO62LbnDqz8kv3XsRPO6PR1p2N07gAEqx1DXCQ0kNHGe+sam5nhEmMo5Eae4vqVqgUsa5npH0hIsKIM2yBngrgD6oqhTPGUprPD/ObFk6Mut67vdO2cjrxmM+QkbUHMB4vubznBvHuWMKnOs5i2gKzXCCef0UsVyD+APzDTHAy60uV5jh1T//v/sFb6cALtS7LJEAAAAASUVORK5CYII="
+  },
+  "festival|waka waka": {
+    "id": "6bNB5gxFX6Q87DbQWb8OWZ",
+    "title": "Waka Waka (This Time for Africa)",
+    "artist": "Shakira",
+    "year": 2010,
+    "cat": "festival",
+    "url": "https://open.spotify.com/track/6bNB5gxFX6Q87DbQWb8OWZ",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nM1WUWrFMAyTw/uXb/Duf6zcQDmBh9wHg22wMRe2FtomtMK2ZNVR+Hic9WkL+Lu9iEgk4gTOtVgDPBSryIIoXQtN8B5AEPsQSJcyeEsNeLAr+atvv9jLEJn69r0f7ZUgEti50wtM8KIC4Lv2AO4Zv9cB+qQfNdQLaakAZblQUzwLr8Cin1BjPJgLNhB7qWF8Jan6ZmxN8ahGuRDp9ZrFBwmESjC9HMfXdgCqqqMbx0dXjs7VBbyB36IZgZy3ZbNGeAQvofhsOa4BXtQBEnWYAGQD3MN8UWrZ2RV809APAPeZ+7hcxBneskVtVvpvlJdzrbH+2B0CC2euv5KbosyG7eoGvVym1dyYkTXAe1gjCOGJiqDm/8uISGHj2BfSMlwDPPRIYCrcwW63sb/YoNv/zIl9aw3wVl/1PAHiWNWzeeg1H0A8eDJw7qlf9YBlex7neyKQHq6UDg6zfOOfz7tvAVkOZq9Rc6UAAAAASUVORK5CYII="
+  },
+  "festival|sweet home alabama": {
+    "id": "7e89621JPkKaeDSTQ3avtg",
+    "title": "Sweet Home Alabama",
+    "artist": "Lynyrd Skynyrd",
+    "year": 1974,
+    "cat": "festival",
+    "url": "https://open.spotify.com/track/7e89621JPkKaeDSTQ3avtg",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYUlEQVR4nM1WQW7kMAyjjL1TP5j/P8s/oF7AQgraQ7un1QDbBE4iAyFikmIcxvejzo8p4P/NRURGVFYWpsAOjzaMlxLMKbDB+wMEEQ5AhSmw50BBuFjv4pRU1av0FjwLiV5vE2jt8IY5fpUF8O70cMMwa0CnOAu8g0wEC8TFRXV5FniwQYsQZJgStfQfkKj2S7NZye33STbkvhL9cBZ4B4GMcDdvuZ245s82TUvzddjxhw4Dzk2POFu81vThsHW2d/w9FrEs9kA/nRUeOEPsk/KevxGis0WC3sAf3EjNH411f2S3RRYCt5AdCGeBd3Av9WRW5vQe1v5DizstJ+/50+NiDnlv8IunzcbPaE2048+wW5MQku7EPyu8iEhmm/ACWWs92PFif6546T+YLcZw2H8kLvPgzJVlokCparsf6iPnD3Lv6x/e/Rt/6uTrqF6vF92wkwgNyRm7/caPqV+13/0A8yT/I1gGZXEAAAAASUVORK5CYII="
+  },
+  "festival|we will rock you": {
+    "id": "2ELSVi4kwWOXgxiIC592tJ",
+    "title": "We Will Rock You",
+    "artist": "Queen",
+    "year": 1977,
+    "cat": "festival",
+    "url": "https://open.spotify.com/track/2ELSVi4kwWOXgxiIC592tJ",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaklEQVR4nM1Wu20FMQyjjddTG9z+Y90G1AQM6ENS5JV6QOLKckHoQ1Jexu/T++0J+Lu3tVZ1YfXqPgFmeHRKLtGoJ9gDvBewCKoKIE+AIV5OtUAE9CM97du8Fm6N8V6AUUXgRqkSYIK3vAD+hA3wntVrW6nzRusEmODBlAhBDKwCuEd4omTQtClYUzwTBOnkBpEc4pFJ0UgT6dS/B3gbuPsCyoTVpZ7xD9bpIcUohNHeHuGRoXSY4sPE2Tw2blktdlfLJ909wFuOB9zlSKOIhkf+jAhCJslzk2b9e528YoAoQJcWh/PFo42YdEY95B9sPQoBKX1AvyaiDz06mfYPoV50JutYzLhe2eF0aI0YzFgf35WeeQRzj/ByjmEdT8UH+ofQxTSYuqf6zZegVq+sj2Q3/W9gVRavQahXY7aPnrfKSkfFVD/yP9CFK9RZ4nCf4+y1kxdx1uVUb0E6HHTWZnQy89O3p3/13/0CFlAHJ7z6IGwAAAAASUVORK5CYII="
+  },
+  "festival|you shook me all night long": {
+    "id": "2SiXAy7TuUkycRVbbWDEpo",
+    "title": "You Shook Me All Night Long",
+    "artist": "AC/DC",
+    "year": 1980,
+    "cat": "festival",
+    "url": "https://open.spotify.com/track/2SiXAy7TuUkycRVbbWDEpo",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABWUlEQVR4nM1WwW3tMAyjjdypDbr/WNmAnkAF5UOB/498QGskgZ0DI5IW49X4d5z93yvg996ttQqFdRbOXewIj23KJRJ1FzvAe4BFTwoq3sWO6vM4OhJf1Kw2ovo8iiwIqg/gNarQ9aJUXiDBW72AEXDGAfgmeOgZaIq6c2V4lIiG2BKU44GQwGaLgh87wHss3pcf53hig3dUn+iN0i5SIGK+arFti6Sr547wejS0vaB5p3g02hhr4o2Yr3zRZGWT4/3XJnvlI/2BHeA9wHknrqCjElhhv0FTVJNwnbkfGBNuJqjD/fJADntPad6mvaP6ZDt8u4ftiUL9YM2gdihYRqX1tcXznkYr7zc6BDQpKEd13L+OZ5irMxXK9Zt9d/vYpijtt+b11e3LT+hH/4/cx8Nf+flg4Zz3vEb9yPlANVmq1asQ5gHHCv24rdxfik7A+a1neOuPn3e/AcSVBkrTs+riAAAAAElFTkSuQmCC"
+  },
+  "festival|come on eileen": {
+    "id": "3MrWxJaD2AT0W9DjWF64Vm",
+    "title": "Come On Eileen",
+    "artist": "Dexys Midnight Runners",
+    "year": 1982,
+    "cat": "festival",
+    "url": "https://open.spotify.com/track/3MrWxJaD2AT0W9DjWF64Vm",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nM2WQW4DUQhDzVf25gZz/2PNDcwJqEyqLlJ1URGp/ZuEkfLiAQw/Gq+nzrdHwN89i4isRFRUTYAdj92gUiByAmx4DyCIMktXT4AlDwDzBnjn7357fuTVU+B9vYPXyATyRmoCbHjRAfArLL/2WfDQc9C0OPq7djxKhCC2BO15ICSw2aLQzRXvYdxVfNb4glvmLPXR72mR9shSHwxiuyySmtA2f09dbag7R1t9pIsxfeP4Dfra+ZPMQq95dNI46SPpPzgLXvR4zG0ilB18bf2mEfWZR8/Ws+LJnqCmGIRNcrb62OaRsn13+Ztnd8KWk8dp7eaf/eacuWNAG2U7D9x3V+Lyh2u9nQd0/jRT0DXZ16NtNDPd1nseALqukzv3oPb3g6wKlNLqtvcNRKJz5ioqCnrDPg9Ls5fTS/js9AFQegcTISz3ObxzPbJ8Zv2u96WbxT3YHqdvmH+v51/ddz8AgJUCxjnnJ+0AAAAASUVORK5CYII="
+  },
+  "festival|i m gonna be": {
+    "id": "67iAlVNDDdddxqSD2EZhFs",
+    "title": "I'm Gonna Be (500 Miles)",
+    "artist": "The Proclaimers",
+    "year": 1988,
+    "cat": "festival",
+    "url": "https://open.spotify.com/track/67iAlVNDDdddxqSD2EZhFs",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZUlEQVR4nMVW0WlEMQyTQ/+VDbr/WLeBMoGK/MpRei209UEDj5cYIqRYdlLG53HWQwj4v1hV7QNgV1UvMMOjDRTOobx7sQZ4L0ARGxs+G97FMR4A3niwf7t3fR/bZ9/hMMGDaROElUk+TfDKBfC+PNG+BngLtgUBuB1cizXAgwnQgGWHKD3SuyBSoLArrhZmfoYpQqli02E74xedtASJQqpjll+YBMORDSpN+YViEFu2rTm/HBoU5R3QsN7OUewXsMie1luDsBPCmGeq99Ks+FqRPT+/+ERtxHCc5pegUyGBvDK9RnhOvxK7ccWAY35tmCu5ZuSvGZ5j6fwu2Ln/IBa0TyZx4prxY5oA+d4Kx+eX0XdIUJNtjf3M+FgxYJKjZ9xvjFS1dI39zFRaPN2u0TPuc+D2mp71h71f8GP3v/BL8194HOvnMQs62Aak3O6Y5xdNLWeYNj17X3148HYv/M+37eN4A5QC95hBmUtmAAAAAElFTkSuQmCC"
+  },
+  "festival|mr jones": {
+    "id": "5DiXcVovI0FcY2s0icWWUu",
+    "title": "Mr. Jones",
+    "artist": "Counting Crows",
+    "year": 1993,
+    "cat": "festival",
+    "url": "https://open.spotify.com/track/5DiXcVovI0FcY2s0icWWUu",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaElEQVR4nM2WwY3dMAxEH4V/H3aw/ZflDkYVMCC9uSTIIeAhEQzDMuBnjkiOFMWv457fXsG/excReZMguDNhx1MVOH1FvpOz4H0ghJLEqZmw5AHXFwT5V9+eP/KgxbqD2/OKTMQDlT1hw4uKUfo9Wvaz4VEzKFl4nr3jyRaFVa4hesdDdqFSWaZvZ8WzSpQKu4S05TVhBHuiXcb3gUfpm8V1Ohp6VvGVVHSMkxNY6/XIrCphim1+m4RrqqYkr+vvjatsS+ofnAUvKh/ar8CXNHyt+u0zGPR8tVnVGOBZ8Ohi7h55PcG1XL+DKxO+2mXc67etP0/tFeoelpf19yGpqJvW/bmHnGV8VXqNgPasdX+gcakxhU6M9/4MHdp3D3vpp4yZqq/Wva2Xzm1cHu5DR7fb397zgYlClxvddmfHY84F4YvfA8JZ8M7cjbtiBrrT2341ljXU/f57uBHko05LJRk7vfGfn3d/AKa88LddvKmwAAAAAElFTkSuQmCC"
+  },
+  "festival|don t look back in anger": {
+    "id": "7ppPZa3TRUSGKaks9wH7VT",
+    "title": "Don't Look Back in Anger",
+    "artist": "Oasis",
+    "year": 1995,
+    "cat": "festival",
+    "url": "https://open.spotify.com/track/7ppPZa3TRUSGKaks9wH7VT",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbklEQVR4nM1WQW4DQQgzo9zND/b/z9ofmBdQmUSVmp5aDu0ckjBKHAPGSzTeT51vV8Df3UVEBoCMiAmww2M3mJlFagJs8B5AEAollUgH2NcgRCmQv/nt1/OYV7EYjRfgefvOD+9aYLFQlRNggxcdAD/DAnhv8NA+aApoTqBdvhkVgkzuRjrps+PH7qYaaBACV/weKARMjyghU9eWn6hWN9SCpF39nK/TbFC0XJb9QJuRG+w2A3t+AtnkvNPy0U7PqZpPrBRSl1Z+CicLmRgFkev6NSG6u02Lpnf6s4hlEE1HTFS7eZPQBU8aIj0gWPJrTZrj9hK3/JiXhLgLjQKx9gNzcgHtgpK2/XCacH8tHetGOzyyMaMBC8Z/cPb+LPoJZ6br+cXz+TFiJu1dZ4XHcSzDDb+lP2PAxGftZuC03w+uKpvCaGe7Dz1Z4rZhRXr8zg6vhbtARUvwTnRWeBWBa1aXKjZyx89b0Nv5V/vuB3AZBAccQpYnAAAAAElFTkSuQmCC"
+  },
+  "festival|common people": {
+    "id": "3SzP7yEGRSbfnkkNVMxxYa",
+    "title": "Common People",
+    "artist": "Pulp",
+    "year": 1995,
+    "cat": "festival",
+    "url": "https://open.spotify.com/track/3SzP7yEGRSbfnkkNVMxxYa",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABV0lEQVR4nM1WsY0DMQyjDumpDbL/WLcBPQEfVFJ9SgX4NwwDdkFIFCW6jN/rXB9PwN+9VVVXnT4NzAU7PPqV8vMUei7XLuZqEA0YR7lgz4FAoBDUr3DaOveBqDXeI3m2JsLkbezqUS4k2fc6AO8NHpwlSRTfl2uFRwEUDVswwSWeRdNhEEHFNr7ZCpZHNtv4JFuGOYBe42HAJFnD3haPlBggTJjL+pYLxN28MxKm9c4yPkCkSBMSuObvRWLoA0Du8r1GKCXidCXEs5sHMCxCni6JDNf6S7KZLCmtscwX0XNAxVcva62XSIVzAk1orRflnO5AWljLea+Wjg7SeB1BX6v4EEGn0TiT0Ov5Z6cgCtRs7f8HLAB33+i9numMqelgfGM+M2ApsuK+XOuvz9suD2PptfPLx5wql08GYOv5Bf40bhT/2PsR8j+IxcU5xz93/H08/av/7g8l9gdv5KdTVQAAAABJRU5ErkJggg=="
+  },
+  "festival|all star": {
+    "id": "3cfOd4CMv2snFaKAnMdnvK",
+    "title": "All Star",
+    "artist": "Smash Mouth",
+    "year": 1999,
+    "cat": "festival",
+    "url": "https://open.spotify.com/track/3cfOd4CMv2snFaKAnMdnvK",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbElEQVR4nM1WQU4EMQxzq707P5j/P2t/4LzAyF2EEKwEIkjQy0yqGSuJY7fL+Lh6f9oC/m5vrVW9ulCNE2CGRxslaoGoBJjg3YBFsAj3gmvxV3ogoYqqn/z7ZE/sBhv64rtv1WuEC+ES6wT7yXf7m3vLC+Bb2ADvEzw4CyYoPgLN8GiThOUDijGeaFjhIm+c4mVWFBU7aEl0D/Fsp0weaHCEdwvHIbihdjXv12heYPKwaqV10DA/BA8IkJX+ac4vFJKptDKIe4B3Q1fcBa3IThz7gdiZFl0F+boP8WBEH/KxFiN171F+jLdglcUYa0/zs0xCMpOn5n4ACQYV3Sn4e+6ncDgmSs2pPmCJkW9mZe5XiOulzpjfme89wsuKcgEwOU7nJVeC+0JE16gkuUd4zJWA12EF6vH8MRYQO9URr8Z+ddoWzBj0b/jzWU2hHwfxxvS8VMbv8Zifb8gEMgTj6HhY77sL7+vrf7rvvgDQRP5gHZUMdwAAAABJRU5ErkJggg=="
+  },
+  "festival|yellow": {
+    "id": "3AJwUDP919kvQ9QcozQPxg",
+    "title": "Yellow",
+    "artist": "Coldplay",
+    "year": 2000,
+    "cat": "festival",
+    "url": "https://open.spotify.com/track/3AJwUDP919kvQ9QcozQPxg",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABcElEQVR4nMVWQYokMQxTQt/lH/T/n1U/kF+gQak5NNss7I4bxhQhCZSxLVnxMv603m9XwO/drbUKq6sLuA974A+mTcKGs7Gpib8HsIhWwV1wLX6mBkIV9bN/X+1xVqOb6OI5bbzb/vc7C1jQRVnnsAf+lhdwhxVrgNcM3xhkHJxz0Af4QlgywWS8Z/5E04KQHTjjX+I6bA7I34HuIV8UGNzlJaTp9ig+KqBIChS0ZvludIq3SKz673//hq+kAOuUc44vTIjMOsZ3o8Ek2hfAagz7DQZlMqzJJojsUXwKSaIuQHUWTOOzIwgWGUTm/aFAcprD1lwPeNh81E/CsH6PaF518sSTqEj+nsUHp4biEYW5XuEQ5XYKcKxXsfNsxNmR1D2eD7wAmY2KQu+RP9poP42CoDB6D/FgJFAUQ+ux/sVo8nreY8In5oM8w75KT3CY7yOMqXYzGy1Qo3kSITHPFzEIEYf99jLw3q/mL8627/YFZYsAzBp1X9UAAAAASUVORK5CYII="
+  },
+  "festival|take me out": {
+    "id": "20I8RduZC2PWMWTDCZuuAN",
+    "title": "Take Me Out",
+    "artist": "Franz Ferdinand",
+    "year": 2004,
+    "cat": "festival",
+    "url": "https://open.spotify.com/track/20I8RduZC2PWMWTDCZuuAN",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABcUlEQVR4nM1WQWoDQQyTh9zlH+T/z9ofyC9wkQM9tIGGOtAugcRmI+yRLE80vj51vqWAv8tFRFZUIgsTYIOHZjehbrRIB9rg3YAgiEQH0Bl8xxlUCgnqN/99lmtUgXX/6b2Xci2AqQvQIzjP33spFz42foYF8Nrx6wdqmNoJtNcLibZkTMkWr0VrDwL9izv9YXqVp9hYU+hZ4N0gVFegK7sY5uas6qPkJqWGD1Lrfodgenq71Ws8sgFJRtYb+KUrxFQH2WK05ZcgBDX9tfQruMfH8YFqWoVngXfsAsmrslB2maW/YAbXPXtOXOS235bs92gO8tIPDjLte9F1CVW2rrOqj2NXD5sZeWvJR3gN5ZUTm5Czqg8ej9G099FWz2cG2NsygDvbBZ4VXkSkl4ga12NpnhUeu1EMr3RAVvRZ4MGyoyXoUTPi2q9gx5rJ5XiD3nDnIoqqiyi9435Q8mDM1fK+42NAOB/bltfwqt/45/fdD5vmAGRAOKj8AAAAAElFTkSuQmCC"
+  },
+  "festival|chasing cars": {
+    "id": "5hnyJvgoWiQUYZttV4wXy6",
+    "title": "Chasing Cars",
+    "artist": "Snow Patrol",
+    "year": 2006,
+    "cat": "festival",
+    "url": "https://open.spotify.com/track/5hnyJvgoWiQUYZttV4wXy6",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABWElEQVR4nM1WsW0EMQyjjO+pDW7/sW4DegIFlB8pkjSBDkhU+E4uCEoWaUfha+z1bQv4u72ISCQCsfdJ1giPVYBSIPMka4D3AoKAGSJ5kjXDc2gDbFA8gbeTMlYvGOIVMqG8QaQTTPCiAuBn6rLvCR6qA0VR6n/N8CgRhYaD5nhoIBZLFLys4fky3cG9iasPeI34FUumKUHsute8f3DfJFHj/snUTvOEIsb86MPoUYEgjfmhJFdtmqwh3sLFTETP4AXEXL832vog3KnfcfkhSsagSBdLj/ea6QPWSL09Yd4/iadMtvDm+iiTK9Gio+b1suDRK091meUa4L0gts1ffdAQZ/7cRmpTOC6Iud4chIflGX9BT5/KbWwta/4+yBsbW26fpu8NhG9LNw7YsaEH7vOsgPxJ5Azv7CnM7lLIVNcAD8UWiHpUnIzvy1YuWXZ+G/UIL/75e/cD7//3Gvj7+osAAAAASUVORK5CYII="
+  },
+  "festival|chelsea dagger": {
+    "id": "1bCmvezFg5MRcENzCGG1Cy",
+    "title": "Chelsea Dagger",
+    "artist": "The Fratellis",
+    "year": 2006,
+    "cat": "festival",
+    "url": "https://open.spotify.com/track/1bCmvezFg5MRcENzCGG1Cy",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABa0lEQVR4nM1WS27FQAgzo7c3N8j9j5UbmBNQmbxV36qiUouUiZiFxc9movHd6nxcAX93FxEZUYksjIMdHrsBAVlX5jhngfcCggCS6BDTzlnFZxMIRCPHO/i086O7C/ddKKe9xHsBjRQKRKLtYIMXHXCybyuA9wYPbZMgNt3rbu3wKIDNhrphTG37wS7coYwiajkv6Pa0TL49ldzFhzaSiOYk3VzjuWaE1NMRbfEo9QA5VINqOX/02PEeDpe40z9nO5/LB7SW9Qvzw9IyijD1rN38iTQcKoJN5o6/aLXb6zXic5vvy8fNCo0oTHfOKj4+SK5fq6W1HlhSjGXaCUt9ORa9fCamC+z1fkOl0mJfKURCy/qB7zxBC0xv+Wt7qjcSs+TveZ4EZsadhfQGOav42E2OUFHOeD0vIOmRmeXL5fyd55e4eBGQlvx9zanM6vI7IXT9Qv00LLFM/8I+AujambnuyFbvP67+1Xv3C8m351hpKJ24AAAAAElFTkSuQmCC"
+  },
+  "festival|use somebody": {
+    "id": "5VGlqQANWDKJFl0MBG3sg2",
+    "title": "Use Somebody",
+    "artist": "Kings of Leon",
+    "year": 2008,
+    "cat": "festival",
+    "url": "https://open.spotify.com/track/5VGlqQANWDKJFl0MBG3sg2",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYUlEQVR4nMVWQWrEQAyTQ+/yD/r/Z+0P5BeoaHYLpYVCcaBzSWyIsCNLnjK+n7l+pID/y1VVD4CurhNgh0cbLMzwwU6ADd4bUESh4Wqxi2s8ABwNQPSfvr1+yU03Hq01HkybeYo0E2iDV640+nnS9WNXX07Kol6Blv0CNGEFM+/a8SFSA6FrBggj1wKvPEAbBbhcxHi2/NICJEomuOMXxunYoA6q9nxY8EGzLGzriwVIEIxT5JZf9BxPdTQ8eN/qLfLIMIcMiEu9Idymz1Arp20t62N0llnJxISda4VHhJBAIhJe4r1FYe1C+R14GuC1qg+g6EwMYy5rPpgVFDONZdF3/D8xlhWF3MAvj98zkInX+s05JQb0TOG1wkMIwWsASd7S72lZoWPvLyB57PTsOe3wnrkRs83jg33H/YActLtRD2qL55gp2llyzg3mWvOLp8mcHbL1gy8X3rwu73935z4AzzcBsi7b15MAAAAASUVORK5CYII="
+  },
+  "festival|we are young": {
+    "id": "5rgy6ghBq1eRApCkeUdJXf",
+    "title": "We Are Young",
+    "artist": "fun.",
+    "year": 2011,
+    "cat": "festival",
+    "url": "https://open.spotify.com/track/5rgy6ghBq1eRApCkeUdJXf",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABcklEQVR4nM2WUYocQQxDn4v9V92g73+svoHqBA6q/QhkAwtxIOmPGWxmhG3Jclfz63PWlxT8u1xV7aqzzz7cgBmeusGw34d9gzWruTaw0XPKN1gzPMC74ch/8t/f5R6d9/Dqu999n/uAZpuyoDoBE7zqAv3UHuid4NF53FiWdIM1wpNBVgeZFhrhLUCN3nLto0vyGtXXNDJWt6XUukZ4mMyv7/Dy5Rme26htd9/pjeuTW6E3hNia8Vtdgnf3yZpw6Jn/Xb20hJQNCSUe9ssFdUiJdqZ6ttRyO7K+hXq8byIkIyLD6X4czms2V86Kt65RfdzK2gpiVOgpHw4VGaEivxneivnFAg3PQTkga4RHjseJk2LqMPWXz47jM9cJ+y/oJWgxhShxuL/cpYjyPsUXptf8/aAf+RE4Y1yj+pTysh73mkc2a4ynTqdx/bCyBngf99ObEwcU5Wfab8de7hFO1/N7xDUW4oC5w1O//5L6r953fwAthQeAy3P2vAAAAABJRU5ErkJggg=="
+  },
+  "festival|ho hey": {
+    "id": "0DwClY2t9YAWHBROMIgrXb",
+    "title": "Ho Hey",
+    "artist": "The Lumineers",
+    "year": 2012,
+    "cat": "festival",
+    "url": "https://open.spotify.com/track/0DwClY2t9YAWHBROMIgrXb",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXUlEQVR4nM2WzW0sMQyDPw/2TnUw/Zc1HdAVKKD3lPdu0QKJsH8aYAlSomSv5t/Y13+P4PeerbWq1q5dm5Mww1M3G6hdVBKGnFchConlJMxr8NCw5frBf7/H63zeLBdPdX0ArymzUGqYhAne6sWBescGPRM8OuHGsqSTXCM8GdRquk0LDfHawTJG+cWYX5DACj8x5menhrQi2nlfIzy6ST+crqh7yk8Ewzo07Q/wU6xiBwvP/dIELq/o1lRv2hvBaQqxoof91ZHpt601xlMToYE7NRz7L11F0av+iJ+bM8NnN8SG1wDvxW2ys3pDPTeY6X6xzpidOWmP5yOrxemF4pzxfiHL5Uxxqhj8a4SXOFsmM5It4yE/TmvfqqWh3ldUFl34jvA1PC/JiRFaMUqoDv13vb92SxV+IXuN7wcudgx9n3P9mvFrs59quJV71rR+p78dD2Y2pvtv/fH77hdU9w9TcEzpxQAAAABJRU5ErkJggg=="
+  },
+  "festival|pompeii": {
+    "id": "4Ub8UsjWuewQrPhuepfVpd",
+    "title": "Pompeii",
+    "artist": "Bastille",
+    "year": 2013,
+    "cat": "festival",
+    "url": "https://open.spotify.com/track/4Ub8UsjWuewQrPhuepfVpd",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nM1WwW0kMQyjBvunOtj+y5oO6AoYUIs7IMkrUYDEDy9kzBKUSMku4+M616cj4PfOqqoLQFfVBNjh0Qa7+5CaABu8B1CEDprqZgLsa1CgVIK+8d/36zG7UA5cT3R9+OaLZxZIHuA8lQAbvHIB/B8egPcOD6/9NJP31s8wIcjJUzYlalk/0uhDgNUHz139YE31ZNIKyR0/mIIkGzI4mV8rPKSEIKigSVs8hx1MK9Ls8USSoAWTDO61wHvgeeK6PlS8nY67lvwQH8d7CNdtviREM2aOLHt96RHFVLoDa31NO4CxTgTR1i+IjzPtI+66fpj6hR6H6p6fknBKF6HX/atpjehB8Qf05csoaZGZNHt9M1tilrHOun8x5HKHJF/qJ/LloOZ5kJ9rh4eQ+nfHbfvjmv3ZmQi0dXv7Hpp14wburkZrOa+YlvDM1VRv3R+YKaC5lvJ029Xv9T54t/7Ue/cN14IJ2G6VQHoAAAAASUVORK5CYII="
+  },
+  "festival|take me to church": {
+    "id": "3dYD57lRAUcMHufyqn9GcI",
+    "title": "Take Me to Church",
+    "artist": "Hozier",
+    "year": 2013,
+    "cat": "festival",
+    "url": "https://open.spotify.com/track/3dYD57lRAUcMHufyqn9GcI",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABWklEQVR4nM1WUWrFMAxTyvtXbrD7H+vdQD6BhtzCxvZgj/nBFlqamFbIlqNmGV9HHd9CwN/F1lobqzZ24VwcIzzaWKA2uHcWmODdgEWwNlQL3osvqYGEvaFfffsgJlSBP7/3VMwCNnQHuHtxPH7vqdjywgczFMD7BA/OgAnKZBaa4dEmk3VahcIYT3TKJvQMHOMZSgVN0hzzQ1LMTSv0xngONUjmyVDDfNkSW2AYaox3shMuVeb6thxM/0nilB9EEoJM9FxDPHYNwzEMx3gMYjqlfWaKd0Pt+POC6w3wAkf+AjuU1ERTxrEfINuCSuvF/PgKf0mbxGbE+f5lp5zLF91jhIdkm7qRne60XzKYyuH0q3E/tytLbYOB1FwPh1bkiHdpqgdpSC1udrBegOfYjOPVw/od52OjqFXsX/Exw7NQ92oLzBlBmOuLlC4eE5mH/vLpwHtN/9N59x0GVwtAg2X5ZwAAAABJRU5ErkJggg=="
+  },
+  "disney|baby mine": {
+    "id": "5LLc5PMYsumWanLvgr7DCB",
+    "title": "Baby Mine (Dumbo)",
+    "artist": "Betty Noyes",
+    "year": 1941,
+    "cat": "disney",
+    "url": "https://open.spotify.com/track/5LLc5PMYsumWanLvgr7DCB",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABa0lEQVR4nMWWwW0EMQwDqcX+qQ6u/7KuA6oCBfQiQJA8eUD8uFv7MZAsinItfq+5/hwB/3dWVY2angaezRXxuIsC1Zhub5DwbqAIqLHVYntzRfF5EUKDcMqf4Ikz4EAx7wYWjYLwAp/NFfBqy+l+rwH4TnhYLyxBLemNMh536US1B4qUd0Ar10JckBGvFtOworHWHmaj/r2tPg2w0ztAh3rGHtER0nLpiiisB+QCr+gukbL7g0UCg1xhFySOT7CpOFNICuuLhfhkahmKG/N4ctbTIWKaL4yCxwglB6uMJzecno9DVtpvIB2mr05SxrtR2mnUjrsELyj0Uxqy3TZUtD7h91Lj3Q6P7Lh/j1CsaTdKqr/rtNkLW2VzOcZ1RbyqapX9BeOhmdXjeR+A7eEraCa9P9riT3d4jCD0q+v8Ety3teJnAj7y5iqq3jyj+IrnpQR6zj3/V8TDeR/YCOzT6fy9D/AHO3z/ffrsC4hf7Zas4UiIAAAAAElFTkSuQmCC",
+    "source": {
+      "type": "disney",
+      "name": "Dumbo"
+    }
+  },
+  "disney|for the first time in forever": {
+    "id": "70b5Sq3ePOu3Gqg0hjlOtR",
+    "title": "For the First Time in Forever (Frozen)",
+    "artist": "Kristen Bell, Idina Menzel",
+    "year": 2013,
+    "cat": "disney",
+    "url": "https://open.spotify.com/track/70b5Sq3ePOu3Gqg0hjlOtR",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nM2WS44DIRBDDcredYO+/7G4gTlBjVzs0soiUy3NsEgAJU+mPoaReB973raAv9sbY8QODAzsWqDHYyYCQ6GNWqCpeQS0CQRRC3R4r/PFhcX4XssHXghEaGQh5/1n+GIvBV0EFhReoMMbOQAH7gynZHV4yDNkJlnT2eKRpOQZkkl1eSIkMJmivFRXn8BEKpUW2eUhIdE48YnzQiTETAeRyq6+hCqG7lzL7MfPx7SypIxWM79IV4rE0tqPX9aJC1Uq1Y0f3RzOs+ulHT+4N1hhdFGznQ9UtVikPOvxXraU63yAx/RngzctcAncsOeXzcwGDw6ZjUrVw9Uis8VTulCcWxvrA/4HU8oCD1N9f4Z8ZJZv9XjnfSAktgsxfGnOFo/ukNiLe1tn835DZbfsyiLhVp4tfR5LsUHskoo+Ly5cG+T4xX/fRrp3y67s9Xzg/gBIX0jORWF7743b1r967/4APi8Lc1IUneoAAAAASUVORK5CYII=",
+    "source": {
+      "type": "disney",
+      "name": "Frozen"
+    }
+  },
+  "disney|lost in the woods": {
+    "id": "3UQtRPwQcYLT0ErH6B8Dkm",
+    "title": "Lost in the Woods (Frozen 2)",
+    "artist": "Jonathan Groff",
+    "year": 2019,
+    "cat": "disney",
+    "url": "https://open.spotify.com/track/3UQtRPwQcYLT0ErH6B8Dkm",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbklEQVR4nMVWUaocMQyTw/7LN3j3P9bcQD6BirJQSl+hpX7wsjCLw4ywLFtJGb+vOZ+2gO/bq6oeIP91A+zwaAODocW+wVngvYAiGoSm4S5+RQ0oPGij/+PbP+59TDeK+tt7/8LXiB6eD6gTYINXLoA/wwH47PjaTvWA58E7OAu8V8hSBU/SrEhzFngwaYsyoHQNrB2eRAQNZn5rPFuWIFEK7g7vhWlC5eKDFtKBZ5Ufr6aUAJEGl3wpE1KEcCTe8c3eSHxPhqClH8BhSQoyb7ts+SqYl3SacNt/J9NbcVTxIfSx1tfJD6ST2vXCs64fIm/mzvCe7zwZ3lI3kMdZ5UcG7bZ1um+vx8DsePNAMVSs543R48pyG+is8LLemBGZe30RT77zgUzKNr/kxtClFGnW/pLaxQhi9/EsfcV5Tjx9m7rX5/kt4KA9/Z7ks8vP1+Xbk8mrdX5TYG5VZRSUK9EO75cL7z01v/Nu+3n9ABCk6p+CVfM9AAAAAElFTkSuQmCC",
+    "source": {
+      "type": "disney",
+      "name": "Frozen 2"
+    }
+  },
+  "disney|beyond": {
+    "id": "5MikdNoopw1iUpepY9Gt9i",
+    "title": "Beyond (Moana 2)",
+    "artist": "Auli'i Cravalho",
+    "year": 2024,
+    "cat": "disney",
+    "url": "https://open.spotify.com/track/5MikdNoopw1iUpepY9Gt9i",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaklEQVR4nM2WQWpDQQxD5U/28g16/2P9G8gnUNGkdNHQRXGhnUDIDOQh27Jnyvi65no5Av7urKp6GjWFORvseLTxplJrcDbY8B5AEfcQBMvZYMkDwB7cBPtH/72+5ZVAlMf9Czyj1QbU6myw4ZUL4Oc2Jbk3PPisxAulvLZ2fununig7QefntdIHSgZNi0K+rhXPZDJo2UbI2vFkSrQskeQyfzBFQuFISuxa6mOUQafIgWupjzwcmZT0C/mzkOwBB7mNN1aRZQQZQ2vpF1gZfMgncrXUpw/XxCzc+w/PEjM1fvrmWvEc0mkTn97b6XsA00Zl0HeGTHM5D2ieoXBaLtbWtj+UkeCIO0FrqQ+BJHGpTRrlWvGyMpoTd1y44z3fBxnNEyN2rsxrxWOeBJqbM8eB23mf/EHk807KZLhW+rLUM7kt4+rteyirAQ6du3idP1jptkFNAr615E1VRBnqPA96+954OfpX7913sn0KzsSHP1sAAAAASUVORK5CYII=",
+    "source": {
+      "type": "disney",
+      "name": "Moana 2"
+    }
+  },
+  "disney|i just can t wait to be king": {
+    "id": "5iA6APikmuIeaAe9MMluny",
+    "title": "I Just Can't Wait to Be King (The Lion King)",
+    "artist": "Jason Weaver",
+    "year": 1994,
+    "cat": "disney",
+    "url": "https://open.spotify.com/track/5iA6APikmuIeaAe9MMluny",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZ0lEQVR4nMWWwW0lMQxDKePfqQ5+/2VNB1QFDDiTBIvNaaEF4otHOjxQGlp2GX+vOT9SwO/lqqpR0+jBE5wVjzZKVIPoBNjwXkARaEJTcCc4K31ZlNAt9R0d/Fznn3J610Sk1rwXYDQg4H3hCc6CVy6A3+EAvHb6fFNRvN6Rt/Zzp3FVviBMT+36B1M0LQj5Aqld//pCGwU43sN4Ve8LeHCedj0GPCt9AxZ4AexbHVf6YMgm00HCMHb9g0ORpcBEwVueIAOkzVuqlvWCIAJlNm95SsGUiCC11sfogu/RYu154GcPg3KYZ8VTDhosf7VRa/8p4iQh7LVfcgU5dknZXuuj8y+cKcOn8rPiIRQhTs40Xf/fLKTm+4wEftbvA03MjEGn4rPiMdrenceBoJn1vE+Zj2Eyn7WfV2kbGetB2/69nm04FOa5iM9On52zkc255Nb+uwfgPa2QA7fjPe+DP9jL99//zn0Ayqb3DD3ZJ0AAAAAASUVORK5CYII=",
+    "source": {
+      "type": "disney",
+      "name": "The Lion King"
+    }
+  },
+  "disney|be prepared": {
+    "id": "4vksWgM7iJ6YiSBR4tYEna",
+    "title": "Be Prepared (The Lion King)",
+    "artist": "Jeremy Irons",
+    "year": 1994,
+    "cat": "disney",
+    "url": "https://open.spotify.com/track/4vksWgM7iJ6YiSBR4tYEna",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaklEQVR4nM2WQWoFMQxDn0P3yg3+/Y+VGzgncJH7u2npovhDO8OEJAxCsh3FUXx97vq2BX+3FxF7x913X3rBDE9VkPC4m92LNeMcm8uG4qYXTPDeeqwQ+Pstlx/wdu7cnOfe+v4bv9irxK/UonOGFxXwKRQu6EzwKD9ZpKqkXqwRnhKUKqqSEhrjqT5i2DNN+RWFsvWmIznlR1IpHDxZ8BSvSqTIrMascfyc1MwOXr4gv0idi0xUcpbXjB+WS0slcxw/sovGUg075LfgoYojbmyTHfrpG4V9oId7D4+ZH9DnzK7SB/kF9axqUFzSPsHjerG7VCory8UzzYcuwX3YZSKKM73fYPuCu+aawc5pPuTDgd3UHF/gB1UfXtUWM45fuCWw2hOHnq0RP/W94QyLrp2c+oGELSbdarls1hhPnQ67vr1/DfBWj6kdeS5yuTDvD+6x2OJwh/0QHTR7oB1w7n/tV0/Yz/E/9bvvY9cDBBxE1YwAAAAASUVORK5CYII=",
+    "source": {
+      "type": "disney",
+      "name": "The Lion King"
+    }
+  },
+  "disney|one jump ahead": {
+    "id": "4iNdKVQsCUGiLCgfMjEwqX",
+    "title": "One Jump Ahead (Aladdin)",
+    "artist": "Brad Kane",
+    "year": 1992,
+    "cat": "disney",
+    "url": "https://open.spotify.com/track/4iNdKVQsCUGiLCgfMjEwqX",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXElEQVR4nM1WXWoGMQgcQ9/HG+z9j7U3GE9gGbdPX+lDa6GVkCWBFZ0fSTReo86nK+Dv7iIiE/A35oBdPrZbzkRDz+Es8r0BQajuJIj0Act8AAItBpPf+vd8eacuRks/+fclmu3VGvR80CZfdABPm44CeO/qc0AtkKa3e1XfQUbFAFe3lFU7/aHJblENAwhxV5/1EqBxM8+RyiV+ECQ8GBJa4ochwt6g6OxLvaAluTL21NdY48esvqAat3k7q/oowzcKNMdLftGjFMJGM4TrfE2JTXXTotGWj6acxIOBw4i284WeMAbxSartPOBYjbLxtvgdpMdp4i6gisJ2HrTpmF3jvrU/3KL19+G4PR8jFCtvBLPW38xni9mV2idn/T4AcFVeGvti3y9JwauBLR+09NzzxBa/M/uV4aFgl3D7HpoQCrwRWdIv4Kcx78PwFj+D5pFlwXRv9Rz//L37DuPHDz/MTlMKAAAAAElFTkSuQmCC",
+    "source": {
+      "type": "disney",
+      "name": "Aladdin"
+    }
+  },
+  "disney|i won t say": {
+    "id": "3MVSwlkvc2POFzquZ2Tc30",
+    "title": "I Won't Say (I'm in Love) (Hercules)",
+    "artist": "Susan Egan",
+    "year": 1997,
+    "cat": "disney",
+    "url": "https://open.spotify.com/track/3MVSwlkvc2POFzquZ2Tc30",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXklEQVR4nM1WsW0EMQyjDt9TG9z+Y3kDegIG9AEp8qmiAIk7GTBBSRTlMr6efb1dAX93V1Xd2NW96wSY4dHGKhC73Qkw5FwNkthCnwDzGpR6AdRP3n571yBvlMZ4MG0ShCAzgSZ45QL4GW6Aa8YvhzAPvwSa5kuAhHR4DvOFIQv0wYTFKZ6E9AKhKUuzfK/wcli25LuT8jXAe6GFwlO74q7hvL0ALNxArwYXAn8N8BADSOWU+mXkpnqx6TMeUBo81N/rmIraAdxEweP5lUSlzRELxvojcZaIAzvVH5yaxVYQWQdeMz0bVbtSN95gjf0PsZb02KLluV4IKiaTfoBzPEABVCwrDDXuB4OZ6Zj73xWCauvMGs3h/NazP5SFnrM9+788+03RcZRtDvWHNPapW8SS/mi+zx0XLMade+6nOdrkXvgFv4fz2+gE98kYU/3hbMqjwLjr8L/xdvWv/rsfryLpMQkctQIAAAAASUVORK5CYII=",
+    "source": {
+      "type": "disney",
+      "name": "Hercules"
+    }
+  },
+  "disney|when she loved me": {
+    "id": "780W6YW5HFANQLR77Owern",
+    "title": "When She Loved Me (Toy Story 2)",
+    "artist": "Sarah McLachlan",
+    "year": 1999,
+    "cat": "disney",
+    "url": "https://open.spotify.com/track/780W6YW5HFANQLR77Owern",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXElEQVR4nM1Wsa3dQAyjDumpDbz/WN6ANwEDyl1S6gPJFe9ZLghSlHgu489zz1+vgH/3rqq66zYamAI7PNqAgHq7e4qzwPsFFIEG+Vy4U5wVv5xXBC4VyWt+AJ4rNN72AJ4F3gEsSBGc2trhlQsYpDkX4LvT64FpPeneFGeBB1MARUM2TFBbPJrp4YcKL/GAaaBoCwT3/GQRJueRW36UQ0qyR/gO7+DyRvOTPLj5x3L+mFXDC3Ta2NrPizImiRZp7weAzwmbCKyW+0urXuJWZ5zvLk8RQ9O30JQiWDs8Z9PA0SuG7VnhQYwP+EYa/oF5jrGeiZ5unh0elF8PrK31/jKaQ48xY58vRgxxPPlG8azwcr6smojZ+wsweiGKEa/99wGfph4Auvv7t7IedTtXcPHd4c0NxKwFJ/XjytnxQ1IP5QnT0rPl51mRz+dJhfMD/mJ2Y7JwhVf/+ffubwZkAFLl0DzCAAAAAElFTkSuQmCC",
+    "source": {
+      "type": "disney",
+      "name": "Toy Story 2"
+    }
+  },
+  "disney|if i didn t have you": {
+    "id": "3C6f14yd7d9lxkcaFugG6U",
+    "title": "If I Didn't Have You (Monsters, Inc.)",
+    "artist": "Billy Crystal, John Goodman",
+    "year": 2001,
+    "cat": "disney",
+    "url": "https://open.spotify.com/track/3C6f14yd7d9lxkcaFugG6U",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABU0lEQVR4nM1WwW3EMAyjjfvTG9z+Y2UDagIWVA59tE8FaIMAgfIgRJGivYyfT+1fv4C/+7fWOlh16gB3sQd4MG1CNi0zhSZ4L2ARxIHqwGdxxvd1f47PKeE8NFO5CjzQE3gWQveCeLrYA7zlBfC7LIDXbH5uVCxeb3RRc7+QsGyAgkd+gQNECwJFY4wHRd+7U8TRGvJVM3Wai7qz/YADJiOozvRmeBsL8rtIrLglqbBH/bFfCIaRUNAUD0kYUqYsTucHxH6CgiwO8wpG2NIiusOxX2z0etzgU74b60hQkoUsnhrr2+um5hqNx/vWaIq2YT3fN8Qnd8wEcYzHz/qKseI8XwhKiMzx4th/eZJ/7essiubnxwXmfKscJHog7522yGY815f8GKbbm84veG3CrF1v8Z7fN6gVSd4P3Q9KuRS9cfWJucf6FlEwTgOO9F3//L77BbXWCC5gT3VEAAAAAElFTkSuQmCC",
+    "source": {
+      "type": "disney",
+      "name": "Monsters, Inc."
+    }
+  },
+  "disney|the family madrigal": {
+    "id": "01e1te6w25KUwo6mYXJXr3",
+    "title": "The Family Madrigal (Encanto)",
+    "artist": "Stephanie Beatriz",
+    "year": 2021,
+    "cat": "disney",
+    "url": "https://open.spotify.com/track/01e1te6w25KUwo6mYXJXr3",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZUlEQVR4nM2Wy20DMQxEnwTfhx1s/2VtB2QFDEbOwUiQS2ggkQ2vtYcH/mak1Xxdtb+9gr97t9YKgsWqem72iKduikhanA3DmFdAEqtCz80e8B7PR9ygX8TyE69EwOp38JoIBTdXhzdMeKvXS6YU6J7w6LNoJdny/5zxlCmaVKeRYx4iG7U6lfhnD3gPOnTRQRVc7jLD+qmfCadzdv57wNt4UE4dSXLlOL50gC0XT8jPPeIpMeZMzUk4h/Hhr1y+lDJnvG2VXRmnJRfj/q4+1mJMUuEa1thfgi6PXnZkMNSvzgjal3HSc711C1fPTX6DfjtNNNKfHM8ftoL2nGCL0ZSXcsJIOsEO9YuVdlwqPTHuSc79WejYnyy5HNYPrF6p5Zw11ZuvBNeqm7pPtrPz7QFL3IQsulqQc70RNq26r44a+6mOibqGx+3H8yfL16NyTuA36JcToLXRPpZmvM8r0Ov6V/fdD9WrAsWHdoBzAAAAAElFTkSuQmCC",
+    "source": {
+      "type": "disney",
+      "name": "Encanto"
+    }
+  },
+  "disney|just around the riverbend": {
+    "id": "3qBvrLYZJyo5MT56Jg6YAX",
+    "title": "Just Around the Riverbend (Pocahontas)",
+    "artist": "Judy Kuhn",
+    "year": 1995,
+    "cat": "disney",
+    "url": "https://open.spotify.com/track/3qBvrLYZJyo5MT56Jg6YAX",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABeUlEQVR4nMVWwW3EMAyjjPypDbL/WN6AmkAFfY+211erADVwQSzkCEukKEfjfdX6EQL+LxYRiahEFl6bNcJjNxJUgpneYIJ3AUGUEooQM/hEDZhAQvmX/35f13kKlWTyFVtv3/wy1jqH24Y9mzXAiw6An9oDuCd4aC90m2eejWZ47CadqKVCYYwntssmnDdyhBeNYogBtLWH6lH/XsiNRqAr+5Az1ctGRVEFJZPuuzXAg7k9NRTJVmNWP/PRlOkwK0bUEA/+iWxSPqVm9SuTS9QuICuH/YaWE6ZEnMyH9btABbFZZfFt9/Ia4C0gKViAAnnb9NcAD42G6TAp5mPuB5JA+4HsgJzrpSEdrzruMsM7scadO+sMzHygfpBejgqwp/3mRdcOcI+M+xc+FNoltCUM+VjnflCMG+kpZ1mv0fnoNC1CeYxA0357oab9GaE7+cD9ANHRKtuM7mm+bUs9Bn0m5rQ/zC/OBLYQzfQs3y8XXr8O739Pxz4Aviz6l5QwouMAAAAASUVORK5CYII=",
+    "source": {
+      "type": "disney",
+      "name": "Pocahontas"
+    }
+  },
+  "disney|this wish": {
+    "id": "5DJgVGikMm9NKyJO2wvDF6",
+    "title": "This Wish (Wish)",
+    "artist": "Ariana DeBose",
+    "year": 2023,
+    "cat": "disney",
+    "url": "https://open.spotify.com/track/5DJgVGikMm9NKyJO2wvDF6",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYElEQVR4nM1Wu20FMQyjjfTUBrf/WN6AmoABfV1eqQCJijvLBaEPRWsZP633xxXwd3drrUJhYXW/zh7h0Q6cKm4cDGNehdMMGK6DCd7X+3PjcPG3aloFcrE1xvsCjFIRELviYIK3vN7CvdYAzwQPviYRTHdz3iM8klQKZ4impngiZNC0KfgX8Az6ApFB1gwPhlI1S8l9Hp9FX0QKlGbxbbBwVq2+ZBGeGZ/hSxSKyRbKYY/wZAup3os9rh+chigd1mW0hvOBUDC49NuePYtPGTSRvLmP+ccoS2aDAHPSTF8KwAlN0GwePEN9UagSzkS2krhmevoAD6h+vNzhNKbxSSYSYlo81z/wZhndysW0v7EoQdgX3ZrqQVaCA6MTXnH4/u53Jag+7HA7oHtcPyRvKbvWcN72/YpYYC2bnO5DscpjDuctnu8bFnyeRiVEtIZ4vRbq6sxV/JruGx9X/2rf/QbyZv+MSwejQQAAAABJRU5ErkJggg==",
+    "source": {
+      "type": "disney",
+      "name": "Wish"
+    }
+  },
+  "disney|ev rybody wants to be a cat": {
+    "id": "3uZIfWx5ridUBQevmgHDUt",
+    "title": "Ev'rybody Wants to Be a Cat (The Aristocats)",
+    "artist": "Phil Harris",
+    "year": 1970,
+    "cat": "disney",
+    "url": "https://open.spotify.com/track/3uZIfWx5ridUBQevmgHDUt",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABX0lEQVR4nM1WUWrFMAyTy/7lG/T+x+oNlBNoyIN9bOxj+MGWQosDFbItOSnj6zrXty3g7/aqqgtAV9UE2OHRBrv7kJoAG7w3oAgdNNXoBFjiAehDsdju3/x7/bj34GFJGjgs8SxQ9wHqVgJs8MoF8DM8AJ8NHpwFT285gXZ4hCAnT9mUuMQzbVEGhGBv+YkEJJNGSG75JV3JhkJTL6ifSRgUB32drxxm6e1ocYf3BtyA2jhtoqPFa8WPUEilghEN1/mmdKMbQcS+Hww/Rsxxnrd6if7iMsdvIail/hwwjTMYntrOAyHejZYndS35MaymkuPlXf0uGE9HJepT5+mz1V+sofgsksEr9OIIJVD5vqAfNpUnI3o/DxAVZ5RmwnDPjzaZdOcIyefa4SGkMqyytv645n3nRjSNfry7D33cN6BzwMPKgD77+mlmX86PeOVa4SHiC1QOuYh6hVf//L77DlQLI7BG3vXBAAAAAElFTkSuQmCC",
+    "source": {
+      "type": "disney",
+      "name": "The Aristocats"
+    }
+  },
+  "disney|gaston": {
+    "id": "494qL09gtrLyndmhLg4yYX",
+    "title": "Gaston (Beauty and the Beast)",
+    "artist": "Richard White",
+    "year": 1991,
+    "cat": "disney",
+    "url": "https://open.spotify.com/track/494qL09gtrLyndmhLg4yYX",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABWUlEQVR4nM1WwW2AQAzznfp3NmD/sdjAN0Eqh6qP9mmkNhKI8DBxnPhYjZ9x9q9XwN+9W2vVKayzcCZBhsduUCX0wSRI8D6ARZwLBRByghd6oCN9K7Oz+hyrUceEX8BrVKFwm7ATJHir1+B8hSW5Ezz0BJqimn5WhkeJaIhWRDmeCAl0bRR82xEeSIJ0bX5AijeETVVeD/PfEZ7M2LLItJX3rymQYpusZd4RHgnDdLf31x/YYX2tueCBoTK8jQtld/EMVvHk+3tu0HalccHQrzBMPdUOsRnr4RHsx/1GFuV+JdAdvO0wRL6/zSHsiYnnD7AVSO2pNqyyeVHjRtVVJfupUn3tKW33m/V4wV/aZy5M1Tv8Qv9goLaj2gBjvx8jGMYPpsLzfBWEchvrLAuys/pglrK5uNKQ7567Tl1u5ZKdYWf1dVvWJxk33LG+bHpH2haT4a1//r/7CVTPC4loJYclAAAAAElFTkSuQmCC",
+    "source": {
+      "type": "disney",
+      "name": "Beauty and the Beast"
+    }
+  },
+  "disney|hawaiian roller coaster ride": {
+    "id": "7J2SpEpsLlEZDxi8WhS4ET",
+    "title": "Hawaiian Roller Coaster Ride (Lilo & Stitch)",
+    "artist": "Mark Keali'i Ho'omalu",
+    "year": 2002,
+    "cat": "disney",
+    "url": "https://open.spotify.com/track/7J2SpEpsLlEZDxi8WhS4ET",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXklEQVR4nM1WQWrgQAyTQ++aH+T/z8oP5BeoyKGXlj0sXtgOJME5CI1ka6aM76uvH7+A//evqk5Vnz7AFNjh0QYB3M/BSYEl5wqxA9xdmuJa4H3M+8ENtP6eyx/w7hYOZ9t7jyzIAHHqpMAGr1yB+loN8NngwVkSRJlvca3wKICmIRsmuMazR0NAdOS8VnjA9LNoiQT3/GBlp7SVj5b+ukA8ADMnaq7yBdEuHENznrV+IqKaXvn2/cKMhyLfWLP1A0KaT7aH6I7fBdxWieiqtPMyD5DJ4LRhimioLR7lTG9GN4Zo7y9j7mSD1v7CoZetIgTX/JgsCC1PxGin3wdQcBmNplBsr+cNaeicmm8Sap/PiHpMxOz1w5wfk6YiY8y1vx/wUPfE1X4+MLHyHppIb18LvPJpAu2EaSPH+rO/H+icdh/ducdgiWecfhIs/Af3Dbz+Tg9Gw22/1C+/734CVuIGpLwpicUAAAAASUVORK5CYII=",
+    "source": {
+      "type": "disney",
+      "name": "Lilo & Stitch"
+    }
+  },
+  "disney|down in new orleans": {
+    "id": "6fYbJveOjj9HfdfUHiVrzX",
+    "title": "Down in New Orleans (The Princess and the Frog)",
+    "artist": "Anika Noni Rose",
+    "year": 2009,
+    "cat": "disney",
+    "url": "https://open.spotify.com/track/6fYbJveOjj9HfdfUHiVrzX",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYElEQVR4nM1WwW3EMAyjjPtTG9z+Y2UDegIWdO7T66tVgVYPJzISQhIp2WW8215ftoC/26uqLiDPOg5meLRBdMPEcTDBewBFXKUmgI6DeQ0aT6l+9u9ne5xVaJaDG1tv33xzzwLhjb1bcTDBKxeQ0t22AV6zfH1QsTuwnuoZJgQ5ScumRA3xyOA4rATbmvJ7Fa+7iBdaPaofDFmS80x843xxNxqoCFGa5bsCeNGBM3kkvQZ4D2z3SzCGKvBrgAcz3J48U0Bxli+su3TRDPM+xTsajgBvWsb8moxkkPiimGl8tG1agsF4GurPL1wFecrHAnZiUu24TczOIySmyERKAxuY8iGmNSRnzgRfYz4AMspDBDPWX+hVdKdADucBTlBHyZkxaT6N8yVSw9Mncz6IEHHP+3n91lm70dAzXcKp/u6q5SA6B+Zv6IWyosPTc/PzI2xk9gVzOv9yC3qzf3Xf/QA21f/ZZOnvyQAAAABJRU5ErkJggg==",
+    "source": {
+      "type": "disney",
+      "name": "The Princess and the Frog"
+    }
+  },
+  "movie|old time rock and roll": {
+    "id": "2RH0sGAgI2E5nSz9CjoRxP",
+    "title": "Old Time Rock and Roll (Risky Business)",
+    "artist": "Bob Seger",
+    "year": 1978,
+    "cat": "movie",
+    "url": "https://open.spotify.com/track/2RH0sGAgI2E5nSz9CjoRxP",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbUlEQVR4nMWWQareQAyD5ZC9fIPc/1i5gXwCFc17lNJ2U/xDZxHigXzYI1uZMn5fc/2xBfy/varqqenpwQmw49FGi3oAdAJseDdQDAiqhjvBteNlid3Qx87UqAH72fPuwBot4BH7BNeCVy6AP8MB+G54cBbso/MJtDu/jrpdftN+PbU7P5hKYoq6okGu8oOtU27IholtvXXaBVZrVMOdvjBObpJsJrtdvTdYGQ5hiuP5l2+vv+ZHGzIEyxFkd37RFyKiKylzrS/AQBBWstzyRGQ4kqOS7LbenBr15VVS3q8F7wZ63E1xHoBbP0XmI9XKTNVa+gHSLwYDPBPMNe/LEpjx0JmQa8G78hAab36XmHc9H3AaBSc9gMv+uwJ0Q1WDh3Ea7O8HKibHFw3qA/cDsBnjh2bW/oL0iHA6MB2jD/CYyaXjNFs9vtdQM/GE9X3DwrxBpd55dnqcv0dKPk0Y69rNx32Av7CX979P7/0AOtHzuwCLIkwAAAAASUVORK5CYII=",
+    "source": {
+      "type": "movie",
+      "name": "Risky Business"
+    }
+  },
+  "movie|goldfinger": {
+    "id": "7r0EUONfPUZ8SD1vu4ro27",
+    "title": "Goldfinger (Goldfinger)",
+    "artist": "Shirley Bassey",
+    "year": 1964,
+    "cat": "movie",
+    "url": "https://open.spotify.com/track/7r0EUONfPUZ8SD1vu4ro27",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nM1W0U0FMQxzuoCzwe0/1m3gTmDkHuIDkEAECSq9d0r1zs+JnbRlvF97fdgC/m6vqroAdFWdADM82kB3g8QTrBnnamjfO1EnwLwGFy5pQz9597O9m5sl9Fe/+9aeBco7qCfABK9cAN/CDfCe4MFZcHiRJ9As365dOureQu898x/M0KIMCMxHw3yZFpZJS8HXDE+CLDvfgDTGixAgKEKKMmuAt1KzGwbTHN1RZs34iTzFi1/iGA31hYynek7aUzw9uUaQlHDOjxLDz5l/v+AXhpThVC8ENc3XPgQPNDXON8U7T6VVhnqsuFmQ9sZVGdHTeWDGgLHh021jPU6mJ1kdmTWsn52c4+TXP1jz+azkGTHSJ2t8PwBw7W6hc5SsET860wBI1+U50+O5H9yZCRvalYm/ZngArlyIfNG6Pb0PnaWcvHdXo2f8nvplAiqmBsfzBafjdJouh93ML/XP77svuYIQd+PY01UAAAAASUVORK5CYII=",
+    "source": {
+      "type": "movie",
+      "name": "Goldfinger"
+    }
+  },
+  "movie|nobody does it better": {
+    "id": "0iX5cr8cZN43iBUkGjiyTi",
+    "title": "Nobody Does It Better (The Spy Who Loved Me)",
+    "artist": "Carly Simon",
+    "year": 1977,
+    "cat": "movie",
+    "url": "https://open.spotify.com/track/0iX5cr8cZN43iBUkGjiyTi",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYklEQVR4nM2Wwa3cQAxDnxb/zulg+y/LHVAVKOAsckhyiz6QyIBtGTAxEinO1PB79OuPT/DvvlXVKcizbsIOTzPonMPgm7DB+4ISbo5yJWHfg0J2P3/176/xde+mpqzvwRuOUEPrJmzwagp+Lgwa9GzwmASjcPtJvOPjVJfb0G1O965eRtKMPGFFmN36mEurPUq9YC3x5LGZwYH2sn+MhMSgLNTBf63wxuPR6PK87l9N6/Qc3OfK0Dv/S31ZoNM4g/Qd/FqXEBzxeM2HFZbj/Hn3Dg9NQMJJnHXJxwu5Uurpps4wW793UzHUt8/QT3npf4UexbWuW6Gz9Stl2saW8WjNhwmQHffL4O31MoqO8wpxh9cKL5EqY4GRzlYvORI0vPuUszPt9jciYynlfrYQ1n6KlIH7pPv5SLypOKliM9v5uPFEyw/p5G4+Pv2L/G73rtO8Vnh8TPQKxmLpf/Wfn3d/AJfOA062g6ypAAAAAElFTkSuQmCC",
+    "source": {
+      "type": "movie",
+      "name": "The Spy Who Loved Me"
+    }
+  },
+  "movie|no time to die": {
+    "id": "73SpzrcaHk0RQPFP73vqVR",
+    "title": "No Time to Die (No Time to Die)",
+    "artist": "Billie Eilish",
+    "year": 2020,
+    "cat": "movie",
+    "url": "https://open.spotify.com/track/73SpzrcaHk0RQPFP73vqVR",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nM2Wwa3cQAxD3wz+nerA/ZflDjgVKOBsTglyCPSBZGAvVgZMSCJFazW/nrN/ewT/7tlaq2qdOnW4ATM8dYOhzkPdYA/wvmAJComzuhLsGR7w8sDp83fv7j/iPceUzvdw1MYubtUJmOCtXgTq5zmgd4JH57ixuqUb7BGeDGo17qaFRniboMG7XHWUgpnlZ4x8640Ih/nRNm2R5snuMZ5CRtvu20CP8eTc8qWmNeX3IiLbKNhjvXxyTPuCrmm9ofcyEauKe3mov6ddL5xVSXHop4QAic9n5DbR0/nFV4AZXTHn18nOCKnTRs/8VHoztTFnwYOn/bMVb3H0Eq/xWH8OnDMiYcbD/gncxF0+Tui5P6v7qvpenu8HxEbfern/9gDvK1VWPr9+Iug19md9SEgTL7vj+Y0LlKQqcEre4/3Aq+62IcrfsR+cjm4e3rsj7AEe1/TyG1HHUWf9W//5vvsDADj754JnBc8AAAAASUVORK5CYII=",
+    "source": {
+      "type": "movie",
+      "name": "No Time to Die"
+    }
+  },
+  "movie|dance the night": {
+    "id": "06S3WmZjpXMJIoflUL2gjH",
+    "title": "Dance the Night (Barbie)",
+    "artist": "Dua Lipa",
+    "year": 2023,
+    "cat": "movie",
+    "url": "https://open.spotify.com/track/06S3WmZjpXMJIoflUL2gjH",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXUlEQVR4nM2WsW0FMQxDKeP31AbZfyxvQE/AgP5Jk5Q6IDEOB9jFg2SJlMv4uc76dQT83VlV9anTaOBuMOPRxoeoxunOBhPeCyjiNKFquItP3AGlpKuk/ARPXQcE9ATPAghtiO/NGvDKFdr3OgD3hAdnQQZlMhvNeLRJwpJTGEx5lk0LAsWLXEMebiWQMG+ga8STEFFY9M14Ft9KdauNAzV73C8LnfDKRAEb+a8BD2mSW10Y8ULN+wVf95Zb9PD+YChVFeQrYE95usJQWkZmunCNeHbc4I4Rvbt6jXiI4JKuol7wgXowAjHz09wPIEOiJAucx4d8sZlEGOga8F7R20Zj9yZwGh7qA06jRHTXrcZ+YNgNVQHN+ALm80PlA9YdJBq+X3jdrz7Q6cIzjA9meiQWrXd4Yz/NIrn7DpF+5s2louowAw7zeSlFvDHWuX5x3wfXrTLTh/qof/7e/QRvTfuYvOvjnwAAAABJRU5ErkJggg==",
+    "source": {
+      "type": "movie",
+      "name": "Barbie"
+    }
+  },
+  "movie|i m just ken": {
+    "id": "7jPdqwZug0ovtDZsY5uK4T",
+    "title": "I'm Just Ken (Barbie)",
+    "artist": "Ryan Gosling",
+    "year": 2023,
+    "cat": "movie",
+    "url": "https://open.spotify.com/track/7jPdqwZug0ovtDZsY5uK4T",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZklEQVR4nM2WUUoGQQyD0+V/T2/g/Y+1N0hPEMkoPiiiWEHnYdkZlpC2Xztbxvs114cj4O/OqqoLQFfV2WCnRxtE95A4Gyw9V+Oueyigs8FG73GeDYr1Ay+fnMnFSqhffPetMwsEB5OQrZ1euQC+bQfgvdGDs+CYdMpraxdv15Qm3sbqmR1/MEmbMhAOk8FrpYdkTzIpCRBXeg8otW1jxArTu/oGEJMhRoQM7/yFv7lhxRqfRqO1PyI1EUgHGO147hssT7L40siz9OeTOhuCCG558YEOyksA3NUjlQjUAdBWjGpZXzGhYgbV8Yplv5lQINRJ4Tp/jBaSw5M8bvOXURWcD9H6hXogxcArNpmE10qPuTeYFj73h9b8ZT6fOM+IXuvh5f44MJNc69EZ0VE8/rCeV/k/iNJAUwH62vlD7KXR0nC5Sq6dvyzhBqarp9f+YkmymNHAtb+pwlMm6Qxub/3VP//ffQYV9AGT5hNwRwAAAABJRU5ErkJggg==",
+    "source": {
+      "type": "movie",
+      "name": "Barbie"
+    }
+  },
+  "movie|what was i made for": {
+    "id": "6wf7Yu7cxBSPrRlWeSeK0Q",
+    "title": "What Was I Made For? (Barbie)",
+    "artist": "Billie Eilish",
+    "year": 2023,
+    "cat": "movie",
+    "url": "https://open.spotify.com/track/6wf7Yu7cxBSPrRlWeSeK0Q",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nM2WwW1DMQxDaSN3eoPsP9bfgJ6ABf2DAG1PLQ+tAwTQR/IiS6SiYXw9e357BPzdszHGGgDWGOME6Hi0gbXWNnQHs+A9gEF4aDGvBOhrsPSUNqBffPfzeZz3i5vD2OtE88tnfvjMAuGNvZ9KgIY3PAC+ww3wanhwDpQkyROo4xGCnHvKpsSSZ9qiDBiE2PLu6smkYaDPT0nu1DD5ueWRoMJKBVNKdTzpZEiLSa/ngUcqEYwR7ix4DzwdEY9NgZkGrd8urIUFYmEIcfAs+yHRjJjjvLq/oiKadIRRTNsPp6UWFGnHwirv60zR3DhaVtlfmOQrveTW+9cUX4MlNkbdD0XGt+MyZPr6HaEwJbx/YFa8HCpzyuCZ1LPiISqOWEDdvZn9fRn3Zj0IdXY88G22Yzj1+8EzG1GGtMRuH7r3A1zAwl47/3W7r5+iwLNcxXez4iHiO+6QFBVWvPHP990PBoAVn8sv9z8AAAAASUVORK5CYII=",
+    "source": {
+      "type": "movie",
+      "name": "Barbie"
+    }
+  },
+  "movie|the power of love": {
+    "id": "49ERjahdzucZ9hZgdENPt7",
+    "title": "The Power of Love (Back to the Future)",
+    "artist": "Huey Lewis and the News",
+    "year": 1985,
+    "cat": "movie",
+    "url": "https://open.spotify.com/track/49ERjahdzucZ9hZgdENPt7",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABX0lEQVR4nM1WQWrEQAyTw97lH+z/n7U/kF/gounSQksPRQvtXBIHIiRZdlKLr2eub4+Av3tWVd0AurpOgQyPu0B3g9B7cQV4N6CIR6sJNF0gxANwB8X67bvXj3gP1JbuL8C7gBWIHaOeAglebQH8KAfgI8HD+mDp3r4XyvR2TWkEzAg9k+UPS3KXWmAdQWb8Tn8Lsonm1+rQPwqSdmGKvlGGJ0u2VhFyoTB/gkSYpj0chf3Qmt0enr5N9Vql9hgnAGF/sbJ1zjVFOTtK8yfRAVw6NGE/4BBDlOzegqHe62TEeZ7B9ELpvLkNEsjT4HTesI6eJT/RmPpnsWsDvQVNVGFeSFmymb0kz3uCwiMdVIrn4+H1CqS3jML8AU9+Ho+cH63XvThz4suV4cGkzPOAIp0Pn/s4K94tYjYft88vL4fldT25f1rn0P8G3jRXgHdhqnAftRfCLjrb9/XP/3ffACP6Cb74Pj6VAAAAAElFTkSuQmCC",
+    "source": {
+      "type": "movie",
+      "name": "Back to the Future"
+    }
+  },
+  "movie|up where we belong": {
+    "id": "4U6mBgGP8FXN6UH4T3AJhu",
+    "title": "Up Where We Belong (An Officer and a Gentleman)",
+    "artist": "Joe Cocker & Jennifer Warnes",
+    "year": 1982,
+    "cat": "movie",
+    "url": "https://open.spotify.com/track/4U6mBgGP8FXN6UH4T3AJhu",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbElEQVR4nM1WS27dQAyjjLenbuD7H8s3oE7AgpMgi7RAiyhAM/DCEmxCP3JUxucz128u4P/5qqqrpqcHx8AOjzasWzfYx8AG7wUUUR6MR8fAvgYuw3NXf+HfP/qEmfuB/vbdv/gs9F3B9DGwwSsXwA9zAD4bPDhHJkinvbZ2+XajOCDUwsS8dvGBFiFIMCUu4ys83cM0AwX0rh8JKaSQZYvKy7XCU4aOkkyK9C7fVyCHaM1gMJptvhCYUc4kM5OjbX/lAL4haj9/yuNpgzwMuRZ4L8w9buBBBOEw71rglc/IjaejCMCNJX/F1M8KT2gs64fAnMZGBYn9/LnbNUVwbmjPNxz906EcHZJcKzzzXWKSKrTmLwwqfTiFxD4+hxpJmSfELd6J6ehoFCZSc633AwEccqLSaz3NTZQAk3PQ9R07kg6YhNnuQzmNLs7z3JEXLPN1bjWFusoVt56/8OOdHdk5dv2NXn06P2rf/QX2lwQNPIlw8wAAAABJRU5ErkJggg==",
+    "source": {
+      "type": "movie",
+      "name": "An Officer and a Gentleman"
+    }
+  },
+  "movie|maniac": {
+    "id": "5e70QmY2tsxVOIMpkLj1Os",
+    "title": "Maniac (Flashdance)",
+    "artist": "Michael Sembello",
+    "year": 1983,
+    "cat": "movie",
+    "url": "https://open.spotify.com/track/5e70QmY2tsxVOIMpkLj1Os",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABUklEQVR4nM2WsW3AQAwDKSM9tUH2H8sbUBMw4DtVUspA8pX1xUESKfnL+Hnm+nUF/N1dVTVqehp4gmvFo40CFVwnwIb3ARQBNTwFd4Jrx/s+PT4lv9FT454kqjd4FtDQzUPWjlcu4JDOGYD3hgfnwAbFJ9COR5tMoTJAYc0TTQsCRAd8LXgfaVm5B+36fFp5rXiMXQae9hFnx4NhgpRkmmmmlv4rSSDR6BtT2/zOCrCUTEFp75e4T6QJxTta6jtsECOArfZu/8GiDFoEFTPu8suIHXmfAHsejkcoi2Gv500hHmEY6F5fOj1MyVRk1nYf+OE4g+L9frGdLRXuudBWD0DxNNPGNPF6YT8r32dG1n5B3Gw8Zt7qcZ33AVhGfr6aWe+XlAnFMNFD23oPL2MWs5wpvvbvjXZRPXzpfTCupAlhqO3/A3HgY8Izzqt665+/d78AvwoAX+6UC3UAAAAASUVORK5CYII=",
+    "source": {
+      "type": "movie",
+      "name": "Flashdance"
+    }
+  },
+  "movie|grease": {
+    "id": "11ZnVkr0UJiTM14qAa8MW1",
+    "title": "Grease (Grease)",
+    "artist": "Frankie Valli",
+    "year": 1978,
+    "cat": "movie",
+    "url": "https://open.spotify.com/track/11ZnVkr0UJiTM14qAa8MW1",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYUlEQVR4nM2WsY0lMQxDn42fUx1M/2VNB3QFPMgLbHAbaoE7RyMHBC1SHK3w9zn7xxX8u7u1VtU6depwC2Z4SjiG5zxUF0zwPrAEhcg6ri72iF8fO7Bct2DID3g4Lkr1G3ihzEGckwozPVYW6Ls8oHeCR/o4thJ9FXuEJ4Os4JgIjfD2pYje5WrTnKEexNwGWjFSc90jvNixiBTFYdo/57bOThrTU37q6bDVYlyFPfRfqs38QomTYf4RCUdW+89B0/e2vFG/+Ub12M+0sN3B+zH1M6Fl/bIhwUO8D2YZ6s1N1RrmKW1n3LxoB3Yf9wBv83DB9Hb0rTk/4UvN/RV+YT5Ip1ZDovn8EprXHV7Q0M/7GqbwWbga0cP+cePvAjW74Xv33Q9QxY+Mp/n8ufuBeBfWYun9lR3pSPdn7v6L7DGe4djHurO3Z3gxdzHg6cfWdD6uvr47USs8zvsfV//VvvsHvzL8Zse2k/8AAAAASUVORK5CYII=",
+    "source": {
+      "type": "musical",
+      "name": "Grease"
+    }
+  },
+  "movie|hungry eyes": {
+    "id": "31H6au3jhblhr6MMJiXnCq",
+    "title": "Hungry Eyes (Dirty Dancing)",
+    "artist": "Eric Carmen",
+    "year": 1987,
+    "cat": "movie",
+    "url": "https://open.spotify.com/track/31H6au3jhblhr6MMJiXnCq",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABb0lEQVR4nM2WzW3FMAyDaePdqQ2y/1jZgJqABd0fFG0vhR7Q+hQbyIdIIhkv4+vq/e0I+LuztVb16upqnA1mPNq4RF1AVTaY8B7AIhoFdYm1+IwesISq99HsMU9aaR5qzHsARqEEXM3XzR7wlhfAj20DvCc8OAsiKGfWtmY82kyhsgPFlHdAFgSIBjniLUd7xgIc7aE98i+cEp16aUSB03oVGCE5XGtW70aVXCEW+7fv/rBMGLIy2ExjXC+jPmauQXM4Xzj2IASJgDKfPeNRJn1oGfaM94DYdQIw4rt/8+7++axS7IpSLjLYPeDBKTdKNpVRj/MAJ19ERTKJGM36xxOBV0KQi+4n5L1x4U7n1F3T/uXDTqnkiYOp/k4+J2EA8kTqHt8P3MkX3qgk9B7nvWPbmPgE4Z7xwEQqDjCZryfcDwDfV3wSg+wB7/H+sHwjP/S53xzL6fx6rak/EKGkhUmr5KCmfvt04X17/E/33Reg+PAXDgoqRAAAAABJRU5ErkJggg==",
+    "source": {
+      "type": "movie",
+      "name": "Dirty Dancing"
+    }
+  },
+  "movie|raindrops keep fallin on my head": {
+    "id": "0oMTxTIHAt3hstaoObsmFs",
+    "title": "Raindrops Keep Fallin' on My Head (Butch Cassidy and the Sundance Kid)",
+    "artist": "B.J. Thomas",
+    "year": 1969,
+    "cat": "movie",
+    "url": "https://open.spotify.com/track/0oMTxTIHAt3hstaoObsmFs",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXUlEQVR4nM1WQWoDMRCTTe7yD/b/z/IPNC9QkVNyaOghzEJrAskYIuSRRvYwfq6ab1vA3+2NMVaNWrUKp0AHD6ZNygZNplAH7wEMohbhGuIa7J338fq1Sh/+d/66Z1QB6x48H17aFJ/FbOAND4CvsgDunr5ZEBF6TKEb/AJYdkDRxbNoWlAYGuz5L3iAMsVGDN3mJzGYoXnU7fI75CgpnYwi6vmPV4m4iIWCdrXzIB9J6d8d+jJyECda0sV+/wImKOOmvl/Ec86DZnb5PbCMhZ1w4UmZXh48+RHfrYth1Oyfc9oIo+jczgNYmd44GlKfH21Axy5x3w3+82ldmhfD3NS/zG7SoHlf4uRz8g/IjCRSZ/v+2GCBq3KRqPl+YfS4VvJFUBw9G3h4RkEUVq6RfM8Wv7Pkax9+gZx4X/OzvWsVVZWXzB3vg9qRwthJfjT9h7wPApcB6fp5/PP37heNGQQwim7/hAAAAABJRU5ErkJggg==",
+    "source": {
+      "type": "movie",
+      "name": "Butch Cassidy and the Sundance Kid"
+    }
+  },
+  "movie|singin in the rain": {
+    "id": "5U3MkUWTpzj37A33GboDtv",
+    "title": "Singin' in the Rain (Singin' in the Rain)",
+    "artist": "Gene Kelly",
+    "year": 1952,
+    "cat": "movie",
+    "url": "https://open.spotify.com/track/5U3MkUWTpzj37A33GboDtv",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABY0lEQVR4nM1WwW0EQQgzo/2bDqb/sqYDTwVE5vJJ8gsnJei0EiudBbaBjcL3uOvHK+Dv3kVEBoCMiE4ww2MViEyQ6gTDmiOhOBcC0gnmHAS2FL/779d4+imAIQbfgVdIIg9w2QkmeFEBvMpyXIBngodyoMrakk40wyMEGc9PShzhLYC7kOYOkRdDvzw4+0QLbJkza6YH3KJMIFSC3Pka4QmgUKAolX9rgLfsZm0kBW37ZcYfSiLZhikS4tgv1QTKDLrpMX8W1gW64y50zeqjxK6PNs1cX5ZZc+PlYqf6tllwdS8iNzT1sze8O2WPL8Z6QBYVtov1rdk+eFCh9EVSnhR4x35uBiULXe5fs/p2IbylLnpVX471qPIucHXtQ82/D5DYN0O+TFP+6MF4za7rw0xf3w++mu2Yzgcarw+vz1urvAZ46xPVm/T4IElv4E/l49EqD+cD5q1Xlo/RfP/FP//e/QDScAJsI8gpfgAAAABJRU5ErkJggg==",
+    "source": {
+      "type": "musical",
+      "name": "Singin' in the Rain"
+    }
+  },
+  "movie|all that jazz": {
+    "id": "3cGmUgp7hF5Eb8NyuEmtCA",
+    "title": "All That Jazz (Chicago)",
+    "artist": "Catherine Zeta-Jones",
+    "year": 2002,
+    "cat": "movie",
+    "url": "https://open.spotify.com/track/3cGmUgp7hF5Eb8NyuEmtCA",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaUlEQVR4nM2WUYokMQxD5aL/5RvU/Y/VN5BPoEHpGVh292vcMBOokATq4US2kjL+bnP9swT83FpVddf0NHAm2PFoAwLuafSZXAveAyhiGoSr3MV3nIHkcPWdf/+3dmOewyf7HTwLIkB0nQk2vHIF9dUG4HPDg9NkiWa0trXjUQBFQzbC1DI+0ecMgYy45aXjYfkMdrwrtWEx8oKa4K9VfMpeLck0aW33y6CCQSQRt/oiEiDUyIF35ItIkDa11rdSH3Ap0p7h2p9pt4ipiiC989PUmxghMskZrvU9Ch8wk4d7PZLQOT+alna8B3A/VYIn+63kz7XgXekaTOGyxlzfb0BHjAFayRgteZO8m2Iujwa4z5f4aASJHcQRrhUPcb3cl6fuiB3v831wN3XHVaPytYqPYMI6hh93XudzeK8P2feu3h6nV6mS0HcUxpJn9MScwVEcC8v8q0KjKk+Dih0s43s9eP/sf9N79wMMbuhz4pvLzQAAAABJRU5ErkJggg==",
+    "source": {
+      "type": "musical",
+      "name": "Chicago"
+    }
+  },
+  "movie|do you hear the people sing": {
+    "id": "03m03OVQGPuzt8Rw2r0a7t",
+    "title": "Do You Hear the People Sing? (Les Miserables)",
+    "artist": "Les Miserables Cast",
+    "year": 2012,
+    "cat": "movie",
+    "url": "https://open.spotify.com/track/03m03OVQGPuzt8Rw2r0a7t",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nMVWMY4EMQgz0fbmB/v/Z+UH5gWcnJm74rZkpKWZSQpkYmOIxv+o9XEFfO8uIhJRWQlchzXIh2Y3qfa36YMm+V5AEIWEAlIGn3kDIfFLzZrhA9CoIgIc51tAC8jUpgH6sAb5ogM3LEcB3DN+HRBBmd3u1gN6AdqSAYVZvuUanSQQuakc6gUtuegLKZtzfOiuQitVu6zsNcLHFkhI5oLUrN/OXaNoOQf2HuoZ5hdqc3I13FgvgEiQ99+03hLfgMqVAjXsNzQo+97pkKYw9T8RWTrufPp3zMcFCy2LBZzycanuIlruYs38KrEZAk+pSaim/swQE3bV7VGCsb+0OyMf4gOWcdti/Ioczst1jPSNjgDeNFLM94MdB+NGGuQa5aPNtKORHuo15AMeGrS1eB55sD/gfw7ulLPlI/sGs6jYpvoBP6VaPM2mef/C+8GZwMe6hv78+tuq7tz9zd32M34AH+DsQiLyEusAAAAASUVORK5CYII=",
+    "source": {
+      "type": "musical",
+      "name": "Les Miserables"
+    }
+  },
+  "movie|lift me up": {
+    "id": "35ovElsgyAtQwYPYnZJECg",
+    "title": "Lift Me Up (Black Panther: Wakanda Forever)",
+    "artist": "Rihanna",
+    "year": 2022,
+    "cat": "movie",
+    "url": "https://open.spotify.com/track/35ovElsgyAtQwYPYnZJECg",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABWklEQVR4nM1WQU4EMQxzRnt3fsD/nzU/cF5g5O5yAU4ECXqoJpXGcpzEbRmf11xfjoC/O6uq7pqeBk6AHR5tjIC+G50AS84VYg1yRie4dngABAPFH/373dlbzz24e4/3AIwWSkTgjF09ygV8JAoMwHuDB2fJEM1XcK3wKICmIRsmuMajYUE4X9zy80FKvlKU3PKz5EhHJvVQvXZ4jnSSHK72Wj9YPimHm9b1BZl5U9Qz93hM2wHkURHc5vsETaL55JLflUZx38BUZUSWfooUISmf4IioNZ6ETJvDbz0fMoOGpxtIez8ImChnfPf8iGDxxVPa6VdujAeMkw7a5dV9jggX+WzGCff9nPX0KsVi1vrhcIqhBjDucK3wmLkNDNN8aaBrgfc49zjhghpTvH/ljTQg3+L66t38Ps6u6vE0nnf6teNn5X11fPXuWeLh1Dd7nDk35q4e9c/fu+/zNhILc5nJ8AAAAABJRU5ErkJggg==",
+    "source": {
+      "type": "movie",
+      "name": "Black Panther: Wakanda Forever"
+    }
   }
 }
