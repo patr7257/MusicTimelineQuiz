@@ -20,7 +20,8 @@ the card. First player to the target number of cards wins.
   the card from the hub into a gap in your timeline, and re-drag it freely until you lock in.
 - Hitster coins per player, spendable to steal a card on someone else's wrong guess, or to
   skip a song you already know without giving up your free skip. A player one card from
-  winning cannot steal (their seat shows "At match point").
+  winning cannot steal (their seat shows "At match point"). A steal costs its coin only when it
+  still stands after the window (uncontested, or the winner of a same-gap spin wheel).
 - Fullscreen toggle in the top bar.
 - Optional phone play (join with a game id + password; the join QR pops up automatically
   when the game starts): place from your phone, make one bonus guess per round for a coin,
@@ -52,15 +53,18 @@ cd "C:\Users\pr\repos\patrickrobelweb\hobby-projects\hitster"; ii index.html
    it; a drop outside any gap keeps your previous choice.
 6. Press Lock in answer. If any opponent still has a coin (and is not one card from winning),
    a 10 second steal window opens with a countdown next to the hub.
-7. During the steal window, an eligible opponent can press Steal on their seat card. It costs
-   them a coin immediately, win or lose. They then tap a different gap in your timeline (the
-   countdown pauses while they choose) and confirm. Each opponent may steal at most once per
-   round, and several can steal in the same round. Press Reveal now to skip the wait. If two
-   or more stealers pick the same gap, a spin wheel picks who gets that attempt.
-8. When the countdown ends (or everyone who can steal has done so): if your slot was right,
-   you keep the card and every steal attempt fails. If your slot was wrong, the first opponent
-   (in the order they locked their steal) whose gap was right wins the card. If nobody was
-   right, the card is discarded.
+7. During the steal window, every eligible opponent can press Steal on their seat card (or from
+   their phone). A press registers them for a steal (their seat shows a STEAL! badge) but costs
+   nothing yet and does NOT pause the countdown, so several opponents can register in the same
+   window. Pressing again does nothing. Press Reveal now to skip the rest of the wait.
+8. When the countdown ends: if nobody registered, the round resolves as usual. Otherwise each
+   registered stealer, in the order they pressed, taps a gap in your timeline and confirms, one
+   at a time (the hub shows whose pick it is). If two or more stealers pick the same gap, a spin
+   wheel picks who keeps that gap; the others on that gap are dropped. Every steal that still
+   stands then costs its owner one coin (win or lose, and even if your own placement was right).
+   Resolution: if your slot was right you keep the card and the standing steals win nothing (they
+   still paid); if your slot was wrong, the first standing steal (in press order) whose gap was
+   right wins the card. If nobody was right, the card is discarded.
 9. Instead of guessing, you can press Skip duplicate (free, if you already know the song) or
    Skip with coin (costs you one of your own coins) to discard the card and draw a fresh one.
 10. Press Next player. The other players orbit round and the next player's song is drawn.
@@ -85,7 +89,8 @@ the password is shown alongside). On the phone a player can, on their own turn:
   - **Artist + title**: type both; both must match.
   - **Where is it from**: pick movie, musical, or Disney, and type the source name (only
     offered when the current card actually has that metadata).
-- **STEAL**: during a steal window an eligible opponent presses STEAL and picks a gap.
+- **STEAL**: during a steal window an eligible opponent presses STEAL to register, then picks a
+  gap when the pick phase reaches them. The coin is charged only if their steal still stands.
 
 The bonus coin pays out only when the guess was right AND the current player's own placement
 was right; steals never pay a coin. Matching is typo-tolerant (small edit-distance allowance,
@@ -165,3 +170,38 @@ The website side (`website/src/lib/hitster-redis.ts`, `website/src/app/api/hitst
 Redis-backed API the phone page and the game talk to; `website/scripts/sync-hitster.mjs` copies
 `index.html`, `guess.html`, `qrcode.js`, and `songs.js` into `website/public/hitster/` for
 deploy, run it after any change here.
+
+## Saved games: E2E test games and the wipe script
+
+Games are saved online (Upstash Redis) so a host can resume with the continuation password.
+Normal saved games get roughly a week of persistence and show up in the saved-games list.
+
+- **E2E guard (issue #36):** a game whose name or any player name contains "e2e"
+  (case insensitive) is treated as a nightly automated test run, not a real saved game. It is
+  never added to the saved-games list, and it gets a 1 hour TTL instead of the normal
+  persistence, so it disappears on its own. This is enforced server-side (every route that
+  writes game data checks this), and a caller can also opt in explicitly by sending
+  `ephemeral: true` in the create-game request body.
+- **Admin delete (single game):** `DELETE /api/hitster/games/[gameId]` with the master password
+  in an `X-Hitster-Admin` header removes one saved game completely (meta, state, claims, tent,
+  intents, and its saved-games list entry) and returns `{deleted: true, gameId}`. The password
+  comes from the `HITSTER_ADMIN_PASSWORD` env var (server-side only, set in Vercel and in a
+  local `website/.env.local`, never `NEXT_PUBLIC`). If the env var is unset every request gets
+  403 `admin password not configured`; wrong password gets 403; unknown game gets 404. The
+  trash icon in the saved-games UI uses this endpoint.
+- **Wipe script:** for occasionally clearing out saved games by hand (leftover E2E games from
+  before this guard existed, or any other cleanup), use `scripts/wipe-hitster-games.ps1` in the
+  repo root. It prompts for the Upstash REST URL and token (never pass them as arguments, they
+  are never written to disk), prints a dry run of every game found (id, name, players,
+  created/updated time), then asks for an explicit "yes" before deleting anything. Only keys
+  starting with `hitster:` are ever touched.
+
+Run it with:
+
+```
+cd "C:\Users\pr\repos\patrickrobelweb"; .\scripts\wipe-hitster-games.ps1
+```
+
+It will prompt for, in order: the Upstash REST URL, then the Upstash REST token (input hidden).
+Both values live in the Vercel project's environment variables (`KV_REST_API_URL` /
+`KV_REST_API_TOKEN`, or `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN`).

@@ -35,9 +35,11 @@ with the existing `isValidRoomCode` (`/^[A-Z0-9]{4,8}$/`).
 | `hitster:game:{id}:intents:{round}` | list | append-only JSON intent entries (below), RPUSH only | 24 h |
 | `hitster:game:{id}:tent` | string JSON | `{playerIdx, round, slot, at}` last-writer-wins tentative drag slot | 24 h |
 
-Durable facts (locked slot, pending guesses, consumed steal presses, `players[i].claimed`)
-always end up inside `:state`. The claims/intents/tent keys are transport and race
-arbitration only.
+Durable facts (locked slot, pending guesses, registered stealers and their picks,
+`players[i].claimed`) always end up inside `:state`. The claims/intents/tent keys are transport
+and race arbitration only. The host keeps the multi-steal machine (registered list in press
+order, per-stealer picks, the current-picker index, and the countdown-vs-picking sub-phase) in
+its opaque `_host` extras inside `:state`; only the projected `steal` block above is public.
 
 ## FullGameState (stored in `:state`)
 
@@ -63,9 +65,11 @@ The server validates only the envelope it needs (players 1-4 with valid names/id
             "source": { "type": "movie", "name": "8 Mile" } } | null,   // NEVER projected
   "placement": { "tentativeSlot": 2, "lockedSlot": null, "lockedAt": 0 } | null,
   "steal": {
-    "windowEndsAt": 1760000000000,      // absolute host-clock ms
+    "windowEndsAt": 1760000000000,      // absolute host-clock ms; counts down in the countdown
+                                        // sub-phase only, reports now() (0 left) while picking
     "eligibleIdx": [1, 3],              // coins >= 1, not current, timeline < target - 1
-    "presses": [{ "playerIdx": 1, "slot": 2, "at": 0 }],   // slot null until picked
+    "presses": [{ "playerIdx": 1, "slot": null, "at": 0 }], // one entry per REGISTERED stealer;
+                                        // slot stays null until that stealer's pick is confirmed
     "wheel": { "slot": 2, "candidates": [1, 3], "winnerIdx": null } | null
   } | null,
   "pendingGuesses": [{
@@ -89,6 +93,17 @@ Game rules encoded host-side (locked with Patrick):
   was correct. Steals never pay coins. Guess intents from non-current players are
   ignored by the host.
 - A player at `target - 1` cards cannot steal.
+- Multi-steal window (batch 7): after Lock in, a 10 s countdown runs. Every eligible opponent
+  may press STEAL; a press only REGISTERS them (marks their seat), costs no coin, and does NOT
+  pause the countdown, so several register in one window. When the countdown ends (or Reveal now
+  is pressed), each registered stealer, in the order they pressed, picks a gap one at a time
+  (host tap or phone pick). If two or more picked the SAME gap, a spin wheel picks one keeper per
+  contested gap and voids the others on that gap. A steal that STANDS after conflict resolution
+  costs its owner exactly 1 coin (wheel losers pay nothing); the coin is charged at resolution,
+  never at press time, and is charged even when the current player's own placement turns out
+  correct (the steal then simply wins nothing). Resolution order is unchanged: the current
+  player's placement is judged first; if correct they keep the card, else the first standing
+  steal (press order) on a correct gap wins it.
 - Equalizer: when the first player reaches target, every other player at `target - 1`
   with fewer `roundsPlayed` gets one final turn; ties settle by sudden death cycles.
 
@@ -105,7 +120,7 @@ Game rules encoded host-side (locked with Patrick):
   "hasSource": true, "sourceTypes": ["movie","musical","disney"],
   "placement": { "tentativeSlot": 2, "locked": false },
   "steal": { "open": true, "endsAt": 1760000000000, "eligibleIdx": [1,3],
-             "presses": [{ "playerIdx": 1, "slot": 2 }],
+             "presses": [{ "playerIdx": 1, "slot": null }],   // one per registered stealer
              "wheel": { "slot": 2, "candidates": [1,3], "winnerIdx": null } } | null,
   "pendingGuesses": [{ "playerIdx": 0, "type": "artist-title", "judged": null }],
   "equalizer": { "queueIdx": [2] } | null
@@ -175,8 +190,8 @@ Body `{ playerIdx, playerToken, round, type, ...payload }`. Auth: HGET claims by
 | `tentative` | `{slot: int 0-30}` | SET `:tent` `{playerIdx, round, slot, at}` (LWW). Phone throttles to ~300 ms |
 | `lockin` | `{slot}` | RPUSH intents; 409 if this player already locked in this round |
 | `guess` | `{guessType:"artist-title"\|"source", artist?, title?, sourceType?, sourceName?}` (field rules copied from the old guess route; named guessType because the outer `type` is the intent kind) | RPUSH; 409 if already guessed this round |
-| `steal-press` | `{}` | RPUSH; 409 on repeat per player/round |
-| `steal-slot` | `{slot}` | RPUSH always; host takes the LAST per player before the deadline |
+| `steal-press` | `{}` | RPUSH; 409 on repeat per player/round. Multiple DIFFERENT players may press in one window; each press registers that player as a stealer (the host no longer stops at the first) |
+| `steal-slot` | `{slot}` | RPUSH always; the host takes the LAST slot per player, and applies it only to the stealer whose turn it currently is in the pick phase. A slot sent early (during the countdown) waits in the round list and is applied by reprocessing once it is that player's turn |
 
 200 `{ok:true}`. Entries stored as `{type, playerIdx, round, at, ...payload}`,
 EXPIRE 24 h after push.
@@ -198,8 +213,11 @@ Host:
 - Polls `GET intents?round=` every 1.5 s while active (3 s in lobby for claims).
   Reprocessing a whole round list after reload is safe: lockin/guess/steal-press are
   deduped per player+type, tentative/steal-slot are last-wins.
-- Steal window is an absolute `windowEndsAt`; on reload mid-window the host restarts a
-  fresh 5 s window.
+- Steal window is an absolute `windowEndsAt`; on reload at ANY point of the steal phase
+  (countdown or picking) the host restarts a fresh countdown (STEAL_SECONDS, currently 10 s):
+  it discards half-collected registrations, picks, and wheel state and recomputes eligibility
+  from current coins. No coin is double-charged because coins are only spent when a steal STANDS
+  at resolution, never earlier. Worst case on reload: the steal phase replays from the countdown.
 - localStorage `hitster_host` = `{gameId, hostToken}`.
 
 Phone:
