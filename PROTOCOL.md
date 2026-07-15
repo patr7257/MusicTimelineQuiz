@@ -34,6 +34,7 @@ with the existing `isValidRoomCode` (`/^[A-Z0-9]{4,8}$/`).
 | `hitster:game:{id}:claims` | hash | field = playerIdx `"0"`..`"3"`, value = JSON `{deviceId, playerToken, name, at}`; written with HSETNX | 7 d rolling |
 | `hitster:game:{id}:intents:{round}` | list | append-only JSON intent entries (below), RPUSH only | 24 h |
 | `hitster:game:{id}:tent` | string JSON | `{playerIdx, round, slot, at}` last-writer-wins tentative drag slot | 24 h |
+| `hitster:game:{id}:rev` | string int | monotonically increasing counter (INCR), bumped by every write route that changes what any client can see; the SSE events endpoint watches it | 7 d rolling (E2E TTL where the write route knows the game is ephemeral) |
 
 Durable facts (locked slot, pending guesses, registered stealers and their picks,
 `players[i].claimed`) always end up inside `:state`. The claims/intents/tent keys are transport
@@ -201,9 +202,45 @@ Header `x-hitster-host-token`. Pipelines LRANGE intents + GET tent + HGETALL cla
 200 `{ intents: [...], tentative: {...} | null, claims: { "0": {deviceId, name, at} } }`
 with playerTokens STRIPPED from claims.
 
+### `GET /api/hitster/games/[gameId]/events`
+Server-Sent-Events push channel (part of #51). Unauthenticated on purpose: it
+only ever emits the opaque `rev` integer, never any game data. Streams a
+`ReadableStream` with `Content-Type: text/event-stream`, `Cache-Control:
+no-cache, no-transform`, `X-Accel-Buffering: no`, and `dynamic =
+"force-dynamic"`. Loop reads ONLY `:rev` every 500 ms (one cheap Upstash GET per
+tick); on a change it emits `data: {"rev":N}\n\n`. Sends a `: ping` comment
+every 15 s as heartbeat, closes cleanly after 55 s (EventSource auto-reconnects)
+and on request abort. 503 JSON when Redis is unconfigured, 400 on an invalid
+game id. The first read establishes a silent baseline (the client already did a
+full fetch on open), so only later changes are pushed.
+
+### Revision counter (`:rev`) and `bumpGameRev`
+Every write route that changes visible state calls `bumpGameRev` (INCR + EXPIRE)
+in `lib/hitster-redis.ts`: state PUT, intent POST, claim POST (winning claim
+only), resume POST, and the admin DELETE (bumped before its SCAN sweep so the
+key is deleted with the game, which a connected stream reads as "gone" and its
+own refetch then 404s). Create is intentionally NOT bumped (no clients are
+connected to a brand-new game yet). Best effort: a missed bump only costs a
+slightly slower client refresh because the fallback poll still catches up.
+
 The old `room/route.ts` and `guess/route.ts` are DELETED (no back-compat).
 
 ## Client sync loops
+
+### Realtime push (SSE, part of #51)
+Both clients open an `EventSource` on `GET .../events` whenever an online game
+is active (host: inside `startIntentPolling`; phone: inside `startPolling`), and
+close it on leave/pause/game-end/unload. On every received `data: {"rev":N}`
+they immediately run their EXISTING fetch logic (host `intentTick`, phone
+`poll`) instead of waiting for the next interval, so an action on one side
+appears on the other in well under a second. The old polling intervals stay as a
+FALLBACK: stretched to ~10 s while the stream is healthy (host restarts its
+interval on `onopen`; phone via `currentPollDelay`), and dropped back to the
+fast cadence (host 1.5 s, phone 2 s) if the stream errors twice in a row. A
+clean 55 s stream close counts as a single error then reconnects, so normal
+cycling never drops to fast polling; `onopen`/`onmessage` reset the error
+counter. This keeps Upstash usage low: the stream costs one GET per 500 ms per
+connected client, while each idle client's fallback poll drops to once per 10 s.
 
 Host:
 - Every state mutation triggers a debounced (250-500 ms) PUT with
