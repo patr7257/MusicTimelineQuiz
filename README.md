@@ -1,8 +1,11 @@
-# Hitster: music quiz
+# Music Timeline Quiz
 
-A self-contained, single-screen music quiz in the style of Hitster. Hear a song,
+A self-contained, single-screen, Hitster-like music timeline game. Hear a song,
 then slot it into your timeline by release year. Guess the right spot and you keep
 the card. First player to the target number of cards wins.
+
+A Hitster-like music timeline game. Not affiliated with Jumbo or the official
+Hitster board game.
 
 - Vinyl Lounge look: wood console, cream record-sleeve cards, Righteous display font
   (bundled in `fonts/`), themed scrollbars, fluid sizing.
@@ -18,7 +21,7 @@ the card. First player to the target number of cards wins.
   their timeline read-only, then "Back to turn".
 - The song is drawn automatically when a turn starts (no Draw button). Place it by dragging
   the card from the hub into a gap in your timeline, and re-drag it freely until you lock in.
-- Hitster coins per player, spendable to steal a card on someone else's wrong guess, or to
+- Coins per player, spendable to steal a card on someone else's wrong guess, or to
   skip a song you already know without giving up your free skip. A player one card from
   winning cannot steal (their seat shows "At match point"). A steal costs its coin only when it
   still stands after the window (uncontested, or the winner of a same-gap spin wheel).
@@ -40,7 +43,7 @@ cd "C:\Users\pr\repos\hitster"; ii index.html
 
 ## How to play
 
-1. Pick the number of players, enter names, choose categories, cards-to-win, and Hitster
+1. Pick the number of players, enter names, choose categories, cards-to-win, and
    coins per player (0 to 5, default 3), press Start.
 2. Each player starts with one free card (its year is shown) as the seed of their timeline,
    plus their starting coins.

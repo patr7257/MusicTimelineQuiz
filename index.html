@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Hitster: Music Quiz</title>
+  <title>Music Timeline Quiz</title>
   <style>
     @font-face {
       font-family: "Righteous";
@@ -98,7 +98,7 @@
       background: var(--wood);
       box-shadow: 0 6px 16px rgba(36,23,16,.4), inset 0 2px 0 rgba(255,240,210,.22);
     }
-    .brand { font-family: var(--disp); font-weight: 400; letter-spacing: 2px; font-size: 22px; color: var(--paper); text-shadow: 2px 2px 0 var(--orange-deep); display: flex; align-items: center; gap: 9px; }
+    .brand { font-family: var(--disp); font-weight: 400; letter-spacing: 1px; font-size: clamp(14px, 2.2vw, 22px); color: var(--paper); text-shadow: 2px 2px 0 var(--orange-deep); display: flex; align-items: center; gap: 9px; white-space: nowrap; }
     .brand .note { color: var(--gold); text-shadow: none; }
     .spacer { flex: 1; }
     /* Offline notice banner (issue #36 batch 6): a warm gold strip under the top bar, shown when
@@ -528,7 +528,7 @@
   <div class="glow g2"></div>
 
   <div class="topbar hidden" id="topbar">
-    <div class="brand"><span class="note">♪</span> Hitster</div>
+    <div class="brand"><span class="note">♪</span> Music Timeline Quiz</div>
     <div class="pill" id="catPill">-</div>
     <div class="pill">Win at <b id="targetLabel">-</b></div>
     <div class="pill">Cards left <b id="deckLeft">-</b></div>
@@ -577,13 +577,15 @@
        list, and settings are sub-screens reached from here, each with a back-to-menu control. -->
   <div class="overlay hidden" id="mainMenu">
     <div class="panel menu-panel">
-      <h1 class="menu-logo"><span class="note">♪</span> Hitster</h1>
+      <h1 class="menu-logo"><span class="note">♪</span> Music Timeline Quiz</h1>
       <div class="menu-buttons">
         <button class="btn primary menu-btn" id="menuNewBtn" type="button">New Game</button>
         <button class="btn menu-btn" id="menuContinueBtn" type="button">Continue Game</button>
         <button class="btn menu-btn" id="menuSettingsBtn" type="button">Settings</button>
         <button class="btn menu-btn" id="menuExitBtn" type="button">Exit Game</button>
       </div>
+      <p class="note-sm">A Hitster-like music timeline game. Not affiliated with Jumbo or the
+        official Hitster board game.</p>
     </div>
   </div>
 
@@ -643,7 +645,7 @@
         <button class="btn ghost fs-btn" id="setupFullscreenBtn" type="button" aria-label="Toggle fullscreen"></button>
         <button class="btn ghost home-btn" id="setupHomeBtn" type="button" aria-label="Main menu"></button>
       </div>
-      <h1><span class="note">♪</span> Hitster music quiz</h1>
+      <h1><span class="note">♪</span> Music Timeline Quiz</h1>
       <p class="lede">Hear a song, then drop it into your timeline by the year it came out. Right spot, you keep the card. First to the target wins.</p>
 
       <div class="row2 hidden" id="onlineFields">
@@ -715,7 +717,7 @@
           </select>
         </div>
         <div class="field">
-          <label>Hitster coins per player</label>
+          <label>Coins per player</label>
           <select id="coinsPerPlayer">
             <option value="0">0 (no steals)</option>
             <option value="1">1</option>
@@ -1556,7 +1558,7 @@
 
       var meta = pillMeta();
       var catsList = []; setup.cats.forEach(function (k) { catsList.push(k); });
-      var gameName = (($("gameName") && $("gameName").value) || "").trim() || "Hitster game";
+      var gameName = (($("gameName") && $("gameName").value) || "").trim() || "Vinyl Lounge game";
       var password = (($("gamePassword") && $("gamePassword").value) || "").trim();
       // Online games post the password to the server, which requires 4 to 32 chars. An empty
       // field auto-generates a valid one (so it never silently fails to offline); 1 to 3 chars
@@ -1715,7 +1717,7 @@
       });
     }
     function onSkipCoin() {
-      // Same discard-and-redraw, but costs the current player one Hitster coin.
+      // Same discard-and-redraw, but costs the current player one coin.
       // Guard BEFORE the modal so it never opens when the player cannot afford it.
       if (state.locked || state.phase !== "place") return;
       var p = state.players[state.current];

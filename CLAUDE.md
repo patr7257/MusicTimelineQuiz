@@ -1,7 +1,11 @@
-# CLAUDE.md, hitster (Patrick, pr@zrm.dk)
+# CLAUDE.md, music-timeline-quiz (Patrick, pr@zrm.dk)
 
-Hitster-style music quiz, extracted 2026-07-15 from the former patrickrobelweb
-monorepo (`hobby-projects/hitster/`). Repo: `patr7257/hitster` (private).
+Hitster-like music quiz, extracted 2026-07-15 from the former patrickrobelweb
+monorepo (`hobby-projects/hitster/`). Repo: `patr7257/music-timeline-quiz`
+(private, renamed 2026-07-16 from `patr7257/hitster`). Displayed branding is
+"Music Timeline Quiz" with a trademark disclaimer (Hitster is a Jumbo
+trademark); internal identifiers, storage keys, and the `/api/hitster/**`
+contract are unchanged.
 
 Read `README.md` for gameplay, deck building, and the wipe script; read
 `PROTOCOL.md` for the host/phone/API contract (state shape, projection, intents,
