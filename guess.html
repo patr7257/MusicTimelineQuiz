@@ -1180,6 +1180,10 @@
     // fast cadence the moment the stream is judged unhealthy.
     function currentPollDelay() {
       if (projection && projection.status === "paused") return 5000;
+      // Steal windows are only ~10s long, so poll fast here regardless of SSE
+      // health: a missed or delayed SSE notification can then cost at most
+      // about a second instead of stretching the whole window blind.
+      if (projection && projection.phase === "steal") return 1500;
       return sseHealthy ? 10000 : 2000;
     }
 

@@ -502,30 +502,29 @@
     .cs-player { border-radius: 12px; overflow: hidden; margin-bottom: 10px; min-height: 80px; background: var(--paper-deep); }
     .cs-player iframe { border: 0; width: 100%; display: block; }
 
-    /* Round-end guess reveal popup (batch 8): a themed record-sleeve card centered over the
-       hub QR area at reveal, listing each full phone guess (title + artist, or where-it-is-from)
-       with a right/wrong verdict. The correct answer is already public at reveal, so nothing
-       leaks. It auto-closes after 5s (progress bar) or on a click; it never blocks the hero
-       action buttons below, so the host can press Next at any time. Positioned in JS over the hub. */
+    /* Round-end guess reveal panel (batch 8, issue #3): one themed record-sleeve card per guesser,
+       each the SAME size as the hub QR/reveal card (--hub-w x --hub-h), docked to the LEFT of the
+       centered hub at reveal so the whole table can read the round guesses. The correct answer is
+       already public at reveal, so nothing leaks. It never blocks the hero action buttons below,
+       so the host can press Next at any time (which also dismisses it); Esc closes it too.
+       Positioned in JS over the hub. */
     .guess-reveal { position: fixed; z-index: 30; transform: translate(-50%, -50%); pointer-events: auto; cursor: default; }
-    /* Issue #3: a big SQUARE panel docked to the LEFT of the centered QR card at reveal, so the
-       whole table can read the round guess. Green outline marks a correct guess, red a wrong one. */
-    .gr-card { position: relative; width: var(--hub-h, clamp(220px, 34vmin, 330px)); height: var(--hub-h, clamp(220px, 34vmin, 330px)); max-width: 44vw; max-height: calc(100vh - 120px); overflow-y: auto; display: flex; flex-direction: column; background: linear-gradient(160deg, #fdf6e6, var(--paper) 60%, var(--paper-deep)); border: 3px solid var(--brown); border-radius: 20px; padding: 16px 18px 14px; color: var(--brown); box-shadow: var(--shadow), inset 0 0 0 4px var(--paper), inset 0 0 0 6px rgba(217,164,65,.28); transition: box-shadow .3s; }
-    .guess-reveal.correct .gr-card { border-color: var(--avocado); box-shadow: var(--shadow), inset 0 0 0 4px var(--paper), 0 0 0 4px var(--avocado), 0 0 26px rgba(122,132,80,.55); }
-    .guess-reveal.wrong .gr-card { border-color: var(--bad); box-shadow: var(--shadow), inset 0 0 0 4px var(--paper), 0 0 0 4px var(--bad), 0 0 26px rgba(219,90,53,.5); }
-    .gr-card h3 { margin: 0 0 12px; font-family: var(--disp); font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--orange-deep); text-align: center; }
-    .gr-list { list-style: none; padding: 0; margin: 0 0 12px; display: flex; flex-direction: column; gap: 8px; }
-    .gr-item { display: flex; align-items: flex-start; gap: 9px; padding: 9px 11px; border-radius: 12px; background: var(--paper-deep); border: 2px solid var(--brown); }
-    .gr-item.correct { background: rgba(122,132,80,.18); border-color: var(--avocado); }
-    .gr-item.wrong { background: rgba(219,90,53,.14); border-color: var(--bad); }
-    .gr-dot { width: 12px; height: 12px; border-radius: 50%; flex: 0 0 auto; margin-top: 3px; border: 1px solid rgba(36,23,16,.4); }
-    .gr-body { flex: 1 1 auto; min-width: 0; }
-    .gr-who { font-family: var(--disp); font-size: 14px; color: var(--brown); }
-    .gr-what { font-size: 13px; color: rgba(59,42,30,.78); line-height: 1.3; overflow-wrap: anywhere; }
-    .gr-what i { font-style: italic; }
-    .gr-verdict { flex: 0 0 auto; align-self: center; font-family: var(--disp); font-size: 11px; letter-spacing: .5px; padding: 3px 9px; border-radius: 999px; }
-    .gr-item.correct .gr-verdict { color: var(--avocado-deep); background: rgba(122,132,80,.28); }
-    .gr-item.wrong .gr-verdict { color: var(--orange-deep); background: rgba(219,90,53,.22); }
+    /* One card per guesser: a single guesser is exactly one hub-sized card; several wrap into a
+       readable row/grid. Green outline marks a correct guess, red a wrong one, per card. */
+    .gr-cards { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: center; max-width: 92vw; max-height: calc(100vh - 40px); overflow: auto; }
+    .gr-card { position: relative; width: var(--hub-w, clamp(220px, 34vmin, 330px)); height: var(--hub-h, clamp(220px, 34vmin, 330px)); max-width: 44vw; max-height: calc(100vh - 80px); overflow-y: auto; display: flex; flex-direction: column; background: linear-gradient(160deg, #fdf6e6, var(--paper) 60%, var(--paper-deep)); border: 3px solid var(--brown); border-radius: 20px; padding: 16px 18px 14px; color: var(--brown); box-shadow: var(--shadow), inset 0 0 0 4px var(--paper), inset 0 0 0 6px rgba(217,164,65,.28); transition: box-shadow .3s; }
+    .gr-card.correct { border-color: var(--avocado); box-shadow: var(--shadow), inset 0 0 0 4px var(--paper), 0 0 0 4px var(--avocado), 0 0 26px rgba(122,132,80,.55); }
+    .gr-card.wrong { border-color: var(--bad); box-shadow: var(--shadow), inset 0 0 0 4px var(--paper), 0 0 0 4px var(--bad), 0 0 26px rgba(219,90,53,.5); }
+    .gr-card h3 { margin: 0 0 14px; font-family: var(--disp); font-size: 15px; letter-spacing: .5px; text-transform: none; color: var(--orange-deep); text-align: center; overflow-wrap: anywhere; }
+    .gr-dot { display: inline-block; width: 11px; height: 11px; border-radius: 50%; margin-right: 7px; vertical-align: middle; border: 1px solid rgba(36,23,16,.4); }
+    .gr-lines { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; flex: 1 1 auto; justify-content: center; }
+    .gr-line { display: flex; flex-direction: column; gap: 3px; padding: 9px 12px; border-radius: 12px; background: var(--paper-deep); border: 2px solid var(--brown); }
+    .gr-label { font-family: var(--disp); font-size: 11px; letter-spacing: .5px; text-transform: uppercase; color: rgba(59,42,30,.6); }
+    .gr-value { font-size: 15px; color: var(--brown); overflow-wrap: anywhere; }
+    .gr-value i { font-style: italic; }
+    .gr-verdict { flex: 0 0 auto; align-self: center; margin-top: 12px; font-family: var(--disp); font-size: 12px; letter-spacing: .5px; padding: 4px 12px; border-radius: 999px; }
+    .gr-card.correct .gr-verdict { color: var(--avocado-deep); background: rgba(122,132,80,.28); }
+    .gr-card.wrong .gr-verdict { color: var(--orange-deep); background: rgba(219,90,53,.22); }
     /* +1 coin burst (issue #3), shown only when the guess was correct AND the placement was
        correct too (the same rule that actually pays the coin). Purely a flourish. */
     .gr-coin { position: absolute; top: 10px; right: 14px; font-family: var(--disp); font-size: clamp(18px, 3vmin, 26px); color: var(--gold-deep); text-shadow: 0 2px 0 rgba(250,241,221,.7); pointer-events: none; animation: grCoinPop 1.6s ease-out forwards; }
@@ -864,15 +863,11 @@
     </div>
   </div>
 
-  <!-- Round-end guess reveal (batch 8, issue #51): shown at reveal, centered over the hub,
-       listing each full phone guess with a right/wrong verdict. Stays up until the host
-       presses Continue (or Esc); no auto-close. -->
+  <!-- Round-end guess reveal (batch 8, issue #3): shown at reveal, docked left of the hub, one
+       card per guesser with a right/wrong verdict. Cards are built in JS. Dismissed by the host
+       "Next player" button (which advances the round) or Esc; no Continue button, no auto-close. -->
   <div class="guess-reveal hidden" id="guessRevealPopup">
-    <div class="gr-card">
-      <h3>Round guesses</h3>
-      <ul class="gr-list" id="guessRevealList"></ul>
-      <div class="row" style="margin-top:10px;"><button class="btn primary" type="button" id="guessRevealContinue">Continue</button></div>
-    </div>
+    <div class="gr-cards" id="guessRevealList"></div>
   </div>
 
   <!-- Brief confirmation toast (batch 8), e.g. the Save game password reminder. -->
@@ -1255,9 +1250,13 @@
       };
     }
 
-    // Debounced full-state save. Tracks lastAckedVersion as the baseVersion. On 401/409 the
-    // save loops stop and the take-over overlay appears (the game was opened elsewhere).
-    var _dirtyTimer = null, _saveInFlight = false, _saveAgain = false;
+    // Debounced full-state save. Tracks lastAckedVersion as the baseVersion. A 401 (hostToken
+    // mismatch) means a genuine second host took over: the save loops stop and the take-over
+    // overlay appears. A 409 (version race) is benign: the host adopts the server version and
+    // re-pushes its authoritative state (last-write-wins), capped so a persistent conflict still
+    // falls back to the take-over overlay.
+    var _dirtyTimer = null, _saveInFlight = false, _saveAgain = false, _saveReconciles = 0;
+    var SAVE_RECONCILE_MAX = 5;
     function markDirty() {
       if (!NET.available || !state || !state.gameId || !state.hostToken) return;
       if (_dirtyTimer) return;
@@ -1276,7 +1275,22 @@
       NET.saveState(state.gameId, state.hostToken, base, blob).then(function (r) {
         _saveInFlight = false;
         if (!r) return;
-        if (r.status === 401 || r.status === 409) { onSaveConflict(); return; }
+        // 401 = a genuine second host tab took over (hostToken mismatch): halt everything and
+        // show the take-over overlay.
+        if (r.status === 401) { onSaveConflict(); return; }
+        // 409 = a benign version race (e.g. a phone intent landed as we saved). The legitimate
+        // host is the only real writer, so adopt the server's current version and re-push our
+        // authoritative state immediately (last-write-wins). Cap consecutive reconciles so a
+        // persistent conflict (a real rival writer) still falls back to the take-over overlay.
+        if (r.status === 409) {
+          if (typeof r.currentVersion === "number") { state.version = r.currentVersion; }
+          if (_saveReconciles >= SAVE_RECONCILE_MAX) { _saveReconciles = 0; onSaveConflict(); return; }
+          _saveReconciles++;
+          _saveInFlight = false; _saveAgain = false;
+          doSave();
+          return;
+        }
+        _saveReconciles = 0;
         if (r.ok && typeof r.version === "number") { state.version = r.version; }
         if (_saveAgain) { _saveAgain = false; doSave(); }
       });
@@ -1818,7 +1832,7 @@
       if (state.stealEligibleIdx.length === 0) { resolveRound(); return; }
       state.phase = "steal"; state.stealRemaining = STEAL_SECONDS;
       startStealTimer(); render();
-      markDirty();
+      flushDirty();   // opens the steal window: push now so phones get the 10s countdown promptly
     }
     // Batch 7 multi-steal countdown: the window runs to zero regardless of presses. Each
     // press only REGISTERS a stealer (no pause, no coin), so several can register at once.
@@ -1842,7 +1856,7 @@
       if ((state.registered || []).indexOf(idx) !== -1) return;
       state.registered.push(idx);
       render();
-      markDirty();
+      flushDirty();   // a stealer registered: push now so every phone mirrors the seat promptly
     }
     // Countdown ended (or was skipped): with no registrations, resolve as normal. Otherwise
     // move into the one-at-a-time pick sub-phase, each registered stealer picking in press order.
@@ -1854,7 +1868,7 @@
       state.pickIndex = 0;
       state.stealers = [];
       startNextPick();
-      markDirty();
+      flushDirty();   // countdown ended, entering the pick sub-phase: push the transition now
     }
     // Advance to the next registered stealer's pick. Skips (voids) any stealer who can no
     // longer afford a coin (edge guard: coins cannot drop mid-round today, but be safe).
@@ -1873,7 +1887,7 @@
       // if no pick lands, skip them (steal void, no coin) and advance. Host-screen picks have
       // no time limit (an unclaimed seat is picked on the shared screen with a Confirm button).
       if (state.players[state.stealPickerIdx] && state.players[state.stealPickerIdx].claimed) armPickBail(state.stealPickerIdx);
-      markDirty();
+      flushDirty();   // whose pick turn it is just changed: push now so the picker's phone knows
     }
     function armPickBail(idx) {
       _phonePickBailTimer = setTimeout(function () {
@@ -1997,7 +2011,7 @@
       state.phase = "revealed";
       resolvePending();
       render();
-      markDirty();
+      flushDirty();   // resolve/reveal: closes the steal window, push the outcome to phones now
       // Answer is public now: surface each full phone guess with its verdict (no popup, no delay
       // when nobody guessed). Non-blocking, so the host can still press Next straight away.
       showGuessReveal();
@@ -2415,19 +2429,24 @@
       el.innerHTML = html;
     }
 
-    // Round-end guess reveal popup (batch 8). Called once from finishReveal, i.e. the moment
-    // the answer becomes public. Lists every full phone guess from this round (artist + title,
-    // or where-it-is-from) with a right/wrong verdict read off the already-judged pending entry,
-    // so nothing about the answer leaks before resolution. Centered over the hub, auto-closes
-    // after 5 seconds (progress bar) or on a click, and never blocks the hero action buttons.
-    function guessWhatHtml(g) {
-      if (g.type === "source") {
-        var stLabel = g.sourceType === "movie" ? "Movie" : g.sourceType === "musical" ? "Musical" : g.sourceType === "disney" ? "Disney" : "Where it's from";
-        return stLabel + ': <i>' + escapeHtml(g.sourceName || "") + '</i>';
+    // Round-end guess reveal panel (batch 8, issue #3). Called once from finishReveal, i.e. the
+    // moment the answer becomes public. Renders one card per guesser from this round with a
+    // right/wrong verdict read off the already-judged pending entry, so nothing about the answer
+    // leaks before resolution. Docked left of the hub, never blocks the hero action buttons, and
+    // is dismissed by the host "Next player" button (round advance) or Esc.
+    // Two clearly separated, labelled lines per guess: a song guess shows Artist then Title; a
+    // source ("where it's from") guess shows Type then Name.
+    function guessLinesHtml(g) {
+      function line(label, valueHtml) {
+        return '<div class="gr-line"><span class="gr-label">' + label + '</span><span class="gr-value">' + valueHtml + '</span></div>';
       }
-      var title = g.title ? '<i>' + escapeHtml(g.title) + '</i>' : '<i>(no title)</i>';
+      if (g.type === "source") {
+        var stLabel = g.sourceType === "movie" ? "Movie" : g.sourceType === "musical" ? "Musical" : g.sourceType === "disney" ? "Disney" : (g.sourceType ? escapeHtml(g.sourceType) : "Where it's from");
+        return line("Type", stLabel) + line("Name", escapeHtml(g.sourceName || "(no name)"));
+      }
       var artist = g.artist ? escapeHtml(g.artist) : "(no artist)";
-      return title + ' by ' + artist;
+      var title = g.title ? escapeHtml(g.title) : "(no title)";
+      return line("Artist", artist) + line("Title", "<i>" + title + "</i>");
     }
     function showGuessReveal() {
       hideGuessReveal();
@@ -2438,39 +2457,25 @@
       });
       if (!full.length) return false;
       var listEl = $("guessRevealList");
-      var html = "", anyWrong = false, anyCoin = false;
+      var html = "";
       for (var i = 0; i < full.length; i++) {
         var g = full[i];
         var pl = state.players[g.playerIdx] || { color: "#c9c4ff", name: g.player || "?" };
-        var verdictCls = g.judged === "correct" ? "correct" : "wrong";
-        var verdictTxt = g.judged === "correct" ? "Right" : "Wrong";
-        var awarded = (g.judged === "correct" && g.coinAwarded);
-        var coin = awarded ? " +1 🪙" : "";
-        if (g.judged !== "correct") anyWrong = true;
-        if (awarded) anyCoin = true;
-        html += '<li class="gr-item ' + verdictCls + '">' +
-          '<span class="gr-dot" style="background:' + pl.color + '"></span>' +
-          '<span class="gr-body"><span class="gr-who">' + escapeHtml(pl.name) + '</span>' +
-          '<span class="gr-what">' + guessWhatHtml(g) + '</span></span>' +
-          '<span class="gr-verdict">' + verdictTxt + coin + '</span></li>';
+        var correct = g.judged === "correct";
+        var verdictTxt = correct ? "Right" : "Wrong";
+        // Coin only when a coin was actually awarded (guess correct AND placement correct).
+        var awarded = (correct && g.coinAwarded);
+        var coinBurst = awarded ? '<div class="gr-coin">+1 🪙</div>' : "";
+        // Per-card verdict outline: green when the guess was right, red when wrong (issue #3).
+        html += '<div class="gr-card ' + (correct ? "correct" : "wrong") + '">' + coinBurst +
+          '<h3><span class="gr-dot" style="background:' + pl.color + '"></span>' + escapeHtml(pl.name) + ' Guess:</h3>' +
+          '<div class="gr-lines">' + guessLinesHtml(g) + '</div>' +
+          '<span class="gr-verdict">' + verdictTxt + (awarded ? " +1 🪙" : "") + '</span></div>';
       }
       listEl.innerHTML = html;
-      var pop = $("guessRevealPopup");
-      // Panel-level verdict outline: green when the guess was right, red when wrong (issue #3).
-      pop.classList.remove("hidden", "correct", "wrong");
-      pop.classList.add(anyWrong ? "wrong" : "correct");
-      // Coin burst only when a coin was actually awarded (guess correct AND placement correct).
-      var grCard = pop.querySelector(".gr-card");
-      var oldCoin = grCard ? grCard.querySelector(".gr-coin") : null;
-      if (oldCoin && oldCoin.parentNode) oldCoin.parentNode.removeChild(oldCoin);
-      if (anyCoin && grCard) {
-        var coinEl = document.createElement("div");
-        coinEl.className = "gr-coin";
-        coinEl.textContent = "+1 🪙";
-        grCard.appendChild(coinEl);
-      }
+      $("guessRevealPopup").classList.remove("hidden");
       positionGuessReveal();
-      // Issue #51: no auto-close; the popup stays until the host presses Continue.
+      // No auto-close; the panel stays until the host presses Next player (or Esc).
       return true;
     }
     function positionGuessReveal() {
@@ -2495,9 +2500,8 @@
       var pop = $("guessRevealPopup");
       if (pop) {
         pop.classList.add("hidden");
-        pop.classList.remove("correct", "wrong");
-        var coinEl = pop.querySelector(".gr-coin");
-        if (coinEl && coinEl.parentNode) coinEl.parentNode.removeChild(coinEl);
+        var listEl = $("guessRevealList");
+        if (listEl) listEl.innerHTML = "";   // drop the per-guesser cards (and any coin burst)
       }
     }
 
@@ -3335,8 +3339,8 @@
     };
     // Exit to main menu: identical leave flow to the Home icon.
     $("gsExitBtn").onclick = function () { closeGameSettings(); leaveToMainMenu(); };
-    // Round-end guess reveal: a click anywhere on it dismisses early.
-    $("guessRevealContinue").onclick = hideGuessReveal;
+    // Round-end guess reveal: dismissed by the host "Next player" button (round advance) or Esc;
+    // there is no Continue button.
     $("offlineBannerClose").onclick = hideOfflineNotice;
 
     // Confirm modal wiring: keys plus a backdrop click to cancel.
