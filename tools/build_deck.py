@@ -147,13 +147,42 @@ def resolve(token: str, title: str, artist: str, market: str = "DK"):
     return pick_best(_do_search(token, f"{title} {artist}", market), title, artist)
 
 
+_TITLE_SUFFIX_WORDS = {
+    "remaster", "remastered", "remix", "version", "edit", "live", "acoustic",
+    "mono", "stereo", "deluxe", "bonus", "track", "single", "radio", "extended",
+    "instrumental", "karaoke", "anniversary", "original", "album", "explicit",
+    "clean", "mix",
+}
+
+
+def _title_matches(nt, ct):
+    """True when a seed title and a candidate's title are the same song.
+
+    An exact normalized match always counts. A one-sided containment match
+    (one title is a prefix/suffix/substring of the other) is only trusted
+    when every leftover word on the longer side is a known edition qualifier
+    (remaster, remix, radio edit, a year, ...). Otherwise a short seed title
+    like "CPH" spuriously matches an unrelated longer title that merely
+    starts with it, such as "CPH Girls (feat. Brandon Beal)".
+    """
+    if not nt or not ct:
+        return False
+    if nt == ct:
+        return True
+    shorter, longer = (nt, ct) if len(nt) <= len(ct) else (ct, nt)
+    if shorter not in longer:
+        return False
+    leftover = longer.replace(shorter, " ", 1).split()
+    return all(w in _TITLE_SUFFIX_WORDS or w.isdigit() for w in leftover)
+
+
 def pick_best(items, title, artist):
     nt, na = norm(title), norm(artist)
     best, best_score = None, -1
     for it in items:
         cand_title = norm(it.get("name", ""))
         cand_artists = norm(" ".join(a.get("name", "") for a in it.get("artists", [])))
-        title_ok = nt and (nt in cand_title or cand_title in nt)
+        title_ok = _title_matches(nt, cand_title)
         # Artist is enforced when given, but optional: soundtrack/ensemble tracks whose
         # exact credited artist is fuzzy still resolve on a distinctive title alone.
         artist_ok = (not na) or (na in cand_artists) or any(w in cand_artists for w in na.split() if len(w) > 3)
