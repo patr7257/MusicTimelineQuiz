@@ -130,11 +130,13 @@
     #game { position: fixed; inset: 56px 0 0 0; z-index: 1; }
     .stage { position: absolute; inset: 6px 6px calc(var(--hero-h) + 8px) 6px; }
 
-    /* Central music hub (a cream record sleeve), sized fluidly (vmin) so the QR
-       and reveal never clip off the top or bottom on any 16:9 desktop size. */
-    /* Issue #51: the hub QR card is TOP-aligned like the player seats (they sit toward
-       the top of the stage), instead of floating alone in the vertical middle. */
-    .hub { position: absolute; left: 50%; top: 16px; transform: translate(-50%,0); width: clamp(220px, 34vmin, 330px); max-width: 50vw; max-height: calc(100% - 24px); z-index: 6; display: flex; flex-direction: column; }
+    /* Central music hub (a cream record sleeve). It is vertically CENTERED in the stage (the
+       area between the top bar and the resizable player hero) and sized by sizeHub() to fill
+       about 80% of that area: --hub-w is the card width, --hub-h its min-height, --hub-qr the
+       QR square. sizeHub re-runs on every render, resize, display-preset change, and hero drag,
+       so the card grows and re-centers as the available area changes. The clamp fallbacks keep
+       a sensible size before the first measure (and if the vars are ever unset). */
+    .hub { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: var(--hub-w, clamp(220px, 34vmin, 330px)); max-width: 92%; max-height: 100%; z-index: 6; display: flex; flex-direction: column; justify-content: center; perspective: 1000px; }
     .disc-glow {
       position: absolute; inset: -26px; border-radius: 30px; z-index: -1;
       background: radial-gradient(circle at 50% 42%, rgba(217,164,65,.55), transparent 66%);
@@ -147,15 +149,26 @@
       border: 3px solid var(--brown); border-radius: 20px; padding: clamp(12px, 2vmin, 18px); text-align: center;
       color: var(--brown);
       box-shadow: var(--shadow), inset 0 0 0 4px var(--paper), inset 0 0 0 6px rgba(193,80,46,.30);
-      flex: 1 1 auto; min-height: 0; max-height: 100%; overflow-y: auto;
+      /* Concrete height (not min-height) so the reveal/QR card box is EXACTLY --hub-w x --hub-h,
+         matching the docked guess-reveal card (.gr-card) pixel for pixel (issue: the two boxes
+         rendered at different heights). Both use the same clamp fallback before the first measure. */
+      flex: 0 0 auto; height: var(--hub-h, clamp(220px, 34vmin, 330px)); max-height: 100%; overflow-y: auto;
+      display: flex; flex-direction: column; justify-content: center; gap: 4px;
     }
     .hubcard h3 { margin: 0 0 12px; font-family: var(--disp); font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--orange-deep); }
-    .qr { position: relative; width: clamp(150px, 26vmin, 220px); height: clamp(150px, 26vmin, 220px); margin: 0 auto; background: #fff; border-radius: 12px; padding: 8px; border: 3px solid var(--orange); box-shadow: 0 8px 20px rgba(36,23,16,.4), inset 0 0 0 3px #fff; }
+    .qr { position: relative; width: var(--hub-qr, clamp(150px, 26vmin, 220px)); height: var(--hub-qr, clamp(150px, 26vmin, 220px)); flex: 0 0 auto; margin: 0 auto; background: #fff; border-radius: 12px; padding: 8px; border: 3px solid var(--orange); box-shadow: 0 8px 20px rgba(36,23,16,.4), inset 0 0 0 3px #fff; }
     .qr img { width: 100%; height: 100%; image-rendering: pixelated; display: block; pointer-events: none; }
     .qr.draggable { cursor: grab; touch-action: none; }
     .qr.draggable:active { cursor: grabbing; }
-    .qr-expand { position: absolute; top: 6px; right: 6px; z-index: 2; padding: 6px 7px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 3px 0 rgba(36,23,16,.4); }
-    .qr-expand svg { display: block; }
+    /* Fullscreen-QR control: a normal inline button in the hub row beside "Play here". Icon-only
+       (dropped the "Expand" label); position: relative anchors its tooltip. */
+    .qr-expand-btn { position: relative; }
+    .qr-expand-btn svg { display: block; }
+    /* Play-here and expand-QR share this square sizing so the pair reads as balanced: fixed
+       equal width/height, no text, centered icon. The row (.hub .row, below) uses
+       justify-content: center with a fixed gap, so the two squares end up with an equal gap
+       between them and equal margins to the card's left/right edges. */
+    .hub-row-icon-btn { position: relative; width: 44px; height: 44px; padding: 0; display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; }
     .scan-hint { font-size: 12px; color: rgba(59,42,30,.72); margin-top: 10px; line-height: 1.4; }
     .scan-hint b { color: var(--orange-deep); }
     .eq { display: flex; gap: 4px; justify-content: center; align-items: flex-end; height: 26px; margin-top: 12px; }
@@ -180,8 +193,10 @@
     .steal-count { font-family: var(--disp); font-size: clamp(40px, 11vmin, 68px); font-weight: 400; line-height: 1; text-align: center; margin-top: 8px; background: linear-gradient(180deg, var(--gold), var(--orange)); -webkit-background-clip: text; background-clip: text; color: transparent; }
     .steal-count.paused { opacity: .45; }
 
-    /* Player seats: cream record-sleeve panels docked to the stage edges */
-    .seat { position: absolute; width: clamp(142px, 14vw, 186px); transform: translate(-50%,-50%); z-index: 3; transition: left .5s ease, top .5s ease, opacity .3s ease; cursor: pointer; }
+    /* Player seats: cream record-sleeve panels docked to the stage edges. The width is set by
+       sizeHub() into --seat-w (derived from the live stage area / display zoom, same spirit as the
+       hub card) so the seats scale to use the space beside the hub; the clamp is only a fallback. */
+    .seat { position: absolute; width: var(--seat-w, clamp(142px, 14vw, 186px)); transform: translate(-50%,-50%); z-index: 3; transition: left .5s ease, top .5s ease, opacity .3s ease; cursor: pointer; }
     .seat-card { position: relative; background: var(--paper); border: 3px solid var(--brown); border-radius: 16px; padding: 11px 13px; color: var(--brown); box-shadow: var(--shadow); }
     .seat-card::before { content: ""; position: absolute; inset: 5px; border: 2px dashed rgba(59,42,30,.18); border-radius: 11px; pointer-events: none; }
     /* Issue #51: every player has a seat on the board; the one whose timeline is shown
@@ -190,8 +205,10 @@
     .seat.viewing .seat-card::after { content: "In view"; position: absolute; top: -11px; right: 10px; font-family: var(--disp); font-size: 10px; letter-spacing: .5px; background: var(--gold); color: var(--brown-deep); border: 2px solid var(--brown); border-radius: 999px; padding: 1px 8px; }
     .seat-head { position: relative; display: flex; align-items: center; gap: 9px; margin-bottom: 8px; }
     .avatar { width: 34px; height: 34px; border-radius: 50%; flex: 0 0 auto; display: grid; place-items: center; font-family: var(--disp); font-weight: 400; color: var(--brown-deep); font-size: 13px; border: 2px solid var(--brown-deep); box-shadow: 0 3px 0 rgba(36,23,16,.3); }
-    .seat-name { position: relative; font-family: var(--disp); font-weight: 400; letter-spacing: .5px; font-size: 16px; color: var(--brown); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .seat-score { margin-left: auto; font-family: var(--disp); font-size: 12px; color: var(--gold-deep); }
+    /* flex 1 + min-width 0 lets the name ellipsize instead of squeezing the score; the score is
+       flex 0 with nowrap so "1 / 10" always stays on ONE line (fix: it used to wrap to two). */
+    .seat-name { position: relative; flex: 1 1 auto; min-width: 0; font-family: var(--disp); font-weight: 400; letter-spacing: .5px; font-size: 16px; color: var(--brown); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .seat-score { flex: 0 0 auto; margin-left: auto; padding-left: 8px; white-space: nowrap; font-family: var(--disp); font-size: 12px; color: var(--gold-deep); }
     .seat-coins { position: relative; display: flex; align-items: center; gap: 5px; font-family: var(--disp); font-size: 12px; color: var(--gold-deep); margin-bottom: 8px; }
     /* Issue #51: minis never wrap to extra rows (that grew the seat vertically and
        displaced it); one row that scrolls sideways instead. */
@@ -237,7 +254,7 @@
     .instructions { color: var(--muted); font-size: 13px; line-height: 1.4; flex: 1 1 auto; min-width: 0; padding: 0 10px; }
     .instructions b { color: var(--paper); }
     /* Pending phone-guess chips (answer text never shown; only who guessed + type) */
-    .guess-strip { display: flex; flex-wrap: wrap; gap: 6px; }
+    .guess-strip { display: flex; flex-wrap: nowrap; gap: 6px; flex: 0 0 auto; align-items: center; }
     .guess-chip { display: inline-flex; align-items: center; gap: 6px; font-family: var(--disp); font-size: 12px; padding: 5px 10px; border-radius: 999px; border: 2px solid var(--brown); background: var(--paper); color: var(--brown); }
     .guess-chip .gc-dot { width: 9px; height: 9px; border-radius: 50%; flex: 0 0 auto; }
     .guess-chip .gc-tag { color: rgba(59,42,30,.7); }
@@ -308,9 +325,14 @@
     .card-tip .tip-cat { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; font-family: var(--disp); font-size: 11px; color: var(--brown-deep); }
     .card-tip .tip-cat .te { font-size: 13px; line-height: 1; }
 
-    /* CSS-S9: drag ghost that follows the pointer while dragging the hub card to a slot */
-    .drag-ghost { position: fixed; top: 0; left: 0; width: 64px; height: 64px; pointer-events: none; z-index: 200; opacity: .88; transform: translate(-50%,-50%); }
-    .drag-ghost img { width: 100%; height: 100%; border-radius: 8px; box-shadow: 0 10px 24px rgba(36,23,16,.5); background: #fff; border: 2px solid var(--orange); }
+    /* CSS-S9: drag ghost that follows the pointer while dragging the new card to a slot. It shows
+       the "? New card" placeholder (the mystery card being placed), matching the phone's new card
+       and the tentative card in the strip, NOT the QR (the QR stays in the hub for scanning). */
+    .drag-ghost { position: fixed; top: 0; left: 0; width: 118px; height: 132px; pointer-events: none; z-index: 200; opacity: .92; transform: translate(-50%,-50%); }
+    .drag-ghost .dg-card { position: relative; width: 100%; height: 100%; border-radius: 12px; border: 3px solid var(--orange-deep); background: linear-gradient(160deg, #f6d998, var(--gold) 70%, #c9932f); color: var(--brown); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; box-shadow: 5px 6px 0 rgba(147,56,30,.4), 0 10px 24px rgba(36,23,16,.5); }
+    .drag-ghost .dg-badge { position: absolute; top: -11px; right: -9px; transform: rotate(8deg); background: var(--orange); color: var(--paper); font-family: var(--disp); font-size: 10px; padding: 3px 9px; border-radius: 999px; border: 2px solid var(--paper); box-shadow: 0 3px 0 var(--orange-deep); letter-spacing: 1px; }
+    .drag-ghost .dg-q { font-family: var(--disp); font-size: 40px; line-height: 1; color: var(--orange-deep); }
+    .drag-ghost .dg-label { font-family: var(--disp); font-size: 14px; }
 
     /* CSS-S10: steal wheel (conic disc stays in PLAYER colors, panel is themed) */
     .wheel-wrap { position: relative; width: min(70vmin, 420px); height: min(70vmin, 420px); }
@@ -389,6 +411,7 @@
 
     @media (prefers-reduced-motion: reduce) {
       .g1, .g2, .hub.live .disc-glow, .hub.live .eq span, .tcard.tentative, .guess-chip.pending,
+      .hubcard.reveal-flip, .gr-coin,
       .hero-inner.switch-in-r, .hero-inner.switch-in-l { animation: none !important; }
     }
 
@@ -416,7 +439,8 @@
     .fs-btn, .home-btn { display: inline-flex; align-items: center; justify-content: center; padding: 9px 11px; }
     .fs-btn svg, .home-btn svg { display: block; flex: 0 0 auto; }
     /* Statically-positioned icon buttons need a positioning context so their tooltip anchors to
-       them (qr-expand is already absolute, qr-full-close already fixed, so both are left alone). */
+       them (qr-full-close is already fixed, qr-expand-btn sets its own relative, so those are
+       left alone). */
     .fs-btn, .home-btn, .dash-del { position: relative; }
 
     /* Hover/focus tooltip for icon-only buttons (UI batch 5): any button carrying a data-tip gets
@@ -478,46 +502,70 @@
     .menu-buttons { display: flex; flex-direction: column; gap: 14px; }
     .menu-btn { width: 100%; padding: 16px; font-size: 18px; letter-spacing: 1px; }
 
-    /* Hidden Spotify embed host (issue #30 item 6, hardened in batch 6). The embed iframe
-       inside stays a REAL rendered element at its natural size (audio and autoplay only work
-       when it is actually laid out, never display:none and never zero-size). We clip it to a
-       1px window in the corner at near-zero opacity, so the track title can never show on the
-       shared screen mid-round while the audio keeps playing. */
-    #spotifyHost { position: fixed; right: 0; bottom: 0; width: 1px; height: 1px; overflow: hidden; opacity: 0.01; pointer-events: none; z-index: 0; }
+    /* Shared menu/settings/setup dialog footprint (issue: uniform dialog size). One width and a
+       consistent min-height for the in-game settings overlay and the game-setup overlay (the
+       lobby + the Connect Phones / Connect Spotify views), so they all look identical in size.
+       Content taller than the box scrolls in the inner .menu-dialog-scroll region instead of
+       resizing the box; a single bottom action (.menu-dialog-foot) stays pinned below it. */
+    .menu-dialog { width: min(520px, 92vw); display: flex; flex-direction: column; max-height: calc(100vh - 40px); }
+    .menu-dialog > h1 { flex: 0 0 auto; }
+    .menu-dialog-scroll { flex: 1 1 auto; overflow-y: auto; min-height: 260px; margin: 0 -4px; padding: 2px 4px; }
+    .menu-dialog-foot { flex: 0 0 auto; margin-top: 16px; }
+    /* Sub-views of the in-game settings dialog (menu of buttons vs. the display-size panel). */
+    .settings-view { display: flex; flex-direction: column; gap: 14px; }
 
-    /* Connect Spotify verify block (issue #36 batch 6): a small VISIBLE test player shown in the
-       game-setup popup. Hearing audio proves the browser allows playback; logging into Spotify in
-       the same browser unlocks full-length tracks instead of 30 second previews. */
+    /* Join credentials on the Connect phones screen: the game id and the join PASSWORD players
+       type on their phones, each shown large and clear under the QR. */
+    .join-creds { display: flex; flex-direction: column; gap: 10px; }
+    .join-cred { display: flex; align-items: baseline; justify-content: center; gap: 12px; flex-wrap: wrap; padding: 10px 14px; border-radius: 12px; background: var(--paper-deep); border: 2px solid var(--brown); }
+    .join-cred-label { font-family: var(--disp); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: rgba(59,42,30,.7); }
+    .join-cred-value { font-family: var(--disp); font-size: 28px; font-weight: 800; letter-spacing: 4px; color: var(--orange-deep); }
+
+    /* Connect Spotify status line (shown in the Connect Spotify screen): a coloured dot plus a
+       short label reporting the connection state (not connected / connected / ready). */
     .cs-status { font-family: var(--disp); font-size: 13px; letter-spacing: 1px; color: var(--orange-deep); margin-bottom: 10px; display: inline-flex; align-items: center; gap: 8px; }
     .cs-status::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--bad); box-shadow: 0 0 6px rgba(219,90,53,.7); flex: 0 0 auto; }
     .cs-status.ok { color: var(--avocado-deep); }
     .cs-status.ok::before { background: var(--good); box-shadow: 0 0 6px rgba(122,132,80,.8); }
-    .cs-player { border-radius: 12px; overflow: hidden; margin-bottom: 10px; min-height: 80px; background: var(--paper-deep); }
-    .cs-player iframe { border: 0; width: 100%; display: block; }
+    /* Full-playback connect UI (Web Playback SDK path), shown when a Spotify client id is
+       configured. Without a connected Premium account there is no in-app playback: players scan
+       the QR to play each song on their own phones. */
+    .sp-connect { padding: 12px 14px; margin-bottom: 14px; border-radius: 12px; background: var(--paper-deep); border: 2px solid var(--brown); }
+    .sp-connect .btn { margin-top: 2px; }
 
-    /* Round-end guess reveal popup (batch 8): a themed record-sleeve card centered over the
-       hub QR area at reveal, listing each full phone guess (title + artist, or where-it-is-from)
-       with a right/wrong verdict. The correct answer is already public at reveal, so nothing
-       leaks. It auto-closes after 5s (progress bar) or on a click; it never blocks the hero
-       action buttons below, so the host can press Next at any time. Positioned in JS over the hub. */
-    .guess-reveal { position: fixed; z-index: 30; transform: translate(-50%, -50%); pointer-events: auto; cursor: pointer; }
-    .gr-card { width: min(360px, 82vw); max-height: 62vh; overflow-y: auto; background: linear-gradient(160deg, #fdf6e6, var(--paper) 60%, var(--paper-deep)); border: 3px solid var(--brown); border-radius: 20px; padding: 16px 18px 14px; color: var(--brown); box-shadow: var(--shadow), inset 0 0 0 4px var(--paper), inset 0 0 0 6px rgba(217,164,65,.28); }
-    .gr-card h3 { margin: 0 0 12px; font-family: var(--disp); font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--orange-deep); text-align: center; }
-    .gr-list { list-style: none; padding: 0; margin: 0 0 12px; display: flex; flex-direction: column; gap: 8px; }
-    .gr-item { display: flex; align-items: flex-start; gap: 9px; padding: 9px 11px; border-radius: 12px; background: var(--paper-deep); border: 2px solid var(--brown); }
-    .gr-item.correct { background: rgba(122,132,80,.18); border-color: var(--avocado); }
-    .gr-item.wrong { background: rgba(219,90,53,.14); border-color: var(--bad); }
-    .gr-dot { width: 12px; height: 12px; border-radius: 50%; flex: 0 0 auto; margin-top: 3px; border: 1px solid rgba(36,23,16,.4); }
-    .gr-body { flex: 1 1 auto; min-width: 0; }
-    .gr-who { font-family: var(--disp); font-size: 14px; color: var(--brown); }
-    .gr-what { font-size: 13px; color: rgba(59,42,30,.78); line-height: 1.3; overflow-wrap: anywhere; }
-    .gr-what i { font-style: italic; }
-    .gr-verdict { flex: 0 0 auto; align-self: center; font-family: var(--disp); font-size: 11px; letter-spacing: .5px; padding: 3px 9px; border-radius: 999px; }
-    .gr-item.correct .gr-verdict { color: var(--avocado-deep); background: rgba(122,132,80,.28); }
-    .gr-item.wrong .gr-verdict { color: var(--orange-deep); background: rgba(219,90,53,.22); }
+    /* Round-end guess reveal panel (batch 8, issue #3): one themed record-sleeve card per guesser,
+       each the SAME size as the hub QR/reveal card (--hub-w x --hub-h), docked to the LEFT of the
+       centered hub at reveal so the whole table can read the round guesses. The correct answer is
+       already public at reveal, so nothing leaks. It never blocks the hero action buttons below,
+       so the host can press Next at any time (which also dismisses it); Esc closes it too.
+       Positioned in JS over the hub. */
+    .guess-reveal { position: fixed; z-index: 30; transform: translate(-50%, -50%); pointer-events: auto; cursor: default; }
+    /* One card per guesser: a single guesser is exactly one hub-sized card; several wrap into a
+       readable row/grid. Green outline marks a correct guess, red a wrong one, per card. */
+    .gr-cards { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: center; max-width: 92vw; max-height: calc(100vh - 40px); overflow: auto; }
+    .gr-card { position: relative; width: var(--hub-w, clamp(220px, 34vmin, 330px)); height: var(--hub-h, clamp(220px, 34vmin, 330px)); max-width: 44vw; max-height: calc(100vh - 80px); overflow-y: auto; display: flex; flex-direction: column; background: linear-gradient(160deg, #fdf6e6, var(--paper) 60%, var(--paper-deep)); border: 3px solid var(--brown); border-radius: 20px; padding: 16px 18px 14px; color: var(--brown); box-shadow: var(--shadow), inset 0 0 0 4px var(--paper), inset 0 0 0 6px rgba(217,164,65,.28); transition: box-shadow .3s; }
+    .gr-card.correct { border-color: var(--avocado); box-shadow: var(--shadow), inset 0 0 0 4px var(--paper), 0 0 0 4px var(--avocado), 0 0 26px rgba(122,132,80,.55); }
+    .gr-card.wrong { border-color: var(--bad); box-shadow: var(--shadow), inset 0 0 0 4px var(--paper), 0 0 0 4px var(--bad), 0 0 26px rgba(219,90,53,.5); }
+    .gr-card h3 { margin: 0 0 14px; font-family: var(--disp); font-size: 15px; letter-spacing: .5px; text-transform: none; color: var(--orange-deep); text-align: center; overflow-wrap: anywhere; }
+    .gr-dot { display: inline-block; width: 11px; height: 11px; border-radius: 50%; margin-right: 7px; vertical-align: middle; border: 1px solid rgba(36,23,16,.4); }
+    .gr-lines { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; flex: 1 1 auto; justify-content: center; }
+    .gr-line { display: flex; flex-direction: column; gap: 3px; padding: 9px 12px; border-radius: 12px; background: var(--paper-deep); border: 2px solid var(--brown); }
+    .gr-label { font-family: var(--disp); font-size: 11px; letter-spacing: .5px; text-transform: uppercase; color: rgba(59,42,30,.6); }
+    .gr-value { font-size: 15px; color: var(--brown); overflow-wrap: anywhere; }
+    .gr-value i { font-style: italic; }
+    .gr-verdict { flex: 0 0 auto; align-self: center; margin-top: 12px; font-family: var(--disp); font-size: 12px; letter-spacing: .5px; padding: 4px 12px; border-radius: 999px; }
+    .gr-card.correct .gr-verdict { color: var(--avocado-deep); background: rgba(122,132,80,.28); }
+    .gr-card.wrong .gr-verdict { color: var(--orange-deep); background: rgba(219,90,53,.22); }
+    /* +1 coin burst (issue #3), shown only when the guess was correct AND the placement was
+       correct too (the same rule that actually pays the coin). Purely a flourish. */
+    .gr-coin { position: absolute; top: 10px; right: 14px; font-family: var(--disp); font-size: clamp(18px, 3vmin, 26px); color: var(--gold-deep); text-shadow: 0 2px 0 rgba(250,241,221,.7); pointer-events: none; animation: grCoinPop 1.6s ease-out forwards; }
+    @keyframes grCoinPop { 0% { transform: translateY(6px) scale(.4); opacity: 0; } 25% { transform: translateY(-2px) scale(1.15); opacity: 1; } 70% { transform: translateY(-10px) scale(1); opacity: 1; } 100% { transform: translateY(-22px) scale(1); opacity: 0; } }
+    /* Reveal flip (issue #3): the hub card turns over as the Year + Song appear. */
+    @keyframes hubFlip { 0% { transform: rotateY(-90deg); opacity: .2; } 60% { transform: rotateY(10deg); opacity: 1; } 100% { transform: rotateY(0); opacity: 1; } }
+    .hubcard.reveal-flip { animation: hubFlip .55s cubic-bezier(.2,.7,.2,1); backface-visibility: hidden; }
 
-    /* Brief confirmation toast (batch 8), used by the settings Save game action to surface the
-       continuation password. Auto-hides; sits above the hero and every overlay. */
+    /* Brief confirmation toast (batch 8): a generic auto-hiding message that sits above the hero
+       and every overlay. */
     .toast { position: fixed; left: 50%; bottom: calc(var(--hero-h) + 22px); transform: translateX(-50%); z-index: 80; max-width: min(520px, 92vw); text-align: center; font-family: var(--body-font); font-size: 14px; line-height: 1.4; color: var(--brown); background: linear-gradient(160deg, #fdf6e6, var(--paper) 60%, var(--paper-deep)); border: 3px solid var(--brown); border-radius: 14px; padding: 12px 18px; box-shadow: var(--shadow), inset 0 0 0 3px var(--paper); }
 
 
@@ -562,10 +610,10 @@
             <div class="hero-avatar" id="heroAvatar">?</div>
             <div class="hero-name" id="heroName">Player<span class="sub" id="heroSub"></span></div>
             <div class="hero-coins" id="heroCoins">🪙 0</div>
+            <div class="guess-strip hidden" id="guessStrip"></div>
             <div class="instructions" id="instructions"></div>
             <div class="hero-actions" id="heroActions"></div>
           </div>
-          <div class="guess-strip hidden" id="guessStrip"></div>
         </div>
         <div class="split-handle" id="splitTimeline" title="Drag to resize, double-click to reset"></div>
         <div class="timeline" id="timeline"></div>
@@ -639,7 +687,7 @@
   </div>
 
   <!-- Setup -->
-  <div class="overlay" id="setup">
+  <div class="overlay hidden" id="setup">
     <div class="panel">
       <div class="panel-controls">
         <button class="btn ghost fs-btn" id="setupFullscreenBtn" type="button" aria-label="Toggle fullscreen"></button>
@@ -737,52 +785,66 @@
     </div>
   </div>
 
-  <!-- Game setup popup (issue #36 batch 6): auto-opens when a game starts. Section 1 "Phones"
-       (online games only) carries the join QR + code; section 2 "Spotify sound" carries the
-       Connect Spotify verify block for any http(s) origin. Dismiss via the corner X, the Close
-       button, or Esc. This replaces the old bare Phones overlay; the Phones button now opens it. -->
+  <!-- Game setup popup. Two distinct views: "Connect phones" (online games) carries the join QR,
+       game id, and join password; "Connect Spotify" carries the Web Playback SDK connect UI for
+       any http(s) origin. The gear's Connect Phones / Connect Spotify buttons open one view each;
+       the lobby shown at game start ("setup" context) shows both together with a Start button.
+       The corner X (and Esc) exits fully to the game; the bottom button starts play in the lobby,
+       or in a gear view says "Back" and reopens the settings menu. -->
   <div class="overlay hidden" id="gameSetupOverlay">
-    <div class="panel">
+    <div class="panel menu-dialog">
       <div class="panel-controls">
         <button class="btn ghost home-btn" id="gameSetupCloseBtn" type="button" aria-label="Close"></button>
       </div>
-      <h1><span class="note">♪</span> Game setup</h1>
-      <div class="field" id="setupPhonesSection">
-        <label>Phones</label>
-        <p class="lede" style="margin-bottom:14px">Scan to join with the game id and password (you can join anytime). On your turn you can place from your phone, make one bonus guess per round for a coin, and press STEAL during a steal window.</p>
-        <div class="qr" id="phonesQr" style="margin-bottom:12px"></div>
-        <div style="text-align:center;font-size:24px;font-weight:800;letter-spacing:4px" id="phonesCode">----</div>
+      <h1 id="gameSetupTitle"><span class="note">♪</span> Game setup</h1>
+      <div class="menu-dialog-scroll">
+        <div class="field" id="setupPhonesSection">
+          <label>Connect phones</label>
+          <p class="lede" style="margin-bottom:14px">Scan the QR to join, or open the phone page and enter the game id and password below (you can join anytime). On your turn you can place from your phone, make one bonus guess per round for a coin, and press STEAL during a steal window.</p>
+          <div class="qr" id="phonesQr" style="margin-bottom:12px"></div>
+          <div class="join-creds">
+            <div class="join-cred"><span class="join-cred-label">Game id</span><span class="join-cred-value" id="phonesCode">----</span></div>
+            <div class="join-cred"><span class="join-cred-label">Password</span><span class="join-cred-value" id="phonesPassword">----</span></div>
+          </div>
+        </div>
+        <div class="field" id="setupSpotifySection">
+          <label>Connect Spotify</label>
+          <div id="connectSpotifyBlock"></div>
+        </div>
       </div>
-      <div class="field" id="setupSpotifySection">
-        <label>Spotify sound</label>
-        <div id="connectSpotifyBlock"></div>
-      </div>
-      <button class="btn primary" id="gameSetupCloseBtn2" type="button" style="width:100%">Close</button>
+      <button class="btn primary menu-dialog-foot" id="gameSetupCloseBtn2" type="button" style="width:100%">Close</button>
     </div>
   </div>
 
-  <!-- In-game settings (issue #36 batch 6, expanded in batch 8): opened by the top-bar gear.
-       Consolidated menu: Save game, Phones, Connect Spotify, Fullscreen, Pause, Exit to main
-       menu. Save/Phones/Pause are online-only (disabled offline with a reason tip). Close via
-       corner X or Esc. -->
+  <!-- In-game settings: opened by the top-bar gear. A single menu of buttons (Connect Phones,
+       Connect Spotify, Display, Save and exit game); Display opens the display-size presets as a
+       sub-view of the same dialog, with a Back button returning to the menu. Connect Phones is
+       online-only (disabled offline with a reason tip). Fullscreen is a corner icon button beside
+       the close X. Close via corner X or Esc. -->
   <div class="overlay hidden" id="gameSettingsOverlay">
-    <div class="panel confirm-panel">
+    <div class="panel menu-dialog">
       <div class="panel-controls">
+        <button class="btn ghost fs-btn" id="gameSettingsFullscreenBtn" type="button" aria-label="Toggle fullscreen"></button>
         <button class="btn ghost home-btn" id="gameSettingsCloseBtn" type="button" aria-label="Close"></button>
       </div>
       <h1><span class="note">⚙️</span> Game settings</h1>
-      <div class="field">
-        <label>Display size</label>
-        <div class="dispsize-row" id="dispRowGame"></div>
-        <div class="note-sm">Auto fits the game to your screen and is recommended.</div>
-      </div>
-      <div class="menu-buttons">
-        <button class="btn menu-btn" id="gsSaveBtn" type="button">Save game</button>
-        <button class="btn menu-btn" id="gsPhonesBtn" type="button">Phones</button>
-        <button class="btn menu-btn" id="gsSpotifyBtn" type="button">Connect Spotify</button>
-        <button class="btn ghost menu-btn" id="gameSettingsFullscreenBtn" type="button" aria-label="Toggle fullscreen" style="display:inline-flex;align-items:center;justify-content:center;gap:8px"></button>
-        <button class="btn menu-btn" id="gsPauseBtn" type="button">Pause</button>
-        <button class="btn ghost menu-btn" id="gsExitBtn" type="button">Exit to main menu</button>
+      <div class="menu-dialog-scroll">
+        <div class="settings-view" id="gsViewMenu">
+          <div class="menu-buttons">
+            <button class="btn menu-btn" id="gsPhonesBtn" type="button">Connect Phones</button>
+            <button class="btn menu-btn" id="gsSpotifyBtn" type="button">Connect Spotify</button>
+            <button class="btn menu-btn" id="gsDisplayBtn" type="button">Display</button>
+            <button class="btn ghost menu-btn" id="gsExitBtn" type="button">Save and exit game</button>
+          </div>
+        </div>
+        <div class="settings-view hidden" id="gsViewDisplay">
+          <div class="field">
+            <label>Display size</label>
+            <div class="dispsize-row" id="dispRowGame"></div>
+            <div class="note-sm">Auto fits the game to your screen and is recommended.</div>
+          </div>
+          <button class="btn ghost menu-btn" id="gsDisplayBackBtn" type="button">Back</button>
+        </div>
       </div>
     </div>
   </div>
@@ -846,23 +908,15 @@
     </div>
   </div>
 
-  <!-- Round-end guess reveal (batch 8, issue #51): shown at reveal, centered over the hub,
-       listing each full phone guess with a right/wrong verdict. Stays up until the host
-       presses Continue (or Esc); no auto-close. -->
+  <!-- Round-end guess reveal (batch 8, issue #3): shown at reveal, docked left of the hub, one
+       card per guesser with a right/wrong verdict. Cards are built in JS. Dismissed by the host
+       "Next player" button (which advances the round) or Esc; no Continue button, no auto-close. -->
   <div class="guess-reveal hidden" id="guessRevealPopup">
-    <div class="gr-card">
-      <h3>Round guesses</h3>
-      <ul class="gr-list" id="guessRevealList"></ul>
-      <div class="row" style="margin-top:10px;"><button class="btn primary" type="button" id="guessRevealContinue">Continue</button></div>
-    </div>
+    <div class="gr-cards" id="guessRevealList"></div>
   </div>
 
-  <!-- Brief confirmation toast (batch 8), e.g. the Save game password reminder. -->
+  <!-- Brief confirmation toast (batch 8): generic auto-hiding message. -->
   <div class="toast hidden" id="toast"></div>
-
-  <!-- Hidden host for the Spotify Embed IFrame API (issue #30 item 6). Kept off-layout
-       and transparent, never display:none, so the embed can actually play. -->
-  <div id="spotifyHost" aria-hidden="true"></div>
 
   <script src="qrcode.js"></script>
   <script src="songs.js"></script>
@@ -875,21 +929,6 @@
     var PALETTE = ["#c1502e", "#d9a441", "#7a8450", "#c9736a"];
     var DB = window.HITSTER_DB || { categories: [], songs: [] };
     var state = null;
-    // Connect Spotify test track (issue #36 batch 6). A fixed, well-known track chosen ONCE from
-    // the song DB and used only inside the "Connect Spotify" verify player. It is then excluded
-    // from every game deck this session (see poolSongs) so it can never be a round's secret card.
-    // Chosen defensively: a preferred id if the DB still carries it, else the first song with an
-    // id, else null. When null (DB missing every candidate) the Connect block simply shows the
-    // status line with no player, and poolSongs excludes nothing, so nothing can throw.
-    var TEST_TRACK = (function () {
-      var songs = DB.songs || [];
-      var byId = {};
-      for (var i = 0; i < songs.length; i++) { if (songs[i] && songs[i].id) byId[songs[i].id] = songs[i]; }
-      var preferred = ["3sxIm3lTgdvXJdNHNn64BS"]; // Led Zeppelin, Stairway to Heaven, if present
-      for (var p = 0; p < preferred.length; p++) { if (byId[preferred[p]]) return byId[preferred[p]]; }
-      for (var j = 0; j < songs.length; j++) { if (songs[j] && songs[j].id) return songs[j]; }
-      return null;
-    })();
     // Absolute year bounds derived from the song DB (never hardcoded).
     var yearBounds = (function () {
       var lo = Infinity, hi = -Infinity;
@@ -910,6 +949,25 @@
     // Equalizer tie resolution: "sudden" = sudden-death cycles among the tied finishers,
     // "shared" = the tied finishers share the win. Flip this one constant to switch.
     var TIE_MODE = "sudden";
+
+    // ---------- Spotify full-track playback (Web Playback SDK + OAuth PKCE) ----------
+    // Full-length in-browser playback for a Spotify PREMIUM host is the ONLY in-app playback
+    // path. This whole feature is gated on SPOTIFY_CLIENT_ID below: leave it EMPTY (or run from
+    // a file:// origin) and there is no in-app playback at all, so players just scan the QR to
+    // play each song on their own phones. Fill it in with the app's client id (registered as a
+    // PUBLIC / PKCE client, NO client secret) to turn full playback on.
+    //
+    // The redirect URI is computed dynamically as location.origin + location.pathname
+    // (see spRedirectUri) so it works on whatever origin serves the page. Register that
+    // exact URI (for every origin you serve from) in the Spotify app dashboard.
+    var SPOTIFY_CLIENT_ID = "d45bb37318d243cdb0b5dbb4411a7783";
+    var SP_SCOPES = "streaming user-read-email user-read-private user-modify-playback-state user-read-playback-state";
+    var SP_AUTH_URL = "https://accounts.spotify.com/authorize";
+    var SP_TOKEN_URL = "https://accounts.spotify.com/api/token";
+    var SP_API = "https://api.spotify.com/v1";
+    var SP_SDK_SRC = "https://sdk.scdn.co/spotify-player.js";
+    var SP_LS_TOKENS = "hitster_sp_tokens";   // { access_token, refresh_token, expires_at }
+    var SP_LS_PKCE = "hitster_sp_pkce_";      // + state -> { verifier, gameId, returnTo }
 
     function generateRoomCode() {
       var code = "";
@@ -933,7 +991,7 @@
     function escapeHtml(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
     function catMeta(key) { for (var i = 0; i < DB.categories.length; i++) if (DB.categories[i].key === key) return DB.categories[i]; return null; }
     function songsForCat(key) { return DB.songs.filter(function (s) { return s.cat === key; }); }
-    function poolSongs() { return DB.songs.filter(function (s) { return (!TEST_TRACK || s.id !== TEST_TRACK.id) && setup.cats.has(s.cat) && s.year >= setup.yearMin && s.year <= setup.yearMax; }); }
+    function poolSongs() { return DB.songs.filter(function (s) { return setup.cats.has(s.cat) && s.year >= setup.yearMin && s.year <= setup.yearMax; }); }
     function pillMeta() {
       if (setup.cats.size === DB.categories.length) return { label: "All mixed", emoji: "🎲", color: "#c9c4ff" };
       if (setup.cats.size === 1) return catMeta(setup.cats.values().next().value);
@@ -1097,18 +1155,16 @@
           .then(NET._json).catch(function () { return null; });
       }
     };
-    // Batch 8: the Phones and Pause top-bar buttons moved into the settings gear overlay, along
-    // with a new Save game entry. All three are online-only, so this now just refreshes their
-    // enabled/disabled state (and reason tip) whenever the online status changes.
+    // Connect Phones lives in the settings gear overlay and is online-only, so this refreshes its
+    // enabled/disabled state (and reason tip) whenever the online status changes. Connect Spotify
+    // and Save and exit work offline too, so they are never gated here.
     function updatePhonesBtnVisibility() {
       var online = !!(NET.available && state && state.gameId);
       applyGameSettingsOnline(online);
     }
     function applyGameSettingsOnline(online) {
       [
-        ["gsSaveBtn", "Save the latest state now"],
-        ["gsPhonesBtn", "Show the join QR and code"],
-        ["gsPauseBtn", "Pause and save for later"]
+        ["gsPhonesBtn", "Show the join QR and code"]
       ].forEach(function (pair) {
         var b = $(pair[0]);
         if (!b) return;
@@ -1229,13 +1285,21 @@
         windowEndsAt: Date.now() + remainingMs,
         eligibleIdx: state.stealEligibleIdx.slice(),
         presses: presses,
-        wheel: state.wheelWinner ? { slot: state.wheelWinner.slot, candidates: (state.wheelWinner.candidates || []).slice(), winnerIdx: state.wheelWinner.idx } : null
+        wheel: state.wheelWinner ? { slot: state.wheelWinner.slot, candidates: (state.wheelWinner.candidates || []).slice(), winnerIdx: state.wheelWinner.idx } : null,
+        // Sub-phase seam (issue #3): lets the phone tell the timed 10s countdown apart from the
+        // untimed one-at-a-time pick phase, and whose pick turn it currently is.
+        phase: state.stealPhase,
+        pickerIdx: (state.stealPickerIdx != null ? state.stealPickerIdx : null)
       };
     }
 
-    // Debounced full-state save. Tracks lastAckedVersion as the baseVersion. On 401/409 the
-    // save loops stop and the take-over overlay appears (the game was opened elsewhere).
-    var _dirtyTimer = null, _saveInFlight = false, _saveAgain = false;
+    // Debounced full-state save. Tracks lastAckedVersion as the baseVersion. A 401 (hostToken
+    // mismatch) means a genuine second host took over: the save loops stop and the take-over
+    // overlay appears. A 409 (version race) is benign: the host adopts the server version and
+    // re-pushes its authoritative state (last-write-wins), capped so a persistent conflict still
+    // falls back to the take-over overlay.
+    var _dirtyTimer = null, _saveInFlight = false, _saveAgain = false, _saveReconciles = 0;
+    var SAVE_RECONCILE_MAX = 5;
     function markDirty() {
       if (!NET.available || !state || !state.gameId || !state.hostToken) return;
       if (_dirtyTimer) return;
@@ -1254,7 +1318,22 @@
       NET.saveState(state.gameId, state.hostToken, base, blob).then(function (r) {
         _saveInFlight = false;
         if (!r) return;
-        if (r.status === 401 || r.status === 409) { onSaveConflict(); return; }
+        // 401 = a genuine second host tab took over (hostToken mismatch): halt everything and
+        // show the take-over overlay.
+        if (r.status === 401) { onSaveConflict(); return; }
+        // 409 = a benign version race (e.g. a phone intent landed as we saved). The legitimate
+        // host is the only real writer, so adopt the server's current version and re-push our
+        // authoritative state immediately (last-write-wins). Cap consecutive reconciles so a
+        // persistent conflict (a real rival writer) still falls back to the take-over overlay.
+        if (r.status === 409) {
+          if (typeof r.currentVersion === "number") { state.version = r.currentVersion; }
+          if (_saveReconciles >= SAVE_RECONCILE_MAX) { _saveReconciles = 0; onSaveConflict(); return; }
+          _saveReconciles++;
+          _saveInFlight = false; _saveAgain = false;
+          doSave();
+          return;
+        }
+        _saveReconciles = 0;
         if (r.ok && typeof r.version === "number") { state.version = r.version; }
         if (_saveAgain) { _saveAgain = false; doSave(); }
       });
@@ -1267,10 +1346,30 @@
       if (ov) ov.classList.remove("hidden");
     }
     function saveHostLS() {
-      try { if (state && state.gameId && state.hostToken) localStorage.setItem(HOST_LS, JSON.stringify({ gameId: state.gameId, hostToken: state.hostToken })); } catch (e) {}
+      // Persist the join password alongside the host session so it survives a full page reload
+      // (notably the Spotify OAuth roundtrip): the server never returns the password, so without
+      // this the resumed state would lose it and the phones view would only show a placeholder.
+      // Host-local only, never projected to phones.
+      try { if (state && state.gameId && state.hostToken) localStorage.setItem(HOST_LS, JSON.stringify({ gameId: state.gameId, hostToken: state.hostToken, password: state.password || null })); } catch (e) {}
     }
     function loadHostLS() {
       try { return JSON.parse(localStorage.getItem(HOST_LS) || "null"); } catch (e) { return null; }
+    }
+    // Deep-link / refresh-resume: the active game's id lives in the URL as ?g=ID, written with
+    // history.replaceState so it never navigates or reloads the page. urlGameId reads a valid id
+    // back on boot; setUrlGameId writes it when a game starts or resumes, and clears it on exit.
+    function urlGameId() {
+      try {
+        var id = new URLSearchParams(location.search).get("g");
+        return (id && /^[A-Z0-9]{4,8}$/.test(id)) ? id : null;
+      } catch (e) { return null; }
+    }
+    function setUrlGameId(id) {
+      try {
+        var u = new URL(location.href);
+        if (id) u.searchParams.set("g", id); else u.searchParams.delete("g");
+        history.replaceState(null, "", u.pathname + u.search + u.hash);
+      } catch (e) { /* ignore */ }
     }
 
     /* ================== S5: DASHBOARD UI ================== */
@@ -1297,7 +1396,10 @@
       wrap.innerHTML = '<div class="note-sm">Loading saved games...</div>';
       NET.listGames().then(function (rows) {
         wrap.innerHTML = "";
-        if (!rows || !rows.length) { wrap.innerHTML = '<div class="note-sm">No saved games yet. Use New Game from the menu to start one.</div>'; return; }
+        // A finished game (a winner reached) is not resumable, so it never belongs in the
+        // continue list. Filter it out here so it cannot be picked up again.
+        rows = (rows || []).filter(function (g) { return g && g.status !== "finished"; });
+        if (!rows.length) { wrap.innerHTML = '<div class="note-sm">No saved games yet. Use New Game from the menu to start one.</div>'; return; }
         rows.forEach(function (g) {
           var row = document.createElement("div");
           row.className = "dash-row" + (g.gameId === highlightId ? " highlight" : "");
@@ -1417,6 +1519,7 @@
         // what the host just typed here, so the Main Menu reminder can show it after a resume.
         if (pw) state.password = pw;
         saveHostLS();
+        setUrlGameId(gameId);
         enterActiveGame();
         // Re-save right away so the stored status flips from paused back to active
         // (hydrateState clears the paused flag but nothing else would persist it).
@@ -1433,8 +1536,6 @@
       $("targetLabel").textContent = state.target;
       buildSeats(); layoutSeats(); render();
       updatePhonesBtnVisibility();
-      // Warm up the Spotify embed API on a resumed game too, so Play here stays gesture-synchronous.
-      if (isHttpOrigin()) ensureSpotifyScript(function () { /* preloaded */ });
       startIntentPolling();
       // Mid-steal resume (batch 7): the safest recovery is to restart the whole steal phase
       // from a fresh countdown. We discard any half-collected registrations, picks, and wheel
@@ -1458,15 +1559,28 @@
       state.wheelWinner = null;
       resolveRound();
     }
-    function onPause() {
-      if (!state) { showDashboard(); return; }
-      state.paused = true;
-      flushDirty();
-      stopIntentPolling(); stopStealTimer();
-      hideGuessReveal();
-      showDashboard();
+    // Resume straight into a game from a hostToken this browser already holds (deep link or a
+    // silent reload). Unlike doResume it neither rotates the token nor needs a password: it just
+    // reads the current state with the stored token. onFail runs when the game is gone, paused,
+    // finished, or the token was rejected because another host took over.
+    function resumeIntoGame(gameId, hostToken, onFail) {
+      return NET.loadState(gameId, hostToken).then(function (r) {
+        if (!r || !r.state) { if (onFail) onFail(); return false; }
+        var blob = r.state;
+        if (blob.status === "paused" || blob.status === "finished" || blob.phase === "over") { if (onFail) onFail(); return false; }
+        state = hydrateState(blob);
+        state.gameId = gameId; state.hostToken = hostToken;
+        if (typeof r.version === "number") state.version = r.version;
+        // The server never returns the join password, so restore it from the host-local session
+        // (saved at creation) when this browser holds it for this game. This keeps the real
+        // password visible on the phones view after a silent reload / the Spotify OAuth roundtrip.
+        if (!state.password) { var ls = loadHostLS(); if (ls && ls.gameId === gameId && ls.password) state.password = ls.password; }
+        enterActiveGame();
+        setUrlGameId(gameId);
+        if (state.wheelWinner) resumeWheelResolution();
+        return true;
+      });
     }
-
     /* ================== S6: SETUP UI ================== */
     function renderNames() {
       var wrap = $("names"); wrap.innerHTML = "";
@@ -1555,6 +1669,10 @@
       // roundsPlayed (PROTOCOL field) counts turns actually taken; used by the equalizer.
       var players = names.map(function (n, i) { return { idx: i, name: n, color: PALETTE[i % PALETTE.length], timeline: [], coins: coinsPerPlayer, roundsPlayed: 0, claimed: false }; });
       for (var p = 0; p < players.length; p++) if (deck.length) players[p].timeline.push(deck.pop());
+      // Random starting player (issue #3): shuffle the seat order and take the first as the
+      // opening turn; the wheel below reveals them. Turn order then proceeds by seat index.
+      var startOrder = shuffle(players.map(function (pl) { return pl.idx; }));
+      var starterIdx = startOrder.length ? startOrder[0] : 0;
 
       var meta = pillMeta();
       var catsList = []; setup.cats.forEach(function (k) { catsList.push(k); });
@@ -1575,7 +1693,7 @@
       }
       hideOfflineNotice();
       state = {
-        players: players, deck: deck, current: 0, viewIdx: 0, target: target, n: players.length,
+        players: players, deck: deck, current: starterIdx, viewIdx: starterIdx, target: target, n: players.length,
         coinsPerPlayer: coinsPerPlayer, catsList: catsList,
         catMeta: meta, phase: "place", card: null, chosenSlot: null, result: null, locked: false,
         stealers: [], registered: [], stealPickerIdx: null, stealPick: null, stealEligibleIdx: [],
@@ -1592,34 +1710,37 @@
 
       buildSeats();
       layoutSeats();
-      beginTurnDraw();   // player 1 gets their first song automatically, no draw press
-
-      // Warm up the Spotify embed iframe API right at game start on an http(s) origin (issue #36
-      // batch 6). A later "Play here" click can then create the controller synchronously inside
-      // the click gesture. Loading it lazily on the first click ran createController after the
-      // gesture window had closed, which the browser autoplay policy blocked (no audio).
-      if (isHttpOrigin()) ensureSpotifyScript(function () { /* preloaded */ });
+      // Draw the starter's card behind the wheel, then spin the opening wheel to reveal who
+      // starts (issue #3). The wheel overlay covers the board, so the place UI is ready the
+      // moment it closes. Resume never runs startGame, so a reload never re-spins the wheel.
+      beginTurnDraw();   // the randomly chosen starter gets their first song automatically
+      if (state.n >= 2) {
+        runStealWheel(startOrder, starterIdx, function () { /* starter revealed; place UI is live */ }, {
+          spinCaption: "Spinning to see who starts",
+          winCaptionFn: function (name) { return name + " starts!"; }
+        });
+      }
 
       // Create the backend game once (online only), then start intent polling.
       if (NET.available) {
         NET.createGame(state.name, state.password, serializeState()).then(function (r) {
           if (r && r.gameId) {
             state.gameId = r.gameId; state.hostToken = r.hostToken; state.version = r.version || 1;
-            saveHostLS(); updatePhonesBtnVisibility(); startIntentPolling();
-            // Game-setup popup on start (issue #36 batch 6): once the game is registered, show the
-            // combined popup (join QR plus the Connect Spotify sound check) before first placement.
-            openGameSetup();
+            saveHostLS(); setUrlGameId(state.gameId); updatePhonesBtnVisibility(); startIntentPolling();
+            // Setup lobby on start: once the game is registered, show the setup popup (join QR +
+            // password, plus the optional Connect Spotify) with a Start button, before first play.
+            openGameSetup("phones", "setup");
           } else {
-            // No silent offline fallback (issue #36 batch 6): the game keeps running offline, but
-            // tell the user why phones and saving are unavailable, with the server's error string.
+            // No silent offline fallback: the game keeps running offline, but tell the user why
+            // phones and saving are unavailable, with the server's error string.
             showOfflineNotice(r && r.error ? r.error : "The game server did not respond.");
-            // Still offer the Spotify sound check on an http(s) origin, even offline.
-            if (isHttpOrigin()) openGameSetup();
+            // Still offer the optional Connect Spotify on an http(s) origin, even offline.
+            if (isHttpOrigin()) openGameSetup(null, "setup");
           }
         });
       } else if (isHttpOrigin()) {
-        // Offline game on an http(s) origin: no phones, but still offer the Spotify sound check.
-        openGameSetup();
+        // Offline game on an http(s) origin: no phones, but still offer the optional Connect Spotify.
+        openGameSetup(null, "setup");
       }
     }
 
@@ -1680,14 +1801,19 @@
       if (!state.deck.length) { endGame("deck"); return; }
       hideGuessReveal();
       teardownSpotify();
-      state.card = state.deck.pop(); state.chosenSlot = null; state.result = null; state.phase = "place";
+      // A fresh turn ALWAYS starts with the new card unplaced and unlocked: chosenSlot cleared so
+      // no tentative "?" card is shown in the timeline, locked cleared, phase back to "place". This
+      // prevents the new card from appearing already jumped into the player's timeline (issue: a
+      // stale slot leaking into a new turn). The projection then reports tentativeSlot null and
+      // locked false, so the phone mirrors the unplaced state.
+      state.card = state.deck.pop(); state.chosenSlot = null; state.result = null; state.phase = "place"; state.locked = false;
       state.revealInFlight = false; state.wheelWinner = null;
       state.round += 1;
       state.players[state.current].roundsPlayed += 1;
       state.viewIdx = state.current;
       state.pending = [];
       render();
-      markDirty();
+      flushDirty();   // push the reset (unplaced, unlocked) immediately so the phone sees it at once
     }
 
     function discardAndRedraw() {
@@ -1748,7 +1874,7 @@
       if (state.stealEligibleIdx.length === 0) { resolveRound(); return; }
       state.phase = "steal"; state.stealRemaining = STEAL_SECONDS;
       startStealTimer(); render();
-      markDirty();
+      flushDirty();   // opens the steal window: push now so phones get the 10s countdown promptly
     }
     // Batch 7 multi-steal countdown: the window runs to zero regardless of presses. Each
     // press only REGISTERS a stealer (no pause, no coin), so several can register at once.
@@ -1772,7 +1898,7 @@
       if ((state.registered || []).indexOf(idx) !== -1) return;
       state.registered.push(idx);
       render();
-      markDirty();
+      flushDirty();   // a stealer registered: push now so every phone mirrors the seat promptly
     }
     // Countdown ended (or was skipped): with no registrations, resolve as normal. Otherwise
     // move into the one-at-a-time pick sub-phase, each registered stealer picking in press order.
@@ -1784,7 +1910,7 @@
       state.pickIndex = 0;
       state.stealers = [];
       startNextPick();
-      markDirty();
+      flushDirty();   // countdown ended, entering the pick sub-phase: push the transition now
     }
     // Advance to the next registered stealer's pick. Skips (voids) any stealer who can no
     // longer afford a coin (edge guard: coins cannot drop mid-round today, but be safe).
@@ -1803,7 +1929,7 @@
       // if no pick lands, skip them (steal void, no coin) and advance. Host-screen picks have
       // no time limit (an unclaimed seat is picked on the shared screen with a Confirm button).
       if (state.players[state.stealPickerIdx] && state.players[state.stealPickerIdx].claimed) armPickBail(state.stealPickerIdx);
-      markDirty();
+      flushDirty();   // whose pick turn it is just changed: push now so the picker's phone knows
     }
     function armPickBail(idx) {
       _phonePickBailTimer = setTimeout(function () {
@@ -1927,7 +2053,7 @@
       state.phase = "revealed";
       resolvePending();
       render();
-      markDirty();
+      flushDirty();   // resolve/reveal: closes the steal window, push the outcome to phones now
       // Answer is public now: surface each full phone guess with its verdict (no popup, no delay
       // when nobody guessed). Non-blocking, so the host can still press Next straight away.
       showGuessReveal();
@@ -2122,7 +2248,43 @@
     }
     var _lastRenderedView = null;
 
-    function render() { renderSeats(); renderHub(); renderHero(); updateRoundPill(); $("deckLeft").textContent = state.deck.length; }
+    function render() { renderSeats(); renderHub(); renderHero(); updateRoundPill(); $("deckLeft").textContent = state.deck.length; sizeHub(); }
+
+    // Size and centre the hub card in the stage. The stage inset already tracks the resizable
+    // hero, so its box IS the available area; we read it, convert zoomed px back to layout px via
+    // displayZoom (see issue #54), and target a card that fills about 95% of it, kept clear of the
+    // edge-docked seats by a width budget. The QR is square, bounded by both the target height
+    // (minus the header/button chrome) and that width budget. The vars land on :root so the docked
+    // guess-reveal panel can match the same size. Re-run on every render, resize, display-preset
+    // change, and hero drag.
+    function sizeHub() {
+      var stage = $("stage");
+      if (!stage || $("game").classList.contains("hidden")) return;
+      var z = displayZoom();
+      var rect = stage.getBoundingClientRect();
+      var availH = rect.height / z, availW = rect.width / z;
+      if (availH <= 0 || availW <= 0) return;
+      // Card chrome that is not the QR (header + button row + paddings + border), kept in sync
+      // with the .hubcard / .qr CSS; a little slack keeps the place phase clear of a scrollbar.
+      var CHROME_V = 150, CHROME_H = 52;
+      var targetCardH = availH * 0.95;   // fill ~95% of the vertical space the host controls
+      var budgetCardW = availW * 0.56;   // stay clear of the seats parked at the stage edges
+      var qr = Math.min(targetCardH - CHROME_V, budgetCardW - CHROME_H);
+      qr = Math.max(150, Math.round(qr));
+      var cardW = Math.min(qr + CHROME_H, Math.round(availW * 0.95));
+      var cardH = Math.min(Math.round(targetCardH), Math.round(availH * 0.98));
+      var root = document.documentElement.style;
+      root.setProperty("--hub-w", cardW + "px");
+      root.setProperty("--hub-h", cardH + "px");
+      root.setProperty("--hub-qr", qr + "px");
+      // Seat width scales into the space beside the centered hub. Seats dock in two columns whose
+      // centres sit at 12% / 88% of the stage; with the hub taking a ~56% centre width budget, a
+      // seat centred at 12% must stay within ~18% of the width to keep clear of the card (0.12 +
+      // 0.18/2 = 0.21 < 0.5 - 0.56/2 = 0.22). Clamp keeps them readable on small screens and sane
+      // on very wide ones.
+      var seatW = Math.max(150, Math.min(Math.round(availW * 0.18), 340));
+      root.setProperty("--seat-w", seatW + "px");
+    }
 
     function renderSeats() {
       var seats = $("stage").querySelectorAll(".seat");
@@ -2183,26 +2345,25 @@
 
     function renderHub() {
       var hub = $("hub"), c = $("hubcard");
+      c.classList.remove("reveal-flip");
       hub.classList.toggle("live", state.phase === "place");
       if (state.phase === "place") {
         var canPlay = canPlayHere();
+        var playTip = spotifyPlaying ? "Stop" : "Play here";
+        // The hub row is the only pair of icon buttons at the very bottom of the card, so their
+        // hover tooltip pill uses .tip-above: it appears ABOVE the button instead of below, where
+        // it otherwise juts out under the card and reads as a stray extra "Expand" text control.
         var playBtn = canPlay
-          ? '<button class="btn ghost" type="button" id="playHereBtn">' + (spotifyPlaying ? "■ Stop" : "▶ Play here") + '</button>'
+          ? '<button class="btn ghost hub-row-icon-btn tip-above" type="button" id="playHereBtn" aria-label="' + playTip + '" title="' + playTip + '" data-tip="' + playTip + '">' + playIconSvg(spotifyPlaying) + '</button>'
           : "";
-        // UI batch 3: decluttered scan card. Dropped the equalizer stripe row, the
-        // "Open in Spotify" link, and the play-here hint so the card stays compact with no
-        // scrollbar. Kept the QR, its fullscreen-expand control, and the Play here button.
-        c.innerHTML = '<h3>Scan to play</h3><div class="qr"><img alt="Spotify QR" src="' + qrSrc(state.card) + '" />' +
-          '<button class="btn ghost qr-expand" type="button" id="qrExpandBtn" aria-label="Expand QR" title="Expand QR" data-tip="Expand QR">' + fsIconSvg(false) + '</button></div>' +
-          (playBtn ? '<div class="row">' + playBtn + '</div>' : "");
+        // Decluttered scan card: just the QR plus two icon-only square buttons in one centered row,
+        // Play here (only when full Spotify playback is ready) and the fullscreen-expand control.
+        var expandBtn = '<button class="btn ghost qr-expand-btn hub-row-icon-btn tip-above" type="button" id="qrExpandBtn" aria-label="Expand" title="Expand" data-tip="Expand">' + fsIconSvg(false) + '</button>';
+        c.innerHTML = '<h3>Scan to play</h3><div class="qr"><img alt="Spotify QR" src="' + qrSrc(state.card) + '" /></div>' +
+          '<div class="row">' + (playBtn || "") + expandBtn + '</div>';
         makeDraggableHub();
         var qx = $("qrExpandBtn");
-        if (qx) {
-          // Sits on the QR, which is itself the drag handle: swallow pointerdown so tapping
-          // expand never starts a placement drag.
-          qx.onpointerdown = function (ev) { ev.stopPropagation(); };
-          qx.onclick = function (ev) { ev.stopPropagation(); openQrFull(); };
-        }
+        if (qx) { qx.onclick = function (ev) { ev.stopPropagation(); openQrFull(); }; }
         var ph = $("playHereBtn"); if (ph) { ph.onclick = onPlayHereToggle; renderHubPlayBtn(); }
       } else if (state.phase === "steal") {
         if (state.stealPhase === "picking" && state.stealPickerIdx !== null) {
@@ -2225,6 +2386,8 @@
           '</div><div class="reveal-artist">' + escapeHtml(card.artist) + '</div>' +
           '<div class="row" style="margin-top:8px">' + catChip(card.cat, true) + '</div>' +
           '<div class="verdict ' + (r.correct || r.stolenBy !== null ? "good" : "bad") + '">' + verdict + '</div>';
+        // Flip the card as the Year + Song appear (issue #3); reflow restarts it each reveal.
+        void c.offsetWidth; c.classList.add("reveal-flip");
       }
     }
 
@@ -2316,19 +2479,24 @@
       el.innerHTML = html;
     }
 
-    // Round-end guess reveal popup (batch 8). Called once from finishReveal, i.e. the moment
-    // the answer becomes public. Lists every full phone guess from this round (artist + title,
-    // or where-it-is-from) with a right/wrong verdict read off the already-judged pending entry,
-    // so nothing about the answer leaks before resolution. Centered over the hub, auto-closes
-    // after 5 seconds (progress bar) or on a click, and never blocks the hero action buttons.
-    function guessWhatHtml(g) {
-      if (g.type === "source") {
-        var stLabel = g.sourceType === "movie" ? "Movie" : g.sourceType === "musical" ? "Musical" : g.sourceType === "disney" ? "Disney" : "Where it's from";
-        return stLabel + ': <i>' + escapeHtml(g.sourceName || "") + '</i>';
+    // Round-end guess reveal panel (batch 8, issue #3). Called once from finishReveal, i.e. the
+    // moment the answer becomes public. Renders one card per guesser from this round with a
+    // right/wrong verdict read off the already-judged pending entry, so nothing about the answer
+    // leaks before resolution. Docked left of the hub, never blocks the hero action buttons, and
+    // is dismissed by the host "Next player" button (round advance) or Esc.
+    // Two clearly separated, labelled lines per guess: a song guess shows Artist then Title; a
+    // source ("where it's from") guess shows Type then Name.
+    function guessLinesHtml(g) {
+      function line(label, valueHtml) {
+        return '<div class="gr-line"><span class="gr-label">' + label + '</span><span class="gr-value">' + valueHtml + '</span></div>';
       }
-      var title = g.title ? '<i>' + escapeHtml(g.title) + '</i>' : '<i>(no title)</i>';
+      if (g.type === "source") {
+        var stLabel = g.sourceType === "movie" ? "Movie" : g.sourceType === "musical" ? "Musical" : g.sourceType === "disney" ? "Disney" : (g.sourceType ? escapeHtml(g.sourceType) : "Where it's from");
+        return line("Type", stLabel) + line("Name", escapeHtml(g.sourceName || "(no name)"));
+      }
       var artist = g.artist ? escapeHtml(g.artist) : "(no artist)";
-      return title + ' by ' + artist;
+      var title = g.title ? escapeHtml(g.title) : "(no title)";
+      return line("Artist", artist) + line("Title", "<i>" + title + "</i>");
     }
     function showGuessReveal() {
       hideGuessReveal();
@@ -2343,41 +2511,55 @@
       for (var i = 0; i < full.length; i++) {
         var g = full[i];
         var pl = state.players[g.playerIdx] || { color: "#c9c4ff", name: g.player || "?" };
-        var verdictCls = g.judged === "correct" ? "correct" : "wrong";
-        var verdictTxt = g.judged === "correct" ? "Right" : "Wrong";
-        var coin = (g.judged === "correct" && g.coinAwarded) ? " +1 🪙" : "";
-        html += '<li class="gr-item ' + verdictCls + '">' +
-          '<span class="gr-dot" style="background:' + pl.color + '"></span>' +
-          '<span class="gr-body"><span class="gr-who">' + escapeHtml(pl.name) + '</span>' +
-          '<span class="gr-what">' + guessWhatHtml(g) + '</span></span>' +
-          '<span class="gr-verdict">' + verdictTxt + coin + '</span></li>';
+        var correct = g.judged === "correct";
+        var verdictTxt = correct ? "Right" : "Wrong";
+        // Coin only when a coin was actually awarded (guess correct AND placement correct).
+        var awarded = (correct && g.coinAwarded);
+        var coinBurst = awarded ? '<div class="gr-coin">+1 🪙</div>' : "";
+        // Per-card verdict outline: green when the guess was right, red when wrong (issue #3).
+        html += '<div class="gr-card ' + (correct ? "correct" : "wrong") + '">' + coinBurst +
+          '<h3><span class="gr-dot" style="background:' + pl.color + '"></span>' + escapeHtml(pl.name) + ' Guess:</h3>' +
+          '<div class="gr-lines">' + guessLinesHtml(g) + '</div>' +
+          '<span class="gr-verdict">' + verdictTxt + (awarded ? " +1 🪙" : "") + '</span></div>';
       }
       listEl.innerHTML = html;
-      var pop = $("guessRevealPopup");
-      pop.classList.remove("hidden");
+      $("guessRevealPopup").classList.remove("hidden");
       positionGuessReveal();
-      // Issue #51: no auto-close; the popup stays until the host presses Continue.
+      // No auto-close; the panel stays until the host presses Next player (or Esc).
       return true;
     }
     function positionGuessReveal() {
       var pop = $("guessRevealPopup");
       if (!pop || pop.classList.contains("hidden")) return;
       var hub = $("hub");
-      // Center over the hub when it is on screen, else fall back to the stage centre.
-      var cx = window.innerWidth / 2, cy = window.innerHeight / 2;
+      var popW = pop.getBoundingClientRect().width || 300;
+      // Issue #3: dock the panel to the LEFT of the centered QR card, vertically aligned to it.
+      // Fall back to just left of centre when the hub is not measurable.
+      var cx = window.innerWidth / 2 - popW / 2 - 40;
+      var cy = window.innerHeight / 2;
       if (hub) {
         var r = hub.getBoundingClientRect();
-        if (r.width && r.height) { cx = r.left + r.width / 2; cy = r.top + r.height / 2; }
+        if (r.width && r.height) { cx = r.left - 24 - popW / 2; cy = r.top + r.height / 2; }
       }
-      pop.style.left = cx + "px";
-      pop.style.top = cy + "px";
+      var minCx = popW / 2 + 12;   // never run off the left edge
+      if (cx < minCx) cx = minCx;
+      // cx/cy are actual (zoomed) px; the popup is position: fixed inside the zoomed <body>, so a
+      // left/top set in CSS px renders at that value times the zoom. Divide by the zoom so the
+      // guess card docks flush beside the hub and their tops/bottoms line up at any display zoom.
+      var z = displayZoom();
+      pop.style.left = (cx / z) + "px";
+      pop.style.top = (cy / z) + "px";
     }
     function hideGuessReveal() {
       var pop = $("guessRevealPopup");
-      if (pop) pop.classList.add("hidden");
+      if (pop) {
+        pop.classList.add("hidden");
+        var listEl = $("guessRevealList");
+        if (listEl) listEl.innerHTML = "";   // drop the per-guesser cards (and any coin burst)
+      }
     }
 
-    // Brief auto-hiding confirmation toast (batch 8), used by the settings Save game action.
+    // Brief auto-hiding confirmation toast (batch 8): a generic one-line message helper.
     var _toastTimer = null;
     function showToast(msg) {
       var t = $("toast");
@@ -2464,7 +2646,9 @@
       document.body.classList.add("dragging");
       dragState.ghost = document.createElement("div");
       dragState.ghost.className = "drag-ghost";
-      dragState.ghost.innerHTML = '<img alt="" src="' + qrSrc(state.card) + '" />';
+      // Show the "? New card" placeholder (the mystery card being placed), matching the phone and
+      // the tentative card in the strip. The QR is untouched in the hub so it stays scannable.
+      dragState.ghost.innerHTML = '<div class="dg-card"><span class="dg-badge">NEW</span><span class="dg-q">?</span><span class="dg-label">New card</span></div>';
       document.body.appendChild(dragState.ghost);
       // Re-dragging the tentative card: one controlled re-render WITHOUT it so every gap
       // (including its old slot) is a drop target. No other re-render happens mid-drag.
@@ -2486,7 +2670,11 @@
     function onDragUp(ev) { endDrag(ev.clientX, ev.clientY); }
     function onDragCancel() { endDrag(null, null); }
     function forceEndDrag() { if (dragState.active) endDrag(null, null); }
-    function moveGhost(x, y) { if (dragState.ghost) { dragState.ghost.style.left = x + "px"; dragState.ghost.style.top = y + "px"; } }
+    // The ghost is position: fixed inside the zoomed <body>, so a left/top set in CSS px renders
+    // at that value TIMES the display zoom. Pointer clientX/clientY are actual (zoomed) px, so
+    // divide by the zoom to land the ghost under the pointer instead of snapping off to the side
+    // (fix for the card jumping away from the cursor at any non-1 display zoom, e.g. Auto).
+    function moveGhost(x, y) { if (dragState.ghost) { var z = displayZoom(); dragState.ghost.style.left = (x / z) + "px"; dragState.ghost.style.top = (y / z) + "px"; } }
     function findSlotAt(x, y) {
       // Live getBoundingClientRect so hit-testing stays correct while auto-scrolling.
       var slots = document.querySelectorAll("#timeline .slot");
@@ -2548,7 +2736,10 @@
     /* ================== S10: STEAL WHEEL ================== */
     // Spin a wheel of the tied stealers' colors and land on the pre-chosen winner. The
     // winner is decided by the caller (Math.random) and passed in; this only animates.
-    function runStealWheel(candidates, winnerIdx, done) {
+    function runStealWheel(candidates, winnerIdx, done, opts) {
+      opts = opts || {};
+      var spinCaption = opts.spinCaption || "Same spot: spinning to pick who gets the steal";
+      var winCaptionFn = opts.winCaptionFn || function (name) { return name + " gets the steal attempt"; };
       var overlay = $("wheelOverlay"), disc = $("wheelDisc"), labels = $("wheelLabels"), caption = $("wheelCaption");
       if (!overlay || !disc) { done(); return; } // no UI available, resolve immediately
       var n = candidates.length, seg = 360 / n, stops = [], labelsHtml = "";
@@ -2561,7 +2752,7 @@
       }
       disc.style.background = "conic-gradient(" + stops.join(",") + ")";
       if (labels) labels.innerHTML = labelsHtml;
-      caption.textContent = "Same spot: spinning to pick who gets the steal";
+      caption.textContent = spinCaption;
       overlay.classList.remove("hidden");
 
       var winPos = candidates.indexOf(winnerIdx);
@@ -2570,7 +2761,7 @@
       var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
       function finish() {
-        caption.textContent = state.players[winnerIdx].name + " gets the steal attempt";
+        caption.textContent = winCaptionFn(state.players[winnerIdx].name);
         setTimeout(function () {
           overlay.classList.add("hidden");
           disc.style.transition = ""; disc.style.transform = "";
@@ -2580,7 +2771,7 @@
       if (reduced) {
         disc.style.transition = "none";
         disc.style.transform = "rotate(" + rest + "deg)";
-        caption.textContent = state.players[winnerIdx].name + " gets the steal attempt";
+        caption.textContent = winCaptionFn(state.players[winnerIdx].name);
         setTimeout(function () { overlay.classList.add("hidden"); disc.style.transform = ""; done(); }, 1200);
         return;
       }
@@ -2673,7 +2864,11 @@
       var isCurrent = it.playerIdx === state.current;
       switch (it.type) {
         case "tentative":
-          if (isCurrent && state.phase === "place" && !dragState.active && typeof it.slot === "number" && it.slot !== state.chosenSlot) {
+          // Ignore a tentative slot carried over from a previous round: applying it on a fresh
+          // turn would jump the new card into the timeline as if already placed. When the intent
+          // has no round (older phones) fall back to the prior behaviour.
+          if (isCurrent && state.phase === "place" && !dragState.active && typeof it.slot === "number"
+              && (it.round == null || it.round === state.round) && it.slot !== state.chosenSlot) {
             state.chosenSlot = it.slot; renderHero();
           }
           break;
@@ -2776,19 +2971,31 @@
       if (msg && $("gamePassword")) { try { $("gamePassword").focus(); } catch (err) { /* ignore */ } }
     }
 
-    // Combined game-setup popup (issue #36 batch 6). Section 1 (Phones) is shown only for online
-    // games; section 2 (Spotify sound) is shown for any http(s) origin, offline games included.
-    // "focus" ("phones" | "spotify") scrolls that section into view when opened from the gear.
-    function openGameSetup(focus) {
+    // Game-setup popup. "view" ("phones" | "spotify") selects which single section shows when
+    // opened from the in-game gear; "ctx" ("setup" | "game") records where the popup was opened
+    // so the Spotify OAuth return can route back here (setup) or into the running game (game).
+    // In "setup" context (the lobby shown at game start) BOTH sections show together with a Start
+    // button; from the gear each button opens exactly one section. gameSetupCtx is read by
+    // spBeginConnect to stamp the PKCE state entry with returnTo.
+    var gameSetupCtx = "game";
+    function openGameSetup(view, ctx) {
       if (!state) return;
+      gameSetupCtx = (ctx === "setup") ? "setup" : "game";
       var online = !!(NET.available && state.gameId);
       var httpish = isHttpOrigin();
+      var showPhones, showSpotify;
+      if (gameSetupCtx === "setup") { showPhones = online; showSpotify = httpish; }
+      else if (view === "spotify") { showPhones = false; showSpotify = httpish; }
+      else { showPhones = online; showSpotify = false; }
       var phSec = $("setupPhonesSection");
-      phSec.classList.toggle("hidden", !online);
-      if (online) {
+      phSec.classList.toggle("hidden", !showPhones);
+      if (showPhones) {
         var joinId = state.gameId || state.room;
         var url = location.origin + "/hitster/guess?game=" + joinId;
-        $("phonesCode").textContent = joinId + (state.password ? ("  ·  pw: " + state.password) : "");
+        $("phonesCode").textContent = joinId;
+        // Online games always have a join password; it is only unknown after a silent reload
+        // resume (the server never returns it), so show a short reminder in that rare case.
+        $("phonesPassword").textContent = state.password ? state.password : "(set at creation)";
         var qrHtml;
         try {
           var q = qrcode(0, "M");
@@ -2799,24 +3006,38 @@
         $("phonesQr").innerHTML = qrHtml;
       }
       var spSec = $("setupSpotifySection");
-      spSec.classList.toggle("hidden", !httpish);
-      if (httpish) buildConnectSpotify($("connectSpotifyBlock"));
-      $("gameSetupOverlay").classList.remove("hidden");
-      var target = focus === "spotify" ? spSec : (focus === "phones" ? phSec : null);
-      if (target && !target.classList.contains("hidden") && target.scrollIntoView) {
-        try { target.scrollIntoView({ block: "nearest" }); } catch (e) { /* ignore */ }
+      spSec.classList.toggle("hidden", !showSpotify);
+      if (showSpotify) buildConnectSpotify($("connectSpotifyBlock"));
+      // Title + bottom-button label reflect the context: the lobby says "Start game"; a single
+      // gear view says "Back" (it returns to the settings menu) and names the section it opened.
+      var title = $("gameSetupTitle"), dismiss = $("gameSetupCloseBtn2");
+      if (gameSetupCtx === "setup") {
+        if (title) title.innerHTML = '<span class="note">&#9834;</span> Game setup';
+        if (dismiss) dismiss.textContent = "Start game";
+      } else {
+        if (title) title.innerHTML = '<span class="note">&#9834;</span> ' + (view === "spotify" ? "Connect Spotify" : "Connect phones");
+        if (dismiss) dismiss.textContent = "Back";
       }
+      $("gameSetupOverlay").classList.remove("hidden");
     }
     function closeGameSetup() {
       $("gameSetupOverlay").classList.add("hidden");
-      teardownConnectSpotify();
     }
     function openGameSettings() {
       if (!state) return;
       applyGameSettingsOnline(!!(NET.available && state && state.gameId));
+      setGameSettingsView("menu");
       $("gameSettingsOverlay").classList.remove("hidden");
     }
     function closeGameSettings() { $("gameSettingsOverlay").classList.add("hidden"); }
+    // Swap the in-game settings sub-view: "menu" (the button list) or "display" (the display-size
+    // presets, reached via the Display menu button). The dialog keeps its size; only the inner
+    // view changes, and the display sub-view has its own Back button returning to the menu.
+    function setGameSettingsView(name) {
+      var mv = $("gsViewMenu"), dv = $("gsViewDisplay");
+      if (mv) mv.classList.toggle("hidden", name !== "menu");
+      if (dv) dv.classList.toggle("hidden", name !== "display");
+    }
 
     /* ================== S11b: CONFIRM MODAL + FULLSCREEN QR + HIDDEN PLAYBACK ================== */
     // Reusable themed confirm modal (issue #30 item 4), replaces native confirm().
@@ -2851,187 +3072,365 @@
     }
     function closeQrFull() { $("qrFullOverlay").classList.add("hidden"); }
 
-    // Hidden playback on the TV (issue #30 item 6). The Spotify Embed IFrame API is
-    // loaded lazily on the first "Play here" click, never at page load, so an offline /
-    // file:// session stays free of any external request. It fails gracefully: if the
-    // script cannot load, the Play here button is hidden on the next render.
-    var spotifyScriptState = "none"; // none | loading | ready | failed
-    var spotifyApi = null;
-    var spotifyController = null;
+    // In-app playback (the "Play here" button on the QR card) is ONLY the full-length Spotify Web
+    // Playback SDK path below (spFullPlay / spFullPause). It is available exclusively to a
+    // connected Spotify PREMIUM host; without that there is no in-app playback and the button is
+    // hidden, so players just scan the QR to play each song on their own phones.
     var spotifyPlaying = false;
-    var spotifyReadyQueue = [];
-    // Play here state machine (issue #36 batch 6): idle | playing | blocked. "blocked" means
-    // play() ran but no playback progress arrived (autoplay was refused), so the next click is
-    // treated as a fresh user gesture that calls play() directly.
+    // Play here button state: idle | playing.
     var playHereState = "idle";
-    var spotifyProgressTimer = null;
-    var spotifySawProgress = false;
-    // Connect Spotify verify player: its own controller (separate from the hidden game one) plus
-    // the session-wide verified flag, mirrored to localStorage for convenience (not a secret).
-    var csController = null;
-    var spotifyVerified = false;
-    try { spotifyVerified = (window.localStorage && localStorage.getItem("hitster_spotify_verified") === "1"); } catch (e) { spotifyVerified = false; }
     function isHttpOrigin() { return /^https?:$/.test(location.protocol); }
     function canPlayHere() {
-      return isHttpOrigin() && !!(state && state.card && state.card.id) && spotifyScriptState !== "failed";
+      // Show/work the Play here button only when full SDK playback is ready for the current card.
+      return spFullPlaybackReady() && !!(state && state.card && state.card.id);
     }
-    function flushSpotifyQueue() {
-      var q = spotifyReadyQueue.slice(); spotifyReadyQueue = [];
-      for (var i = 0; i < q.length; i++) { try { q[i](); } catch (e) { /* ignore */ } }
-    }
-    function ensureSpotifyScript(cb) {
-      if (spotifyScriptState === "ready" || spotifyScriptState === "failed") { cb(); return; }
-      spotifyReadyQueue.push(cb);
-      if (spotifyScriptState === "loading") return;
-      if (!/^https?:$/.test(location.protocol)) { spotifyScriptState = "failed"; flushSpotifyQueue(); return; }
-      spotifyScriptState = "loading";
-      window.onSpotifyIframeApiReady = function (IFrameAPI) { spotifyApi = IFrameAPI; spotifyScriptState = "ready"; flushSpotifyQueue(); };
-      var s = document.createElement("script");
-      s.src = "https://open.spotify.com/embed/iframe-api/v1";
-      s.async = true;
-      s.onerror = function () { spotifyScriptState = "failed"; flushSpotifyQueue(); };
-      document.head.appendChild(s);
-      // Guard against a silent failure to load (blocked / offline): give up after a bit.
-      setTimeout(function () { if (spotifyScriptState === "loading") { spotifyScriptState = "failed"; flushSpotifyQueue(); } }, 8000);
-    }
-    function freshEmbedTarget() {
-      var host = $("spotifyHost");
-      host.innerHTML = "";
-      var el = document.createElement("div");
-      host.appendChild(el);
-      return el;
-    }
-    // Silent teardown, called on every round transition so a track never leaks into the
-    // next round. Callers render() afterwards, which repaints the button.
+    // Silent teardown, called on every round transition so a track never leaks into the next
+    // round. Callers render() afterwards, which repaints the button.
     function teardownSpotify() {
       spotifyPlaying = false;
       playHereState = "idle";
-      if (spotifyProgressTimer) { clearTimeout(spotifyProgressTimer); spotifyProgressTimer = null; }
-      if (spotifyController) {
-        try { spotifyController.pause(); } catch (e) { /* ignore */ }
-        try { spotifyController.destroy(); } catch (e) { /* ignore */ }
-        spotifyController = null;
-      }
-      var host = $("spotifyHost");
-      if (host) host.innerHTML = "";
+      // Stop the full-track SDK player so a track never leaks into the next round or the menu.
+      if (spPlayer) { try { spPlayer.pause(); } catch (e) { /* ignore */ } }
     }
     function renderHubPlayBtn() {
       var btn = $("playHereBtn");
       if (!btn) return;
       btn.disabled = false;
-      if (playHereState === "blocked") btn.textContent = "Audio blocked, click again";
-      else btn.textContent = spotifyPlaying ? "■ Stop" : "▶ Play here";
+      btn.innerHTML = playIconSvg(spotifyPlaying);
+      // Icon-only button: the tooltip carries the action label.
+      var tip = spotifyPlaying ? "Stop" : "Play here";
+      btn.setAttribute("aria-label", tip);
+      btn.setAttribute("data-tip", tip);
+      btn.title = tip;
     }
-    // Playback progress detection: the embed fires playback_update as it plays. If the position
-    // advances while not paused we know audio is really running; if nothing advances within the
-    // watch window we treat autoplay as blocked and flip the button to a fresh-gesture retry.
-    function onSpotifyPlaybackUpdate(e) {
-      var d = e && e.data;
-      if (!d) return;
-      if (typeof d.position === "number" && d.position > 0 && !d.isPaused) {
-        spotifySawProgress = true;
-        if (playHereState === "blocked") { playHereState = "playing"; renderHubPlayBtn(); }
-      }
-    }
-    function startProgressWatch() {
-      spotifySawProgress = false;
-      if (spotifyProgressTimer) clearTimeout(spotifyProgressTimer);
-      spotifyProgressTimer = setTimeout(function () {
-        spotifyProgressTimer = null;
-        if (!spotifySawProgress && spotifyPlaying) { playHereState = "blocked"; renderHubPlayBtn(); }
-      }, 1800);
-    }
-    // Creates the hidden game controller and starts playback. Must be called INSIDE a user
-    // gesture with the embed script already loaded, so createController runs synchronously and
-    // the autoplay policy accepts it.
-    function createAndPlay(id) {
-      var el = freshEmbedTarget();
-      spotifyPlaying = true;
-      playHereState = "playing";
-      renderHubPlayBtn();
-      spotifyApi.createController(el, { uri: "spotify:track:" + id, width: 300, height: 80 }, function (ctrl) {
-        spotifyController = ctrl;
-        try { ctrl.addListener("playback_update", onSpotifyPlaybackUpdate); } catch (e) { /* ignore */ }
-        try { ctrl.play(); } catch (e) { /* some builds autoplay on load */ }
-        startProgressWatch();
-      });
+    // When full-playback readiness CHANGES (connect / disconnect / SDK ready / not Premium) the
+    // Play here button appears or disappears, so re-render the whole hub during the place phase;
+    // otherwise there is no button to touch and a cheap icon refresh is enough.
+    function refreshHubPlay() {
+      if (state && state.phase === "place") renderHub();
+      else renderHubPlayBtn();
     }
     function onPlayHereToggle() {
+      // Only the full-playback (SDK) path exists now. Toggling stops/starts the full track.
+      if (!spFullPlaybackReady()) return;
       var id = state && state.card && state.card.id;
-      // Blocked earlier: this click is a fresh gesture, so play the existing controller directly.
-      if (playHereState === "blocked" && spotifyController) {
-        playHereState = "playing"; renderHubPlayBtn();
-        try { spotifyController.play(); } catch (e) { /* ignore */ }
-        startProgressWatch();
+      if (spotifyPlaying) { spFullPause(); return; }
+      if (!id) return;
+      spFullPlay(id);
+    }
+
+    // Connect Spotify screen. In-app playback needs a connected Spotify PREMIUM account via the
+    // Web Playback SDK; this renders only that connect UI (Connect / Connected as X / Premium
+    // required + Disconnect). Rebuilt fresh each time the popup opens or the connection changes.
+    function buildConnectSpotify(container) {
+      if (!container) return;
+      if (!isHttpOrigin()) {
+        container.innerHTML = '<div class="note-sm">Spotify playback needs the online version of this page (an http or https address), not a local file. Players can still scan the QR to play on their own phones.</div>';
         return;
       }
-      if (spotifyPlaying) { teardownSpotify(); renderHubPlayBtn(); return; }
-      if (!id) return;
-      // Fast path: the script was warmed up at game start, so create the controller right now,
-      // inside this click gesture. This is the fix for "first click, no audio": loading the
-      // script lazily on the click ran createController after the gesture window had closed.
-      if (spotifyScriptState === "ready" && spotifyApi) { createAndPlay(id); return; }
-      // Slow path (warm-up not finished or failed to preload): fall back to loading then playing.
-      var btn = $("playHereBtn");
-      if (btn) { btn.disabled = true; btn.textContent = "Loading..."; }
-      ensureSpotifyScript(function () {
-        if (spotifyScriptState !== "ready" || !spotifyApi) { spotifyScriptState = "failed"; spotifyPlaying = false; renderHub(); return; }
-        createAndPlay(id);
+      if (!spConfigured()) {
+        container.innerHTML = '<div class="note-sm">In-app playback is unavailable here. Players scan the QR to play each song on their own phones.</div>';
+        return;
+      }
+      container.innerHTML =
+        spConnectMarkup() +
+        '<div class="note-sm">Without connecting there is no in-app playback: players scan the QR to play each song on their own phones.</div>';
+      spWireConnectButtons();
+    }
+
+    /* ================== S11d: SPOTIFY FULL-TRACK PLAYBACK (WEB PLAYBACK SDK + OAUTH PKCE) ================== */
+    // Everything here is inert until SPOTIFY_CLIENT_ID is filled in. spConfigured() is the single
+    // gate: false (empty id or non-http origin) means there is NO in-app playback at all, with no
+    // OAuth, no SDK load, and no extra network requests (players scan the QR to play on their own
+    // phones). When configured and the host has connected a PREMIUM account, "Play here" streams the
+    // FULL track in the browser via the Web Playback SDK; anything short of that hides Play here.
+    var spSdkState = "none";   // none | loading | ready | failed
+    var spPlayer = null;
+    var spDeviceId = null;
+    var spTokens = null;       // { access_token, refresh_token, expires_at }
+    var spAccount = null;      // { display_name, email, product } from GET /v1/me
+    var spPremiumError = false; // account_error or product !== premium: no full playback
+    var spRefreshPromise = null;
+
+    function spConfigured() { return !!SPOTIFY_CLIENT_ID && isHttpOrigin(); }
+    function spRedirectUri() { return location.origin + location.pathname; }
+    function spIsConnected() { return !!(spTokens && spTokens.access_token); }
+    // Full playback is live only with a configured client id, a connected PREMIUM account, a ready
+    // SDK device, and no account/premium error. Anything short of that hides the Play here button.
+    function spFullPlaybackReady() {
+      return spConfigured() && spIsConnected() && !spPremiumError && !!spPlayer && !!spDeviceId;
+    }
+
+    // ---- token store (localStorage; tokens are not secrets for a public PKCE client) ----
+    function spLoadTokens() {
+      try { spTokens = JSON.parse(localStorage.getItem(SP_LS_TOKENS) || "null"); } catch (e) { spTokens = null; }
+    }
+    function spSaveTokens(t) {
+      spTokens = t;
+      try { if (window.localStorage) localStorage.setItem(SP_LS_TOKENS, JSON.stringify(t)); } catch (e) { /* ignore */ }
+    }
+    function spClearTokens() {
+      spTokens = null; spAccount = null;
+      try { if (window.localStorage) localStorage.removeItem(SP_LS_TOKENS); } catch (e) { /* ignore */ }
+    }
+    // Full disconnect: drop tokens, tear down the SDK player, and repaint any open connect UI.
+    function spDisconnect() {
+      spClearTokens();
+      spDeviceId = null;
+      if (spPlayer) { try { spPlayer.disconnect(); } catch (e) { /* ignore */ } spPlayer = null; }
+      spSdkState = "none";
+      spPremiumError = false;
+      spotifyPlaying = false;
+      playHereState = "idle";
+      var block = $("connectSpotifyBlock");
+      if (block && !$("gameSetupOverlay").classList.contains("hidden")) buildConnectSpotify(block);
+      // Playback is gone: re-render so the Play here button disappears (players use the QR).
+      refreshHubPlay();
+    }
+
+    // ---- PKCE helpers ----
+    function spRandomString(length) {
+      var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      var values = crypto.getRandomValues(new Uint8Array(length));
+      var out = "";
+      for (var i = 0; i < values.length; i++) out += possible.charAt(values[i] % possible.length);
+      return out;
+    }
+    function spBase64Url(bytes) {
+      var s = "";
+      for (var i = 0; i < bytes.length; i++) s += String.fromCharCode(bytes[i]);
+      return btoa(s).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+    }
+    function spCodeChallenge(verifier) {
+      var data = new TextEncoder().encode(verifier);
+      return crypto.subtle.digest("SHA-256", data).then(function (digest) {
+        return spBase64Url(new Uint8Array(digest));
       });
     }
 
-    // Connect Spotify verify block (issue #36 batch 6). Renders a small VISIBLE test player into
-    // the given container using the fixed TEST_TRACK (excluded from the deck for the session).
-    // Pressing play there proves the browser allows playback; playback_update flips the status to
-    // "Audio verified" and stores the flag. Rebuilt fresh each time the popup opens.
-    function markSpotifyVerified() {
-      if (spotifyVerified) return;
-      spotifyVerified = true;
-      try { if (window.localStorage) localStorage.setItem("hitster_spotify_verified", "1"); } catch (e) { /* ignore */ }
-      var st = document.getElementById("csStatus");
-      if (st) { st.textContent = "Audio verified"; st.classList.add("ok"); }
-    }
-    function teardownConnectSpotify() {
-      if (csController) {
-        try { csController.pause(); } catch (e) { /* ignore */ }
-        try { csController.destroy(); } catch (e) { /* ignore */ }
-        csController = null;
-      }
-    }
-    function buildConnectSpotify(container) {
-      if (!container) return;
-      teardownConnectSpotify();
-      if (!isHttpOrigin()) {
-        container.innerHTML = '<div class="note-sm">Spotify playback needs the online version of this page (an http or https address), not a local file.</div>';
-        return;
-      }
-      var statusTxt = spotifyVerified ? "Audio verified" : "Not connected";
-      var statusCls = spotifyVerified ? "cs-status ok" : "cs-status";
-      container.innerHTML =
-        '<div class="' + statusCls + '" id="csStatus">' + statusTxt + '</div>' +
-        '<div class="cs-player" id="csPlayer">' +
-          (TEST_TRACK ? '<div id="csEmbedTarget"></div>' : '<div class="note-sm">No test track is available in this song set.</div>') +
-        '</div>' +
-        '<div class="note-sm">Press play above. Hearing audio proves this browser allows playback. ' +
-        '<b>Log in to Spotify in this browser for full-length tracks; otherwise you get 30 second previews.</b></div>';
-      if (!TEST_TRACK) return;
-      var target = document.getElementById("csEmbedTarget");
-      ensureSpotifyScript(function () {
-        if (spotifyScriptState !== "ready" || !spotifyApi) {
-          var st = document.getElementById("csStatus");
-          if (st) st.textContent = "Spotify player could not load";
-          return;
-        }
-        // Only wire up if the block is still on-screen (the popup may have been closed).
-        if (!document.getElementById("csEmbedTarget")) return;
-        spotifyApi.createController(target, { uri: "spotify:track:" + TEST_TRACK.id, width: "100%", height: 152 }, function (ctrl) {
-          csController = ctrl;
-          try { ctrl.addListener("playback_update", function (e) {
-            var d = e && e.data;
-            if (d && typeof d.position === "number" && d.position > 0 && !d.isPaused) markSpotifyVerified();
-          }); } catch (e) { /* ignore */ }
-        });
+    // ---- connect flow: redirect the whole page to Spotify's authorize endpoint ----
+    function spBeginConnect() {
+      if (!spConfigured()) return;
+      var verifier = spRandomString(96);
+      var stateTok = spRandomString(24);
+      spCodeChallenge(verifier).then(function (challenge) {
+        // Remember the verifier, the game to return to, and WHERE the connect began, keyed by the
+        // random state. The state is verified on the way back; the stored game id reuses the ?g=
+        // deep-link resume so login returns to the running game. returnTo routes the OAuth return:
+        // "setup" reopens the setup lobby (host has not started play yet), "game" resumes into play.
+        var gid = (state && state.gameId) ? state.gameId : null;
+        try { if (window.localStorage) localStorage.setItem(SP_LS_PKCE + stateTok, JSON.stringify({ verifier: verifier, gameId: gid, returnTo: gameSetupCtx })); } catch (e) { /* ignore */ }
+        var url = new URL(SP_AUTH_URL);
+        url.searchParams.set("response_type", "code");
+        url.searchParams.set("client_id", SPOTIFY_CLIENT_ID);
+        url.searchParams.set("scope", SP_SCOPES);
+        url.searchParams.set("code_challenge_method", "S256");
+        url.searchParams.set("code_challenge", challenge);
+        url.searchParams.set("redirect_uri", spRedirectUri());
+        url.searchParams.set("state", stateTok);
+        location.href = url.toString();
       });
+    }
+
+    // ---- redirect handler: read ?code=&state=, verify state, strip them, restore ?g= ----
+    // Synchronous: returns { code, verifier, returnTo } to exchange (or null). It ALWAYS strips
+    // code/state from the URL, and restores ?g=<gameId> when a game id was stored, so the normal
+    // deep-link resume in boot picks the game back up while the token exchange runs independently.
+    function spPendingRedirect() {
+      if (!spConfigured()) return null;
+      var params;
+      try { params = new URLSearchParams(location.search); } catch (e) { return null; }
+      var code = params.get("code"), st = params.get("state");
+      if (!code || !st) return null;
+      var stored = null;
+      try { stored = JSON.parse(localStorage.getItem(SP_LS_PKCE + st) || "null"); } catch (e) { stored = null; }
+      try { if (window.localStorage) localStorage.removeItem(SP_LS_PKCE + st); } catch (e) { /* ignore */ }
+      var gid = (stored && stored.gameId && /^[A-Z0-9]{4,8}$/.test(stored.gameId)) ? stored.gameId : null;
+      try {
+        var clean = location.origin + location.pathname + (gid ? ("?g=" + gid) : "");
+        history.replaceState(null, "", clean);
+      } catch (e) { /* ignore */ }
+      // State mismatch (no stored entry) or missing verifier: cannot exchange, but URL is now clean.
+      if (!stored || !stored.verifier) return null;
+      return { code: code, verifier: stored.verifier, returnTo: (stored.returnTo === "setup" ? "setup" : "game") };
+    }
+    function spExchangeCode(code, verifier) {
+      var body = new URLSearchParams();
+      body.append("client_id", SPOTIFY_CLIENT_ID);
+      body.append("grant_type", "authorization_code");
+      body.append("code", code);
+      body.append("redirect_uri", spRedirectUri());
+      body.append("code_verifier", verifier);
+      return fetch(SP_TOKEN_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body
+      }).then(function (r) { return r.json(); }).then(function (j) {
+        if (!j || !j.access_token) return false;
+        spSaveTokens({ access_token: j.access_token, refresh_token: j.refresh_token || null, expires_at: Date.now() + ((j.expires_in || 3600) * 1000) });
+        spOnConnected();
+        return true;
+      }).catch(function () { return false; });
+    }
+
+    // ---- silent refresh ----
+    // spGetToken returns a currently-valid access token, refreshing first when it is within 30s of
+    // expiry. Concurrent callers share one in-flight refresh. A failed refresh clears tokens and
+    // surfaces the connect UI again.
+    function spGetToken() {
+      if (!spTokens || !spTokens.access_token) return Promise.resolve(null);
+      if (spTokens.expires_at - Date.now() > 30000) return Promise.resolve(spTokens.access_token);
+      return spRefresh();
+    }
+    function spRefresh() {
+      if (spRefreshPromise) return spRefreshPromise;
+      if (!spTokens || !spTokens.refresh_token) { spDisconnect(); return Promise.resolve(null); }
+      var body = new URLSearchParams();
+      body.append("grant_type", "refresh_token");
+      body.append("refresh_token", spTokens.refresh_token);
+      body.append("client_id", SPOTIFY_CLIENT_ID);
+      spRefreshPromise = fetch(SP_TOKEN_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body
+      }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); }).then(function (res) {
+        spRefreshPromise = null;
+        if (!res.ok || !res.j || !res.j.access_token) { spDisconnect(); return null; }
+        var j = res.j;
+        spSaveTokens({
+          access_token: j.access_token,
+          refresh_token: j.refresh_token || spTokens.refresh_token,
+          expires_at: Date.now() + ((j.expires_in || 3600) * 1000)
+        });
+        return j.access_token;
+      }).catch(function () { spRefreshPromise = null; spDisconnect(); return null; });
+      return spRefreshPromise;
+    }
+
+    // ---- Web API helper (always uses a fresh token) ----
+    function spApiFetch(path, method, bodyObj) {
+      return spGetToken().then(function (tok) {
+        if (!tok) return null;
+        var opts = { method: method || "GET", headers: { "Authorization": "Bearer " + tok } };
+        if (bodyObj !== undefined) { opts.headers["Content-Type"] = "application/json"; opts.body = JSON.stringify(bodyObj); }
+        return fetch(SP_API + path, opts);
+      });
+    }
+    function spFetchProfile() {
+      return spApiFetch("/me").then(function (r) {
+        if (!r || !r.ok) return;
+        return r.json().then(function (j) {
+          spAccount = { display_name: j.display_name || j.id || "", email: j.email || "", product: j.product || "" };
+          // Non-premium accounts cannot stream via the SDK, so pre-flag the fallback.
+          if (spAccount.product && spAccount.product !== "premium") spPremiumError = true;
+          var block = $("connectSpotifyBlock");
+          if (block && !$("gameSetupOverlay").classList.contains("hidden")) buildConnectSpotify(block);
+        });
+      }).catch(function () { /* ignore */ });
+    }
+
+    // ---- Web Playback SDK ----
+    function spOnConnected() {
+      spFetchProfile();
+      spEnsureSdk();
+      var block = $("connectSpotifyBlock");
+      if (block && !$("gameSetupOverlay").classList.contains("hidden")) buildConnectSpotify(block);
+    }
+    function spEnsureSdk() {
+      if (!spConfigured() || !spIsConnected()) return;
+      if (spSdkState === "loading" || spSdkState === "ready") return;
+      spSdkState = "loading";
+      window.onSpotifyWebPlaybackSDKReady = spCreatePlayer;
+      // If the SDK script is already present (created earlier this session), just build the player.
+      if (window.Spotify && window.Spotify.Player) { spCreatePlayer(); return; }
+      var s = document.createElement("script");
+      s.src = SP_SDK_SRC;
+      s.async = true;
+      s.onerror = function () { spSdkState = "failed"; };
+      document.head.appendChild(s);
+    }
+    function spCreatePlayer() {
+      if (spPlayer || !window.Spotify || !window.Spotify.Player) return;
+      spPlayer = new Spotify.Player({
+        name: "Music Timeline Quiz",
+        getOAuthToken: function (cb) { spGetToken().then(function (t) { cb(t || ""); }); },
+        volume: 0.8
+      });
+      spPlayer.addListener("ready", function (e) {
+        spDeviceId = e && e.device_id ? e.device_id : null;
+        spSdkState = "ready";
+        // Full playback just became available: re-render the hub so the Play here button appears.
+        refreshHubPlay();
+        var block = $("connectSpotifyBlock");
+        if (block && !$("gameSetupOverlay").classList.contains("hidden")) buildConnectSpotify(block);
+      });
+      spPlayer.addListener("not_ready", function () { spDeviceId = null; });
+      spPlayer.addListener("initialization_error", function () { spSdkState = "failed"; });
+      spPlayer.addListener("authentication_error", function () {
+        // Token went bad: try one silent refresh; if it fails, spRefresh() clears tokens + shows connect UI.
+        spRefresh();
+      });
+      spPlayer.addListener("account_error", function () {
+        // Not a Premium account: in-app playback is unavailable, so hide Play here (players scan the
+        // QR on their phones) and tell the user why in the connect popup.
+        spPremiumError = true;
+        refreshHubPlay();
+        var block = $("connectSpotifyBlock");
+        if (block && !$("gameSetupOverlay").classList.contains("hidden")) buildConnectSpotify(block);
+      });
+      spPlayer.connect();
+    }
+    // Full-track playback of the current card, from the start, on the SDK device.
+    function spFullPlay(id) {
+      spotifyPlaying = true;
+      playHereState = "playing";
+      renderHubPlayBtn();
+      spApiFetch("/me/player/play?device_id=" + encodeURIComponent(spDeviceId), "PUT", { uris: ["spotify:track:" + id] })
+        .then(function (r) {
+          if (!r || (!r.ok && r.status !== 202 && r.status !== 204)) {
+            // Playback command failed: reset the button so the host can retry.
+            spotifyPlaying = false; playHereState = "idle"; renderHubPlayBtn();
+          }
+        }).catch(function () { spotifyPlaying = false; playHereState = "idle"; renderHubPlayBtn(); });
+    }
+    function spFullPause() {
+      spotifyPlaying = false;
+      playHereState = "idle";
+      renderHubPlayBtn();
+      spApiFetch("/me/player/pause?device_id=" + encodeURIComponent(spDeviceId), "PUT").catch(function () { /* ignore */ });
+    }
+
+    // Connect-popup markup for the full-playback path. Returns "" when unconfigured (no client id
+    // or a non-http origin), which buildConnectSpotify handles with its own note.
+    function spConnectMarkup() {
+      if (!spConfigured()) return "";
+      if (!spIsConnected()) {
+        return '<div class="sp-connect">' +
+          '<div class="note-sm" style="margin-bottom:10px"><b>Connect Spotify for full-length songs.</b> Playing full tracks in this browser needs a Spotify Premium account. Without connecting, players scan the QR to play on their own phones.</div>' +
+          '<button class="btn primary" id="spConnectBtn" type="button" style="width:100%">Connect Spotify</button>' +
+          '</div>';
+      }
+      var who = spAccount && spAccount.display_name ? escapeHtml(spAccount.display_name) : "your account";
+      if (spPremiumError) {
+        return '<div class="sp-connect">' +
+          '<div class="cs-status" id="spStatus">Connected as ' + who + '</div>' +
+          '<div class="note-sm" style="margin-bottom:10px"><b>Spotify Premium required for full songs.</b> This account is connected but is not Premium, so there is no in-app playback: players scan the QR to play on their own phones.</div>' +
+          '<button class="btn ghost" id="spDisconnectBtn" type="button">Disconnect</button>' +
+          '</div>';
+      }
+      var ready = spFullPlaybackReady();
+      return '<div class="sp-connect">' +
+        '<div class="cs-status ok" id="spStatus">Connected as ' + who + '</div>' +
+        '<div class="note-sm" style="margin-bottom:10px">' + (ready
+          ? '<b>Full playback ready.</b> Press Play here on the card to stream the whole track in this browser.'
+          : 'Starting the Spotify player...') + '</div>' +
+        '<button class="btn ghost" id="spDisconnectBtn" type="button">Disconnect</button>' +
+        '</div>';
+    }
+    // Wire the connect / disconnect buttons after the popup markup is (re)built.
+    function spWireConnectButtons() {
+      var c = $("spConnectBtn"); if (c) c.onclick = spBeginConnect;
+      var d = $("spDisconnectBtn"); if (d) d.onclick = spDisconnect;
     }
 
     /* ================== S12: FULLSCREEN + WIRING + INIT ================== */
@@ -3050,6 +3449,12 @@
       for (var i = 0; i < paths.length; i++) svg += '<path d="' + paths[i] + '"/>';
       return svg + "</svg>";
     }
+    // Play triangle / stop square, filled (not stroked, unlike the other glyphs above) so the
+    // shapes stay legible at the small icon-only button size used in the hub row.
+    function playIconSvg(playing) {
+      if (playing) return '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>';
+      return '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4l13 8-13 8V4z"/></svg>';
+    }
     function updateFsBtns() {
       var exit = !!document.fullscreenElement;
       var title = exit ? "Exit fullscreen" : "Enter fullscreen";
@@ -3062,9 +3467,9 @@
       // Settings screen: icon plus a text label (UI batch 3).
       var b3 = $("settingsFullscreenBtn");
       if (b3) { b3.innerHTML = html + "<span>" + title + "</span>"; b3.setAttribute("aria-label", title); if (!b3.disabled) b3.title = title; }
-      // In-game settings gear overlay (issue #36 batch 6): icon plus a text label.
+      // In-game settings gear overlay: icon-only square button in the corner beside the close X.
       var b4 = $("gameSettingsFullscreenBtn");
-      if (b4) { b4.innerHTML = html + "<span>" + title + "</span>"; b4.setAttribute("aria-label", title); if (!b4.disabled) b4.title = title; }
+      if (b4) { b4.innerHTML = html; b4.setAttribute("aria-label", title); b4.setAttribute("data-tip", title); if (!b4.disabled) b4.title = title; }
     }
 
     Array.prototype.slice.call($("countSeg").children).forEach(function (b) {
@@ -3119,13 +3524,15 @@
     }
     function showMainMenu() {
       if (state) { stopStealTimer(); stopIntentPolling(); }
-      // Leaving the game silences any playback (hidden game player and the verify player).
-      teardownSpotify(); teardownConnectSpotify();
+      // Leaving the game silences any Spotify playback.
+      teardownSpotify();
       hideGuessReveal();
       hideOfflineNotice();
       hideAllScreens();
       $("topbar").classList.add("hidden"); $("game").classList.add("hidden");
       $("mainMenu").classList.remove("hidden");
+      // Leaving the active game clears the deep-link id, so a refresh on the menu stays here.
+      setUrlGameId(null);
     }
     function showSetup() {
       hideAllScreens();
@@ -3153,19 +3560,21 @@
     // Continue list and Settings: nothing is lost, so straight back to the menu.
     $("dashBackBtn").onclick = showMainMenu;
     $("settingsBackBtn").onclick = showMainMenu;
-    // The Home icon and the settings "Exit to main menu" entry share one leave flow (batch 8):
-    // online games offer save-and-leave / leave-without-saving / cancel with the continuation
-    // password shown when known; offline games get a simple two-button confirm.
+    // The Home icon and the settings "Save and exit game" entry share ONE leave flow: a simple
+    // two-button confirm (Cancel / Save and leave). On confirm the latest state is persisted
+    // (flushDirty) before returning to the main menu; on cancel nothing happens. Online games
+    // show the continuation password (it now survives a reload via the host-local session), so
+    // the host can resume or rejoin later.
     function leaveToMainMenu() {
       var online = !!(NET.available && state && state.gameId);
       if (!online) {
-        // Offline game: nothing is persisted, so a simple two-button confirm.
+        // Offline game: nothing is persisted, so a plain leave/keep-playing confirm.
         showConfirm({ title: "Back to main menu?", message: "Leave this game and return to the main menu?", okLabel: "Main menu", cancelLabel: "Keep playing", onConfirm: showMainMenu });
         return;
       }
-      // Online (Redis) game: it is saved online, so offer three choices, save and leave,
-      // leave without saving, or cancel. Show the continuation password when known
-      // (state.password); after a silent reload resume it is unknown, so show a reminder.
+      // Online (Redis) game: it is saved online. Show the continuation password when known
+      // (state.password); after a silent reload resume it is restored from the host-local
+      // session, so it is normally available.
       var pw = (state && state.password) ? state.password : "";
       var msg = "This game is saved online, so you can resume it later from the main menu. "
         + (pw ? ("Password to resume or rejoin: " + pw + ". ") : "You will need the password you set when creating this game. ")
@@ -3174,40 +3583,36 @@
         title: "Back to main menu?",
         message: msg,
         okLabel: "Save and leave",
-        altLabel: "Leave without saving",
         cancelLabel: "Cancel",
-        onConfirm: function () { flushDirty(); showMainMenu(); },
-        onAlt: showMainMenu
+        onConfirm: function () { flushDirty(); showMainMenu(); }
       });
     }
     $("mainMenuBtn").onclick = leaveToMainMenu;
+    // Corner X always exits fully back to the game. The bottom button depends on context: the
+    // game-start lobby ("setup") uses it as "Start game" (dismiss into play), while a gear view
+    // ("game") uses it as "Back" and reopens the settings menu so the host can keep changing
+    // settings.
     $("gameSetupCloseBtn").onclick = closeGameSetup;
-    $("gameSetupCloseBtn2").onclick = closeGameSetup;
-    // In-game settings gear + its sub-buttons (issue #36 batch 6, expanded in batch 8).
+    $("gameSetupCloseBtn2").onclick = function () {
+      var backToSettings = (gameSetupCtx === "game");
+      closeGameSetup();
+      if (backToSettings) openGameSettings();
+    };
+    // In-game settings gear + its sub-buttons.
     $("settingsGearBtn").onclick = openGameSettings;
     $("gameSettingsCloseBtn").onclick = closeGameSettings;
-    // Save game: manual immediate flush of the online state, with the continuation password
-    // surfaced in a brief toast. Disabled offline (guarded here as well as via the disabled attr).
-    $("gsSaveBtn").onclick = function () {
-      if (!(NET.available && state && state.gameId && state.hostToken)) return;
-      flushDirty();
-      closeGameSettings();
-      var pw = (state && state.password) ? state.password : "";
-      showToast(pw ? ("Game saved. Password to resume or rejoin: " + pw) : "Game saved online. Resume it later from the main menu.");
-    };
-    $("gsPhonesBtn").onclick = function () { closeGameSettings(); openGameSetup("phones"); };
-    $("gsSpotifyBtn").onclick = function () { closeGameSettings(); openGameSetup("spotify"); };
-    // Pause: keeps the original behaviour (save as paused, stop polling and timers, go to the
-    // saved-games list). Online-only, matching the old top-bar button.
-    $("gsPauseBtn").onclick = function () {
-      if (!(NET.available && state && state.gameId)) return;
-      closeGameSettings();
-      onPause();
-    };
-    // Exit to main menu: identical leave flow to the Home icon.
-    $("gsExitBtn").onclick = function () { closeGameSettings(); leaveToMainMenu(); };
-    // Round-end guess reveal: a click anywhere on it dismisses early.
-    $("guessRevealContinue").onclick = hideGuessReveal;
+    // Display opens the display-size sub-view of the settings dialog; Back returns to the menu.
+    $("gsDisplayBtn").onclick = function () { setGameSettingsView("display"); };
+    $("gsDisplayBackBtn").onclick = function () { setGameSettingsView("menu"); };
+    // Connect Phones / Connect Spotify open their own single-section views (in-game context).
+    $("gsPhonesBtn").onclick = function () { closeGameSettings(); openGameSetup("phones", "game"); };
+    $("gsSpotifyBtn").onclick = function () { closeGameSettings(); openGameSetup("spotify", "game"); };
+    // Save and exit game: same confirm + save-then-exit flow as the top-bar Home icon (one shared
+    // code path, leaveToMainMenu). The confirm sits above the settings overlay; showMainMenu hides
+    // every screen on confirm, and on cancel the settings overlay stays open.
+    $("gsExitBtn").onclick = leaveToMainMenu;
+    // Round-end guess reveal: dismissed by the host "Next player" button (round advance) or Esc;
+    // there is no Continue button.
     $("offlineBannerClose").onclick = hideOfflineNotice;
 
     // Confirm modal wiring: keys plus a backdrop click to cancel.
@@ -3256,7 +3661,18 @@
     }
     function saveDisplayMode(m) { try { localStorage.setItem(DISPLAY_LS_KEY, m); } catch (e) { /* ignore */ } }
     var displayMode = loadDisplayMode();
-    function autoDisplayScale() { return Math.max(0.75, Math.min(1.9, window.innerHeight / 1080)); }
+    // Auto (recommended): pick the LARGEST zoom that still fits everything (seats + their
+    // timelines, the hub, the hero) on screen, so the game is as readable as possible rather than
+    // shrunk to a fraction of the window. AUTO_REF_W / AUTO_REF_H are the smallest layout (in
+    // unzoomed layout px) that shows the whole board comfortably; the biggest zoom that fits is
+    // the smaller of the width and height ratios. This reads the live window, so it fills the
+    // space even when OS display scaling makes window.innerHeight small (the old height/1080 rule
+    // then zoomed out far too much). Clamped to the same sane bounds as the fixed presets.
+    var AUTO_REF_W = 1000, AUTO_REF_H = 680;
+    function autoDisplayScale() {
+      var fit = Math.min(window.innerWidth / AUTO_REF_W, window.innerHeight / AUTO_REF_H);
+      return Math.max(0.75, Math.min(1.9, fit));
+    }
     function computeDisplayZoom() {
       if (displayMode === "auto") return autoDisplayScale();
       var p = displayPresetById(displayMode);
@@ -3286,6 +3702,7 @@
             applyDisplayZoom();
             renderDisplayControls();
             if (state && state.phase !== "over") layoutSeats();
+            sizeHub();
             positionGuessReveal();
           };
           host.appendChild(b);
@@ -3294,7 +3711,7 @@
     }
     // Auto tracks the live viewport, so recompute on resize and on entering/leaving fullscreen.
     window.addEventListener("resize", function () { if (displayMode === "auto") applyDisplayZoom(); });
-    document.addEventListener("fullscreenchange", function () { if (displayMode === "auto") applyDisplayZoom(); });
+    document.addEventListener("fullscreenchange", function () { if (displayMode === "auto") applyDisplayZoom(); sizeHub(); });
     applyDisplayZoom();
     renderDisplayControls();
 
@@ -3331,6 +3748,7 @@
             // are in actual px, so divide by the zoom to keep the line tracking the pointer 1:1.
             var v = clampPx(startH + (startY - ev.clientY) / z, cfg.min, cfg.max());
             setVar(cfg.varName, v);
+            sizeHub();
             positionGuessReveal();
           }
           function onUp(ev) {
@@ -3349,6 +3767,7 @@
           document.documentElement.style.removeProperty(cfg.varName);
           delete saved[cfg.key];
           save();
+          sizeHub();
           positionGuessReveal();
         });
       });
@@ -3375,7 +3794,7 @@
       if (!gid) { $("takeoverOverlay").classList.add("hidden"); showDashboard(); return; }
       doResume(gid, $("takeoverPw").value, function (msg) { $("takeoverErr").textContent = msg || "Could not take over."; });
     };
-    window.addEventListener("resize", function () { if (state && state.phase !== "over") layoutSeats(); positionGuessReveal(); });
+    window.addEventListener("resize", function () { if (state && state.phase !== "over") layoutSeats(); sizeHub(); positionGuessReveal(); });
 
     // Hover-info tooltip, delegated so it survives every re-render. A card carries the
     // info in data-tip-* attributes (set by tagCardTip); the tentative "New" card has none
@@ -3401,29 +3820,51 @@
     $("catAll").onclick = function () { DB.categories.forEach(function (c) { setup.cats.add(c.key); }); renderCats(); validateSetup(); };
     $("catNone").onclick = function () { setup.cats.clear(); renderCats(); validateSetup(); };
     renderNames(); renderCats(); setupYearRange(); validateSetup();
-    // Probe once, then route: backend up -> dashboard, offline -> setup (zero persistence).
+    // Boot straight to the main menu with no flash of another screen: setup, dashboard, and the
+    // game are all hidden in markup, so show the menu synchronously here (unless the URL deep
+    // links a game), then probe the backend in the background and route from there.
     $("setup").classList.add("hidden");
+    // Spotify full-playback bootstrap (inert unless SPOTIFY_CLIENT_ID is set). Load any stored
+    // tokens, then handle an OAuth redirect BEFORE reading the deep-link id: spPendingRedirect
+    // strips ?code=/?state= and restores ?g=<gameId>, so the existing resume path below carries the
+    // host straight back into the running game while the token exchange runs independently.
+    spLoadTokens();
+    var spRedir = spPendingRedirect();
+    // returnTo routes the OAuth return: "setup" reopens the setup lobby after the game resumes
+    // (the host had not started play yet); "game" resumes straight into the running game.
+    var spReturnTo = spRedir ? spRedir.returnTo : null;
+    if (spRedir) {
+      spExchangeCode(spRedir.code, spRedir.verifier);
+    } else if (spConfigured() && spIsConnected()) {
+      // Returning session that is already connected: warm up profile + SDK for full playback.
+      spFetchProfile();
+      spEnsureSdk();
+    }
+    var deepLinkId = urlGameId();
+    if (!deepLinkId) showMainMenu();
     NET.probe().then(function (up) {
       backendAvailable = up;
       updatePhonesBtnVisibility();
       $("onlineFields").classList.toggle("hidden", !up);
-      // Offline or no saved host: the main menu is the first screen (issue #36 UI batch 3).
-      if (!up) { showMainMenu(); return; }
-      // Silent resume: a reload of an ACTIVE game picks up where it left off via the stored
-      // hostToken (no password re-entry), bypassing the menu. Paused or finished games, or a
-      // token rejected because another host resumed (401), fall back to the main menu.
+      // Offline: no persistence, so drop any URL game id and land on the menu.
+      if (!up) { setUrlGameId(null); if (deepLinkId) showMainMenu(); return; }
+      // Deep link (?g=ID): resume straight into that game using the hostToken this browser stored
+      // for it (never the menu). An unknown id, no stored token for it, or a failed load falls
+      // back to the main menu rather than erroring.
+      if (deepLinkId) {
+        var savedDL = loadHostLS();
+        var tokenDL = (savedDL && savedDL.gameId === deepLinkId) ? savedDL.hostToken : null;
+        if (!tokenDL) { setUrlGameId(null); showMainMenu(); return; }
+        resumeIntoGame(deepLinkId, tokenDL, function () { setUrlGameId(null); showMainMenu(); })
+          .then(function (ok) { if (ok && spReturnTo === "setup") openGameSetup(null, "setup"); });
+        return;
+      }
+      // No URL id: silently resume the last ACTIVE game if this browser holds its token,
+      // else stay on the already-shown main menu. Paused/finished games fall through to the menu.
       var saved = loadHostLS();
-      if (!saved || !saved.gameId || !saved.hostToken) { showMainMenu(); return; }
-      NET.loadState(saved.gameId, saved.hostToken).then(function (r) {
-        if (!r || !r.state) { showMainMenu(); return; }
-        var blob = r.state;
-        if (blob.status === "paused" || blob.status === "finished" || blob.phase === "over") { showMainMenu(); return; }
-        state = hydrateState(blob);
-        state.gameId = saved.gameId; state.hostToken = saved.hostToken;
-        if (typeof r.version === "number") state.version = r.version;
-        enterActiveGame();
-        if (state.wheelWinner) resumeWheelResolution();
-      });
+      if (!saved || !saved.gameId || !saved.hostToken) return;
+      resumeIntoGame(saved.gameId, saved.hostToken, null)
+        .then(function (ok) { if (ok && spReturnTo === "setup") openGameSetup(null, "setup"); });
     });
   })();
   </script>

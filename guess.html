@@ -79,7 +79,15 @@
       background: linear-gradient(160deg, #fdf6e6, var(--paper) 60%, var(--paper-deep));
       border: 3px solid var(--brown); border-radius: 22px; padding: 20px; color: var(--brown);
       box-shadow: var(--shadow), inset 0 0 0 5px var(--paper), inset 0 0 0 7px rgba(217,164,65,.28);
+      text-align: center;
     }
+    /* Everything the panel renders is centered by default (issue: consistent
+       centering on the phone). Inline text/inline-block elements center via the
+       text-align above; flex rows/grids opt into centered main-axis alignment
+       through the rules below. Inputs keep left-aligned text so typing does not
+       jump around (that is text flow inside a full-width, already-centered box,
+       not element alignment). */
+    #panel .field input, #panel .field select { text-align: left; }
     .lede { margin: 0 0 16px; color: rgba(59,42,30,.75); font-size: 14px; line-height: 1.5; }
     .names, .roster { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .name-btn {
@@ -119,16 +127,20 @@
     .center { text-align: center; }
     .section { margin-top: 18px; padding-top: 16px; border-top: 2px dashed rgba(59,42,30,.22); }
     .section:first-child { margin-top: 0; padding-top: 0; border-top: none; }
-    .row-between { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+    .row-between { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
     .coin-pill { font-family: var(--disp); font-size: 13px; color: var(--gold-deep); background: rgba(217,164,65,.18); border: 2px solid var(--gold); padding: 6px 12px; border-radius: 999px; white-space: nowrap; }
     .badge { display: inline-block; font-family: var(--disp); font-size: 11px; letter-spacing: .3px; text-transform: uppercase; color: var(--paper); background: var(--orange); border: 2px solid var(--orange-deep); padding: 4px 10px; border-radius: 999px; margin-bottom: 10px; box-shadow: 0 3px 0 var(--orange-deep); }
-    .pending-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+    .pending-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-top: 4px; }
     .chip { font-family: var(--disp); font-size: 11px; padding: 5px 9px; border-radius: 999px; border: 2px solid var(--brown); background: var(--paper); color: var(--brown); display: inline-flex; align-items: center; gap: 5px; }
     .chip .dot { width: 8px; height: 8px; border-radius: 50%; flex: 0 0 auto; border: 1px solid rgba(36,23,16,.4); }
     .chip.correct { color: var(--avocado-deep); border-color: var(--avocado); background: rgba(122,132,80,.18); }
     .chip.wrong { color: var(--orange-deep); border-color: var(--bad); background: rgba(219,90,53,.16); }
 
-    .timeline-strip { display: flex; align-items: stretch; gap: 0; overflow-x: auto; padding: 6px 2px 10px; -webkit-overflow-scrolling: touch; }
+    /* Centered when the cards fit, scrollable from the left when they do not:
+       `safe center` falls back to start alignment on overflow so the first card
+       is never clipped past the scroll origin (the 1-card starting timeline now
+       sits centered instead of left-aligned). */
+    .timeline-strip { display: flex; align-items: stretch; justify-content: safe center; gap: 0; overflow-x: auto; padding: 6px 2px 10px; -webkit-overflow-scrolling: touch; }
     .slot-gap { flex: 0 0 auto; width: 34px; align-self: stretch; min-height: 92px; margin: 0 2px; border-radius: 9px; border: 2px dashed var(--gold); background: rgba(217,164,65,.16); color: var(--gold-deep); font-family: var(--disp); font-size: 20px; }
     .slot-gap.blocked { border-color: rgba(59,42,30,.4); background: rgba(59,42,30,.08); color: rgba(59,42,30,.55); font-size: 9px; letter-spacing: 1px; cursor: not-allowed; }
     .slot-gap.chosen, .slot-gap.drag-over { background: var(--gold); color: var(--brown-deep); border-style: solid; transform: scale(1.06); }
@@ -340,6 +352,11 @@
     var guessType = "artist-title";
     var guessSentRoundLocal = null;
 
+    // Mirrors the host SOURCE_TYPES constant. The source-guess option is ALWAYS offered so
+    // it never leaks whether the current card actually has a source (a wrong guess on a
+    // non-source card is simply judged wrong by the host), hence a static list here.
+    var SOURCE_TYPES = ["movie", "musical", "disney"];
+
     var isDragging = false;
     var localTentativeSlot = null;
     var tentativeRoundLocal = null;
@@ -428,6 +445,19 @@
       return null;
     }
 
+    // New round: drop any stale local optimistic lock / tentative pick left over from the
+    // previous turn's card, so the fresh card starts unlocked and draggable right away. Must
+    // run before anything reads placementLockedOptimistic or localTentativeSlot for the CURRENT
+    // round (computeScreenKey's render key included), otherwise the very first render of the
+    // new turn still reflects last turn's locked state and nothing but an unrelated UI event
+    // forces the fix.
+    function syncPlacementLocalState(p) {
+      if (tentativeRoundLocal === p.round) return;
+      tentativeRoundLocal = p.round;
+      localTentativeSlot = (p.placement && p.placement.tentativeSlot != null) ? p.placement.tentativeSlot : null;
+      placementLockedOptimistic = false;
+    }
+
     function computeScreenKey() {
       if (mode === "entry") return "entry";
       if (mode === "password") return "password";
@@ -445,6 +475,7 @@
 
       if (p.phase === "place" || p.phase === "equalizer") {
         if (iAmCurrent) {
+          syncPlacementLocalState(p);
           var locked = (p.placement && p.placement.locked) || placementLockedOptimistic;
           return "main:place:cur:" + locked + ":" + guessSent + ":" + guessType;
         }
@@ -457,7 +488,12 @@
           (p.steal.presses || []).some(function (pr) { return pr.playerIdx === myIdx(); })));
         var wheel = p.steal && p.steal.wheel;
         var wheelState = wheel ? ("wheel:" + (wheel.winnerIdx != null ? "done:" + wheel.winnerIdx : "spin")) : "nowheel";
-        return "main:steal:" + eligible + ":" + pressed + ":" + wheelState;
+        // Seam fields (additive): the countdown -> picking transition and the active picker
+        // change what the steal screen shows, so both belong in the render key. Older hosts
+        // omit them; the fallbacks keep the key stable so nothing rebuilds needlessly.
+        var stealPhase = (p.steal && p.steal.phase) || "none";
+        var stealPicker = (p.steal && typeof p.steal.pickerIdx === "number") ? p.steal.pickerIdx : "null";
+        return "main:steal:" + eligible + ":" + pressed + ":" + stealPhase + ":" + stealPicker + ":" + wheelState;
       }
 
       if (p.phase === "revealed") return "main:revealed:" + p.round;
@@ -699,16 +735,10 @@
     function renderPlaceCurrent() {
       var p = projection;
       var me = p.players[myIdx()];
+      syncPlacementLocalState(p); // no-op if computeScreenKey() already synced this round
       var locked = (p.placement && p.placement.locked) || placementLockedOptimistic;
       var myGuess = findMyPendingGuess(p);
       var guessSent = !!myGuess || guessSentRoundLocal === p.round;
-
-      if (tentativeRoundLocal !== p.round) {
-        // New round: drop any stale local pick and start from the server's view.
-        tentativeRoundLocal = p.round;
-        localTentativeSlot = (p.placement && p.placement.tentativeSlot != null) ? p.placement.tentativeSlot : null;
-        placementLockedOptimistic = false;
-      }
 
       var html = '<div class="row-between"><span class="badge">Your turn</span><span class="coin-pill" id="myCoins">' + (me ? me.coins : 0) + ' coins</span></div>';
 
@@ -736,20 +766,23 @@
       }
     }
 
-    function renderTimelineWithGhost(timeline, ghostSlot, readOnly, blockedSlot) {
+    function renderTimelineWithGhost(timeline, ghostSlot, readOnly) {
       var html = '<div class="timeline-strip">';
-      var n = timeline ? timeline.length : 0;
+      // Render in chronological order like the host (sortTl) and renderReadOnlyTimeline;
+      // the projection arrives in placement order, which is not chronological. Sorting here
+      // makes a chosen gap index map to the same insertion point the host judges against.
+      var sorted = (timeline || []).slice().sort(function (a, b) { return (a.year || 0) - (b.year || 0); });
+      var n = sorted.length;
       for (var i = 0; i <= n; i++) {
         if (ghostSlot === i) {
           html += '<div class="tcard tentative"><div class="y">?</div><div class="t">New song</div></div>';
-        } else if (blockedSlot === i) {
-          // The current player's locked slot: stealers must pick a different gap.
-          html += '<button type="button" class="slot-gap blocked" disabled>NEW</button>';
         } else if (!readOnly) {
+          // Every gap stays pickable: two stealers may choose the SAME gap (the host buckets
+          // same-gap collisions and spins a wheel), so the phone never disables a gap here.
           html += '<button type="button" class="slot-gap" data-slot="' + i + '"></button>';
         }
         if (i < n) {
-          var c = timeline[i];
+          var c = sorted[i];
           html += '<div class="tcard"><div class="y">' + escapeHtml(c.year) + '</div><div class="t">' + escapeHtml(c.title) + '</div>' +
             (c.cat ? '<span class="catchip">' + escapeHtml(c.cat) + '</span>' : "") + '</div>';
         }
@@ -772,14 +805,20 @@
     }
 
     function onLockin() {
-      if (localTentativeSlot == null) return;
-      var btn = $("lockinBtn");
-      if (btn) btn.disabled = true;
+      if (localTentativeSlot == null || placementLockedOptimistic) return;
+      var slot = localTentativeSlot;
+      // Single-tap lock-in: the previous version only flipped to the locked state inside the
+      // lockin response callback, so on a slow/mobile connection the first tap appeared to do
+      // nothing (the button just greyed out) and the player tapped again. Lock in OPTIMISTICALLY
+      // on the first tap and re-render immediately (same optimistic pattern the drag already
+      // uses); a hard failure rolls back to the picker. The throttle is cancelled and its latest
+      // slot flushed so the host still has the slot even if a throttled tentative was pending.
       sendTentativeThrottled.cancel();
-      sendIntent("tentative", { slot: localTentativeSlot });
-      sendIntent("lockin", { slot: localTentativeSlot }, function (ok) {
-        if (ok) { placementLockedOptimistic = true; forceRerender(); }
-        else if (btn) btn.disabled = false;
+      placementLockedOptimistic = true;
+      forceRerender();
+      sendIntent("tentative", { slot: slot });
+      sendIntent("lockin", { slot: slot }, function (ok) {
+        if (!ok) { placementLockedOptimistic = false; forceRerender(); }
       });
     }
 
@@ -846,15 +885,16 @@
 
     function renderGuessSectionInner(p, guessSent) {
       if (guessSent) return '<div class="sent">Guess locked in, waiting for reveal.</div>';
-      var showSource = !!p.hasSource;
+      // The "Where is it from" option is always offered (see SOURCE_TYPES): gating it on
+      // p.hasSource would leak that the current card is a movie/musical/disney track.
       var html = '<div class="field"><label>Bonus guess</label><div class="seg" id="typeSeg">' +
-        '<button type="button" data-t="artist-title" class="' + (guessType === "artist-title" ? "on" : "") + '">Artist + title</button>';
-      if (showSource) html += '<button type="button" data-t="source" class="' + (guessType === "source" ? "on" : "") + '">Where is it from</button>';
+        '<button type="button" data-t="artist-title" class="' + (guessType === "artist-title" ? "on" : "") + '">Artist + title</button>' +
+        '<button type="button" data-t="source" class="' + (guessType === "source" ? "on" : "") + '">Where is it from</button>';
       html += "</div></div>";
 
-      if (guessType === "source" && showSource) {
+      if (guessType === "source") {
         html += '<div class="field"><label>Type</label><select id="sourceType">' +
-          (p.sourceTypes || []).map(function (t) { return '<option value="' + escapeHtml(t) + '">' + escapeHtml(t) + "</option>"; }).join("") +
+          SOURCE_TYPES.map(function (t) { return '<option value="' + escapeHtml(t) + '">' + escapeHtml(t) + "</option>"; }).join("") +
           '</select></div><div class="field"><label>Name</label><input id="sourceName" maxlength="60" placeholder="e.g. Titanic" /></div>';
       } else {
         html += '<div class="field"><label>Artist</label><input id="artist" maxlength="60" placeholder="Artist name" /></div>' +
@@ -915,9 +955,10 @@
       if (p.equalizer) html += '<div class="badge">Equalizer round</div>';
       html += '<div class="waiting"><span class="big">&#128064;</span>Watching the main screen.<br />It is <b style="color:' +
         escapeHtml((current && current.color) || "#c9c4ff") + '">' + escapeHtml(current ? current.name : "?") + "'s</b> turn.</div>";
-      html += '<div class="row-between"><span></span><span class="coin-pill" id="myCoins">' + (me ? me.coins : 0) + ' coins</span></div>';
-      html += '<div class="field"><label>Your timeline</label></div>';
-      html += '<div id="myTimelineBox">' + renderReadOnlyTimeline(me ? me.timeline : []) + "</div>";
+      html += '<div class="row-between"><span class="coin-pill" id="myCoins">' + (me ? me.coins : 0) + ' coins</span></div>';
+      // Own timeline is intentionally NOT shown here: this screen only renders for a player
+      // who is NOT the current player, and the phone-sized read-only strip is confusing and
+      // unneeded on someone else's turn. It is still shown on your own turn (renderPlaceCurrent).
       html += '<div id="pendingChipsBox">' + renderPendingChips(p) + "</div>";
       render(html);
     }
@@ -933,34 +974,68 @@
         (p.steal.presses || []).some(function (pr) { return pr.playerIdx === myIdx(); })));
       var matchPoint = isAtMatchPoint(p.currentPlayerIdx === myIdx(), me ? me.coins : 0, (p.steal && p.steal.eligibleIdx) || [], myIdx());
 
+      // Seam fields (additive). `phase` splits the window into a "countdown" sub-phase (only the
+      // STEAL button + countdown, no picker) and a "picking" sub-phase (the registered stealers
+      // pick one at a time, no countdown pressure). `pickerIdx` names whose turn it is to pick.
+      // Older hosts omit both; without `phase` we fall back to the pre-seam combined behavior so
+      // nothing crashes and stealers can still pick right away.
+      var phase = p.steal && p.steal.phase;
+      var hasPhase = phase === "countdown" || phase === "picking";
+      var pickerIdx = (p.steal && typeof p.steal.pickerIdx === "number") ? p.steal.pickerIdx : null;
+      var myTurnToPick = pickerIdx === myIdx();
+      // The gap picker shows for a legacy host (once registered) or, with the seam present, only
+      // for the active picker during the picking sub-phase.
+      var showPicker = eligible && pressed && (!hasPhase || (phase === "picking" && myTurnToPick));
+
       var html = '<div class="waiting" style="padding:10px 8px;"><span class="big">&#127919;</span>Steal window!<br />' +
         (current ? "It was <b>" + escapeHtml(current.name) + "'s</b> turn." : "") + "</div>";
-      html += '<div class="row-between"><span></span><span class="coin-pill" id="myCoins">' + (me ? me.coins : 0) + ' coins</span></div>';
+      html += '<div class="row-between"><span class="coin-pill" id="myCoins">' + (me ? me.coins : 0) + ' coins</span></div>';
 
-      if (eligible && !pressed) {
-        html += '<div class="countdown-num" id="stealCountdown">--</div>';
-        html += '<button type="button" class="steal-giant" id="stealBtn">STEAL!</button>';
-      } else if (eligible && pressed) {
-        html += '<div class="countdown-num" id="stealCountdown">--</div>';
-        html += '<div class="sent">You are in! Pick where to steal it.</div>';
-        html += '<div id="stealTimelineBox">' + renderTimelineWithGhost((current || {}).timeline, localStealSlot, false, lockedSlotOf(p)) + "</div>";
-      } else if (matchPoint) {
-        html += '<div class="match-point-note">At match point: stealing not allowed.</div>';
+      if (!eligible) {
+        if (matchPoint) html += '<div class="match-point-note">At match point: stealing not allowed.</div>';
+        else html += '<div class="waiting" style="padding:10px;">Not your steal to make this round.</div>';
+      } else if (!hasPhase) {
+        // Legacy host (pre-seam): keep the original combined countdown + picker behavior.
+        if (!pressed) {
+          html += '<div class="countdown-num" id="stealCountdown">--</div>';
+          html += '<button type="button" class="steal-giant" id="stealBtn">STEAL!</button>';
+        } else {
+          html += '<div class="countdown-num" id="stealCountdown">--</div>';
+          html += '<div class="sent">You are in! Pick where to steal it.</div>';
+          html += '<div id="stealTimelineBox">' + renderTimelineWithGhost((current || {}).timeline, localStealSlot, false) + "</div>";
+        }
+      } else if (phase === "countdown") {
+        // Countdown sub-phase: only the STEAL button + countdown number, never the picker.
+        if (!pressed) {
+          html += '<div class="countdown-num" id="stealCountdown">--</div>';
+          html += '<button type="button" class="steal-giant" id="stealBtn">STEAL!</button>';
+        } else {
+          html += '<div class="countdown-num" id="stealCountdown">--</div>';
+          html += '<div class="sent">You are in! You will pick once the window ends.</div>';
+        }
       } else {
-        html += '<div class="waiting" style="padding:10px;">Not your steal to make this round.</div>';
+        // Picking sub-phase: no countdown pressure. Only the active picker sees the gap picker.
+        if (pressed && myTurnToPick) {
+          html += '<div class="sent">Your turn: pick where to steal it.</div>';
+          html += '<div id="stealTimelineBox">' + renderTimelineWithGhost((current || {}).timeline, localStealSlot, false) + "</div>";
+        } else if (pressed) {
+          var pickerName = (pickerIdx != null && p.players[pickerIdx]) ? p.players[pickerIdx].name : "another player";
+          html += '<div class="waiting" style="padding:10px;">Waiting for <b>' + escapeHtml(pickerName) + '</b> to pick.</div>';
+        } else {
+          html += '<div class="waiting" style="padding:10px;">The steal window has closed.</div>';
+        }
       }
 
       html += '<div id="wheelBox"></div>';
-      html += '<div class="field" style="margin-top:14px;"><label>Your timeline</label></div>';
-      html += '<div id="myTimelineBox">' + renderReadOnlyTimeline(me ? me.timeline : []) + "</div>";
       html += '<div id="pendingChipsBox">' + renderPendingChips(p) + "</div>";
 
       render(html);
 
       var stealBtn = $("stealBtn");
       if (stealBtn) stealBtn.onclick = onStealPress;
-      if (eligible && pressed) {
-        wireSlotGaps($("stealTimelineBox").querySelector(".timeline-strip"), chooseStealSlot);
+      if (showPicker) {
+        var stealBox = $("stealTimelineBox");
+        if (stealBox) wireSlotGaps(stealBox.querySelector(".timeline-strip"), chooseStealSlot);
       }
       patchWheelBanner(p);
       restartCountdown();
@@ -973,17 +1048,12 @@
       sendIntent("steal-press", {});
     }
 
-    function lockedSlotOf(p) {
-      return p && p.placement && p.placement.locked && typeof p.placement.tentativeSlot === "number"
-        ? p.placement.tentativeSlot : null;
-    }
-
     function chooseStealSlot(idx) {
       localStealSlot = idx;
       var box = $("stealTimelineBox");
       if (box) {
         var current = projection.players[projection.currentPlayerIdx];
-        box.innerHTML = renderTimelineWithGhost((current || {}).timeline, idx, false, lockedSlotOf(projection));
+        box.innerHTML = renderTimelineWithGhost((current || {}).timeline, idx, false);
         wireSlotGaps(box.querySelector(".timeline-strip"), chooseStealSlot);
       }
       sendIntent("steal-slot", { slot: idx });
@@ -1010,10 +1080,15 @@
       countdownTimer = setInterval(function () {
         var el = $("stealCountdown");
         if (!el || !projection || !projection.steal) return;
+        // Only drive the number during the countdown sub-phase; while picking the window is
+        // paused (the host reports 0). A legacy host without `phase` keeps counting as before.
+        if (projection.steal.phase === "picking") return;
         el.textContent = secondsRemaining(projection.steal.endsAt, Date.now());
       }, 1000);
-      var el = $("stealCountdown");
-      if (el && projection && projection.steal) el.textContent = secondsRemaining(projection.steal.endsAt, Date.now());
+      var el0 = $("stealCountdown");
+      if (el0 && projection && projection.steal && projection.steal.phase !== "picking") {
+        el0.textContent = secondsRemaining(projection.steal.endsAt, Date.now());
+      }
     }
 
     // -- revealed phase --
@@ -1111,6 +1186,10 @@
     // fast cadence the moment the stream is judged unhealthy.
     function currentPollDelay() {
       if (projection && projection.status === "paused") return 5000;
+      // Steal windows are only ~10s long, so poll fast here regardless of SSE
+      // health: a missed or delayed SSE notification can then cost at most
+      // about a second instead of stretching the whole window blind.
+      if (projection && projection.phase === "steal") return 1500;
       return sseHealthy ? 10000 : 2000;
     }
 
