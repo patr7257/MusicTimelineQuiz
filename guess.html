@@ -79,7 +79,15 @@
       background: linear-gradient(160deg, #fdf6e6, var(--paper) 60%, var(--paper-deep));
       border: 3px solid var(--brown); border-radius: 22px; padding: 20px; color: var(--brown);
       box-shadow: var(--shadow), inset 0 0 0 5px var(--paper), inset 0 0 0 7px rgba(217,164,65,.28);
+      text-align: center;
     }
+    /* Everything the panel renders is centered by default (issue: consistent
+       centering on the phone). Inline text/inline-block elements center via the
+       text-align above; flex rows/grids opt into centered main-axis alignment
+       through the rules below. Inputs keep left-aligned text so typing does not
+       jump around (that is text flow inside a full-width, already-centered box,
+       not element alignment). */
+    #panel .field input, #panel .field select { text-align: left; }
     .lede { margin: 0 0 16px; color: rgba(59,42,30,.75); font-size: 14px; line-height: 1.5; }
     .names, .roster { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .name-btn {
@@ -119,16 +127,20 @@
     .center { text-align: center; }
     .section { margin-top: 18px; padding-top: 16px; border-top: 2px dashed rgba(59,42,30,.22); }
     .section:first-child { margin-top: 0; padding-top: 0; border-top: none; }
-    .row-between { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+    .row-between { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
     .coin-pill { font-family: var(--disp); font-size: 13px; color: var(--gold-deep); background: rgba(217,164,65,.18); border: 2px solid var(--gold); padding: 6px 12px; border-radius: 999px; white-space: nowrap; }
     .badge { display: inline-block; font-family: var(--disp); font-size: 11px; letter-spacing: .3px; text-transform: uppercase; color: var(--paper); background: var(--orange); border: 2px solid var(--orange-deep); padding: 4px 10px; border-radius: 999px; margin-bottom: 10px; box-shadow: 0 3px 0 var(--orange-deep); }
-    .pending-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+    .pending-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-top: 4px; }
     .chip { font-family: var(--disp); font-size: 11px; padding: 5px 9px; border-radius: 999px; border: 2px solid var(--brown); background: var(--paper); color: var(--brown); display: inline-flex; align-items: center; gap: 5px; }
     .chip .dot { width: 8px; height: 8px; border-radius: 50%; flex: 0 0 auto; border: 1px solid rgba(36,23,16,.4); }
     .chip.correct { color: var(--avocado-deep); border-color: var(--avocado); background: rgba(122,132,80,.18); }
     .chip.wrong { color: var(--orange-deep); border-color: var(--bad); background: rgba(219,90,53,.16); }
 
-    .timeline-strip { display: flex; align-items: stretch; gap: 0; overflow-x: auto; padding: 6px 2px 10px; -webkit-overflow-scrolling: touch; }
+    /* Centered when the cards fit, scrollable from the left when they do not:
+       `safe center` falls back to start alignment on overflow so the first card
+       is never clipped past the scroll origin (the 1-card starting timeline now
+       sits centered instead of left-aligned). */
+    .timeline-strip { display: flex; align-items: stretch; justify-content: safe center; gap: 0; overflow-x: auto; padding: 6px 2px 10px; -webkit-overflow-scrolling: touch; }
     .slot-gap { flex: 0 0 auto; width: 34px; align-self: stretch; min-height: 92px; margin: 0 2px; border-radius: 9px; border: 2px dashed var(--gold); background: rgba(217,164,65,.16); color: var(--gold-deep); font-family: var(--disp); font-size: 20px; }
     .slot-gap.blocked { border-color: rgba(59,42,30,.4); background: rgba(59,42,30,.08); color: rgba(59,42,30,.55); font-size: 9px; letter-spacing: 1px; cursor: not-allowed; }
     .slot-gap.chosen, .slot-gap.drag-over { background: var(--gold); color: var(--brown-deep); border-style: solid; transform: scale(1.06); }
@@ -935,7 +947,7 @@
       if (p.equalizer) html += '<div class="badge">Equalizer round</div>';
       html += '<div class="waiting"><span class="big">&#128064;</span>Watching the main screen.<br />It is <b style="color:' +
         escapeHtml((current && current.color) || "#c9c4ff") + '">' + escapeHtml(current ? current.name : "?") + "'s</b> turn.</div>";
-      html += '<div class="row-between"><span></span><span class="coin-pill" id="myCoins">' + (me ? me.coins : 0) + ' coins</span></div>';
+      html += '<div class="row-between"><span class="coin-pill" id="myCoins">' + (me ? me.coins : 0) + ' coins</span></div>';
       // Own timeline is intentionally NOT shown here: this screen only renders for a player
       // who is NOT the current player, and the phone-sized read-only strip is confusing and
       // unneeded on someone else's turn. It is still shown on your own turn (renderPlaceCurrent).
@@ -969,7 +981,7 @@
 
       var html = '<div class="waiting" style="padding:10px 8px;"><span class="big">&#127919;</span>Steal window!<br />' +
         (current ? "It was <b>" + escapeHtml(current.name) + "'s</b> turn." : "") + "</div>";
-      html += '<div class="row-between"><span></span><span class="coin-pill" id="myCoins">' + (me ? me.coins : 0) + ' coins</span></div>';
+      html += '<div class="row-between"><span class="coin-pill" id="myCoins">' + (me ? me.coins : 0) + ' coins</span></div>';
 
       if (!eligible) {
         if (matchPoint) html += '<div class="match-point-note">At match point: stealing not allowed.</div>';

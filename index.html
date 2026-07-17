@@ -130,11 +130,13 @@
     #game { position: fixed; inset: 56px 0 0 0; z-index: 1; }
     .stage { position: absolute; inset: 6px 6px calc(var(--hero-h) + 8px) 6px; }
 
-    /* Central music hub (a cream record sleeve), sized fluidly (vmin) so the QR
-       and reveal never clip off the top or bottom on any 16:9 desktop size. */
-    /* Issue #51: the hub QR card is TOP-aligned like the player seats (they sit toward
-       the top of the stage), instead of floating alone in the vertical middle. */
-    .hub { position: absolute; left: 50%; top: 16px; transform: translate(-50%,0); width: clamp(220px, 34vmin, 330px); max-width: 50vw; max-height: calc(100% - 24px); z-index: 6; display: flex; flex-direction: column; perspective: 1000px; }
+    /* Central music hub (a cream record sleeve). It is vertically CENTERED in the stage (the
+       area between the top bar and the resizable player hero) and sized by sizeHub() to fill
+       about 80% of that area: --hub-w is the card width, --hub-h its min-height, --hub-qr the
+       QR square. sizeHub re-runs on every render, resize, display-preset change, and hero drag,
+       so the card grows and re-centers as the available area changes. The clamp fallbacks keep
+       a sensible size before the first measure (and if the vars are ever unset). */
+    .hub { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: var(--hub-w, clamp(220px, 34vmin, 330px)); max-width: 92%; max-height: 100%; z-index: 6; display: flex; flex-direction: column; justify-content: center; perspective: 1000px; }
     .disc-glow {
       position: absolute; inset: -26px; border-radius: 30px; z-index: -1;
       background: radial-gradient(circle at 50% 42%, rgba(217,164,65,.55), transparent 66%);
@@ -147,15 +149,18 @@
       border: 3px solid var(--brown); border-radius: 20px; padding: clamp(12px, 2vmin, 18px); text-align: center;
       color: var(--brown);
       box-shadow: var(--shadow), inset 0 0 0 4px var(--paper), inset 0 0 0 6px rgba(193,80,46,.30);
-      flex: 1 1 auto; min-height: 0; max-height: 100%; overflow-y: auto;
+      flex: 1 1 auto; min-height: var(--hub-h, 0); max-height: 100%; overflow-y: auto;
+      display: flex; flex-direction: column; justify-content: center; gap: 4px;
     }
     .hubcard h3 { margin: 0 0 12px; font-family: var(--disp); font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--orange-deep); }
-    .qr { position: relative; width: clamp(150px, 26vmin, 220px); height: clamp(150px, 26vmin, 220px); margin: 0 auto; background: #fff; border-radius: 12px; padding: 8px; border: 3px solid var(--orange); box-shadow: 0 8px 20px rgba(36,23,16,.4), inset 0 0 0 3px #fff; }
+    .qr { position: relative; width: var(--hub-qr, clamp(150px, 26vmin, 220px)); height: var(--hub-qr, clamp(150px, 26vmin, 220px)); flex: 0 0 auto; margin: 0 auto; background: #fff; border-radius: 12px; padding: 8px; border: 3px solid var(--orange); box-shadow: 0 8px 20px rgba(36,23,16,.4), inset 0 0 0 3px #fff; }
     .qr img { width: 100%; height: 100%; image-rendering: pixelated; display: block; pointer-events: none; }
     .qr.draggable { cursor: grab; touch-action: none; }
     .qr.draggable:active { cursor: grabbing; }
-    .qr-expand { position: absolute; top: 6px; right: 6px; z-index: 2; padding: 6px 7px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 3px 0 rgba(36,23,16,.4); }
-    .qr-expand svg { display: block; }
+    /* Fullscreen-QR control: a normal inline button in the hub row beside "Play here" (it no
+       longer overlaps the QR). Icon plus a short label; position: relative anchors its tooltip. */
+    .qr-expand-btn { position: relative; display: inline-flex; align-items: center; gap: 6px; }
+    .qr-expand-btn svg { display: block; }
     .scan-hint { font-size: 12px; color: rgba(59,42,30,.72); margin-top: 10px; line-height: 1.4; }
     .scan-hint b { color: var(--orange-deep); }
     .eq { display: flex; gap: 4px; justify-content: center; align-items: flex-end; height: 26px; margin-top: 12px; }
@@ -417,7 +422,8 @@
     .fs-btn, .home-btn { display: inline-flex; align-items: center; justify-content: center; padding: 9px 11px; }
     .fs-btn svg, .home-btn svg { display: block; flex: 0 0 auto; }
     /* Statically-positioned icon buttons need a positioning context so their tooltip anchors to
-       them (qr-expand is already absolute, qr-full-close already fixed, so both are left alone). */
+       them (qr-full-close is already fixed, qr-expand-btn sets its own relative, so those are
+       left alone). */
     .fs-btn, .home-btn, .dash-del { position: relative; }
 
     /* Hover/focus tooltip for icon-only buttons (UI batch 5): any button carrying a data-tip gets
@@ -504,7 +510,7 @@
     .guess-reveal { position: fixed; z-index: 30; transform: translate(-50%, -50%); pointer-events: auto; cursor: default; }
     /* Issue #3: a big SQUARE panel docked to the LEFT of the centered QR card at reveal, so the
        whole table can read the round guess. Green outline marks a correct guess, red a wrong one. */
-    .gr-card { position: relative; width: clamp(220px, 34vmin, 330px); height: clamp(220px, 34vmin, 330px); max-width: 44vw; max-height: calc(100vh - 120px); overflow-y: auto; display: flex; flex-direction: column; background: linear-gradient(160deg, #fdf6e6, var(--paper) 60%, var(--paper-deep)); border: 3px solid var(--brown); border-radius: 20px; padding: 16px 18px 14px; color: var(--brown); box-shadow: var(--shadow), inset 0 0 0 4px var(--paper), inset 0 0 0 6px rgba(217,164,65,.28); transition: box-shadow .3s; }
+    .gr-card { position: relative; width: var(--hub-h, clamp(220px, 34vmin, 330px)); height: var(--hub-h, clamp(220px, 34vmin, 330px)); max-width: 44vw; max-height: calc(100vh - 120px); overflow-y: auto; display: flex; flex-direction: column; background: linear-gradient(160deg, #fdf6e6, var(--paper) 60%, var(--paper-deep)); border: 3px solid var(--brown); border-radius: 20px; padding: 16px 18px 14px; color: var(--brown); box-shadow: var(--shadow), inset 0 0 0 4px var(--paper), inset 0 0 0 6px rgba(217,164,65,.28); transition: box-shadow .3s; }
     .guess-reveal.correct .gr-card { border-color: var(--avocado); box-shadow: var(--shadow), inset 0 0 0 4px var(--paper), 0 0 0 4px var(--avocado), 0 0 26px rgba(122,132,80,.55); }
     .guess-reveal.wrong .gr-card { border-color: var(--bad); box-shadow: var(--shadow), inset 0 0 0 4px var(--paper), 0 0 0 4px var(--bad), 0 0 26px rgba(219,90,53,.5); }
     .gr-card h3 { margin: 0 0 12px; font-family: var(--disp); font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--orange-deep); text-align: center; }
@@ -651,7 +657,7 @@
   </div>
 
   <!-- Setup -->
-  <div class="overlay" id="setup">
+  <div class="overlay hidden" id="setup">
     <div class="panel">
       <div class="panel-controls">
         <button class="btn ghost fs-btn" id="setupFullscreenBtn" type="button" aria-label="Toggle fullscreen"></button>
@@ -1288,6 +1294,22 @@
     function loadHostLS() {
       try { return JSON.parse(localStorage.getItem(HOST_LS) || "null"); } catch (e) { return null; }
     }
+    // Deep-link / refresh-resume: the active game's id lives in the URL as ?g=ID, written with
+    // history.replaceState so it never navigates or reloads the page. urlGameId reads a valid id
+    // back on boot; setUrlGameId writes it when a game starts or resumes, and clears it on exit.
+    function urlGameId() {
+      try {
+        var id = new URLSearchParams(location.search).get("g");
+        return (id && /^[A-Z0-9]{4,8}$/.test(id)) ? id : null;
+      } catch (e) { return null; }
+    }
+    function setUrlGameId(id) {
+      try {
+        var u = new URL(location.href);
+        if (id) u.searchParams.set("g", id); else u.searchParams.delete("g");
+        history.replaceState(null, "", u.pathname + u.search + u.hash);
+      } catch (e) { /* ignore */ }
+    }
 
     /* ================== S5: DASHBOARD UI ================== */
     function relTime(ts) {
@@ -1433,6 +1455,7 @@
         // what the host just typed here, so the Main Menu reminder can show it after a resume.
         if (pw) state.password = pw;
         saveHostLS();
+        setUrlGameId(gameId);
         enterActiveGame();
         // Re-save right away so the stored status flips from paused back to active
         // (hydrateState clears the paused flag but nothing else would persist it).
@@ -1473,6 +1496,24 @@
       state.stealers = state.stealers.filter(function (st) { return st.idx === winnerIdx || st.slot !== state.wheelWinner.slot; });
       state.wheelWinner = null;
       resolveRound();
+    }
+    // Resume straight into a game from a hostToken this browser already holds (deep link or a
+    // silent reload). Unlike doResume it neither rotates the token nor needs a password: it just
+    // reads the current state with the stored token. onFail runs when the game is gone, paused,
+    // finished, or the token was rejected because another host took over.
+    function resumeIntoGame(gameId, hostToken, onFail) {
+      return NET.loadState(gameId, hostToken).then(function (r) {
+        if (!r || !r.state) { if (onFail) onFail(); return false; }
+        var blob = r.state;
+        if (blob.status === "paused" || blob.status === "finished" || blob.phase === "over") { if (onFail) onFail(); return false; }
+        state = hydrateState(blob);
+        state.gameId = gameId; state.hostToken = hostToken;
+        if (typeof r.version === "number") state.version = r.version;
+        enterActiveGame();
+        setUrlGameId(gameId);
+        if (state.wheelWinner) resumeWheelResolution();
+        return true;
+      });
     }
     function onPause() {
       if (!state) { showDashboard(); return; }
@@ -1634,7 +1675,7 @@
         NET.createGame(state.name, state.password, serializeState()).then(function (r) {
           if (r && r.gameId) {
             state.gameId = r.gameId; state.hostToken = r.hostToken; state.version = r.version || 1;
-            saveHostLS(); updatePhonesBtnVisibility(); startIntentPolling();
+            saveHostLS(); setUrlGameId(state.gameId); updatePhonesBtnVisibility(); startIntentPolling();
             // Game-setup popup on start (issue #36 batch 6): once the game is registered, show the
             // combined popup (join QR plus the Connect Spotify sound check) before first placement.
             openGameSetup();
@@ -2151,7 +2192,36 @@
     }
     var _lastRenderedView = null;
 
-    function render() { renderSeats(); renderHub(); renderHero(); updateRoundPill(); $("deckLeft").textContent = state.deck.length; }
+    function render() { renderSeats(); renderHub(); renderHero(); updateRoundPill(); $("deckLeft").textContent = state.deck.length; sizeHub(); }
+
+    // Size and centre the hub card in the stage (fix: the reveal/QR card sat too high and too
+    // small). The stage inset already tracks the resizable hero, so its box IS the available
+    // area; we read it, convert zoomed px back to layout px via displayZoom (see issue #54), and
+    // target a card that fills about 80% of it, kept clear of the edge-docked seats by a width
+    // budget. The QR is square, bounded by both the target height (minus the header/button
+    // chrome) and that width budget. The vars land on :root so the docked guess-reveal panel can
+    // match the same height. Re-run on every render, resize, display-preset change, and hero drag.
+    function sizeHub() {
+      var stage = $("stage");
+      if (!stage || $("game").classList.contains("hidden")) return;
+      var z = displayZoom();
+      var rect = stage.getBoundingClientRect();
+      var availH = rect.height / z, availW = rect.width / z;
+      if (availH <= 0 || availW <= 0) return;
+      // Card chrome that is not the QR (header + button row + paddings + border), kept in sync
+      // with the .hubcard / .qr CSS; a little slack keeps the place phase clear of a scrollbar.
+      var CHROME_V = 150, CHROME_H = 52;
+      var targetCardH = availH * 0.8;    // fill ~80% of the vertical space the host controls
+      var budgetCardW = availW * 0.52;   // stay clear of the seats parked at the stage edges
+      var qr = Math.min(targetCardH - CHROME_V, budgetCardW - CHROME_H);
+      qr = Math.max(150, Math.round(qr));
+      var cardW = Math.min(qr + CHROME_H, Math.round(availW * 0.9));
+      var cardH = Math.min(Math.round(targetCardH), Math.round(availH * 0.96));
+      var root = document.documentElement.style;
+      root.setProperty("--hub-w", cardW + "px");
+      root.setProperty("--hub-h", cardH + "px");
+      root.setProperty("--hub-qr", qr + "px");
+    }
 
     function renderSeats() {
       var seats = $("stage").querySelectorAll(".seat");
@@ -2221,18 +2291,15 @@
           : "";
         // UI batch 3: decluttered scan card. Dropped the equalizer stripe row, the
         // "Open in Spotify" link, and the play-here hint so the card stays compact with no
-        // scrollbar. Kept the QR, its fullscreen-expand control, and the Play here button.
-        c.innerHTML = '<h3>Scan to play</h3><div class="qr"><img alt="Spotify QR" src="' + qrSrc(state.card) + '" />' +
-          '<button class="btn ghost qr-expand" type="button" id="qrExpandBtn" aria-label="Expand QR" title="Expand QR" data-tip="Expand QR">' + fsIconSvg(false) + '</button></div>' +
-          (playBtn ? '<div class="row">' + playBtn + '</div>' : "");
+        // scrollbar. Kept the QR and the Play here button. The fullscreen-expand control moved
+        // DOWN into the button row beside "Play here" (fix: it used to overlap and cover the QR),
+        // so the QR is now fully visible and scannable.
+        var expandBtn = '<button class="btn ghost qr-expand-btn" type="button" id="qrExpandBtn" aria-label="Expand QR" title="Expand QR" data-tip="Expand QR">' + fsIconSvg(false) + '<span>Expand</span></button>';
+        c.innerHTML = '<h3>Scan to play</h3><div class="qr"><img alt="Spotify QR" src="' + qrSrc(state.card) + '" /></div>' +
+          '<div class="row">' + (playBtn || "") + expandBtn + '</div>';
         makeDraggableHub();
         var qx = $("qrExpandBtn");
-        if (qx) {
-          // Sits on the QR, which is itself the drag handle: swallow pointerdown so tapping
-          // expand never starts a placement drag.
-          qx.onpointerdown = function (ev) { ev.stopPropagation(); };
-          qx.onclick = function (ev) { ev.stopPropagation(); openQrFull(); };
-        }
+        if (qx) { qx.onclick = function (ev) { ev.stopPropagation(); openQrFull(); }; }
         var ph = $("playHereBtn"); if (ph) { ph.onclick = onPlayHereToggle; renderHubPlayBtn(); }
       } else if (state.phase === "steal") {
         if (state.stealPhase === "picking" && state.stealPickerIdx !== null) {
@@ -3186,6 +3253,8 @@
       hideAllScreens();
       $("topbar").classList.add("hidden"); $("game").classList.add("hidden");
       $("mainMenu").classList.remove("hidden");
+      // Leaving the active game clears the deep-link id, so a refresh on the menu stays here.
+      setUrlGameId(null);
     }
     function showSetup() {
       hideAllScreens();
@@ -3346,6 +3415,7 @@
             applyDisplayZoom();
             renderDisplayControls();
             if (state && state.phase !== "over") layoutSeats();
+            sizeHub();
             positionGuessReveal();
           };
           host.appendChild(b);
@@ -3354,7 +3424,7 @@
     }
     // Auto tracks the live viewport, so recompute on resize and on entering/leaving fullscreen.
     window.addEventListener("resize", function () { if (displayMode === "auto") applyDisplayZoom(); });
-    document.addEventListener("fullscreenchange", function () { if (displayMode === "auto") applyDisplayZoom(); });
+    document.addEventListener("fullscreenchange", function () { if (displayMode === "auto") applyDisplayZoom(); sizeHub(); });
     applyDisplayZoom();
     renderDisplayControls();
 
@@ -3391,6 +3461,7 @@
             // are in actual px, so divide by the zoom to keep the line tracking the pointer 1:1.
             var v = clampPx(startH + (startY - ev.clientY) / z, cfg.min, cfg.max());
             setVar(cfg.varName, v);
+            sizeHub();
             positionGuessReveal();
           }
           function onUp(ev) {
@@ -3409,6 +3480,7 @@
           document.documentElement.style.removeProperty(cfg.varName);
           delete saved[cfg.key];
           save();
+          sizeHub();
           positionGuessReveal();
         });
       });
@@ -3435,7 +3507,7 @@
       if (!gid) { $("takeoverOverlay").classList.add("hidden"); showDashboard(); return; }
       doResume(gid, $("takeoverPw").value, function (msg) { $("takeoverErr").textContent = msg || "Could not take over."; });
     };
-    window.addEventListener("resize", function () { if (state && state.phase !== "over") layoutSeats(); positionGuessReveal(); });
+    window.addEventListener("resize", function () { if (state && state.phase !== "over") layoutSeats(); sizeHub(); positionGuessReveal(); });
 
     // Hover-info tooltip, delegated so it survives every re-render. A card carries the
     // info in data-tip-* attributes (set by tagCardTip); the tentative "New" card has none
@@ -3461,29 +3533,33 @@
     $("catAll").onclick = function () { DB.categories.forEach(function (c) { setup.cats.add(c.key); }); renderCats(); validateSetup(); };
     $("catNone").onclick = function () { setup.cats.clear(); renderCats(); validateSetup(); };
     renderNames(); renderCats(); setupYearRange(); validateSetup();
-    // Probe once, then route: backend up -> dashboard, offline -> setup (zero persistence).
+    // Boot straight to the main menu with no flash of another screen: setup, dashboard, and the
+    // game are all hidden in markup, so show the menu synchronously here (unless the URL deep
+    // links a game), then probe the backend in the background and route from there.
     $("setup").classList.add("hidden");
+    var deepLinkId = urlGameId();
+    if (!deepLinkId) showMainMenu();
     NET.probe().then(function (up) {
       backendAvailable = up;
       updatePhonesBtnVisibility();
       $("onlineFields").classList.toggle("hidden", !up);
-      // Offline or no saved host: the main menu is the first screen (issue #36 UI batch 3).
-      if (!up) { showMainMenu(); return; }
-      // Silent resume: a reload of an ACTIVE game picks up where it left off via the stored
-      // hostToken (no password re-entry), bypassing the menu. Paused or finished games, or a
-      // token rejected because another host resumed (401), fall back to the main menu.
+      // Offline: no persistence, so drop any URL game id and land on the menu.
+      if (!up) { setUrlGameId(null); if (deepLinkId) showMainMenu(); return; }
+      // Deep link (?g=ID): resume straight into that game using the hostToken this browser stored
+      // for it (never the menu). An unknown id, no stored token for it, or a failed load falls
+      // back to the main menu rather than erroring.
+      if (deepLinkId) {
+        var savedDL = loadHostLS();
+        var tokenDL = (savedDL && savedDL.gameId === deepLinkId) ? savedDL.hostToken : null;
+        if (!tokenDL) { setUrlGameId(null); showMainMenu(); return; }
+        resumeIntoGame(deepLinkId, tokenDL, function () { setUrlGameId(null); showMainMenu(); });
+        return;
+      }
+      // No URL id: silently resume the last ACTIVE game if this browser holds its token,
+      // else stay on the already-shown main menu. Paused/finished games fall through to the menu.
       var saved = loadHostLS();
-      if (!saved || !saved.gameId || !saved.hostToken) { showMainMenu(); return; }
-      NET.loadState(saved.gameId, saved.hostToken).then(function (r) {
-        if (!r || !r.state) { showMainMenu(); return; }
-        var blob = r.state;
-        if (blob.status === "paused" || blob.status === "finished" || blob.phase === "over") { showMainMenu(); return; }
-        state = hydrateState(blob);
-        state.gameId = saved.gameId; state.hostToken = saved.hostToken;
-        if (typeof r.version === "number") state.version = r.version;
-        enterActiveGame();
-        if (state.wheelWinner) resumeWheelResolution();
-      });
+      if (!saved || !saved.gameId || !saved.hostToken) return;
+      resumeIntoGame(saved.gameId, saved.hostToken, null);
     });
   })();
   </script>
