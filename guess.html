@@ -445,6 +445,19 @@
       return null;
     }
 
+    // New round: drop any stale local optimistic lock / tentative pick left over from the
+    // previous turn's card, so the fresh card starts unlocked and draggable right away. Must
+    // run before anything reads placementLockedOptimistic or localTentativeSlot for the CURRENT
+    // round (computeScreenKey's render key included), otherwise the very first render of the
+    // new turn still reflects last turn's locked state and nothing but an unrelated UI event
+    // forces the fix.
+    function syncPlacementLocalState(p) {
+      if (tentativeRoundLocal === p.round) return;
+      tentativeRoundLocal = p.round;
+      localTentativeSlot = (p.placement && p.placement.tentativeSlot != null) ? p.placement.tentativeSlot : null;
+      placementLockedOptimistic = false;
+    }
+
     function computeScreenKey() {
       if (mode === "entry") return "entry";
       if (mode === "password") return "password";
@@ -462,6 +475,7 @@
 
       if (p.phase === "place" || p.phase === "equalizer") {
         if (iAmCurrent) {
+          syncPlacementLocalState(p);
           var locked = (p.placement && p.placement.locked) || placementLockedOptimistic;
           return "main:place:cur:" + locked + ":" + guessSent + ":" + guessType;
         }
@@ -721,16 +735,10 @@
     function renderPlaceCurrent() {
       var p = projection;
       var me = p.players[myIdx()];
+      syncPlacementLocalState(p); // no-op if computeScreenKey() already synced this round
       var locked = (p.placement && p.placement.locked) || placementLockedOptimistic;
       var myGuess = findMyPendingGuess(p);
       var guessSent = !!myGuess || guessSentRoundLocal === p.round;
-
-      if (tentativeRoundLocal !== p.round) {
-        // New round: drop any stale local pick and start from the server's view.
-        tentativeRoundLocal = p.round;
-        localTentativeSlot = (p.placement && p.placement.tentativeSlot != null) ? p.placement.tentativeSlot : null;
-        placementLockedOptimistic = false;
-      }
 
       var html = '<div class="row-between"><span class="badge">Your turn</span><span class="coin-pill" id="myCoins">' + (me ? me.coins : 0) + ' coins</span></div>';
 

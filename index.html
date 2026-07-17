@@ -149,7 +149,10 @@
       border: 3px solid var(--brown); border-radius: 20px; padding: clamp(12px, 2vmin, 18px); text-align: center;
       color: var(--brown);
       box-shadow: var(--shadow), inset 0 0 0 4px var(--paper), inset 0 0 0 6px rgba(193,80,46,.30);
-      flex: 1 1 auto; min-height: var(--hub-h, 0); max-height: 100%; overflow-y: auto;
+      /* Concrete height (not min-height) so the reveal/QR card box is EXACTLY --hub-w x --hub-h,
+         matching the docked guess-reveal card (.gr-card) pixel for pixel (issue: the two boxes
+         rendered at different heights). Both use the same clamp fallback before the first measure. */
+      flex: 0 0 auto; height: var(--hub-h, clamp(220px, 34vmin, 330px)); max-height: 100%; overflow-y: auto;
       display: flex; flex-direction: column; justify-content: center; gap: 4px;
     }
     .hubcard h3 { margin: 0 0 12px; font-family: var(--disp); font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--orange-deep); }
@@ -185,8 +188,10 @@
     .steal-count { font-family: var(--disp); font-size: clamp(40px, 11vmin, 68px); font-weight: 400; line-height: 1; text-align: center; margin-top: 8px; background: linear-gradient(180deg, var(--gold), var(--orange)); -webkit-background-clip: text; background-clip: text; color: transparent; }
     .steal-count.paused { opacity: .45; }
 
-    /* Player seats: cream record-sleeve panels docked to the stage edges */
-    .seat { position: absolute; width: clamp(142px, 14vw, 186px); transform: translate(-50%,-50%); z-index: 3; transition: left .5s ease, top .5s ease, opacity .3s ease; cursor: pointer; }
+    /* Player seats: cream record-sleeve panels docked to the stage edges. The width is set by
+       sizeHub() into --seat-w (derived from the live stage area / display zoom, same spirit as the
+       hub card) so the seats scale to use the space beside the hub; the clamp is only a fallback. */
+    .seat { position: absolute; width: var(--seat-w, clamp(142px, 14vw, 186px)); transform: translate(-50%,-50%); z-index: 3; transition: left .5s ease, top .5s ease, opacity .3s ease; cursor: pointer; }
     .seat-card { position: relative; background: var(--paper); border: 3px solid var(--brown); border-radius: 16px; padding: 11px 13px; color: var(--brown); box-shadow: var(--shadow); }
     .seat-card::before { content: ""; position: absolute; inset: 5px; border: 2px dashed rgba(59,42,30,.18); border-radius: 11px; pointer-events: none; }
     /* Issue #51: every player has a seat on the board; the one whose timeline is shown
@@ -195,8 +200,10 @@
     .seat.viewing .seat-card::after { content: "In view"; position: absolute; top: -11px; right: 10px; font-family: var(--disp); font-size: 10px; letter-spacing: .5px; background: var(--gold); color: var(--brown-deep); border: 2px solid var(--brown); border-radius: 999px; padding: 1px 8px; }
     .seat-head { position: relative; display: flex; align-items: center; gap: 9px; margin-bottom: 8px; }
     .avatar { width: 34px; height: 34px; border-radius: 50%; flex: 0 0 auto; display: grid; place-items: center; font-family: var(--disp); font-weight: 400; color: var(--brown-deep); font-size: 13px; border: 2px solid var(--brown-deep); box-shadow: 0 3px 0 rgba(36,23,16,.3); }
-    .seat-name { position: relative; font-family: var(--disp); font-weight: 400; letter-spacing: .5px; font-size: 16px; color: var(--brown); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .seat-score { margin-left: auto; font-family: var(--disp); font-size: 12px; color: var(--gold-deep); }
+    /* flex 1 + min-width 0 lets the name ellipsize instead of squeezing the score; the score is
+       flex 0 with nowrap so "1 / 10" always stays on ONE line (fix: it used to wrap to two). */
+    .seat-name { position: relative; flex: 1 1 auto; min-width: 0; font-family: var(--disp); font-weight: 400; letter-spacing: .5px; font-size: 16px; color: var(--brown); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .seat-score { flex: 0 0 auto; margin-left: auto; padding-left: 8px; white-space: nowrap; font-family: var(--disp); font-size: 12px; color: var(--gold-deep); }
     .seat-coins { position: relative; display: flex; align-items: center; gap: 5px; font-family: var(--disp); font-size: 12px; color: var(--gold-deep); margin-bottom: 8px; }
     /* Issue #51: minis never wrap to extra rows (that grew the seat vertically and
        displaced it); one row that scrolls sideways instead. */
@@ -313,9 +320,14 @@
     .card-tip .tip-cat { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; font-family: var(--disp); font-size: 11px; color: var(--brown-deep); }
     .card-tip .tip-cat .te { font-size: 13px; line-height: 1; }
 
-    /* CSS-S9: drag ghost that follows the pointer while dragging the hub card to a slot */
-    .drag-ghost { position: fixed; top: 0; left: 0; width: 64px; height: 64px; pointer-events: none; z-index: 200; opacity: .88; transform: translate(-50%,-50%); }
-    .drag-ghost img { width: 100%; height: 100%; border-radius: 8px; box-shadow: 0 10px 24px rgba(36,23,16,.5); background: #fff; border: 2px solid var(--orange); }
+    /* CSS-S9: drag ghost that follows the pointer while dragging the new card to a slot. It shows
+       the "? New card" placeholder (the mystery card being placed), matching the phone's new card
+       and the tentative card in the strip, NOT the QR (the QR stays in the hub for scanning). */
+    .drag-ghost { position: fixed; top: 0; left: 0; width: 118px; height: 132px; pointer-events: none; z-index: 200; opacity: .92; transform: translate(-50%,-50%); }
+    .drag-ghost .dg-card { position: relative; width: 100%; height: 100%; border-radius: 12px; border: 3px solid var(--orange-deep); background: linear-gradient(160deg, #f6d998, var(--gold) 70%, #c9932f); color: var(--brown); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; box-shadow: 5px 6px 0 rgba(147,56,30,.4), 0 10px 24px rgba(36,23,16,.5); }
+    .drag-ghost .dg-badge { position: absolute; top: -11px; right: -9px; transform: rotate(8deg); background: var(--orange); color: var(--paper); font-family: var(--disp); font-size: 10px; padding: 3px 9px; border-radius: 999px; border: 2px solid var(--paper); box-shadow: 0 3px 0 var(--orange-deep); letter-spacing: 1px; }
+    .drag-ghost .dg-q { font-family: var(--disp); font-size: 40px; line-height: 1; color: var(--orange-deep); }
+    .drag-ghost .dg-label { font-family: var(--disp); font-size: 14px; }
 
     /* CSS-S10: steal wheel (conic disc stays in PLAYER colors, panel is themed) */
     .wheel-wrap { position: relative; width: min(70vmin, 420px); height: min(70vmin, 420px); }
@@ -1764,14 +1776,19 @@
       if (!state.deck.length) { endGame("deck"); return; }
       hideGuessReveal();
       teardownSpotify();
-      state.card = state.deck.pop(); state.chosenSlot = null; state.result = null; state.phase = "place";
+      // A fresh turn ALWAYS starts with the new card unplaced and unlocked: chosenSlot cleared so
+      // no tentative "?" card is shown in the timeline, locked cleared, phase back to "place". This
+      // prevents the new card from appearing already jumped into the player's timeline (issue: a
+      // stale slot leaking into a new turn). The projection then reports tentativeSlot null and
+      // locked false, so the phone mirrors the unplaced state.
+      state.card = state.deck.pop(); state.chosenSlot = null; state.result = null; state.phase = "place"; state.locked = false;
       state.revealInFlight = false; state.wheelWinner = null;
       state.round += 1;
       state.players[state.current].roundsPlayed += 1;
       state.viewIdx = state.current;
       state.pending = [];
       render();
-      markDirty();
+      flushDirty();   // push the reset (unplaced, unlocked) immediately so the phone sees it at once
     }
 
     function discardAndRedraw() {
@@ -2235,6 +2252,12 @@
       root.setProperty("--hub-w", cardW + "px");
       root.setProperty("--hub-h", cardH + "px");
       root.setProperty("--hub-qr", qr + "px");
+      // Seat width scales into the space beside the centered hub (item 2). Seats dock in two
+      // columns whose centres sit at 12% / 88% of the stage; a seat centred at 12% can reach up
+      // to ~24% before it meets the hub's ~52% centre budget, so ~22% of the width is the usable
+      // budget per seat. Clamp keeps them readable on small screens and sane on very wide ones.
+      var seatW = Math.max(150, Math.min(Math.round(availW * 0.22), 360));
+      root.setProperty("--seat-w", seatW + "px");
     }
 
     function renderSeats() {
@@ -2493,8 +2516,12 @@
       }
       var minCx = popW / 2 + 12;   // never run off the left edge
       if (cx < minCx) cx = minCx;
-      pop.style.left = cx + "px";
-      pop.style.top = cy + "px";
+      // cx/cy are actual (zoomed) px; the popup is position: fixed inside the zoomed <body>, so a
+      // left/top set in CSS px renders at that value times the zoom. Divide by the zoom so the
+      // guess card docks flush beside the hub and their tops/bottoms line up at any display zoom.
+      var z = displayZoom();
+      pop.style.left = (cx / z) + "px";
+      pop.style.top = (cy / z) + "px";
     }
     function hideGuessReveal() {
       var pop = $("guessRevealPopup");
@@ -2592,7 +2619,9 @@
       document.body.classList.add("dragging");
       dragState.ghost = document.createElement("div");
       dragState.ghost.className = "drag-ghost";
-      dragState.ghost.innerHTML = '<img alt="" src="' + qrSrc(state.card) + '" />';
+      // Show the "? New card" placeholder (the mystery card being placed), matching the phone and
+      // the tentative card in the strip. The QR is untouched in the hub so it stays scannable.
+      dragState.ghost.innerHTML = '<div class="dg-card"><span class="dg-badge">NEW</span><span class="dg-q">?</span><span class="dg-label">New card</span></div>';
       document.body.appendChild(dragState.ghost);
       // Re-dragging the tentative card: one controlled re-render WITHOUT it so every gap
       // (including its old slot) is a drop target. No other re-render happens mid-drag.
@@ -2614,7 +2643,11 @@
     function onDragUp(ev) { endDrag(ev.clientX, ev.clientY); }
     function onDragCancel() { endDrag(null, null); }
     function forceEndDrag() { if (dragState.active) endDrag(null, null); }
-    function moveGhost(x, y) { if (dragState.ghost) { dragState.ghost.style.left = x + "px"; dragState.ghost.style.top = y + "px"; } }
+    // The ghost is position: fixed inside the zoomed <body>, so a left/top set in CSS px renders
+    // at that value TIMES the display zoom. Pointer clientX/clientY are actual (zoomed) px, so
+    // divide by the zoom to land the ghost under the pointer instead of snapping off to the side
+    // (fix for the card jumping away from the cursor at any non-1 display zoom, e.g. Auto).
+    function moveGhost(x, y) { if (dragState.ghost) { var z = displayZoom(); dragState.ghost.style.left = (x / z) + "px"; dragState.ghost.style.top = (y / z) + "px"; } }
     function findSlotAt(x, y) {
       // Live getBoundingClientRect so hit-testing stays correct while auto-scrolling.
       var slots = document.querySelectorAll("#timeline .slot");
@@ -2804,7 +2837,11 @@
       var isCurrent = it.playerIdx === state.current;
       switch (it.type) {
         case "tentative":
-          if (isCurrent && state.phase === "place" && !dragState.active && typeof it.slot === "number" && it.slot !== state.chosenSlot) {
+          // Ignore a tentative slot carried over from a previous round: applying it on a fresh
+          // turn would jump the new card into the timeline as if already placed. When the intent
+          // has no round (older phones) fall back to the prior behaviour.
+          if (isCurrent && state.phase === "place" && !dragState.active && typeof it.slot === "number"
+              && (it.round == null || it.round === state.round) && it.slot !== state.chosenSlot) {
             state.chosenSlot = it.slot; renderHero();
           }
           break;
@@ -3389,7 +3426,18 @@
     }
     function saveDisplayMode(m) { try { localStorage.setItem(DISPLAY_LS_KEY, m); } catch (e) { /* ignore */ } }
     var displayMode = loadDisplayMode();
-    function autoDisplayScale() { return Math.max(0.75, Math.min(1.9, window.innerHeight / 1080)); }
+    // Auto (recommended): pick the LARGEST zoom that still fits everything (seats + their
+    // timelines, the hub, the hero) on screen, so the game is as readable as possible rather than
+    // shrunk to a fraction of the window. AUTO_REF_W / AUTO_REF_H are the smallest layout (in
+    // unzoomed layout px) that shows the whole board comfortably; the biggest zoom that fits is
+    // the smaller of the width and height ratios. This reads the live window, so it fills the
+    // space even when OS display scaling makes window.innerHeight small (the old height/1080 rule
+    // then zoomed out far too much). Clamped to the same sane bounds as the fixed presets.
+    var AUTO_REF_W = 1000, AUTO_REF_H = 680;
+    function autoDisplayScale() {
+      var fit = Math.min(window.innerWidth / AUTO_REF_W, window.innerHeight / AUTO_REF_H);
+      return Math.max(0.75, Math.min(1.9, fit));
+    }
     function computeDisplayZoom() {
       if (displayMode === "auto") return autoDisplayScale();
       var p = displayPresetById(displayMode);
