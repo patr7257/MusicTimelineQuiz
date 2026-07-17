@@ -502,12 +502,17 @@
     .menu-buttons { display: flex; flex-direction: column; gap: 14px; }
     .menu-btn { width: 100%; padding: 16px; font-size: 18px; letter-spacing: 1px; }
 
-    /* In-game settings tabs (Menu / Display): the display-size presets live under their own tab,
-       separated from the action buttons instead of always sitting at the top of the overlay. */
-    .settings-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-    .settings-tab { flex: 1 1 0; padding: 10px 12px; border-radius: 12px; background: var(--paper-deep); border: 2px solid var(--brown); color: var(--brown); font-family: var(--disp); font-size: 14px; letter-spacing: 1px; cursor: pointer; box-shadow: 0 4px 0 rgba(36,23,16,.35); transition: transform .07s, box-shadow .07s; }
-    .settings-tab:active { transform: translateY(3px); box-shadow: 0 1px 0 rgba(36,23,16,.35); }
-    .settings-tab.on { background: linear-gradient(180deg, #d55f3a, var(--orange)); border-color: var(--orange-deep); color: var(--paper); box-shadow: 0 4px 0 var(--orange-deep); }
+    /* Shared menu/settings/setup dialog footprint (issue: uniform dialog size). One width and a
+       consistent min-height for the in-game settings overlay and the game-setup overlay (the
+       lobby + the Connect Phones / Connect Spotify views), so they all look identical in size.
+       Content taller than the box scrolls in the inner .menu-dialog-scroll region instead of
+       resizing the box; a single bottom action (.menu-dialog-foot) stays pinned below it. */
+    .menu-dialog { width: min(520px, 92vw); display: flex; flex-direction: column; max-height: calc(100vh - 40px); }
+    .menu-dialog > h1 { flex: 0 0 auto; }
+    .menu-dialog-scroll { flex: 1 1 auto; overflow-y: auto; min-height: 260px; margin: 0 -4px; padding: 2px 4px; }
+    .menu-dialog-foot { flex: 0 0 auto; margin-top: 16px; }
+    /* Sub-views of the in-game settings dialog (menu of buttons vs. the display-size panel). */
+    .settings-view { display: flex; flex-direction: column; gap: 14px; }
 
     /* Join credentials on the Connect phones screen: the game id and the join PASSWORD players
        type on their phones, each shown large and clear under the QR. */
@@ -784,58 +789,61 @@
        game id, and join password; "Connect Spotify" carries the Web Playback SDK connect UI for
        any http(s) origin. The gear's Connect Phones / Connect Spotify buttons open one view each;
        the lobby shown at game start ("setup" context) shows both together with a Start button.
-       Dismiss via the corner X, the bottom button, or Esc. -->
+       The corner X (and Esc) exits fully to the game; the bottom button starts play in the lobby,
+       or in a gear view says "Back" and reopens the settings menu. -->
   <div class="overlay hidden" id="gameSetupOverlay">
-    <div class="panel">
+    <div class="panel menu-dialog">
       <div class="panel-controls">
         <button class="btn ghost home-btn" id="gameSetupCloseBtn" type="button" aria-label="Close"></button>
       </div>
       <h1 id="gameSetupTitle"><span class="note">♪</span> Game setup</h1>
-      <div class="field" id="setupPhonesSection">
-        <label>Connect phones</label>
-        <p class="lede" style="margin-bottom:14px">Scan the QR to join, or open the phone page and enter the game id and password below (you can join anytime). On your turn you can place from your phone, make one bonus guess per round for a coin, and press STEAL during a steal window.</p>
-        <div class="qr" id="phonesQr" style="margin-bottom:12px"></div>
-        <div class="join-creds">
-          <div class="join-cred"><span class="join-cred-label">Game id</span><span class="join-cred-value" id="phonesCode">----</span></div>
-          <div class="join-cred"><span class="join-cred-label">Password</span><span class="join-cred-value" id="phonesPassword">----</span></div>
+      <div class="menu-dialog-scroll">
+        <div class="field" id="setupPhonesSection">
+          <label>Connect phones</label>
+          <p class="lede" style="margin-bottom:14px">Scan the QR to join, or open the phone page and enter the game id and password below (you can join anytime). On your turn you can place from your phone, make one bonus guess per round for a coin, and press STEAL during a steal window.</p>
+          <div class="qr" id="phonesQr" style="margin-bottom:12px"></div>
+          <div class="join-creds">
+            <div class="join-cred"><span class="join-cred-label">Game id</span><span class="join-cred-value" id="phonesCode">----</span></div>
+            <div class="join-cred"><span class="join-cred-label">Password</span><span class="join-cred-value" id="phonesPassword">----</span></div>
+          </div>
+        </div>
+        <div class="field" id="setupSpotifySection">
+          <label>Connect Spotify</label>
+          <div id="connectSpotifyBlock"></div>
         </div>
       </div>
-      <div class="field" id="setupSpotifySection">
-        <label>Connect Spotify</label>
-        <div id="connectSpotifyBlock"></div>
-      </div>
-      <button class="btn primary" id="gameSetupCloseBtn2" type="button" style="width:100%">Close</button>
+      <button class="btn primary menu-dialog-foot" id="gameSetupCloseBtn2" type="button" style="width:100%">Close</button>
     </div>
   </div>
 
-  <!-- In-game settings: opened by the top-bar gear. Two tabs, Menu and Display. The Menu tab
-       carries the action buttons (Connect Phones, Connect Spotify, Save and exit game); the
-       Display tab carries the display-size presets. Connect Phones is online-only (disabled
-       offline with a reason tip). Fullscreen is a corner icon button beside the close X. Close
-       via corner X or Esc. -->
+  <!-- In-game settings: opened by the top-bar gear. A single menu of buttons (Connect Phones,
+       Connect Spotify, Display, Save and exit game); Display opens the display-size presets as a
+       sub-view of the same dialog, with a Back button returning to the menu. Connect Phones is
+       online-only (disabled offline with a reason tip). Fullscreen is a corner icon button beside
+       the close X. Close via corner X or Esc. -->
   <div class="overlay hidden" id="gameSettingsOverlay">
-    <div class="panel confirm-panel">
+    <div class="panel menu-dialog">
       <div class="panel-controls">
         <button class="btn ghost fs-btn" id="gameSettingsFullscreenBtn" type="button" aria-label="Toggle fullscreen"></button>
         <button class="btn ghost home-btn" id="gameSettingsCloseBtn" type="button" aria-label="Close"></button>
       </div>
       <h1><span class="note">⚙️</span> Game settings</h1>
-      <div class="settings-tabs" id="gameSettingsTabs">
-        <button class="settings-tab on" type="button" data-tab="menu" aria-pressed="true">Menu</button>
-        <button class="settings-tab" type="button" data-tab="display" aria-pressed="false">Display</button>
-      </div>
-      <div class="settings-tabpanel" id="gsPanelMenu">
-        <div class="menu-buttons">
-          <button class="btn menu-btn" id="gsPhonesBtn" type="button">Connect Phones</button>
-          <button class="btn menu-btn" id="gsSpotifyBtn" type="button">Connect Spotify</button>
-          <button class="btn ghost menu-btn" id="gsExitBtn" type="button">Save and exit game</button>
+      <div class="menu-dialog-scroll">
+        <div class="settings-view" id="gsViewMenu">
+          <div class="menu-buttons">
+            <button class="btn menu-btn" id="gsPhonesBtn" type="button">Connect Phones</button>
+            <button class="btn menu-btn" id="gsSpotifyBtn" type="button">Connect Spotify</button>
+            <button class="btn menu-btn" id="gsDisplayBtn" type="button">Display</button>
+            <button class="btn ghost menu-btn" id="gsExitBtn" type="button">Save and exit game</button>
+          </div>
         </div>
-      </div>
-      <div class="settings-tabpanel hidden" id="gsPanelDisplay">
-        <div class="field">
-          <label>Display size</label>
-          <div class="dispsize-row" id="dispRowGame"></div>
-          <div class="note-sm">Auto fits the game to your screen and is recommended.</div>
+        <div class="settings-view hidden" id="gsViewDisplay">
+          <div class="field">
+            <label>Display size</label>
+            <div class="dispsize-row" id="dispRowGame"></div>
+            <div class="note-sm">Auto fits the game to your screen and is recommended.</div>
+          </div>
+          <button class="btn ghost menu-btn" id="gsDisplayBackBtn" type="button">Back</button>
         </div>
       </div>
     </div>
@@ -1338,7 +1346,11 @@
       if (ov) ov.classList.remove("hidden");
     }
     function saveHostLS() {
-      try { if (state && state.gameId && state.hostToken) localStorage.setItem(HOST_LS, JSON.stringify({ gameId: state.gameId, hostToken: state.hostToken })); } catch (e) {}
+      // Persist the join password alongside the host session so it survives a full page reload
+      // (notably the Spotify OAuth roundtrip): the server never returns the password, so without
+      // this the resumed state would lose it and the phones view would only show a placeholder.
+      // Host-local only, never projected to phones.
+      try { if (state && state.gameId && state.hostToken) localStorage.setItem(HOST_LS, JSON.stringify({ gameId: state.gameId, hostToken: state.hostToken, password: state.password || null })); } catch (e) {}
     }
     function loadHostLS() {
       try { return JSON.parse(localStorage.getItem(HOST_LS) || "null"); } catch (e) { return null; }
@@ -1384,7 +1396,10 @@
       wrap.innerHTML = '<div class="note-sm">Loading saved games...</div>';
       NET.listGames().then(function (rows) {
         wrap.innerHTML = "";
-        if (!rows || !rows.length) { wrap.innerHTML = '<div class="note-sm">No saved games yet. Use New Game from the menu to start one.</div>'; return; }
+        // A finished game (a winner reached) is not resumable, so it never belongs in the
+        // continue list. Filter it out here so it cannot be picked up again.
+        rows = (rows || []).filter(function (g) { return g && g.status !== "finished"; });
+        if (!rows.length) { wrap.innerHTML = '<div class="note-sm">No saved games yet. Use New Game from the menu to start one.</div>'; return; }
         rows.forEach(function (g) {
           var row = document.createElement("div");
           row.className = "dash-row" + (g.gameId === highlightId ? " highlight" : "");
@@ -1556,6 +1571,10 @@
         state = hydrateState(blob);
         state.gameId = gameId; state.hostToken = hostToken;
         if (typeof r.version === "number") state.version = r.version;
+        // The server never returns the join password, so restore it from the host-local session
+        // (saved at creation) when this browser holds it for this game. This keeps the real
+        // password visible on the phones view after a silent reload / the Spotify OAuth roundtrip.
+        if (!state.password) { var ls = loadHostLS(); if (ls && ls.gameId === gameId && ls.password) state.password = ls.password; }
         enterActiveGame();
         setUrlGameId(gameId);
         if (state.wheelWinner) resumeWheelResolution();
@@ -2990,14 +3009,14 @@
       spSec.classList.toggle("hidden", !showSpotify);
       if (showSpotify) buildConnectSpotify($("connectSpotifyBlock"));
       // Title + bottom-button label reflect the context: the lobby says "Start game"; a single
-      // gear view says "Close" and names the section it opened.
+      // gear view says "Back" (it returns to the settings menu) and names the section it opened.
       var title = $("gameSetupTitle"), dismiss = $("gameSetupCloseBtn2");
       if (gameSetupCtx === "setup") {
         if (title) title.innerHTML = '<span class="note">&#9834;</span> Game setup';
         if (dismiss) dismiss.textContent = "Start game";
       } else {
         if (title) title.innerHTML = '<span class="note">&#9834;</span> ' + (view === "spotify" ? "Connect Spotify" : "Connect phones");
-        if (dismiss) dismiss.textContent = "Close";
+        if (dismiss) dismiss.textContent = "Back";
       }
       $("gameSetupOverlay").classList.remove("hidden");
     }
@@ -3007,21 +3026,17 @@
     function openGameSettings() {
       if (!state) return;
       applyGameSettingsOnline(!!(NET.available && state && state.gameId));
-      setGameSettingsTab("menu");
+      setGameSettingsView("menu");
       $("gameSettingsOverlay").classList.remove("hidden");
     }
     function closeGameSettings() { $("gameSettingsOverlay").classList.add("hidden"); }
-    // Toggle the Menu / Display tab in the in-game settings overlay.
-    function setGameSettingsTab(name) {
-      var tabs = document.querySelectorAll("#gameSettingsTabs .settings-tab");
-      Array.prototype.slice.call(tabs).forEach(function (t) {
-        var on = t.getAttribute("data-tab") === name;
-        t.classList.toggle("on", on);
-        t.setAttribute("aria-pressed", on ? "true" : "false");
-      });
-      var mp = $("gsPanelMenu"), dp = $("gsPanelDisplay");
-      if (mp) mp.classList.toggle("hidden", name !== "menu");
-      if (dp) dp.classList.toggle("hidden", name !== "display");
+    // Swap the in-game settings sub-view: "menu" (the button list) or "display" (the display-size
+    // presets, reached via the Display menu button). The dialog keeps its size; only the inner
+    // view changes, and the display sub-view has its own Back button returning to the menu.
+    function setGameSettingsView(name) {
+      var mv = $("gsViewMenu"), dv = $("gsViewDisplay");
+      if (mv) mv.classList.toggle("hidden", name !== "menu");
+      if (dv) dv.classList.toggle("hidden", name !== "display");
     }
 
     /* ================== S11b: CONFIRM MODAL + FULLSCREEN QR + HIDDEN PLAYBACK ================== */
@@ -3545,19 +3560,21 @@
     // Continue list and Settings: nothing is lost, so straight back to the menu.
     $("dashBackBtn").onclick = showMainMenu;
     $("settingsBackBtn").onclick = showMainMenu;
-    // The Home icon and the settings "Exit to main menu" entry share one leave flow (batch 8):
-    // online games offer save-and-leave / leave-without-saving / cancel with the continuation
-    // password shown when known; offline games get a simple two-button confirm.
+    // The Home icon and the settings "Save and exit game" entry share ONE leave flow: a simple
+    // two-button confirm (Cancel / Save and leave). On confirm the latest state is persisted
+    // (flushDirty) before returning to the main menu; on cancel nothing happens. Online games
+    // show the continuation password (it now survives a reload via the host-local session), so
+    // the host can resume or rejoin later.
     function leaveToMainMenu() {
       var online = !!(NET.available && state && state.gameId);
       if (!online) {
-        // Offline game: nothing is persisted, so a simple two-button confirm.
+        // Offline game: nothing is persisted, so a plain leave/keep-playing confirm.
         showConfirm({ title: "Back to main menu?", message: "Leave this game and return to the main menu?", okLabel: "Main menu", cancelLabel: "Keep playing", onConfirm: showMainMenu });
         return;
       }
-      // Online (Redis) game: it is saved online, so offer three choices, save and leave,
-      // leave without saving, or cancel. Show the continuation password when known
-      // (state.password); after a silent reload resume it is unknown, so show a reminder.
+      // Online (Redis) game: it is saved online. Show the continuation password when known
+      // (state.password); after a silent reload resume it is restored from the host-local
+      // session, so it is normally available.
       var pw = (state && state.password) ? state.password : "";
       var msg = "This game is saved online, so you can resume it later from the main menu. "
         + (pw ? ("Password to resume or rejoin: " + pw + ". ") : "You will need the password you set when creating this game. ")
@@ -3566,31 +3583,34 @@
         title: "Back to main menu?",
         message: msg,
         okLabel: "Save and leave",
-        altLabel: "Leave without saving",
         cancelLabel: "Cancel",
-        onConfirm: function () { flushDirty(); showMainMenu(); },
-        onAlt: showMainMenu
+        onConfirm: function () { flushDirty(); showMainMenu(); }
       });
     }
     $("mainMenuBtn").onclick = leaveToMainMenu;
+    // Corner X always exits fully back to the game. The bottom button depends on context: the
+    // game-start lobby ("setup") uses it as "Start game" (dismiss into play), while a gear view
+    // ("game") uses it as "Back" and reopens the settings menu so the host can keep changing
+    // settings.
     $("gameSetupCloseBtn").onclick = closeGameSetup;
-    $("gameSetupCloseBtn2").onclick = closeGameSetup;
+    $("gameSetupCloseBtn2").onclick = function () {
+      var backToSettings = (gameSetupCtx === "game");
+      closeGameSetup();
+      if (backToSettings) openGameSettings();
+    };
     // In-game settings gear + its sub-buttons.
     $("settingsGearBtn").onclick = openGameSettings;
     $("gameSettingsCloseBtn").onclick = closeGameSettings;
-    // Menu / Display tab wiring for the in-game settings overlay.
-    Array.prototype.slice.call(document.querySelectorAll("#gameSettingsTabs .settings-tab")).forEach(function (t) {
-      t.onclick = function () { setGameSettingsTab(t.getAttribute("data-tab")); };
-    });
+    // Display opens the display-size sub-view of the settings dialog; Back returns to the menu.
+    $("gsDisplayBtn").onclick = function () { setGameSettingsView("display"); };
+    $("gsDisplayBackBtn").onclick = function () { setGameSettingsView("menu"); };
     // Connect Phones / Connect Spotify open their own single-section views (in-game context).
     $("gsPhonesBtn").onclick = function () { closeGameSettings(); openGameSetup("phones", "game"); };
     $("gsSpotifyBtn").onclick = function () { closeGameSettings(); openGameSetup("spotify", "game"); };
-    // Save and exit game: force an immediate persist (online), then return to the main menu.
-    $("gsExitBtn").onclick = function () {
-      closeGameSettings();
-      flushDirty();
-      showMainMenu();
-    };
+    // Save and exit game: same confirm + save-then-exit flow as the top-bar Home icon (one shared
+    // code path, leaveToMainMenu). The confirm sits above the settings overlay; showMainMenu hides
+    // every screen on confirm, and on cancel the settings overlay stays open.
+    $("gsExitBtn").onclick = leaveToMainMenu;
     // Round-end guess reveal: dismissed by the host "Next player" button (round advance) or Esc;
     // there is no Continue button.
     $("offlineBannerClose").onclick = hideOfflineNotice;
