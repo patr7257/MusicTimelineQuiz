@@ -160,10 +160,15 @@
     .qr img { width: 100%; height: 100%; image-rendering: pixelated; display: block; pointer-events: none; }
     .qr.draggable { cursor: grab; touch-action: none; }
     .qr.draggable:active { cursor: grabbing; }
-    /* Fullscreen-QR control: a normal inline button in the hub row beside "Play here" (it no
-       longer overlaps the QR). Icon plus a short label; position: relative anchors its tooltip. */
-    .qr-expand-btn { position: relative; display: inline-flex; align-items: center; gap: 6px; }
+    /* Fullscreen-QR control: a normal inline button in the hub row beside "Play here". Icon-only
+       (dropped the "Expand" label); position: relative anchors its tooltip. */
+    .qr-expand-btn { position: relative; }
     .qr-expand-btn svg { display: block; }
+    /* Play-here and expand-QR share this square sizing so the pair reads as balanced: fixed
+       equal width/height, no text, centered icon. The row (.hub .row, below) uses
+       justify-content: center with a fixed gap, so the two squares end up with an equal gap
+       between them and equal margins to the card's left/right edges. */
+    .hub-row-icon-btn { width: 44px; height: 44px; padding: 0; display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; }
     .scan-hint { font-size: 12px; color: rgba(59,42,30,.72); margin-top: 10px; line-height: 1.4; }
     .scan-hint b { color: var(--orange-deep); }
     .eq { display: flex; gap: 4px; justify-content: center; align-items: flex-end; height: 26px; margin-top: 12px; }
@@ -2323,15 +2328,18 @@
       hub.classList.toggle("live", state.phase === "place");
       if (state.phase === "place") {
         var canPlay = canPlayHere();
+        var playTip = spotifyPlaying ? "Stop" : "Play here";
         var playBtn = canPlay
-          ? '<button class="btn ghost" type="button" id="playHereBtn">' + (spotifyPlaying ? "■ Stop" : "▶ Play here") + '</button>'
+          ? '<button class="btn ghost hub-row-icon-btn" type="button" id="playHereBtn" aria-label="' + playTip + '" title="' + playTip + '" data-tip="' + playTip + '">' + playIconSvg(spotifyPlaying) + '</button>'
           : "";
         // UI batch 3: decluttered scan card. Dropped the equalizer stripe row, the
         // "Open in Spotify" link, and the play-here hint so the card stays compact with no
         // scrollbar. Kept the QR and the Play here button. The fullscreen-expand control moved
         // DOWN into the button row beside "Play here" (fix: it used to overlap and cover the QR),
         // so the QR is now fully visible and scannable.
-        var expandBtn = '<button class="btn ghost qr-expand-btn" type="button" id="qrExpandBtn" aria-label="Expand QR" title="Expand QR" data-tip="Expand QR">' + fsIconSvg(false) + '<span>Expand</span></button>';
+        // UI batch: both buttons dropped their text labels down to icon-only squares (see
+        // .hub-row-icon-btn), so the pair sits centered and evenly spaced without crowding.
+        var expandBtn = '<button class="btn ghost qr-expand-btn hub-row-icon-btn" type="button" id="qrExpandBtn" aria-label="Expand" title="Expand" data-tip="Expand">' + fsIconSvg(false) + '</button>';
         c.innerHTML = '<h3>Scan to play</h3><div class="qr"><img alt="Spotify QR" src="' + qrSrc(state.card) + '" /></div>' +
           '<div class="row">' + (playBtn || "") + expandBtn + '</div>';
         makeDraggableHub();
@@ -3087,8 +3095,13 @@
       var btn = $("playHereBtn");
       if (!btn) return;
       btn.disabled = false;
-      if (playHereState === "blocked") btn.textContent = "Audio blocked, click again";
-      else btn.textContent = spotifyPlaying ? "■ Stop" : "▶ Play here";
+      btn.innerHTML = playIconSvg(spotifyPlaying);
+      // Icon-only button: the state distinction ("blocked" needs a fresh-gesture retry) lives in
+      // the title/aria-label/data-tip tooltip instead of visible text.
+      var tip = playHereState === "blocked" ? "Audio blocked, click again" : (spotifyPlaying ? "Stop" : "Play here");
+      btn.setAttribute("aria-label", tip);
+      btn.setAttribute("data-tip", tip);
+      btn.title = tip;
     }
     // Playback progress detection: the embed fires playback_update as it plays. If the position
     // advances while not paused we know audio is really running; if nothing advances within the
@@ -3141,7 +3154,7 @@
       if (spotifyScriptState === "ready" && spotifyApi) { createAndPlay(id); return; }
       // Slow path (warm-up not finished or failed to preload): fall back to loading then playing.
       var btn = $("playHereBtn");
-      if (btn) { btn.disabled = true; btn.textContent = "Loading..."; }
+      if (btn) { btn.disabled = true; btn.title = "Loading..."; btn.setAttribute("aria-label", "Loading..."); btn.setAttribute("data-tip", "Loading..."); }
       ensureSpotifyScript(function () {
         if (spotifyScriptState !== "ready" || !spotifyApi) { spotifyScriptState = "failed"; spotifyPlaying = false; renderHub(); return; }
         createAndPlay(id);
@@ -3217,6 +3230,12 @@
       var svg = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">';
       for (var i = 0; i < paths.length; i++) svg += '<path d="' + paths[i] + '"/>';
       return svg + "</svg>";
+    }
+    // Play triangle / stop square, filled (not stroked, unlike the other glyphs above) so the
+    // shapes stay legible at the small icon-only button size used in the hub row.
+    function playIconSvg(playing) {
+      if (playing) return '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>';
+      return '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4l13 8-13 8V4z"/></svg>';
     }
     function updateFsBtns() {
       var exit = !!document.fullscreenElement;

@@ -1027,8 +1027,15 @@
       }
 
       html += '<div id="wheelBox"></div>';
-      html += '<div class="field" style="margin-top:14px;"><label>Your timeline</label></div>';
-      html += '<div id="myTimelineBox">' + renderReadOnlyTimeline(me ? me.timeline : []) + "</div>";
+      // Own timeline only while actively picking a steal gap (this player's turn to pick);
+      // never for watchers, non-eligible players, or eligible players who have not pressed
+      // yet or are just waiting on someone else's pick. Keeping the box out of the markup
+      // entirely (not just hidden) means patchDynamic's #myTimelineBox lookup finds nothing
+      // to patch on every other steal sub-state.
+      if (showPicker) {
+        html += '<div class="field" style="margin-top:14px;"><label>Your timeline</label></div>';
+        html += '<div id="myTimelineBox">' + renderReadOnlyTimeline(me ? me.timeline : []) + "</div>";
+      }
       html += '<div id="pendingChipsBox">' + renderPendingChips(p) + "</div>";
 
       render(html);
