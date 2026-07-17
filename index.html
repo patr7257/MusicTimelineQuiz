@@ -518,6 +518,12 @@
     .cs-status.ok::before { background: var(--good); box-shadow: 0 0 6px rgba(122,132,80,.8); }
     .cs-player { border-radius: 12px; overflow: hidden; margin-bottom: 10px; min-height: 80px; background: var(--paper-deep); }
     .cs-player iframe { border: 0; width: 100%; display: block; }
+    /* Full-playback connect UI (Web Playback SDK path), shown above the embed sound check when a
+       Spotify client id is configured. The embed block below it is the fallback for a host who has
+       not connected or is not Premium. */
+    .sp-connect { padding: 12px 14px; margin-bottom: 14px; border-radius: 12px; background: var(--paper-deep); border: 2px solid var(--brown); }
+    .sp-connect .btn { margin-top: 2px; }
+    .cs-sub { font-family: var(--disp); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: rgba(59,42,30,.6); margin-bottom: 8px; }
 
     /* Round-end guess reveal panel (batch 8, issue #3): one themed record-sleeve card per guesser,
        each the SAME size as the hub QR/reveal card (--hub-w x --hub-h), docked to the LEFT of the
@@ -940,6 +946,26 @@
     // Equalizer tie resolution: "sudden" = sudden-death cycles among the tied finishers,
     // "shared" = the tied finishers share the win. Flip this one constant to switch.
     var TIE_MODE = "sudden";
+
+    // ---------- Spotify full-track playback (Web Playback SDK + OAuth PKCE) ----------
+    // Full-length in-browser playback for a Spotify PREMIUM host, layered ON TOP of the
+    // existing 30 second embed preview (which stays the graceful fallback). This whole
+    // feature is gated on SPOTIFY_CLIENT_ID below: leave it EMPTY and nothing changes,
+    // the app behaves exactly as before (embed preview only, no OAuth, no SDK, no extra
+    // network requests). Fill it in with the app's client id (registered as a PUBLIC /
+    // PKCE client, NO client secret) to turn full playback on.
+    //
+    // The redirect URI is computed dynamically as location.origin + location.pathname
+    // (see spRedirectUri) so it works on whatever origin serves the page. Register that
+    // exact URI (for every origin you serve from) in the Spotify app dashboard.
+    var SPOTIFY_CLIENT_ID = "d45bb37318d243cdb0b5dbb4411a7783";
+    var SP_SCOPES = "streaming user-read-email user-read-private user-modify-playback-state user-read-playback-state";
+    var SP_AUTH_URL = "https://accounts.spotify.com/authorize";
+    var SP_TOKEN_URL = "https://accounts.spotify.com/api/token";
+    var SP_API = "https://api.spotify.com/v1";
+    var SP_SDK_SRC = "https://sdk.scdn.co/spotify-player.js";
+    var SP_LS_TOKENS = "hitster_sp_tokens";   // { access_token, refresh_token, expires_at }
+    var SP_LS_PKCE = "hitster_sp_pkce_";      // + state -> { verifier, gameId }
 
     function generateRoomCode() {
       var code = "";
@@ -3049,7 +3075,10 @@
     try { spotifyVerified = (window.localStorage && localStorage.getItem("hitster_spotify_verified") === "1"); } catch (e) { spotifyVerified = false; }
     function isHttpOrigin() { return /^https?:$/.test(location.protocol); }
     function canPlayHere() {
-      return isHttpOrigin() && !!(state && state.card && state.card.id) && spotifyScriptState !== "failed";
+      if (!isHttpOrigin() || !(state && state.card && state.card.id)) return false;
+      // Full playback (SDK) is viable even if the embed script failed; otherwise the embed
+      // preview must still be loadable.
+      return spFullPlaybackReady() || spotifyScriptState !== "failed";
     }
     function flushSpotifyQueue() {
       var q = spotifyReadyQueue.slice(); spotifyReadyQueue = [];
@@ -3090,6 +3119,8 @@
       }
       var host = $("spotifyHost");
       if (host) host.innerHTML = "";
+      // Also stop the full-track SDK player so a track never leaks into the next round or the menu.
+      if (spPlayer) { try { spPlayer.pause(); } catch (e) { /* ignore */ } }
     }
     function renderHubPlayBtn() {
       var btn = $("playHereBtn");
@@ -3139,6 +3170,14 @@
     }
     function onPlayHereToggle() {
       var id = state && state.card && state.card.id;
+      // Primary path: a connected Premium host streams the FULL track via the Web Playback SDK.
+      // No embed involved. Toggling stops it. Everything else falls through to the embed preview.
+      if (spFullPlaybackReady()) {
+        if (spotifyPlaying) { spFullPause(); return; }
+        if (!id) return;
+        spFullPlay(id);
+        return;
+      }
       // Blocked earlier: this click is a fresh gesture, so play the existing controller directly.
       if (playHereState === "blocked" && spotifyController) {
         playHereState = "playing"; renderHubPlayBtn();
@@ -3188,13 +3227,20 @@
       }
       var statusTxt = spotifyVerified ? "Audio verified" : "Not connected";
       var statusCls = spotifyVerified ? "cs-status ok" : "cs-status";
+      // Full-playback connect UI (only when SPOTIFY_CLIENT_ID is set) sits ABOVE the embed sound
+      // check, which stays as the fallback for a non-connected or non-Premium host.
+      var connectBlock = spConnectMarkup();
+      var fallbackLabel = spConfigured() ? '<div class="cs-sub">Fallback: 30 second preview sound check</div>' : "";
       container.innerHTML =
+        connectBlock +
+        fallbackLabel +
         '<div class="' + statusCls + '" id="csStatus">' + statusTxt + '</div>' +
         '<div class="cs-player" id="csPlayer">' +
           (TEST_TRACK ? '<div id="csEmbedTarget"></div>' : '<div class="note-sm">No test track is available in this song set.</div>') +
         '</div>' +
         '<div class="note-sm">Press play above. Hearing audio proves this browser allows playback. ' +
         '<b>Log in to Spotify in this browser for full-length tracks; otherwise you get 30 second previews.</b></div>';
+      spWireConnectButtons();
       if (!TEST_TRACK) return;
       var target = document.getElementById("csEmbedTarget");
       ensureSpotifyScript(function () {
@@ -3213,6 +3259,295 @@
           }); } catch (e) { /* ignore */ }
         });
       });
+    }
+
+    /* ================== S11d: SPOTIFY FULL-TRACK PLAYBACK (WEB PLAYBACK SDK + OAUTH PKCE) ================== */
+    // Everything here is inert until SPOTIFY_CLIENT_ID is filled in. spConfigured() is the single
+    // gate: false (empty id or non-http origin) means the host keeps the existing embed-preview
+    // behaviour with no OAuth, no SDK load, and no extra network requests. When configured and the
+    // host has connected a PREMIUM account, "Play here" streams the FULL track in the browser via the
+    // Web Playback SDK; a free account or any failure falls back to the embed preview automatically.
+    var spSdkState = "none";   // none | loading | ready | failed
+    var spPlayer = null;
+    var spDeviceId = null;
+    var spTokens = null;       // { access_token, refresh_token, expires_at }
+    var spAccount = null;      // { display_name, email, product } from GET /v1/me
+    var spPremiumError = false; // account_error or product !== premium: no full playback
+    var spRefreshPromise = null;
+
+    function spConfigured() { return !!SPOTIFY_CLIENT_ID && isHttpOrigin(); }
+    function spRedirectUri() { return location.origin + location.pathname; }
+    function spIsConnected() { return !!(spTokens && spTokens.access_token); }
+    // Full playback is live only with a configured client id, a connected PREMIUM account, a ready
+    // SDK device, and no account/premium error. Anything short of that -> embed fallback.
+    function spFullPlaybackReady() {
+      return spConfigured() && spIsConnected() && !spPremiumError && !!spPlayer && !!spDeviceId;
+    }
+
+    // ---- token store (localStorage; tokens are not secrets for a public PKCE client) ----
+    function spLoadTokens() {
+      try { spTokens = JSON.parse(localStorage.getItem(SP_LS_TOKENS) || "null"); } catch (e) { spTokens = null; }
+    }
+    function spSaveTokens(t) {
+      spTokens = t;
+      try { if (window.localStorage) localStorage.setItem(SP_LS_TOKENS, JSON.stringify(t)); } catch (e) { /* ignore */ }
+    }
+    function spClearTokens() {
+      spTokens = null; spAccount = null;
+      try { if (window.localStorage) localStorage.removeItem(SP_LS_TOKENS); } catch (e) { /* ignore */ }
+    }
+    // Full disconnect: drop tokens, tear down the SDK player, and repaint any open connect UI.
+    function spDisconnect() {
+      spClearTokens();
+      spDeviceId = null;
+      if (spPlayer) { try { spPlayer.disconnect(); } catch (e) { /* ignore */ } spPlayer = null; }
+      spSdkState = "none";
+      var block = $("connectSpotifyBlock");
+      if (block && !$("gameSetupOverlay").classList.contains("hidden")) buildConnectSpotify(block);
+      renderHubPlayBtn();
+    }
+
+    // ---- PKCE helpers ----
+    function spRandomString(length) {
+      var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      var values = crypto.getRandomValues(new Uint8Array(length));
+      var out = "";
+      for (var i = 0; i < values.length; i++) out += possible.charAt(values[i] % possible.length);
+      return out;
+    }
+    function spBase64Url(bytes) {
+      var s = "";
+      for (var i = 0; i < bytes.length; i++) s += String.fromCharCode(bytes[i]);
+      return btoa(s).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+    }
+    function spCodeChallenge(verifier) {
+      var data = new TextEncoder().encode(verifier);
+      return crypto.subtle.digest("SHA-256", data).then(function (digest) {
+        return spBase64Url(new Uint8Array(digest));
+      });
+    }
+
+    // ---- connect flow: redirect the whole page to Spotify's authorize endpoint ----
+    function spBeginConnect() {
+      if (!spConfigured()) return;
+      var verifier = spRandomString(96);
+      var stateTok = spRandomString(24);
+      spCodeChallenge(verifier).then(function (challenge) {
+        // Remember the verifier and the game to return to, keyed by the random state. The state is
+        // verified on the way back; the stored game id reuses the existing ?g= deep-link resume so
+        // login returns straight into the running game rather than the menu.
+        var gid = (state && state.gameId) ? state.gameId : null;
+        try { if (window.localStorage) localStorage.setItem(SP_LS_PKCE + stateTok, JSON.stringify({ verifier: verifier, gameId: gid })); } catch (e) { /* ignore */ }
+        var url = new URL(SP_AUTH_URL);
+        url.searchParams.set("response_type", "code");
+        url.searchParams.set("client_id", SPOTIFY_CLIENT_ID);
+        url.searchParams.set("scope", SP_SCOPES);
+        url.searchParams.set("code_challenge_method", "S256");
+        url.searchParams.set("code_challenge", challenge);
+        url.searchParams.set("redirect_uri", spRedirectUri());
+        url.searchParams.set("state", stateTok);
+        location.href = url.toString();
+      });
+    }
+
+    // ---- redirect handler: read ?code=&state=, verify state, strip them, restore ?g= ----
+    // Synchronous: returns { code, verifier } to exchange (or null). It ALWAYS strips code/state from
+    // the URL, and restores ?g=<gameId> when a game id was stored, so the normal deep-link resume in
+    // boot picks the game back up while the token exchange runs independently.
+    function spPendingRedirect() {
+      if (!spConfigured()) return null;
+      var params;
+      try { params = new URLSearchParams(location.search); } catch (e) { return null; }
+      var code = params.get("code"), st = params.get("state");
+      if (!code || !st) return null;
+      var stored = null;
+      try { stored = JSON.parse(localStorage.getItem(SP_LS_PKCE + st) || "null"); } catch (e) { stored = null; }
+      try { if (window.localStorage) localStorage.removeItem(SP_LS_PKCE + st); } catch (e) { /* ignore */ }
+      var gid = (stored && stored.gameId && /^[A-Z0-9]{4,8}$/.test(stored.gameId)) ? stored.gameId : null;
+      try {
+        var clean = location.origin + location.pathname + (gid ? ("?g=" + gid) : "");
+        history.replaceState(null, "", clean);
+      } catch (e) { /* ignore */ }
+      // State mismatch (no stored entry) or missing verifier: cannot exchange, but URL is now clean.
+      if (!stored || !stored.verifier) return null;
+      return { code: code, verifier: stored.verifier };
+    }
+    function spExchangeCode(code, verifier) {
+      var body = new URLSearchParams();
+      body.append("client_id", SPOTIFY_CLIENT_ID);
+      body.append("grant_type", "authorization_code");
+      body.append("code", code);
+      body.append("redirect_uri", spRedirectUri());
+      body.append("code_verifier", verifier);
+      return fetch(SP_TOKEN_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body
+      }).then(function (r) { return r.json(); }).then(function (j) {
+        if (!j || !j.access_token) return false;
+        spSaveTokens({ access_token: j.access_token, refresh_token: j.refresh_token || null, expires_at: Date.now() + ((j.expires_in || 3600) * 1000) });
+        spOnConnected();
+        return true;
+      }).catch(function () { return false; });
+    }
+
+    // ---- silent refresh ----
+    // spGetToken returns a currently-valid access token, refreshing first when it is within 30s of
+    // expiry. Concurrent callers share one in-flight refresh. A failed refresh clears tokens and
+    // surfaces the connect UI again.
+    function spGetToken() {
+      if (!spTokens || !spTokens.access_token) return Promise.resolve(null);
+      if (spTokens.expires_at - Date.now() > 30000) return Promise.resolve(spTokens.access_token);
+      return spRefresh();
+    }
+    function spRefresh() {
+      if (spRefreshPromise) return spRefreshPromise;
+      if (!spTokens || !spTokens.refresh_token) { spDisconnect(); return Promise.resolve(null); }
+      var body = new URLSearchParams();
+      body.append("grant_type", "refresh_token");
+      body.append("refresh_token", spTokens.refresh_token);
+      body.append("client_id", SPOTIFY_CLIENT_ID);
+      spRefreshPromise = fetch(SP_TOKEN_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body
+      }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); }).then(function (res) {
+        spRefreshPromise = null;
+        if (!res.ok || !res.j || !res.j.access_token) { spDisconnect(); return null; }
+        var j = res.j;
+        spSaveTokens({
+          access_token: j.access_token,
+          refresh_token: j.refresh_token || spTokens.refresh_token,
+          expires_at: Date.now() + ((j.expires_in || 3600) * 1000)
+        });
+        return j.access_token;
+      }).catch(function () { spRefreshPromise = null; spDisconnect(); return null; });
+      return spRefreshPromise;
+    }
+
+    // ---- Web API helper (always uses a fresh token) ----
+    function spApiFetch(path, method, bodyObj) {
+      return spGetToken().then(function (tok) {
+        if (!tok) return null;
+        var opts = { method: method || "GET", headers: { "Authorization": "Bearer " + tok } };
+        if (bodyObj !== undefined) { opts.headers["Content-Type"] = "application/json"; opts.body = JSON.stringify(bodyObj); }
+        return fetch(SP_API + path, opts);
+      });
+    }
+    function spFetchProfile() {
+      return spApiFetch("/me").then(function (r) {
+        if (!r || !r.ok) return;
+        return r.json().then(function (j) {
+          spAccount = { display_name: j.display_name || j.id || "", email: j.email || "", product: j.product || "" };
+          // Non-premium accounts cannot stream via the SDK, so pre-flag the fallback.
+          if (spAccount.product && spAccount.product !== "premium") spPremiumError = true;
+          var block = $("connectSpotifyBlock");
+          if (block && !$("gameSetupOverlay").classList.contains("hidden")) buildConnectSpotify(block);
+        });
+      }).catch(function () { /* ignore */ });
+    }
+
+    // ---- Web Playback SDK ----
+    function spOnConnected() {
+      spFetchProfile();
+      spEnsureSdk();
+      var block = $("connectSpotifyBlock");
+      if (block && !$("gameSetupOverlay").classList.contains("hidden")) buildConnectSpotify(block);
+    }
+    function spEnsureSdk() {
+      if (!spConfigured() || !spIsConnected()) return;
+      if (spSdkState === "loading" || spSdkState === "ready") return;
+      spSdkState = "loading";
+      window.onSpotifyWebPlaybackSDKReady = spCreatePlayer;
+      // If the SDK script is already present (created earlier this session), just build the player.
+      if (window.Spotify && window.Spotify.Player) { spCreatePlayer(); return; }
+      var s = document.createElement("script");
+      s.src = SP_SDK_SRC;
+      s.async = true;
+      s.onerror = function () { spSdkState = "failed"; };
+      document.head.appendChild(s);
+    }
+    function spCreatePlayer() {
+      if (spPlayer || !window.Spotify || !window.Spotify.Player) return;
+      spPlayer = new Spotify.Player({
+        name: "Music Timeline Quiz",
+        getOAuthToken: function (cb) { spGetToken().then(function (t) { cb(t || ""); }); },
+        volume: 0.8
+      });
+      spPlayer.addListener("ready", function (e) {
+        spDeviceId = e && e.device_id ? e.device_id : null;
+        spSdkState = "ready";
+        renderHubPlayBtn();
+        var block = $("connectSpotifyBlock");
+        if (block && !$("gameSetupOverlay").classList.contains("hidden")) buildConnectSpotify(block);
+      });
+      spPlayer.addListener("not_ready", function () { spDeviceId = null; });
+      spPlayer.addListener("initialization_error", function () { spSdkState = "failed"; });
+      spPlayer.addListener("authentication_error", function () {
+        // Token went bad: try one silent refresh; if it fails, spRefresh() clears tokens + shows connect UI.
+        spRefresh();
+      });
+      spPlayer.addListener("account_error", function () {
+        // Not a Premium account: full streaming is unavailable, so fall back to the embed preview and
+        // tell the user why in the connect popup.
+        spPremiumError = true;
+        renderHubPlayBtn();
+        var block = $("connectSpotifyBlock");
+        if (block && !$("gameSetupOverlay").classList.contains("hidden")) buildConnectSpotify(block);
+      });
+      spPlayer.connect();
+    }
+    // Full-track playback of the current card, from the start, on the SDK device.
+    function spFullPlay(id) {
+      spotifyPlaying = true;
+      playHereState = "playing";
+      renderHubPlayBtn();
+      spApiFetch("/me/player/play?device_id=" + encodeURIComponent(spDeviceId), "PUT", { uris: ["spotify:track:" + id] })
+        .then(function (r) {
+          if (!r || (!r.ok && r.status !== 202 && r.status !== 204)) {
+            // Playback command failed: reset the button so the host can retry (or use the embed).
+            spotifyPlaying = false; playHereState = "idle"; renderHubPlayBtn();
+          }
+        }).catch(function () { spotifyPlaying = false; playHereState = "idle"; renderHubPlayBtn(); });
+    }
+    function spFullPause() {
+      spotifyPlaying = false;
+      playHereState = "idle";
+      renderHubPlayBtn();
+      spApiFetch("/me/player/pause?device_id=" + encodeURIComponent(spDeviceId), "PUT").catch(function () { /* ignore */ });
+    }
+
+    // Connect-popup markup for the full-playback path, prepended above the embed sound check when
+    // SPOTIFY_CLIENT_ID is set. Returns "" when unconfigured so the popup stays exactly as before.
+    function spConnectMarkup() {
+      if (!spConfigured()) return "";
+      if (!spIsConnected()) {
+        return '<div class="sp-connect">' +
+          '<div class="note-sm" style="margin-bottom:10px"><b>Connect Spotify for full-length songs.</b> Playing full tracks in this browser needs a Spotify Premium account. Without connecting you still get the 30 second preview below.</div>' +
+          '<button class="btn primary" id="spConnectBtn" type="button" style="width:100%">Connect Spotify</button>' +
+          '</div>';
+      }
+      var who = spAccount && spAccount.display_name ? escapeHtml(spAccount.display_name) : "your account";
+      if (spPremiumError) {
+        return '<div class="sp-connect">' +
+          '<div class="cs-status" id="spStatus">Connected as ' + who + '</div>' +
+          '<div class="note-sm" style="margin-bottom:10px"><b>Spotify Premium required for full songs.</b> This account is connected but is not Premium, so the game uses the 30 second preview below instead.</div>' +
+          '<button class="btn ghost" id="spDisconnectBtn" type="button">Disconnect</button>' +
+          '</div>';
+      }
+      var ready = spFullPlaybackReady();
+      return '<div class="sp-connect">' +
+        '<div class="cs-status ok" id="spStatus">Connected as ' + who + '</div>' +
+        '<div class="note-sm" style="margin-bottom:10px">' + (ready
+          ? '<b>Full playback ready.</b> Press Play here on the card to stream the whole track in this browser.'
+          : 'Starting the Spotify player...') + '</div>' +
+        '<button class="btn ghost" id="spDisconnectBtn" type="button">Disconnect</button>' +
+        '</div>';
+    }
+    // Wire the connect / disconnect buttons after the popup markup is (re)built.
+    function spWireConnectButtons() {
+      var c = $("spConnectBtn"); if (c) c.onclick = spBeginConnect;
+      var d = $("spDisconnectBtn"); if (d) d.onclick = spDisconnect;
     }
 
     /* ================== S12: FULLSCREEN + WIRING + INIT ================== */
@@ -3608,6 +3943,19 @@
     // game are all hidden in markup, so show the menu synchronously here (unless the URL deep
     // links a game), then probe the backend in the background and route from there.
     $("setup").classList.add("hidden");
+    // Spotify full-playback bootstrap (inert unless SPOTIFY_CLIENT_ID is set). Load any stored
+    // tokens, then handle an OAuth redirect BEFORE reading the deep-link id: spPendingRedirect
+    // strips ?code=/?state= and restores ?g=<gameId>, so the existing resume path below carries the
+    // host straight back into the running game while the token exchange runs independently.
+    spLoadTokens();
+    var spRedir = spPendingRedirect();
+    if (spRedir) {
+      spExchangeCode(spRedir.code, spRedir.verifier);
+    } else if (spConfigured() && spIsConnected()) {
+      // Returning session that is already connected: warm up profile + SDK for full playback.
+      spFetchProfile();
+      spEnsureSdk();
+    }
     var deepLinkId = urlGameId();
     if (!deepLinkId) showMainMenu();
     NET.probe().then(function (up) {
