@@ -1,7 +1,7 @@
 # CLAUDE.md, music-timeline-quiz (Patrick, pr@zrm.dk)
 
 Hitster-like music quiz, extracted 2026-07-15 from the former patrickrobelweb
-monorepo (`hobby-projects/hitster/`). Repo: `patr7257/music-timeline-quiz`
+monorepo (`hobby-projects/hitster/`). Repo: `patr7257/MusicTimelineQuiz`
 (private, renamed 2026-07-16 from `patr7257/hitster`). Displayed branding is
 "Music Timeline Quiz" with a trademark disclaimer (Hitster is a Jumbo
 trademark); internal identifiers, storage keys, and the `/api/hitster/**`

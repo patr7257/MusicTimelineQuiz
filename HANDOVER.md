@@ -23,11 +23,11 @@ Done and shipped (a large overhaul across both repos, merged to `main`):
 ## 4. Verbatim resume commands (PowerShell)
 Rebuild the deck (prompts for Spotify creds):
 ```
-cd "C:\Users\pr\repos\1-Personal\music-timeline-quiz"; python tools/build_deck.py
+cd "C:\Users\pr\repos\1-Personal\MusicTimelineQuiz"; python tools/build_deck.py
 ```
 Audit the Danish category after rebuild (no creds needed):
 ```
-cd "C:\Users\pr\repos\1-Personal\music-timeline-quiz"; python tools/audit_deck.py danish
+cd "C:\Users\pr\repos\1-Personal\MusicTimelineQuiz"; python tools/audit_deck.py danish
 ```
 Re-sync the updated game into the website after any game change:
 ```
