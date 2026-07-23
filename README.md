@@ -55,14 +55,18 @@ cd "C:\Users\pr\repos\hitster"; ii index.html
    release year. Gaps open up while you drag. Re-drag the card as often as you like to move
    it; a drop outside any gap keeps your previous choice.
 6. Press Lock in answer. If any opponent still has a coin (and is not one card from winning),
-   a 10 second steal window opens with a countdown next to the hub.
+   a 10 second steal window opens with a countdown next to the hub. The number holds at 10 for
+   a 2 second grace before it starts dropping.
 7. During the steal window, every eligible opponent can press Steal on their seat card (or from
-   their phone). A press registers them for a steal (their seat shows a STEAL! badge) but costs
-   nothing yet and does NOT pause the countdown, so several opponents can register in the same
-   window. Pressing again does nothing. Press Reveal now to skip the rest of the wait.
+   their phone). A press registers them for a steal but costs nothing yet and does NOT pause
+   the countdown, so several opponents can register in the same window. Who pressed stays
+   hidden until the countdown ends (only your own phone confirms you are in), so nobody can
+   copy a press. Pressing again does nothing. Press Reveal now to skip the rest of the wait.
 8. When the countdown ends: if nobody registered, the round resolves as usual. Otherwise each
-   registered stealer, in the order they pressed, taps a gap in your timeline and confirms, one
-   at a time (the hub shows whose pick it is). If two or more stealers pick the same gap, a spin
+   registered stealer, in the order they pressed, picks a gap in your timeline, one at a time
+   and with no time limit. A stealer on a phone picks privately there (the shared screen only
+   shows whose pick it is, never the spot); a stealer without a phone taps a gap on the shared
+   screen and confirms. If two or more stealers pick the same gap, a spin
    wheel picks who keeps that gap; the others on that gap are dropped. Every steal that still
    stands then costs its owner one coin (win or lose, and even if your own placement was right).
    Resolution: if your slot was right you keep the card and the standing steals win nothing (they

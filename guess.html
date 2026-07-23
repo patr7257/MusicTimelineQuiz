@@ -281,6 +281,14 @@
       return Math.max(0, Math.round((endsAt - now) / 1000));
     }
 
+    // The host holds the steal countdown at the full 10 for a 2s grace before it starts
+    // dropping, and bakes that hold into endsAt. Cap the displayed number at 10 so the
+    // phone shows a steady "10" through the hold instead of counting down from 12.
+    var STEAL_COUNT_MAX = 10;
+    function stealCountdownDisplay(endsAt, now) {
+      return Math.min(STEAL_COUNT_MAX, secondsRemaining(endsAt, now));
+    }
+
     // ---------------------------------------------------------------------
     // DOM / storage / network below this line
     // ---------------------------------------------------------------------
@@ -1083,11 +1091,11 @@
         // Only drive the number during the countdown sub-phase; while picking the window is
         // paused (the host reports 0). A legacy host without `phase` keeps counting as before.
         if (projection.steal.phase === "picking") return;
-        el.textContent = secondsRemaining(projection.steal.endsAt, Date.now());
+        el.textContent = stealCountdownDisplay(projection.steal.endsAt, Date.now());
       }, 1000);
       var el0 = $("stealCountdown");
       if (el0 && projection && projection.steal && projection.steal.phase !== "picking") {
-        el0.textContent = secondsRemaining(projection.steal.endsAt, Date.now());
+        el0.textContent = stealCountdownDisplay(projection.steal.endsAt, Date.now());
       }
     }
 
