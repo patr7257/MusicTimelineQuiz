@@ -220,8 +220,8 @@
     .mini .t { font-size: 8px; color: rgba(59,42,30,.65); max-width: 40px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .steal-btn { width: 100%; margin-top: 8px; padding: 8px 10px; font-size: 12px; background: linear-gradient(180deg, var(--gold), #c9932f); border-color: var(--gold-deep); color: var(--brown-deep); box-shadow: 0 4px 0 var(--gold-deep); }
     .steal-btn:hover { filter: brightness(1.05); }
-    /* Registered-stealer badge (batch 7 multi-steal): marks a seat that pressed STEAL during
-       the countdown, before any coin is spent. */
+    /* Registered-stealer badge (batch 7 multi-steal): marks a seat that pressed STEAL. Only
+       shown from the picking sub-phase on; registrations stay secret during the countdown. */
     .steal-badge { position: absolute; top: -11px; left: -9px; transform: rotate(-8deg); background: var(--orange); color: var(--paper); font-family: var(--disp); font-size: 10px; padding: 3px 9px; border-radius: 999px; border: 2px solid var(--paper); letter-spacing: 1px; z-index: 4; animation: stealBadgePulse 1.2s ease-in-out infinite; }
     @keyframes stealBadgePulse { 0%,100% { box-shadow: 0 3px 0 var(--orange-deep), 0 0 0 0 rgba(219,90,53,.55); } 50% { box-shadow: 0 3px 0 var(--orange-deep), 0 0 0 7px rgba(219,90,53,0); } }
 
@@ -946,6 +946,10 @@
     var ROOM_CHARS = "ABCDEFGHJKMNPQRSTUVWXYZ23456789"; // unambiguous: no 0/O, 1/I/L
     var SOURCE_TYPES = ["movie", "musical", "disney"];
     var STEAL_SECONDS = 10.0; // steal window length (issue #30 item 7)
+    // Grace hold before the steal countdown starts ticking: the number shows 10 right away
+    // but only starts dropping after this many seconds, so nobody loses window time to the
+    // lock-in transition (sync delay, looking up at the screen).
+    var STEAL_HOLD_SECONDS = 2.0;
     // Equalizer tie resolution: "sudden" = sudden-death cycles among the tied finishers,
     // "shared" = the tied finishers share the win. Flip this one constant to switch.
     var TIE_MODE = "sudden";
@@ -1252,7 +1256,7 @@
         chosenSlot: (h.chosenSlot != null ? h.chosenSlot : (blob.placement && blob.placement.tentativeSlot != null ? blob.placement.tentativeSlot : null)),
         result: blob.result || null, locked: (blob.phase === "over") || !!h.locked,
         stealers: h.stealers || [], registered: h.registered || [], stealPickerIdx: (h.stealPickerIdx != null ? h.stealPickerIdx : null), stealPick: (h.stealPick != null ? h.stealPick : null),
-        stealEligibleIdx: h.stealEligibleIdx || [], pickIndex: h.pickIndex || 0, stealPhase: h.stealPhase || "countdown", stealRemaining: 0, stealTimerId: null,
+        stealEligibleIdx: h.stealEligibleIdx || [], pickIndex: h.pickIndex || 0, stealPhase: h.stealPhase || "countdown", stealRemaining: 0, stealTimerId: null, stealHoldTimerId: null, stealHoldUntil: 0,
         revealInFlight: false, wheelWinner: h.wheelWinner || null, final: final,
         room: h.room || blob.gameId, round: blob.round || 0,
         pending: blob.pendingGuesses || [], bonus: { guessedBy: null, awarded: false, result: null },
@@ -1273,14 +1277,18 @@
     // chosen, or null while still pending. The phone keys "am I in?" off membership here, so
     // a registered player sees the pick UI. windowEndsAt only counts down during the countdown
     // sub-phase; during the one-at-a-time pick sub-phase it reports 0 (no live timer).
+    // During the countdown, presses are kept SECRET (empty list): who pressed STEAL must not
+    // reach other phones until the window closes, or everyone just copies the first presser.
+    // A presser's own phone shows "you are in" from its local flag, not from this list.
+    // Picked slots are NEVER projected either (slot stays null): a later picker could read an
+    // earlier stealer's confirmed gap out of the poll data otherwise. No client renders them.
     function buildStealBlob() {
       if (state.phase !== "steal") return null;
-      var pickByIdx = {};
-      for (var i = 0; i < state.stealers.length; i++) pickByIdx[state.stealers[i].idx] = state.stealers[i].slot;
-      var presses = (state.registered || []).map(function (idx) {
-        return { playerIdx: idx, slot: (pickByIdx[idx] != null ? pickByIdx[idx] : null), at: 0 };
+      var presses = state.stealPhase === "countdown" ? [] : (state.registered || []).map(function (idx) {
+        return { playerIdx: idx, slot: null, at: 0 };
       });
-      var remainingMs = state.stealPhase === "countdown" ? Math.max(0, state.stealRemaining) * 1000 : 0;
+      var holdMs = Math.max(0, (state.stealHoldUntil || 0) - Date.now());
+      var remainingMs = state.stealPhase === "countdown" ? Math.max(0, state.stealRemaining) * 1000 + holdMs : 0;
       return {
         windowEndsAt: Date.now() + remainingMs,
         eligibleIdx: state.stealEligibleIdx.slice(),
@@ -1697,7 +1705,7 @@
         coinsPerPlayer: coinsPerPlayer, catsList: catsList,
         catMeta: meta, phase: "place", card: null, chosenSlot: null, result: null, locked: false,
         stealers: [], registered: [], stealPickerIdx: null, stealPick: null, stealEligibleIdx: [],
-        pickIndex: 0, stealPhase: "countdown", stealRemaining: 0, stealTimerId: null,
+        pickIndex: 0, stealPhase: "countdown", stealRemaining: 0, stealTimerId: null, stealHoldTimerId: null, stealHoldUntil: 0,
         revealInFlight: false, wheelWinner: null, final: null,
         room: generateRoomCode(), round: 0, pending: [],
         gameId: null, hostToken: null, version: 0, name: gameName, password: password, createdAt: Date.now(), paused: false
@@ -1878,15 +1886,26 @@
     }
     // Batch 7 multi-steal countdown: the window runs to zero regardless of presses. Each
     // press only REGISTERS a stealer (no pause, no coin), so several can register at once.
+    // The countdown holds at the full 10 for STEAL_HOLD_SECONDS before it starts dropping,
+    // so the transition from Lock in never eats into anyone's press time.
     function startStealTimer() {
       stopStealTimer();
-      state.stealTimerId = setInterval(function () {
-        state.stealRemaining -= 0.1;
-        if (state.stealRemaining <= 0.001) { state.stealRemaining = 0; stopStealTimer(); endStealCountdown(); }
-        else { renderHub(); }
-      }, 100);
+      state.stealHoldUntil = Date.now() + STEAL_HOLD_SECONDS * 1000;
+      state.stealHoldTimerId = setTimeout(function () {
+        state.stealHoldTimerId = null; state.stealHoldUntil = 0;
+        state.stealTimerId = setInterval(function () {
+          state.stealRemaining -= 0.1;
+          if (state.stealRemaining <= 0.001) { state.stealRemaining = 0; stopStealTimer(); endStealCountdown(); }
+          else { renderHub(); }
+        }, 100);
+      }, STEAL_HOLD_SECONDS * 1000);
     }
-    function stopStealTimer() { if (state && state.stealTimerId) { clearInterval(state.stealTimerId); state.stealTimerId = null; } }
+    function stopStealTimer() {
+      if (!state) return;
+      if (state.stealTimerId) { clearInterval(state.stealTimerId); state.stealTimerId = null; }
+      if (state.stealHoldTimerId) { clearTimeout(state.stealHoldTimerId); state.stealHoldTimerId = null; }
+      state.stealHoldUntil = 0;
+    }
 
     // A press during the countdown registers the player as a stealer (marks their seat).
     // No coin is spent and the timer keeps running; multiple players can register, and a
@@ -1898,7 +1917,8 @@
       if ((state.registered || []).indexOf(idx) !== -1) return;
       state.registered.push(idx);
       render();
-      flushDirty();   // a stealer registered: push now so every phone mirrors the seat promptly
+      markDirty();   // registrations are secret during the countdown (empty presses in the
+                     // blob), so a debounced save is enough; nothing visible changes remotely
     }
     // Countdown ended (or was skipped): with no registrations, resolve as normal. Otherwise
     // move into the one-at-a-time pick sub-phase, each registered stealer picking in press order.
@@ -1925,19 +1945,10 @@
       state.stealPickerIdx = state.registered[state.pickIndex];
       state.stealPick = null;
       render();
-      // Phone pickers have no host Confirm button, so a claimed (phone) seat gets a bail timer:
-      // if no pick lands, skip them (steal void, no coin) and advance. Host-screen picks have
-      // no time limit (an unclaimed seat is picked on the shared screen with a Confirm button).
-      if (state.players[state.stealPickerIdx] && state.players[state.stealPickerIdx].claimed) armPickBail(state.stealPickerIdx);
+      // No time limit on picks (phone or host screen): every registered stealer gets to
+      // actually place their steal, however long it takes. If a picker's phone truly died,
+      // the host's "Reveal now" button skips the remaining pickers manually.
       flushDirty();   // whose pick turn it is just changed: push now so the picker's phone knows
-    }
-    function armPickBail(idx) {
-      _phonePickBailTimer = setTimeout(function () {
-        if (state && state.phase === "steal" && state.stealPhase === "picking" && state.stealPickerIdx === idx && state.stealPick === null) {
-          state.stealPickerIdx = null; state.pickIndex++;
-          startNextPick(); markDirty();
-        }
-      }, 12000);
     }
     function onConfirmSteal() {
       if (state.stealPhase !== "picking" || state.stealPickerIdx === null || state.stealPick === null) return;
@@ -2316,17 +2327,23 @@
         var inCountdown = inSteal && state.stealPhase === "countdown";
         var inPicking = inSteal && state.stealPhase === "picking";
         var isRegistered = (state.registered || []).indexOf(i) !== -1;
-        // A registered stealer keeps a STEAL! badge through both sub-phases.
-        badge.classList.toggle("hidden", !(inSteal && isRegistered));
-        // Press button (countdown only, eligible opponents who have not yet registered).
-        var showPress = inCountdown && isOpponent && eligibleNow && !isRegistered;
+        // Registrations stay SECRET while the countdown runs (nobody should copy a press),
+        // so the STEAL! badge only appears once the picking sub-phase starts.
+        badge.classList.toggle("hidden", !(inPicking && isRegistered));
+        // Press button (countdown only, eligible opponents). A phone-registered (claimed)
+        // seat keeps showing the normal button so the shared screen leaks nothing; a repeat
+        // press is idempotently ignored. An UNCLAIMED seat pressed on this shared screen in
+        // full view anyway, so it gets a disabled "In!" as feedback.
+        var showPressedHere = inCountdown && isOpponent && isRegistered && !p.claimed;
+        var showPress = inCountdown && isOpponent && eligibleNow && !showPressedHere;
         // B1: a coin-holding opponent barred ONLY by the match-point rule sees a disabled tag.
         var showMatchPoint = inCountdown && isOpponent && !eligibleNow && p.coins >= 1 && atMatchPoint;
         // During picking, the active picker's seat shows a disabled "Choosing..." tag.
         var showChoosing = inPicking && state.stealPickerIdx === i;
-        stealBtn.classList.toggle("hidden", !(showPress || showMatchPoint || showChoosing));
+        stealBtn.classList.toggle("hidden", !(showPress || showPressedHere || showMatchPoint || showChoosing));
         if (showMatchPoint) { stealBtn.textContent = "At match point"; stealBtn.disabled = true; }
         else if (showChoosing) { stealBtn.textContent = "Choosing..."; stealBtn.disabled = true; }
+        else if (showPressedHere) { stealBtn.textContent = "In!"; stealBtn.disabled = true; }
         else if (showPress) { stealBtn.textContent = "Steal! (1 🪙)"; stealBtn.disabled = false; }
         stealBtn.onclick = function (ev) { if (ev) ev.stopPropagation(); onStealPress(i); };
       };
@@ -2369,10 +2386,11 @@
         if (state.stealPhase === "picking" && state.stealPickerIdx !== null) {
           var stealer = state.players[state.stealPickerIdx];
           var pos = (state.registered || []).indexOf(state.stealPickerIdx) + 1;
-          c.innerHTML = '<div class="waiting"><span class="big">🕵️</span>' + escapeHtml(stealer.name) + ' is choosing a steal spot (' + pos + ' of ' + state.registered.length + ').</div>';
+          var where = stealer.claimed ? " on their phone" : "";
+          c.innerHTML = '<div class="waiting"><span class="big">🕵️</span>' + escapeHtml(stealer.name) + ' is choosing a steal spot' + where + ' (' + pos + ' of ' + state.registered.length + ').</div>';
         } else {
-          var cnt = (state.registered || []).length;
-          c.innerHTML = '<div class="waiting"><span class="big">💰</span>Steal window! Opponents holding a coin can press Steal.' + (cnt ? ' <b>' + cnt + '</b> registered.' : '') + '</div>' +
+          // No registered count here: presses stay secret until the countdown ends.
+          c.innerHTML = '<div class="waiting"><span class="big">💰</span>Steal window! Opponents holding a coin can press Steal.</div>' +
             '<div class="steal-count">' + Math.max(0, Math.ceil(state.stealRemaining)) + '</div>';
         }
       } else if (state.phase === "revealed") {
@@ -2433,15 +2451,24 @@
       } else if (state.phase === "steal" && state.stealPhase === "picking" && state.stealPickerIdx !== null) {
         var stealer = state.players[state.stealPickerIdx];
         var pickPos = (state.registered || []).indexOf(state.stealPickerIdx) + 1;
-        sub.textContent = stealer.name + " is choosing a steal spot (" + pickPos + " of " + state.registered.length + ")";
-        instr.innerHTML = "<b>" + escapeHtml(stealer.name) + "</b> is stealing. Tap a gap in <b>" + escapeHtml(p.name) + "'s</b> timeline below (not the marked NEW slot), then confirm. It costs a coin only if the steal stands.";
-        addBtn(actions, "Confirm steal", "primary", onConfirmSteal).disabled = (state.stealPick === null);
-        renderTimeline(tl, { tentativeSlot: state.chosenSlot, stealSlots: true, stealColor: stealer.color });
+        if (stealer.claimed) {
+          // Phone picker: keep the pick PRIVATE. The shared screen shows only who is picking,
+          // never the gaps or the incoming slot, so the other stealers cannot copy or avoid it.
+          sub.textContent = stealer.name + " is choosing a steal spot on their phone (" + pickPos + " of " + state.registered.length + ")";
+          instr.innerHTML = "<b>" + escapeHtml(stealer.name) + "</b> is picking a steal spot on their phone. Their pick stays hidden until the reveal. Press <b>Reveal now</b> only if they are stuck.";
+          addBtn(actions, "Reveal now", "ghost", onRevealNow);
+          renderTimeline(tl, { tentativeSlot: state.chosenSlot });
+        } else {
+          sub.textContent = stealer.name + " is choosing a steal spot (" + pickPos + " of " + state.registered.length + ")";
+          instr.innerHTML = "<b>" + escapeHtml(stealer.name) + "</b> is stealing. Tap a gap in <b>" + escapeHtml(p.name) + "'s</b> timeline below (not the marked NEW slot), then confirm. It costs a coin only if the steal stands.";
+          addBtn(actions, "Confirm steal", "primary", onConfirmSteal).disabled = (state.stealPick === null);
+          renderTimeline(tl, { tentativeSlot: state.chosenSlot, stealSlots: true, stealColor: stealer.color });
+        }
       } else if (state.phase === "steal") {
         sub.textContent = "opponents may steal, revealing soon";
-        var regNames = (state.registered || []).map(function (ri) { return escapeHtml(state.players[ri].name); });
+        // Who pressed stays secret during the countdown, so no "In:" list here.
         instr.innerHTML = "Any opponent holding a coin can press <b>Steal</b> now (it costs a coin only if the steal stands). " +
-          (regNames.length ? "In: <b>" + regNames.join(", ") + "</b>. " : "") + "Press <b>Reveal now</b> to skip the wait.";
+          "Press <b>Reveal now</b> to skip the wait.";
         addBtn(actions, "Reveal now", "primary", onRevealNow);
         renderTimeline(tl, { tentativeSlot: state.chosenSlot });
       } else if (state.phase === "revealed") {
@@ -2924,10 +2951,9 @@
           break;
       }
     }
-    var _phonePickConfirmTimer = null, _phonePickBailTimer = null;
+    var _phonePickConfirmTimer = null;
     function clearPhonePickTimers() {
       if (_phonePickConfirmTimer) { clearTimeout(_phonePickConfirmTimer); _phonePickConfirmTimer = null; }
-      if (_phonePickBailTimer) { clearTimeout(_phonePickBailTimer); _phonePickBailTimer = null; }
     }
 
     // Judge every pending guess at reveal and pay out. The SINGLE payout point.

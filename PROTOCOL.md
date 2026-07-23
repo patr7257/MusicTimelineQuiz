@@ -67,10 +67,19 @@ The server validates only the envelope it needs (players 1-4 with valid names/id
   "placement": { "tentativeSlot": 2, "lockedSlot": null, "lockedAt": 0 } | null,
   "steal": {
     "windowEndsAt": 1760000000000,      // absolute host-clock ms; counts down in the countdown
-                                        // sub-phase only, reports now() (0 left) while picking
+                                        // sub-phase only, reports now() (0 left) while picking.
+                                        // Includes the 2 s display hold (see game rules), so it
+                                        // can sit up to STEAL_SECONDS + 2 s out; clients cap the
+                                        // displayed number at 10
     "eligibleIdx": [1, 3],              // coins >= 1, not current, timeline < target - 1
     "presses": [{ "playerIdx": 1, "slot": null, "at": 0 }], // one entry per REGISTERED stealer;
-                                        // slot stays null until that stealer's pick is confirmed
+                                        // slot is ALWAYS null (confirmed picks are never
+                                        // projected, so a later picker cannot read an earlier
+                                        // stealer's gap out of the poll data). SECRET during
+                                        // the countdown sub-phase: the host sends an EMPTY list
+                                        // until picking starts, so nobody can copy a press (a
+                                        // presser's own phone shows "you are in" from its local
+                                        // flag)
     "wheel": { "slot": 2, "candidates": [1, 3], "winnerIdx": null } | null
   } | null,
   "pendingGuesses": [{
@@ -94,11 +103,22 @@ Game rules encoded host-side (locked with Patrick):
   was correct. Steals never pay coins. Guess intents from non-current players are
   ignored by the host.
 - A player at `target - 1` cards cannot steal.
-- Multi-steal window (batch 7): after Lock in, a 10 s countdown runs. Every eligible opponent
-  may press STEAL; a press only REGISTERS them (marks their seat), costs no coin, and does NOT
-  pause the countdown, so several register in one window. When the countdown ends (or Reveal now
-  is pressed), each registered stealer, in the order they pressed, picks a gap one at a time
-  (host tap or phone pick). If two or more picked the SAME gap, a spin wheel picks one keeper per
+- Multi-steal window (batch 7): after Lock in, a 10 s countdown runs. The displayed number
+  holds at 10 for a 2 s grace before it starts dropping (STEAL_HOLD_SECONDS host-side; the
+  hold is baked into `windowEndsAt` and clients cap the shown number at 10), so the lock-in
+  transition never eats press time. Every eligible opponent may press STEAL; a press only
+  REGISTERS them (marks their seat), costs no coin, and does NOT pause the countdown, so
+  several register in one window. Registrations are SECRET while the countdown runs: the
+  projected `presses` list is empty, and the host screen shows no badge, count, or names
+  until picking starts (an unclaimed seat that pressed on the shared screen gets a disabled
+  "In!" tag, since that press was public anyway). When the countdown ends (or Reveal now
+  is pressed), each registered stealer, in the order they pressed, picks a gap one at a time.
+  Picking is UNTIMED (no bail timer, no auto-skip): the round resumes only after every
+  registered stealer has picked, or the host presses Reveal now to skip whoever remains.
+  A claimed (phone) stealer picks privately on their own phone; the shared screen shows only
+  who is picking, never the gaps or the incoming slot. An unclaimed stealer picks on the host
+  screen (tap a gap + Confirm steal), which is public by nature.
+  If two or more picked the SAME gap, a spin wheel picks one keeper per
   contested gap and voids the others on that gap. A steal that STANDS after conflict resolution
   costs its owner exactly 1 coin (wheel losers pay nothing); the coin is charged at resolution,
   never at press time, and is charged even when the current player's own placement turns out
@@ -121,7 +141,11 @@ Game rules encoded host-side (locked with Patrick):
   "hasSource": true, "sourceTypes": ["movie","musical","disney"],
   "placement": { "tentativeSlot": 2, "locked": false },
   "steal": { "open": true, "endsAt": 1760000000000, "eligibleIdx": [1,3],
-             "presses": [{ "playerIdx": 1, "slot": null }],   // one per registered stealer
+             "presses": [{ "playerIdx": 1, "slot": null }],   // one per registered stealer;
+                                                              // EMPTY during the countdown
+                                                              // sub-phase (presses are secret)
+                                                              // and slot is always null (picks
+                                                              // are never projected)
              "wheel": { "slot": 2, "candidates": [1,3], "winnerIdx": null } } | null,
   "pendingGuesses": [{ "playerIdx": 0, "type": "artist-title", "judged": null }],
   "equalizer": { "queueIdx": [2] } | null
@@ -251,7 +275,8 @@ Host:
   Reprocessing a whole round list after reload is safe: lockin/guess/steal-press are
   deduped per player+type, tentative/steal-slot are last-wins.
 - Steal window is an absolute `windowEndsAt`; on reload at ANY point of the steal phase
-  (countdown or picking) the host restarts a fresh countdown (STEAL_SECONDS, currently 10 s):
+  (countdown or picking) the host restarts a fresh countdown (STEAL_SECONDS, currently 10 s,
+  plus the 2 s display hold):
   it discards half-collected registrations, picks, and wheel state and recomputes eligibility
   from current coins. No coin is double-charged because coins are only spent when a steal STANDS
   at resolution, never earlier. Worst case on reload: the steal phase replays from the countdown.
