@@ -15,12 +15,14 @@ checking PROTOCOL.md first.
 ## Relationship to the website repo (patrickrobelweb)
 
 - The playable game is SERVED by the website repo: a committed copy lives in
-  `website/public/hitster/` there, deployed at https://www.patrickrobel.dk/hitster.
+  `website/public/music-timeline-quiz/` there, deployed at
+  https://www.patrickrobel.dk/music-timeline-quiz.
 - The backend API (`/api/hitster/games/**`, Upstash Redis) also lives in the
   website repo (`website/src/app/api/hitster/`, `website/src/lib/hitster-redis.ts`).
-- After any game change here: run `pnpm sync:hitster` from the website repo's
-  `website/` folder (it reads this repo as a sibling clone at
-  `C:\Users\pr\repos\hitster`), then commit both repos.
+- After any game change here: run `pnpm sync:music-timeline-quiz` from the website
+  repo's `website/` folder (its default source path resolves to this clone at
+  `C:\Users\pr\repos\1-Personal\MusicTimelineQuiz`; override with `GAME_DIR`),
+  then commit both repos.
 
 ## Deck gotchas (hard-won)
 
