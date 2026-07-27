@@ -211,6 +211,10 @@ To add songs, work through these steps in order (from the repo root):
 - `tools/inject-sources.mjs` : patches `source` fields from `deck-seed.json` onto the already
   committed `songs.js` in place, for when new sources are added to the seed but a full
   Spotify-backed rebuild is not available. Run with `node tools/inject-sources.mjs`.
+- `tools/enrich_artists.py` : adds missing co/featured artists to every card's artist credit
+  as "(feat. X)" (so guessing any credited artist scores), credential-free via the public
+  Spotify embed pages; patches `songs.js`, `deck.json`, `fetch-cache.json`, and
+  `deck-seed.json` in lockstep. Dry-run by default; `--apply` writes.
 - `tools/validate-tracks.mjs`, `tools/build-songs.mjs` : the earlier oEmbed-based verifier
 
 The website side lives in the separate `patrickrobelweb` repo

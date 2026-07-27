@@ -209,7 +209,8 @@
        flex 0 with nowrap so "1 / 10" always stays on ONE line (fix: it used to wrap to two). */
     .seat-name { position: relative; flex: 1 1 auto; min-width: 0; font-family: var(--disp); font-weight: 400; letter-spacing: .5px; font-size: 16px; color: var(--brown); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .seat-score { flex: 0 0 auto; margin-left: auto; padding-left: 8px; white-space: nowrap; font-family: var(--disp); font-size: 12px; color: var(--gold-deep); }
-    .seat-coins { position: relative; display: flex; align-items: center; gap: 5px; font-family: var(--disp); font-size: 12px; color: var(--gold-deep); margin-bottom: 8px; }
+    .seat-coins { position: relative; display: flex; align-items: center; gap: 5px; font-family: var(--disp); font-size: 12px; color: var(--gold-deep); margin-bottom: 8px; cursor: pointer; }
+    .seat-coins:hover, .hero-coins:hover { filter: brightness(1.25); }
     /* Issue #51: minis never wrap to extra rows (that grew the seat vertically and
        displaced it); one row that scrolls sideways instead. */
     .mini-timeline { position: relative; display: flex; gap: 4px; flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; padding-bottom: 3px; scrollbar-width: thin; }
@@ -247,7 +248,7 @@
     .hero-avatar { width: clamp(42px, 5.5vmin, 54px); height: clamp(42px, 5.5vmin, 54px); border-radius: 50%; display: grid; place-items: center; font-family: var(--disp); font-weight: 400; color: var(--brown-deep); font-size: clamp(16px, 2.4vmin, 20px); border: 2px solid var(--brown-deep); box-shadow: 0 4px 0 rgba(0,0,0,.35), 0 0 0 4px rgba(243,231,207,.10); flex: 0 0 auto; }
     .hero-name { font-family: var(--disp); font-size: clamp(18px, 2.8vmin, 24px); color: var(--paper); letter-spacing: .5px; }
     .hero-name .sub { display: block; font-family: var(--body-font); font-size: 12px; color: var(--muted); letter-spacing: 0; }
-    .hero-coins { font-family: var(--disp); font-size: 15px; color: var(--gold); background: rgba(217,164,65,.14); border: 1px solid rgba(217,164,65,.42); padding: 6px 13px; border-radius: 999px; white-space: nowrap; }
+    .hero-coins { font-family: var(--disp); font-size: 15px; color: var(--gold); background: rgba(217,164,65,.14); border: 1px solid rgba(217,164,65,.42); padding: 6px 13px; border-radius: 999px; white-space: nowrap; cursor: pointer; }
     .hero-actions { margin-left: auto; display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
     /* Issue #51: instructions live INSIDE the head row (between name and buttons) so the
        status section stays one compact line; long text wraps within the row. */
@@ -617,7 +618,7 @@
           <div class="hero-head">
             <div class="hero-avatar" id="heroAvatar">?</div>
             <div class="hero-name" id="heroName">Player<span class="sub" id="heroSub"></span></div>
-            <div class="hero-coins" id="heroCoins">🪙 0</div>
+            <div class="hero-coins" id="heroCoins" title="Adjust coins">🪙 0</div>
             <div class="guess-strip hidden" id="guessStrip"></div>
             <div class="instructions" id="instructions"></div>
             <div class="hero-actions" id="heroActions"></div>
@@ -1034,7 +1035,10 @@
       return s;
     }
     function stripParens(s) { return String(s == null ? "" : s).replace(/\s*[\(\[][^\)\]]*[\)\]]\s*/g, " ").trim(); }
-    function splitArtists(s) { return String(s == null ? "" : s).split(/\s*,\s*|\s*&\s*|\s+x\s+|\s+feat\.?\s+|\s+ft\.?\s+/i).map(function (x) { return x.trim(); }).filter(Boolean); }
+    // Parentheses become spaces FIRST so "(feat. X)" credits (the deck's multi-artist
+    // format since the enrich_artists sweep) split cleanly; "(feat." carries no whitespace
+    // before "feat", which the split alternation requires.
+    function splitArtists(s) { return String(s == null ? "" : s).replace(/[()]/g, " ").split(/\s*,\s*|\s*&\s*|\s+x\s+|\s+feat\.?\s+|\s+ft\.?\s+/i).map(function (x) { return x.trim(); }).filter(Boolean); }
 
     function levenshtein(a, b) {
       var m = a.length, n = b.length;
@@ -1087,6 +1091,10 @@
     function matchesArtist(guessArtist, cardArtist) {
       var g = normalizeStr(guessArtist);
       if (fuzzyEq(g, normalizeStr(cardArtist))) return true;
+      // Multi-part primary names ("Earth, Wind & Fire") must still match in full once a
+      // "(feat. X)" tail is appended, so also compare against the credit minus that tail.
+      var base = String(cardArtist == null ? "" : cardArtist).replace(/\s*\(feat\..*$/i, "");
+      if (fuzzyEq(g, normalizeStr(base))) return true;
       var parts = splitArtists(cardArtist);
       for (var i = 0; i < parts.length; i++) if (fuzzyEq(g, normalizeStr(parts[i]))) return true;
       return false;
@@ -1779,7 +1787,7 @@
         seat.innerHTML = '<div class="seat-card">' +
           '<span class="steal-badge hidden">STEAL!</span>' +
           '<div class="seat-head"><div class="avatar"></div><div class="seat-name"></div><div class="seat-score"></div></div>' +
-          '<div class="seat-coins"><span>🪙</span><span class="seat-coin-n">0</span></div>' +
+          '<div class="seat-coins" title="Adjust coins"><span>🪙</span><span class="seat-coin-n">0</span></div>' +
           '<div class="mini-timeline"></div>' +
           '<button class="btn steal-btn hidden" type="button">Steal!</button>' +
           '</div>';
@@ -2322,6 +2330,9 @@
         s.querySelector(".seat-name").textContent = p.name;
         s.querySelector(".seat-score").textContent = p.timeline.length + " / " + state.target;
         s.querySelector(".seat-coin-n").textContent = p.coins;
+        // Host correction tool: tapping the coin pill adjusts this player's coins (e.g. a
+        // guess the matcher wrongly rejected). stopPropagation keeps it off onSeatClick.
+        s.querySelector(".seat-coins").onclick = function (ev) { if (ev) ev.stopPropagation(); openCoinAdjust(i); };
         var mini = s.querySelector(".mini-timeline"); mini.innerHTML = "";
         sortTl(p.timeline).forEach(function (c) {
           var m = catMeta(c.cat) || { emoji: "🎵", label: "Unknown", color: "#c9c4ff" };
@@ -2374,6 +2385,36 @@
       if (i === state.current) state.viewIdx = state.current;
       else state.viewIdx = (state.viewIdx === i) ? state.current : i;
       renderSeats(); renderHero();
+    }
+
+    // Manual coin correction (host-only): tapping a player's coin pill opens a +1/-1 dialog,
+    // e.g. to grant a coin the guess matcher wrongly denied. Blocked during the steal window
+    // because steal eligibility is computed once when the window opens and never recomputed.
+    function openCoinAdjust(idx) {
+      if (!state || state.phase === "over" || dragState.active) return;
+      if (state.phase === "steal") { showToast("Finish the steal round first"); return; }
+      var p = state.players[idx];
+      if (!p) return;
+      showConfirm({
+        title: "Adjust " + p.name + "'s coins",
+        message: p.name + " currently has " + p.coins + (p.coins === 1 ? " coin." : " coins."),
+        okLabel: "+1 coin",
+        altLabel: "-1 coin",
+        onConfirm: function () { adjustCoins(idx, 1); },
+        onAlt: function () { adjustCoins(idx, -1); }
+      });
+    }
+    function adjustCoins(idx, delta) {
+      var p = state.players[idx];
+      if (!p) return;
+      // Re-guard: the steal window could have opened while the dialog sat there.
+      if (state.phase === "steal") { showToast("Finish the steal round first"); return; }
+      var next = Math.max(0, Math.min(99, p.coins + delta));
+      if (next === p.coins) { showToast(p.name + " cannot go below 0 coins"); return; }
+      p.coins = next;
+      render();
+      flushDirty();
+      showToast(p.name + " now has " + next + (next === 1 ? " coin" : " coins"));
     }
 
     function renderHub() {
@@ -3686,6 +3727,8 @@
     };
     // In-game settings gear + its sub-buttons.
     $("settingsGearBtn").onclick = openGameSettings;
+    // The hero coin pill adjusts the CURRENT player's coins (their seat pill does the same).
+    $("heroCoins").onclick = function () { if (state) openCoinAdjust(state.current); };
     $("gameSettingsCloseBtn").onclick = closeGameSettings;
     // Display opens the display-size sub-view of the settings dialog; Back returns to the menu.
     $("gsDisplayBtn").onclick = function () { setGameSettingsView("display"); };

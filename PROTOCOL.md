@@ -103,6 +103,11 @@ Game rules encoded host-side (locked with Patrick):
   was correct. Steals never pay coins. Guess intents from non-current players are
   ignored by the host.
 - A player at `target - 1` cards cannot steal.
+- Manual coin adjustment (host correction tool): tapping any player's coin pill on the host
+  board (or the hero coin pill for the current player) opens a +1/-1 confirm dialog, clamped
+  to 0..99. It exists to compensate a guess the matcher wrongly rejected. Host-only state
+  mutation, no new intent; phones see the new count via the normal projection. Blocked while
+  `phase === "steal"` because steal eligibility is computed once when the window opens.
 - Multi-steal window (batch 7): after Lock in, a 10 s countdown runs. The displayed number
   holds at 10 for a 2 s grace before it starts dropping (STEAL_HOLD_SECONDS host-side; the
   hold is baked into `windowEndsAt` and clients cap the shown number at 10), so the lock-in

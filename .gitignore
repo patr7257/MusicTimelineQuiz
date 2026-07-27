@@ -1,0 +1,5 @@
+# Throwaway tool scratch files (resumable checkpoints and reports)
+tools/audit_checkpoint.jsonl
+tools/audit_report.json
+tools/enrich_checkpoint.jsonl
+__pycache__/
