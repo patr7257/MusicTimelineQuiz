@@ -511,6 +511,14 @@
     .menu-dialog > h1 { flex: 0 0 auto; }
     .menu-dialog-scroll { flex: 1 1 auto; overflow-y: auto; min-height: 260px; margin: 0 -4px; padding: 2px 4px; }
     .menu-dialog-foot { flex: 0 0 auto; margin-top: 16px; }
+    /* Game-setup lobby only: no inner scrollbar. The panel grows to its content and the
+       .overlay's own full-height scrollbar (overflow: auto) is the single scroll surface.
+       Flex + margin:auto is the safe centering pattern: grid place-items:center clips the top
+       of a taller-than-viewport item, while auto margins center short content and collapse to
+       0 for tall content so the top stays reachable. */
+    #gameSetupOverlay { display: flex; }
+    #gameSetupOverlay .menu-dialog { margin: auto; max-height: none; }
+    #gameSetupOverlay .menu-dialog-scroll { flex: 0 0 auto; overflow-y: visible; min-height: 0; }
     /* Sub-views of the in-game settings dialog (menu of buttons vs. the display-size panel). */
     .settings-view { display: flex; flex-direction: column; gap: 14px; }
 
@@ -961,9 +969,11 @@
     // play each song on their own phones. Fill it in with the app's client id (registered as a
     // PUBLIC / PKCE client, NO client secret) to turn full playback on.
     //
-    // The redirect URI is computed dynamically as location.origin + location.pathname
-    // (see spRedirectUri) so it works on whatever origin serves the page. Register that
-    // exact URI (for every origin you serve from) in the Spotify app dashboard.
+    // The redirect URI is computed dynamically from location.origin + location.pathname,
+    // canonicalized by spRedirectUri (trailing /index.html and trailing slashes stripped), so
+    // it works on whatever origin serves the page. Register that exact canonical URI (one per
+    // origin you serve from) in the Spotify app dashboard, e.g.
+    // https://www.patrickrobel.dk/music-timeline-quiz for production.
     var SPOTIFY_CLIENT_ID = "d45bb37318d243cdb0b5dbb4411a7783";
     var SP_SCOPES = "streaming user-read-email user-read-private user-modify-playback-state user-read-playback-state";
     var SP_AUTH_URL = "https://accounts.spotify.com/authorize";
@@ -1718,15 +1728,19 @@
 
       buildSeats();
       layoutSeats();
-      // Draw the starter's card behind the wheel, then spin the opening wheel to reveal who
-      // starts (issue #3). The wheel overlay covers the board, so the place UI is ready the
-      // moment it closes. Resume never runs startGame, so a reload never re-spins the wheel.
+      // Draw the starter's card up front, then reveal who starts with the opening wheel AFTER
+      // the game-setup lobby is dismissed (it used to spin on top of the lobby). The pending
+      // flag is in-memory only, so resume after a reload never re-spins the wheel.
       beginTurnDraw();   // the randomly chosen starter gets their first song automatically
       if (state.n >= 2) {
-        runStealWheel(startOrder, starterIdx, function () { /* starter revealed; place UI is live */ }, {
-          spinCaption: "Spinning to see who starts",
-          winCaptionFn: function (name) { return name + " starts!"; }
-        });
+        if (NET.available || isHttpOrigin()) {
+          // A setup lobby popup will open; hold the wheel until it is dismissed.
+          pendingStartWheel = { order: startOrder, winner: starterIdx };
+        } else {
+          // file:// origin: no lobby ever opens, spin immediately as before.
+          pendingStartWheel = { order: startOrder, winner: starterIdx };
+          runPendingStartWheel();
+        }
       }
 
       // Create the backend game once (online only), then start intent polling.
@@ -1743,7 +1757,9 @@
             // phones and saving are unavailable, with the server's error string.
             showOfflineNotice(r && r.error ? r.error : "The game server did not respond.");
             // Still offer the optional Connect Spotify on an http(s) origin, even offline.
+            // Without a lobby (non-http origin) nothing else releases the held wheel, so spin now.
             if (isHttpOrigin()) openGameSetup(null, "setup");
+            else runPendingStartWheel();
           }
         });
       } else if (isHttpOrigin()) {
@@ -2999,11 +3015,25 @@
 
     // Game-setup popup. "view" ("phones" | "spotify") selects which single section shows when
     // opened from the in-game gear; "ctx" ("setup" | "game") records where the popup was opened
-    // so the Spotify OAuth return can route back here (setup) or into the running game (game).
+    // so the popup-blocked full-redirect Spotify OAuth return can route back here (setup) or
+    // into the running game (game); the normal new-tab connect never leaves this page.
     // In "setup" context (the lobby shown at game start) BOTH sections show together with a Start
     // button; from the gear each button opens exactly one section. gameSetupCtx is read by
     // spBeginConnect to stamp the PKCE state entry with returnTo.
     var gameSetupCtx = "game";
+    // Opening "who starts" wheel, held by startGame until the setup lobby is dismissed so it
+    // never spins on top of the popup. In-memory on purpose: a reload clears it, keeping the
+    // "resume never re-spins the wheel" guarantee (including the Spotify OAuth return that
+    // reopens the lobby after a full-page redirect).
+    var pendingStartWheel = null;
+    function runPendingStartWheel() {
+      if (!pendingStartWheel) return;
+      var pw = pendingStartWheel; pendingStartWheel = null;
+      runStealWheel(pw.order, pw.winner, function () { /* starter revealed; place UI is live */ }, {
+        spinCaption: "Spinning to see who starts",
+        winCaptionFn: function (name) { return name + " starts!"; }
+      });
+    }
     function openGameSetup(view, ctx) {
       if (!state) return;
       gameSetupCtx = (ctx === "setup") ? "setup" : "game";
@@ -3048,6 +3078,9 @@
     }
     function closeGameSetup() {
       $("gameSetupOverlay").classList.add("hidden");
+      // Dismissing the game-start lobby (any path: Start game, X, backdrop, Esc) releases the
+      // held opening wheel; gear views ("game" ctx) never carry one.
+      if (gameSetupCtx === "setup") runPendingStartWheel();
     }
     function openGameSettings() {
       if (!state) return;
@@ -3179,7 +3212,13 @@
     var spRefreshPromise = null;
 
     function spConfigured() { return !!SPOTIFY_CLIENT_ID && isHttpOrigin(); }
-    function spRedirectUri() { return location.origin + location.pathname; }
+    function spRedirectUri() {
+      // Canonicalize so /music-timeline-quiz, /music-timeline-quiz/ and .../index.html all
+      // produce the ONE redirect URI registered in the Spotify dashboard. The authorize URL
+      // and the token exchange both call this, so they stay byte-identical.
+      var p = location.pathname.replace(/\/index\.html$/i, "").replace(/\/+$/, "");
+      return location.origin + (p || "/");
+    }
     function spIsConnected() { return !!(spTokens && spTokens.access_token); }
     // Full playback is live only with a configured client id, a connected PREMIUM account, a ready
     // SDK device, and no account/premium error. Anything short of that hides the Play here button.
@@ -3234,18 +3273,22 @@
       });
     }
 
-    // ---- connect flow: redirect the whole page to Spotify's authorize endpoint ----
+    // ---- connect flow: open Spotify's authorize endpoint in a NEW TAB ----
+    // The game tab stays put; the new tab lands back on this app, exchanges the code, and
+    // closes itself, while the opener picks the tokens up via the cross-tab storage event.
+    // Only when the popup is blocked does it fall back to the old full-page redirect.
     function spBeginConnect() {
       if (!spConfigured()) return;
       var verifier = spRandomString(96);
       var stateTok = spRandomString(24);
       spCodeChallenge(verifier).then(function (challenge) {
-        // Remember the verifier, the game to return to, and WHERE the connect began, keyed by the
-        // random state. The state is verified on the way back; the stored game id reuses the ?g=
-        // deep-link resume so login returns to the running game. returnTo routes the OAuth return:
-        // "setup" reopens the setup lobby (host has not started play yet), "game" resumes into play.
+        // Remember the verifier, the game to return to, WHERE the connect began, and whether a
+        // popup tab is in flight, keyed by the random state (verified on the way back). The
+        // stored game id feeds the ?g= deep-link resume only on the full-redirect fallback.
+        // returnTo routes that fallback: "setup" reopens the setup lobby, "game" resumes play.
         var gid = (state && state.gameId) ? state.gameId : null;
-        try { if (window.localStorage) localStorage.setItem(SP_LS_PKCE + stateTok, JSON.stringify({ verifier: verifier, gameId: gid, returnTo: gameSetupCtx })); } catch (e) { /* ignore */ }
+        var entry = { verifier: verifier, gameId: gid, returnTo: gameSetupCtx, popup: true };
+        try { if (window.localStorage) localStorage.setItem(SP_LS_PKCE + stateTok, JSON.stringify(entry)); } catch (e) { /* ignore */ }
         var url = new URL(SP_AUTH_URL);
         url.searchParams.set("response_type", "code");
         url.searchParams.set("client_id", SPOTIFY_CLIENT_ID);
@@ -3254,14 +3297,25 @@
         url.searchParams.set("code_challenge", challenge);
         url.searchParams.set("redirect_uri", spRedirectUri());
         url.searchParams.set("state", stateTok);
-        location.href = url.toString();
+        // No "noopener": Chrome would then return null (false popup-blocked signal), and the
+        // opener relationship is what lets the auth tab window.close() itself afterwards.
+        var w = null;
+        try { w = window.open(url.toString(), "_blank"); } catch (e) { w = null; }
+        if (!w) {
+          // Popup blocked: restamp as a full-page redirect so the return leg boots normally
+          // (resume + reopen the lobby) instead of the close-yourself popup path.
+          entry.popup = false;
+          try { if (window.localStorage) localStorage.setItem(SP_LS_PKCE + stateTok, JSON.stringify(entry)); } catch (e) { /* ignore */ }
+          location.href = url.toString();
+        }
       });
     }
 
     // ---- redirect handler: read ?code=&state=, verify state, strip them, restore ?g= ----
-    // Synchronous: returns { code, verifier, returnTo } to exchange (or null). It ALWAYS strips
-    // code/state from the URL, and restores ?g=<gameId> when a game id was stored, so the normal
-    // deep-link resume in boot picks the game back up while the token exchange runs independently.
+    // Synchronous: returns { code, verifier, returnTo, popup } to exchange (or null). It ALWAYS
+    // strips code/state from the URL. On the full-redirect fallback it restores ?g=<gameId> so
+    // the normal deep-link resume picks the game back up; in popup mode it never does, so a
+    // lingering auth tab reloaded later lands on the plain menu instead of becoming a second host.
     function spPendingRedirect() {
       if (!spConfigured()) return null;
       var params;
@@ -3271,16 +3325,19 @@
       var stored = null;
       try { stored = JSON.parse(localStorage.getItem(SP_LS_PKCE + st) || "null"); } catch (e) { stored = null; }
       try { if (window.localStorage) localStorage.removeItem(SP_LS_PKCE + st); } catch (e) { /* ignore */ }
+      var isPopup = !!(stored && stored.popup);
       var gid = (stored && stored.gameId && /^[A-Z0-9]{4,8}$/.test(stored.gameId)) ? stored.gameId : null;
       try {
-        var clean = location.origin + location.pathname + (gid ? ("?g=" + gid) : "");
+        var clean = location.origin + location.pathname + ((gid && !isPopup) ? ("?g=" + gid) : "");
         history.replaceState(null, "", clean);
       } catch (e) { /* ignore */ }
       // State mismatch (no stored entry) or missing verifier: cannot exchange, but URL is now clean.
       if (!stored || !stored.verifier) return null;
-      return { code: code, verifier: stored.verifier, returnTo: (stored.returnTo === "setup" ? "setup" : "game") };
+      return { code: code, verifier: stored.verifier, returnTo: (stored.returnTo === "setup" ? "setup" : "game"), popup: isPopup };
     }
-    function spExchangeCode(code, verifier) {
+    // silent: the popup auth tab saves tokens (the cross-tab signal) but must not boot the SDK
+    // player or touch UI in a tab that is about to close; the opener does that on the storage event.
+    function spExchangeCode(code, verifier, silent) {
       var body = new URLSearchParams();
       body.append("client_id", SPOTIFY_CLIENT_ID);
       body.append("grant_type", "authorization_code");
@@ -3294,7 +3351,7 @@
       }).then(function (r) { return r.json(); }).then(function (j) {
         if (!j || !j.access_token) return false;
         spSaveTokens({ access_token: j.access_token, refresh_token: j.refresh_token || null, expires_at: Date.now() + ((j.expires_in || 3600) * 1000) });
-        spOnConnected();
+        if (!silent) spOnConnected();
         return true;
       }).catch(function () { return false; });
     }
@@ -3547,6 +3604,9 @@
       ["mainMenu", "settingsOverlay", "dashboard", "setup", "winner", "takeoverOverlay", "gameSetupOverlay", "gameSettingsOverlay"].forEach(function (id) {
         var e = $(id); if (e) e.classList.add("hidden");
       });
+      // The lobby is hidden without closeGameSetup here; drop any held opening wheel so a
+      // later resumed game cannot spin stale player indices.
+      pendingStartWheel = null;
     }
     function showMainMenu() {
       if (state) { stopStealTimer(); stopIntentPolling(); }
@@ -3821,6 +3881,13 @@
       doResume(gid, $("takeoverPw").value, function (msg) { $("takeoverErr").textContent = msg || "Could not take over."; });
     };
     window.addEventListener("resize", function () { if (state && state.phase !== "over") layoutSeats(); sizeHub(); positionGuessReveal(); });
+    // Cross-tab Spotify handshake: the auth tab writes tokens to localStorage; the storage event
+    // (fires only in OTHER same-origin tabs) tells this game tab to go live without any reload.
+    window.addEventListener("storage", function (e) {
+      if (!e || e.key !== SP_LS_TOKENS || !e.newValue) return;
+      spLoadTokens();
+      if (spIsConnected()) spOnConnected();
+    });
 
     // Hover-info tooltip, delegated so it survives every re-render. A card carries the
     // info in data-tip-* attributes (set by tagCardTip); the tentative "New" card has none
@@ -3856,8 +3923,20 @@
     // host straight back into the running game while the token exchange runs independently.
     spLoadTokens();
     var spRedir = spPendingRedirect();
-    // returnTo routes the OAuth return: "setup" reopens the setup lobby after the game resumes
-    // (the host had not started play yet); "game" resumes straight into the running game.
+    if (spRedir && spRedir.popup) {
+      // OAuth return inside the auth TAB that spBeginConnect opened: exchange the code, tell the
+      // user, close. Skip the whole normal boot (no menu, no resume, no polling) so this tab
+      // never becomes a second host; the opener goes live via the storage event on the tokens.
+      document.body.innerHTML = '<div style="display:flex;min-height:100vh;align-items:center;justify-content:center;font-size:18px;text-align:center;padding:20px">Connecting Spotify&hellip;</div>';
+      var spPopupMsg = document.body.firstChild;
+      spExchangeCode(spRedir.code, spRedir.verifier, true).then(function (ok) {
+        spPopupMsg.textContent = ok ? "Spotify connected. You can close this tab." : "Spotify connect failed. Close this tab and try again from the game.";
+        if (ok) { try { window.close(); } catch (e) { /* browser may refuse; the text covers it */ } }
+      });
+      return;
+    }
+    // returnTo routes the popup-blocked full-redirect return: "setup" reopens the setup lobby
+    // after the game resumes (the host had not started play yet); "game" resumes into the game.
     var spReturnTo = spRedir ? spRedir.returnTo : null;
     if (spRedir) {
       spExchangeCode(spRedir.code, spRedir.verifier);
