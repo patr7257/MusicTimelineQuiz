@@ -11,8 +11,10 @@ Hitster board game.
   (bundled in `fonts/`), themed scrollbars, fluid sizing.
 - 2 to 4 players, names entered per player.
 - Song categories plus All Mixed (Rock, Pop, Hip-Hop & R&B, Dance & Electronic, Soul/Funk/
-  Disco, BANGERTIME, Happy Days, Danish, Festival), plus a year-span slider in setup to
-  limit the deck to a release-year range.
+  Disco, BANGERTIME, Happy Days, Danish, Festival, Disney, Movies & Musicals, Musik i
+  Gentofte), plus a year-span slider in setup to limit the deck to a release-year range.
+  Tick a single category ("Clear", then that tile) to play a themed deck on its own, e.g.
+  only the Musik i Gentofte festival lineup.
 - QR codes link straight to the Spotify track and are baked into the database. The song QR
   can be shown fullscreen ("Show QR big"), and "Play here" plays the track through a hidden
   Spotify embed without revealing the answer.
@@ -143,7 +145,18 @@ user login). The script prompts for them and stores nothing.
 3. Run and paste them at the prompts:
 
 ```
-cd "C:\Users\pr\repos\hitster"; python tools\build_deck.py
+cd "C:\Users\pr\repos\1-Personal\MusicTimelineQuiz"; python tools\build_deck.py
+```
+
+### Cache only (no credentials)
+
+Rebuilds `songs.js` from tracks already resolved in `tools/deck.json` /
+`tools/fetch-cache.json`, with no API calls and no credential prompt. Seed songs that have
+no cached track are skipped and listed by name. Use it after a tool that pre-resolves track
+ids into the fetch cache itself (`tools/import_gentofte.py`):
+
+```
+cd "C:\Users\pr\repos\1-Personal\MusicTimelineQuiz"; python tools\build_deck.py --no-fetch
 ```
 
 ### Offline sample (no credentials)
@@ -151,7 +164,7 @@ cd "C:\Users\pr\repos\hitster"; python tools\build_deck.py
 Builds a small database from the already-verified tracks, for testing the UI:
 
 ```
-cd "C:\Users\pr\repos\hitster"; python tools\build_deck.py --offline-sample
+cd "C:\Users\pr\repos\1-Personal\MusicTimelineQuiz"; python tools\build_deck.py --offline-sample
 ```
 
 ## Expanding the deck
@@ -185,19 +198,49 @@ To add songs, work through these steps in order (from the repo root):
    python tools/audit_deck.py
    ```
 5. Sync the built game into the website repo (a sibling clone of `patrickrobelweb`,
-   which serves the game at patrickrobel.dk/hitster) and commit:
+   which serves the game at patrickrobel.dk/music-timeline-quiz) and commit:
 
    ```
-   cd "C:\Users\pr\repos\patrickrobelweb\website"; pnpm sync:hitster
+   cd "C:\Users\pr\repos\1-Personal\patrickrobelweb\website"; pnpm sync:music-timeline-quiz
    ```
 
    Then commit `tools/deck-seed.json` and the regenerated `songs.js` here, and the
-   synced `website/public/hitster/` files in the website repo.
+   synced `website/public/music-timeline-quiz/` files in the website repo.
+
+### Importing the Musik i Gentofte festival lineup
+
+The `gentofte` category is not hand-curated: it is imported from the festival playlist the
+website repo already builds for patrickrobel.dk/musikigentofte
+(`website/src/data/musikigentofte.json`). That file carries exact Spotify track ids but no
+release years, so the importer reads the real title, artist credits and release year off
+each track's public Spotify embed page (no credentials), then writes the seed category and
+pre-resolves every track (with its QR code) into the fetch cache:
+
+```
+cd "C:\Users\pr\repos\1-Personal\MusicTimelineQuiz"; python tools\import_gentofte.py
+```
+
+That is a dry run: it prints every track with the year it will get. Check the years, then:
+
+```
+cd "C:\Users\pr\repos\1-Personal\MusicTimelineQuiz"; python tools\import_gentofte.py --apply
+```
+
+Correct a wrong year (Spotify sometimes dates a re-release, not the original recording) in
+`tools/gentofte-overrides.json` as `{ "<track id>": { "year": 1974 } }`, then rerun
+`--apply`; the block is replaced, never appended to. Because the tracks are pre-resolved,
+finish with `python tools/build_deck.py --no-fetch` (no credentials) and
+`python tools/audit_deck.py gentofte`.
+
+The importer puts `gentofte` first in the seed's `songs` object on purpose: a track that
+also exists in another category (two Rasmus Seebach songs were in `danish`) belongs to
+Gentofte, and its old line is deleted, because `validate_seed.py` rejects the same song
+twice and one card can only carry one category.
 
 ## Files
 
 - `index.html` : the whole host game (HTML + CSS + JS)
-- `guess.html`  : the phone page, served at `/hitster/guess?game=GAMEID`
+- `guess.html`  : the phone page, served at `/music-timeline-quiz/guess?game=GAMEID`
 - `PROTOCOL.md` : the v3 contract between host, phone, and API (state shape, projection,
   intents, endpoints, localStorage keys, sync cadences, locked game rules)
 - `songs.js`   : AUTO-GENERATED database, `window.HITSTER_DB = { categories, songs }`
@@ -211,6 +254,10 @@ To add songs, work through these steps in order (from the repo root):
 - `tools/inject-sources.mjs` : patches `source` fields from `deck-seed.json` onto the already
   committed `songs.js` in place, for when new sources are added to the seed but a full
   Spotify-backed rebuild is not available. Run with `node tools/inject-sources.mjs`.
+- `tools/import_gentofte.py` : imports the Musik i Gentofte festival lineup as the `gentofte`
+  category from the website repo's `musikigentofte.json`, credential-free (real years via the
+  public Spotify embed pages). Writes `deck-seed.json` + `fetch-cache.json`; dry-run by
+  default, `--apply` writes. Year corrections live in `tools/gentofte-overrides.json`.
 - `tools/enrich_artists.py` : adds missing co/featured artists to every card's artist credit
   as "(feat. X)" (so guessing any credited artist scores), credential-free via the public
   Spotify embed pages; patches `songs.js`, `deck.json`, `fetch-cache.json`, and
@@ -219,9 +266,10 @@ To add songs, work through these steps in order (from the repo root):
 
 The website side lives in the separate `patrickrobelweb` repo
 (`website/src/lib/hitster-redis.ts`, `website/src/app/api/hitster/`): it holds the
-Redis-backed API the phone page and the game talk to; its `website/scripts/sync-hitster.mjs`
-copies `index.html`, `guess.html`, `qrcode.js`, and `songs.js` from this repo (expected as a
-sibling clone) into `website/public/hitster/` for deploy, run it after any change here.
+Redis-backed API the phone page and the game talk to; its
+`website/scripts/sync-music-timeline-quiz.mjs` copies `index.html`, `guess.html`,
+`qrcode.js`, and `songs.js` from this repo (expected as a sibling clone) into
+`website/public/music-timeline-quiz/` for deploy, run it after any change here.
 
 ## Saved games: E2E test games and the wipe script
 

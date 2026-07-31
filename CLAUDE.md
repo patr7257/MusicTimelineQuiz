@@ -30,6 +30,19 @@ checking PROTOCOL.md first.
   Never hand-edit `songs.js` except via `tools/inject-sources.mjs` or
   `tools/enrich_artists.py` (adds missing co-artists as "(feat. X)" credits to all
   four data files in lockstep, credential-free via the public embed pages).
+- The `gentofte` category ("Musik i Gentofte", 59 tracks) is IMPORTED, not curated:
+  `tools/import_gentofte.py` reads the website repo's
+  `website/src/data/musikigentofte.json` (exact track ids, no years), pulls the real
+  year/title/credits off the public Spotify embed pages, then writes the seed block plus a
+  pre-resolved `fetch-cache.json` entry (with QR) per track. Rerunning replaces the block.
+  Fix a wrong year in `tools/gentofte-overrides.json`, never in `songs.js`.
+  It is deliberately FIRST in the seed's `songs` object: a track that also sat in another
+  category (two Rasmus Seebach songs in `danish`) moves to Gentofte and its old seed line is
+  deleted, since `validate_seed.py` rejects a repeated song and a card has one category.
+- `python tools/build_deck.py --no-fetch` rebuilds `songs.js` from cache with no credentials
+  and no API calls, skipping (and listing) seed songs with no cached track. 33 old seed
+  entries have never resolved on Spotify DK, so a plain `build_deck.py` run always prompts
+  for credentials even when the change itself needs no fetching.
 - Builds are incremental (fetch cache); use `--wait` to stay under Spotify's rate
   limit. Spotify client credentials are prompted, never stored.
 - Gate every seed change with `python tools/validate_seed.py` (pre-build) and

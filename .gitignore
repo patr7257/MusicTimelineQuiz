@@ -2,6 +2,7 @@
 tools/audit_checkpoint.jsonl
 tools/audit_report.json
 tools/enrich_checkpoint.jsonl
+tools/gentofte_checkpoint.jsonl
 __pycache__/
 tools/enrich_dryrun*.log
 .claude/.codev-ack

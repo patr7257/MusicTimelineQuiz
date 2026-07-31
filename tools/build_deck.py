@@ -11,8 +11,14 @@ Offline sample mode (--offline-sample): builds a small database from the already
 verified tracks in verified.json / verified2.json, no credentials needed. Used to
 test the frontend before the full deck is fetched.
 
+Cache-only mode (--no-fetch): rebuilds songs.js from tracks already resolved in
+deck.json / fetch-cache.json, with no credentials and no API calls. Seed songs
+without a cached track are skipped and listed. Use it after a tool that
+pre-resolves track ids into the fetch cache itself (import_gentofte.py).
+
 Usage:
   python build_deck.py                 # online, prompts for Spotify credentials
+  python build_deck.py --no-fetch      # cache only, no credentials
   python build_deck.py --offline-sample
 """
 
@@ -196,9 +202,9 @@ def pick_best(items, title, artist):
     return best
 
 
-def build_online(wait=False):
+def build_online(wait=False, no_fetch=False):
     seed = json.loads(SEED.read_text(encoding="utf-8"))
-    force_full = "--force-full" in sys.argv
+    force_full = "--force-full" in sys.argv and not no_fetch
 
     def key_of(cat, title):
         return cat + "|" + norm(title)
@@ -253,7 +259,16 @@ def build_online(wait=False):
     token = None
     creds = None
     token_at = 0.0
-    if missing or force_full:
+    if no_fetch:
+        # Credential-free rebuild: only cached/pre-resolved tracks are written, any
+        # seed song without one is skipped. Used when the seed grew via a tool that
+        # pre-resolves ids itself (import_gentofte.py) so no search is needed.
+        if missing:
+            print(f"--no-fetch: rebuilding from cache only, skipping {len(missing)} "
+                  "seed song(s) with no cached track.\n")
+        else:
+            print("--no-fetch: every seed song is cached, rebuilding songs.js.\n")
+    elif missing or force_full:
         print("Spotify credentials (from https://developer.spotify.com/dashboard):")
         client_id = os.environ.get("SPOTIFY_CLIENT_ID") or input("  Client ID: ").strip()
         client_secret = os.environ.get("SPOTIFY_CLIENT_SECRET") or getpass("  Client secret (hidden): ").strip()
@@ -304,9 +319,11 @@ def build_online(wait=False):
                 except RateLimited as rl:
                     limited = rl
                     break
-                time.sleep(0.6)  # gentle spacing between live calls to avoid re-tripping the rate limit
+                if token:
+                    time.sleep(0.6)  # gentle spacing between live calls to avoid re-tripping the rate limit
                 if not best:
-                    dropped.append(f"[{cat}] {e['artist']} - {e['title']} (no DK match)")
+                    why = "no DK match" if token else "not cached, --no-fetch"
+                    dropped.append(f"[{cat}] {e['artist']} - {e['title']} ({why})")
                     print("_", end="", flush=True)
                     continue
                 tid = best["id"]
@@ -439,8 +456,10 @@ if __name__ == "__main__":
     ap.add_argument("--offline-sample", action="store_true", help="build from verified*.json without Spotify credentials")
     ap.add_argument("--force-full", action="store_true", help="refetch every song, ignoring the deck.json cache")
     ap.add_argument("--wait", action="store_true", help="sleep out long Spotify cooldowns and resume automatically until done")
+    ap.add_argument("--no-fetch", action="store_true",
+                    help="rebuild songs.js from cached/pre-resolved tracks only, no credentials, skip the rest")
     args = ap.parse_args()
     if args.offline_sample:
         build_offline()
     else:
-        build_online(wait=args.wait)
+        build_online(wait=args.wait, no_fetch=args.no_fetch)
