@@ -39,6 +39,16 @@ checking PROTOCOL.md first.
   It is deliberately FIRST in the seed's `songs` object: a track that also sat in another
   category (two Rasmus Seebach songs in `danish`) moves to Gentofte and its old seed line is
   deleted, since `validate_seed.py` rejects a repeated song and a card has one category.
+- `mgp` ("MGP (Børn)", DR's children's Melodi Grand Prix) and `eurovision` (1990 to 2026) are
+  hand-curated, unlike `gentofte`, and their seed `year` is the CONTEST year, never the
+  Spotify release year: the recording usually sits on a much later compilation, so
+  `audit_deck.py` will not flag it (it only flags a release EARLIER than the seed year).
+  They sit LAST in the seed's `songs` object on purpose, the opposite of `gentofte`: an
+  existing category wins any duplicate, which is why the Danish Eurovision winners
+  ("Fly on the Wings of Love", "Only Teardrops") stay in `danish` and other Danish entries
+  (Rasmussen, Basim, Brinck, Reiley, Saba, Rollo & King) carry the Eurovision category.
+  Spotify credits many MGP tracks as "MGP, <act>", so `audit_deck.py` reports
+  ARTIST_WORD_ONLY for them; the seed keeps the real act name, which is what the card shows.
 - `python tools/build_deck.py --no-fetch` rebuilds `songs.js` from cache with no credentials
   and no API calls, skipping (and listing) seed songs with no cached track. 33 old seed
   entries have never resolved on Spotify DK, so a plain `build_deck.py` run always prompts
