@@ -71,6 +71,18 @@
       "label": "Musik i Gentofte",
       "emoji": "🎡",
       "color": "#2fbf9f"
+    },
+    {
+      "key": "mgp",
+      "label": "MGP (Børn)",
+      "emoji": "🎈",
+      "color": "#b8e02f"
+    },
+    {
+      "key": "eurovision",
+      "label": "Eurovision",
+      "emoji": "✨",
+      "color": "#4f7cff"
     }
   ],
   "songs": [
@@ -3582,6 +3594,15 @@
       "cat": "banger",
       "url": "https://open.spotify.com/track/0INaMqjJJe1BZpnWuCxDzt",
       "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaUlEQVR4nM1WQWoEMQxTQu/yD+b/z5ofyC9QUXZPLaUtXmh9GHAYhGzJTpbxMXp/OgL+7mytVWt1dTVOghkebViXLhAnwZDzKiw2Gl0nwQTv7Xy9DHehfsvlqzNV9yXqu/9+ws+owg2odRJM8JYXIsQzGuA9wYMTskH4mewB3k6xi12Ey9VJ94wfbBGCBFNDfm/ouKQJN7VimnvGj6IlpYcioBm/FIso/EAEx3iCTNoSSQkc4sGA4hYBlDzFc0qNyGHH1L9HeEQEsdK5Rxv3AG/jZmldC4hvmNnbM34GqVwjlCKKhvrSjhqB5Qv65zBjVgwjh8b84hmEHg69l/gvDczH8fQe4TnjmzqZUZ76Bakz1R4/n1Zqvp8RUTK/h+Ke8UOUyGbJXojKe4THdDD2y7Y6quwZHrKtjhDZMOP76ETrQl+UevweSlRVE3efNxHm/dNpXVb1fH5xbo/cQ5nfOGb23vh09K/eu+/N2hhk/nh8+wAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "5nfuJTtfsQbA4r7xUb3bqp",
+      "title": "The Ketchup Song (Aserejé)",
+      "artist": "Las Ketchup",
+      "year": 2002,
+      "cat": "banger",
+      "url": "https://open.spotify.com/track/5nfuJTtfsQbA4r7xUb3bqp",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABW0lEQVR4nM1WwWkEQQyTl/vLHVz/ZW0HcgUKmguBJL84kAzHLF44YVuy1mV8PXN9ewX83buq6gbQVXUC7PBoY7p7DJ0AG7wHUISAJthMgH0PnqBUkH7w38/nce6b5RL7VziywPEABSXABq9cAD/CAXhv8OAcmAIZem3t8AhBTp2yKXGFdwGk2ZOaqwfPLR8hotM3Ajf63upFaIWSEdVRNnb9A0Xo/SGs+6fBbYKBCrzW8/EcNzTtkLHEg0lJfv1S9FZ/ByW6PhVzjUdCdMSM0LzkA47wMh9mbmJfr84IH28x1/lZRipOetaeDzBKjimQcq5rmZ9gHWM5fdziBUjhl6fyvf/ZMZeYKSOYLV7OkXKEnTy15AP5fsT9mPFY49HmCzXrQR7XAu+KO0Mtxqjn7ArXLj+EDDiOkKnb5ffaD+BJdqjM3Oz7J58tQUc02vPL13TEs5Z6rn++774BB0wOiTD5VdcAAAAASUVORK5CYII="
     },
     {
       "id": "5YoITs1m0q8UOQ4AW7N5ga",
@@ -8317,6 +8338,1131 @@
         "type": "movie",
         "name": "Black Panther: Wakanda Forever"
       }
+    },
+    {
+      "id": "02av1IIzRXdjDnU5msGN11",
+      "title": "Sort Sort Snak",
+      "artist": "FemininuM",
+      "year": 2000,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/02av1IIzRXdjDnU5msGN11",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYklEQVR4nM1WUYrdQAyTw/uXb5D7Hys3kE+gommhsI9ll7rQTsKQMUHItuxxGR/XXG8m4N/ZqqobQFfXOWCHRxuD7vHgHLDkXA3NM2yic8AG73X2hsX6Ay6f2IRiifzqv2/ZLFAJ3kA5YINXLoC/tQfw2eDBWRAFMum1tcMjBDl+yqbEFd4F8DZ74nP14N7rRQUliISmda/wYIuyEsPj89JfOCEkDCYnDv6140fLIK2EUNri6UQuCTZDdq0XS0cy2dNhtORnQCEYUTN+Xys8E2Kya0Y03uY3MKkLU8nJmh+sSDC9BTT3/BzI4CifWPM7YtEvp8Udvxc8aOEW+mkNhsv6FU+dyWTev6BnAzzN9BTcWn9OG80jHB1q21+QFh2SKY81Hu14m0su/LDVHxFSJ3aH6o7fT9tdpVSxJW/nobOkAaerp4V9/JTKOB1/W78XpiqXZAMPHmaW2c0bb6b/at79AbrGERuTJNdIAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "7zfcHz8oQ4Qu2BeMT9YcEF",
+      "title": "Du Har Brug For Mig",
+      "artist": "Sisse Søby",
+      "year": 2001,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/7zfcHz8oQ4Qu2BeMT9YcEF",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABY0lEQVR4nM1WsW3EQAyjjO+pDbz/WN6AmkABL0GKJFVYJH4XvgOeoEhKd7X4+sz1bQv4u72q6gbQVXUWyPC4LrkbhN4XV8a5Gs88A7HbC+QaNG6p9Kv//rSne1gL5XhY7nK1Oup5oQSvtgB+Lgfgk/HzA/GD3e5G/C50TblYzAg9k+UPuzyiLSwgxEy/l90tfxHEg9Yd8pNWC2u4IqSMH1wn1+wkSAjzghX9WsRdwUm8ArwXMA0UNU2ADaX9AVnC9xdgxs8Fgjq5EcQcjzbC7noMMveD5AFbHmeQ8tuVaz0kQYb+4owqQG65dZxTvKOZZ6m748h5RXjrOLvg47L75Irw5LgIp4dP0Ur9XcImm5yLVz6fKf8W1jGdz+dKgLmnW3APIz/f4GazJY6g8vvBYuizbcqZuTI8+C6Ehm6uxOw8en1UPWhOjwfD5PrJs490FsP5cmGqcBMNPIOdzvSrf37ffQO64RPC+Jn1YgAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "007DdM5O0J7rubS3toIkOu",
+      "title": "Du Kan Sige Ja-Ja",
+      "artist": "Three In One",
+      "year": 2001,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/007DdM5O0J7rubS3toIkOu",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYElEQVR4nM1WXUoGQQxLF9/TG+z9j7U3SE9QySgIig8SQQu738zAhvQnma8Wn2OuL0fA351VVReArqqzQYbHXbC7h9DZIMF7AYp4gCbY9AYhHoDGivXTb69vz8RhafkreCtQHMAEVxlebQH8mD2AT4KHdUAUsG7vrrJ8u6YEAZxVz2Tzh11yRS08fn6UzUtxzqTQgOhN+UmQ5BquCCmrH+wvThjUag2skB/dYPpNc8zwrLc3K5gmtkCF+r1HnuszgcXnzvThfE9j3RCIiOtHSljK5QO9unJ+lNYdkYf7ivB2Tc2Kc5cZ8ntBPygNtjXr9ab3W9+6hRncZVeI/QDiUYYHRv65IjwZSNCe1uR6I4+E6SWOiq8Iz2GGtkAel7kiPLyTMzcy50cLg7Qxy6mn/ThgR2wOIr2PHLct/2jtif2eR2VvcjvpK6+fPNC+6pTq98JU4R40OLCbZv5c//z/7ivVlgYuvhCY5wAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "1XzQ2R3g7rufuk6e7DtENc",
+      "title": "Drømmeland",
+      "artist": "Krate",
+      "year": 2001,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/1XzQ2R3g7rufuk6e7DtENc",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbUlEQVR4nM1WQYokMQyTi77LP6j/P6t+IL9Ag9Kwh232MHhgJwUJDoWwLdlxGX+vuT6ugP93V1XdALq6joEdHp2Qu+HR27h2PlfjmWfQRMfABu919gbF8nzbl3/gCWAJ9/vu+vwN37izQNwDxD1rh1cugH/MAfhs8OAsmAIcem3t4u2a0sngWD2z1R94Gz3EoHqw1MsF4KmwQQIPeskHkjkJNmQQ0i5/RyB0uJBjmCu8V8TMfCG4pPKqX+GomXDO+MldvC/cylmiS3Nq5Nr55zQD+BBDLvUMk6EXspnKW+OZDKkyRcVRLf1zYtZxMsA7vQTBgE7YdFC1w0NoSD9w9uBeKzwfn07qfiDe8uBWVMeiOtUyWz5MkAQjGKz7QVaiDC+MDrWfDybduUt5g9f9L/Ge2sh4kOPa4YGUw27mjm19XGe/K8gdPXv9HmWpn7wemV70A/lTavgtnGW/x0laqiPP0umDy/r4uPpV8+4X/eD7K7llYkAAAAAASUVORK5CYII="
+    },
+    {
+      "id": "5npbo9CZXQgBYiC0n2sBxS",
+      "title": "Kickflipper",
+      "artist": "Razz",
+      "year": 2002,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/5npbo9CZXQgBYiC0n2sBxS",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYElEQVR4nM2WzWkFMRCDZbN3TQfbf1nbgVyBguwQQnKchcTweGsfPjT/M4yfZ81fT8DfvY0xCmPVKuBcZotHGwUquMoFHd4FDGKp4DXgGnzFBwVUeWt8g2c+CxzQGzxvih6I5zIbvOEB8Ou6AD4dHpwTabTJXNTjMZwYKgMU2jzZcZtA0QHPBm/iiRNRKIOouHK29CEm5kcjFrNpL5xYSLK5I6KuPpuwFWkyuvrIILfFBtmPL2NxxCVrXvAfGAgUsug2j7HTqRCZautT8i4y0xTU5zEFt8GpXrxQb6S2+8wI7PGuWIn0rKUFFaHu/CiXwBLu9JfVrV8mmRNf7TbY9h9Oxjh/hz9bvByeGcKEpMc780NDAGslb9TaX65YWXDhyfDVaPdT7j4lnW4P9ew9b8R9P4U6A3028xnJwUGV7j2KZ0+fheXsQU7C3L36OPFdxIKxFxg24/tt4f38/E/77gczbPNEifoYlAAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "44ICT4mAEdm0d0oOYgl79U",
+      "title": "Du Er Ikke Som De Andre Pi'r",
+      "artist": "Morten Fillipsen",
+      "year": 2002,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/44ICT4mAEdm0d0oOYgl79U",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABX0lEQVR4nMVWwW3EMAyjgv6pDW7/sbwBPQELOm0fvb6qA86vWEAIUaSYlPH77OupBLyvVlW9AXRVnQtmeLTBwoblzgUTvA+giFJDu6UuvmIGbCw0+z/v/lnT7uZWvwLPwm54gTwXTPDKBfDnugGuCR6cQ5m0eC6a4RGgCSuYedZwfqQ2hO6w1VAPWCKULTZ5N3qN8HBmBokK7pAvbIYxwVCVNNdDCmJaTKec4tlnimGeJsf67m2h4YQWepgHcNaDRwsSIqd8b6ccWWQIU7wsiDM3mlLW7hrgXeht93oQq+5AwFAPVS+sjccprKkeoen4JctBj/XgsXQUyRSn+3FF4eWH1DjJ2nO+JwKj8l3QC/LZOpjJqxf4+WxtzMxAas6Xh7LAbJ+GelRjb4iL3JXAv2b9gYSzuSex5v0hNtlqo1Hx4DXrz9+Rmj+suR64AzDOAcffj48vF/9gv/Xf9vl8AjFv/RHnqddkAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "2yH3aQjTJ3OV2TRipKqLMG",
+      "title": "Du Er Den, Som Jeg Vil Ha'",
+      "artist": "Emma",
+      "year": 2002,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/2yH3aQjTJ3OV2TRipKqLMG",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABa0lEQVR4nMVWW2oEMQxTwv7LN+j9jzU3kE+gorSF0gfd4oXNMA+HQci2omQZX0fvb1PA8+bWWtWrq6txAkzwYNoEbNhkAg05rwJR5V6XEmCCdzvPBlDN/3P5Zc7sBvvlr//u4mcUWsALVCfYP/y375xbXsBHoidxXrP+ZsAEz21bc70QsBRAYYpnhZ8gUDQ409/Bg1JB8+Q95QfRTr60rHzsER5tyEr5UkmN+SVj2iIVtGn9SFNSGutIcZyvgolYC3Qy3iM8iCAEiXkN/QopWEhFMgrZGd4NcYEGKpalK2t5j/iBdNJNg7Pi5usj2aZwppV4z/hZOjLJFY4a6gU+HTlSoYbr44bUbhFXSSs98bgfQMpnMGeFof5uCMhybB9F1eKUH44r49hgdnTN9kse9yujWFD3VM/HCt5IxqWHfrU/UH0VBfEh5w2UloX3E8ee8bPQV6CybTb1gP4iULHnGOAD9PcJ2888234frzDVCp2rHUXWAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "2iJKaeALUQl94eRbGbeUUS",
+      "title": "Arabiens Drøm",
+      "artist": "Anne Gadegaard",
+      "year": 2003,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/2iJKaeALUQl94eRbGbeUUS",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABX0lEQVR4nM1WUaocMQyTw/7L97/d3kA5gYo8S6F9P6V+0IZhFgdWKGNJThm/r3u+bAH/bq+qGnX79sVTnAUeTJuADZpMoQ3eCygCavgW3CnOAu88Pw10W/03//1lveZtFMjwS3XwdZ0/37PCT28ELsVZ4JUL4M/yAnzv+psFc9o7hfZ6YU4d3VBY4yn8BIGiwZ3+YGieYQpyye8F4RoXvq3rG8GcFT9Kw1LTGGrHL3uUi0T3LQnrPMjHM4R0hV7yQ8JFJCZa8B39BUEI+iCv8XJgWhGzqSXeiZSbd6zbea31Qs+Zn2bsv59FPvYAFRVq7TenEUr0gft8QfT3iRlq7w/D6H7HubqZJGfFD49iZmA+fjkrfkbmmqqAplnfcT9QIRmY01JLPM5J25lx0L1rPUfCH7elJVs9T7TEwOnH4J71/QBEWX2fQXx2/DyRH/N6SGqbf+A8Y7ttPtd/ft/9ATDB/pGWuMKWAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "6cR8kyqFFzCHVAVlZNk5Px",
+      "title": "Jeg Tror Det Kaldes Kærlighed",
+      "artist": "Shout",
+      "year": 2003,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/6cR8kyqFFzCHVAVlZNk5Px",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZklEQVR4nMVWQYrkQAyTQ9/lH/T/n9U/UL1Ai5weBqbZw+KFMVSSCkTYJVlOGT/jXB+vgN97V1V9gNxrNtjh0QYODin3bK4F3gMo4nkIVcNdXONNKCWj/+nb6+94KhCgeosH0yYIKw9Z2uCVC0ntHQfga5df4k5N90bLegE69QYzz1pqnBQgdJ1z83wt8MoHaKMAN477eNW/SJ22IFGa4rXEAxnBUISk/8CHpSwOvcv8rlwaPmgB1ZDWHnY0ieZy8Nz2G5TTE4YMwXs+5JhgGAn4Fs90iEhiHFK05teDm/adbrl2+Tn6c46POc1t/3aHhUK9DLW5m0cPTNMePn27fW37l/YQTI0M93xwXIBvK1yeH97+rMEM9LZ/80ugwpHxQoO7/v2abxSi5ghQWz0zxjdwmcQ7vPc8f2aAwOVo5lrj8ZUhcholaq8/WmM0GZjLeYl4QbSCsS1oqb/H7cvf2L/6b/sZfwBm0/mGqirCsgAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "4DrugxES3GWUDxKIRfL82R",
+      "title": "Vi Gi'r Den Op",
+      "artist": "B-Boys",
+      "year": 2003,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/4DrugxES3GWUDxKIRfL82R",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABWUlEQVR4nMWWwY3lMAxDaePf6Q6m/7J+B1QFXNA/O4edIxcYAwkiHx6kkJK9jH/X7B9bwO/trbXOrDlzgBug49HGARXcSYAy53VAnONZowTo/8EIOPgrza555nvA9R94LyC/74zwJSbHTo/lBfA7HIDvhgdnwQRl3kAdjzZJWL5Q1DzRtCBANGoeJMTFyZROorvgvT7MBc/R0oo2u8qPqTVZWgZp9vXaDNV50PKYPjMirMW8dscjRNxKKYF1vSBJQQo5/tkdj9HByVHXjOp4iqpxMwBBfb1k1ICDYjLdFY+Oh5+RoNhwdzw9bv60XZ8fY0FmVkXlfr7A18fBRuR6vsQoqTUmvPXvipeV7r2+vqLsLj/cqfwxc5Dq7wfwuqccNFPPPzzdK+ecUz+v4pX0xqdPOt6ztzB8z9wDDiXPwngyAjGYL6HXF7eF89n27+v7VvWwf/Vu+3P9ATgWCBV1BKaGAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "1IcRQohZ5fwxlGHeQRVcW2",
+      "title": "Ta' Mig Som Jeg Er",
+      "artist": "Tue",
+      "year": 2003,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/1IcRQohZ5fwxlGHeQRVcW2",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbklEQVR4nM1WwY0cMQyjjP1THWz/ZU0HVAUM6L1XLp9AByTGPNYGlqBEmnIZv685346Af3dWVV01PT24G+zwaAMCerr7bs6OczWABolHd3N2eAAMAmME+SfwmvMMKmUv8V4h1xqBmGY22OCVCyn2aw3AZ4MHZ0kQbX42Z4VHATQNWTDBJZ4VNEUL0eCO34njCtN6+6o7Oz1Sr2zCvEUb6/7ZuRtBzQ/t9QiQKFhWWnlWeDARLCk0o8/Z8TMSKqRIWNz6Bdd+t30M7NYvolUPMdUpfZkHSP94AxVQdNnV+wrSA7xFoMXmnp8hUIQSDEv/lYu6MTURZt7Qal7CMYoiSnx4jX0WeC/gaZc0GHjK5SU/ZFwqXbxJuPZzVm5ZXH0/7eqtzI8y8BTYkeas+NEhFcMw+bzMvxdQmZRCPhSfNb9ocJtHRZi1X3JxS+VpEO8feR+M+hP69Tf/PX84++TfHZaZv3m9Le/vt6P/6r37C3nj/qgD+YQRAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "2cfCysaHgOWsTqTjU9ZK8J",
+      "title": "Pigen Er Min",
+      "artist": "Cool Kids",
+      "year": 2004,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/2cfCysaHgOWsTqTjU9ZK8J",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZ0lEQVR4nM1Wy23FMAyjjHenN8j+Y2UDagIWdF6Boj2qQKtTlANhiR+7jO/V68cv4O/+VdXu6o3dOA1meLRxgSoQOw0meC+gCGDDVfBOs0bnS/VBpE6DOZ7VDfb+FTwLuKAb8j7NGuCVC8gCn2qA9wQPTsEMzzyNZvNuYLPad+S3u2bzwhRNC0K+wNn5gicoGzRIElM8yJZg0Qq7HOLJhijpEENN8RConDFUny2uER7fK4Q/Z14DvBeg8gYuNgsuYqTnhQYLUN/xSYfoNcCDRZl0JKOIcbo/m4QSVQw5YzxSuZN0yCDmeEq+6Bgvuh77LeaNkC3FcnP/Rn8nqyhm7jXD8+ParFGMkdcID2dWhObgeq6X5HMoJpmc1vz+UPnYJO7Q8P1CG+2dx4GQexPTfGFiXiftEUrW6HynqOu+sJ/gXxjl1VPNO9c6NqfzOpLOGqPD+f2GBAtPWmV943z+8uB9f/6n9+4HW1sJU18EKFoAAAAASUVORK5CYII="
+    },
+    {
+      "id": "4QBnifCecz2TvI6eiDDKDo",
+      "title": "Helt Speciel",
+      "artist": "Cozy",
+      "year": 2004,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/4QBnifCecz2TvI6eiDDKDo",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXklEQVR4nM2WwW3gQAwDZ437Ux24/7LcAbcCHbjOK8E9AgXI6WFYC5iQKHLl1XyOfX05gt87W2tVAWvVOgkzPHWzq0rCJ2GC9weW6OUSUEkY4gHl21q9v/ft9c+zR1vL1I/gtRHasOUkTPBWLwh1b2zQM8GjE7QyWymJZ3jCuNOnu2VrhHeB7qZ2el61uT3Xy8IviU+Va8gfxqYbN7Ln/EnqKMb9AnumF1b0V2mZekCj+2r15s6LdwmvLo/waLWdVttuY035c5NeMxAsxngdQbci5ohmPF8r/rBb6VVM8dJxVGf6sDnz29EzwoqWI8R5fQrOO2ml7WuE1w5veeaGgSmeY7cP94bBuX9bSFFeBOOx/vpDys4VHelcIzwgxR0xS/P6FGOkwrNC5vMQp6ggpdShP67zvLPJU56t6f/QCddGz1lIs3308hfz+rz8gH9Bx2mRSnbJdH98jv/qf/cvh3kMN+xCXUYAAAAASUVORK5CYII="
+    },
+    {
+      "id": "5d90wntOGoTsmivMzjCGNu",
+      "title": "Tænker På Et Kram",
+      "artist": "Amalie & Frederikke",
+      "year": 2004,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/5d90wntOGoTsmivMzjCGNu",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABV0lEQVR4nM1WQW4FIRRC8/d4g97/WHMDPAENr+mmXfKT1oWOsyA84aHL+Dnu/vUL+Lt/a62Ddc89wNdmF3gwbQLOamajBu8FLAI40D3wyWYXeHtmCjhHSskd3mtmLYAIvxZvA1bA9FD+2uwCb3mofY8L8On0zYAIKuraVu8XptCUS6HFs2haUBjOCe6Onwyni0OTZM/PETU0FaVbvJCTleMzwbLfEDBzjpGyrBaPoSQpTKNKrQcRamGHfPX1MiDQIEfvXeGJQbKIQIbnLvBe+EhKPZPO079dHiSYxychypDs/Sdqip5W0Rv8HGFjvbiv7g+OT75jJnXvDg8TMVOxRvBd4cFguiNL4qD1X0byL9cco7T6+0PxHc/zkbvu9nnvaZCk1RvyGdO9iB6hV+dVji22yRJF9IY3F8/lc2/UaPt3nlTOvTEi9/cH8j6YtBo3d3jrn793PwEbdxrA1fKSqwAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "4XGwSn4qvaAiAdkFkijceq",
+      "title": "Buster Buster",
+      "artist": "G=Beat",
+      "year": 2004,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/4XGwSn4qvaAiAdkFkijceq",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXklEQVR4nM1WyW0DQQyjFv5THbj/srYDqgIGHAd5JHlFAZJ57HoGMJc6SE0Zn9dcX46Avzurqi4AXVVngx0enZC7x8Rrcy3wHkARKjUb6Gywz0GD0vzsv9+dCcOS/Ct4FqjnANVngw1euQB+bAfgvcGDs+CQzMu2dvF2TelwG6Nndv0Hk7SZWhiEuOMXEAGSyVNgcYX3gPBUSjLidKBnG6+oQ1Nh6x0/OBmzfJ7ILy3xQJqnYUhiXQ+mDA4zJeg1npiiIj1DpXm01AelsPTxvyjlWvIjHK0xyMSan4OpkFQKs+2XJDBlTV2s39AbZUQY5809P72KEhc0sdZHjE8xhKQyMV8rPNKINA6584Fr789K9l5Md3jv82OY0ZFBcnN5f2GuBMT98tXptd+fhkn+srb6uM7ziTsaZjxmex86a3oyfKsH2sbrM93iCzHApX4vTBWeUAN31Nc7fvXP77tvKfYRoocsXFgAAAAASUVORK5CYII="
+    },
+    {
+      "id": "15AnLLGxQIt7WKBcH4aSvW",
+      "title": "Du Må Forstå",
+      "artist": "Twiz",
+      "year": 2005,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/15AnLLGxQIt7WKBcH4aSvW",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYklEQVR4nMVWQWoEMQyTw96VH+z/nzU/kF+gosxSaHv0QENgJjkIR7Jll/F79fpzBfzfXVXtBrBr1zlghkcbLHRb3jlggvcCitjacG94F5/goIELG9mPcEr23oT1BJ6FLvlCUieQa4BXLoDfxwZ4TfDgLJqkPgfN8AjQ4c7m+deQP1INYVc3EEXWKD7o7ESaV2MW3wtGuSsBXi3UOD4TNAyKd6gav9ciFXmVWtZQX5qyBMNiQNcAbwFqIV7Qir5DP4BTHoSgpJ8S7BriKaQlryPHmD8l5+yk3xFmqq+TLgcHH5HXAO+VbN6MQb9zfkAPUYkQzldjPZitsBd78bg+eEouHphAp/wh9XE6yHFBTP1l4a60C6mRQM/6+d0/rvyyFIk1ml9whDgdiYrOc3/BrStjVklADeeNrHvkIPJ6PDAfXKWdVl5+C3P+7FPIMZmxH+AYYCi8rWve335gD+e/p+++APrJ/PwWejZwAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "79juiSsPXJpEItDXol1Nlx",
+      "title": "Fest Her",
+      "artist": "Lucas",
+      "year": 2005,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/79juiSsPXJpEItDXol1Nlx",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABX0lEQVR4nMVWQWoEMQyTh73LP9j/Pys/UF6gogyF0vZSPNDszm4SGCFblpMyvo99/dgC/m+vqjqzqqp7cY3waGMXNil2FpjgvYAi3mioWuziGC8SQBtA3+JcYzxiNwH97d3r9z0LG/CieRaY4JUr9D7HBrhm/GwLSzgpPItrgIcESSdQOURpzfBMWpQjByFyiqegZAZGkim/fEJOlDKZ4h1SIigFzNN4ISuPACrR6wF+lsItaozjDblUSxChcb0guYMiSP7G+RNSyHIUcWpQQ36MJA4xnxLUsJ6RHDLGzTPmx5BKUR+dI841woPOoREl0l3G/uX5BowReu43x2QBTFdIEV7T86PBxu4cH+9hv4czbm481pvl774frMKSscN03O8dUowxTuOf68tTf4x/gWG/ep3fLWC1WO5H7lxEqY1GrfcT+YtvHa/FyBr6DefYxWlbD9TzlwtvpsP739N7HzOLB5LcWslpAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "6i6JX14aDPion37jH9URM1",
+      "title": "Supermand",
+      "artist": "L.B.S.",
+      "year": 2005,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/6i6JX14aDPion37jH9URM1",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZklEQVR4nMVWUWpDMQyTQ//lG7z7H+vdQDmBhvIGg419DBcWaJsEKmRLtlPG97XXjyvg/+6qqrPrqnoOa4RHG7uws+kcMMF7AUVcaGgX3MUxXiSANpr33/67fsWjCsTdHOMtwMJu+eblc8AEr1zAQytrA7xneIhX1IAKHvsZJsATqByitGZ4pi3KgMB8NOQnIS6GSZpDfi+A5R1yfbciCGb8QPLk7gnZb4hXRw5C9hvyR1NOEuXnaw3wFqAd98E7PWZf4/wlgRQUJyrbNeOHW8G9CnKnxawRPzJCRFgfUcb1ATk+CWTkneqbEmMKjmBOU34QxbS940TP/ezURX5Cc+o/xMz2aTNpV3H0muHxseDpgrnQUF8/9A5oRNG0PpCsHdekUsbxhlsKjtIJXcN6q/6caxd3Qe+Y5yBa12643/U+UGcSl1ujefmKIi2oIwcw5YejLxgrZ4ZoWB+v503whf2vb9uf6wMKqfmdEy3gUwAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "3aSvF2hBDWNEv9Mu2vnuoN",
+      "title": "Tro På Os To",
+      "artist": "SEB",
+      "year": 2006,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/3aSvF2hBDWNEv9Mu2vnuoN",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZUlEQVR4nMWWXWoEMQyDlbDvyg32/seaGygnUJEDpXT3pfXA5mkcmI/4R7aH8fvs+XIFfO5ujLH22AsLKAMdHkybkA3bjKEO7wEMgovwALwGb4mBhAXqX/++uRP3BneFsMd7AMbC2sITPMZs8EbCxm9zA7x6+c2BCIrHUL9eSFhyoGjzqvYEJS0GevWXdwWUL5DOQ2eLZ8kKl0aaQ5cXCKmEz05W1OVJNi3E1xBni8e0AElFRpyfTR7SYE5rsdj2FyQpyCSU+pk9HitopRCz+74HqAVsjhLv/su/8+37TDriSOjc1sfwxuIFgAsaWu7Nt+TDVsr46IQ39IPKbcZRvL2lv5TOUoX9fgXWODp5KSnPFi+nEpu6rpY62/uBRoSL6wzN2eKxwreYKQft3a1npi1DpbYaxbphP/CT11pA1gTcwBvY1L6S6ra/p5+yBkg0rK7ekBCmcmox6vEeBfzB/uhu+3q+AMwSB97TWgpRAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "1zpXuDCRTgLrH8i7H37f9c",
+      "title": "Mit Hood",
+      "artist": "FOZ'N'S",
+      "year": 2006,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/1zpXuDCRTgLrH8i7H37f9c",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZ0lEQVR4nMWWwY3lQAhEC+vfiwycf1idQREBo8J72N25DZYGWbbbkp9oCmii8b/V9e0T8HvfIiIrKiuBWWDHYzduUcalF9jwPkAQlURXSBl8JQYSMn/47z/2mXtngd7vG7xGogTcxWdxLXjRgXHtsQJ4Njy0DWrrTHqhHY/mEC01QGHLa3WzBQFiY82DDJ23ZvMFntpIO+cdc8WLDjHQIXDS77DWemhkRdOa7PwzZNLFwjZG6GvHg3GOm8Xdxg8N0RCoSegFHqc4TFVTy/h97F7iTOn6tux/aNAxtA4u3xfqo+2TvFdKWvaDcCbb7gNk163deTn552vazLir5fmREAInC9Cocq38w5Mx7aQB2Nv8m/48DQt0v9rxnvmgwwLjIN2hr5V/7GkJTr/Z8VqPSM8IdR+PCNB2frHZtZOy0vnSzBVUHdfdNl8mfnKH8Tns57XiwfPBlMafQ27Zr/4aeB/gL8623+0LDQ/51fTrCbQAAAAASUVORK5CYII="
+    },
+    {
+      "id": "0EigE0hsoD5V4HjTsUhNQm",
+      "title": "Få Din Boogie På",
+      "artist": "WeMix",
+      "year": 2006,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/0EigE0hsoD5V4HjTsUhNQm",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABWklEQVR4nM1WwW3EMAyjgvvTG2T/sbIBPQEL+tBP++QBrZEAlh+ESFGyx/i59vXrCPi7s5lZe2H27H0CdHi0cWu0EiZAg/cChniG4MNxApR4WR48BM8ePd4yiPFnamRBwdJ6ToAGbzz45hnvAXwaPPgsiYBSXlsdHkkq0hmmqRZPhAyaNpVQJV86CloWCaPFk/MFTuFe6yeZUnAsQSXfKyYRuDcwN4i789+pL6Jg2L43V62fwpUwA6sOD/GJZOSPoVX6BelZOsgnXZV4MsjTJuFe62dAx3aEPqGfAxLI9EiqrLa+UHrujOekqc7PN3ivDCtvC1POZyShk+KZf/jA/MNbOMWLYa1+PlOxzNuFHd4rivGBMdDC4mrvtzwJuDDcIITyfkP0i5NphTFqPxPnPkqrneHfz1Ngje4Ne7BL/XDuNdsRLm1S8r2wZ7D2OtMKK1/33vh19K/eu18eEROd8HjUvgAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "6ipvfvqCowvWUCtwtZtpmP",
+      "title": "Bang Bang",
+      "artist": "MAMS",
+      "year": 2006,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/6ipvfvqCowvWUCtwtZtpmP",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nM1W223EMAyjgvunN+j+Y2UDagIWdK7Atf0pqgCtf84RcARNUY8yvp4+voWAv4tV1cptVdX1cYzwaKMbncvKByZ4D6CIBUJV8CrepMEJBPdX//0Wo3otNvUS+3yOn8cs9Bt8InDWDK9ceejHaYDnBA/OoU06GbatGR4BmrBk7ruG/EiLMqC4BhziQULQYPAiegzwHgDL3RCWgNVDv8AAKRF5siKipnhWVNPOi8f6kU9Iy6Ln+p0d/UK00c079ItPtv2EG/RDRIuvkxFO8QKUKjPNOPqGejOVItkNZs5P4bWrd1twyi8VF8AtXYhq+l4zKqZtpVOP9aOV1hdbh+gYLyMS5O6CY34HMjSSXHSBxprN82t+nMASaw8S9fi9pHdjTjuY9xdc5buLY6fkGOA9rh+6lOXAtXjHftCtlZyUrRv2AxHLjVPO7nYM8B7bJtmqKgmOe4Z4Lwvv8/qf9t13RFn3pwn0WAcAAAAASUVORK5CYII="
+    },
+    {
+      "id": "4XjEq8Q8qdVtmqPhMarJrT",
+      "title": "Til Solen Står Op",
+      "artist": "Amalie Høegh",
+      "year": 2007,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/4XjEq8Q8qdVtmqPhMarJrT",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaUlEQVR4nMVWQYocQQyTi7mrfpD/P2t+IL9AQe4whyw5BC9s0dBdBS1kW1a5jL9Xny9HwM+dVdVF9e3beDZngQfTJuW8zWy0wXsBRfQlVIBvcRfv6/N14f6/f88/8YwCWfB31MgCCnpDfjZngVcugJ9tA3zv6psVatSU2NY36AWwbIDCDu8AfQNSqCvqLvUCQ4STQcMkl/xeg9kN93UrwsYOz/0uuhoCH02fBR6iuXSuBUq0dv2bnJkyUhOD1lovIQiReQzu+B20WJfodzyhU+iz4qdhJRGQ13rGozrFBwBN3GeF5zRuuKW4U5Gz4yfTQzORa19fSo+9JHd7fhwbfa6jZHDPz0pvjKjHuM4KDxNrNE0BaZaz92fPTZTWw7Y/MhKMvRiNG5JnhUcb7V/EpaBe+xVjAcmcco1g71dI2shILwVezy/PagrjLut4p4MVPY8drPWX+WBu4LGtZf++/sxAH+wfnW2/rt814xJOdYV9DAAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "7w6NHMM8AvUBajGmO8kUJI",
+      "title": "Party",
+      "artist": "Mathias",
+      "year": 2007,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/7w6NHMM8AvUBajGmO8kUJI",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABc0lEQVR4nM2WQW4lMQhEn1t/Dzfo+x+rb1CcgKiIZpPJLL4YKaGllm3JJaCgzGm+Wl1/HcHPnZ1zspJTp2o27PCimyBFR86GDd4LTlCQ6I7ZsMQDggfiud+7e/0Tr55bWf3s8ejoDqJDig5vtME7fRzuHyuHfa38GyNCSLPWrl6yKk87g3DqvbvfWCtQO4GtENv8XQS6T0O5CJVn718LGmkKcZk/WiKGCSGQdvHS6mh7FUOyv2uFF+FoXTdThtrF++LJrmqKpMl37l7fnt2dyTHNyrTOsOwPmQTcup8toh0eaqyjMWLQrPlwb8SQIbOx7Y+StTnBREeibf6wc/Mp1vG+OK6SPoriVtG7923616ISMRyz1BcMNSo1ojBRXys8m8kws9Gs+xdMxJSeezm2eu+RIJ8qSmnvtnyYBjGlYl+X/faaf4bLWtnpQeZa4F3z17zBt44sMNd6PmivLM0mW/9hPlCicvcWvZpP/VJ+sV81734Ayl3+qP6Fs/cAAAAASUVORK5CYII="
+    },
+    {
+      "id": "2wx1ZA243XzMfpJYtDFoIi",
+      "title": "Charlotte",
+      "artist": "The Rollers",
+      "year": 2007,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/2wx1ZA243XzMfpJYtDFoIi",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaElEQVR4nMVWUWolMQyTw/7LN5j7H2tuIJ/ARX4tlO7ux8MDzc9MAhG2ZcmJxs9V568j4PfOIiIRlcjCa3NWeOxGgEoQ6Q02eH+AIHgnVCFlcI33ubL45t3zXzyFkqgH8A7QApi6CeZszgIvOoCvROEQeW/w0F5QD8+z0Q6P3aSzVhMUtngttssmwH8P4MHpTqRorvEoGtNhaqjWrv8EBaGCooONrX4zq4HL4g1Nx5xlvk0HiWHlgfrRdIjGVZO7+qEBGhIS4SjXeHSMPWhNrfltROJG2rJU1vJZ4B1UUoVUi+MwW35hUmEqLA7r5Sz9qhECbVV1AVrNS0xQw0g/4S/HbioF7iwPzDfv/rtfIKHtqNOL2vYLEG3bR1Kecmc9P+7sAmMGyY6P1/sAzAvpxGvvLyAl68ySg7b182J01+Wxfj3yPoALeZsLt8xZz0vN+PUH3Pqp08VM4LaKl/p49d837OX77+mzD4Jd6Gy9p6noAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "1YgtZikyYmUrENLhICIOpV",
+      "title": "Vi Breaker",
+      "artist": "Glitter",
+      "year": 2007,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/1YgtZikyYmUrENLhICIOpV",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABWUlEQVR4nM1WUWpDMQyTQ/+VG/T+x3o3UE6gIZfuY2NszIUt9KUv4SFkS3ZSxsdx1qct4O/2qmoXgJ2/LDDDoxPy3uDBY7FmnGvD5zoQsbPABO/W8z4W6xdcvti7WCxb3333I37GpnBwcO8FJnjlAvi+jCTXBA/OgCiQkdfWDI8Q1LmTTYkjvAXwbuxDgLU7h2vETzQImTSsRL5meKKM5NCgEvma4aHFAMXYxVN+idI0rWiSec34iUFzDBPjvMAvkvND6m2Mp6Su404mOcYzpajQbZCY68uAPiGJcf6cOku0LcnYz4hjgtuwmvNjOPabTHHsZ8VzXXaIdcb1+2gEXcNM0Jrq4fSqqNx9euw/x4JpCkJknuHdkPMjx8bZBPLgBfEytdH8MNWDbeJUW4MO87d6vp/aCD2J0/tQD+FKFoOqKZ4DBqooaQ/vB+gu1ccuchhN+1/98/vuG0HYEf8nMzMLAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "34urJbscFtw4S8jyT0Sw8S",
+      "title": "En For Alle, Alle For En",
+      "artist": "The Johanssons",
+      "year": 2008,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/34urJbscFtw4S8jyT0Sw8S",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABY0lEQVR4nM1WQWoEMQyTw97lH+z/nzU/kF/gIi/00O6l9UAbBgYHImxLkRONr6vOty3g7/YiIisqK4EJsMNjN1KU4dIBNngPIAgm0RVSBm/pgYBM/e7smz2xCkzkHXjt5KALoiY4C7zoAPgZFsBrg4f2gnp4pgPt8NhNumo1MRWfHZ662TLFYhv4LPCOmxZCIidNt/Ks8mu5gWixJYD7/hkUMmyjm8t6K1oJEmEVVmzrJZuQhEa7fTfUK9KfqQZ39aIBkhRkfmX9nB0ejdQiDCns8B4QE6hx5+z6ydnzNj+aEI0AzcwyPzT18qm5vRagdn6VKniAuNTUE6o79MexGbOx1p9vm7snC3HvV7BQZFCzstez14xd63pIOev5oegCY9xvx8frfVAdRLrwqvW8jARC8bz8RIC27xcv4snraf/b+v3j9aOCl9VsVZ/1vJRm9NpV1/MDLncm8FjX8n7EP3/vfgBxyvph1V4a3AAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "2yMLisoh7RHxw6K4VH8Txd",
+      "title": "Hola Chica",
+      "artist": "Sandra Monique",
+      "year": 2008,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/2yMLisoh7RHxw6K4VH8Txd",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaklEQVR4nM1W0a3cMAyjjPunNrj9x8oG9AQs6Dw8tNevVgFaB8jFQY6QaIpSGZ9rr99eAf/uXVU1avfujXuzBngwbUI2LTIbTfBeQBFsQgWxi09wsCU0+Ff//XW9zt29QWz02a2Pb/6cPwMSD4lD/sqF70SBDfCaxZcFGzw/tkfxrXDW7PK1wepdU/4sRnsQIBqc8XfwoDBomiRm+QZPFpAwcT+scXy0FLUI1hTvSC+IIHRkuEZ4hKkch+UocRofDRk41pLwpvHlcElBZhQzxlMSjvmByonM8BYYq7o2ciE2g2G+zIHcArxTXyM8hrjgJWFFj2uGRx8BKpo++l7T+HA7aSKc1u8CGu7q6/b6a+z3iOzCG2P7iXc94s9A2m+IXOP5QHun6NLgqCf6GyO/uMwDfgAyLpVSQypY837Oxvtqo/R+aObSpmoz6sGcP6V4I2jFqNcID5kPGBFGimlOM/5+Gni/Hv+nefcHZzELC0b4/OgAAAAASUVORK5CYII="
+    },
+    {
+      "id": "6SFcaHnijMOf0qPliAAvzQ",
+      "title": "Hey Hey",
+      "artist": "Zigi",
+      "year": 2008,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/6SFcaHnijMOf0qPliAAvzQ",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbUlEQVR4nMWWzU2GMQyDn1bcnQ2+/cd6N0gmCHILCMExSOTSpgfL+XGa1fy02r+e4P/e1lrBqqgorrNHeOpmoXwhwg4TvDdYggyyFh129ojfsYCIzutsRvyAjkJa3GLvAd6GSysfsuM4e4C3eoG+3AI9EzzaRgtlS3ZyFm9AKKof04tas3hppfkliVKNNOJHk+lwfWtJzOKlM7MNmfIVpvyyQWZ5C5MzvM2LbJbEigoqxvVQg8txmeY0f3IPKqV00PkH9ZWkxO1Mqsd4JqZMT62Ww94DvO32CxWeztSDZvPZubNG3MfyfZi/1QUvHqIDKiNVY/2mtWZxWL6z/J35HKC4afSU2TN+3X1ni1vHAtwjPNwoSbdVfOLfIzzbxx8inTm9x/tBl5vZVUb5B/tBKZpw4FXjepwe+ZQcw/nHxUOdPnKav7d7KFc/1P2I94xfWyJOo3crE90jPLwf6EzVU+Sp3r4tvKef/3O3/W3vqAb+xrGiTSwAAAAASUVORK5CYII="
+    },
+    {
+      "id": "2BunysBnCP5yBqXTGwzBlt",
+      "title": "Lige Meget Hvad",
+      "artist": "The Emilies",
+      "year": 2008,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/2BunysBnCP5yBqXTGwzBlt",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABWklEQVR4nM1WQY7cMAyjgrlTP5j/Pys/oF7Agu52D13sYaEAbS62DISwRIpWGX9/c305Av7dWVX11PT04ATY4MG0CTmrmUAbvBdQBNFQAe7iLt/X567h+dm/17d4wt1EwU9wZAHduin3Ca4FXrkAfoYD8N7xmw8yaCIcW3u9MFkrgMIa72hPECAaazyIcCpoGOQS74pGjIHVHs9w12/R3xQ9A1X0Mu9l/+JwagukJez69ze/MkJsxLznl1GfSIUMcHu/8EsKkV8Us8VTsqWDKlN8oj8ApXTSyfva4TE5n4ueS67xJErKJuvaDyAbp3inh5d4r5hfC+9A5iEZ7t83fdCcjPf+wkNsXFCIq2rvz3ReIvJ4tPbzwV0jxbU6Dn2t9WyngGmOB/wAKZxx/CAdrP2MRIJ3H7RH5gOgJ+y+gX5Af38cJi2y9Jc688EwLxIad4Id3pej/2re/QVjLQvWmA9GbgAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "7pnolSG0xBGOQyQnwGuplK",
+      "title": "Familien, Min Bedste Ven",
+      "artist": "Engledrys",
+      "year": 2009,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/7pnolSG0xBGOQyQnwGuplK",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABdElEQVR4nMVWzamkMQyTw9yVDqb/stKBXIEW5ePBY+e0eGB9inMQ8p/sMv62Xh9fwP/7q6qN6o0NPM4a4dFGgSoAOw4meC+gGCS4C95x1ojfNQF7U4+z8Gnrn/6M02Dvr+A55KAD+XHWAK9cQBL4WAM8M3621QedHF4HEzyYNklYMkHBGuLJTtoEiganeBZvJeBwDdE1wFtonAyItV3qHvYzUoBUOOmzaXHIb0N2k6i0Sw/7GclYcpfCWqTm9Q2mmFpI4DTe3iwQfa7KRBPWiB8ScOoAKGRn/F7Rqs2OtlyS435BMiekGI46z/iVm9hRA26gBXC038olpuveJwEXPNuXVw+ITIbJO8oa6vOGVPskXEB7XA8jfWzf3gvfNcKL8RGFOyPT+mZ/qNzgjlhBw/uFt+nqnTxC3XN9IQ0poxZ6Uz24Rr5P7oN7IawB3uvn0RSSv80v3Ad9cge9Ey+n+/duDzKdkzUy3G+vC/gLe3j/ffvvDzDF5jrMXbUSAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "2paZ1oBR6K973b3tQog0xO",
+      "title": "Min MSN Ven",
+      "artist": "The Futures",
+      "year": 2009,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/2paZ1oBR6K973b3tQog0xO",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYklEQVR4nM2WQW5DMQhEH1b2ww1y/2P9G4xPQIWTdpGqi4pIrReRsZSnbzMMRPG69vp2BH93FhG5k9jBPgEznqoQaYk8ARPeDUJsZ+LUCRjyAOU28i//u37k7V3krqh38IpMyIus7IAJLypAX+EGXRMedRYly4+9ZzzZorBs4zkPYaNSWaZ/1ohnlSgVdoE04/XZvhQOk0Hta6wXh7yzaElH53oNeFRfGH8+XudljXgy0kM3NHqaX/OQX4tFlGe8qASufj64d4HUyJ/jgJRbeJNGU78P2g8MeZfvGvoz/WalquMJZ+9hPlynQpDOdprfeqpPKrnapteIByW1WOy2hOF9b1hcytbK9XTWNfo+9U3b/dRJntdbL4HKp9zGPJrVgilJau4azwe5Cdr6LM/1LB1jbuc//rXG/Txqn1SQ75kPHOhC3Y2TYf/VScWZXSS9oV/Sldsa7LbZdTL0v9f1r+bdD7qx/u+55n9MAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "4P6zqPmsqmvYAOLrQMPz9d",
+      "title": "Jeg Kunne Alt",
+      "artist": "Anna",
+      "year": 2009,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/4P6zqPmsqmvYAOLrQMPz9d",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABY0lEQVR4nM1WQWoEMQyTw96VH+z/nzU/UF6gIs+eWkpbXGgDMzsOi7AlOU4Z79dZH7aAv9urqr0B7NrVAWZ4dEre+/DgDtYs59q46joUtRNggvfo9xMUS5s/zeWTvcuHJeqr/31rzwLP8wD17AATvHIBd5lZkeSa4MFZSK3kHWhW767zou4y9jkz/8EkLcqAQQgc5QeLBiWTRkCneJRlhMPOTzP+kpIoMY5ONNQDqdeGQyKQXDXEM9GaRBrkY43wSAlhT03gGE+RN1YOj53oGuE5povKZjpvrAeogEQRR5N5vc4TEtPDYz/LbDkotmnG9XZzQFCS8zg/K47uFolp5ucBIkjMZ/URqKmfHaPEyTmnx/2WxbAXY3efrAHeA5kfB+TJtOyJuUb50X2UIjTmd3yegq9ma9Bhf6x+P6sEbUbm6X3ozlInLNY+W7/AnzI2crdKz2k6P3BPzAy58fyof37ffQPHBx6HzKkAOQAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "0HMiJYvthTvfzwvjFRyAuZ",
+      "title": "Fyr Den Af",
+      "artist": "Niclas",
+      "year": 2009,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/0HMiJYvthTvfzwvjFRyAuZ",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nM2WbWoDMRBDn5f+19wg9z/W3kA+wRQ55E9bKHQKrUM+bDaP8Uoj72o+jn19WoK/W1trVa1d1OZMmPHUzTasXVWZMKx5FapC4nYmzO+BaU6RP/jvV2uldW/x+O6679feoClvEEVlwoS3egX1GuHeEx6dYWO5o3W3ZzwZZDVu00Ij3oVRo3s5nmFrpkeM0jGMj5WVWq8Zz7RFS6123teIpw7MdrQI0UMeBxNJfKie7leCsNLC/oX90uFk34fpcX/Qy5H2/Jzmcyorw15LLQ3ziuxWotMl2B7ul/bptKjc+Rr72U6OBnXMPPYfKe/5Or08413I1DMCRbXH5xuPqJvDknYlGq6hviRKu5UknPqZk89059alR8b9RmrCJPGfTrxGPHVCPoZRknrIe4MVbXuXqb10/8Z5Lkqqh/E9PH+v8+nNsvc508f1tdnHNcJ5RGCuL5H31XDDPP209K+ed98BfMn31xHwqM4AAAAASUVORK5CYII="
+    },
+    {
+      "id": "7ovw68sER8yReJ8VYPyFo2",
+      "title": "Tro På Dig Selv",
+      "artist": "Chestnut Avenue",
+      "year": 2011,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/7ovw68sER8yReJ8VYPyFo2",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXUlEQVR4nM2WwW3EMAwER8L9Vx24/7LcwaoCBqsLgiB50kCiOximHwOKXK40ip9rz1+f4O++jTEWY6+94B3MFk9VDOTFZiWgw3vBEHhRY9krwWzl915m4ZUtP8Er9gbkJ3hluPCt5XcwG7xRA/QVbtDd4VFZWMjSCdzjqUrKRl2B0uWVVSmbIW8P8IpKBSs/NXmTxS425VXbe9Obt9TNKM+Tndr9gLKybcRhu99fB5RCSm7rxUQwISVbdfMDSRiHGrab/VBIPhNSGRI3/c9DsdJEx2Vo6lnO/DpzEl2363coKV+A9Pur5HcSrLe0Z4P3ii2v8+fijqXS1V9VxHyqp64fEFchs1uKW6mtv6xzbETYx1Jn+/y40UbDVxq9+/cDtC5WzvUoejZ4nCYcocSw4vl+4H5wqe6TX+Zu9nl7DXnfh8gjfqqcvLG/vt+nbjmBi4C78/btwvv5+p/uux9HogdTXuBTQgAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "2VCG3c3OjrflxhpFkRWCml",
+      "title": "Vores Verden",
+      "artist": "Emol (feat. R-B-G)",
+      "year": 2011,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/2VCG3c3OjrflxhpFkRWCml",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABWUlEQVR4nM2WUY7cMAxDqWD/qRvM/Y+VG9AnYEHNoh/dBVpUAdpgZhIbkwdJpGWX8et1ri9TwL+bq6o+AKq6ZoAdjzZQOPTtnsG14H0ARbzQUEHq4iM1EG7A3X/z7ndzr7sbBf3uf38yZ+GgfZPuDLDhlQvgz+EBeO/0MIDWCMIZnA0PJkAnazmB0lrWj9Sh0OPqKHKt4pMMJU/DILGPr40TL+sIh7v1NgpQCU2CJO3iCy8QS4DMcK8VjzKDfNcP6/gYhObHgpZ+gSGSDJCYZ631MCbp2EZLv8AakGGOGmseYMcwzndWy7Xi0amZ5iEa7/WItincOPqB+Dy62uQz/rOSJrNAkrCWPJpgYotl9vHl4riGb7Se6S8yZ6Ws840QhEJN41/rm6as5Dn7nHa8j8+7Dl6hd/OB8wGzo6ej1m1tz0PO9lvwyeZW3PHe+s7H7+6y07f+8/PuD+xl+hulhiOdAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "7sF6vwT0YCMylO9gxKiwhE",
+      "title": "Lattergas",
+      "artist": "Joy Joy",
+      "year": 2011,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/7sF6vwT0YCMylO9gxKiwhE",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nMWWQYosMQxDX4reKzeo+x+rbiCfwIPSzOczs3TDpKDAWQhHlpSs5ueq69cW/N3eWmvXql0bTsEEj1a35G61pRSe4L1gidrCtem99BkOzN6QI38Cr1mFkD+B1wbhB3uf4hrgrV5B+14FembzzcJNRnsKf0Avou0mDE7x2or2MFiNZvpLX6Lj4k6vafQa4F3RXlO0dy9XMfPbC7To24V3b7ruoX+xLYdB2ed/jfDkVjDDX6Y71ksIVOYaXI3nSzDwAcXp95rhiVbCj3Q45e9Fwy7yQT3x8jXvjwg7FDLvr+7EqLlTG43uN45YAmO/E2Gml/hDywlnNo94pvxltoe9XG0RjMfzIO4IcI471V/WaTEnj1E87I93KvvtlOE8rtwb0Ptma5MAZKoXxWURTGTtcV4d2o5zO5fIDO/fXslPnYRh/j6oJ+8g5by3p3lAyDupGvqG+Xzy6n/sP33b/l5fkrP7rmocF80AAAAASUVORK5CYII="
+    },
+    {
+      "id": "1C2IZHhmfbhkziTSO5h8hq",
+      "title": "Jeg Bli'r Ved",
+      "artist": "Energy",
+      "year": 2012,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/1C2IZHhmfbhkziTSO5h8hq",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABX0lEQVR4nM1Wsa1cMQyjjPTUBm//sd4G1AQM6PtVUuqARMXh/AqCtCjKZfxZc/76BPy7b1XVVdPTwD1gh0cbFPBMo3PABu8XUAQahGvUOZwVv9QLAmVE8pofgIcvGvOov4BntAZhOJ0DNnjlulA/Fdx3gwenZIhiem1rh0cBNA1bMMEV3kHQBm+pYpqBVvcHK7+CmH8Gd/yuXpswaUqZlbPjZ4NGoGxYWzxAIkB9QLntb5Tm8qQgcu8X4/KjGfXrfuC2VbICiKXekzBwK8Pbkb7MA4QW05OMcaSv/edoZQaZsd9X/Ifbkxhaa7+EVWycvugLfpGom1lhuZ83Km3IJVoZvP18fBQnEGLrbf6F0QNP4e0g7vLv8z5ADfA+d8lt/cykX2L+xkJ6fFb8cHMe0y8wlW1ydnipsZldrkg+2L4PVD2+Oz3JcNb3p88Svrtpn/dgMjCTe2N1hVf/+Xv3NxvfBjHUa0uTAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "4ruNhNFBJqvFKvzfrbm4ef",
+      "title": "Mig Og Min Amigo",
+      "artist": "De To Amigos",
+      "year": 2012,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/4ruNhNFBJqvFKvzfrbm4ef",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXElEQVR4nMVWUYrcUAyTw/7L979dbqB3AhU5FEp3YZc60MwMzDMZIUu2MmX8fZ3rUwn4f7Wq6gOgq2oO2OHRBgvn2OwcsMH7AIooNVwQu/iKBo0bcP/Tb7+oEXc36tv7flSzcNi+Sc8BG7xyhd7v6wC8d/xsK+pB5zyHa4EHE3gazdzku3Z4pi0qkCAELvEoQFHQzAtbfoxmgkTJBNf8wk7EtCx5zU+hl8/j7l6/sSKQk4U7fqmdcIPRR4wz14ofRJKCzOi49gPpmc5cK21v8UxHRM344YX5Q+CyJEg4L/etXE6Y9qTpEcDV8w1pU0m9GJI9fmP+Rr34my3RVj8//mbdIqbWeQAw3PwCvwvZW86GVIK1d8/zmedM4GMHuc5nZjUGVYqG+/zLzk7kJ6W1w3tqpxt3l8YSvMEPyb/xeJ1/VppsH9zO0x17f5F35lBezvPHAP6Bvfz/93btF3/8A67EX36GAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "0QEY0fUD7VIE9gcIMoTLvG",
+      "title": "Kom Alle Venner",
+      "artist": "Moriwa",
+      "year": 2012,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/0QEY0fUD7VIE9gcIMoTLvG",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABY0lEQVR4nM1WQW4EMQgz0d7ND+b/z5ofmBdQmdlT91RRqeUQJTlYgB2TaHyPOh9XwN/dRURWIhCoOWCHx3bJKRB4DmeB9wKCgDKh1HM4q/yeKInKZ3/wGednd0legXuP9wIamWDeSKUP2OBFB4aJJwrgvcFDT5AUoNlrh0eJEMRWD6J2eKAksNmi0Nrhvdy8y0sVlEhg2T+y5TQlvw/Xf1b54ZFxo7qYez3fiRsaS7gKrB0emu3kRjewKWz5VbegdvvkXm75veAWNqvrAgK9fG9pFxhQlF0wl3rRqFl0iJb3WeERbHdxMjQt2umlZKO67PVvLZ5Vfm1e/YzhcrWuF3YrSYbqBrd44ykUacuyFWrrf4StalzQtWvvzzAbGrms8TBT3LbFpsWjrR80h1/5+XLvf0HcXlioALT6X71mTaFUkO3+N/4H8gQhEfJsP+v+9UjlPYC155czlWRiln4a//y/+wUmIvjxzZevCAAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "5DtCwHqH3tJhw8uuBORshu",
+      "title": "Den Første Autograf",
+      "artist": "Kristian",
+      "year": 2013,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/5DtCwHqH3tJhw8uuBORshu",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABWElEQVR4nM1WSWrAQAyTQ+7yD+b/z8oPNC9wkRN6aOmhONAOIcQ5CMmLxlH4evbx7Rfwd/8iIiN27gQ6wAyPVSCAdSXSAYacw8QS4A51cAzwzn4rCIR+z+UHvKxthusVvEJqwznclYVZPaKioZ5j3GuCh/KRJIpPcIzwKIBiGQxFcIzHQgm6UTHl5/QREEsw3pyfbqV07orj/DlnhBoKrCk/yASfksiyjwFeVFTiWriA7D7UnuqFCiJFosC53s+imN9Q7wEsVlzAjnSRh36A7hSqvUpq3ccIT52/nt226nE/d7PIM+IOHPrBaV9Wrl3bX3tBw/wRIkzL5VVprtc55DMlDo4RHqoLe4O9ML8+rNsK+tHU/+DS2gFBj5xe2A8qSr4tfdFhWl/aoOUk2p3HfmqV5aHrfhn6/dlvBbuhF1Lrhf1gezGwtXjFwgv1LUv1pTntl/jn++4H3l0C5GubUAcAAAAASUVORK5CYII="
+    },
+    {
+      "id": "3LzUkrMtXoajDW9VNR2wrw",
+      "title": "Ingen Som Dig",
+      "artist": "Cecilie",
+      "year": 2013,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/3LzUkrMtXoajDW9VNR2wrw",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZklEQVR4nM1WQWoEMQyTw97lH+z/n7U/kF/gIs9Cl25PdaHNwGQSGKHYlpxofB113raAv9uLiERUVhauxVngodlNoBst0gtt8G5AEFCiK9HpxVngnecsZOqH/77v9b0KSL7ubeLXgET1Pn7RAfCz9gA+dvw8IML0ZqH9eQm0XDcUtngD1IIAOZBbPEmQVdx+uMajHDOrwxIBd3g3Z9eiKKg6YaJnxQ+Us2tqlFq7+puIQS1N/Nhax885psldKtn6S4Fpg5Gn0fBZ4B0LzMaie0B9dx2eFb9GojTSRT2A3OqXU81TgN3ANr+Wb2ukQUhrP4BL5Km7vT7g4xLjpE0nZo1HR826+B2/glHkhnnR2+fD/jcpJofiWfcPhQBmuZFoeX/hFF0SlpvcN88CD5cVyO1y+tzSr868jflI+4shzwLvdk3Z0Qrdf8Dlu34pi9dSw75/VEw2Khrhe9H2vC8X3ufnf7rvfgD/XwtUNKrA+AAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "6Z4P5NWLqEU6V4y8Gz8ZUO",
+      "title": "Du Ser Den Anden Vej",
+      "artist": "Emma Pi",
+      "year": 2014,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/6Z4P5NWLqEU6V4y8Gz8ZUO",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbklEQVR4nMVWUWpDMQyTw/7lG/T+x8oNlBNoKIUx1v0MFxZ4JXlQYVmyXsr4uc56eQX837uq6uyqqp6HNcKjjXNwYLFzwATvAyjisRs+LXbxLT1obLQv73F9d+0mC0/ANavPwkF7g74HTPDKBfDreADuGR7SPjWggsd+hgnQhGXz7jXsH6kDoStsdWZ+Lh+wxAJcjvs05WtkKCQqG3LEF08IERQlyTO8haY2AO3HeeCBmvkvfH0Li8JghF6j+nCO4mgfHGEP8wCOYUhFEEJzPZCHchQxQnuN8JSyLJiyNe0f4hdDZCD1Br6+gM4gU5am9aWiJF8IxzvT+hiw8I0PMe3fR37EFloJ07/8d/1en0M20ZcojNRrgLeg9DCfDVSCtWf5d/1MX2F5J2Wq79X0TpruF26sb3qn4KSH0DT/7mpj9w77fsd9gyp1OllJ/TXDs0K3fbBxrzBrrC/SOmVOYp3ZfHy78D6z8B/vtq/rE4jD5vmtjDHPAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "1ydaxTPojKPmN2vSbvo0Ye",
+      "title": "Du Du Du",
+      "artist": "Flora Ofelia",
+      "year": 2015,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/1ydaxTPojKPmN2vSbvo0Ye",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABV0lEQVR4nMVWsY3EMAyjguupDW7/sbIBPQEftA9X/JcK8KksF4QoUozL+P2t688V8H93VdU5dVWd4hrh0QYKC7Z7F9cA7wUU0WhotdTFMV4kAG6064hzjfGo1UShn9DIwqr2TXoXmOCVC+C3XADvCR6cjzJpnUIzPAKHqJxGOcUzbVEGBELkEE/ibhImQWLM18hSSFSg53gMJEEhlD3lS0tRQQRNYY63pRCsOGbI9wJ6RV+c3V3DPIBjEVJQRFYoXzM8RJOD5nhQU30J2XuQ0Xnql4ibts5h6r9XGHeyFG+i/IAeZgIm01OiZjy/rIQ2aCSZ75ucpNqrkaV7Yn+RYDkpo3H+xSZOsmBDz+Z33gcqLJk3OoyvUX90mgplKQac65sNQSJ/z2/KN98y++76SHLN3wfIc2O9UW6t+fx8XgbKH2nql93etl+OUz+/Prn8xR6+/56++wF74fzv1qFwFgAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "3z8tD5MLLAs1uxUCfQU2sX",
+      "title": "Bar' For Vildt",
+      "artist": "Ida og Lærke",
+      "year": 2016,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/3z8tD5MLLAs1uxUCfQU2sX",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaElEQVR4nM1WQY7bMBCjjNw5P9D/n6UfcF7Agjayh90CXewUaB0YiQSH4GhIjpfx+erryxbw7/bWWrUA3F9ZYIZHG6wqGLoXmOC9gEUcoHjfi3/jDApbWg394L+/2xMOl836w3Pf2rNA7kanK9YMb3kB/Fg2wDPBg3PBVGCZhWZ4hCClTtmUOMK7ANLYnZpXNWqqPxVWhEJEh+WZP2CLsmykZk3rfQFbhfbimyZm/GQpDQ7H9GbW38e/QKlzdNjDPMBNDOEYmpGghvUy/kW0B5FjPFJK9uX0wDjlGuGZvKViOskw7McF6Diu6MbaaTDGegYk8qaYA71G/NZGgrQbbkCc+e0VlGcW7VNonD31B+j41qBS7lgvj1Ci5EcwmuczlY9vplM8PPMjd+wxxLue9wOikRGirmmeMoFP8k117I+k1Yn0ytYZ5v31/nHArlUsjfPPjPyUsrPWvL/MGMoUjmRGeOs/f9/9BcLS9uhf/29AAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "4q56BNflyLjqAHijwtawMu",
+      "title": "Til Næste År",
+      "artist": "Mille",
+      "year": 2018,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/4q56BNflyLjqAHijwtawMu",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaklEQVR4nM1WQaodMQyTw9/LN8j9j5Ub2CdQkQuFtnRR/KANj3l4FsKyZE1C+PX0+e0V8O/eRURmdHYCU2CHRwkPt65LF1j2HIlUo8sdRu7wvuZZLWgI/2Uvf8BjDuX8CJ6QhkOF0gU2eKEA+KNsgG+HB8Mw26A1xVngHZMNNojCy3Z5FngQQZXRqiBWsXb9Pby8jzDxLCz9B7GgqlJJYKG07K+p4LWyqflhh6fuwrvjmTYsdnzhQ5k0VOJOD0jy8GZ6qinPCo/uSyqWbaO1Hu9CmeFdAdhLPb68ZInHQDILuFs9TNKyeH7+2/J1UEGJcKrG1n+wEhZj/Mcqbf0CTv7Jm/YJPJ+JGMr5t/QLrAHKOlgPYLkfZyS9YEQhKb4P7C8dVCyJtCZn1R8lRzObtoxHeFb90SOzFk5Wo9f+jkQk0bhV6G2e+mRXE/0mprHkK01UyQacfTkrPJjufIc+4b/v94Ofzn913/0GwZTuXeWpHsQAAAAASUVORK5CYII="
+    },
+    {
+      "id": "4zTZNHhoNaWLFgaPEbk1nP",
+      "title": "Bedste Veninder",
+      "artist": "SODA",
+      "year": 2019,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/4zTZNHhoNaWLFgaPEbk1nP",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbUlEQVR4nMVWUYrdQAyTh/cv3yD3P1ZuoDmBiiZtKbsLXeoHTSCMTSI8tqRMGR+vvT6lgP+Xq6pG7d698QRrhEcbBeoCuhNggvcCiuDdUDXcxXf0YENoSP0P336V81UbbOgv731rv0YjSJfYJ1hfvLe+mSsXwN/hBnhP8OBcEEHxCTTDo00SlhxQjPFkw4JSoQGO8QSng4ZxCl0jPIt2tklnypzV90Ipcgulyw1vjvwFJi2DFrJKF9cMD6eFOv3LQ1O+IKZCmpQ17B8OFCmEfiHNDG9B3LEBXQX50p75QfYr8qezWPP9KgN5Fo7i5nx2VBvQlKkZ3kJj3x0a3xkOh37/AsBjgbl3gDHWh4+36NjgmM8woHA6JBz7AR5/jkLC62Opa1YfjiunxqOU6XzPkcBldES35/oAYwngETA01e8v3Ls7rvWmM1cXtffzI14zPAs7ND6jwSXM54vILHMJEYf/oz8OvFkOz3/vzv0A+kDxzRNqaEwAAAAASUVORK5CYII="
+    },
+    {
+      "id": "5DSvFo6c0CKdmukn7DQ663",
+      "title": "Ikke Som De Andre Piger",
+      "artist": "Emilie",
+      "year": 2021,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/5DSvFo6c0CKdmukn7DQ663",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYklEQVR4nM1WQWoEMQyTw97lH8z/n5UfyC9wUQb20G0PrRfawAzjwBhZkp1E4/Oq9bIF/N1eRGQCyIg4AWb52A1kJpq4gzXDHIldu5BQOsCcg8QlFVK/+PerPWEzhM5xvgfQSDYK2HkCTPJFB8BnWAD3JB/aC2oZGx1oxl9Gxa1DSVk1qxdNspvqgw/CFB+gCPPGkpCa4oOk1s0h4e81ytdsEgTlx1nXIN8DpTplqtABK7NG+NQ0whaMVJziu/ZGdBUVXT/6d32DD6bOnoFsHk31kGh1Pfk51QM2MZzQ7NkxY3ztmvt0BklxmI/yeJHpY7t0Tfutmsgq3PJO++0GZlHkQY1pva7U69BomTXkr5ugW/g2zFxfi2tdPZ/f4D/YgQfc8cs76qUH89FlrgdxQJ15P+dvnfdl2ynZ2j0+jyyu7nY78mjOn2w+ntHVM/4WKgJXKVE+5Hwnmt03Xrb+1X33Aw/gD5a3an/yAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "0HrfS7MVa7e6HNgFQuwFlP",
+      "title": "Stop!",
+      "artist": "Naya",
+      "year": 2024,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/0HrfS7MVa7e6HNgFQuwFlP",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYUlEQVR4nM1WsY1dMQyjjPT0Bm//sd4G1AQMqLs0uVIfSNzJBSFKJO0y/j59flwB/+6uqm5V377AFNjh0QYEPF33TnF2PdcF7gWI1hRnh4e0Z6ClUP4E3qN+m0N7j2dBuOCwtnZ45crk/pwG+G7w4BxZokxOcVZ4FEDTsAUTXOGdabHxliozbGg1P5jRCqCRMrHvT5khiJtGQ//s+rMhQzJMUut90ArTEJbMHV659LSuOzYZ6/WWL2YTHNLibh+zXJpSljLi0ZIvoUoQXCIBo2XeU0GKXPB2v9jlc+YXjTB87bWeMWOTBCKpgA/oT0okfKFhqT+YmKiyvn2y5UuPgyO9Yb3tLwqMd51NIw4+K7wcZHaMlePms+sPX17L40bu+dKJKTjOpbHE+wVUnjcVxELx3b2X8wKRGV72kTFq2R+QHKgkIPHo+cD/oN/shdRNLJz1fqF42OIH8u/H1X/13/0Nrn4Ir6tahUIAAAAASUVORK5CYII="
+    },
+    {
+      "id": "2d2XSxC5LYyGacF8sHTqCW",
+      "title": "Ligeglad, Ligeglad",
+      "artist": "Anna Frida",
+      "year": 2026,
+      "cat": "mgp",
+      "url": "https://open.spotify.com/track/2d2XSxC5LYyGacF8sHTqCW",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYElEQVR4nM1WUU5DMQxzK/6dG3D/Y/UG7gmMnCEkxhcECbq9SanerNROnC7jed39ZQv4u721VtW6deuiA8zw6MeR6xSqgz3LeRWuCiSuEmDOgYrAMuoH//28Xvr3lQfFSzXgfnrnm3sWdApErQ4wwVteAD/CC/BM8OAsGaJJdrBHeBRA0ZANExzj0c3hAxXj/B70qUuZ4Cy/DQhWQAvUMTTSF1ECYU/Rg/aYP0qMDA1tTvlLfmFNQtDm9WIoItOEPNUDMSuaktu3ODzvDmdaB7hrJUXM/BTpCbJ9ILWs8XmVWlG6zanDcX/IBiNE0wiN64Wy8khOycz9Re1aSr2kCDXtDxh2+i3pjflDek0IizGYsb5ZyS9y9Ffz/kA4jM90Je4RHh1LZTr4F/z5BVgx06sSCotnOi/rEsiTaSnUdF7msH4fSezPHt8P7qkeRgd3eB/CQ18jhqCY/kyP9c/vu2+FIArGXllyxQAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "44noNMO0iv87Tds7dwcpQU",
+      "title": "Insieme: 1992",
+      "artist": "Toto Cutugno",
+      "year": 1990,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/44noNMO0iv87Tds7dwcpQU",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABX0lEQVR4nM1WwW0EQQgzo/xNB9t/WduBqYDIXF455RGxUjL7uAHpLIOBIRrfT503F/B3vohI3zIiXsZZ4bEbFSi0mDawwfsAgriUUKWYwTWeJcguJJO/+u/50UdWJgt6Aq+FQvYNdtrABi86gFeYPgXw3uChfdhNtjiGdngE2I7amL5ryY8mqAYEQuQSDxLkDDb9Yc2vR1SJQvc+Xk2MBEWpoS0eKGshQzr4bf74lUIrbKY7fvaV4NxNNde16w+To+sEcvmJva4XaHLIuZjq2eGxYTmm/MAH6oVNt66p2dBynjayksXLTeIJeFb84LYYQWiGaz2IdmPMyHLE63llpMnhFM56HtBPJMxtfpd4xwo0PWEqaMjde+56fnWbJyq5rz86fTP1JfPb6XsAry8F8eZV4fDPej8AFUqLEc/sByilMxlNYZ+/ngcTnvdrPTD7gQvZDeLHabdvvLn+1b77CQ3JA2C8jmPmAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "7yWCxpivUiPsfrxPGU1vhE",
+      "title": "Fångad Av En Stormvind",
+      "artist": "Carola",
+      "year": 1991,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/7yWCxpivUiPsfrxPGU1vhE",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZUlEQVR4nM2WXWokQQyDv2ryrrrB3P9YfQP5BF5UE8KyCSSsA0nNQ7dNj1FZ8s9q/j11vXPBz/nWWrtW7drFMZjEo9Ut6Fa7FcNDzGsj9nbtcgzmOSjM3v/334983asC8rPvvuRrw8I37n2M6+PvvuRbvUBvZoHuGb85tFAeOZ7rRbm1E9RM47XVSZshb8z0R8uiU8Wdn4b4XiiqWXTtrpAz4/fk72TPQZei8ywe8pNWhO15/tS4CbFteYxPxhKSz7017S+FHuC6tUU9xnxYJ4eOmAN2nL/UR4g45EzvSyuEBJsjlnl9dFiFZ/Wab9GfU2aOZKLoaxRPkcxzEgmm+rsgrWX53ukwp+dfI3wcoaTFJI0azktO7SpjgzCd4Nd4ftyo0K4MEtdczx1+pdOf5/w+u15KLfDG+0aO9uPenWjfs3MtSmkx1Fgvykpln4ciGM/5LVFkKkWBI35f+GvhfX39TfvuHzaZEQjvbV0EAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "3Y81Q8dLI74Mgi1wbXvscv",
+      "title": "Why Me?",
+      "artist": "Linda Martin",
+      "year": 1992,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/3Y81Q8dLI74Mgi1wbXvscv",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXElEQVR4nM1WsW3AMAyjjO70B/n/LH9AX8CCdqd2qwK0HhInA0FKFO0yvq89fvwC/u5fVU3UnnsC92M08GDaJGw4G5vq4H0ARWxMuADP4hs1IIAJIZLfwBPWvogv4DkoU4vw/RgNvErZIveuDXD1+psFEdRpsa0X/EJYdkDRxhOdsgln18aDFLnZGSS7eBF6aF2afX42GJbmKWAPbwB7W0WiUFJmZLT4MXYJ0JGbx+jxQ5kTDzcnNNnlB5GkIDOD3MwrWFRy707IC35GoE6yMGVklx/I0ApsRhg9vAEszEwbHuDZ6fFo8aNiEzlaI7edB4EMjr8arKZeYeHByoEp5gQZLX6IUXSmWEjAqJ/PTMKcsAr4aN8PVFtyOh2So533Tt6Tya1+3iMeiVnOOae2n896njVjlzR4NPA+7mu6qKnnV1x+3g+29yneyvii6T/EgdF65qN5ftQ/v+9+Aprf/6IFNxcOAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "7LBBL20GLOtjBJwxgVmzPK",
+      "title": "In Your Eyes",
+      "artist": "Niamh Kavanagh",
+      "year": 1993,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/7LBBL20GLOtjBJwxgVmzPK",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaElEQVR4nM2WQWoFMQxDlfD38g3m/seaG8gnUFHmF0q7dKENDMSzeDi2rGQZ31fvH7+Av/u31iqsLhTwBHvEo40CtdCoBJjwXsAigIK7pEqwZ7z3qg71d2oqdIO4NOa9gJQvyEusE+wBb3kBKeCzGuA94cFZsE+fmUAzHm2SsGyCwpRn0bAgMDtyyJMIZYqdLJPoHvGQI+ZjtuCMFz1zwepwM3cz/Z1+iKZF0jJm9VsuaGUuyp1EmyP/Q7ogQ6SYag77+0LrKgJ9ZrczKnuUnyiTUQ3kSFDTeUNQ+hTjVM8mz6Cly3HnKS9KUQR9phianXe5bja4HHt2AZrqRU43js3ktGO/irmc8Y0E534FRyinL+nxvL+OPz+op9N7/D5Qnxz7XOyY+72TYcrnVHLPeGAMH8/IQdPznkXwriu38O+8ubqa6pvnybFnPAutGBVxV0SzBzzkZjus3Onxmel99OXB+97+p/fuBwC3+l0OCQ8bAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "4qVX2nHuFlVNp6AOVrDBGb",
+      "title": "Rock 'n' Roll Kids",
+      "artist": "Paul Harrington & Charlie McGettigan",
+      "year": 1994,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/4qVX2nHuFlVNp6AOVrDBGb",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZUlEQVR4nM1WsW0DMRDjCe55G3j/sX4DagIG1Bsp4io4A4m+eEkFQd2RlMr4OfZ62wL+bq+qGrV798a9WCM82ihQDXRngQneAygCarha7CzWiN89hAZf84X3sX615+fewEZ/As86BC+GYBZrgFcufB80FMFrxs+2trBx5eC2Rvxg2iRh2QQFa4Zn0SmbwMzAMR6guNj5QnQN8FZ0Z25Y7VJkgxk/iaAlGTat6XkRKKaMlJUqrhEe0wQjjc1E0/6SkBl2meS/RngQSSqgiYUxniiD6crhOazfA1TxjhbGv8P8Q7ilfKd0cdzcb3dOBfRoR8P+KtSOUI6Xx3g3JJ18wdy/iJafuBq9T1Jj2A+ffHEag2SDhvkMO7dlAU/mKsb8feDa4RgVcpb30TN6u3kuS9W4foxloSg699w4/4j44iQMkWzVR95cm9e+iEhmzfjZx7wxCCIYDfWH+DcWPtEw9G/98/fuF3joBOHqhjW1AAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "6bk11TH82XrT5QUC1gDw9A",
+      "title": "Nocturne",
+      "artist": "Secret Garden",
+      "year": 1995,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/6bk11TH82XrT5QUC1gDw9A",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABcUlEQVR4nM2WwY0cMQwEi4P9NzOY/MOaDMgIaLT27mHfz1zAFhYSJGALItnsUQx/jr5+HMG/O4uIjOjsbM6GHU8zUHD3TZ7NteC9IIQSMdGVoU/k4Kk53L/57+/jdeabrtST8wnekEUgkrNhw4sJ+A4UGvRseIxHDaWS3ptrxVOBSmMyI7TkTWk0Rb2p2t7vay0zNb7rteC9fC/IFllDT+70gvPmuWrKodc2f+8Sn/LWKXAt9Sd47mpI0czO/45eRkKqUc1oHW99pc95tHvVzl/q1kSJjtSI3PUv4xi9uI0LV+Va8TRT1uCM82fyteJhM/DFkFtk7QccHZfKij7Ma8WTrcqO4DTWLPv3gsoHrGebc1Dr/sV1GC/W39r/jo8es9L51c6vwsJrkif8He6tX8k963ocf9nq74JISDofssM5vHY8j0a67frPsn9fZ64gpv1OuD/yPuhjVfTjcrCLtyNIItoO7c/b8r3x4+i/eu/+Ajty+fKKKjSZAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "6SA7BxY6zh5SaxUBp3tCtb",
+      "title": "The Voice",
+      "artist": "Eimear Quinn",
+      "year": 1996,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/6SA7BxY6zh5SaxUBp3tCtb",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABU0lEQVR4nM2WsW0AMQwDaeN7aoPsP5Y3oCdgQH2qpFSAxMXDdnGQRIn+ZXxfd/+4Av7ubq1VKCyse9/DHvFo46IEo/qACe8BFrMpgHwPe8brdQDej+r9xph3iIKu6xd4RhWIg3J1EfeAt7yALmCvC/BMeHAvkiLUe814VEgQLTVRMx4ICTQtCtaUJ4IgDZnZcMgzIcIJMtGO87WQPJ1MkSA1jw9v8dI3mvKoNGCEbTDGesCS0jWKuYz1pdPLbig55T3AvWq70j0lsIbzJjlydPPZxlSPlCzjkQMjt2b5Gqg4Pnhi00ej9w3J9MteiLcP94iH4FLFdHXoGuth92MkZvDm8/Gq0KYQq9HcnxHDak+dzy8AimKrkh7UdN7MuADVSs/rh8gQrhLr0E+f/hbvyhDP3/PdX91uZjUU8/r5pZJxBM3iu2uhIq9xoLqzfNc//9/9BL4qCsEU7zy0AAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "3i1OAR1REiCaaWXKSvAeN5",
+      "title": "Ooh Aah... Just A Little Bit",
+      "artist": "Gina G",
+      "year": 1996,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/3i1OAR1REiCaaWXKSvAeN5",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABW0lEQVR4nMVWwW3EMAyjjf6pDbr/WNmAmoAFnbYoek8FOH8C50HQIkVpGf9P75dfwPv+rbWqV1dX41wwwYNpE7BpkblogvcBLAIqqAuuXPYML6dc1e6namp1A/35CJ4FFHQRui97gLe8AP5eG+A10zcHMnjLa2vuFxKWTFAY48lO2QSITgX3AG/HLEsolFNHDv0HS/ChRSvhMOP3EXWXvRpaLuKa8rupOd2rMJz1L0z6qIuo8oi+MGO+5IzBab40WOmMaIxOq+wRPx1WUlLL4amhHj5KIEIbczwx9uMv7JifQOTRPC9/Ig8siJJOJ4/xwuy2C5MJj/DjTxnnfkZSL+8MWAJG83xmuCH5HPA93g+0UjhcqJDcIzye9Cum3XDm5h7qS+oYJntHvnu8HxCuK9Ncn8Undq5C8+rrHsR7PC/17cAMpLH/8tyMteiSmB7W78/Ce8bbO3fb1/MFrRIH+RUw65kAAAAASUVORK5CYII="
+    },
+    {
+      "id": "7jxGRU3EH0QveYx4bD32i7",
+      "title": "Love Shine A Light",
+      "artist": "Katrina and the Waves",
+      "year": 1997,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/7jxGRU3EH0QveYx4bD32i7",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbUlEQVR4nMVWQWoEMQxTwt7lH8z/nzU/kF+gosweSttLcaGew+LACtuSlSzja/T+dgT839laq7C6uoAn2QM8mDYhG7aZRBO8F7AIoOAuuJLsGd47qvVnMzW6AVxzvFfACiXgKj/JHuAtLyADfKIB3jN+EzARak+i2fwKKFb7bmBVr9n8YCuFCQLETFAzPClyPiSfvqf9AjIXrHKrm9N9Q3okJJMENe2XlrK8Qnq1ZvuLeABlKGDgdH4wwytEPrxw6i8NXiBaBEtZlT2qDwwTDpxMjesTY1WN892/+e/+sT4dT45Osr7AlN/j8vKRn425/nREZ2WBDc7wXkB5QRei5+OrmNZnZWphF0fWe4SHoGThwOAO9YK3P8ewQkhUuMfvA/Wp8UalyD3C4xFdMbcclHtzD/CQDhmt8BCMuV8hYyOVIZ4t3gO8/f5VU6tjM+P3hoW+V8rMwTXjI7cHHqyjwKmeXwfwE7b/8237PT4AWVv/FjovSMUAAAAASUVORK5CYII="
+    },
+    {
+      "id": "4xTKSi7m6jUb1qaOmXn3R6",
+      "title": "Diva",
+      "artist": "Dana International",
+      "year": 1998,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/4xTKSi7m6jUb1qaOmXn3R6",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABY0lEQVR4nM1WQYokMQyTw9zlH/T/n9U/kF+gQemBhd2jC3YCBUkdhGJLcsr4e8355xfw//5VVaOmpwefw1ngwbRJ2HA2NrXB+wKKABouwJ3D2eFlid3Q3T6Bpx6E5SN4RgcSr0DmcBZ4lbL9oTYA37v+ZsEEddtr6wm9wPIFxRbPomFBYHbY6Q+mDMXFhhFla9ffQXsKnnYJvdQzHG62JMup3rof+DRWpCLDXf3KDVWc1i4XMZ6tXhCOpHjp7fgdTLHijDfjk1jlrPiB+XzZmdv6fYHqxkxfbjdmzpIfo2alwXHcVi/3lhEfY47gnhUeYziIUnQdIZ4lnqHcNaPoMj0LvBPNGS+8Oy1B9wN6Sb4kBQVwqWf85POdbZ8Gaz8/VB6wrju0fL/QxrhfaAqa2daPiQDknrFchHNW/LISBO9+3XfCQ2+uoRIxeXSc9bxUhlwiGg/4Fz+5pxtdS3/UL3/vfgPJxPS/j6XkfgAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "0Z6y9qCkkfESLiEOuBWhAZ",
+      "title": "Take Me To Your Heaven",
+      "artist": "Charlotte Nilsson",
+      "year": 1999,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/0Z6y9qCkkfESLiEOuBWhAZ",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaElEQVR4nM1WS2rFQAzTDG8v3yD3P1ZuIJ9ARZPde3RRXGgNyeAhCH8kx8t4t94fV8Df3a21agE4RxzM8GgDVUVDj7NnMa+C+u54FQcTvNd5ly5xofjTWL7BU4EraR9vf36GH9xZoNjoVYqDCd7yAp40Yw3wnuDBMZgCmfbamuERgpw8JVPiEM+kTRmhXx7N+ruIyAMMWpdn+nhBwVpEC6pWj/l3AbeqiS6ohnqDRYtyWptT0/6mC0YabBLmDO+FS4fVovuuEBrD+BymwBlXIofxIdxTZl8mX1Kf4kVnYrRhOoCa6hdpLQRHfR7r7dRPfEJMQfcID4coOpBh4Ty+xOYMFkDh9B7hKUDpb8LLrNFw/tEEzzDNnB7rLcZUT8bhoeb7AcCrq/T8MfcoPvrkC+QX4hx7hoengqHOEZzmO1Ih/Cum2dN96NhdDd5Y1dAv1E9nMcgx1y+QAobUksLCEV62oDf7V/vuF/rvBM0i8dwqAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "7mx6IZujrnfHLBmqcIOxIe",
+      "title": "Never Ever Let You Go",
+      "artist": "Rollo & King",
+      "year": 2001,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/7mx6IZujrnfHLBmqcIOxIe",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABX0lEQVR4nM1WQW7DMAyjgtypH+T/z8oP6BdwoNsd1p02FdiMIq2MlBAlinYZr2sd37aAv9urqq5avXphB5jh0Q/K193oHRyznKtBNECUEmBeA4lAQf2L/35d5372CpaegMfLOz/ZOwGjtR6cmQATvHKlcp9rAbwneHCWBFHkIzhGeBRA0bAFExziWTQtCAgqpvkBAsPXQvDm+ckivKsHj/OzGZKSaSbUkC8VSKYZ1hSvXMQCcccSsqM11ouMiI/M17QfEYqRpqSQHPI9oMsuEas7cu7Z/CItCFEliAzHfKPACNCmDI71kgmRQOy5G9bvBFtxey9sH6SG9eOTrHIUbd86ZngO3V3DWM3cXwxKSJfT43F/sxiHzoDko/n9AAvA3Qv71zHKj2FKOEp+hz8TQXsYftx5ynejVJMXAd3D8/fcTzUqgr5wLb6hftq+HK+an0fI/SCjsdGmflD//L77AaYvD5uzmWonAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "70tFqMdkFXCPeirRaLAKKM",
+      "title": "I Wanna",
+      "artist": "Marie N",
+      "year": 2002,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/70tFqMdkFXCPeirRaLAKKM",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXklEQVR4nMWWUWrEMBBDNWH/5Rv0/sfKDeQTqGiyLaUttHQCDSyJTfLQeGR5y/h87ePLFPB/c1W1NoCqVT3AjEcbKGz69OrBMeA9gCJesKC94FW8Yw22cGIZ6w/ffjfHda7Fgn5471dzFjbgE3QPMOGVC+D7cAM8Jzw4F2VSYg804xGgCSvMPGvII1sgIDA/DeuVERfDDBtTfcEJkCiJ83qVkmVQoUbvMeLB0ZXudvHj9aMcaQr5wh8D3hETn9m33gK4h3kAQ+mq0hD2s4Y8xMiOr+Ub/MeWld1hR+O0v37KinFi63G9KVWtr/s89x9FK7a2HCceIx5bX98aPM4XBcio62Qd864uNBLxjG7IZzeLQc79DKrjuXfHPJ+dtL+oOeFm+g6g1vNcA3cfwceA93iTufGyXV6Lw3whsmjJvySqblk/Z3tkp9xwfqBdfKVVzpEZ79HAD+zh/7+7514BebcUo1+5dnQAAAAASUVORK5CYII="
+    },
+    {
+      "id": "7B2eFoaBjo2kCEh6V81xdx",
+      "title": "Everyway That I Can",
+      "artist": "Sertab Erener",
+      "year": 2003,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/7B2eFoaBjo2kCEh6V81xdx",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABWklEQVR4nM2WwW0EMQwDx4v7Ux1c/2VtB3QFCug75JE8dUBiLBawHwOJomWt5ufa168j+LuztVbV2kVtzoYZT91gqP2sOptrFvMqNgXat7NhroFLsB3qUL/H+T+T7+FOeRe0Ix9SkO0Zb/UCfW836J7w6Cy3LXdq3e0ZTwZZjbtpoSGvD+doGCrT+F7VCMuW0DQ+m27RUisJz3gXqNeGfbso6p75hWjnfpVEdmum3wOWuOXNvVFFzGsUn45LHPkS7bgemJjP7QDjn2vEs46XbRKihvqRfCXyjMiOBT2Mr5NrbluuCuP42lEPpxoxzJQX/wWXZDu18VA/vZJNW/hEf1EnxpNpgOP+goh+3aQTzv2claoQ9+XzMD7iv9NNrTjRU/1apAxpph/ozyKXLCLmrZRnvPdZIZ0H3TWdh7KMt70Qy5+YD7YrLfqMWeN+H1BGtj6FGd7f9c/n3S9QQxCSiHZ/+AAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "5PmYbatwMGlwR312TX4ki3",
+      "title": "Cry Baby",
+      "artist": "Jemini",
+      "year": 2003,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/5PmYbatwMGlwR312TX4ki3",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABWElEQVR4nM1WMZIcQQyipy5HP7j/P+t+gF6Ai55zYodclT3B7nQHFEIgzTH+fPb56wr4d3fnnDlnZ2dxD+jwaIMCZgeTA0rOZwAMaKzu4enwAHyBwNH0+n3c388VUu0L+HT8LEgDEnsPaPCOD1Ls97MAvxo8OI8sUUyvbXV4FEDRQYYJlniWzWj4orLlp1c+0bqvLT9KViqlLYTqU+IhRUtBpNXxy52Ng0+MsLtU5T8Yin4hmAj3/aChgMZ/wWz7EaMYb1MA9n7hZXipmURfbwq93KJiXa9ilt9BZq+fYmYZIXnDp7JeZGdEwCAnJM8P6EfLvNbu6v0AdjTQZiZgAFX7HBEu7Q2zNNn1/LtzNGPrDoTaz0go8qeE7if87CSEYvZHDPR0eGBoZWmGqjq849nvdbneEabbl++doJUOmKGKXj8pubgfV/U+wh0s8WCC0ubt/Offu78AkJMatBi0rQMAAAAASUVORK5CYII="
+    },
+    {
+      "id": "1Lav2Z3RKu71MJLIjQz4dQ",
+      "title": "Wild Dances",
+      "artist": "Ruslana",
+      "year": 2004,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/1Lav2Z3RKu71MJLIjQz4dQ",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXklEQVR4nM2WQc5cMQiDP6LZOzd49z/W3MA5gSsyv7pol4zU8qTokYVlCBgq/Gln/XUF/+6uqnbV2WfDdZjhKZ+Qn1Ps66wZ52piG0L5OmuA97qneaByQ/4G3sObrYP3F/DCNmXBTjtM8CoF+u0e0HuCR9ocW44+zhrhyaAoOCZCI7x1KcK7vAtx5FH+yE/yrBiJIT9ik4joBh1N8xcLy3aDSfP3SNOz3FBf4Ick0wStNKqH/IQbRzeLaPoen8PO1a1p/hZIKcOpUtTCtUb8cmOM2+kczuJ9sa03VAe+RWnKr4GC+msx8Dfqzy0DHXGY1wv+dG//uQt7Dfnh1qquGMuM+yOoezf6UULP9ZlWmdsjGuZv3ZVAB3g/h90TZA3wXshsVPHTBV3DeUlPDLUK9uO2Os/rRW13EjXmtN/aXKn07GX7me5DMed23dP7xlhfaFrdIk7P4mG91H++7/4C6t79PLIRSwIAAAAASUVORK5CYII="
+    },
+    {
+      "id": "0VFmXKjkFNZDs9LXA6Ja0g",
+      "title": "Lane Moje",
+      "artist": "Željko Joksimović",
+      "year": 2004,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/0VFmXKjkFNZDs9LXA6Ja0g",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYUlEQVR4nM1WwY0cMQyjBvenOrj+y3IHVAUM6N17JPdKFCDRYwAbGIESSVll/BrzfLsC/t1dVXXX9DRwD9jlo40B0KfROWCJuRpEg5xRDtj3QDJQ/KN/f46P+22c0zjsv5HPaGFAoNzGjo9yIaneMQDPJh+ckCWK4drWLh8F0DRkwwRX+Z4LETilriGGOz7w5V/RAo01PstO69DkKa/x6fYvkr4N9A5fGAinoZfQLftZ6o8YeIAmxsv5h+jFhkiTsritF6GVkiObiEc7fvVJ9QGmKhBry68NUmH5gl3W+xEph4owgbnsPDt8imclQmmj9vNAFjJhFLvt54v1knSstp4vSJbYIpU6xtvig9O+GPdOl7WeE/QdVtcja3z3/fCVDcllvc/dD+BmfAJlU3hW+ZCVADgvz+U1edbvOVvg59sqZ59PjfK89xgs67Uwp6/2fvvf7/HiN/TGdtjqpf7zffcHWSv3OjycKF4AAAAASUVORK5CYII="
+    },
+    {
+      "id": "6LkCvCc9oFoLDv4DLhzTox",
+      "title": "My Number One",
+      "artist": "Helena Paparizou",
+      "year": 2005,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/6LkCvCc9oFoLDv4DLhzTox",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaUlEQVR4nMWWy20EMQxDnwe5Ux2k/7KmA7oCBfQugnxu0QLxYWEZWIKUKGlW8/Ps69cT/N/bWqv22kVtTsAMT90UckFVAiZ4b7CE7sKrrFp6SQ7KFKH4h/9+O2/n1yzEE44hvzYhd4uuE1wDvNUL9Blu0D3Bo3PoRpZO4JnegtJafSeLtddML93uVhuHYaMZPxo3nQw2ksQML36p5q7e1TvSp3pjEcs+NFMRT/Xap6zpZLU1xFNGgG3ajfCUnyKXYz4FccbvYqM07r6pXTuFvkb8fFjZQu5Y0NP8IeHc3fZQLx0L42CluNP8cYzyMF+qO68visq45bTvPH+KT05nKMYZ453h9yizFVtfIzxOe9ChCCF7vWA+O/dIZ4b32B9eBmXHgfd4Huh0iEQUT/cHq2D3fr/RXlnq14wfSZuU+Ze2m86X59nyznQZ7nMe+bPP7nVIeug/iORMFzIapvvtywdvrsPvv1e/fQCHIQrJVbDADQAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "4KIoPhF6nBKgLJ5NZFQne5",
+      "title": "Boonika Bate Doba",
+      "artist": "Zdob și Zdub",
+      "year": 2005,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/4KIoPhF6nBKgLJ5NZFQne5",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXElEQVR4nM1WMW4EQQgzo/Se//9uf2Be4Mhsl5SclFCsdqawjDEwZfyMPr+ugL+7q6qL6tsXeA9ngQfTJmHTMnPQBu8LKAK4UF/p5nAWeGe+DeFe3aT8CTyrGwC1xsPoZ0IiPqBfuYAI+EYDfHb8EhDBYWdbH/ALYdmj4BpPNCwI88edfsFL0vlDKrLkd2ITo2Bdt6ux7TeFU/zi8Yu2+gUp1RXGidrrZyDlCLUhfHZ4hGLA4Er7+kIkqTQcIS77DRHMZNoXGjNq6Rfh9oPbaeMnk/Cs+JHJeYj6LfTZ4cmMjMkV0tJ/5YLYuJ6BWvBuX07HjqUzZlLlvf+smJkzr/Z+hhEr25kLiBXPCi8x3AKWAmvJD/GIXjMz2Z8VHrPSkjNjvg/MA6TbAjh7bj+vENkYfu+e0/L9MqHic5tZwFjOAwv95B3E5Est5wHi4kDFgTOkd/376+pfvXe/Aa01Dl6jlAoRAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "7sZTvm0Sx8umbyQViTE2Qc",
+      "title": "Hard Rock Hallelujah",
+      "artist": "Lordi",
+      "year": 2006,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/7sZTvm0Sx8umbyQViTE2Qc",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZ0lEQVR4nM2WwW3FMAxDKePfqQ2y/1jeQJqABR3gA/29VQFaH5IoQB4ki1Qcwufq9eMV8HfvIiL9lJFxB2vEo4RudHMrHWDCewFBXDuhTiiDT+xBAxtZv/r2+3qdK7OSyGd6pHJ+2qTSASa8UAB8hw1wz/KTVNgAavcdrAEPIkC5aonnuYY8UsUSUCAKU56qYBVDEMUxD4KRVSyUC64ZrygXDFrO3sWa9qPk5Jxbna1cA96yO8LCyypZfzO92B9ts0HtuK+ZPyCApHthJRY47oeZvGkysIb5kRbhEZ8w159OzTfSyU7zc1KWtI1HWTxryKPN692zTcb9IAwUPV7qZLoGvGWN1BWotJgRw3kP0UOFJHw/Va8Rz+sMBEONrqk/QFnJcjM8XNeIR7klxxhn8I/nSyQYTG6wA/XE/7z947iaUCSfOB9UI9UXQsPzH87+3eY9I2vcD5zzgQfqGVtD/bnAj/WvzrtfMDb75r1xOaAAAAAASUVORK5CYII="
+    },
+    {
+      "id": "2QNb0E7tUeL5fCQFY5Pf02",
+      "title": "We Are The Winners",
+      "artist": "LT United",
+      "year": 2006,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/2QNb0E7tUeL5fCQFY5Pf02",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABWUlEQVR4nMVWwYkEMQxTwv7lDqb/sqYDpQId8sBx3D69sIaBeB7CthQ5y/gfZ7/9Ar73b61VWKdOHTzJHuHRRokqAJUEE7wXsBggeBVcSfaovg4BBXeNn8BT3Qc4l8Z4L8AooIQLqk72AG95AfxND8B7ggcnYDbPnWiGR5skLAdUGOOJhgWhT+QQD0qffeq+Z/W9GvPkKy+fM9QLLAskJMukNet3o1ZuB4nFc9/z+mhTVoi1mOOe4TEshFdT+gS/JClkehA9xRNlhAd0hXM9u+kFgpdiNfSrkqBq2RzHAfeoPuT+9vi687kfIKzCksIG53oJJOn2l4hwD+tzq651nfY1nB8RHTuiAeb6S9C9ibr1Gd6zP27wgEtXdt2Z+4Edc25/nt8PMDCP2wNj/+sQfV8oiDXe54l4/Q1c+JSfoseYJTfWX78PGOWgd91wv/158D5b84tv2/f4AbfOB8jsmKUIAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "3qC3JSTCiedBhYm2oN1axx",
+      "title": "Molitva",
+      "artist": "Marija Šerifović",
+      "year": 2007,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/3qC3JSTCiedBhYm2oN1axx",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaklEQVR4nM2WwW1DMQxDKaN3eoO//1jZgJqABe2eWvRQqEBrfCSRgf8i07SsMj6PXl+mgL+bq6pdAM5XAsx4tEHsDUMnwIT3BhShfm0C2Akw5AEoWCxu75+8u77lCeUSe//GHlkg3UA/SoAJr1xApLujAb4mPDgDZpK8gWbr3dUlCMBL2N0z/8GmLcpAfCjO8oNJhmPSMCAOeZZl2JAV7lQ/7Ho2dhEbrbmf+1SsTbVy5prD/ZCin6+rieF+vOFpYauRI1LMCV6z/AwqCVIQOfaLj+mo/MjCp36J/2wpvo6jp/kd88V+t9BoyoOUx1S8nD9YQx6OhlHRNMfnzQckZX/jRQ31A5UsI+PdmjXikQZOkfkwjOb1mVFPuX5TZdaIh2SXJ7XvF/zCyBZarpAsXUMeSB0RT6pD/db5fLrP9ZHiNbuPbn8AB9in75j1f1e/mO/2Bqk0a8Bb6Co80AYbdkPDfuPL1L/qd98B0lQIRM6q+SsAAAAASUVORK5CYII="
+    },
+    {
+      "id": "3ve2mVR6BkXuNWfHVoA5yu",
+      "title": "Dancing Lasha Tumbai",
+      "artist": "Verka Serduchka",
+      "year": 2007,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/3ve2mVR6BkXuNWfHVoA5yu",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABVElEQVR4nM1WMW4EMRBirOuZH+T/z9of4BcQMZcqKSdS4sLSukBgYLxlfF/3/DgC/u6sqroBdFXNB3Z4tHG7+xKYD2zwXkARvmiCT+cDSzwAfS0W2/07d/rgsiQNHJb8jKZxI1xt7PwoFxAn3usCfHb8HFTxdlC9zTNMCLIFSqZELfFImzIgEOIWT8wFyqQgYM9PlGQjFLHXK4aZQY0f8hZPlkFagc5+FngvpLkh9w5MpsJZ8WMkTmRgwdzxO3jchQ8QrQLT4LPjR4kJYOxl/D5LPCd0AXLCuNULXTP7nQ5rq1dxYWRHdQ7OCg/pr8bhuLvur5UYZx9IrPtmenoGx2Jv9ZKxgwQnMOv+ZmXGZAQmOms/5v0YcjNq1nqdET1SFdR1PxIYDs934bR/z/tBR631cPs/9LUe8KI6r9JZ35/ercs8WM8XJHyewCj3uLu/+uf/u5/R5AWtnp/yrQAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "17NIAyw09hYcb10hZXxgjN",
+      "title": "Believe",
+      "artist": "Dima Bilan",
+      "year": 2008,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/17NIAyw09hYcb10hZXxgjN",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXElEQVR4nM2WQc4dIQyDzejtnfvfjhuYE7gy08WvdukntSxmgMWnxA6BZfw5zvPXFvDv9tZac4D8112g49EGDw4sTxZoeB9gEQuEF+BZrHnv2IBPr9/nfqkzZKJseQ9g4Qy8Ee2sjrci2xtWxgG4u/hsK+ph7/MunoIHE+BNVOadq9SP1KEwcw6g3t+NJQzg5XGOylPwYBkRTaIUh1nli/QXEgblCKlOv8+VbPId6Ga+S39lShAMiyzjg2lFQ0VDUGW9IA6AEG75iWz9UJi0eR1JiE/FI3ELJkIa/Ea+Ts0EqQSrkufolp9Shq79Je/5QHDRUXX9QQo0ESbpp+WZYOrw9tU+39sC43JsqXkZOWlhBv2N/hJgjjGDVHt+nTpJ41MqsfY3eaYR6N5z6njv3gFmz6XPN95c9NGkM6zN7r583wdp0QY2Ex56f5Hyy/0h1ffHjwfv7+n/9N79BRcS+ix/bW3AAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "0DHet9TdSsdouIbOjvLf3m",
+      "title": "Shady Lady",
+      "artist": "Ani Lorak",
+      "year": 2008,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/0DHet9TdSsdouIbOjvLf3m",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABW0lEQVR4nM1WwW3EMAyjgvtTG2T/sbIBM4EKKv209ysLtH74IgNHSCJFuwbf1328HQF/d1ZVXQD2xwEyPM6A3Q1CGyDBewFFXK0mgHaAEA/AKYo1BvuVnl5dLEE/+e/X9QIGzcG9hTtAgldTwFOm1w3wSvAwXhjKsHSgDI8QNCN4p8QQb0jjDCw/iFl+q5ei+2bAbnXYP7lczWBTlNL+PWQMzMiDfWR4lNzBEbeHKZ5ImBN5NzcK9TKalYxgsTDPb1vnuunvvH8WHc2wRRPzQbO73VtOYj44nmHJmllQpXoWBiL1THFe73IBaM2AsR9Iqzp5gDWxv8hy2emlucn1zBWKvd4+nc/v2Fu2e6DzVOZ/9dwf592+gP15RPlxHdrmbJ8BUj4Is+D+eaXzcex+9mX9zeia7P598tt6PbxrX0eGN3Zo298noLJ67yqcflrhhohW+N54O/pX790Psc4TKOb6lD4AAAAASUVORK5CYII="
+    },
+    {
+      "id": "7wUKRQMHG0fI3DBzi6Tp29",
+      "title": "Baila El Chiki-Chiki",
+      "artist": "Rodolfo Chikilicuatre",
+      "year": 2008,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/7wUKRQMHG0fI3DBzi6Tp29",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABX0lEQVR4nM2Wwa0cMQxDn4y90x1s/2VNB3QFCuj9yCFBDoE+kPgwAwkYQhIpeqr59Zz1Wwr+Xa6qdkHedQNmeOqGvTctPsEa4L2gRB+2NuwEDPGAoq3622/XH3P2UVme472g2YIDz/sGTPCqC/QzPKBngkfn0OlVuoFneMLYbXC3bE3xpLbcYII9rS/Tk93Kw8zrM253c0t0z/AWfvd7s0tsDMdDPR/OQ9oMwVEis34tIdQONdGPp/y63Xa3w41meIuHXdTO+HZEOO33argVhrN5Q35pK1LJynXbmuu5v+THpcRTvPQpSwpgT/mgIz1lds4eZ5xrWJ+vIVh33RjzQQj5IEnfoeeOUKLk69NzPjKzTPFT6QzvRe6PXBsnXvANfqCORaflW9+QjwW1ebJpB5+K469ZfShijg5jMWN/vufhoGfXjsEspvNztjjWENF4uG/kIo/fX1EP9Vz/+f/uD7fSBz/Xwdn2AAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "3MnAsEBBsEj86d03RgO4EM",
+      "title": "Fairytale",
+      "artist": "Alexander Rybak",
+      "year": 2009,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/3MnAsEBBsEj86d03RgO4EM",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaElEQVR4nMVWWWrFQAyTh/5rbtD7Hys30JxARTOFLvl51IGakMUQ4UUju4zftsbNBfyfr6omak3MhfMxGngwbRI+z9zUwXsDilia0JriLD5TA2HOXH/59+7zXAsM6pfvp43XfRbAqSuw+2O8/u/NyoVE9mkL4NXrbwwy6HTZth7gC2HZBIU2nuiUTdhv7OKlA84pdmJNoKOBN1CwV8GaXqr1AP+qQC1ovgN0Dy85yjm9Ymgj9c4vTBqS0lgDVLu/hAltaYHBrr4scCISEwFcyXm04hOVnBUybzKqh4dknPqBUPJWE4/hyA6UYjoyWnhUjlleQEl9PYAPW5JsglUbjzp0eUZf4GSsXTz08bDrloGZMrI5L3H0OaKFjN+Aj/Z+oKJkXJip4GjFx7MabH1Jxv1+hCPRKe+GtPkcPOdsRLj69dtWWLyuqEtznmMXL+k6l/rzDXs/4BlyCnV6evpt4T1T8x9327t9ABo5Dj1HqPtfAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "1l9jCFXKfkw33BwkGytqkO",
+      "title": "Düm Tek Tek",
+      "artist": "Hadise",
+      "year": 2009,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/1l9jCFXKfkw33BwkGytqkO",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYklEQVR4nMWWwW1DMQxDKaN3eoPsP5Y3oCdgQaUFiuaoAHGQ/PgfHmSRllTG/3XXyyvgc++qal8gz+oNZjzawMWF7d2bNeB9AUU8LuG7pV0c8yIBdLEdGN7BIwpkUXvKW4CFe+UDqjeY8MqV8H7XBXhm8dkWDoBzWmON4oMJ0IQls/9ryKMtyoDAfDXLHy5Ljwu4xYVG9xdWPoBEQZyf1zQdkAwp2DXi0cmdlRgZssZ6EIbgmFkY6yuFJXeI8/wBZHzS9hM9PW8ubcT4UYRTntsnijCWclHWiMfOYWBgmtM4f7liMXUfOLKsGc8xTARh/DfWg4lMyV4ymRDXjGebMXUqTHTRG+4HmEqQ55iXhRSEQFuUNZ4PVDgyL3aa0hrFx6Tv6Zo24DQ+1AbS5M6DtzDsl6t/r4mTqcjc75kPetwASpzNf8/8dZHpjvmO+gfGfkjZ7yI9O++fgfcJ/OBs+7q+Ac0LDeCCcWxQAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "6oc2gqNSkOJF7vX3hgEgsZ",
+      "title": "Believe Again",
+      "artist": "Brinck",
+      "year": 2009,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/6oc2gqNSkOJF7vX3hgEgsZ",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABeElEQVR4nMWWUY4jMQhEC9T/xQ1y/2P1DYoTsConM9ImX7OsNHyk21b6CSgDjsG7dX5sAb+3FxHV0YVqnAV2PM7gISqAKi+w4V1AEI3CRIkV/B85IGTiP337t13nV9Ug40XMt//8ZO8CBgUIeBjnRS54MeFwv6wB3hsexoYZUH7MjHY8zpDEaIagsOWNOBg5g37jlieDLOzYVzuaC17iAQ4ao5q+wyc7V/7BWgzk/A251gPQU1YQhHXOFY9OniR76lJZnxdrTNFcabj1D3KcglGQ/c0VT4RlMFVPP3PBS1As120D1ffPvv20RBfUiDoCP2rJwzhUWl4Xh7TXly5hUDrlu6zfy63UjbmIQlC9nh8eHFF3HUm6tvlzmTl9p4pPveSKZztjF06e4bnzD8+u7HIjt3rkuR+AQRR9Epd6wBFyfFjk1gCt+5V5Z4y4qzr4XPDy9azgffcZcNjPS8lz7ZyX9XzDuR+crur0Lev3+r5Vvdi/erf9tD8UkvyGXYdxngAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "2UjNsh4ipNrmog6wdS2JVv",
+      "title": "Satellite",
+      "artist": "Lena",
+      "year": 2010,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/2UjNsh4ipNrmog6wdS2JVv",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABY0lEQVR4nM1WUWrFMAyTw/tXbtD7H6s3kE+goXTsY2Mfw4MttIUYKixbVlLG59XrSwj4u1hV7Qawq+psMMOjDTS6be6zWQO8F1DE1YQL8C6O8c5SA7z3j/5d38fYe6O3xngvwEg/3FfQjFk/KmXjx/awXgM8OIsyqfeNZngEaMKykyhneAsg1RB2RdUa169xtXHEl0B7NL8vbMO9k9gNsIZ6QUpHiaAYuhr3Q1ZqeOBocYrnpAilw89nDfAW0C204LSXfU3rl/GImN8Jc8o3YxETDNpDew317HJI0xd0jfUC6Jk5Pe9v9NeII5w+j/0ACka+UaI8zi+Uk+NpyVR/r4O5N7TvuGnB0/llrgjkccE0R3N/xuEKBnJWv+f8yGkZrzoJ9lwvPAqUQn2W3wJq51wT7311QXM/ZXQSK421zvNDOJZ2zo+6rWl+zhNf0bH9qZ67wNyqyih2XHWmly+hf3XffQMuxPbhK+5xjQAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "7m7yPZ1D51mbKuqAJFsmTf",
+      "title": "Run Away",
+      "artist": "SunStroke Project & Olia Tira",
+      "year": 2010,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/7m7yPZ1D51mbKuqAJFsmTf",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABX0lEQVR4nM2Wu20FMQwEhwfnqw5e/2Wpg1UFNFbPkR3SgM0LTlIwEH9LVfPdzvPjCP7urKoWi6I4780z4qmbcnlx1t0w4X1AiS4B8t0w5MV02OL1WzEtLBXbv8FrYwSGlQ0TXnUR2Jcd0J7w6Lddpu7SM54kOV3SWC1PeQgbtdoy3RryWiDRvqvWjPfB8YFXH53Ql2d6QF+Pkwq3JYbxe5IG0/ukquPvTA9oWXSaN/EznubDSoPITm6SFk/j17Idt/ve0kN/aadQ7pe1h/466XXaRFau+Mx42Eq5vLHD/qheV1buz+uY10hfHrwjpmt/Haypnq7LMAHvO42fafw6MpVxpNt3z4gnbsUkzXd8jPUq6mykkDv994zfB01z2LA0zoc6rBP9yz2H8414mWGpCHRqcKp/MYuN6mTOTd9DscV6HfJEmMaPVme0ZVjiZHfq76nK/ZILWGfN/K1//t79BNsE9BpE0E2qAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "68852t5sKz5d1LoCMv7SGD",
+      "title": "Running Scared",
+      "artist": "Ell & Nikki",
+      "year": 2011,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/68852t5sKz5d1LoCMv7SGD",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZUlEQVR4nM2WQW5jMQxDn43u6Rv8+x/r34A+gQr6p4uZbopRgKkTILYXAklRjEfx99rz2xX8v7sxxtqLwdj7HOjVUxWXhwesc6CJeSzuLfI5B96gwXVz1yn4Fk2XkdY/YvlzlarkCGdZ5zD5vuYP70YNvnjGe6C7h+9ZPu14trNVT5Ls7MJd7tZDOPo9Onb1I0xRUS6XAtfNftSGy1ubC7jVygOqbJUfvxi3+1FKRVw+nJt8qRilQK4SsY2b/XCQyaEb5/T9kmI+HT4o3dSPerk5tLv+m2BWYlSLVUUz/yiTXEm4JBiymc18EftEjBmYq5svIm4OtsxbEx/JlDQ5Q5IO9/2HS6ck6A1+kR+W+YmIXXxZWArv5FbXf3kSGLMTqyv/crOFT0kYXuN7En/26iGFaYIh+vX68dzdvmPr8YzdbNdbi8T9mZWefh9JllWsnS+L7eZ7co+RUCmc2dj0+I5f/t79BHNqCQXr2Az9AAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "64WR5TPXZZ2wsWYA3enKfK",
+      "title": "Popular",
+      "artist": "Eric Saade",
+      "year": 2011,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/64WR5TPXZZ2wsWYA3enKfK",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXklEQVR4nM1WwW0DMQyjjf7pDbL/WN6AnoAF5V+CPgod0PryOBkIQUkUT8N4P2d+XAF/dzfGWFgYZ+DcYDbwYNqEIco3UAfvCxiEBhOoAjTxAJAbm+f1u//OH/EGlrEkrC7eBCyIBjbOSoAO3vAAqnh1DsDd628dgXnu+2zhkYxUgJIL1cUTIYFXeqGrHh5YP8suoj09V5aSLUvMe5efRULJkxIyd7OFJ0aAoVjj25xfpKcwwdRPfoCfXSgxGCZUv79SmFVz2dZzQEoxcNrT9b8jrNgBF5cRh5lNfhYZuSRkux/I0EpmEm/rb8Ia+wUOHOIV+0PfX1iNvbPX1t/N1eV/UbWa/MRSiVLLB+Y3hyJLM5XxbOGhYEJSqFqq11/a+QxtHhDKN322+BHxP8a1qn4PzG9EEv+LZfX9D8ykRSlRYLt+SKJydjVgcatZP2QdMn3XtRDt7RsfV/9q3/0GqXkb48/TdAIAAAAASUVORK5CYII="
+    },
+    {
+      "id": "2knr7ikPt4l7bk92qS4ZXW",
+      "title": "Euphoria",
+      "artist": "Loreen",
+      "year": 2012,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/2knr7ikPt4l7bk92qS4ZXW",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABa0lEQVR4nM1WW27kMAyjjP5TN5j7Hys3oE/ABd1BP3YHaLsK0BowHAsJoQdFpYy/117/mICfs1VV79q9GzgXTPBg2qRsWGYumuC9AUVsNLwb7uIdOWALnf0f376yibXBhj5570s2HxRdkPtc1uv3vmQrF8CP6wZ4zeqbBRO0s23dwBfAUkCFMZ5oWqmFGBc1w4MMp4sTtTn0b6UI3gWrXdph9hr5RxsipOQxnacxnpNDkRCkWf+++5csRg90h39MuCAT9EFcIzyAeEaaY6hXsKjDupA5iZzq30NoXqd12/s7367Xtt7aqLbC6CjgGuAh5Eu7pTA5h3pQ7us8cHOj9YD2Df2hTKIjWkP+rYOJxtWI3neP80c8JYbh4pB/K23mB1wFNI0a+wdQOjKoCMwsf2+R+GaD6AReY/4R8UnBzZwb6tV6P5q+2kiBb/nnIora1xlwmM9LHYXxCXs8344AZgI7ijXsj/rl/7t/ADMI/1UHZSknAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "6lnmAjsr6xgYJA2RCtncEA",
+      "title": "Party For Everybody",
+      "artist": "Buranovskiye Babushki",
+      "year": 2012,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/6lnmAjsr6xgYJA2RCtncEA",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZUlEQVR4nM1WQWrEQAyTh73LP8j/n5UfyC9wkXfpoaWH4oV2CElmYIUiWV5H4+uq8+0I+LuziMgEkBExG+zw2I3KzGpqNtjgPYAglEomkN5giQcgdYnR9bvfnh/PhJvRyD0emj2XYPXm7SzwogPg57YA3jt+XlC/2HX3it9BRoWGW93Iql39oZtsUW1XCHGn3wOFO2jdADFS14pf9HgQjRBjONayXkBKBGVLoN33jr9q0N4Cauz8hQuFDc6TLm/t/LgEhLLcXcJiYsmPoOi6kZ9Lfmi66JyQpotm7wcHbBqDfV7zm9A25E8f0LPAO85tRAUvx63uXPe/sUGyis7xWj8ZaKR7oZ8Vnhw3QU36td/gBwByooy9v17+93ALnNLRLm9hUknWDAkW8aznA7AKFKDKbb+f/ueQzNrqd+Z+RT2dkXo7Dz1ZulHdGVmpN8wHeobXSVnm46AicEGJKtzEkl/883n3A5lkBC+4qURYAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "1RCLwB4gj44JWKtjn0Kwok",
+      "title": "It's My Life",
+      "artist": "Cezar",
+      "year": 2013,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/1RCLwB4gj44JWKtjn0Kwok",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABdElEQVR4nM1Wy20lMQyjjHenO5j+y5oOqAq4oF8QLDbJIasHJJ7DQAZMUD9KZfx7en24An7urqr2rt7YwDEwwYNpU6Jh+WmsAd4DKGKz3+zizN/Hk2QZbpRfFtPdfUH/9/bv8wCMffxVecfABK9cAN/NBnjP8psjE+c7xhrgLeyNYoMwhI65RvwYioQgw9SYn4BdHXqtjTk/Sw65MDt8NexfoC7uBnaarqf1J0Lsix3Eb3L55BhOoRCWQHHoL2zoVKBBJY6z/Cb+ShkrpZKymeE9cF/tIm6ghABiGj8SSqnkJ471dN9MXl3wRoujeQQfeSEFWGDiuEb8vOFSX9EuIP81wqskooLJ5v2dt+sr/dPxM1LDNPMa4cE4UuUTwxf0h52aAQQGbYqXwgu10x9JtWZ6xXQwwCY6Kj2el1kJsCPTjSL1iv2qfcVvqXum98+7DTS77+uM4vWC/Uo0M0YyT9YID2ngiKpSf+nk2b7x4epX7bt/AN2188egUzC5AAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "0fvafkeEoF6Y9gGLK3Wnu3",
+      "title": "Rise Like A Phoenix",
+      "artist": "Conchita Wurst",
+      "year": 2014,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/0fvafkeEoF6Y9gGLK3Wnu3",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXUlEQVR4nM2WwW3FMAxDn4N/pzf4+4+VDagJWMi/vbS9FCrQ6hQHCEFKFJ0VPlddX17B371ba+1atWsX58AMTwnb8oa9+8AE7wFLwCa1ye7DNeJ36pBLc/yVniZVUHiM94Cw2YbnzutwDfBWFnQDX1Wge8YvB5V1Jpypn4kSCeK2ikw8w4sVxRhZ3UHP8Gzh1tk0o1/Ac9IyFWykuV4Q9umgMsUjXd1BtXKmeO9Na8Wt2dP+tVdasZxDb8bvotAG100HoDzbX0ITU7sGRx7yeyAvFeqAgfsn317f8vMZyHnoZ43nkchtalk95Tme7R6Ee0M05PeA0q5sxKY7Oc57cXtx76LmeU86nd1bd7zHeH8/tpfekWi8v4DSC3zMPJ3Hdf4PyH72HYzb1teIn45H7Ffa43leqfUesX2hT/f3Vbt0wxP8nPovplIn9BvSU/9BS27n9AU3zOf1z/933wDsb/nL3CLeiAAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "6C2GZHFFO8uXuMYCHiW5Y4",
+      "title": "Calm After The Storm",
+      "artist": "The Common Linnets",
+      "year": 2014,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/6C2GZHFFO8uXuMYCHiW5Y4",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYklEQVR4nMWW0W0DMQxDn4380xvc/mPdBvQEKugriqL5VIA6QS66D4KSSFmj+Hv2fHsF//dujLH22GsvOAEdPEpVEvU88+MO3guGwAsPqJVg9vCADSzqpPyJmtZ1b9iX23gvKBYbc616gtnAGzVAP+EG3b3+5mCR1p7An9ALZZeQ6eKVVZQx5F8bTzaOiysfqYtnqw6t0AR6/phcMChvvCtoPf0lx0ojypLL1eRH6XzxqR/BnE08IpgzWjDq1m+jAd43K+5o+pci2aZ8yVXu66WkJBpuEU+3H6nc0wcpJLt4AbKTa7J2u7/EbRkDJtZr108RX3xbkunym2HotbijFrRW329pBpUHqN2PnKCFnc5Ine374z5owxdxymzx07k3Mv8imO58njAWe2tcN9ojm8Ls4XGmQN0Xzj33iX2Dy6Nuts7mMdv1c3xRmc59f3DSzY71LcTmvvZr4X1uzX/cbd/PF+3DBBsYTd0hAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "1p1WDGChkI8ilPQBV3I9S1",
+      "title": "My Słowianie",
+      "artist": "Donatan & Cleo",
+      "year": 2014,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/1p1WDGChkI8ilPQBV3I9S1",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXElEQVR4nM1WQWoDQQyTl941P8j/n5UfyC9QkZf20NJDcaAdkjAzECHLsnbL+Lr6+nYF/N1dVZ0CcKpqDtjh0QZxTpuaAzZ4b0ARKh0eHOaAJR6AAsUCdH7z3+vHO6lZIgYOGzyYno8Q9WZ3LfDKBfDz2ACfO35ZsBVY5qCdfqe61Nk/pdO98x9GPVNGBMxXy36QoGTSsrDuRwNgEyX2iYq94wcoDEHFiOnMtcKzLWpUNCXt8FLvIxv1IdDiLv+ivwxL9vSY23oV6Qgbosi1fozpYkAzI7L0C+4ooCcYkqzreu/GhuTwXPObdgRyCC75XSgcgVUNJaG5zgOLqVKpeZp9rfCUSTNS9ZS794uJhExG+QX9zRory2B4apsv+CAnkku8634lMHsCS322/Y14sd6k31q/a34fGOvRevoV/GjFM5FxnVecp1seRZyZ2/p5+ntPR4Jh6ef65++77+CXGpAdrsgRAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "4mZTLP76T9sqqWhONwUHHU",
+      "title": "Cliché Love Song",
+      "artist": "Basim",
+      "year": 2014,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/4mZTLP76T9sqqWhONwUHHU",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXklEQVR4nM1WwW3EMAyjjP6pDW7/sbIBNQEL+h4F2qcKtA6QRH4QEinKLuP7mvNjC/i7varqBtBVdQPs8Ghj0D0EboBlztXQPENQnQAbvI/7blgstlM49njqchlz4bDEM5qhcPC6ATZ45QKixHsNwGeDB2dBFsh3oJ2+XVO6/4/RM7t6YdMW5XBHCLv8YBKgZNISIC7xJEi4HKZzlvzBJknEHQrkPj/KRFi0wS1/B8ArttAUmhM2zyo/pkorxCU/bvkTAYVHCGKa5+zyo0RTmXxpwF/QIz6LIkFe9zN8PZIeBBnQs8vPt8x3xSld23nAGLeGPerM6rPKz1fVUBeV8zkrPMUU12pvo6z7xWaEAJ1Js9Y3i8oj8E7qs74fAOB0C52j5OzvBy9MaISmt/qGvDsL4uI1f+e+ezKxXrYe7vL7+Dp5OT0wNPt+kXMAX53X/gVCYNyRmbrt5/rn991PhG0OjTjSDxYAAAAASUVORK5CYII="
+    },
+    {
+      "id": "4ciaNqHWA2IzHphZaVRzHI",
+      "title": "Heroes",
+      "artist": "Måns Zelmerlöw",
+      "year": 2015,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/4ciaNqHWA2IzHphZaVRzHI",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYklEQVR4nM2WQW7lQAhEC+vvixv4/sfyDYoTVFSdKIuMZjHiS5NeWKYlPwEFmDJ+nrn+uAL+311V9TRqCnMM7Hi00Sq1BsfAhvcCinARBMsxsOQBGBcegv1P315/vesC2Ri9g2dBMPBAx8CGVy6A32YkeTY8+POIiJfn9VrxSFLpEkE0teWJkEHTpmJqxwOZp2Wflx3vBaqF9nCgRnvXb5GAVBpNTPl5G28SJ0ipvKRvyyPTu6BMpqy3PNmKd6IcNbb1AhqyDOmkcctLqWTwwfRJoJbx6ksHnqJe58+QTpiEqHf0m+iIGz0O81rwXoD6aeC5caszArGsPzB5UxRJLtd6UMqYQqZL2k9L/8RPKBMs9/o6EpOpvlOF2ulRwYxQcKHzy7zW+8H0FGcSsd6hL9NsGQdIK18r/3IezgBVNu/tPpTTAw6Zf7HesR9Y96An+8ZoyZuKrHA8uzHYxVu/fN/9AF5+DjANZs5ZAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "4hWQaCHO3k3bTYi8AozKTE",
+      "title": "Grande Amore",
+      "artist": "Il Volo",
+      "year": 2015,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/4hWQaCHO3k3bTYi8AozKTE",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABa0lEQVR4nM1WQY7cMAyjgrlTP/D/n5UfUC9gQe9tFz0UKtAaSCY2MARFiZLL+L7m+XEE/LuzquoC0PnJBjs82mB3D6G7wQbvAxTxtprhmA2WeAAOjlgu95/89/nt2YuXZejCYcnPaBqDwVEbu3yUC4h0X2sAvhs8OAticpv02trp1zUlCJixemYXL2zSphwhU4I7fh80pkKPyLvVS/0gSIqGFiFt9XPznOuShgRu9RMtIyIa4bjjBysJIa1gEtzm44wwbw8F1NpvSBIoIgmBEra29ScxBZjOzzjlWeGRhu8jh+yan+OPRGsFeMtPZor60kvr3/ID4fj2BpzK0TZe3ZfSBcV1PhSDxMHxSepG+/yCZD4Brv2WxZRyXHy7zLPA+8RjUe5MJvCdws+KH9OhA/M1QrD2BxjRvtpzikf7eX7QgE8S7e196K7Rm+FbPa2/oJ/Slm+r2fr3wVTh5GrFgU5U3N03fhz9V/fdXytLB7lbNyAFAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "1AZQTUs1FPy7YHH8aad3dA",
+      "title": "1944",
+      "artist": "Jamala",
+      "year": 2016,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/1AZQTUs1FPy7YHH8aad3dA",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABX0lEQVR4nM1WUU7FMAxzpv07N9j9j7UbOCcIcob4ACQQQYJ+7CnVnle7dtNovB91fJgC/m4uIjIApH9cYIfHbhCZ1dAU2OCdQBB33clE0gX2GiQo1f2j/342JxSjqa/e+9ZcCwQLVdcU2OBFB8C3sgDeGzy0B8yV/RTa8c2oUAmoErJq5z90k91UA/ahsFuf8QbHsAYVl3gQ1OqG2i5c6neCqQv3BENgLPOGlnmatdfHvX4SQbRdTcK4xwLvxKUb2aFJWxb2fGEoewayd7TD45iO3mEnT2v9RrUH0lqu8ZoTYe8sm2s/y0kbJC9x7xcax9qpNWnWMr+yo2npBnPNV3wy/DS3vV+6OdEY0v7AscLzGCvPCrf+O+H+UeBVSbgDb/NmvkP1aSHY7ofFU+P1nrXNxzHPK3wi+MS/e3sfmiF33kIkU7+gn3rOBXPvdT8CTNSWkXF3+rn/vBv/6r77At5hExmf3xneAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "2b9czDPSLTI88694CIqCy3",
+      "title": "Sound Of Silence",
+      "artist": "Dami Im",
+      "year": 2016,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/2b9czDPSLTI88694CIqCy3",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABcElEQVR4nM1W223EMAyjjf5TG2T/sbIBNQELOu1PHx+FCrTGXe5kIIRMUbSW8XH1/rQF/N3eWqtqdXU1ToAJHkybBg2LJ9AE7wVYxGK/xYuz8748SS7CXaofvbu/xQPRuMCfvbu/3rNQ3YDysWZ4yyvZva8GeM/qmyUZPNVNsEd4jFTMA0eZM73AREQHQYIpzfB2gGrdRBp5ATWrBw55ytfHGsb90UnLS1GhKuEe5Sc+jSsRTp01w0Mg8iOB4ri+puTDni3m7x7hMTrRA0WkMHuAt3FfcF1xlmoQnPqp0xyKDyDCGfOHNFzOiVR5qr+dtJYZEXarYtR7hCcstx437VtDv8fb/SuHvaNsTfVnnTYJ1FgvcM6piDl3ZmqiGX+WXbnJhaKnfrDPSMCyYqmoHvsfw2DgnhPrF/w+18Zx1fA37d8sFi70FWsYzkP7PKvVxN0XWr/BX6z0sKiY4B7hIfNBuiNugJA5mzc+bf2refcV8UsRH4QTKyAAAAAASUVORK5CYII="
+    },
+    {
+      "id": "78m8uTLODotqTUBIyDNEfX",
+      "title": "You Are The Only One",
+      "artist": "Sergey Lazarev",
+      "year": 2016,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/78m8uTLODotqTUBIyDNEfX",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABX0lEQVR4nMWWXWrkMBCEP5l5L91g7n8s36B0gl6qE5ZN8rZtiBg0ksFFq+tHXsX3ca4fj+D3nq219llnsw+9YYJHqUpyppKy8QTvBUuwhdeidjbXAO/q+WA25f959+t49VxrIa16BK/Y6IZ318iMj1UL9Hd7QPeM3wyqkMNuVfkBvYiKZJCZ4pVVKuNUWOgBPCodrKCl0GuEJzvCS5k2D9VXtj9ZmeJRdjpn1LAz/+a8JQo3cv48xAPXh/iU1TRfjt/vOCNui1+m+UdOq7DSdTLtnxvqI6vSxileDIcJbFZjPMIDdinSjrivGZ5TVQs5Nc7zxf1LVqWPQ/1d8OZmc++zcQKVaf9Qe1fqOBjz2/nccskVPOeXqDm0YOVG96x/atGtyp2Oz5n2Tzmm44v4hHleoQ762IMw4ge+ucTRfY76Kr5m9VX0nDbqkfuDVKdYI8tpPr8a8B/s+s1v25/jDzXUFuTV63FFAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "1bLjhPvRT5uNnVby1ytmXi",
+      "title": "Amar Pelos Dois",
+      "artist": "Salvador Sobral",
+      "year": 2017,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/1bLjhPvRT5uNnVby1ytmXi",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABWElEQVR4nM2WsW0FMQxDKeP31AbZf6zbgJqAAf2BFEmpAMkVPsjFAyVRtsv4/s35sQX83V5VdQP51w2w49HGdDeSeQIsNVdD8wyb6ATY8F53bVEsl5I49jwhMLxxWOZrgeAA86EE2PDKBfArHIDPLl9faj8dqrd+hglBStKSKVE7nkmLcrpCiF7z/JaWBVjqe6HUQhsjVjTu+ouII+MYMd7xOl85NWTW4He8F4YNDDVN+J4KZ6WPVsZCNmKWdX91nYLgUsJf8ItEM/oyeWs/k4ZtBClx2Q+YTmsFxTrkXp9SP2U8qNuas+RRYV4kU86z4lkXlNK9z1Yt/QLGMzJoMvyz4jFzxoxw5i1NPitePqYhVyHWPAARF23XL7+Rb9IFU8n8zvp98ERcbszKbXJ2+hB1GTTmLORa36VG4nReL2t9aa9l5WCIabTTN1X4GDTwjD1LffXP37ufg/4IoY2wzNcAAAAASUVORK5CYII="
+    },
+    {
+      "id": "4DI8nD6NTduIhBjNblWkmA",
+      "title": "Occidentali's Karma",
+      "artist": "Francesco Gabbani",
+      "year": 2017,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/4DI8nD6NTduIhBjNblWkmA",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABW0lEQVR4nM1WwWnEQBDTmPy1Hbj/sq4DTQUKmgt5JOQR5iCxH2YWLCStVnYZX6++vi0Bf7dWVecAOFU1A3Z4tNHnnDY0AzZ4b0ARLh3mzoAlHoDCLZbrd+9eP64JzYreV+B5bGt03cqADV5FJD/HBvjY4MG5oCH5HLTTe6pLw7CF073LH0zaogwYhLjjN3kpxrfww9HZ+idLGg+THK353YCKzWzuJPBa8RNlwnQ4Igm8dvwed8xTHyaIyz6AGeMmgTIYntcKTwREZEMoco1HxjSOe9G9xQugI5amQlRLvbbNlJVHLtd4micTaukF/tGmsilOw+z4vUGloiDcj4J7fz7AHGClaJLnvd7AkMkywH1ePPZNBWabt3iT4o9vCLnnR5sghaTZUXzt8DCkpqtCc80vKpmGSReIr+AXoGfTbL+XGP+eaGmY7fm90FW4qQN0P13c/W98W/pX/7vvzkYRbcPmdiMAAAAASUVORK5CYII="
+    },
+    {
+      "id": "7EfS0QO3m5tZlKZEzcvWaG",
+      "title": "Hey Mamma",
+      "artist": "SunStroke Project",
+      "year": 2017,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/7EfS0QO3m5tZlKZEzcvWaG",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYklEQVR4nMWWwW0AMQgEx1b+6w6u/7LcAVRAtJwURcmTSPHHxz1GrFmDV/Fz5f71C/7v31rr5MqTBzpgwqNUJaiiouQgJrwPWII4VB7qONgD3n63A+coLPkveFU3UT4x5n1AcTgZPK2aWT1WLdBXmKA7q68XUbi0HcTcL8JuKVAw5hlUQUDIacaMR4PeTFUa51cRFZYpb4x5EUWJdxvft82DFUssZZBr5ueu73uKRSHFuL4iSmEShPc94hFyWoZa+ZgXss4wtfMc+8X3I8pWsXHG+VUXxMT3CGe8VckRGehAuL/ktB7h83OCLXfuF9+O7lUuydx/9VahLSi3mj3i0Vl5YMr3bnh/6ZastgstfdoP/CS4afPpcpzkHvHU9nt6yhGZ4/m7Dqybz0W5PDP3gIdP7B0b6O0NMZznXmJVkPIAZqi3grwpQ29PzD3g4fdps+xAejDN9H578Pqz/vNt+3t9AhB/D1zrvAWJAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "6VO6JrvcuGMfPOQgT6kSGE",
+      "title": "Toy",
+      "artist": "Netta",
+      "year": 2018,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/6VO6JrvcuGMfPOQgT6kSGE",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYElEQVR4nMWWQYrFMAxDX0r3yg16/2P1BsoJPCiFYZi/dOEHSusuhG3Jckbx/6zj4xd8798YYzLWXBOe4GjgUaoSrlJZSuAO3glDiInXpObQGz1IrXPKKfkNvKq10Lr8Bl4ZBr7BcwdHA2/UAP2GC3T3+KiNytB9sYPV14tSdXQjUy29UHJV2mZkFerpj7ILp4OVXNXOj5SYR/ns5ncCGpQXnhX43vyecJk5lHFjRTA0+WCn5fQPcJvfjBuWLByLcZcPIYwjQ0c/Rw9PeSqorraeD2RP7ocJFur6s5Nfyk0LX5gPgrjbtytv84syHmleJi/R0cKTKqrbNhNPeMVfwm/YfcGvUNIj6WU+2nzkKGuDrN+o8GjvjxumNfYiccvvz1j85MpK18LjBX+RbMLH9pe+n8ZRpXuGmKuZ3/m85FGevt7w06rUGwVmjtvzwb4fPK4Kbs7Hcz/4g/3Vu+3n+QEt8PXYmnfHagAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "4TwWOcvjY1qt3QJvtveAGm",
+      "title": "Fuego",
+      "artist": "Eleni Foureira",
+      "year": 2018,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/4TwWOcvjY1qt3QJvtveAGm",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABW0lEQVR4nM1WwY0kQQgzrfubDCb/sDoDVwSsTM9rV/c4eaRbHtOipLGwDVXU4Huc68cR8P/OqqoL8Lc2QYbHGRDdILUJErw/QBEqNQG0E4R4MM5LLPX0v/z3+iveDbBELRxCvEETfS9xJ0jwagqwdE8cgHeCh3FAFDDcRFm/dJ0S5OKEPifji9mqqLF2hMCwPqDKbpBHUivzFzOiRtbQV4OU6WeSO2gwZQkxnizf8FHRqUI8EDRtkEMxxaOFs3ou7QN4Grj7lq1MW2n/Sdz66Mn7AB5hTJvijo7126Ed2dvHkivCw8hdTJcIU1eIB4i2xE5TTOvbnltTtMgpno3Y/vPj9gF/yaFnGP5+wF/HCrcVpvfB9awEwOt0yy9Tev+taoZ55iT2g08Tv/esVL9rf810K9XNdB96xw3cXe0r+or1k58Nt7abRll9pwovr0Q4R2Pq2b7x4+hX7btf/6wLyqZ+bosAAAAASUVORK5CYII="
+    },
+    {
+      "id": "6SCl3S0IAbPX7cLE6LjEOt",
+      "title": "Higher Ground",
+      "artist": "Rasmussen",
+      "year": 2018,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/6SCl3S0IAbPX7cLE6LjEOt",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABW0lEQVR4nM2WQW5DMQhEH1b3cIPc/1i5wXACqnF2rbqoiNQ6UmK+lKfBA3zH8HX1+fYI/u5ZRFQBFRE3YMfLGaiqTvQKzoL3AZEoVKmiHLDkAcVDGVT+6r/nR94TMpTUOzwakTwaom7AhhcT8ErTqyGfGx7jhaxrMh1ol29Fh7zNlqp7V3/M5IxSA0Oi3OnDLFJysnZDueSNkLhn+OJq5y+3PybyScle9zJfjT/X2sHRWfIyh3RV56Q3Z8XLKw/NMLzFX3AxTyr1Bn1zi8760m7MG3gXaH0Wuz+/W9OuQWzJlodNdbY2Wns/ME3ojhe2/fHB0DVMq5qWW+Ss9AnLsrCZOwG19WPsQ3oLnqxnxfPKO6fcdXsermJZn7/tzVnx0qdm3C0W/5wdD8+VC7xSt+8jr+qn2yM9DLf3oZfKat8SohqxPz/JPez5nMv+OHQED1TQ3bnVF//8vvsJsNMVO1U92R0AAAAASUVORK5CYII="
+    },
+    {
+      "id": "1Xi84slp6FryDSCbzq4UCD",
+      "title": "Arcade",
+      "artist": "Duncan Laurence",
+      "year": 2019,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/1Xi84slp6FryDSCbzq4UCD",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZUlEQVR4nM1WW07EMBDzVPvv3ID7H6s3cE5g5NkFIVgJxFSC7Mc2o9byPOykjM9rH19CwN/Fqmrt2muvjd5gggfTJmHTMrPRBO8GFLGxoAK8ilfUgBAWqN98+ywm7A1ufvfej2JuWjoBrN4cz9/7UaxcSfdtbYDnrL9ZEEGl1bZ1xbzAsgOKGd6RHANSqHVSazgvcDqgVNDMb8gPpmiFIZ3ucoZ3w0kUrA0tF72n+Ua7ISfSTVNDPBpwepJ0dUH9YCLs8mdO/WWDK8oQ2gA99T8xOeuhkAvydfQRT2DKOMwXd36A0uM8TPnZoNRmz8z1BfmGI2XJ4BDviIkWggS+VLSC6fxZYFRMoDV8jPDQuaLLGMBpf9uf72cIw3GKFxx3MygypnCM8JirQWDIlG+uD5DxlbDLuTn2qy5be1/Lbob3Hitqn/eD+Jjxc49gy0Tj8wPdX/QJnFGMkmd++uHC+3j8T/fdV4cnDjnTWyITAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "4szQkW1CDHqbRZGltXJdd3",
+      "title": "Soldi",
+      "artist": "Mahmood",
+      "year": 2019,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/4szQkW1CDHqbRZGltXJdd3",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZklEQVR4nM2WQW7EMAwDx8HeqR/s/5+VH9AvUEFv0UOLHgoVaHNZKwcuZZFUVvP52deXV/B379ZaRbFYe7+Ka4SnbrbLtOoUDDmvQkWtXToFE7zH68cbtFU/5fIN3q6mkKlfwGuqVNw8OQUTvNUL9FGm7XuCR59HkvV+9gxPtjBW23iOZ+FGrbZMt0Z4F4Wfq2FvKGqoP9q5Ojc2qBn32y2l3za5yWG/tMMqNF/8mOJFfHppJbXH8w1QRyzkMMZTZyABtKT8wTXAe8C+iVIwdzneu2b8LCTHcu1M2kN+pU5MbVi66ek+2k3dPBN/SdU99seZqzIMkaF4hkeioO0jbOcqrxk/dTQddsEd+00nSHX0HLdN8U48x7onU5nfH+mz45M+PXv+fbA26/jE8my/PaJizO7szL2y2q8ZHlC98L6fXZSn/kXKKNxJ+3k+K6PI6Vhkvi+JlrNDHIYa5l825afnX33vvgGhVwbC9m6DNwAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "6rECwxmHDJEJEkPfLHlGac",
+      "title": "Hatrið Mun Sigra",
+      "artist": "Hatari",
+      "year": 2019,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/6rECwxmHDJEJEkPfLHlGac",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABUUlEQVR4nM1WMY4kMRDC1uX4B/f/Z80P8As4UZY22AsJdh10qzpAVAHVXsb3c/d/n4Cf+7bWOmfdcw8wBTo82oCAcxfOFLvjvELsgMbVFLvDA/CBgUUEucODCZKQAHEKNXh/AOMIF4+d0emxvAB+lRfgp+s3R5Yo8hW7wqMAiobsmaZaPBsW9FBLPTD55Yir4NX8JFuESdNyz08ZICSP/VTj0WJg6EyRrb4YNEqaoNR4FBQZmKeCvEt+iPlkOzmp+Sk7LwFBFO797IBEY6Tjvl9bSnonugzhXeLhZQ0yx9y7wkNGhxB88a39ghhmohaVy3xswCc74SJt/82u3hU/GJQQmRNk9/pm/3kkiQFrPd76y0JVAlzrkZxFj1kGvf+YtTKrKmVsswu8/V4L5Jm2T3sfyhGxpCvGLmj9J9y5wJAXubXtXl8hv99MsMzv+uX33X90sBIoyCh4RwAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "77yGu0p7APK39lotu7CLk5",
+      "title": "Think About Things",
+      "artist": "Daði Freyr",
+      "year": 2020,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/77yGu0p7APK39lotu7CLk5",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaklEQVR4nMVWW4rEMAyTQ//lG+T+x+oN5BN4UTosy86nByaUpumHcPRwEo3/o9bbL+B7/yIiEZWVwLNYAzw0uwn1memXJngXEASTUKWYwU9wUBIyBW/5E3iNKM8a410GS2wIO/tZrAFedAD8XRbAe6avB9Sg2vJ2a+4XEi01QGGK18d7shaiGdQMD6IfV0q0C10jPEotl8U+fpnlw3oIJKTD5DRvC2ER7iYCkbJj1qg+yv1AFvaoMubvqCB7z+pwut8qhpNxVxJlodeoPpxgSDwfGup7gQqWHN1CnS6zRvXJ/Pkl9hO5NcJrG+8JMuXOoGk/kN1CtU485nlzUU+bkWOiqf/6UMcP9Ssco6AbptEkrgHeBWsRLXs6KR+Ya3x+3ECKcQ4SDe8vdG656eogO3oN8NAE2XazDAyN7xsexL630TJn/L3wCmUSNzjc73KCUe1GtS0HNe1XsAPpJIOa5uPx3x/sr95t38cPa5UAxFps4kUAAAAASUVORK5CYII="
+    },
+    {
+      "id": "1ucAgkQ4EQDCSXQ2kEk99k",
+      "title": "Uno",
+      "artist": "Little Big",
+      "year": 2020,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/1ucAgkQ4EQDCSXQ2kEk99k",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nM2WQa5bMQwDx0b29A1y/2O9G9AnUEEF3fSvCgVoFeAh9mIgS6TsVfwZd//Ygn+3t9Y6rHs48FnsEU9VLOQFnCyY8F6wFBJ1l32y2KP8OmzOCTex+Rn7r/aKe+G+57xXYOmFeV9/FnvAW7Xg90Hhgp4Jj0pQ6j4rC894qpJE2YGaMc8qlTH5h+Y8cCpY+SXRPeDtiK+4lE+timwY8tR2uzkw76qpf1n4zTtUcL57wCMV6+6mepY9q98LtOosJLSoJUZ63txHJ/V7LuKm0XvAo5wDy46YIx59wR9g0ujCGvOkBpZVriS8R7xy263BlMfzALmt21/0Bf9WVNdjJpNwzKOSlpv7BR7VEyHppck17e9nPgeV4kWFe/w+8E2OeohTmPlX5ijXed4b/UrYAx45oYwjmJjXY3+kbC1pVWw3rV/H8ZKf2xcc83ngvnrV42Wsv34fRMgtxOF8Xv/5e/cXj+PyjwCIgE8AAAAASUVORK5CYII="
+    },
+    {
+      "id": "776AftMmFFAWUIEAb3lHhw",
+      "title": "Zitti E Buoni",
+      "artist": "Måneskin",
+      "year": 2021,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/776AftMmFFAWUIEAb3lHhw",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXklEQVR4nMVWQY4DMQhzot6dH/T/z8oPnBd4ZabqoT2tGKnMJUQai2AwDOPTzvy6An53N8ZYGGedBVzObODBtEnYcA421cF7AIOAFnwWvOLMHt7L1gniPTnVc58EqjvwHJSlXWhxZgNveAB8uwfg7vEbg4hQW47uqBdYMkGhjSeaFoSc0MaDqppzIkj28ZIzOMFJQLs/gCHiQMMYRq9/J4hjLvLquzN69YdoACDlxXmz2vwSCik0A8te/orfQCJQdVYPT5RBp0NkpgpnD8/p32uMuKp6tvB4hZVAk8J+/W0sQMBT62yArfkGp9vCa1UL+v3GPPfSKkYVenh1t9fAXsj3738/zVEVZVryEvwuv6XPNUMiVgGf7f3Ah5KLaeqG/cChlZkhfX0mWMGF5Izidn+k5kIDShbu0Gdk2wi7z6wK6OdPl5KWHLTnUe0HkZiUopr6/Hgp1Rv7p7vtt/0BLQgDM078eQ8AAAAASUVORK5CYII="
+    },
+    {
+      "id": "1uAOCTevGnyKIDbgZdOCnE",
+      "title": "Voilà",
+      "artist": "Barbara Pravi",
+      "year": 2021,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/1uAOCTevGnyKIDbgZdOCnE",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXUlEQVR4nM2WQaocQQxDXxXZyzfo+x+rb2CfwEHOJ5BkFw8kXgy4YYRsyaJO83vV/eMT/Ltv55w4p6KimIYdnrpJnnxQTMMG7xsc8aioLqZhv4N8RRf1sZ0GVfGX//2lLnQSeqHpcMMG7/QB/WwL9G7waFdmI6QfzV3gXSIsaogmo9zeHT+6WyTZtHLPjxPHfhmZP8Av6cxsMxPkjh+dBhxEtRXRcl7COkhzHa9/74ofCYk8NN3Sjt+M2iPyIH5A3/D1dkWiB872fkuR8TgMohC59csszUtE2eR+fzLMXLDMb+0/gRxTkFZ56z+hfAMHzAP1rP3nxc3MPhUt74OxXhoSKfEh3x2/dgiMysN1zc/x104WB7RHv+v3AfFaW1s6tnpMRPld4PyzoXOZVycQp9JnfKzJ3eG53n7GN0lt30OuCEpVNjMf2V/ayPLRLfOP8ZxT+kuNpf/Of/7e/Q4rSvzautze/gAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "29bhnde7Gvnp7rvY9zsq5S",
+      "title": "Shum",
+      "artist": "Go_A",
+      "year": 2021,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/29bhnde7Gvnp7rvY9zsq5S",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXklEQVR4nM1WQWrEMBDTmL3LP9j/Pys/kF+gosnSQ9tLmYXWBBIbIuSRRnYZX8dZ35aAv1urqp2vXVX3ZI3waAOFc2jvnqwB3gMoorDhU9IujvF66GBz3+KsMR5PgTy//Hf9vGbhEL5A9wQTvHIB/JwegNcED86gzWaXoRke8dpoMPOtIT/SogwIhMghHmTExQg9EzN+D5DbJ+T2Bex4Zo34MXsEQaGpvmG/BimlfjKmeC2FJRiOurP6rTSbdBONoZ/T+kGpnqDoK87rhzhFjiLhOMajUkSlkFLMvUZ4ikuS0qGGKL1meBKd9g01YZwHaAfGzC3HWA86TcuOrIbXtN/cGdMdEm00xGOskhaOdSLyekM+K1F6Q2vsZyYLYmYGUm/Qg90YveUZvwXk+nIRvJ45hofn5bpfBK5kc18Q1hiP58KOp8vUNO+dpxvPiedxv/Vu2YdHTrcZXv3z++4HEJYB+hq3ASQAAAAASUVORK5CYII="
+    },
+    {
+      "id": "2vHzOWRKYPLu8umRPIFuOq",
+      "title": "Stefania",
+      "artist": "Kalush Orchestra",
+      "year": 2022,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/2vHzOWRKYPLu8umRPIFuOq",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaklEQVR4nMVWW2rEMBDTmPzLN+j9j5UbaE6gIu+2lJZ+lFloIMQ2RIxHD7uM70+vH0vA/61V1Ub17t14TNYAD6ZNyCZNZqIJ3gUUwU2oC97F2X6v51d7t/747/p1TeoG9mvwLOANurPtM1kDvHIB/Jw2wHtWn231jcYdtm29QC8kLBmg4JFeYItO2wRkxJn+ymhssQBHe2iP/AvHGwrLdGoc1ndBKNjVUJ0GvsC/JmiRgKxZfTBhyhIOKyF6DeuDCD2iZcwvDhopyCSUYtcMj3kVVJnCOP+EHQ0C2Lrj5TXAW9AuESdZnISZ4YXVNM4hOjx7xu8F7lvlZidfisP8Q/ScJHjKOiWuGZ58VEcd1Yz1jNhMCGjuCuM88EmtxD42tZtTfpFUjj/SRXLu30PJyZfseIwHJuZ1LBem9Zr7wf0Glab+uD4GzRvNcxSvcf+U0yOCVoJ6jfnFI+sTW0M+Hvr7gu3/vNv+fN4BIyH6qSr2C+cAAAAASUVORK5CYII="
+    },
+    {
+      "id": "3nhGk6VnrDHy67pXvMhdPa",
+      "title": "SPACE MAN",
+      "artist": "Sam Ryder",
+      "year": 2022,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/3nhGk6VnrDHy67pXvMhdPa",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbElEQVR4nM2WQWoDUQxDZZO9fIPc/1hzA/kELvrTQGlWxYXWJDD+i4c9ljU/Bt+j8+0I+LuziChEV1fjTnLF4wxK1BOocoIN7wEEARTUhSknuarvRLk46E4S75E/OhO6Ta3f4I0AQhc1d5ILXkyY9ooGeG14GAeGZ84n0Y7HGZIYjaHClmeQX5tAccAtTzLUTxicQnPBy1MiGqOanm7u9s1V0T/pbnw5jwRaKhPrGQH0tj7PFwMPdoTt+8Pw/vNwBXLZb4MBqi/YAL0quaoPHgdHBDTUsr4HxC5cZ3VL/Qv+UhQQGHFI95wLHiw4QtRweDSorV4kGCjZAJf7+7AFlvD0ZN3ste3XTeJ4i2W49yvY9QS74HGZnV5e/mwUyWOpub4fqC1mNMoOnQvew4CiP+r+WCrW+0ZbgI5gvLza7puDMbiKCt9isOfBKhT6/hDn2k+lI7+B7DS54sGmx+NWFqK2+/blwvv5+J/uux8B7fXdP2njIAAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "0T71AvVXY4RB65tvdIyzdO",
+      "title": "SloMo",
+      "artist": "Chanel",
+      "year": 2022,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/0T71AvVXY4RB65tvdIyzdO",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nM2Wy20EMQxDnwZ7pzvY/suaDugKFNCLXPI5BAqQ+OCBDJigLIqjaj6ufX06gr87q6pVkG+dgBmeumGtJYlXcA3wHlCiy0vglYAhHlA8rerq9ZO717d41lY1+tnd6+uzNtrPzd6cgAledfHOK9oD3RM8OouWUUsJPMMTxk6e7patIV6HlNxggj3Du9jsWjdEz/Ya6rl6o1SBsgqDRn7w4Bn97dMY0eFQf3TjFq12itye1tctRSgOpqyxXtp2SNpHg2N+MRadvHGYeqo/J9WIOWUe94dTBaXlsov5+3VbyTZGk5JcM35Oj7WOWJyDa8aPCDB2oPDU2A8C9DKWAzzPN62BO9IOvsf10DGXk/q8vlnJMhaYMs/wXvMBC+21TP7C/MJ8IArdMa41mzfyaBHxeT/m73edfXFDr1hNT+ehs+4Abmrt5Wm+HTG7HauKAXr4f6viKRbcm57yq38+774BFlgJqioHQYAAAAAASUVORK5CYII="
+    },
+    {
+      "id": "50Cf2eYv8zT3v2HAkwhIiL",
+      "title": "Give That Wolf A Banana",
+      "artist": "Subwoolfer",
+      "year": 2022,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/50Cf2eYv8zT3v2HAkwhIiL",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABY0lEQVR4nM1WQW4EMQhzor2bH8z/n5UfmBdQmV1V6vbUMlKbQxSiGQswJqzC+8r97Qr4u7u1VuTKQCTawAyPVQhRISBsYIL3ABZBBLQgxeIdOUgAAf7q36/r0XstgExEW/vtmx/elQBCx3sbe4C32rVPMwGeCR7KC2Lz3IZmeKxiB6oiKIzxxHLaBPhEDvEgg/apfJj5tyGwcFCKylo5rGeUmgdIjpqlWbwbEVkBEouJLuk98o+0c5CzJ0pzfs2CSJNSGvK7keCyMk6CyGuoN5TomGWFyM6O668crvsAIM3x1IRQfShf7BEe5W7VQjbonN/SK3lWMDj3r8wGy3lkDf3b3g4uHPd63aAPFCiZZbrx15Tf7s/PcmmNTPXhkaD89haPH03dMB+A4SfdCcxxf3GLx1NtRpzG6+XOciKMFnfMB4CWKbmQum6YD1Kegy4PMdeMD3g+dQpdOfDrNtPH+ufz7gc71/Zu6z4wpAAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "1DmW5Ep6ywYwxc2HMT5BG6",
+      "title": "Tattoo",
+      "artist": "Loreen",
+      "year": 2023,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/1DmW5Ep6ywYwxc2HMT5BG6",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABX0lEQVR4nM1WUU7AUAgrL/6XG+z+x9oNygkwZYkfaqIRE+Vn42VrChR40XhvdT4cAX93FhEZADIixsEOj91gZoLQOFhyjsRdd0FE2sE+BwlK8bN/PzuTiiFcX333rbMWCBZQkB1s8KID4JtbAO8NHtqGpoB+HO3izagQZHJCVu30h26ym2pYfhC54veCBMLVoAEzdS3rgfKTCDGGYy37N3ENR+ulc6m/GH5MMxsvesUPLXGUIjRJv5wVHiWhoZZfxC3eoxTrxmhc82uLzgL05Kd5nhUehpf0QBL7eDktPLOF1K4/jGdWT8R0abSsb08tLBeJ2/6FI52qyiNLTudZ4YlmKCM58r2e2QToFNpf68VmwTiFnD456/sBgKvyEtKr5Kz40R0yIQ+/dT1oEU8XPw23jdfmgfoMrbu396Expfd5RiL1C/mT1LL0pu/Oil9F+OKSqCrOklvuj/f2r+67r78WAFG03SRJAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "5RX8T3EoTuXcybAxe6oPAw",
+      "title": "Cha Cha Cha",
+      "artist": "Käärijä",
+      "year": 2023,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/5RX8T3EoTuXcybAxe6oPAw",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaklEQVR4nM1WQYpdMQxTwuzlG7z7Hys3kE+gorzFQDswUA+0WXyweV/YkaV4Gb+f3n+kgH+XW2tVra6uxg0ww6MN4VElTIBhzatQbECoG2B+B6cN99N/89+vcmR1P4ffffd97gMwqpB+lysBJnjLC+Dn7AE8Ezw4RyZI8w32CI80LJKiKZNTPNAiBBmmNKsvuVOh1miU8Mz4gC1FIc7vrVfDeQEWvQSUsdyz+YOFlPZynDuc8gGCQjhO8xjz65SXO6SlG+4B3kY1IpGuAzxXIXuE10+5nhVaAjv0A4QHQnoDaK4PyjFTIwLOIO4RnmMv12Eiu2h4D/A22pBOpmahkWdkj+rD+wLfTuMM4/mT9VpMLGvqL7jXF6u6Roj44J7VZ789x1OdEvesPrwKTqsM1ZrvBwbZ5IpLT/l9XyLi+lXQ9QM7Uit2T6l7ug/lFLGIPg+yw+zxfnDQDOgJMf0D/OpVx1y/6z/fd38ByiP3Pru/RrkAAAAASUVORK5CYII="
+    },
+    {
+      "id": "14LdhxElpZS0rKVV4nxtdA",
+      "title": "Queen Of Kings",
+      "artist": "Alessandra",
+      "year": 2023,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/14LdhxElpZS0rKVV4nxtdA",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYUlEQVR4nMVWwW3tMAyjg9ypDd7+Y2UDagIWFFrg4/eoAPUhiH0gKJGifYz/V1+/joC/OzvnVJ+uLmA22OHRxkfUB43KBhu8GzhEF6EuuA7f6AEhVFEp+Q08sRvsj9Z4N2AUGkoTazbXAu/4pNyf1QCfDR6cBRs0o7WtHR5tkrAcQGGLN0AWBIoGueWnfOaPGKLXmp9TJi0L3PePECWNKvau3huoB58m+vAohsGSHwxEDiumWfePCqYY30TkXb1XsqVA9IOkQdS+VvxEmZRi5pDd8ktUIXpkfPuFvKqoUYj36GyubR4wuWfSceFO3+SVkcx6EKqgeusXcyJheL7gP1qZ3bnaiDUeMh4zuN9t1D6f6UCRk9Ha3x9PfnnmItnpcWfCCh/gKTZ0XsgXTuMoDr31vA2W/cyc8J03V9WhOlNcazwL7eaYr9LOa4GHvE/nXosJCWnn53sA/8H+07ft7/UFOgn0jH2AJ/kAAAAASUVORK5CYII="
+    },
+    {
+      "id": "7hcPebUUvJDRH6BhjZ5xEZ",
+      "title": "Mama ŠČ!",
+      "artist": "Let 3",
+      "year": 2023,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/7hcPebUUvJDRH6BhjZ5xEZ",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXUlEQVR4nM1WwW0kMQyjjP1THWz/ZU0HdAUM6Nn73AW4IFogMfwYGx6CIiVBZfy99vrnCvi5u6pq1G70xn1YIzzaaFAFdOeACd4DKGKj4Wqxi2/RQAri9/795M6oDRb6P+++FK/ReAp4gvdhffJuffGuXAjOa22A14yfgyoW1aE3zGeYNklYSRUK1gzPomlBoGhwikcRjoKm8zHFk2QlTOZzzs9iHJbMCKkpHuSjoRgVDU71s6lEagVszI+EshlTBM74LeyLKdt97T91skb8kHSh4oqSPDN+D1DdpwEC7T3n5/ATFI8j4dTfY4WsV/K9wV8dDaVTvvP6RfbdZlIoM7yVnJMaVwwRr3fkC2U4xXH3mzXCy0rlAhEv4GvGD0jjeyXz1I915gO4iUZDe0/1Y8KERJ361bQf3OvJqx2v+00zV1F18VBc4/lgez+PNRm09txfZL/KbuZv/fJ59wOW0+69YIvqGAAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "1EjIXKhNHI00ZLMRpS8iz8",
+      "title": "The Code",
+      "artist": "Nemo",
+      "year": 2024,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/1EjIXKhNHI00ZLMRpS8iz8",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZUlEQVR4nM2WQa4eIQyDP9C/NzeY+x9rbmBOkMrwuunTW1RZtGgkBqTxJI4dGMWfY89vW/Dv9sYYawBnyoIenqrQWotkngUdvA8M8cISsLKgiUdwZI2//Xb+uOd6NSz38SjVeYyt+zYbeKMGhLo7NujtxZeByyCdhXv8rbHHIU7vy9q7pz/qRCUXFMLq8fdhfwklJL4sP934LNu/OXSTPypS9pnAQXYPz7gkqXz4o40nIaocvRzc2cJTAqswmBrTxrPCICkIZ3bTH3LK4SpFNM16fNhoGMNyeuGqZr96PIoVp7GXcNdvkXLdtFObtl5UMe0txrXybOGVrIrnFH/ELLOF58DFZ2mF6vtXOjJWXu8PZgsvI1mmBYbLrv5yfmx4IpZ7Cs9WfKqTsklJCrr1EDrpphXGcN3zKOPZK3CVYvf8ce8b1D53l53GsPv8OW0eHWn3+JvsMXhyJeKN5XAr3/Gf33d/AVCcCHp8ynUiAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "5TswDbxMnxptgFTf6ZxvXQ",
+      "title": "Rim Tim Tagi Dim",
+      "artist": "Baby Lasagna",
+      "year": 2024,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/5TswDbxMnxptgFTf6ZxvXQ",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZUlEQVR4nM2WW47dMAxDKeP+0zvI/peVHVArYEHnfrUzmGlVoE0QJzaSA+plpYyfj16/LAH/bq2qdgHYVXUmmPFog3vvjuWZYKi5Nu6+m5vYmWDCe53xEsX6Ay2frN1Xs2LqF+99S5+xKTQaPBNMeOVCOO+jAd4zfQ5V171D9Tyfd3UJihel3T2zFyZtUwYE5tKMZxKQwoUETXmQc+YOSvKI9wKvWLo71dG/9e36UJ8izo4XPdcHJwokLZgmOLX38rGyqXKfxzXTR0BMnBPcCF0jHqmYKpupPI/9R8H28V58OdZnW3REKshxfQiIsOcKeQ14C/tseuoG+74w3P9w4kpbJ85JQI3z2UhdJCp/Ib48fSObzDthNLTXMTmnj9IpL+LSyJEyIcc8Zkc91CRLbmvGQ0Q9vXLuv3XGq1Ie29btWf49/xtIP8e9G97quf/kJw95KniNeEjy6STM0+VGvPrP/3d/ACHgCl6Q0bebAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "0uHrMbMv3c78398pIANDqR",
+      "title": "Europapa",
+      "artist": "Joost Klein",
+      "year": 2024,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/0uHrMbMv3c78398pIANDqR",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABWUlEQVR4nM2WQWrFQAxD34S/l2/Q+x8rN9CcwEUTumi7qwutAwEHIjySrGQ1X2tf3x7B3z1ba1UBtWqdhhmeuqGqaPw01wDvBUvcUMqMaZhzUMhe4B+8+7le5262VlNzvAvaSG+bvag0TPBWLwh1T23QPcGjU/gMqdN4hieMO+d0t2wN8TpjyQ2NsGbzvdjEKYdEU+Wa8udzhcM4Z8xfy3LOavEoc43wnJlCoqOGmfKH3mDLuxotDfOAVrRth8EIPNSXtpA/eIynPdbDig6tmKanfpYOSNToDDs+b6vjmChLazwfMZ0dWTrqTucjSEmsCKLIfY3wmsC0fTBhihe04z9lvuzzNcKTjlF0ojCG8TyfFSs7n995HpChnPhTIn+MpyyG5Gxd/DLeD8Jg1I3AU/6ucy9X0l7tW9P/oad8o806sNeYP+cTcozzC/tL1DiJkNgf5t/65/+775EDDmLAlHpKAAAAAElFTkSuQmCC"
+    },
+    {
+      "id": "79feeOJI7Rk8xwDdrOFsDO",
+      "title": "Sand",
+      "artist": "Saba",
+      "year": 2024,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/79feeOJI7Rk8xwDdrOFsDO",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZ0lEQVR4nMVWQW7EQAgz0d7ND/L/Z+UH8AJXZtuq255aInW0isJoYxkDngnh++rjxxbwf3sRkX6LiHgGxwqPErrRkJgOsMF7AEEkCHVCGbxFg8KFrL99+7Ie82QiyQ/A4/Uvv91ToVm6IKYDbPBCAfAzbIDXjp+kgjOtxjM4FngQAcpZSyZK1VI/spqFjJ5C7/o5hD5bCEDuPbRW8/twNdRDrADGsl/wrh/BElQlrvTDlMIoRVSxsMUzL/8gY7PW9c0WuqB2E/a51Q9FkoWyksW1fmUkPtGc9roe5kZZSBdlOR8wr8lZNeay5HdYsyT6wslEVW39YNihnLTV5Lr/KM5TVtCQxw4PGjSOeDfgyWNBjguu5wPyMkWDOfW9H9iTPcOcSbkhX9fDg+G23vsLSE/aOJa7sfbnOezPZysUyRvuG2Tb7hNhRz12/DQnR6p9Cm/vQ5j6WsLR0OO31O/Lhdevy/vf3XtvUn/uSkoX4QcAAAAASUVORK5CYII="
+    },
+    {
+      "id": "321yySUTzRXUbzkRTeTzDB",
+      "title": "Wasted Love",
+      "artist": "JJ",
+      "year": 2025,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/321yySUTzRXUbzkRTeTzDB",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYElEQVR4nMVWwW0DMQyjjPzpDbL/WLcBNQELOilQNK9CB1Sfs/0gKFGirozf0evjCfi/t6raqN69gddljfBoY4vaaOxcMMF7AEUAG64t7VzWiF+it5B0X7HwGetPb0Y1eBOeBRC6IO5zWQO8cgXtOxrgNcGDE7BBM1rbmuHRJpO1AyiM8USnbAJyugFPcCro4JIzvBUJ3BesrXI3ZvMWVoQI6bCjOM7XR1mREIwx3kuECGvdoi/SMMk00nDGb6E3C1Bfx2XSNmvETzxFU5o5ZMf1O6q+TUFzPIefEDFynvNTpjaHJKyxHyDDGywlac79BWlpxqoYJ5zOL9IjG9c+GySZrxE/GNDbURFX1YyfYT/hKmT9ou7YH6q0X51Fop77vY9RxWVu8GfwtOABjOdrvs8J8XpmSgK5BniP93e3LzSjCeb/B+2L4DMLnZr2HzJtGQwn76EejwP4A3v4/3f32xdfN/FIdJdnyAAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "4f5sxA4nQywcBlU05Ixdc7",
+      "title": "Espresso Macchiato",
+      "artist": "Tommy Cash",
+      "year": 2025,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/4f5sxA4nQywcBlU05Ixdc7",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABY0lEQVR4nMWWzakkQQyD5WLuqgwm/7A6AzkCLfLAsuw7euD50OA6fFj+7TL+tz4/noDfe6uq29W3LzAONjyYNgEbNhlHy5jrgrjXXY/i4As5kEJEJH+DJ1QDfbXmvYCEFdL7+o5zFrxyAfzrNsBnV98YTFAG42jfLwSs9A2FHe9EYyCFug+VCp8Fr9xIFQpwsQloNb/wSIxeGga4m48yUPAU9gJt3FV9D6ot1JuR/Khrlz+YNCVFtTWlOUseZCirJYO3zB+CCgQacupzVjwRBhWqTO3jM8hpmcjd8ziJC5GeEdZSr/UZ33AN7XjZVzNyfOLyfmHePLV1ThG1jA+f/DHZS+vs+xmfVZotKCDDcla82JQYOb+Bn118iNrkcIjLfjm5GQCLuBm67vV+yfRKOR25c9rpfc03Dd2XKr339zxWzFZtoi+/8H+lz+mdkqz7b+TmsGWfetnPrwH+w/Zv/tv+tD/OXAI1lKV/dwAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": "2gThkoApt6B7ajBWZRLAVv",
+      "title": "Bara Bada Bastu",
+      "artist": "KAJ",
+      "year": 2025,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/2gThkoApt6B7ajBWZRLAVv",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZ0lEQVR4nM1WwW3EMAyjjPtTG2T/sbwBNYEKOgccrn21KtA6QRIZCWGZFKNofB61vkwBfzcXEVmJQFSdADM8duNSKEGcABO8BxDELjrIdoBf2IOrsNtYP/j2bTzONSEiOu659f7Kd+daEC9AUDrABC+8KL60B3BP8NBnSDTq/bxGeCQpV0mj2dQUT5QENv3kFWqKB5BotXwDh3jdkGg4PTNeA7wHCrpQp9gKoRrr+dLGFRY0D8kY8ttEE1Q3j2w05AM+KUFGHusFt+jaUParsZ5vyfQ5jhzXAG/ZB7KoZMIuk2N/yZAtYQORO4f+gnZ1SKeM+1Ctcb2JR3k0M2O9UF5Ui+bDFGuqP9mu7Fhs56ypXnib1r2XQ73gWDK9g0a2w2jeHwhCWTFHhWuEx25U1maZD4z1R7uzngwDQz9Y5yrWBircykz7IY8MXEX6XzzPt51rw5Ix09N8KwLp1kppc8Es3/jn/e4Hf937NgJMPA8AAAAASUVORK5CYII="
+    },
+    {
+      "id": "6SvlfrQYzUsW5UQUpUpy26",
+      "title": "Bangaranga",
+      "artist": "Dara",
+      "year": 2026,
+      "cat": "eurovision",
+      "url": "https://open.spotify.com/track/6SvlfrQYzUsW5UQUpUpy26",
+      "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbUlEQVR4nMVWwW3EMAyjjfvTG2T/sbIBPQELKmgf7QG9VkHrT2DBIWSJpDWMz2vPLyHg/2JjjLXHXntt1AYdPJg2KRv5ZqMO3gMYxMaCB+A1eEcNuBRE/ebfZzFpb2Af3517KWYBB3QSujbz+bmXYiNl48d2Azx7/c2CCSqttq0b+EJYLlB08QKUsgkUjTYeJCgqzq0r0dnMD660WNDo6WOWMpa1oW0ebPJlhiTCJjE4xj5XDy9MMWUo9ROtNl8IkSDN9IW9+sEASQoKqtj0K7iEQelSSJ/PjC5UXiUlSTX7u+IrcT8ePFbTr+C6ceSbKlrt/qLUJipQpZd5A/8Yr6LQ1y9p5b6Mim/oL1K/8oRoN8nOFl4Wiy55fsPC2csPYJKMhqOU3n0nrrotY3Gh3s3Zyo+xgnL7eufU1seF6nMRyJiA5vySNTyuZx06bpivpJQxEkGzH6Pmg50RyxhxBrbm00cR5j3Xn/37F7E3GyQMDANflqgAAAAASUVORK5CYII="
     }
   ]
 }
