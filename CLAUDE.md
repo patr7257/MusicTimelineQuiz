@@ -49,6 +49,24 @@ checking PROTOCOL.md first.
   (Rasmussen, Basim, Brinck, Reiley, Saba, Rollo & King) carry the Eurovision category.
   Spotify credits many MGP tracks as "MGP, <act>", so `audit_deck.py` reports
   ARTIST_WORD_ONLY for them; the seed keeps the real act name, which is what the card shows.
+- `christmas` (150 cards, 100 English + 50 Danish) is hand-curated like `mgp`/`eurovision`
+  and sits LAST in the seed. Julekalender cards carry the AIRING year (Nissebanden i
+  Grønland 1989, Pagten 2009, Bamses Julerejse 1996), never the Spotify reissue year.
+- The fetch cache keys on `cat + "|" + norm(title)` and `norm()` STRIPS parentheticals, so
+  two cards in one category whose titles differ only inside brackets share a cache slot:
+  the later one overwrites it, the earlier one then reuses the wrong track id, and the
+  second card is dropped as a duplicate. "Christmas Time" vs "Christmas Time (Don't Let The
+  Bells End)" and "Merry Christmas" vs "Merry Christmas (I Don't Want To Fight Tonight)" both
+  hit this. Fix by moving the qualifier outside the brackets (" - Don't Let The Bells End").
+  `validate_seed.py` does NOT catch it: it compares title plus artist, and the artists differ.
+  A stale `tools/deck.json` re-seeds the collided key on every rebuild, so fix that file too.
+- Spotify's search API now rejects `limit=50` ("Invalid limit", max 10) and returns
+  `popularity: 0` for every track under client credentials, so a track cannot be ranked by
+  popularity any more. `build_deck.py` already uses `limit=10`, so builds are unaffected.
+- A card the search cannot resolve can be injected by hand: write a
+  `cat|norm(title)` entry into `tools/fetch-cache.json` with the real track id and
+  `qr_data_uri(url)`, then rebuild with `--no-fetch`. Ids for already-built cards can be read
+  back out of `tools/audit_checkpoint.jsonl`.
 - `python tools/build_deck.py --no-fetch` rebuilds `songs.js` from cache with no credentials
   and no API calls, skipping (and listing) seed songs with no cached track. 33 old seed
   entries have never resolved on Spotify DK, so a plain `build_deck.py` run always prompts

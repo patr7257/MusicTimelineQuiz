@@ -6322,5 +6322,1355 @@
     "cat": "eurovision",
     "url": "https://open.spotify.com/track/6SvlfrQYzUsW5UQUpUpy26",
     "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbUlEQVR4nMVWwW3EMAyjjfvTG2T/sbIBPQELKmgf7QG9VkHrT2DBIWSJpDWMz2vPLyHg/2JjjLXHXntt1AYdPJg2KRv5ZqMO3gMYxMaCB+A1eEcNuBRE/ebfZzFpb2Af3517KWYBB3QSujbz+bmXYiNl48d2Azx7/c2CCSqttq0b+EJYLlB08QKUsgkUjTYeJCgqzq0r0dnMD660WNDo6WOWMpa1oW0ebPJlhiTCJjE4xj5XDy9MMWUo9ROtNl8IkSDN9IW9+sEASQoKqtj0K7iEQelSSJ/PjC5UXiUlSTX7u+IrcT8ePFbTr+C6ceSbKlrt/qLUJipQpZd5A/8Yr6LQ1y9p5b6Mim/oL1K/8oRoN8nOFl4Wiy55fsPC2csPYJKMhqOU3n0nrrotY3Gh3s3Zyo+xgnL7eufU1seF6nMRyJiA5vySNTyuZx06bpivpJQxEkGzH6Pmg50RyxhxBrbm00cR5j3Xn/37F7E3GyQMDANflqgAAAAASUVORK5CYII="
+  },
+  "christmas|white christmas": {
+    "id": "12MOwtfUPUJ0sIx05B1f8O",
+    "title": "White Christmas",
+    "artist": "Bing Crosby",
+    "year": 1942,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/12MOwtfUPUJ0sIx05B1f8O",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABb0lEQVR4nM2WQW4dQQhEHy3v4QZz/2P5BsUJiKptS4m9C19KWMwMLQ2qhqIghu/W58cR/LuziKiILgquwy5ezjA8Crt2WGKOIrJBbYC1i/d2nxPJNDGvymnSXeiv/v3DDowoGoYsO2zixYTRfVlDvm/iMTZNkjmfzlnEO5TLa4wqVds9K3xpVImQmNQaXxMVnZgrxQvwaUbS+MWFeFb4lBU8rizPPG6Us8I3eas60uAc7vC9EZiBiunArNnj06SzRzqBy/pyqeLrpkb3W0u+ZE2V1a8+WM0Ony6brQOY1Mt68JE/rNE5OY58dvhIlJIvOziPZxEvpp/2XdMZFDws9QoDMzTXV7nsN9wftyusfxaZbf6MTpZScjwwt3owGj2e5KJyrAtnFS+8Eph3vIvq5fzF8uIyfN14yZdzV4KEEK2OTL1kR6qhMyWP9bOOV3jGRT93FJ99/qQ7fT3i1vy7KnW7w1N9yb/Plep3+6/23V9mMfe3ZMSsgAAAAABJRU5ErkJggg=="
+  },
+  "christmas|have yourself a merry little christmas": {
+    "id": "030mot3ZKR3oskfMsqDB2R",
+    "title": "Have Yourself a Merry Little Christmas",
+    "artist": "Judy Garland",
+    "year": 1944,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/030mot3ZKR3oskfMsqDB2R",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYElEQVR4nM2Wy60dMQxDKePuqQ5e/2VNB3QFDGgnm7xsAg2QeDOwgTmgRX1cxu9rr29HwL87q6pG7d4N3M0a8WijRTU2OhtMeB+giN2Eq+EuvhMDoSHlym/wjNpgQ2/wLIDQA/Fu1oBXrtB+rQ3wmfDgLNigHK9tzXi0ScKyCQpT3gFZECg6EVwDXrmfjr+Ab7ZoT/Upplq00hw40rdSHkVqQ5sgh/kCkxaRCFpRONN3eIRxccfoNeMBMkWKiLypvpRZwqZDpqc8UT9jeHQO4/dBu7iBk3z7+Zt/1x/1Mfoi8oaQUz8Qzi3k+DzvB3KqNwIlvsCz42taVVye5x99ajfXzRwZxy/ydDvqvf96oT8rneWU3ri/VHWGiIwHHZFrxGP8cPtktPYe5/Ot3syjY8j0vlnEF5+vjr3DevvcD1V8gK8zitd4Xirpl0mnF+oXEZWnhklkOM3m5bej/+q9+wNchgLIUJ8MZwAAAABJRU5ErkJggg=="
+  },
+  "christmas|the christmas song": {
+    "id": "4PS1e8f2LvuTFgUs1Cn3ON",
+    "title": "The Christmas Song (Merry Christmas To You)",
+    "artist": "Nat King Cole",
+    "year": 1946,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/4PS1e8f2LvuTFgUs1Cn3ON",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABa0lEQVR4nM2WTU7FQAyDnYq9c4Pe/1i9gecERg47QAIRJJi36Muo/ZQfTyZlvF/n+rAF/N1eVXXhVDVqDOx4tOED4il2DCx9rgZuxtCbce14AEp4gtMPvv107zTZrC/f+86eBd6oB8cdAxteuYBJ3qwD8Nnw4CzCFGDG0I5Hxz1CHj/NJQ9KAg2QySW3PIuBwnHR0jZeW/mJlpkEasdTChH3EjKgbbyETYpBiuY+3jlpSpkFY8e7gKY7yj5Cs5b95QUNtG6mF0R/hyseUgfldJAjlrX+kEqkVSWRyaOWesEwB0b9gv4oMHLO8ZjGcK14TClIx0trqxcka1ON0PJ3zVMCzSOSyVG+VjwkxrAY/XGZv2sOcI9WkkC0fmE+OCgQBfRZ3kfX23xQhiRBPLt5I+Ey7Sr3yNwf6/4yg8bTT0tE2sO15uHGQ9R5IkXs+hU8LSte3sdnOW8gQpmbcoah3Emr/KUfv1v/at59BTf/+xWhwxhqAAAAAElFTkSuQmCC"
+  },
+  "christmas|rudolph the red nosed reindeer": {
+    "id": "1dtIaSlyrLI04sqYa8nLyN",
+    "title": "Rudolph The Red-Nosed Reindeer",
+    "artist": "Gene Autry",
+    "year": 1949,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/1dtIaSlyrLI04sqYa8nLyN",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXUlEQVR4nM1WwW3DQAzjGflTG2T/sbwBNYEKKu0nfTJAKySGzw+CkkjaZ/Beff16BPzds3NOoXD6oF+HK8LjDBolErUHJHgP4BBQFVDzOlwZnqtuwPy2LsR4N1E9PfUBvEEVxgxnD0jwzhx3+lMN8E7wMFsgRYm+V4ZHiRgYTlCOJ0oDDn2HGSrdL8sT7KaOvOAr4kdK3quvpPu+Mn465F2DHtsuzgM11U902Wt85v1i+1zVeI75fmcw4/HJw8zwHniioBJ72s3WhH5DAzCS0F4Ho7zHWM2gW6VFjUwvGJsMY1DYeMr9O4QdbAN/IA/G3pUhaXJxv1iVaKH8T/0mp/2xkvX0CLN89vxIp5T17EWn/bqI7VXcXL0iPBhrSVqBxr0iPM7wWy4r6JQfQbvC1jDXUH+PvR75p8rf51h+lrNeDEP9Yee3H5XcBcd+g+PZq5AZOhHC/Huvf/W9+wXmSP7whnau8QAAAABJRU5ErkJggg=="
+  },
+  "christmas|frosty the snowman": {
+    "id": "5pMZO580uekpfOoJcqF0ld",
+    "title": "Frosty The Snowman",
+    "artist": "Gene Autry",
+    "year": 1950,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/5pMZO580uekpfOoJcqF0ld",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABY0lEQVR4nM2WUW4jMQxDnwf7L99g7n+suQF1AhZ0iqLY/q0CbI0EiQwMQYs0R8v8vfr6sQX/b2+ttffq3RtOwQyvbB5u3fQ+BRO8P7CK7UUXOgVDPMDLuFl+W0939/2vz35fF1jsahA+BRO85QX1VTbUM+ufA1NHiK5TXAO8i72PwlFXdMprgIcrpjtowiVbM34PvddTmNJizs/CRpaDmPoa8Vt4dUXZZW73mN/nkkohWCN++DQuP4JS1RTPlk/fylZN+4dLKsuqfA/Pa4B38dxo3SdMoVpjPx8356KFncb9o861kKloo3H/EgJRhAhjz/jlvm1z0rTZ5HON+BELv1qXKzfkx8t3xCuvkJn2j6ISVUcPeMP9cHQlVimXpnqckWDnvMprbqxHxSLx9OvEQ34k78sFJxWS/XrD+1xB5JZ6PA9l7Ywv/Tx3opA39E+q/EHT8/IVLA4kccxs3vix9avm3Q9MqQH7togyrwAAAABJRU5ErkJggg=="
+  },
+  "christmas|mele kalikimaka": {
+    "id": "7xC4wBbon0dA1ugU1fPvnt",
+    "title": "Mele Kalikimaka",
+    "artist": "Bing Crosby (feat. The Andrews Sisters)",
+    "year": 1950,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/7xC4wBbon0dA1ugU1fPvnt",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbElEQVR4nMWWXYoDMQyD5dB35QZz/2PlBsoJtCjThWXLPiwuNND5g37YluWkjN9rj5dPwOe+VdVE7bnnxv0yGjyYNinf91zU4T2AIjYmVIBnsZfv41wJhPjP/44/eaowp97CMyYS27V4v4wGr3xC+14b4OrF50NFcV0Jr93PE5ic5QVhz129+sEWDQsC88Re/8GU4VTQJEi4ybNsASdMAezx0n9zw7WhMuDdngdYTtlQrGjTngd0iiZYyVvd+kWCo4TCZVtf4MCgUBW9R4M3AO64QlcKeWUyjAbvAQrzDMCYd8XLo8GDRSZnnQfmabR4VjR4Cp0yqqmHlB8lpWua/sDZh6TcTrZt/9KxR+xrimnr0eKBEQOBnnHQ1iPxxWnI9hv46MUHZKAiqjBI9fxBp/2KmAS0m/MKyZA6RWSmtNr+vc8HXheyicw3nbmKa+9E2c739LPuDnyDP3DSTcbpwLRO/3zwg+1Pnm1f1xfQ2ewUPEeFMwAAAABJRU5ErkJggg=="
+  },
+  "christmas|i saw mommy kissing santa claus": {
+    "id": "4GX4BuYcFiLw75vJjOIWQG",
+    "title": "I Saw Mommy Kissing Santa Claus",
+    "artist": "Jimmy Boyd",
+    "year": 1952,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/4GX4BuYcFiLw75vJjOIWQG",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYElEQVR4nM1WwY3cQAyjBvenOtj+y3IHnAoYUHsJguSpBZKBYYz8ICiJolXGn+eevz4B/+5bVfUF0FU1AXZ4tIGLey32BGeB9wUU8bqEb8Nd/EQNLvCgf7bmrPGo281CfwLPwn3BD2glwAavXAB/hRfgs8GDcyhz2OVoh0eATtY2564lHm1RBgQiFTwrPIh5BpnmGk9GhkKiFFyu8yUlgwootM43EGa46V3Ks+MnE5JgWMzrLPC+IuJngG9cppd+AGc8yBSOI5dtvu+eJOmIUGs9O7QsOc3QXn/IuE1nR4drfjLCMOXj8NRaz44pvJUjrvU3T6pHJvUdv/gz5G41HiiGiiU/Ryqxvkhn39+cTBoCOio86/1AhUfOPzM2cz6RrxCLiQC17Ec1eNF88LqF5f8SQy59yKhNpK1fAVSpXY3KbnR2/DxOkM3grWjt+N0CC0TJU73tvvbbwvt9/Z/23R80pgQddoLCjAAAAABJRU5ErkJggg=="
+  },
+  "christmas|santa baby": {
+    "id": "7DfSBjnLWmVcLL68SXU88a",
+    "title": "Santa Baby",
+    "artist": "Eartha Kitt",
+    "year": 1953,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/7DfSBjnLWmVcLL68SXU88a",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXUlEQVR4nM1Wy23FMAyjjNypDbL/WN6AmkAFnfbShx4KPaDVKTIQgtQ/Gt+t1ssT8HdvEZGIykrgcdYIj91IUDeQaQcTvAsIopRQhZjBMR4AZmcWkr/6d/34JkUZVmO8C3D4UsC9mcdZA7zoAB6ZtgK4J3hoG5rOM4+jGR67SaClPhEc44nNFgR/gVM8iXAVwzTJMT9I3ZbJVmvOj6IzbFQTbI7wLhQ2EY2Kxj7dt4b8mlaNR67Ger8y4S+JM70LBQZKtct94iG4RvxgwWxnRacYNcTrI/TTmeqF6860dArQpaPpPKDT4SwTwjy/3SeGOliO5JrhqekyecbMG/jB1Bw9wvGb59dqPWLO+hjn14Z+oMxx2h8+CVT0eN5nsWM2Xygkvc7daopxv9Ehcz509pymem1ui3277ZhvurmCu7YvmbFet6/3mrcI5vsDluvW8P6Vh/Ts3nh5+lf37ge1TP8BQMjhgAAAAABJRU5ErkJggg=="
+  },
+  "christmas|blue christmas": {
+    "id": "3QiAAp20rPC3dcAtKtMaqQ",
+    "title": "Blue Christmas",
+    "artist": "Elvis Presley",
+    "year": 1957,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/3QiAAp20rPC3dcAtKtMaqQ",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaElEQVR4nM1WwW0DMQyjjPypDW7/sW4DegIW9P0a9FEoQOtHEhsIIUok7TK+r73ejoC/O6uqbgBdVWeDGR5toLu3oWezBngvoIi71Wyis8EQD0DjEgvNX/13/YgnNCu0x3gLsEByY1crG0zwygU8NLM2wHuCB2dBTJEZr60ZHiFI4SmbEkd4L4A0+g7n4sY16x9sxsIyaRlhvkZ4EGSkhz7Ep/3LMALL52uIt7BTn0AdXNU8c67qC9rdYGOYB4hEnC7aimY47d8z1Mz5MJ7rmSnqiDnOG88DYN8QomnfHM4DDuP0LtlCU7P6Xgn5cmJZIPbdntaHVBXLZSDm1G+OmEM4oPbYv4oCj4cpf0QvTmbFvI9gNM9nRsoKb4znW8/9ce3zSMjPNaqPMUYiNVdIqGt6f5A+/cua9m+dz973iRZLnr2Hnvoyj9jtE3nFjNeKeaNBz/q3sKtwbTT2xvZuDd8bb0f/6r37BS13AYjHqibGAAAAAElFTkSuQmCC"
+  },
+  "christmas|jingle bell rock": {
+    "id": "7vQbuQcyTflfCIOu3Uzzya",
+    "title": "Jingle Bell Rock",
+    "artist": "Bobby Helms",
+    "year": 1957,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/7vQbuQcyTflfCIOu3Uzzya",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaUlEQVR4nMVWwW0DMQyjjfypDbr/WLcBPQELKnm0yatVgAgJcjYuhChRtJfxHGe/bAGf21tr1QFQq1YvMMOjDRwc8HL1Yg/wbsAiCoROwbX4jhoQuFBC/eO/v+P2+L2KKN8B99M7f9m7AUYdlM9X1oHcA7zl1XQfcQBeEzw4QZm00mtbMzwCNGEFM88a1o8QkN76EKpZP2CKUKbYTGDKV6YtSFRwyWn9qHyQLwxN80snBEoAZWOcn9NdKMyjxFl+G1hHDXxwdEJ6j/ID2JKRSIie8r33JKTT3lRyj/BER4SKEKW5/nzXdDSYEZ73VyakJp0yjvUXqEZiHubz4WYcq2IYj/1l2bWMugDVKU/9hZFgrK+vCuP6Je7yA2Osb9Bz1IcWIGP7e4RHx0h7MNDUNT0/2I4fuNRvhvfYI3HlLO8TfY/xeC5VKrni+nuGZ4Vu4CQnyT3uL9qYY8+x6dl8/Ljwthd+8m77Gt8t4/WbrnfibAAAAABJRU5ErkJggg=="
+  },
+  "christmas|jingle bells": {
+    "id": "4KV9bM7a1KDc7b7OakFZic",
+    "title": "Jingle Bells",
+    "artist": "Frank Sinatra",
+    "year": 1957,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/4KV9bM7a1KDc7b7OakFZic",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYUlEQVR4nMVWyW0EMQyjBvunOtj+y9oO6AoYUJtHjl80QPzxyMAQOkhJZfw85/r1BPzfW1X1AdBVNQZ2eLTBwjm0OwY2eA+giELDp6Qu3pEDAi+00X/49/t5vC+h46V7iwfTJgiL+bKpDV65JtzPcwC+dv7l0CStt6FlvACdeGXOt5b+cZLmFIUQ1v6JCBomZq7xZNmCRA3urr5InAxhqMQaf68F3iNk0XmG0VBRxS2f5cQZ58Jp7fJ3ATwjMx+chp5bvQFkeKKkcZ0/pB4GFREn7DWflYLYiuhirPURiSg6G8rs9SYHZ+SBlFprvXkQwxxt+x+i2OkKaVvgth9c6aZ2tfrUiOSGeVRF9Hkafagtn3PerMH0qzvmh7IgsCI26OznG4eBId++/xEZG9BIbu5rgXe9LxGvZ4WDfcd+QB60q1Fe7n+Y/GWAfA7MtX4x+8E0mTF3eI8B/IK93P/ufvsAj8UD4SKPKeMAAAAASUVORK5CYII="
+  },
+  "christmas|rockin around the christmas tree": {
+    "id": "2EjXfH91m7f8HiJN1yQg97",
+    "title": "Rockin' Around The Christmas Tree",
+    "artist": "Brenda Lee",
+    "year": 1958,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/2EjXfH91m7f8HiJN1yQg97",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABcUlEQVR4nM1Wy23FMAyjjNypDbL/WNmAmkAFHfTQH9BWAVod8iLjhaEtilE03ketD0vA361FRCIRiKo7WSM8trecApF3sgZ4BxBEKRM6eyd44AyyJFb+6tk3cdw/18kEr0fwGplEXiB2ggledGAD3VEArwkeegeaorTvNcOjRAgbDprjgVCDzW4KLY7wDssu0YkqKGDJrBE/UjJDX0nvf434XcDJZKPaFGvKr0EBu7xbODN+3p+L4sJuGWpaX7H1qhpzHevPFUG3vF/6BWuGJ6gJsluQxvoDlNsGslq0Aa4Rv0a3ye1MbpI1wFtAZwKZlo1BNfXnglAo4iSyht+jA+HmVYqFM+0OGOpPVrJb170x7V/YSLdViT4+990a4TkIuEvEtq+uER6M1dp9Qhp3jeeDCAbqgtlN5w2E2yPoylZYPGuGh3vkuMrF+fmzn62pZEdQyEPR+vJ/3/Or5jbVbawPfC9hZqSF7TOc4cU/n3dfABR99Q5bKiO5AAAAAElFTkSuQmCC"
+  },
+  "christmas|run rudolph run": {
+    "id": "2pnPe4pJtq7689i5ydzvJJ",
+    "title": "Run Rudolph Run",
+    "artist": "Chuck Berry",
+    "year": 1958,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/2pnPe4pJtq7689i5ydzvJJ",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZ0lEQVR4nM1Wu23FQAyjDq+nNvD+Y3kDagIFlPOapAoUIFFlXUHoxI8vGl+rzrcj4O/OIiIjKpHANNjhsRvSpRAwDTZ4LyCICwXkzWmwxAOgILoG7Jd2qqrEA4clXguJALxGN9jgRQfec1l7AO8NHtqlbhDNpzkrPLLRItlsqsklXoMtQrM9A2rHR6HyugkbOUwNlvPJO9PnDt2f5XwRdaUNQoG18+/DL8VWzxKx5cMpgOEY4FBydvNRomZ7Hm6vP8iXFmXZeM6zwDuwVCIDsFRY2vHxcrQkSqh0buHa6m+Mq/bHWG/Lh8OFLTm42tbT1h9sQJNZZmatv7GZGsMw9vmid8RY2jby2c1Ho/ii9B9z749uJ6mX50xd8nHmSVB5wz5BWoVnNR89XluAXqNZOTs8+JqTCE6YdZ4+pQuV1PzWD77X+dFZFoqousDl/l5WTN6Gu8YivX1PVgTSkPcTWbv7xj9/734Aten/a9UiIHsAAAAASUVORK5CYII="
+  },
+  "christmas|the chipmunk song": {
+    "id": "4RIkmGUvTEGcJMLyugexhJ",
+    "title": "The Chipmunk Song (Christmas Don't Be Late)",
+    "artist": "Alvin & The Chipmunks",
+    "year": 1958,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/4RIkmGUvTEGcJMLyugexhJ",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaUlEQVR4nM2WwY0dMQxDKePfqQ6m/7KmA6oCBvRmL8lRCyTGxwc8hwfJpGiX8eea89cn4N99q6rumkYDd4Mdj/5quaa77+YseB+gCKBJjNjZnFV9WZKB4W15XV+qw6j5Qv0DPKOFAtN0NtjwyoWgfq8B+G54cJYMUYzWtnY8CqBo2IIJrnjnlgi+pcoZztIvMCBQEJ1CU+tZ8D7BeR4QLarcWz8LqIbmVauJd90vLTPy+oqy1RcgQUoKMfSz4tG49gss0uz0gMNwEiGZEPNox1MqkxW3mMS+31D0Xey6X6Y6QHZU3voZ37SbBl9TfBa8D8BxsfgCo5v9Z8E7CefSOE7pMWZ7vwF3zgZoo5LVZzlvoHRDKyJ7q0cWk6VxX37azi/uoCEZuPbzue8D8qGeYGepLxIpvHdHzIxM3lnVl8Xuh7nLpeX9+7n/aowHeNDDH3gfjDq+ibfX54foG3kzwwmv1fnVf/7e/QX1TORa7cJ3MwAAAABJRU5ErkJggg=="
+  },
+  "christmas|the little drummer boy": {
+    "id": "64YiJseVzuYulF2C7wMfMZ",
+    "title": "The Little Drummer Boy",
+    "artist": "Harry Simeone Chorale",
+    "year": 1958,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/64YiJseVzuYulF2C7wMfMZ",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXElEQVR4nM1WyY0cMRBjCfunMuj8w5oMqAhoULP7sPdnLmDrMS01MAUWj1KP8ec669sr4N+9m5m9gTznHtDVow3svZnO72F1mGdD53UAYueAnoPRIw30N//9fX3cXz0vjjGs68G0aVkQeA9q6o0nxH2tsPjq8GXBDLrIa1f4FvacSbPAkfY5nf8Q9izKCIEQOnwwyNQxKQlQp0eYkywbgYjsV1Fv4Tx8BnsYce+0WRU+xX3XecHY8yeQhC2YjD5q8yEp7AUag3Z1+AgqAClkX+MjRFM2k7wyv4ifQ1o0ccxY+/lL2lj7hmV1+GRYSjwCrudPb6NEDNXzD+mU0UN8p7edpwfPKzsOhX3c3efp9V6UiUaedd6y3n1G3+RkVfVwwX0qQtb1mGDcbNwrBPU8RUBdfD/CHzOviHAYb/Mn8GVmJW5XHvX8KZG7MzXOXr2+TjqUW6nM7/zn37u/AIrNHCFU3CFHAAAAAElFTkSuQmCC"
+  },
+  "christmas|baby it s cold outside": {
+    "id": "4MrfQL4TYQXJBlZYpAHTuE",
+    "title": "Baby, It's Cold Outside",
+    "artist": "Dean Martin",
+    "year": 1959,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/4MrfQL4TYQXJBlZYpAHTuE",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZ0lEQVR4nMWWS27EMAxDaaN76ga5/7FyA/oELKjpouigi0IB6kUyDjAP+lC0l/Fznf32Cfi/b2utOgBq1eoNZjzawMKBb1Zv9oD3ASziQkGnxFoc89IC8aBU/NN/96/feK0qFvQEz8I58g26ssGEt7yAV5pZB+A9i8+2cAPQOa/NHvBgAjRh2ezfmvFMW5QBgxA45FFEVAzTiXYanwxLkCiFO+WBYNJlxOdg94hHBZIQwQQ45tGApM48Dw3n45wMBYw64Llm8wFDZHSiKFH0NN+QUjnmEaDm9RPVjUmzx7yMmzJnoPq9ZzwrHU6gTDVnvPYrA6fgis1cuB+on+MKafBUf+j56Br2az6/jPuldkm7BbRHvKyODXihNZwPxFqsFjP5gF7ccUV9Ec4svg2s+jrXcJ2VI3jP4kN0nGTRfj/2vzTXUDv1E37gtDeN7vqNecj9oOUXn87hNLtffbvwti385932fX0CDkYNOwV0RO0AAAAASUVORK5CYII="
+  },
+  "christmas|let it snow let it snow let it snow": {
+    "id": "2uFaJJtFpPDc5Pa95XzTvg",
+    "title": "Let It Snow! Let It Snow! Let It Snow!",
+    "artist": "Dean Martin",
+    "year": 1959,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/2uFaJJtFpPDc5Pa95XzTvg",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABY0lEQVR4nM2WMY4dMQxDnz7S0zf49z/W3IA6gQL6L1JkSy2QuJiBXBCiRNGq4e/Tr29X8O/uquoc4FTVDdjhaYbmHCTfgGXOdZh+OimeBGzwft1vIaumHOLs8cxRmQ8cS75jhBr6fQM2eDUF+hM26NngMTlYhkl7Z7zDE8YTnp6RrRXeC/QeTodznebtVf0ISWSPNE6Su/wIRZvU8Iuzl/o7qE2J8xhaS7008I6mW+dBrd7OxxuX3Gc+uKzrN6R6gzPGW/15khPRHhZrvBHWJ79M3qz1ogBGgNGK2OrFnGnU3SpF3+zwmq7p/moyNdt5Q5P6XWeY0dYPZp4TR/W5T8iz43vd2Tj9uMnt/W9GoLQi/2V/uf58pexrXd7iXRXf/GSFsH+Ar4Ka9SC/1w4PxQU+Uv6B+omwjMdoJrbv/X5AtgOe05FP7+vn8Ti9yKx4Nx9dxbs58NDXC3fvx7er/2rf/Q2cyABOEPPn7AAAAABJRU5ErkJggg=="
+  },
+  "christmas|winter wonderland": {
+    "id": "6JzICCKjjIzQ5M2YqzLhWF",
+    "title": "Winter Wonderland",
+    "artist": "Dean Martin",
+    "year": 1959,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/6JzICCKjjIzQ5M2YqzLhWF",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYUlEQVR4nMVWQWrEQAzTDHvX/CD/f1Z+IL9ARU4ppXv0QgdC4hyEbNkaL+Pvqf32C/i/f2utg1WnDvAEe4AH0yZkwyYTaIL3AhaBQ3gBPgn2AG9/v4Wkm+cTeGYVCOoTeG4U3SHZwR7grZSNP2EBvGf65sAGFXVta94vJKz0DYUxnuiUTWHoVHAP8DaAe6VbjsH04UyPh1/TomWAs/mAIQZESgVTRg3xIGVwRSKyTPmRDrsIG8wxPzLOgsA2vam/lK4D6KgyH9dYX7FzFgG12Brq4cj7XCOKNBrOL9N+T+m6jpryI6Hk+ug89wN1zoEyOPSXV1ugKr2MU6zlqT8TwoX74FRbNIb1Yxqlb8uIPNfXbQMN1QJr6geg5HCMLwz7eUdRgMftpaoa+2msQBDlmPPQr/bzOr7utgWeD+1cxbvuZDzONyvVc3v0/TH3+2wuTxN2Iw7n7dfCm0//5277fr4AJMkCe7TavnUAAAAASUVORK5CYII="
+  },
+  "christmas|christmas": {
+    "id": "46pF1zFimM582ss1PrMy68",
+    "title": "Christmas (Baby Please Come Home)",
+    "artist": "Darlene Love",
+    "year": 1963,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/46pF1zFimM582ss1PrMy68",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXUlEQVR4nM2WQW4DMQwDKSN36gf5/7P2B/QLWNAb9NCih0IBWuewsYEdSKJEbxlf117fjoC/O6uqRu1Gb9ybNeLRRotqAJ0NJrwHUMRGQ9VwF8e8rHY39Mt3149n9t6hznkPwIgWwhPus1kDXrkAfm43wGvCg7NggmK0tjXj0SYByweKKS8gWFAidMBrwFuRtdSNNohOKdcoPgoZCic4CeQwXyTXoGwa9ox3zqIsUdgN1DhfG7KUSNOK435hkgSZf+P6PbDBBtTaZzrG+oowmAcVsaf60hHDx6xSxilPGThRFqkT6ZrFJ51sz/RKegPP5yeJeEN8zLTdNpPqzf0AQvV1zJ7x/DWKD0R84A4PHM4vXv6cdmFmZNwvQHTNDEMMUnO/N0kx98fUn3FbQcooZ3j1Bv+LwryesYV4w5rzGpvXvu6LeM14FrZ3rkxcvalp/yEdGJyJ8fzWP//e/QDjSvWxufC6KAAAAABJRU5ErkJggg=="
+  },
+  "christmas|happy holiday the holiday season": {
+    "id": "3sDdyBHQ60Cs1opmIyRvhp",
+    "title": "Happy Holiday / The Holiday Season",
+    "artist": "Andy Williams",
+    "year": 1963,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/3sDdyBHQ60Cs1opmIyRvhp",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABY0lEQVR4nM2WwW3FMAxDqeDf6Q28/1jZgJ6ABRX00h4VoA0QI/aBoMxnxWX8fM71awn4u7WqWqvOOgvoCWZ6tAEB+9RaPblmnmsBawHErZ5cMz0AEoEjpOSZ3qfHdaAF7AxjPWMJB3HYE0z0ypWd+34OwHvmz48M9r1jb8gzTAE0DdswQc3yFcLcXap1iMNZHi0GCqIlMt/XQO8T7IiVV+sGa+pPz7ZJpkVq5i+JOpkwBVMZr4FeuRpkNzIqQlNeDAUTKlZT8TXSwwOhgl/nraEeacp6sJ7yDNtKukrbMl6o12gxJ2ZjmC+cMAymyaRozfdP8ciULE39XeCNwrHAnYUz7adL5XJ3UhRxPOQZQSTdL10myGjKi91JUCFxnC9SaM5a3JGY6tEPMN2r+ghfMz2wT1x7zFbqhTvSweZegu7h//fTYyPTxOzDF+4HR8llq+9seCNfQHb+cuN+/2vpX913vwBBe/KvUmG85wAAAABJRU5ErkJggg=="
+  },
+  "christmas|it s the most wonderful time of the year": {
+    "id": "5hslUAKq9I9CG2bAulFkHN",
+    "title": "It's The Most Wonderful Time Of The Year",
+    "artist": "Andy Williams",
+    "year": 1963,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/5hslUAKq9I9CG2bAulFkHN",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABW0lEQVR4nM1WwW3EMAyjjPtTG9z+Y2UDegIWdHGfaz+tArT+JDISgqZoSWW8r72+bAF/t1dVvWs3euMEmOHRRosqAZ0AE7wHUATRcEHq4h0a7Ab6l/9+t2fsDb4w19s3P9yzAEIXRJ1gDfDKFbTX2gCvCR6cBfHk+QSa4dEmCUsmzonXDE80LQh5i5xrgLciWqkb7egYKdeQH+wck5YEzvg9AKhAbahc9B7zo+UomBcYnOaDpqxAWYTm+YUMkGKSyym/4+WAikS8oyEeZVJBVcw41s8mpBNIczyT58xHuvH9QApAzBKi4TnPry1RDFTozf1iHEP7lIYb6gHc1VenZaagYuoXxNA2Uq04zO9Cbm9DVaf9huAa948LLLFO9dOe+9mnFtxRn5Gmkdum3LbQm+qXReB5PTtNpG+ZuZ7YvPbOJDOuz/FxzHIe0/6BzKeffS36xYgjvPrn8+4HeTEHmcbus78AAAAASUVORK5CYII="
+  },
+  "christmas|little saint nick": {
+    "id": "75dfH68JDisE8dDaD4KlVY",
+    "title": "Little Saint Nick",
+    "artist": "The Beach Boys",
+    "year": 1963,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/75dfH68JDisE8dDaD4KlVY",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZUlEQVR4nM2WQY7cMBADS8Lc2T+Y/z9rfkC9oAPKe9ogh6AXSHwwLANTUFMkPav5fp392yv4d+/WWkWxzuI8iz3iqTNymT48iz3gvWCJ4yr8xlkw5AGqD+jo7367/8g7R9TJwD/Aa6qgPtEwCya81Qu+5sxGQZ8Jj74XLYPvs2c82cJY7b5Ez3gIN2q1ZXLbI55l0crehKUp71JobMwVcg94L5Z5QzXHuHLCe7a/Vt+xI2JrrJ8E0vVNBmd6vrHIdQ3ByTPeK+Idr+b0eT9J2SMeqRYVmE85xD3jUbH0LQW/XQzzK6JfZ1JHvdn57uhWLow65sNT/6F4kCTtid8e8Uh4bbcdPw/zRoLRUoogm/WYp7TB4+dOVY/75Uu9vp3KD+hHRFMaVULjvr/ea2SHOO4/VtJxhFafBT7z73np4OPqykd4D3j73n1ysG8vJ817rF/n6YnI/HsJ187xctw4463//P/uL8OLBFCIr5LRAAAAAElFTkSuQmCC"
+  },
+  "christmas|pretty paper": {
+    "id": "1dXcUx5gQ8rkHctSsRnZuH",
+    "title": "Pretty Paper",
+    "artist": "Roy Orbison",
+    "year": 1963,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/1dXcUx5gQ8rkHctSsRnZuH",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXklEQVR4nMWWwY0DMQwDKSN/uoPtv6ztgK6AByrB4XB5KkD8Wu1jIEuk5DL+n7PefgHf+1dVG3U29sEzWCMebWxQG8BOgAnvARRxsKHa8C5+pAYSNtA5foLnqw6IrTHvAaR8EHDBu4M14JUL4G94AN6z/ByqWN1hT/UM0yYJK1KhYA15omlByFeQa8SziKQGgzA/kJ8swKIlgFNeICZCTXae3hd27myBneqURyY7pLHBzuvnXDLJMTbhLL+Fc1j76NwdUzP/pq9RikRQEeO8H/FvBNhlHPOUhohpBuX8WANe+eDCEbYzTFUezwPpVTxJUY/G+kNzopq2yZrxEMulguzJOuUhd1U0He1x3N+cuLdZMYrm74O7Ujjcvdgxfx/AF7PloHOmfutREFlHNcB8XiGae86/rOFp/fpcKOrc7FW8ZvnZ8S0zTrPexvprFUfIPbaG/ni+D/6wv/q2fT8/eZX+/hbzWuAAAAAASUVORK5CYII="
+  },
+  "christmas|sleigh ride": {
+    "id": "5ASM6Qjiav2xPe7gRkQMsQ",
+    "title": "Sleigh Ride",
+    "artist": "The Ronettes",
+    "year": 1963,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/5ASM6Qjiav2xPe7gRkQMsQ",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYUlEQVR4nM1WUWrFMAyTw/6VG7z7H6s3UE6gIY+Nbe9nzIUtlGIbKuJIclrG93XWUwn4u1pV7VNnn33QCSZ4MG0SeZlMogneC1AEtKFT8E6yBnjrI9pb2L/89ntNj3PADX2qfV3r5zU3ii7Au5P182+fVrkAfqQH4DXjNwsyqFBsW3foBZZNUJjiWTQtCBQNzPRXPmAZ1WzkBD3yLwzJTr9MmGCN8GihoZoYa9Zv16RDorrfPdMfzH4kGJmFGvcbDKpHS9qd9Rs+CEKQgsw5HmOMoCUQp/3KYvwWJSsb1HR/zrYCy8De4V9DaFBN+V15qQwe4UrTY/2xJfg2Zm6YL4yYGWIzXOK4NcJDCxqOcAI49W8G6YaqgAd7cK0RXlVtnZbghZ1NrrlenOHMHN8NfJCKmgMYB2uO59DAlvXw/ljvweF1nVB9x//BaSjGII8pH+2xHF3GVnw8vC+fSv/qf/cVDmoDhLNG+WcAAAAASUVORK5CYII="
+  },
+  "christmas|a holly jolly christmas": {
+    "id": "77khP2fIVhSW23NwxrRluh",
+    "title": "A Holly Jolly Christmas",
+    "artist": "Burl Ives",
+    "year": 1964,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/77khP2fIVhSW23NwxrRluh",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaUlEQVR4nM1WW27jMBDjGPmnbuD7H0s3oE7AgpNggW3Rj3YC7AqxYwkwMQ+SnjI+r3N9OQL+3VlVrTxVVT031wiPNs7BIe2VDSZ4D6CIey+oCl7Fd9TgABvQr979ez36zvssYqkLiWF8VuLzJtkbTPDKBfDP9gDcs3wNPDNVgZ7yGSZAE5adhGnN6idSB8KqZCvM+FwuLYgFuLt7PM3XtgWJkgxQ0/qZFkERCqSGeJRFq9VhaxbfhS7eLizL0bCm+qjTnTDWAXXP9AGHMEQ3hBA97UdfdHgtQ+P+goYpOaGJQ33AaWrCcq54l2Z4dvvLKz7M+aeWcN8jlrE+lF/LjkKM5priKU1JiPGXud5MhIL5z4Gm/fDTEAIaaI35THVjWylj/jE+304vhYBjf8n4ciDu+z6xF7xhPqCw73yFud6Bx/hf+FLizP8ebXyClg/2jTjhNcI7BWaqKqO4f/Lu9/PBa70e/6d59wPRlu3hNDf0mAAAAABJRU5ErkJggg=="
+  },
+  "christmas|christmas time is here": {
+    "id": "3bMfUUpzUzqWp9II00yRhE",
+    "title": "Christmas Time Is Here",
+    "artist": "Vince Guaraldi Trio",
+    "year": 1965,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/3bMfUUpzUzqWp9II00yRhE",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABWklEQVR4nM1WsW3EQAyjjO95G/z+Y90G1AQMeP40SSkDyXVyQUgkRauMn6+vX5+Av/tWVWtVr17AKTDDo42tt94pU2CC9wKKWGy0m6fAEA+Ai3AzYHgCL6piiY9oZGFhA4aUAhO8cgGfvk6X4J7gwXmSQZp3cY3wSMNi4ESZnOKBNqHDHjXs74KwV20ii1zCmu0HbNGCLDvCeDbvC+VddClaY6mn/lPRaBLNrp1UuAZ4CG2R5Dj56KwpfwqDPohjfRGrxMfxnghp6pdNqNYJ0zP51C+ITSTdheb8Mevhs8EHUMP/R3fBCwW1V+S+hv0hzWVqAhruB4KUMPBn5cZ4jgVBncAa+wV3f8rcFPDAfjgSh7rvTL3G9wGWxPyTzpVwjfrjaU+8k3DqPyTv73FzaiT79cSNRKMXpe7pPZS3WkX0ficOMOdPoY7Jq7B4zfPZ2Y6jxtB/9c/v3S9u8AlEz4u2xgAAAABJRU5ErkJggg=="
+  },
+  "christmas|snoopy s christmas": {
+    "id": "5UFjc1THXKIRYcMWihvNm0",
+    "title": "Snoopy's Christmas",
+    "artist": "The Royal Guardsmen",
+    "year": 1967,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/5UFjc1THXKIRYcMWihvNm0",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nM1WwW3FUAgzUe9mg+w/Vjbwm8CVaU+teqj4Ussh0XtSLIMNpIyvca5vV8Df3VVVF4Cuqjlgh0cb7O5jaA7Y4L0BRTytJojOAUs8ADdusdD81bfXj3ePH5b4qfW1w7NA3Ac4PQds8MoFfKSZOACfDR6cgEMyL9va5dt1Sh/khD5n5z/YpE0ZMAhxxw8mAUqBjRriFk+WZENB07J+5Yq8x8UHnTpyNV8QQW2RTglhbesnkBzDmGZwrxUeIcGa6oF7fWVAIYiIi1f4RYzKjnGS+LXCA8PLSvXi6H2+jMYpYpTZ+9npD3N6RK+pnyPG8EwrXwu8K6reOIT6VJ1Tu3k6fjbSvTNn9vqSY5Q4L9277rfEWFnDdI2HIZc3xy/rfGdCz1CdlLf6ohpPg9ltpwi9YJ/fAfPNjJnt/9DEgyeP6rPkh6lfFohGi+yTa8XvVOEGOvxwZ4fs9tG3q3/1v/sOzscMgfy7Q/wAAAAASUVORK5CYII="
+  },
+  "christmas|someday at christmas": {
+    "id": "0OdTRhhGt8aq4UXh67CKQg",
+    "title": "Someday at Christmas",
+    "artist": "Stevie Wonder",
+    "year": 1967,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/0OdTRhhGt8aq4UXh67CKQg",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABY0lEQVR4nM2WTcoeMQyD5fDt5Ru89z/W3EA+gYoytIuWLooLbRYDDsyDbfknZfx85vxyBfy7u6pqNAqFeY2z4tFGqdSYvgY2vC+gCA0BUdfAkgeA/eDhfP7s3/NbXqGNstBb3gEsiAbUcw1seOUC+MMcgM+GB79HESTy2trlrwE8+brc6IereGFRime0qWueJQ/JoGUTMHa8L3wUETAcqNHe9RtsgSkYSxKhnR6JM+kLB36TeFY8inSaNygTez3seBedo8Y23pSKLOPFccu7kHCdJk46z4rHuGUxJ3Nhm78EetuCyKDZ+0fe+iPfTO78O3gw4ifbiGhwdvPve/1dYf136k/mFUW3ePb6MvKmd+9bYa2v02hM0GCqUPv98QCf8eAuzGf/PkDz4WTKYLnfEEXTbrxzENv5d+5Xrsm2TDNv30M5XeLQruvi2fF823fQNWiMlrypQrMdJeLdLt76z9+73wA87wSEUTmgPQAAAABJRU5ErkJggg=="
+  },
+  "christmas|what christmas means to me": {
+    "id": "13XMz3rpVYITzjFIsSYlZ1",
+    "title": "What Christmas Means To Me",
+    "artist": "Stevie Wonder",
+    "year": 1967,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/13XMz3rpVYITzjFIsSYlZ1",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABWElEQVR4nM1WQWoEMQyTh70rP9j/P2t+oLxARQ7todtTvdCGgcWBFZZsKy7j+9nXyxXwd3dVtRaAVas6wAyPDuW1trdOcA3wymsTN7AIbOa75xo8QWnvX/33p7t7FUv0W/AsUN5BVQLM9CuAX+EGONIPzoGSF9mBZniEIDdpmRKneKRNGRCCPcvvimRV0Y1BXJrNB8zQRWsINOVrhsc0HkHhAGuC94BWvsAZBZWHfCV2SQTT6RiN+VqS7AyHOMU7ndIFgTjVD+m9SJf8Mnnj+ooh7QC1lm/ga9OdJM3xvCl9d0b3UNewvo7HdDHCeKyfFWtpYwH0Br7u0WgZ/YZ+Ic3jLv18aNx/rV54pr5TvAfO+7G5e0nIU3KN8qNj0aGc9SA/1wwPUfBTP479PmfF9bXSOxz7Pch4fsaty6P5fnBHtuJtFab72q7Csy0/qFga7hsvV/9q3/0AvnAW7Km65QcAAAAASUVORK5CYII="
+  },
+  "christmas|back door santa": {
+    "id": "3pPtkupun3NGY1qm8D6UIZ",
+    "title": "Back Door Santa",
+    "artist": "Clarence Carter",
+    "year": 1968,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/3pPtkupun3NGY1qm8D6UIZ",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nMWWUWrEQAxDZbP/8g16/2PlBpoTuMi7P+3Sj+LATiDEgTw0tuxJNH6vk2+vgM+9i4hCnEIdPINc8diNABUgygE2vAcQBK9CR6AruOa5BNVV0D+/zT95HeeQBa55CfTo0jVPDnLBiw68ZHkdgNeGh/aC6DqTDrTj0RzvVQ3QO84dT91sQaA4yFzxWoSloX1xqS8ROG6QVnXonKWfMZpISJPJ1na/cAIH5OZ1mCseNUmTlT5vueNhyjHq1OB6v/YyBNmGst7c8WhVdo2RdmEueA80gjynJrzcy7nSR9I5xBSYuKW+ku3HZrtfcsWDR4od40vOZK71YZrDjXKD/+SZTNFzwYbR1i+Au8OmefJzxfOaY3d6hOv6Ahbm/oBo82g/79sYTjlumAf0qeGjw7Zezr/H3G2TU43Q1z3/XFFBhYf9kofJ30wYp/GG/oD/D+YE9qO043le/WB/9N/2fX0DuKYInf8IRzkAAAAASUVORK5CYII="
+  },
+  "christmas|santa claus go straight to the ghetto": {
+    "id": "3UgdvE5e7nmHFY6WccxPwC",
+    "title": "Santa Claus Go Straight To The Ghetto",
+    "artist": "James Brown",
+    "year": 1968,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/3UgdvE5e7nmHFY6WccxPwC",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYElEQVR4nMVW22nFUAyTQ//lDbr/WNlAZwIVOVBKC4XiC/VXfCDCD1l2Gd/tXD+egP97q6rOV1fX41wrPNo4hXN4u+Ngg/cGFPGOhk/DXVzjPXajff727/UL3mmyqDXeBVg4hG9QHQcbvHIB/HQPwHuDB8coMsmOox0eATpZ25xvLeMjLcqAQIjcxicjLEbCM7GL7w032ygIfT8NwTJfMIEh/aCgfT8k0Ro4Cq+onwJnJchlfFdqZkQPnof3bf2Q+k3hCIje5hukiGDQjKR97fDIzJmc0LTlHywEKHM2lFn2t9xqKLrS6Ux5v9+OspAqhSz1bh89/IsqPLLlZf2uqKlYUM/s7ueXHAnkUDGc0V6fMfTDQG/5PBSBpUf11/rMxJbBGBJu+YdkyBm5DEomWK/Y561ITLmaL7gPyJwb1Sgv7z9M/XIVpCPifl9i7oPQz0hjtvvty8E7W/M/b9uf9gFtc/ReIFnV4wAAAABJRU5ErkJggg=="
+  },
+  "christmas|s ren banjomus": {
+    "id": "0w7CasPbyj8XbBzuhcvbry",
+    "title": "Søren Banjomus",
+    "artist": "Otto Brandenburg (feat. Spilopperne)",
+    "year": 1969,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/0w7CasPbyj8XbBzuhcvbry",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZUlEQVR4nM2WsW0FMQxDKeN6aoPbf6zbgJ6AAX1AiqTUBxIXH99XPEiiRLmMn2evX5+Av/tWVY3ajd54L2vEo40G1QA6F0x4F1DEVkO7pS5+ogZsoFtIjJ/giXsDfWvMu4CUbwu4H/a5rAGvXAC/rxvgM+HBObBBOVrbmvFok4BlExTGPNG0oMjigNeAd0XdUm+0m28p1yg+SXbSpBVz4DBfyBAP1YQ95kWJBAciVZzy0ifJOlxAGuuLN2OKhMFZfBc22IzFEBt7ri9OVFKa2ZzXT06ujrVIyv814jEDp4CDBad6pFGs5Bqp0ztrFp/8dovShBzGdwHtgtkpYDHGuga8lZ8sjqd3tkfW3Jr2C/Q6auxgPL85ocVaeCx1jd8H2hlcPGexY+73isuQJ+OZvguojrB1P+CuCLJmPByX59Oxv7wU1nB/ICZf1Osu03459Tszdwx1PL9IumcDZw9P/bn++Xv3C+ROAzs0TlIHAAAAAElFTkSuQmCC"
+  },
+  "christmas|feliz navidad": {
+    "id": "7taXf5odg9xCAZERYfyOkS",
+    "title": "Feliz Navidad",
+    "artist": "Jose Feliciano",
+    "year": 1970,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/7taXf5odg9xCAZERYfyOkS",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABVklEQVR4nM1W223DQAyjjPzzNsj+Y3kDagIWvCT9aAu0qAy0+rF1sAnqxVMZH62PT0fA351V1VrVqxewHczw6EfIqwtrO8eMc4XYAo3Sdo4ZHoBTBsr6zb9fnd3RZ7O//e5HZxaUeLHWdjDBKxfAd7cBnhO8G1LdRHpX6E37GaYAioZtmKBmeFZwksONSg/xEBPElIK4gB9swqTDdcyPoWVIO3v2lF+QSCV5zOs4fyQES0IQ5/EaShmYGZY4j3cnUQ4eOOYnJkwnXJoX9LNTjs0tZMfxypCDtW06HwfQWgVoVaNaQ73CI9hdjiSRHvdL2kUPWYguzPJ3y12kpwRqFaGh/oFIQVLlFHk8v7GMW+QvDXiB/jGdlzlh3nTBfsCi7hSUNB4jfnzSSxKjzuN+DkrRzPUrrek+FBNRUu/HFftBR+1pnOBwH8JLWPbIMXfTKH/1z/fdN4YOAtrN40VMAAAAAElFTkSuQmCC"
+  },
+  "christmas|merry christmas darling": {
+    "id": "3qPeF3U10lZYScRS9JY8cu",
+    "title": "Merry Christmas, Darling",
+    "artist": "Carpenters",
+    "year": 1970,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/3qPeF3U10lZYScRS9JY8cu",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nM1WQWoEMQyTQ+/yD+b/z5ofyC9wkVsodAst9UKbQ9iEWSFbipJofB51HraAv9uLiAwAGRGzwA6P7ZIzi9Db4izwXoAgVHcSRHqBfQ8Sl1SVv/nvV3vCzVDzu+9+tNcCcRVgVVo7vOgA+OE9gPcGD+2BNi9yFtrVm1Gh8u9bSItydvzIFtVWxRbc8YOxQKnpCRC3eILcQM+G3PGLHhNXB29kI3qXL1bWmjbb1ba04/eCuoafKpsILv2MptzBaZwbyL2+FnUEoYg1XlOi1XUc0HzPCg8DJrRPm4lqpwcVXSCqJkzXesBNc7UCre42D5jmFFGGvsR1HkCkLIptwyecX/b4Dz4lPi9nhUdfkSTdyjGMnpDPspn1bp2zwsPcH+ZH01zj0Qk9b4Phh60eZuW4ek7/zsxXFKBk6+7te2iGUOCNSBd+1v2Tzeeocixory99yzlYnTbL++hh61+9d18BBtgQ5IcgVbIAAAAASUVORK5CYII="
+  },
+  "christmas|this christmas": {
+    "id": "38xhBO2AKrJnjdjVnhJES6",
+    "title": "This Christmas",
+    "artist": "Donny Hathaway",
+    "year": 1970,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/38xhBO2AKrJnjdjVnhJES6",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbElEQVR4nM1Wy20sMQyjjL1THUz/ZU0HVAV6oCbIIUGQBDrkzWI/NhYEJZG0o/HxqfNpC/i7vYjIiMrKwiyww2M/Jed9Zc7i7DhHgkjwqpIX2OC95vMGEyXkb7l8sXch7kJS3/zvR3st+EW62NYOLzoAvi8L4L3BQ/uRIDY9627t8CiAzYZaMKaW/NTN6aE5up1nhYenfWK3SKz5USaIJucn1/1zrZTUmu7t8A6Q0DWSZtwQ1/ojUFQBSVSnVvmHpt8UHS1qcDsPW+0ZiqGtn7PAewFXIwRUEp2Ind9eEOtynDq26vb3WeChXaG9MUZu7PUn2iQgxndL/cGOnZk4DmyPPb+nWrtj3Kxt3meLWSg1wlTPih9oem6e02qvZz/wiMcjXM73PFeCsvouq6+2+qMrJSZM9/l85n5QUOQNVPg0OTt+MD13zoNxG8+OH3x4KHSXiNzza0t6TqO5aK3zz9Z9s4jlt5tH/Of33X+zXQB739CYTgAAAABJRU5ErkJggg=="
+  },
+  "christmas|happy xmas": {
+    "id": "4hAkwE0k1MlzDoOIf9J8ty",
+    "title": "Happy Xmas (War Is Over)",
+    "artist": "John Lennon",
+    "year": 1971,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/4hAkwE0k1MlzDoOIf9J8ty",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABX0lEQVR4nMVWQWoDQQzThNzlH+z/n7U/kF+gIrcppT06UBPCeg7CtiTPHON39OPPEfB/Z+ec6tOFAibBDo82LlCFrkqCDd4TOESroC64Dtd4X1HtrjfN1Fc3cKA13hNwmBBw3axJHgu84wPwO22A9wYPTsAETU6iHR5tErAcUGGNFyArExQNcoV3jOZxNeBRS3vlXxhpMf0yn+Cu3ycMHLkbah+4d/oLsw4jVkqDsZvf8PHq2tH1mt9oECLna8vvAy1WAX132KW280MapkRAppb1PWcD8GYWTCk1YulfzgwjwKl0q7/zWqPX/N9r/SnSExWTZMVojceRy+d+0V5/jncV3GyZLV62sxRe6KyDrd8ScS7A8cgWL0CWlTEykNq/D5p1zXtDkfVjVR+RmoaP1Kqt3z6jcEfPquI73huXDu9YhPe17ddjkbl79/cHht/5zXr2Us9zH/3EXr7/3n32AXikAVazxYdfAAAAAElFTkSuQmCC"
+  },
+  "christmas|i wish it could be christmas everyday": {
+    "id": "1mH6tZC6iXIHPI6EixCwxw",
+    "title": "I Wish It Could Be Christmas Everyday",
+    "artist": "Wizzard",
+    "year": 1973,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/1mH6tZC6iXIHPI6EixCwxw",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaElEQVR4nMWWQYrdQAxEn8zfV9/g3/9YvkH1CSqoDcMkswnRh3jlFvghqUpyV/jz2dePEPy/WFWtDaxadQ7MeEpQsXfurD4w4b2gRHmRvcgqfagHN0te//btj5jeey32299ivz/X38diNuRWumrPeJUCfR036J7ll8TY4JvncA14RKB01Y7Ou2e8KLEcMMJjHjbtYjq9iCnP4emguuIOXLP8FHW5akmCNeSpM0StcEK38hrwXj0dhWGlKK2d0f57wbqNyumltbNm80HXKskcMUym/TskPbSWY8rj2C6OrPAB/3Fqbg8+Ins4b87DkYSdKU85ffMZ3cz7J3V+UloV5HF+fka4oSfgeX60yL0F2zMe6pFnbI+vI8b+62XQa/CYWeN9qhZCvZx9Sp7ld0Gt/pujW9pn01wzHrAV7nd19esj9wOK1UNS0ex/+dwPzjql9ajhfYOjb9uvBe5Bnun7OsBv7OH979OxXxK7ADgsONciAAAAAElFTkSuQmCC"
+  },
+  "christmas|merry xmas everybody": {
+    "id": "3noyDtJyrCdjFy2sPTqS8p",
+    "title": "Merry Xmas Everybody",
+    "artist": "Slade",
+    "year": 1973,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/3noyDtJyrCdjFy2sPTqS8p",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABU0lEQVR4nMWWzWkFMRCDZZO73EH6L+t1IFegoFkIITnqQXzx2oeP+dHIu4zf6+4/V8D/3a21DtY99wDPYVc82jiiPgGcHNDwPoDFkKC14JPDruLLukchzvc7eMa9ifEtPAvg0YvymcMueMsLSAGfdQG+Gh6cBXH6PAd1PNpkspYJCjVPNi0IFA22PGjSnUhJ1vFZspMmLQlkyzMnROWL7+iHhqOUElIbH5mWSDDiherjSztEpinOviselK4KkR8m6V3xRBhUJkRmHx9HdfGqibLnMWp5SpeUa/0pgUU02aPtXfGgjEWKJ2V8a71EMKPo2EzrL3uY5+CV9+N5QXYVHwxkOiKaNLn3gxjzg0qD6/kAGODYYJDq/V7BMG9IdLg7HkhlMKJDZN81z/EsPGPX8b7vLnVfz0O8+/o5gzEm3b9vSN3ipWPPpT9/DPAH+1//bf+uLww5EaYJnk+WAAAAAElFTkSuQmCC"
+  },
+  "christmas|step into christmas": {
+    "id": "11P4sSu6BH2lAbWk1sL6cK",
+    "title": "Step Into Christmas",
+    "artist": "Elton John",
+    "year": 1973,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/11P4sSu6BH2lAbWk1sL6cK",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABcklEQVR4nM1WwW3EMAyjjPtTG2T/sbwBPQEL+tpP+6serRPEkIEQEiXRKuP7OuvHEfB3Z1XVVafRB9fADI82IOBCXmPNfK4Gu0GjFANzDjYIFNW/+PfbMkGSECheQxO8F2C0ToOId8YsH+VCgv1cB+CexZslI8GS11gjPAqXOsi+bGqKR8P6TAjGeIJDoG4pc45nwSJ8yUNcXTP/zJSJ5GTEmvoHKbyFPCfJM//KpefowQbw5EQj/YNTKbx9ZkrkPF4wSHaITNBrgLegx6oNnKqU81BPkQ4jU4aIyKSq1wDvhcOzeQoGGi5O9U+3f1PS0QNprAdWHkpQOm6MF4GRv/pkyN8C0KHuvMU5OVkj/5BeE5LlMOmxvqRgojJXDpKSNcB74d4fZWAX2LlB1sg/JtIEm9cpoDWeD9DYvdGnwuEa4L3em9B8oM6+53gqH+fuxaNnOr9YOG6DEdUznIeQ+ZT5RgGvFg7r5T3wfn2z/6d59wM+/fztxMHa3wAAAABJRU5ErkJggg=="
+  },
+  "christmas|lonely this christmas": {
+    "id": "5DMItYJluCFc7YtFdP4aXo",
+    "title": "Lonely This Christmas",
+    "artist": "Mud",
+    "year": 1974,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/5DMItYJluCFc7YtFdP4aXo",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXklEQVR4nM1WwY3kMAyjjP1THUz/ZaUDpgIeqPz2cI+FAuz5EcMGQtAkZauM7+M+f20Bv7dXVV0AZsoCOzzaYHeT0CywwfsCiriAJoDOAks8AK2PWC73T/49/9wTLpbC7wU8CwRv4OYssMErFxDpnnEDvHb6eVD7GkO8zTOcmEg5tGxK1A7PtEU5rhCiV3hf8TTlEU9wodUr/WDmuLIxFHPys8A7wEcfdBdR0CTwrPjZIRcVbcnY8YNlgvEEJOOxtvpJCDNLsWXNj0lKciOI2POjRE+YE5qlv3Cq148jQX7BDzlVERFBruuNcUHjS2iu/cAUrzCzY8tZ4XnugJFu7pktXtwNS4N6Jc+eAiGYwOzzkhHtoiLDU/v+AADvbj2v8HnjvMDUSaazw0NCnD4jj9G2Ps58P3cFztblbT/0sFTe865m6wX9NEF+HN7pd3BX4ZPW5b7iMnb86j/vd/8AT5QK7GfLT8EAAAAASUVORK5CYII="
+  },
+  "christmas|i believe in father christmas": {
+    "id": "096SOCaNvutZ2JZoyS2zEu",
+    "title": "I Believe In Father Christmas",
+    "artist": "Greg Lake",
+    "year": 1975,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/096SOCaNvutZ2JZoyS2zEu",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABcElEQVR4nM1WQYokMQyTw97lH+T/z6ofyC/wIHczh1n2sHhgJlB0OdBCkVxyovF11flrC/i5vYjIiMpKYArs8NiN1tVFYQps8P4AQQQL1ZVygSUegA6i69b//ff8Ew9U4T74FrxGZhWg6CmwwYsOgJ+lLXk2eGgvNUHyXZwF3kHmmEo8UJbLs+MHdhOChKbEJb8CMh6iQaSQO39h8boh/4jwy1nxS0RUD01qrD4rPKHFugaqwrPsPzQEmFfLcWBLzgqvIds6KSNaxbPCo8RWi+22MepZ4B3UhfImUFFgaaufqb3Vk8Xc9jPTjhQauMlsbfmBVvFF1b2jbf6FUNUxqW/ws+KHST9Lx5fH2vZfO5dFH9qNqD0/aXJLniRrfj6j/RDI5jr/IiIrJUcq5pZwVvxoeiOfk9qunB0efMwJ0kmYnR/veV7047iP3bx87SVVRD13PD5r/eS48qfnvtGy/4CZlob0HN754TvLl/Wr7rsfo67/W6aBnLsAAAAASUVORK5CYII="
+  },
+  "christmas|when a child is born": {
+    "id": "0jXjTHqZVXhQSGUAvUbCvU",
+    "title": "When A Child Is Born",
+    "artist": "Johnny Mathis",
+    "year": 1976,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/0jXjTHqZVXhQSGUAvUbCvU",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABb0lEQVR4nM1WW27kMAyjgvmnbjD3P1ZuQJ2AC3ran7bAPrRA6wSTWJgQkknRLuPjmOtTCPi+WFV11fT04Eyww6MNCnje3Z0JljlXA90AcetMrh0eAMlAGf0P334V6557OK3f/O+PYhaSHs/c2uGV6x0qYwDeG7wHIugB8BSKZ3It8OBohaYhGyaoLR80cJe6hyfTa5UfTsUQrYO8y+8BT3lYRMsoL/UMOxKhJMsm5VV+OBAMDXQI8RYvnL4SDM3kOj9DBEiRcJ7Xtj/gUprkvK79mXSMYKpTb+/8NOuXQl/OktJ39b7Wz6JsU/9Bz/dk9YCeCFHg0g8gHy2fK7uJtvUKSvdGh5K29aIOGYPR9FPlbb1EeMiuGTbW/GYgphD15db+fIAa4O4bHUO9VvnRPn0bVafiNb9ZswCdFtn63/X2bLIZ4Sz793F+VRxn7z0Wc+3wnFbLO3H/1bfXl7GpQk+F4enY6fK88Sn0o867vwB4zufTELILFAAAAABJRU5ErkJggg=="
+  },
+  "christmas|father christmas": {
+    "id": "1ZSxz1KO5hKlOG18MPsZPu",
+    "title": "Father Christmas",
+    "artist": "The Kinks",
+    "year": 1977,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/1ZSxz1KO5hKlOG18MPsZPu",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbElEQVR4nM1WUWrDUAyTQ//lG/T+x8oN9E6goZcNxlZYmQvbo5DYpEa29GyX8fWs45sL+DtfVfWq1asXtoFJPJg2CZsWGUOTeDegiIWGVsNdfEUNCKFb6F/895FPWgto6ofvnvJZwB06KV3G8fi7p3zlSrofZwE8Z/zmwAb3w/aI3yMcNKt8Bm2vmuULW4z2IFA0MNMfTEXNeYMRZWsWTwo6BCYEcIpPVkBKNpPtFB9zcXHdXiVlzfuBkqrlXLwxvq0+kfkFpWbxAIYESERQjvlItruGkFNBDfHZO9HLmOdLMkLZApQxx6dkm8KFXQ37AXZjEVLF1C7GMYrHiE/XWMqdm+svV5ibZryCX2Z+XB0V4Fh/ObvDpLeEFM33g7Mi5j2GqeF8Y5op23tc7rl5DOIhGVIKH3vOabxvpHAtnB1i7sN5frseC2W17hnAeEE/VcqYhp9ufYzwrQIbXGXUtcDM4n1aeN9f/9O++wZzvA+EVV2mCAAAAABJRU5ErkJggg=="
+  },
+  "christmas|mary s boy child oh my lord": {
+    "id": "6resBlGseVzmq56zkIvLWm",
+    "title": "Mary's Boy Child / Oh My Lord",
+    "artist": "Boney M.",
+    "year": 1978,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/6resBlGseVzmq56zkIvLWm",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nM2WTW7sMAyDPxuzp2+Q+x8rN6BOoEJKUeD9bFoVaLXwRAFCSKSo8Ur+jtj/vIKfe7fWOnFYsYhOmOEpE3yMgifZA7wXLMHh4MtPsmd4HWFkzndxGtJ1WF/69o94QXIOPjfkqYQJ3soF+khLknuCR3aQMrifPePvRJzldV9pVnzu2/9EWrZRqp463SM9Lo5CEPGM4bS+lCwnNlbiGX90ny2Lq2/nrN8iTNk/JXLXumf1qY6eG0wy7ddKU91ClTrkb5e+lxcifWgL7wHeC26QlrB6C07nBQOypDqTsR5kPnuZdvAUr1V4qnOtham+7Y+U9Xh4PH+4YMpn9LiM/ZFtuLJGMTnGU/GXslVKF417hFdR5dXmq/0y5q+mr3jL6hlN/VajdwVRf8HtEeb3g5ujcloscMzvB6dNF+8XhD3A231aXKXtcmHv4b7PskfvhFbbc33Vm9S1q4f+Xb/8vvsGg6L6gEDYfYcAAAAASUVORK5CYII="
+  },
+  "christmas|please come home for christmas": {
+    "id": "3QIoEi8Enr9uHffwInGIsC",
+    "title": "Please Come Home for Christmas",
+    "artist": "Eagles",
+    "year": 1978,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/3QIoEi8Enr9uHffwInGIsC",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaklEQVR4nM1W223EMAyjgvunNvD+Y2UDagIV1N1XW+CAqkDrjyA2EkIWH3Y0Po+6viwBf7cWEVmJQKBmgh0eu0Gl4J17gmXNkahERuWZCfY9IEqifvTvd2tV5Anc7757v/YAGplQ3i7TE2zwomNwXqMA3hs89Aw0BWnetcOjRDTEVkN7PFAS2Gwz3NrhPaCTdAergIMElv0DKXqrgkjv/1rgXcBdB8gmZHqX+kObDffNBJPArj60IbzPdoV+0ba+HvlZfwSX/F44ylCMBs/TKdcCL3o8lgBUSIG51AvVsJandZOt1w4PaNrCwFC9xjOxryInEbTkV+bUlmOblG19kKMAMnBLS789oCOlo2DiPpfnG9w89DMF5aje7nfiGZz4o3NVy/7B7HazaQ1y6zfb90QV6rYCtTvfpn/O+WaPe5f6e8zT1yGViKxfuR9o5HwQ8tl+rf3Wz7sL7eP1eWkcWS9yPC/zNP75ffcDAXP+WHWi2NYAAAAASUVORK5CYII="
+  },
+  "christmas|christmas rappin": {
+    "id": "3elP66qkaTnPpnLDTrVHik",
+    "title": "Christmas Rappin'",
+    "artist": "Kurtis Blow",
+    "year": 1979,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/3elP66qkaTnPpnLDTrVHik",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABWklEQVR4nM1WwW3kQAyjjP1THWz/ZbkDqgIeOA7ySJ5aIGcYA8gPQiQlesr4+cz16xPwd9+qqhtAVdcpsMOjQ7mbHjzFteu5Gqp70ESnwAbvdc7GWyz1pzS9MSzRH8GzItuEuFJgg1cugN9lLLk3eHAemAL5FNrx7ZrSKCoaPbObP9i0TRkwCJGr/l6ZOTC6AdC03sv+IEqwodPfUj+YdJxAUPNu8QyLUVGPjDu8F8adhdO0W5UduVb9UTKkCGdA3PKNDTq8lWn5gB8So5yZodFu/o6/2bMQp0Xs+QYmbBM0XM+LzGAFKd6s+wMO0UdJ57hWeI4dyoms3NoPJfsspTMmqbXfX5CBSr3fX3+NcgY7KaOtH+C3L+t5uc6VgMaA9wnUbd5HPIUz8g/Z7sd1zncNoLet27v+nvsGdPj2JP5nyddfsXxiK7FwrfCACCjm73FGZoVX//l99x/fjhxfLu0mrAAAAABJRU5ErkJggg=="
+  },
+  "christmas|endelig jul igen": {
+    "id": "0hph5ZLIh4WG69ouwjQnxA",
+    "title": "Endelig Jul Igen",
+    "artist": "Gasolin'",
+    "year": 1979,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/0hph5ZLIh4WG69ouwjQnxA",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXElEQVR4nMWWwWkFQQxD5eXf5Q62/7J+B3IFCppPICRHL2QOC57DQ7Zsz5bx+8z15wr4v7uq6qnpaeAE2PFoo0XdADoBNrwXUAwImoI7wbXSl0MI3dAJsOcJNYjMNe8FOBgBt/gJrgWvXEn3+wzA94YH50A+Pp9AOx5tkrBkgsKaJ5pWKigaD/CAOIHIPEKvFU86Q+GIk8AtzxLiiI4x1DpfyKQtEESI145HBxNjLXjvhyMQpJK0uNUXc0khqHTMlieenENVmnFdP2ddnWdET+Sr6BNkxeV9/zFuxFyaTBdqu688QOfDwa3te/lZy27ybjTqgX2fpfxu6Oz8HS8Dgdh7ZhfY9t8VoG+4Crjpfb5V1aqjcdARea14zPZjpYaCZrb1y/Q671HmN6taj/wj8X1HX3rn2vMaw/dMNuqaZ2GU/6AYMks/kMWSEh6DmbdkVb/XAf5gL///nr77AtyY84G+Lw6BAAAAAElFTkSuQmCC"
+  },
+  "christmas|grandma got run over by a reindeer": {
+    "id": "49iHYFjT5yO6WEw6KerX9o",
+    "title": "Grandma Got Run Over By A Reindeer",
+    "artist": "Elmo & Patsy",
+    "year": 1979,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/49iHYFjT5yO6WEw6KerX9o",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaUlEQVR4nM1WS2oFMQyTw9vbN8j9j5UbyCdQUabdtHRRXGi9mJAwCMkfJSF8jl5fjoC/O4uICsBr3A1meClLrspMPJs14xwF9mkALG8wwXvd724xQ5E/5fIN3kFn8ONsff0NPzgTkdgNmJ44wwsF8Mh0NJBnpldG5T5lVE37GUoQlEVTSjI5zF9uoTrRiGrs+cyc2AdwOx/UmeFBoihIoAha+RrgvVB3teA6QqNG9YWYciFSTIDElB8ehuxS0RQx7Bc5fTdxpB2GQ70CmLcgz8ohvwRTt5k9eZr1s+vxzIcMyvwFvQ7ClUUadI3w4PxdxenajPnBRgA6k/T9MeUnJ41O3UUf+guuUV3LeiZk3i+6jZLI56kwxXNYZdLps8usAd4Lvj8SvdtjfE1/zfUKLvOVPPb7KKhMEejwbbJmeLBjNaCd7p3pe+jGwcH7hTTj9+TvOqCN8M7dGvHrCOxmof04wJBf/PP37hva4fx+bHCqOgAAAABJRU5ErkJggg=="
+  },
+  "christmas|nissernes mindesang": {
+    "id": "6i5fe9pETbwyRQlaVbU7kt",
+    "title": "Nissernes Mindesang",
+    "artist": "Jul I Gammelby",
+    "year": 1979,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/6i5fe9pETbwyRQlaVbU7kt",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXklEQVR4nM2Wu20kQQxEHxfnFzPY/MOaDKoj4KFaggydSQG6MXaHbRTI+rCnhu/Pef1zBL93VlXdQFfVLdjhaQa6+0j+KF4LvD9Q4oGWm07BEg9oZJV6Mjh7PNMq6/RPaDRG6EC9nYINXk2BvsoDejZ4TB4mfUm38G7erlM+pDHT5+z8x0gaywODMPJW36fItHnrWOa168+2mcGD7DV/T/cb32AkJ2z7C3fDaByN8/ta8vcOeT4tRC33AaNoa9LdgLXrL/MGhRlZFmu8UZrCecncO//FxIlbFPE4jXqJN+lx4kGSlS2ekjQjWfH2mj8Id47CmVlb/kJaprQM3u4DMuokwklvvLjmLwSiOC+GWeaNu5Ll+O5aZ43Hbe5DF2Vg778PjnS4epxe79NP6+UWTuDWetxUZMfkz7Pzy9fZQQ/VtLfzzr1Crg+jy3q/3Is86XDWyzK/2e/fnv/qe/cvwjUGoBiK/80AAAAASUVORK5CYII="
+  },
+  "christmas|velkommen til den gamle by": {
+    "id": "138ytFNumVGjbPr7zFydoD",
+    "title": "Velkommen Til Den Gamle By",
+    "artist": "Jul I Gammelby",
+    "year": 1979,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/138ytFNumVGjbPr7zFydoD",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABcElEQVR4nMWWwW0lMQxDn4250x1M/2VNB3QFWnD+T7DY/CDJ6hBfDAk2IYuU5FH8u/b84ILf840x1h577bW5DTp4lKoElb0Uw82Yx0Jey2Nsx6Cfg73M+s+7r3zF2Ijzq3Nf+46ALXTBiddtzBfn5jd9owbo3dygq8dvFi5kEY7Lfb0Iyi4h08ZztGecCCvAs4VXVp57R0oU7R6enZxRVtmGXn0crAfDO2qB2mdTz1oubYnB9v7Z3U/4Ja+mkkX1+VXocFoL2Orlj0AhTOSHo5/Zw9NdHEF1KSqcDbyD8Krr2a6un9ydL+OrJM7hQYm0z0e9pa9ExO1mvzJwXrqlt+TevKT01hJKCnRff1Uo5Vt5dhuPWy08w1Nbf1mkNkChpDt/8yXwDrO3CuVuf6mCc4jFwnu3+wtKtTmlBrj930jiMiajvfubMBt4x2M7GeW1H4N4tuelnwrMkGvr7/HcKCfduann4wb8C7t+82/7cf0B/SD+GYIA5a0AAAAASUVORK5CYII="
+  },
+  "christmas|wonderful christmastime": {
+    "id": "0zOyefWJokSoOW8Y8eI3co",
+    "title": "Wonderful Christmastime",
+    "artist": "Paul McCartney",
+    "year": 1979,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/0zOyefWJokSoOW8Y8eI3co",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABUElEQVR4nM2WwW0DMQwEV4L/qw7cf1nXwaoCBiPHfiRPHpAcDON4j8GSXFIapZ/Pnr8+SX/3bYyxNPbS2noFs8VzlVacEa1FoA7vIQ1Ly6q9VItgtvTxbCHujvo9zn/tIYtflzelivRULiuvYDZ4o8ZH10lcvjo8FY/KcuoVpMdzlW1VsIqjLq/iomyReLPbPAlpIusjdLZ4jmEiM2Tc1QckpeTdlfR4SmK7Ipugqw8KTOoXq63PJk/qZgWR6eZrM2qBGvozW7wwGCZVkFHbfxXT1Rc8/XxNW/HxKaFvmDcH+8FlitP2Sx3b0ZIzK7PHS+G6s2YoYpv3nfI52jBMuv0Q8/uR1/dLkSzv9tkIs31+XPKWR55kvPv7PuwXY747+mFjl9Nndn76vDINZk44kmb7fqDt7Uvb1FE31C/Yj/Htz6+4H9jvQ665n8c/v+9+AV6xE/MmQoZwAAAAAElFTkSuQmCC"
+  },
+  "christmas|den himmelbla": {
+    "id": "5rS90wydFupYLiw0Tqs1eM",
+    "title": "Den Himmelblå",
+    "artist": "Shu-Bi-Dua",
+    "year": 1980,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/5rS90wydFupYLiw0Tqs1eM",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABWklEQVR4nM2WUWrEQAxD5bD/8g16/2PtDTQnUJGzhdJ+eqEdCGTy8ZClsTNl/Fzn+vUJ+LtvVdV5q+q6N9eKRxuncOinOxtseA+giEZDp+EurnmzdNC+C8feU6K6WdA7eBYO5SfozgYbXrki72sdgM+dPtuaQnWg2VwLHkyATtV2hNJa+kcKFLrOLRJLfSIUB01G7U7f2GcJEoWUzC2PIwzU5OKtPkBKCkoWEailf3SIgmFR2ul7AOe4FJzQ+MD2/KU9cmSUk6jkfa14CokeWjTu8x1ReSztz5/AaEvjZjivebgVpjWYgre8KZWKe1R81JLnODeJMANmrY/WDRUzud7Ayx8krEyZtX9Z6bSBTijXioeZzwk2wFR/rXhMEHdjKKWv8413ymjh+PcW3kwXzLzf8V73A5U6Tlam/rXgPSKtdYKLwv196NRNKecCkx/7jvftwvt6/U/33U9IEgD5hsNROwAAAABJRU5ErkJggg=="
+  },
+  "christmas|silent night": {
+    "id": "2mtm0aF6c7Yd66sFaE3ipu",
+    "title": "Silent Night",
+    "artist": "The Temptations",
+    "year": 1980,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/2mtm0aF6c7Yd66sFaE3ipu",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABa0lEQVR4nM2WQYodQQxDXxV/L9/g3/9YfQP5BA72h1lkyCJ4IOlFNy5oYZdk2af4/cn77Qj+3dk5J/JkZCQTsMGjVCVcpbLUgTd4LzhCIZxhxdGu3te8E4j0X/57/3hWehIi4ifwavLyI9cnuAu8Uwf0FSbo2fHbD1VoPlW14vcSEIpTD6iVuKuXKqu1h5E1N3hXePKUO8qmtMR7kWRxqAwPOVu9SI3mxPkhhaX+AnMa9Z1B/owflE1RLcU1H2oWkEqy0c5fLvkokHM6GC37jeoSkS3kkpf5vSgylBqlZBsXW37fTrdkaGNl32/uS3N9CFn6walwm9TRA2GidvOy9TLzqGWoznStv7m5crNLW4LXelF3RzcvaDkvGUseG6DHb4PfXX50YsZFD3Rt/X5y01uEwK3ou8pPbQE0HzPnvK238UYrTcl08V3vG5w6cqLZPO56P0in0HvGubd+Rd+bWjkdetu/347+q333FxpY8dXyYqO5AAAAAElFTkSuQmCC"
+  },
+  "christmas|stop the cavalry": {
+    "id": "2bPQuniBB9x0fRtxDly0kr",
+    "title": "Stop The Cavalry",
+    "artist": "Jona Lewie",
+    "year": 1980,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/2bPQuniBB9x0fRtxDly0kr",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaklEQVR4nM1WQWoEMQyTw97lH8z/nzU/kF/gIg/00PbSutAGll0HVkixojgaH1edT1vA3+1FRAYqMhFTYIfHbnSBVdHpAkvOkcBFQMinODs8AKG8Aeon//1yr0BeSq3x0OwmQQhqutAGLzoAvpcF8N7x8yLI4edCW70ESKiH51IvWmqBPZhocYsH2XpCm+KgnxUefWQt0dzW/X1BlQ9PJOgGY6m33VdQtPTmTu8LnQUl7uHG0Pq+3WwrDpdl85wVvxRS17SZFwO9vr9QU74hY8W1X3zTxoDCA3lWePBnctnBsPXfgcBApY3Dm1Hr/LNSR2BDlO14dvzodw1AEne6zWeB97Lx2qdYl5+Q73H5YvXEqCPmSel1P5pQTHv9fDC11BujMnyMnVn9G+/b2Nn519RWr0eCFCYTKoo7vT4+uh8tEwWW+XeeL6KIqntmjrPAe9kxCScqk88Ic7Z5QL+U/vUb88anrX81774BhankohT+WrcAAAAASUVORK5CYII="
+  },
+  "christmas|christmas is the time to say i love you": {
+    "id": "43WcTkFn5O3lW9WazkkLUt",
+    "title": "Christmas Is The Time To Say I Love You",
+    "artist": "Billy Squier",
+    "year": 1981,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/43WcTkFn5O3lW9WazkkLUt",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZ0lEQVR4nM1WQW7EQAgzo72bH+z/nzU/gBe4MlEv7ZGV2iSahDlYxBgzIfy8+vzaAv5uLyKyE4HongA7PErIigqHDrDMORIVhO8JsMF7PS8FLoOf4jQBMnQ/gqdCpYBKJ1o7vFBgiHuuBnh3/OnBpaEm6N3/Zma2MxMK8OdZ4EFFVIGiigVJtcOD2SNUKqEE1pa/vCCajcQb2vZbdL3Rk+UVLMGzwhNw891tVefAngUeRBEkWKJZrB1/roPKKAUU6bKcBV4ohCiAXpK11DNkhRAUfEPa6qWLQTWYzHrbas4qPw5v5SSd6ZI/2KDM2lQXxLq+ctO6efEJvbyQxRjPUtOq3vtL2WKmzPKAq209+IDaa2w1teRP1hw5fScs9RczP677Q50zSO7+fADQA8SOv5xveNwFdoLhb6nnM2vx2lFbIrf+/H0+aIgxn2fpp/LjRhO57d+DjvDUFW6i7YHL88avrX913v0C+YnbXkD/DlIAAAAASUVORK5CYII="
+  },
+  "christmas|christmas wrapping": {
+    "id": "3nhzTOc939C4v4ecTEZTPl",
+    "title": "Christmas Wrapping",
+    "artist": "The Waitresses",
+    "year": 1981,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/3nhzTOc939C4v4ecTEZTPl",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYklEQVR4nM1WwW3EMAyjgvtTG2T/sbIBNYEKyn31+ilUoPUrMhCComja0fi66nrbAv5uLyIyoxJZmAI7PPZpOZ87c4prgfcCgkYj7kKni2vFz+tRAwVNgSU/wNSUEHONdwEtmB6JmAIbvOgALOBZBfDZ4KG9JIniZ3Gt8CiAYkPdaIJrPPZoeFC55dfHJmIL9Fy0xBPb0pHWsbnFk2C/SB4Ff2EerbZuQhtyjQdwZmHLkIa/dvxol8jyUY21fgDYHPnmc8cvum4obJmkQwHYnzeeHLCOWvfLkc2nrZ3Oy3m8UKicdgt9IvVa8cNYBZSdbUNr2S8E+cz5q6Gdfi9A6T4LJQQ6urb9wrzaSeDUX+eLjdwTVj5u6/OGuT/sGJuP2OfL4SVy8nTrv/M+eJBCVvD5jfvcmLwn9WN3Xx48paILuH2lY4nXyHpOrtaP/r2+3asIJCMKKDpOl++Nt61/9d79AD0sBSvxIXD0AAAAAElFTkSuQmCC"
+  },
+  "christmas|a winter s tale": {
+    "id": "2MZg8AD2iw6XR2BsIZqOvf",
+    "title": "A Winter's Tale",
+    "artist": "David Essex",
+    "year": 1982,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/2MZg8AD2iw6XR2BsIZqOvf",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABWElEQVR4nM1WwW3EMAyjjf7pDW7/sbIBNQELytdP+1SB1gkCKw+CEiXay/i+av/4Bfzdv7XWye6stW6wR3i0UQtVtk8CTPA+gEW8dOAF6SyO8SLBcQE6V5w9xiPqEEfnNzSyUDh+aHaACd7yCr2vVQCfGT/bggA8VTfYAzwkyWRq2ey9ZngmLcqAQAhTPMlQKmjmGeMxmQISpavwnuHBQQJFNFXN+rkMFY5wQK7MyZ7xs5sXDCfbWb4bqOo5CzOwXlN+AEkqggCiZ/XLwEYMR9qWY6zvpdWFNH6h/yBTzOBSAmf5bjxKs6jwiilIUz94z8j9UkN+iB20K7S9ZFI0xFO0jRfEBj3Xg22BDZkCjv3PSTbNzIae1i9TlqntZg6kxn7ANmYKkWasb/J8w6V+037OKhJPm0wg95yf+yCK2w/rt6/D5IJQeJTTHXN9kfeeRsN+Xv/8vvsJb8UGlnq0R3gAAAAASUVORK5CYII="
+  },
+  "christmas|nissen": {
+    "id": "2YkJGVyyhH5Tlu7gz0KeGF",
+    "title": "Nissen",
+    "artist": "Lars Lilholt",
+    "year": 1982,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/2YkJGVyyhH5Tlu7gz0KeGF",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nM2WS4rdUAxEj8ybl3bg/S/LOyivQKHsJoN0j6JBcsFgXXAhVB+5hj/PfXy7gn93V1Vd3NVNPQU7PM0wN7qvVqdg2XM1nMrg/BbHDg8o9wXTf/Ptj3eF1E+De7wxwnVxT6dgg1dTkOG95wZdGzwmR0gGK4V3eJq0J/wOb7TEw2NpQHpmuevvwFT7vhnwNEs+mGdmsjUeZryd38RiDu5D9BLvQzExRl81UctSz6Q7wA7NlpZ8fNLSRUMJOqyw80cnWHpijTMOmVU+MxqHXJSXSNE7POvxhqOVvK39lkcOsZYjxWOB9wlMuWGK07X1xwFu49M1Jq7zVn+DrN+RtdQfwXvm5rAirfkgMZDGFLNpqZcjBE9nbQTyAT72+8P1tUTu2f2/PPmn+ZKzRt76I8TiJ/ITBst9dLygJ75q+okYtv4A7rZ0XwSRJd6kJxpxEkmz1B/vpnwVuM2r+s//d38B4ALqaScD0+MAAAAASUVORK5CYII="
+  },
+  "christmas|2000 miles": {
+    "id": "6yAFbVqLLB4CHLMr73Nq2n",
+    "title": "2000 Miles",
+    "artist": "The Pretenders",
+    "year": 1983,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/6yAFbVqLLB4CHLMr73Nq2n",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABWklEQVR4nM1WS24FIQwz6O3NDd79j8UNnBO4MtN20S6D1DLS8FlYCbYThvFz1Px1BPzd2Rhj1aiFBZwNOngwbRI2MmejDt4LGERpwQPiGrxzB8ICT8o38IxRQFE38CzgDW0mxmxmA294APzeFsDd4zcDJiiHXlsX9EJYNkChi2fRuTYBWbGnPxhS1JwVcQKdLTzJIfUrzH6+FpQo7YcVtfkQRStLGd37I0yFjqR7gV9GfWHCPJz04puo4kCpdnxSscpsxafHGHocoub9zVOqalesu7Dj5dmKjyEEUAToG/4waOkkHbd0+UX8ITGQqQhtvcQcjqyTdtcfMz9hrL1qQdiry0cY1dMt0z6a/RKf9TlQab9R4Wy/DzSYGCtNU83+xsPqSvMVVNXWc0pBav2RS+bZwHs9E8H9Dtp7ERfwgOGdtl56X3hfKeZVvr4/cLJNLU1p6Nbn8c/fux/SJg0pDK9dUAAAAABJRU5ErkJggg=="
+  },
+  "christmas|gnags julesang": {
+    "id": "63tP19fY4husiHIhoOsFPd",
+    "title": "Gnags' Julesang",
+    "artist": "GNAGS",
+    "year": 1983,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/63tP19fY4husiHIhoOsFPd",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZUlEQVR4nM2WUWrGMAyD5bJ3+Qa9/7F6A+UEGkr/wdjYw3Bhy0uTQD8U21Fcxtexjm9bwN/tVVVn1tV1L44RjzZWYcGXOwtMeG9AEacaKkhdHPOSgvYC1PzVv8ePPGI10UY/kCMLC/DFlI4145Ur8j7GAnjN9NkWLgC6cC+OAQ8mQBOWHaG0ZjzTNmUgPIFDnkQoETRMRugx4tFMUiUKUTnVZ94C82GiqBkPlAIKNRqn+gjntEqGhSfiJ8kILOLG9QIQ3LngLpfpeZGs0k5G/ED9MbIspKYlzu8HYizhIJd3fF4rObBS2EoYNfYD70czB6aH+o44Sq24AnAuYM38au+ZBfW68pAM/R7m9nnm8sZlxvHLiCuEGeQ0fmkJXFgyFhoc+71T0ttY7krUtF748r/9zmnGu99znBDScribT/QHF9CuRunUmsfP2p1BLGvoB2/p1VjgKrmic9oPfWp4X9P/1O++A56I/c/xgY2xAAAAAElFTkSuQmCC"
+  },
+  "christmas|do they know it s christmas": {
+    "id": "4Yg2w0P29BBBMixyeNjDtj",
+    "title": "Do They Know It's Christmas?",
+    "artist": "Band Aid",
+    "year": 1984,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/4Yg2w0P29BBBMixyeNjDtj",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABW0lEQVR4nM2WQW4DMQwDqUXv9A/y/2ftD+gXsKC3vbRHBmgdIIn2MKAkSusxfp59/XoE/N2zmVkD4PwkQMejDay1aOgJroL3AQwhYBHASoCSh3AojgPDO3gCOMKDQ8lzcl03sHECNLzx4FtXvAfwbnhwDuz0Nu211fllzR4l1b2ltXeXL2zaopzaESIrfTDIcEw6ULU8HXE2QoPK+iG6jjKKaYlbfVY+X9me6Kp4AlNEC6YjUW2+ElK97JcwVeojGJCpuKXmOevq0ZfJ6+cDXCfVJXtzuv2COCQzcoqImEc1D1bKFy+/o79MDU9r7bT7qnhWRFFipk2o55cxinSmru4vzvyCZP6ehaB+PzNWzk6ID1X2F2cDEtkwZM1juvvgoq/uBxFRecelfPHiVfCu8/3CGQ9at9v70Dk7b94bs3JXuOr6SXHys6G7+l3YM3gxa2ZjE6vTN//8vvsJu+kJZkQMlA4AAAAASUVORK5CYII="
+  },
+  "christmas|last christmas": {
+    "id": "2FRnf9qhLbvw8fu4IBXx78",
+    "title": "Last Christmas",
+    "artist": "Wham!",
+    "year": 1984,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/2FRnf9qhLbvw8fu4IBXx78",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABcElEQVR4nM1Wwa3dMAyjjHenNvj7j5UNqAlY0PmHokUPhQ6tESS2gRCiRMou49cx57ct4N/tVVUPkG/dBXZ4tIHCkGbfxVngfYAivtBQldjFNd4dGoDNv/r3/HlP1Y0HWuPBtAnKSgKz0AavXMBLMyOsnx1f24IEPIN3cRZ4MAEasOwESq/4noswFLrmu85ngVcefI1RgKM9jFf+/aQagRNabRR7VQ+YBCmDoiRolz8YliQH6np5pz+YMhEwR9N5nQXeAXoeMYFiMPO19RtEkpE0CXHpNxhIMWLiTML4rPCYsOwkkop4tMPTGxYtxLzc8lUi1DVyZOg930sXUJST5+zwlJKkkybCrf4QPN0mnUzeBJwdHkOWUXTa3zq+DDoOYU6QtX9x+7P1qia6OSs8pg4v1dv41/UNT+k1x1XNWePBlNKn1/F97pvzoD2NStc6C7zzOhjdHjx297r/3ftB5JfzN51/x/enC+/39H+67/4AEPUFvWSz4w4AAAAASUVORK5CYII="
+  },
+  "christmas|nissebandesang": {
+    "id": "50e6dPIJxZBxHxjboOLL9L",
+    "title": "Nissebandesang",
+    "artist": "Nissebanden",
+    "year": 1984,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/50e6dPIJxZBxHxjboOLL9L",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXElEQVR4nMVWQWoEMQxTwt6VH/T/z5ofKC9QUWahpXsqWljDMDgHYTmynGH8jT1fjoDPnY0xFsZeWMCdzAqPNoaoJWAlQYP3AAYDBA1IK8ms6rtDh+4dE68x/3VmjA2+A+8RsAVewBe4TjILvOGBn8qwAV4NHpyAmXsmk6jDY3AASwYotHgWTQsCRIMtXupKaamUZF0fQzEffRi/oz4akp1bEUs8UM8O+nSxxaNMGGEc7L5/jvoU7RHRjkq+IkhBYmzBff+ePUSY9/1zxkNWxljq8RBPVnSc6Y2AZoH3AK+nk35pXZk6lPfLcI1azgzX88HQVX4+NlPjnbk4LvMWv4IRfzlKvudlVniJu4Vgauzw7v2hkZtYO4tE5fuFNjYXsSBo71ovmV7F9zLAqP2PaZvNOMwRoMp9nhjcvHD6V/NNbWev3Qqs9RdjyQYO6LHpju+vB+/Zmp98277GN00CCN5cAQBwAAAAAElFTkSuQmCC"
+  },
+  "christmas|thank god it s christmas": {
+    "id": "2AEjZQblAZwdbcYA1qiexM",
+    "title": "Thank God It's Christmas",
+    "artist": "Queen",
+    "year": 1984,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/2AEjZQblAZwdbcYA1qiexM",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZUlEQVR4nMWWMW4FQQhDzWh7c4O5/7H2Bp4TOPL+6Bf5VUSk0KygeGLAwJbx0876CAH/F6uqRp1GH7ycNeLRRoNqAR0HE94FFAE1dBruOGuUX+y00E314y182vpVzKwDhjrlXUDKdwRssR9nDXjlAvh2D8B7woNjsJ8+M45mPNokYckEhSnPsmlBgGiQQx4CyhQboQ3zu6A8suDTLp8ocI3yow1ZklNAa/pevivIYDHmwa8qpn4JaDhvKruwCbcMzuYjmTEigUxGMWO9MFkpVJniVM+wmU9M0FDPF9BQqeGzAU/3KQwlp4gvQsz8rRGPQbwUHfX9BY9pbtZMujGdXxA3Nu6WKpfE0/oxakmXKYDjfRXL9D6sZ6Wu8f1QJbXSjgbPrH4Ucshxd+56zfcfmPop05b0Zu99xQjvuzu0+T2PbZ10d+cAY34v9QyGc5bm+wVRYFZMpDi9v9f3pnqzh/9/fx37AoJeAV4HAtDvAAAAAElFTkSuQmCC"
+  },
+  "christmas|christmas time": {
+    "id": "7LoFMtL7hxP9tr5HYyyUrJ",
+    "title": "Christmas Time",
+    "artist": "Bryan Adams",
+    "year": 1985,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/7LoFMtL7hxP9tr5HYyyUrJ",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaUlEQVR4nM2W3Y0cMQyDPxv3TnUw/Ze1HdAVKKAvQH4uD0l0QCIsBpaxQ8gUxfFqfo6zP2zBv9tbaxXrFHV4T/YIT92U5QVUEiZ4b7AUIHqVXUn2qL4bNkV+ic3H2H+0Z85Bf/fuj7GhDQ9+4a6b7F//77f2Vi++VcYBvSZ4dAI3cusmnuGpWxLtbiEzxWurQ5tRVhrXZ9NhsFEWUzxb3TmmGjOvjwa37cvgvB+EQafEdNjWlD91UB1kkzL3AG9fTffiEV1lnplfpTIhjNNkS9PzhrZ0NWgdCXo6b0iOD8S2PK5PimIixIgFxniRSMY303tluId47avo9h3iGd5bHoUfzAPV5xP83i5elenl1AzvukrsNC4YwHF/E3qXi3SbssffD5+gLT85/Jn7vWOjuv489lOFsjt2iksP/Wrfpyi9cju4NO6p/kBe6e6DSnwCf77DG4+Zfz8gFF4RBng6b99deL8u/6f77hfnWgZXqhbOSwAAAABJRU5ErkJggg=="
+  },
+  "christmas|merry christmas everyone": {
+    "id": "2TE4xW3ImvpltVU0cPcKUn",
+    "title": "Merry Christmas Everyone",
+    "artist": "Shakin' Stevens",
+    "year": 1985,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/2TE4xW3ImvpltVU0cPcKUn",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABW0lEQVR4nMWWUWrAMAxD5bB/+Qa9/7FyA+UEGmoHG9unCwsUknw8ZMt2WsbvddafK+D/7qqqs6uqeg5rxKMNHBzY7PuwBrwPoIhSwwWxi6/koLEB3XG/waNON5pzHkybICzSzEETXrkAftcewD3Tl0VFWqy2PdIHE6ABy+a911AfH4GAQGjIK+OgdR3AqT0cn6m/tACJgjyPV2TCBEVlTXm4c2eJESvM6i8IE4LgsENeA96KBRsUfASdlM8a6QMIxosErOhdI57uHKaJY6+G8SIsxNokMhU977e0G1OElhL6GvHkMKLPjMcvzIN8d+UIGutj8hd1GS98I39Oy0Vdmm7O421HbEnY4/7NolPMMTkS1/j92Nmy9xWB5433jXk0n0rUcB5Ug2eLGzwFvfGeH1/Y3V+VuMY8no3OZChdmvKcYdptYCvuYDr/8PjhjOdpPX/cwB/s4f/f23efMsH7M2Kff5oAAAAASUVORK5CYII="
+  },
+  "christmas|santa claus is comin to town": {
+    "id": "3zwjeUjzAm3rwojZNj05P6",
+    "title": "Santa Claus Is Comin' To Town",
+    "artist": "Bruce Springsteen",
+    "year": 1985,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/3zwjeUjzAm3rwojZNj05P6",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYUlEQVR4nM2WTQrdQAyD5fD28g1y/2PlBvIJVDSBLtpuih+0swjxQD7sWP4p49cz129XwL+7q6qeRqFmjoEdjzYapQb7GNjwPkARwh1Dx8CSl8PBww4Q3+A1RRTn7769/nxnvfFK6hjY8MoF8Kc5AJ8ND35PmCLzqh2PJJUqMUxTWx4IGTRtCnlcC94FA10ePBjcQu3ykRgt07LiJrXzD5ZAJi0hQst8fN4y4+AIOsE/O94NjHv40H0EiGW8sCRK0SK+oBebSi58ZLPXM1KzPGqOi9v8prUkTPKIGlteYLCCzWPtn1K/4UTY8VPL/icomonV2NbbJ/prdWRdFm7dW/1RSsGl//kbelH+XKBvbrb5ON05PcERTPjXej9QG4NHaPZ2vmUloGZOi8mow34/qIQ5wBRGX9ivxHpAjE3u9qH0A55Zmaaf6bTuBz7T4yVmdGrbD5AplOFxpvrOv/rP990fmoQDBDl88zYAAAAASUVORK5CYII="
+  },
+  "christmas|driving home for christmas": {
+    "id": "3Z3QhZAZpqwZa1phsbQ3JZ",
+    "title": "Driving Home For Christmas",
+    "artist": "Chris Rea",
+    "year": 1986,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/3Z3QhZAZpqwZa1phsbQ3JZ",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZUlEQVR4nMWWTaokMQyDldB7+QZ9/2PVDeQT6CE3A8PM0g0vi6KSxYf8p+QY/66+/x0Bv3d2zqk+XajGbLDj0UaJOiAqG2x4L+AQQMHnwJXN3fGyiihofr/B82mQBX6jRhZA6IGs2dwF7/iE9mc1wGfDg7MggjKZjXY82mSilgPFmiebFgSKDvgueMed3sts+LgAqLf65CksLQPkMl7JMJH0maS2+YOt5FCkBGOrjzSUcnhga30cZtTlb5u/FxosNDq4zMdu3lLXT5wE5C/0M0JMBtN7SNx3xXM8OSKV6cWyvhd4To24N6o7nnVX+qi0nTxfkft+iQnEqsjo3PHiz7AKT0H9cda70odpFDhN84n/rnhZc+2C5FjqXb8PnjMaH1RE3hWPiZRlfMy0t/ljLGDuo1wj0Lqfk7m3+Lxn3PANfbG+XEmp8FqfhXaP+Q0Oy/5DOjA4j83s5uM1wL/Yy/fft89+AOmeABJAo8tEAAAAAElFTkSuQmCC"
+  },
+  "christmas|christmas in hollis": {
+    "id": "41onDks2UPbyjer5fMeUWf",
+    "title": "Christmas In Hollis",
+    "artist": "Run-D.M.C.",
+    "year": 1987,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/41onDks2UPbyjer5fMeUWf",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABW0lEQVR4nM2WMW7EQAwDqcP11A/8/2f5B9wXKKAOaRKkCHhAssXa2oKYlSjZNfi6zuPbEfB3Z1XVBaCragNkepwB0Q0SGyBkrsZd94GgdoBE77l7g2JN8bcsP5yJhyW85BDqjUBdByjIARK9msInl70H8E70MF6QuYYbKLtv1ykt4bnR52T+www5Qw3ggoiM+J5oHLeHkyhW6wr5qJGwObRzwvzBIvSDojCI9QRpuLUlOIj1XBBjgXQ9Mr0nriMclTjr7bDfMNrU2TfyM+SDdVwHOX2g6/0I9WAxC1FizCcXY7SQIGM+unl9W/k9rS+sNxyPPkp2j8L8yUze7Wwg1fN03vqChov7jdtntPNehlE+nynII9B5fMd8WTDPP3p6Pd5xX2HNkteDFrNjFjHN32P3q8+O1NE96f/QLvnLe1DNVvr9GDeGxq5e0yjjO1W4iDbfPQj56p//734ANoYLbS2y/3QAAAAASUVORK5CYII="
+  },
+  "christmas|fairytale of new york": {
+    "id": "3VTNVsTTu05dmTsVFrmGpK",
+    "title": "Fairytale of New York",
+    "artist": "The Pogues (feat. Kirsty MacColl)",
+    "year": 1987,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/3VTNVsTTu05dmTsVFrmGpK",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABX0lEQVR4nM2WwZEdQQhDRdfeRQY//7AmAxGBXOqxL94jW2VzmaEPrwQNNGX8bXO+HQH/7qyqGjWNHrzOWfFoo0QV2B0HG94XUATQ8JTYcc5K37UGut/fn+CZMyA+e94XYDQGwkd8nbPglQtIAl8bgM+GB8cg5555He14tEnCSqlQ2PIsGhYE5g9c84DcRJTCEXpWPAqJ9I9MbvUpsVqSlUR6y6Mt37CJN4tnwSs3VErLObXo8uzzRyZvptb5OxiwMJqHjb6tclb6xOiTiKtwX89OuHlGKEP7eLsF1a29cYb+2ekTmQI0RaaLtb1fW/pd1+kVLXl09N0xk+zteAd4MpvxvM9HPmelD0bG6ZUHcD0PYrncy3Kq8Kz3A1dSiEmD6Af2g2HnYQM06/ojUnZUui3EbbzXGp8nC4Ki8ux5wDAjJkQseVbG1d0NBHx29/HuB0PMXTWeODvet6P/at/9BTWS/a0fXrIIAAAAAElFTkSuQmCC"
+  },
+  "christmas|mistletoe and wine": {
+    "id": "3AgiRs3oxc2dFh0CPUHXJs",
+    "title": "Mistletoe And Wine",
+    "artist": "Cliff Richard",
+    "year": 1988,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/3AgiRs3oxc2dFh0CPUHXJs",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABVElEQVR4nM1Wy63cQAzjGHvndOD+y3IHnAoYUN5T3pEPSLRYCJoDQX0oeRl/27l+PAH/7m2ttc86+2xgAnR4tLFBBW4nQIP3ARaDBJ8l7QRXxe81YW/tcPwNPHOdcFSN9wFSviDdD/cEV4G3vIAU8LUD8Gnw4BhMUH4DdfXbGZN1/ADMJHb1gy2bFgSKBjt+wVPSTV8MEi0ehYEU41DjWZOk0o6wY9mPhWNsEpt4kK1wVfyYlDUZG4Tq+gWQIM2MILt8YYgkBCmOrvGYvzUKyQiqzNfi7IMULyTV1s+ZwUzKbOc631EFlJWQqNeH/P2Nkns8Dzt7GPb6hf3ulilejQd/VynTFdb9jQ23YM2evur78YAHXLpzOU87z35pRcT+jX7wq7boBOX++7yO8Jlk7832nse2Vg7cjaO73aeekX6d+vuGZBsFRx+I+Lp5+fH0X33v/gE7/gQU8zPRIwAAAABJRU5ErkJggg=="
+  },
+  "christmas|nar sneen falder": {
+    "id": "2jW0MuNkctmqajdnoNZvyg",
+    "title": "Når Sneen Falder",
+    "artist": "Thomas Helmig (feat. Søs Fenger)",
+    "year": 1988,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/2jW0MuNkctmqajdnoNZvyg",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZUlEQVR4nMWWu43EMBBDKWFzTgfbf1nugFMBD5Q3ONyGY+CUyFLwwPnRWsbf1fvrCvi/u7VW9erqAs4BEx5Mm5ANy8xBE94LWASLcJdUi0/koCFUAQn5CZ7ZnV1P8Hwougjehz3gLS+E81kN8JrVw4eKRaHOoWfxFlCs5auBrl6zeGGK6T0I5wuz/gtPcDJokCQ85tkWLFoCONUHCSIUbNSN9SH6IpHyyeKe8hiVRxow10fYEKnjM8P8vdBggWjxGKCn/qekjRITK6Nzj/RBi8xsRORxmT3gbbwrZXhnRGKsQ97yMqrBdgFXvKaH/czTJ1b6WuQD84a0S8bjtoY949H+lJlxmSkvVZDhgPGAH2R9/iGkA98zfQATZcYtBjiLd+NOXxEFQenoPdLHpEwU08+ptOb/cxLv633KO5yP170tL17V90tmz/RZaDej8kJTw/whM8vjVrGtoT/f74Nf7H99236vH8mi9cIJECy+AAAAAElFTkSuQmCC"
+  },
+  "christmas|det er risengr d": {
+    "id": "71fEEvlSGVKBLzMxAq6L8B",
+    "title": "Det Er Risengrød",
+    "artist": "Nissebanden",
+    "year": 1989,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/71fEEvlSGVKBLzMxAq6L8B",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaklEQVR4nMVWW24DQQgzo/ybG+z9j7U3MCeg8iStlG4/0hKpfO0grcXDGKLx3WpdXMD/+SIiKyorgf3ADI/dOEQlCukHJng3IIhKoiOlDL6nBkKCf/z36mtEgfXke7b1uq8FEDoh5n6s1/+9WHQY7dMK4DnBQ9ugdp+5H5rhsZskWmqAwhSvxWYLAkSHqRkeRKfrL7Id6Brg3dBVXYWu7FD85t/1Y3xsum5S70KK43x7d1aGljDF20WT3Ng2ued8Maa4pUXiLL6FCgYKdVpkcIz7IXo4JAJqzusn8w73NdKY4/UdTJ4TBznGcw/uuRIy7hrhwaRzmq4k5vPLPbSmi7vhgq4ZHqzJDs6yOtcr0GxBW6oADPmMLcl7NsCd+lgPHqosK6EhNb8P0HnA46aq8b6M9F6r48RRAU3vFxsP8ExvEORb7o1SUXVyr+I13pfy8O49/Ib9BjOQZo7PjuH83h5K9YX9r7ft1T4AvZ8KT817Ba4AAAAASUVORK5CYII="
+  },
+  "christmas|isbjerge": {
+    "id": "1bG4aR2WF0BhGLB7ZzciRj",
+    "title": "Isbjerge",
+    "artist": "Nissebanden",
+    "year": 1989,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/1bG4aR2WF0BhGLB7ZzciRj",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nMWWTcocMQxEn03vyzeY+x+rb1A+gULZ5CMkSw3EDExLi4d+yx7F32fPf1zw/3xjjMXYiwXXmC2eqljIA9aKQYf3wBB4UWNYK8ZsxXfOcmI8KX+D5xobttzmPZDyDcPn5RqzwRs1QD/mBr0dHpVDCbmu4R5PVRKU60Dp8soqlTGyCqnJw+BUsHTy7sUXXxWb8vL22Or190EMpL0xH8T76c4f5rOlvcCbpRaPVAynikW00O15Mc6kKGNT6veXwIzTZIc/ezy5UPlsiNyM7znax7uzumd/e/pyKnZr6Hxk8WaLVyXZdXONJLirV7UjzlE/NOTWfUmdLtRvmenuL6WIC+W0+Rt6xZ2Yyt+Nd7Z4Oefa5ewI/f1AWd/b4GQ/2+8DtHL5Lrx3e56zvSb9iEq7m++VlqyIFOHv8X58W97vvYhnj1dmv3kHJd+8OWa7v+QX2XJ3np8D/IPdfP992/cL9P7t/nDofBEAAAAASUVORK5CYII="
+  },
+  "christmas|merry christmas": {
+    "id": "3bH2Eu9A9ymI4UnGHRmoXg",
+    "title": "Merry Christmas",
+    "artist": "Ed Sheeran (feat. Elton John)",
+    "year": 2021,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/3bH2Eu9A9ymI4UnGHRmoXg",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nM1WUUoFQQxLl/ef3uDd/1h7g8wJIqngh6IiFXTg7U6HR0ibdLplvF/n+nAE/N1ZVXUB6KqaADs82iC6QWICLDlX4z73AaBOgA3eY56tp1gu9w+5fHKm581S+H39v+/PYNq0KEicQBu8cgF8Cw/Ae8cvC7aiLxNoV7+uU5r9bfU5O/8h1UvRDMSH4o4fPDaWTAoGtNPjgSMetPNGT+LXih8IUgQFWFrq8YBbYKuT7YmBsM23IbROEzhc3gflvl93PO2KwmdXP0XU+CbSkmu/mGlcyI5xtn5B8AKWi4ERe8tPuV4sjZtJbfHgIClIdlC1xFN6TprWne21wnO4jSgCJGzxghZ2BqPwst9gpiVmWM57Xb8sxsrJNT7Urn8rrQY8p3/zw36+YVKdPlnrwTHxIP1C/a55Ps/dcbZ1ezuPwi86xDkZH2u/zHRTBnBUXn4f4NV80x0ZHljyq3/+vfsCvTQPUJ+Ts7wAAAAASUVORK5CYII="
+  },
+  "christmas|all alone on christmas": {
+    "id": "5LcXgvFrPx26X8ZexNMT0s",
+    "title": "All Alone On Christmas",
+    "artist": "Darlene Love",
+    "year": 1992,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/5LcXgvFrPx26X8ZexNMT0s",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaElEQVR4nM1WS2rFQAyTh+7lG+T+x8oN5BO4yOmqn0Xxg3Z45GUCEYolyxONz6vOl0fA3z2LiKxEIKpmgx0eu0Gk0MjZYIP3BgR9k9DFZ3N2eAAKJbCYv3r3/IgHJRP9MMUSr5GJzhvZ88MGLzqAh5ZXAbw3eOhZIEVp7rXDo0Q0xFZDezyYF9jsptDiCu8Nnbh8qYICdsxZ8SPNqSHBPbLkh/Yn9tRNhtS2fnLZpm7+2/MjfRnfAGaqnR53dkWj4Cb51bvnW7yrsxTNksUN9FZfSU1YZsuxrp/sZoqkHW17nxUe4PZtZ4J9uNTjoPWklFPmnkQ9K35NyO6bElLL740Ok7sBFi4ogWX+yS0CkW7f6ZazwuNY5aPb4Fg9KzwvTKdRfEW+wKQcW7agcc8Kj6Ow+0LtlH5F/TSx6qSxJGc9z7NDqJvIesmZS54hvBDyQeas69fPRJ9IWM9L48xUkmVe5kH88/PuO8DpCW9NsyfxAAAAAElFTkSuQmCC"
+  },
+  "christmas|christmas all over again": {
+    "id": "049bEQQTZ5pWim5rAKphu1",
+    "title": "Christmas All Over Again",
+    "artist": "Tom Petty",
+    "year": 1992,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/049bEQQTZ5pWim5rAKphu1",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABdElEQVR4nMVWUYodMQyTh/2Xb/Duf6y5gXwCFWWglHaX3dYLDTMMMROhWIqdMn4fc/0RAv5frKoaNT0NPJNrhUcbDeoFdGeCDd4bUMSooSm4i9+SgxY677+sfSdm1uSrT/770n4dWgJe7WdyvfPf9cVYuQD+nA7Ae8fPBxVFdegt/QzTJgErVqFgLfUYBKRQrcMRSz1QR4V2veak8lrxG8iBVHs8sc21wCu3wi/C4hinl/qiIioxxRE4O34waUqKJtZaX5gOpgKbTJJLv8wwJpl7wB5qu18xrCSCMoUdvze0G7hPqWrdf7P2+oAfTk+ycvLArR5RNeXKDKC81hfxCiwpWVzz43lSZp7druuLITXup3eka14rfjDiY8c0OXg7v8AZQQtUzsgWL0CWwlEMpHZ+ZtruC54moFr7mUkZTvZSnLWtBxkkeDeFc0W4lv0D6UmpLMN1Pb1y4jDOPYi4D+y11hd5FCNu6/NzP/gFe3n/++7YD3DH4MxOHqgjAAAAAElFTkSuQmCC"
+  },
+  "christmas|grown up christmas list": {
+    "id": "24lCPIiEWKg9K7k1Gh1h8q",
+    "title": "Grown-Up Christmas List",
+    "artist": "Amy Grant",
+    "year": 1992,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/24lCPIiEWKg9K7k1Gh1h8q",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXklEQVR4nM1WsW0EMQyjDt9TG9z+Y3kDegIG9H2aJE2gInFhQwaOoERK5zK+rn19uwL+7q6qugF0VZ0AMzza2OjeyTwBhpyr4b02m+oEmOC9zl6wWGwncczxhM0Sf/nt9fOdBeLewO5OgAleuYBPYsAGuCZ4cBYUkuQJNMu3a79LtxZ675n/4MOKMmAQIkf8YJPBMSkJ0AyvvNMWZZS47wVwNA9ewB1ZexO9gj3zSwwnWaaPKMZM3+NmRhRFmgwETfWVIcmOxuCYn0ERMfVzasoPYjrETOd57j8FLECWUshrxs9vTKRF5npIhMDQi2nGfiEoUzpypPs0r59P6dK9Efsa4SnqWsoWL879cmyc1jhTcIr3zOdUzzg+1AwPD7lwE5Owpv7zO+W4Jsc1fh+sIOWPWfHiNcMDcPd+lJE8fQ+dtQ67UO0Zv6d+iqXJ0yFTPx99HSjlJzf0c/3z9+4HV/UOe6LoK/cAAAAASUVORK5CYII="
+  },
+  "christmas|julerock": {
+    "id": "5EeugXrEEUpfrHTnWmbN0M",
+    "title": "Julerock",
+    "artist": "Cast of 'Jul I Juleland'",
+    "year": 1993,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/5EeugXrEEUpfrHTnWmbN0M",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nMVWQY7kQAgzUd/ND/r/z8oPzAu8ckVzmF3NYURLW5cEpFh2YSBl/H3m+icF/L9cVXXeqrqe4Frh0QYKQ9/uE1wLvBdQRKGhaamLa7xzNGg1f/Xt9WOOmG42tcZ7AUYP2/M2OgE2eOUKva8zAO+dXtvCnSu85wmuBR5MgCYsm+ddy3qQGghdM8gTO36QoHSxwbDd8XvBGE+FWNwyS7/AERyCFCFJO36PQthRrVSXezwELBU+CW3rO+7ATY8gfuL+yKjNPcJbvXELKROUoaWf4dAyLdOUtv7DKe7TZ0iR13iIReKVGNDY+8+0M0kdW4sf8Z8DGtkRfS3wXoHQG1BnBiKr89rx82PBMwXjGe3wcuKarKVA7u7v2R8qD9gTUM1aL5FOo8BI13IeVIO3wJs8cxVbvzC1CJDxCX7Izi11Vnlpvy+daZAuTtNt9yUyk4/ks+SCu95v37CX/3+fzv0B7xoAseXtDb0AAAAASUVORK5CYII="
+  },
+  "christmas|all i want for christmas is you": {
+    "id": "0bYg9bo50gSsH3LtXe2SQn",
+    "title": "All I Want for Christmas Is You",
+    "artist": "Mariah Carey",
+    "year": 1994,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/0bYg9bo50gSsH3LtXe2SQn",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABX0lEQVR4nM2WUW4EIQxDHbT/5ga9/7HmBuYErpxZVWr3r1mp5YcJ0jyZxAHK+DnOelkC/m6tqvYBMlcHmPFog4UD2zsBJrwHUERhwwV4F9+RAwoXoF/9+3087onXJrb2O3jGPgWfD7ADTHiVtPErPJG6BryVsgqXAF24gzXgwQRowIpv8q0Zz6RNBQlCmPIkIy5unDnkPbB9fGK+Hf8d7lE9YEEkCIpJpKf7pZM7Krhkj1MeTSmFCCyC14C3gHO0gzs6u729RvogMj6RM0XsmvEgg4qv1XAN68u7zUwxwbi+rZG04pV5v6HbLPpimjf4j92/6l7jPH+8S0KHmi+N/Sw/Jfb2Ne8PxIKZ36Avo40SaBdljXjo89lPM2f3a8SjuyTqI6ZPmjXjgWm1nH+dvxnveZ8buLZYzo2+xvp4n3/ROczfuk98aEcixvoeOAXmVVV2oXI1zd4bL0v/6r37CcEQ/P25UBdvAAAAAElFTkSuQmCC"
+  },
+  "christmas|alletiders jul": {
+    "id": "0LGFzdaDPdHxM0Yok344XN",
+    "title": "Alletiders Jul",
+    "artist": "Karen Gardelli",
+    "year": 1994,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/0LGFzdaDPdHxM0Yok344XN",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYklEQVR4nM1WUU5DMQxzqv27N+D+x+oN3BMYOSCE2A8iSNC3vS6VZrmx06aMr+OupyXg79aqal8gc3WAGR5tsHBheSfABO8BFLGx4YK0i7+UgwNo//C/n8bjfT6bDMuMheexvr9m4QI+sJUAE7xyAfwIL8Az4+fQOgB0oA7WAA8mQBOWHKK0hvkjBQi7xdBQD9gilAw6T4iuER7dokoUUipTPEEkCIakArtGeKAlUspWLUzxSFNGrGxQGuuL2/o61XbxMtU35RHLKE4UOd1vkMCg9bbn+pIxjcy85/5zPmIKl2/fNcJjM1SEpmJpDfVQDKOkUWacuIb8nHOKdgT23H8XYm1t5GS9e+q/viKZEu5WYcgPzmijBLRduMb3x8lP7vMSgne8X4KhF/NlWjM8tP1EdQKH5996m2icfXbfTpj3B7zAdhHlX8mfuzNQbqRh/T5wK+1aUyte32m/8bT0r/rdV56/+y5g+d72AAAAAElFTkSuQmCC"
+  },
+  "christmas|julen er noget som": {
+    "id": "4vlx4vBWILH4yrMkDajxRR",
+    "title": "Julen Er Noget Som",
+    "artist": "Pyrus",
+    "year": 1994,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/4vlx4vBWILH4yrMkDajxRR",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYUlEQVR4nMVWwY3EQAzC0f6ZDtJ/WekAV+ATk7173D6JtJaiZPJAtsF4avA/+vj4BXzvX1UtVK9ejftwRHicwRK1ACwfkOC9gCJ6EVNLWsUnekDnhl9qjhhP6gbrGbyRk9MF8T4cAV5N3eXe0QCvBA/jwBDUkD4ow+MMd6GWCoUUb8Rx2wT4iw/gQZbKgK47xYPGpO40BZAR3gtCgeyGdobK5nfzsR+RGklZfrBIXK2JNcFx/2he3bdxgmn/4JxIChLpHqZ4skroFzQUMryy8hZ6j3ELOBHOL02IoJvgdD4O4MKSZXc20Loyv7onzHMhCfQ2UZifcFoxZtkb7oH8tqDtf5ZP7AcWimAXtBZj/Tn22nXF26ePeH9cy4zUXiQK7y/c7VvEcuHdOR+0Vt58IPcreHrt0W+DVnh/cZyqEfpexAfSfSlvD+9hC0ap/8F2auXsocvwXn+3qjf2V++2n/ED+Ln93NrFUVAAAAAASUVORK5CYII="
+  },
+  "christmas|jul pa vimmersvej": {
+    "id": "2gfOmeZ44stgtVFyNAw2uN",
+    "title": "Jul På Vimmersvej",
+    "artist": "Bamse",
+    "year": 1995,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/2gfOmeZ44stgtVFyNAw2uN",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZUlEQVR4nM2WQW7EMAwDKaN36gf5/7PyA/oFLOjsqYseChVoddisc5hIJiW7jK+x19sr4O/eVVUXkGedBWY82iC6SeAsMMy5Gve+N0R0FpjwPs5vg2Kp1T/M5Rue0CzjwWFYrwXCG7suZYEJr1xAlHhiA7wnPDgBJUlHXlszHiHIqVM2JY54C+Bl9k7N1RvXVI87rZF9I3Cj7xkPpijj7CEgeVYvHCuHlcejzBrxpOhgWg5wzgNJ0ILJw10DXjkKgCXuVyPvYX4EFV9TGTFjP5sQo0Mmf/5r6BfGLY5xrCSoYb32U2usQ87rdXIiqbDygTXi0RCpDIUMg3F/OHI8gyXthikvGZ2RFTOHr7m+yHQ5uIi8RrzEsbLOiB7y1nMlAK7dnWNueL7BESN9gUjiVLxmPBwhIsVpuGm9iUaM3LRuTu9DJ5RjZJ/bi35h/ySl5VL2/PxANvDVHRkIw/n89upf3Xc/Ae9LCqRI7JvwAAAAAElFTkSuQmCC"
+  },
+  "christmas|nissehop a go go": {
+    "id": "4Nfsn2LB4mqWTkAnoPEg7O",
+    "title": "Nissehop A Go Go",
+    "artist": "Pyrus (feat. Kandis)",
+    "year": 1995,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/4Nfsn2LB4mqWTkAnoPEg7O",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZ0lEQVR4nM2WUY4bMQxDKWP/qRvk/sfKDegTsKCyLdruT1EFaD0TeGwgD5JFWSrj93HPly3g3+1VVV8AVV2zwI5HGyhcWO5ZnAXvAyjigYZvw118yxkIT7TQf/PfX8bHa2o12eIAD76O8+d7Fi7hJ8jOAhteuQD+WF6Az519tnN6wPNCszgLHkyAjtc251s7nkmbcoJMiFzyII2RMEwTW/vySJA43LV9Ynwk8rOCPSseKYtjYthY82TkHb8TZi3zg1fRsS8uWI9dfsAAScTbmbzWy5CU0MbttZ4xOnmJTxPjs+Lxe84JSd59vikajsOxT8v4Iq4q6svRhbnWX1I4pKASHK15Hppzr0bRZ8fjhIN4zWv7MnILjq5HhWddP5QGgX1zDepu42smxtF1Lv6dfQeo/qxr4C3oHfX8wqVHqnC9peciSh1Nl7mrl6/+QFAbeIrdW39vgemqypzT2/J+ang/P/+nfvcbLLP+q9KTo7MAAAAASUVORK5CYII="
+  },
+  "christmas|christmas eve sarajevo 12 24": {
+    "id": "3sBnSBnzpEYKpJYGsAIbup",
+    "title": "Christmas Eve / Sarajevo 12/24",
+    "artist": "Trans-Siberian Orchestra",
+    "year": 1996,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/3sBnSBnzpEYKpJYGsAIbup",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXUlEQVR4nM1WQU7EQAxzKu6eH/D/Z/UHzguMHBYOIA4oK0EvbSLVysR2MmV8ffr6lgL+LldV5wA4dWoCbPBg2gRJGJpAG7wXoAiXDsHDBFjiATh4Feu3/14/5m42S34OngXe7hxcCbDBKxfAz7AB3jt+88ApMi/bK34vnOpSp7Y2TvdWf+aIzoBBiLv6AiIgUqZlQVs984ZCSQsoaKlnWPGaOGVqmLl2eLDSQcuGpD0eZygIJhnca4XHcDt1KdBrPL0zHM1QT8AzlaMqY3COrjUexnLTO2Ldv3iWgiLtNFNLfwgIE5QyDNb1ARAzsRQja98/BIjSsAzs8MrNc+eLZeC0d/s8en7syzl6BHmt8D7ojU2YHazdvKqo+IA9l4QQc+3vB443ZoUs+cA078NsYzjt9/nr6RiElrzbR4/cfRps1GnoCf3TDGnOEt72L017d0cMHMvt/PEt9a/uu2+3qg6d/I/V0QAAAABJRU5ErkJggg=="
+  },
+  "christmas|vi er pa vej til dig julemand": {
+    "id": "61el5ow1gJnvbHbQgRhJyi",
+    "title": "Vi Er På Vej Til Dig - Julemand",
+    "artist": "Bamse",
+    "year": 1996,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/61el5ow1gJnvbHbQgRhJyi",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nM1WwW0DMQyjjftTG9z+Y2UDagIWdIo+mqcOaB0gOPlBSJRIeRm/T++PK+Dv7tZahdWFAt7BHuHRRokKXCXABO8CFtEoqJdUi49wUEIVTslP4FndAKgx3gUYhbuFO1Un2AO85QXwJ2yArwkenAP79JkJNMOjTYZCmWFwimclP0GgmBQ1w4MAhUEzv3F+kuyUyXzmYo/wmKFjUGXS4rReJ0Fa4AGf4jEUplLLmcQH6pUpUoQEzvLbaPCuRr8A1pHwHuUHpk4rw/wEfwpUBuV7GMf9iODC4ZvCIX9wepC8Ig45uHuWH5whTt3w0fOe4SnzF5uJv8z1S1vRbvzvaERTvQGKo5IGQuIe4O0A+obW6qxfrPE8H3dJY0NfHGaP8mP2xl1ZbMLZm3uUHzPCiNqOSw/97zr/GZMuAqridJ/ntJdVusF+4n3QzjvI0ALV8/7iGHPsObKbvTc+rv7Ve/cLgsgOfI7JgHwAAAAASUVORK5CYII="
+  },
+  "christmas|julen kalder": {
+    "id": "4BJQaLc5JGDeG0YgNIKnCS",
+    "title": "Julen Kalder",
+    "artist": "Annika Askman",
+    "year": 1997,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/4BJQaLc5JGDeG0YgNIKnCS",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbklEQVR4nMWWQY7lQAhDH9Hfww1y/2PlBuYEHlHpkUbTS1pqsqnKwqKwMYT5P/r69gt+719EVEdXV3MubPBw2pmyOQc7tcH7QCRdiTukivyJGqRE1V9qrl1+gOrpzCDXeBdYQOk5p7lcC7xw8JXWREM+O34nUJLye9EP6CWx7AFljaf0lE0wp9zpD1ua54Lnm0SvBd5FkObBKoe6c9dvH0wXVqNy4b6XeIFMHNSp4VLPjAckZoi1xhm0xeMIMOWR4JLfD03WdIYo6jz4WuWnk5XeDhkxate/pYIHinyAm2X/kqPi4eEws8zvQso6Qrkf4plMrwVeOAYrww3lSLSal4z4ZhwdmxlF7/3lzLahOSfVLd4wcqw0X7i1X40/+8y2l2Dt9wMHyNkjQi3nW05uWWa6Tt1rf5lnjkVPy43naz/PwfXcKHRX/sB+wK3Oh97vBxwhS8p3Dm/7lxHKlHAIfuW4rN8/C+8L+Iu77ff4A7y7/akUDn9FAAAAAElFTkSuQmCC"
+  },
+  "christmas|kronborg jul": {
+    "id": "6Q7dpl7Q8bWDJXDKkdWRgU",
+    "title": "Kronborg Jul",
+    "artist": "Cast of 'Jul På Kronborg'",
+    "year": 2000,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/6Q7dpl7Q8bWDJXDKkdWRgU",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYUlEQVR4nM1WQW7EQAgzo97ND/b/z5ofmBdQmVQ9dI9UaidREuZgOcYwROPnqvO2BfzdXkQkEoGoeoKzwmO34RQOHWDJORK3CIo5AfYakBeXYcBf0TQuyGxojfcBNFLZwM07ATZ40QHwOyyAd4OHniXQ1/N9VngkKVdJQ2xqiydKApv+Qjf3/ACi1d10qCW/Hii11Ga5/V+oqUGkaL7a+VlZF6gCbRYn5qz48ckw1SQkrfWbuw0k0jqeFR7aEqqdmXG0lv8LaoRri7fHg1xoo57ZYavfSOh8uCv4pV2/6qyXACXESHfAs+LXXxo+OtrVZ4F3kGQ+UJfqXJ4fmMIl7BXY2L/hF0zTonPjjJwVnhdlZjbMth/AnDgmtG2mlM96PiigWCDkI/Os+BFu0K6zOUWW/eDMU4wCslxu23nIK0uvIhmGw34+aJ/kAYt3uZwnKwJZ2WjUy1yX88bb1r+adz8BSxMDQkTve34AAAAASUVORK5CYII="
+  },
+  "christmas|my only wish": {
+    "id": "0YWUHZPJVg4iujddsJDwhM",
+    "title": "My Only Wish (This Year)",
+    "artist": "Britney Spears",
+    "year": 2000,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/0YWUHZPJVg4iujddsJDwhM",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaUlEQVR4nM2WQW4lMQhEH9bfFzfw/Y/VN8AnICr/zCySJZESqxeNF09goCCar+esb1fwe3cRkSeJE+dcgxlP3YgspLwGE94LQhxIKnUNhjyfOqDKH3vTs7WDZ857QZOJ8iErbTDhRQfov+mwnwmPvgepVCX/14ynKtEYV9Sch6hCrS4VU96Lzk6/4Dmu6oTp+0llNx0t7fjXgLfcabvJdpLtXjH2r+umF9m7mX+0XCy3boS50/xWdfsrUU0PedEWgWfX1RgrTY/0+YVVQNapOmUVzFG9rOuXdYDcqq2Y6Qvd7+9qgsb9sYgirVLuu3MldQ39U98ZIonbxGvEw03mqvFEusK1Brx1i45gZ5b1tKbxqqT+p4KIabw+cqhF6erqGvHACbGTfGZkjfeDePRwCns3m2/v/aBgo+SER/sa8KLziKM7yuWynvHed0VutN0rw3mOe0PvpdIVM+/fE0E6vcVD5lBf4o/vux9NFu0j6MDmuQAAAABJRU5ErkJggg=="
+  },
+  "christmas|8 days of christmas": {
+    "id": "5bw343XaavRBGBCg52rl1Y",
+    "title": "8 Days of Christmas",
+    "artist": "Destiny's Child",
+    "year": 2001,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/5bw343XaavRBGBCg52rl1Y",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYElEQVR4nM1WUWrlQAyTw/uXb5D7Hys3kE+gonmlH7v0o3hhm5AED0RoLNmeMv685vprCfh/a1XVDeRbJ8AOjzbQ3TD0Dq4F3gsoQqVm7gRY4gEo3WL99N/r2zXdw7L1T/AsUBxM3SfABq9cAL/CAfjs8ueDiumgeutnmBCk7FM2JWqJRwfHiP3yaKtvVydvhIRe6vHCCGARI07QtnhO8aKHCMu2lv1lIIlgBCE8O36wSBApDtMEvdLjhftBigN0qY61ryU/MBtNuxK55AfHJ4gBzVTe2s9geFnJXshu+dkpkOzWMfWan+TzSummda3zl9xRRwzR3PJzeJ038Db2tcB7YW485Ymnh5lys+5XBFMkMQy01/fTyjLoPR7O/GCelMcajz5bTmMOv6UeOMlzKjjtOapofz7oCXIrMvdqXl7vj/AAT1ezhX3+pHNKyND0dr5NFW6ogSemXvKrX37e/QDYn/IShvSL+wAAAABJRU5ErkJggg=="
+  },
+  "christmas|rap jul": {
+    "id": "3ec8uDBdUqLYckg7sJgDB9",
+    "title": "Rap Jul",
+    "artist": "Shu-Bi-Dua",
+    "year": 2001,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/3ec8uDBdUqLYckg7sJgDB9",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nMVWuW0EQQyjFpdTHVz/ZW0HVAU0OOfAsEMtYCXzBMRIFKkp43fM9ecK+L+7qursqro+h2uFRxsYDCn3OVwLvBdQRIHQFNzFJ2pA4EYTJ3Es33dimrjBfgDP6AE8b+IcsMEr10n3OwbgvcGDE5RJKVzb2uERoAnL5tlrx69IAULXzFmxq98AbRTgxrjHK/3CTKaCRCHq2NZPJCmCCiq0xYNkmBIB2eCWXx92FYZDzJZf9Nzp4yij4fdObzBwCgilE5XMr6Uf3LEB90As9fZ9UUVUZn5I2estmZIWIuElv6+jC4iD92ezm29wyDhDMxaT5tHW7/Uem8HsQWnJByO50JL6RcPa5uvTgjgv3Os3cTQX1DCtrT5AxxbMYzXrfNPRn+qdlNf85vtS07zBKeiJeT7UxFzK1Xziv6FBW41Kx1zr+lkx/ljCdl7i8ItM3qgu1r/0gx8f3myX/7+n774Az7v1+dO0GAUAAAAASUVORK5CYII="
+  },
+  "christmas|wonderful dream": {
+    "id": "0SvD6EdetxVtXei2JhkV4B",
+    "title": "Wonderful Dream (Holidays Are Coming)",
+    "artist": "Melanie Thornton",
+    "year": 2001,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/0SvD6EdetxVtXei2JhkV4B",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZUlEQVR4nMVW0WkFMQyTQ/+VDd7+Y2UDZQIVuVBKSz+KD5rcBRyIkGPZcRnfx10/toD/26uqfQHsqmoDMzzawMW9FHcba4D3BhSxQbg2vItjvAzxohH/cnb9ikdWfnE/ECMLd8sH5o6BCV65AH6aF+CZ+etoRdhQsY07wYMJ0PHaDlFaMzyTFhVIEAKneCKUG3QmMeWnTEGiEJZTfiQoZKGk8F0jPCiaYygGcs5P+cKsY6IpP+bWrLBMnMd6Qe6uY8EEmlN/0UiKrmWE5JrhsUUoM+sD+oNNJUkCO883JL4RdST4gP4YJXe+MTkyjgdbdmQKQyrNjF/vySXte67+fvb7MFP9GI8jmWTfmtUr26mADdq3ucb9wbm4Mk4eYk39dYpoFxa16xrGozbymvPwdQvD93L1el/A2SUY+5H+4ADbd6PSG60ZnvP8VgrNeaHG8UD3Bx/VKrky099Hf/AFe9j/Pb33Dr5P/u0p5PRhAAAAAElFTkSuQmCC"
+  },
+  "christmas|december": {
+    "id": "5zL68iJeFxWi6F2tfslqZ4",
+    "title": "December",
+    "artist": "Vicky Singh",
+    "year": 2003,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/5zL68iJeFxWi6F2tfslqZ4",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABV0lEQVR4nM1WW2rEQAyTQ/7lG+T+x8oNNCdQ0WT70/aneKE1LHgCKyzLrzK+2jq+fQL+7ltVdbyuqudxjPBoA4UFm70fxwDvBIpoNVQQuzjG26YFEJs43oDXQbsv9RQPpk1QVpz8NMErV0L7tLC+Z/HFKJLS89CQL0ATlsztaxgfaVEGBEJjPIVnMmg6zhjPwYRESQZn+iJ1QgRIxA5V0/qTAUqPGBrjBS6MwxvT/B3AtZzuNfS0HWbxQUydQBH5DfnDFiNNHEcY4zHy7sC2KOP6e1LHQGY5zfBOXFsG3LjYS7/57/FjfDDkRLnpatwfpJnZ8owtazyvZEdgvibMGC/9G5GfKTOOL5apgIDuVXKM7wMVbpkLDeod+82hLCWHY33BJC8rc+dvyje2aNxdL0mO8X1ALXU2cbk1uv/OdEhrob2EK8cRpvMKESOVs8+OWf3VP793PwBpXALZzDSQYgAAAABJRU5ErkJggg=="
+  },
+  "christmas|jesus josefine": {
+    "id": "0IhL5sXNR9b12DR0h9vxKa",
+    "title": "Jesus & Josefine",
+    "artist": "Julie (feat. Martin Brygmann)",
+    "year": 2003,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/0IhL5sXNR9b12DR0h9vxKa",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXklEQVR4nM1WwW3EMAyjjPtTG2T/sbIBMwELOtdHW/TR6oDWn8AGQlAkJbuMz+taX46Avzurqi4AXVV7gxkebaC7LxP3Zg3wHkARajUb6GwwxANwiGKpf/bv+vbsPIol/urfj2sBFnj6SuHKBhO8cgHvxIAL4DnBg7Og8CL3RjM8QpBTtGxKHOI5tCgDAiHO8B5onMXoFkC0jpEfSIkytobArnyN+KmIU7sxlJOe+kuZW0RTSALXCE8mzBhsMrAa62dZES4CcszvFi6GQMSYn6mUmjAnNJrjJS2+IUNQ0/7V1i/OMk5r6q9gpc8QCcf8oO1FzNgzYTwP9gwIQzxR1whPiVx6OKivyLNNkAQTmBfkxbtkJYbck3qN8HDfH86HW8n1gnoBZNYHVcP7sjqRYe62K28FzO/zAwX4oHV6+h7aSzqBq6vRM363folfUs10sOb+0ndg7Ok8rX/+3n0DmgseH29LMqcAAAAASUVORK5CYII="
+  },
+  "christmas|jul pa vesterbro": {
+    "id": "20oNCyFVv55xDpXGIw0QEs",
+    "title": "Jul På Vesterbro",
+    "artist": "Anders Matthesen",
+    "year": 2003,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/20oNCyFVv55xDpXGIw0QEs",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABX0lEQVR4nM1WwW0DMQyjjPylDW7/sW4DagIWtIM+2gItqgCtH0lkJIQoiryE8PH0+nQF/N1dRFREV1djF5jhpQQQqL5Qu1gDvAcQiSxkMkIV+YoZEAJC/M1vv7or9d3o67vv/YivUEQxUSgXmOCFAsj3soG8J3iQDwkmladYI7wkkEqBEpTIIZ6YgugV9Kec9ifvivmadeIl/dFMN2mN+6O5ijyYyWl/RpSQtNTkUN8HUMBdajASbcutUX+5ecLjS9C5sEZ4OEto0vbJUI9lBNUNdJQb7Zl/LUJuot48mTDH/qXsXsmAmO6fHeK3NNRexTXAW8jY4Zy3GCY9z+cOdwVcHuFQjweQ5afbDbBRDPV0frAOx3KY77PPySpuj4z13RqcZ7o3cayv90UlXkmPcJwH7ir35h2P8AV4cLg4WKd+W/uVQJONxMV5/j3Tyj7ejNdcXwLG3KE/wot//n/3DbTLDiPzagBlAAAAAElFTkSuQmCC"
+  },
+  "christmas|believe": {
+    "id": "2vJAjPkVMPKkR3xd2wacZa",
+    "title": "Believe",
+    "artist": "Josh Groban",
+    "year": 2004,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/2vJAjPkVMPKkR3xd2wacZa",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABW0lEQVR4nMWW0W0DMQxDqUP+qQ26/1i3AT0BCyoIULSfOqBOcvH540GyRNpl/B7n+rME/N9aVfUB0FU1L9jxaAOFk0nPy7XgvYAivtDQKbiLT+zBAW70pzTXmkecbhT6CZ6FQ/mevbN2vHIlvM84AO8ND86gTEopsa0djwBNWGFmruX+kToQupOtlvWApXeQcD4J9Frx4CmsxGScaK8VjyAJgiKUXdSWZw8oE1u7+FIPtKINYVSiZT+34lYAD6I3auWncAIkhRQD4roeCikCAWQI6/oyD+VHYd9/Ts6irentdb62aSTh9A3WfoBxFwnTz9nKa8VjgCIHlQC15MnRnBlrfoLnnEOR8Pyv9ZuRZAeaSLXVB+JU6eqogw/kG8MaalJ+xv/iU5Pz0q9e8zzuo47YcqJfax7nulGxL+z86n0/ENA+UXH19nyb8PJ1VLzt59cAf7CX97+n174BrZX9dD9sGzcAAAAASUVORK5CYII="
+  },
+  "christmas|sa det jul": {
+    "id": "08DRJJkg62i1wKVyUNEHkG",
+    "title": "Så' Det Jul",
+    "artist": "Kim Larsen",
+    "year": 2004,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/08DRJJkg62i1wKVyUNEHkG",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXUlEQVR4nMVWwW0EQQgzq/ubDrb/sqYDUwGRuSiKck9WCq9lHxbY4CEaf6Ouj1/A//2LiERUVgLv5FrgodlNoButphNt8F5AEDyJrkRn8BkOhEzKLT+Bp7sKrFtP4PWg6LjISa4FXnQA/EkL4Nnp60ATVL8T7fpNIBnVB2Bkxa5fdGtmDwLFBnfzh6YAmcEm3feu39dg4mRXqhDW5lrVBxGipGbLS6dtv5I5FIg3i9cSr6fKKc0UaolHqwByvrTU90IVE1Sd8n7YEa5VfeL4nkdGHp4tf3j76Xeyx2sOzFDnNd7qMRLYC7xuwt4PUrLpl3ACzAf8eSyQuG8lzlZf2vKsr+fPymirLyDzBlrktV85LIShRmDt3w95NzhmBdX+PmiSHht3vPYDWwFkC5zy1veGg8xzQ6H7qZureKroBxh7/uRhEcek1/M398G4FWwN2/ft18Hrz/7P2/YzvgBKa/vNDvqNggAAAABJRU5ErkJggg=="
+  },
+  "christmas|christmas in my heart": {
+    "id": "6gDqTTjSav4gA7U3g0nNV9",
+    "title": "Christmas In My Heart",
+    "artist": "Sarah Connor",
+    "year": 2005,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/6gDqTTjSav4gA7U3g0nNV9",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZ0lEQVR4nM1WQWplMQyTQ/fyDXr/Y70byCdQUX7posMsBhem4S3iwBOOJSsu4/ua88cR8P/Oqqqzq6p6BWeFRxsoDGn2Dc4C7w0ootDQFNzFNV6WOOh//ff89YycbugT8izwYNoEYdG+gTZ45QL4FQ7AZ3df28ID4Bm8grPAgwnQua/Nu9cuP5GacFEzgNZ8WIbSxUYkjV1+qRgsQKKgXFg7PJGkDAbQ0ja/MCBQYnjJ7qzwmOIF0rKusM8C7wAcYxqeHmCWfgCnPRguRELJ9yzxZN4mjmyixrPCY9KKaOIH2uuPiKeQISNEr/UnByv5pX5r/fEW8AJK9L5+ypXDyIX+Af3hcUs9dft37feMucT6kl8Kelb5SXg5DOoa6+49j55fjpAyxmrW/Mbno5R4S7pP+/lglHeNroLef2JGeieerobzpJ81Hp9Ch5OKss8C7y2MtKA28IDbeQiX3/vd93fbH/XL590PyhLvT0eTPk8AAAAASUVORK5CYII="
+  },
+  "christmas|jul i valhal": {
+    "id": "2sYa8IysQXY2F1NiLTqj2Y",
+    "title": "Jul I Valhal",
+    "artist": "Martin Brygmann (feat. Sarah West)",
+    "year": 2005,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/2sYa8IysQXY2F1NiLTqj2Y",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaklEQVR4nM1Wy23AUAgzT72bDd7+Y2UDMwGVyaFSe6RSm0iJyMEi+POIxverzo9PwN99i4jMqEQWpsAGD81uSvS73+Is8D6AIC7KN6fAEg+AotF1DfhLM82qfF44LPFaSD5AQ3KBDV50APzSHsBnx68vqUE0hmPt/jcTQSahFMrlWfVHdIvQTI/Srj/rJWHpdVEjxWfXH6QZoJ+W4s4fBwIjaGZB0nFzVv21Z9Z0iw3zrGW+IG+ZY8TLM5b9wenid0tD9lnhEXZZi69slno5eIjOa828ztvq2a3BYrZYIO74QItsqu1eW3iZz+gJl9EdZNls8ZqUbWG8UaJ2/o2OnMgXi/Yytv21QL5jJJd6gYN0ospp6kFu/9dMRCOgTMqH+lnvB0jB3kBWbuc3K0HbvvbcPv9gerPKh0eFxXN2eLBtL1H3SkY/a7wsHx31eI9Z7y+NfHwgXUKB3u2TIxfnwCTgnCErPuKf77ufQ/fzB2VTyvAAAAAASUVORK5CYII="
+  },
+  "christmas|regnvejr": {
+    "id": "6q1ajCuHJRCKiQsh6XQM9o",
+    "title": "Regnvejr",
+    "artist": "Rasmus Nøhr",
+    "year": 2006,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/6q1ajCuHJRCKiQsh6XQM9o",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYUlEQVR4nMVWQWoEMQxTQu/KD+b/z5ofKC9QkYeW0l3oUg+sT3GYEbYlOx7Gb9vz4Qp4390YY+2xF9ZGOejgwbQJ2bDNOOrgfQCD4CK8F7wG76jBhrAW9J9/n93ZYwM4/vrupXyNhSXg2Lqc+eS7+eLd8AD47W6AZ4/fGEyEWsZRXy8ELBmg0MWzaFgQmFMbj2EhFTRNkn08usK6wrwhX0OUlH5LzurhQYXjMBHsLh5pSBKS7g38stSHaA8huRffxN5cgPa5F0qAaNaPVTQRUMTTrV/RoWtUSWrmC18D+hJgiG7zW9lKwS31qKsXhdgSX+jt95tZKgxyDZrZw/NX+94zrxChCE4Zr3hnCy+W7k2LsCbCbO8HGsh43lgJcrbwWHVbRNpNe3f7LRKOYNJqQezmWybyPEIM++957MDwuXTkAUb/vZRTxhwyqGcLD7Uf1LQCa0j38v2x8Obod+62j/YJVoARHJLE2VkAAAAASUVORK5CYII="
+  },
+  "christmas|pagten": {
+    "id": "2O8vHg8i3L60vH3gD02Kj9",
+    "title": "Pagten (Uden Hinanden)",
+    "artist": "Julie Maria (feat. Aslak Hartberg)",
+    "year": 2009,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/2O8vHg8i3L60vH3gD02Kj9",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXUlEQVR4nM2WQYolMQxDX8Lfyzfo+x/r30A5gQelmllML/2hJxQUzkLItixnNf+es39cwe/drbXqrFMU3IAZnropy4GrBEzwXrCESvgsu5Y+UYODqXKF4yfwWusA8hjvBZ1OGL5w3WAP8FYv0N/wgN4TPDoHC7mfwDM8dUvQdgeUKV5brTZGVgd4D/A2C5YpqhEVqnvIz+3QUmNHNHvMrzqSrqa6PdVzyVotVtTCmemPlvPZNOnGuL8SVymylCrO6sejZYyD5/DdIzwrHP1MSCToWT/KXefc0SX/aT/uwPFdulvHPcLDvtkm12sJHuulucUzEvqAv+Cb9aOaD/C7U5tk4zJTvLjzrduzPsb9yCEUkXQtdY/3x5us9HUXiYfvF+VJoHhVEo+i9wCP29Qk/Lg9nuX7en4u3tWFvz7z5iqOvN6KnTLfl7aj57s+xvrL++Bu4NhWD+dj/efv3T+alPprITQmHwAAAABJRU5ErkJggg=="
+  },
+  "christmas|christmas lights": {
+    "id": "4fzyvSu73BhGvi96p2zwjL",
+    "title": "Christmas Lights",
+    "artist": "Coldplay",
+    "year": 2010,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/4fzyvSu73BhGvi96p2zwjL",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYklEQVR4nM2WQWrDUAxERyb70Q18/2P5BqMTqIwcumjoIijQfkiCPuGhkUayo/Hz1PFyBfzdXURkAojImAA7HrtRyAShCbDMORIdV1FAOsCG95jv0ClG19u5/MJTGofzvjte/4Y37lqgzkIV5AAbXnQA/A4L4LXT20PNyw2eoDY8tG2iHtHdlKgdr9nmtJMbC2qnN4GApohCps6tX67bLCXgNBg7vWKToMunbqi39UO7gGw1bb8d74FSAkVVEgxyq5ctaXTCZuFWr1w62jeCaN3HiteU4PyaNs0H/AxDLJxOdp1fy565d4uh2vGgWS90iq19P8gx9DRjnKh1P3AvFtyG0dIvTfnce8aajxWPHKM8l+kH5re9Bayz4TZvee7t/SFIb5ljxeNUzUSbxT/H+v1AzrOAChvnWD/PzyGmusBcPi/nXM7uyvK41L5+muH12vrA/MKz6w0jz8jSz/HP33e/ABNJCtP1+PtWAAAAAElFTkSuQmCC"
+  },
+  "christmas|oh santa": {
+    "id": "2VkuxjlbnbaBiWYpdBGVol",
+    "title": "Oh Santa!",
+    "artist": "Mariah Carey",
+    "year": 2010,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/2VkuxjlbnbaBiWYpdBGVol",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaklEQVR4nM2Wwa0cMQxDn4zc6Q62/7KmA7oCBfT+HPJzixZIdPBAAwwhiSLH1XyPs/54Bf/uXVXtqrPZh5sww1M3Avaz907CsOba4A0vHt9kzfCAJxUe/dW3v8ePe76O2Ty7P4HXbFMWm5swwasuLh3vOKBngkcn3Fjd0k3WCE8GtZpu00IjvHVLhKdchTjyaH7cbRbp15YY1kfjbov38PLwDM9u1NitFt1TPKktW36DDvmtrt4c9EQmHHrmf6kvnFhyQyjxlA9+dUo2cdbvwq/2NpzaIaRmflANm+Oc0CcuuAZ4RGk2GeLVMVP93rGFiKjY9tgP2nf73JEcGuNx1dbO1qRKj/2qfTvV3Zxpfddc4n58OaHn/qwOxZFy1LzG94NT+WnWk1Wc7XOYaCk05PjA/ok4goyTZm3WAG/dUxvpFWLS8hrfDxwbPNsvNvrA/Jy/b1i+Ha8RHrkfOAoO3NT/4lff4r+67/4ECvwGs3SGA/AAAAAASUVORK5CYII="
+  },
+  "christmas|shake up christmas": {
+    "id": "1NghHeg0wE32eBYrQBVQXL",
+    "title": "Shake Up Christmas",
+    "artist": "Train",
+    "year": 2010,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/1NghHeg0wE32eBYrQBVQXL",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZ0lEQVR4nM1WwW3EMAyjjftTG2T/sbIBNYEKyu2nPaCHqkDrz8VGThApkvEqfF65vxwBf3e21gqsDETibPaoHqsQoEJAeINJvQewiFRAC1Is/gYHhNwj4gf/fXamKxPMS9+89xLeQiBDuMSz2U/e2y+erVqG+7ES4D2ph/JC0XNmbzTjLyyTlXVbfpFrxh+q5P4EAWKBs/5QUMP1U7GIaT2qSkK5uRLIUb2Hh2opJ4QK1DBf4KGqaSMhCrP+UKQpNGKUjTfmD56I6FlgzN9GghFE3u0Taqo/UMYs9oPm+qtmrVOrcWvoD9bh0K05YTSrpyJ1PEJP+Rf8Zq3QmumU0dhvOKh7GnP/otygaPJsOk31AjRvrb2pnvGez6eUPTKrd74fN5jg0mXEOb8fgHEhDDxz6jei3dZR5fbmeQogKu6LOoj3oN4+P4zknUlnNYb1Skhl3w2cWZrmFTr32iP23kzP65/fd98AVxT+0qc23bwAAAAASUVORK5CYII="
+  },
+  "christmas|skal vi klippe vores julehjerter sammen": {
+    "id": "0ljbw7Xqcpv6Kiq0ok37A1",
+    "title": "Skal Vi Klippe Vores Julehjerter Sammen",
+    "artist": "Iben Hjejle (feat. Rasmus Bjerg)",
+    "year": 2010,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/0ljbw7Xqcpv6Kiq0ok37A1",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABcUlEQVR4nMWWUYrkQAxD5dD/8g1y/2PlBvIJtKgalmVnYYb1wIRA2kVH2PIrV8r4+5rrwxLwc2tV1QOgq+sE2OnRBgoDPu4TXAu9F1BEq6FpuIvf4QEbD5ro/3j3n2t6OpL67H9fWbMwN/zw9gmw0SsXwN/hAHx2+dkWnlPzvINroQcToAnLTqK0dvmJ1EDoCtXCjmcYOnd++Z3otdB7QYSnkphKmCXPiGlUHnIe4jI/wii0cA/dnvX+zTRQo12qdGSW++MZKxUPRqh77Z8IUpBJiN75B+MoOVyHHG71jhADn+zAo52e3jUztGi932CKMS5FB0Fv9UJw2oHwTK/949nCpyOn0et6T29tSkl13Q/SQCzMcAkzWvJimwElos5wuFZ6AKgzA2NfuLlWejz2QZlap3Qt50E1OAKfm2euYn+eD4inn8zT/pbvDRba3ahAfS30XulIa9ROzWhsz9+kd27lDNGSv9cR/EP7R79tP16/AHGM9I4UdVSFAAAAAElFTkSuQmCC"
+  },
+  "christmas|cold december night": {
+    "id": "0h2dcuCb1emDJa6UfghZWq",
+    "title": "Cold December Night",
+    "artist": "Michael Buble",
+    "year": 2011,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/0h2dcuCb1emDJa6UfghZWq",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXklEQVR4nM2WwW3FMAxDn4zepQ28/1h/A3oCFXTQS/9RH2iNIIh8ICiaYhzN73XW2xb83V5EVMWpU4dbMMPLbg6wz6ZcMOQcBSroc3SLNcD7um9VQtw3n8Db+aIgTXOM15QIJUW5YIIXHfC06XUgXzN+/cCwReQt1gCPTkF2NmrRSWqG1zKaECnz6ykeCUK2cib5CX6ddN6mTXWN8HCPLal1u53hLTIkik1ktdgzP0dH1yF1LWMhx34BdSrv4yPRUD9dEz7yXSnXCE8+WLWEP3LML+2Wh5tsw7H/7BVr2J0Wc6yfZxZPifv2FK8ZniTDyYMixvORDhh3fWV0KqwZHjcNJAvpzjWfX4l2IDx5uEZ4XlxqN2Lm+QJpgu45c95v2s+GcZh+IJ/TqdyXn6mO888rz+70v1yvmv1/f+4bRB8H4NZmrp88vfegp/O7OBEUEedwSlZylvdvW//qvvsNMwsEf8Xnrn8AAAAASUVORK5CYII="
+  },
+  "christmas|it s beginning to look a lot like christmas": {
+    "id": "3it2BvJfyhPEWF3kD2TZJ1",
+    "title": "It's Beginning To Look A Lot Like Christmas",
+    "artist": "Michael Buble",
+    "year": 2011,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/3it2BvJfyhPEWF3kD2TZJ1",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbklEQVR4nM2WXWrAMAyDv5S+2zfo/Y/VG9gn0FA6BtvYw+bBFuiPAzGRLSlZ4uPo49MU/N3cWitzdXY2O2CSD4UURShUfilqku+EFVzR9I5XzPCe+10dqLO+t/b4ei6z+/rh2nfjBJHJvTeZDpjkW1oQb2FD3LP+elSJQMQOjkG+w2BXRAbKoh0eo/0FZh5FCUXVjH97LvM2Wki4Zv1FVX5KJdeQmtXvJKVF3A0plnrK51pIfW3OLDeEGV5eP6oNPmb9QKLsLZJ/I4b8wxQxqcuZAg37cXBfaGVCW3nW8DHId0KR0erOsGHllH8WbbAVbFIP9XGizJapws1le2asN3V2YE+ghn6PKJfwQRpVw/OIx/9QRUSU61jTfsCmIOHzaK4PSaFduggZ8zHbHxjpU7uAaT7T75GaNTflH/Z7g8SOgMld8/M87hCkraHH+n3ODSu4Lts0v3C/EmFHlftd8/5iU3U3fG8b5Vv//L77AvM3/ThnqcpsAAAAAElFTkSuQmCC"
+  },
+  "christmas|ludvig og julemanden": {
+    "id": "5CfFiZrV7IPYbM7IcP7CMs",
+    "title": "Ludvig Og Julemanden",
+    "artist": "Søs Fenger",
+    "year": 2011,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/5CfFiZrV7IPYbM7IcP7CMs",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZUlEQVR4nMVWwY3kMAyjjPlTHUz/ZbkDqgIdqHwWt08FWCNI4DwI0hIpR+P/VefXL+Dv/kVEVlRWArPBBg/NbhLdYJPeaIP3AYIoJboCncE3zoAAMgVLfgNP3yogqTfwWkBBl7Bq7fCi45H7rAJ4d/X1QtPlBb3RC/1CtGRAYY0n8xMEiu5C7fAkQXbxtLWJnhUepG7LZMOwO3+4HoDM0nCktnhGc11FWvmaH9k+P2GqQq3rC5jaPI/is8A7KPFrZ1yiULbKWfHTsJLMs92C2vqDhppo6ZF+lvw4M2kKTH/PAu8DXGQ7Zr5KKJZ5hXZL27oah+z9S1dhWtrnuO2/49dF4mbZvJ6aZ8UPTr1+RD98zwv53CbHyWjt7wcdZQ9bN7WcbzQ3Jmf4ynPzLPBgha6vidm8y/w78yazbzoKt3lwnk8gqLiEVZ/1vJT0RPQL/oDvB7bGDJLt/P0M4A/s/su77e/1DxSV/rKitiEoAAAAAElFTkSuQmCC"
+  },
+  "christmas|mistletoe": {
+    "id": "7xapw9Oy21WpfEcib2ErSA",
+    "title": "Mistletoe",
+    "artist": "Justin Bieber",
+    "year": 2011,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/7xapw9Oy21WpfEcib2ErSA",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYElEQVR4nM2WwW0EMQwDKeP+VAfbf1nbAV0BA3ovn+SpAxLjcID2MZBESnYZP89evz4Bf/etqroAdFWdADMenZK7t4knWAPeCyhCpWZDnQBDHoDGJZYDwyd4AliGrjFvARYIbuy6lAATXrmAp8ycDfCe1etD7buD9dTPMCFIqVM2JWrGMx2OowohzngLlclI3whJfY/1UAxolLivG+CwfwLpOEYEDc/qLe/omplLFGPv6c7pakK70D6mWVO/SH5+KdtDv+hpXTwTt4x5pgTHzMjkDfWARUO04ukkO80v42EbSZKBashTZAAZYJCa+WVnkxL3BrfamN1HOJWmSjErZr5fBH6bL8vFH9CDIOPk7OmxHjkQdXTxlPdC7o/ouzujnBTXJ+pV2kgDUz0Cy8Z/X8PD+Vjnv3ufZWDdnr6HzlFv8O7qJLnG/ZNzYZ7H1XC/LOwqXHkSZeSMnuVX//y9+wXHtPTc7Z4YsQAAAABJRU5ErkJggg=="
+  },
+  "christmas|december december": {
+    "id": "3GzzvKNewQi4v5vHf6y5rK",
+    "title": "December December",
+    "artist": "Rasmus Walter",
+    "year": 2013,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/3GzzvKNewQi4v5vHf6y5rK",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYElEQVR4nMVWUWrFMAyTw/7lG7z7H6s3UE6goXSMsbGP4cICbZNAhSzbSsr4Pvb6sQX8315VdWZVVfdijfBoAxsbFPss1gDvDSiir4Z3w10c42W0N9r1t3/X73jaTRb6iRxZ2C/4QrSzZniVIPm53ACvCR6cQZuU7oVmeAR4Ag1m5hrikRZlQGAeDeNVXjdy2E75yQdOohSWU36EmHCpgEJz/ZLYvMIxUq4hP0OGYJxoZ/zSH1t94ABxv2b9cTiBjHBMuXgab5BigkysiIJrhOfQsuRIp3n9+SMb1jGXYf2V+3oB2+UGroi5h/nQ3XMJOgbzRP2lRY5lpVM0xFNI0WmNs6FpvzlZ4CnFE/V6wJ8VbmE5zm+lRHbQegdUw/wyrXFcP/byhP+RUOz0CDn0q7f70y41Gq7mA3cuxrNS1JXSXmP9fDevHafR1P+QZNyHXA6noX5fLrzn1PzPu+3P8Q6u7w9AUebbGAAAAABJRU5ErkJggg=="
+  },
+  "christmas|i en stjerneregn af sne": {
+    "id": "005M7f5amdAxyrVZ0J61az",
+    "title": "I En Stjerneregn Af Sne",
+    "artist": "Mads Langer",
+    "year": 2013,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/005M7f5amdAxyrVZ0J61az",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABcUlEQVR4nM1WsY3kQAyjjM2pDtx/We6AqoAPzgIX7OGChw74n8CwHBAciqJcxueZ69sn4N99q6rumkYPToEdHm08ulUCToEl52rcHKDRp8AG73WezxCee/pvufyAx+LgfhiGazyjGwOo3CmwwSsXwK9yAD4bPDhHMkjzXVwrPNKwSIqmTC7xDFqEIMOUdngXCug7fklH4kLs+ElvAWULwlK/C42qZjpbdHu282tIqJsY1vEhdn4uINNbnqfhDMi17K/k6MYj4N5/UHwsynnHth/DVnfuWQNCu37AZ9QkZYwtYefnF26IYeeCy+XdPsr86nQlweWMnnb6PWhjygmrxtxbvySeIx3S4d/IF1k6EZObp7p2/AgqfkaETAZeO362z62TqeY+/6qanfs+QGdlXit+9CHFKMnTlWuB90rsZcE98csUqV/5v2Lyj9Ks8zSnJyxr7rOKL6z1U6TLGtnuD7znwwlSniHe9SNz+3H+q//dPwhk+iP1GLUHAAAAAElFTkSuQmCC"
+  },
+  "christmas|julenat i bethlehem": {
+    "id": "1u0bnRjkjtyJXLvAn2YmuB",
+    "title": "Julenat I Bethlehem",
+    "artist": "Lars Lilholt",
+    "year": 2013,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/1u0bnRjkjtyJXLvAn2YmuB",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABY0lEQVR4nM1WQW7EQAgzo72bH+T/z8oPzAtcMROt1PbISm0UTcQcLAPGIYyfT61fV8Df3UVERlRWAjvABA+mTYGGzROsGedIpAvIaoI5y/e1T5XhQs3r99onw4WUPoJnZDIEh3eACV44AL7DAnjP8LBhGA2qsZ5hHqmQoilzpheYsE0IMkxpqr9CZtyEAYUw1B9s0ZYsu8snD/O11EkfRHxg3tipmqirk625v2QEEMQdUF3j+kF+JCN1szXUi9SK6a48ZVwDvIX7SkcGUFk9eXM/bZRjLZLG82F2zpZBknP96ZELwG7HcN5g9ezunDfwUM/YfiWqZaOeu3H9+m2abVec6gWnuy3BNsKtxzXAe+2Ewwwok+qf5prxA0gbVFPsLq8B3kJjCWAR1S495cemx7b7TXXoB+t87u5FUqrhPrT2mVcGq+5rD/Ka71dWW2BXb+x/OI5/INsTRnhnP/j2/Kt99wsqAf9/oG5RPwAAAABJRU5ErkJggg=="
+  },
+  "christmas|little drummer boy": {
+    "id": "7BvCDrlYwJ5D9RUqvvs3BT",
+    "title": "Little Drummer Boy",
+    "artist": "Pentatonix",
+    "year": 2013,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/7BvCDrlYwJ5D9RUqvvs3BT",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaElEQVR4nM1WQW7kMAyjgtypH+T/z/IPqBeooFIssN3TVofWBycyMoREUvJE4+uq658j4OfOIiIDQEbEBNjhsV1yZhF6g2uBdwNBKJRUJh1gz0GKUhT0jd/+ve7ZlehoRE50ffnmP89aoFio4gTY4EUHwD9hATwbPLQX5Lz4BtrVm1Hx6nCErNr6D3waj7mzCZE7/tBNQ6nJthriqt4beZwZUYLyuPJrlR8AEg1qZFnqAQvaLtqbDKgdnjTZ2dVskju8G0/J3BUFN8lyHqBl6kZni4s9f4RoKZpukSV/Nwod8qTKw8KTvZ1XGs+kioE28LXAQ1tZW5Aa7yz1RVNUf7bcGFFLPfQmplGZ2OL5UoM02bnx1vVyjEK8T+z799PKNvaMhGuFh7k/6Kes8rreGS5GlftkrQfhpDykx4dL/u7ZHxxGZ6PAPHs8HN+8Jwudqj1/kn3oF/aWv2nedneoZReu8OKX/9/9AN4BBly/3321AAAAAElFTkSuQmCC"
+  },
+  "christmas|one more sleep": {
+    "id": "78pn8k7RogKo2oxl0DyX6d",
+    "title": "One More Sleep",
+    "artist": "Leona Lewis",
+    "year": 2013,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/78pn8k7RogKo2oxl0DyX6d",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nM1WQW7DMAyjjd3pH/T/z8oPqBewoAMUW3PpqgKbLrEEhEhEivIwnqPmpQT8XW2MsWrUqgXsBB08mDYJmxaZRB28L2AQ0IIG4JVkNvDm47Q26nvvPtd0OyqQ+lb7GfP1mgUUdFBeO5mvv3uJ4QHwkRbAo8dvAjYogkn0Cb3AsgkKbTzRaZuAnJp4MzhDWFhOH9mfN8goWMulUU09w1EILSlckOr2L6RmfsMEk6rJB0MCAhdH6PMLKETQhAR2vw+xKQoKqtj0K0QladpGM9Xs3wSExdqjCxy/fPca3gOXb1McGm1+FRT5JNrBnS08QlJgHElHiLOHJ4fXbTP6wHzQjuxEOyps6xlxPYWXDEpff4m9NpD1G/DZ3h9Hjhy6ZddV3+993g7Q92fkD7m3kbY5q33f2KhYx6LOP54NvHk+xiqqisgta7b7pwyvGVdlW39ZansD55ix6+nlUvpX9907xmcJp/Uy7RsAAAAASUVORK5CYII="
+  },
+  "christmas|underneath the tree": {
+    "id": "3nAp4IvdMPPWEH9uuXFFV5",
+    "title": "Underneath the Tree",
+    "artist": "Kelly Clarkson",
+    "year": 2013,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/3nAp4IvdMPPWEH9uuXFFV5",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaUlEQVR4nMVWUWrFMAyTQ/+VG/T+x+oNlBNoKIWx7e1jzIWX0hdcHkK2ZSVl/FxrvHwC3vetquaqNdcEdoAOHkybhLObCdTkXCE2p1Yt7WD08AAsKIgzyE/gWWsBoNp4B2BMTAgndAejgVcugJ/hAnj1+psFE1S6a1tP6AWWNyi6eBZNK8UTDfb0B0OGUkHn4QP8ZCdNGlafH72TDGrYNftxRCPGPBU/0EJ19UKaspKxMx99vcRckrKhB+oHkKSgyFBo+hUswqAUMTtDom6+3LkCSBn5BD8iOr5h2/zCaRcufY6+RxPPxi5e9EK28ZgRvo8j7JkbDbwBCJpzXveBmXe0+MGIjpO0gBRxtPgZ9qSqgJNG9fjd54cq1GofJFp9v1ccmowF9v0AmV5oj9zeRwNv7N/M3HWe6XXzvnHcW7l8TZ3/4PJ9jRQMS7W1fN85xu//+7P/ISWMu2Tomv04NuAXbL/zbvu6PgCyJgaugvjimwAAAABJRU5ErkJggg=="
+  },
+  "christmas|wrapped in red": {
+    "id": "2nMZx7QHerfo4Wv37xNUEC",
+    "title": "Wrapped In Red",
+    "artist": "Kelly Clarkson",
+    "year": 2013,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/2nMZx7QHerfo4Wv37xNUEC",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nMVWW2pjUQzTueRf3sHd/7KyA3kFGuRCKZOBlnGg5yNgcyPkl+xj/P36enEBv+c75xROV1fjw7hWeLRRoAqoioEN3gM4RKvgLrgO35KDIQf913//4TO6Qdzfffcjn4eWnkCi1g7v+AD8NBvgc4MH50EETY6hHR5tkrBsgsIWb4AsCBQNcstPgDLFoTlEry2elSrTsvb8HH6UlHpk+rTkRzk4IkFI6/zBgCQ4Me/ry8RMpflSl2X+HmgwotJCoWb0rhU/MaycCdHw1FJPhYq8dFSrt/wuoG4Bd5qQ7drHa6ZN0jip8LL/jg/EyFTnF7d2+3L0BSMJoy/Ufj6s0RYRUZktHgwmfRk8RFX1Bn12GpnkSOq1vg90KBk9ix37+4CuG9m/6t723xQVH9OWvbnVg7zIfGeb637XzXX47CfRtY436pftMbs33Xit8DD3AWfJZZB3eI8B/IL9q7ft6/sD1sf/hLKKrJsAAAAASUVORK5CYII="
+  },
+  "christmas|mary did you know": {
+    "id": "4z8sz6E4YyFuEkv5o7IJni",
+    "title": "Mary, Did You Know?",
+    "artist": "Pentatonix",
+    "year": 2014,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/4z8sz6E4YyFuEkv5o7IJni",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZUlEQVR4nM2WQYosMQxDX0Lv5Rv0/Y9VN7BP4EGpZvj8WbpgJtBNXAuhSI7i1fy/av/4BL/3ba0VrAoC7mKP8NTNQhkU4YIJ3guW0BVkBR1Lj2gQEEH6yE/gpa4yaj6B1wkVeSn7LvYAb/UCfZcFuiZ4tBfZKKVT5AxP3ZLozBZKpnidasuWZngU3DN+iY/rnfyb4pHWDNPMTqQR3sttVyjr7uYujfIFG3vbampWM6f6NWk7fNxjzR7ikSLl/suxfptCgajrjoXhfaPz0yVuZpOd8VsdJ0nzw4031wP88mxszbCfXw69uFDxNlFT3CN++M2wbL7Dzpic8dOxtUO89YS/crjY30NznlecRsEpmKCe3jcv+dkA6UTqHr8fuUwtyg9JDucXdVMKEZavau6HhTsiOqVznqcWLqm30fy3x3gUqy9fXo8Je/xe5qcDffZZ/93+lig8ttnmkb8v/hl4P9u/NO9+AUed+LXf5rwuAAAAAElFTkSuQmCC"
+  },
+  "christmas|santa tell me": {
+    "id": "0lizgQ7Qw35od7CYaoMBZb",
+    "title": "Santa Tell Me",
+    "artist": "Ariana Grande",
+    "year": 2014,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/0lizgQ7Qw35od7CYaoMBZb",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXElEQVR4nM1WwW0DMQyjjPylDbL/WLcBPQEL2uinfTJA67sA0T0ISiIll/Dz7PXrE/B336pqUHv2bNxgRXgtodgcYMYBErwXUA1MQzXQOFgRP58GMWieADkesTewMZ/AEw/Bp9k3WAFeqYz2fTbQT4IH+UBCU30CZvmOuzulx2xnV5Yv1Gy5bMT51xk/yB2wiqH2gxTPrETI5MiU3wsPUGhucOtqekX8ANIc2XaJ2Gm+OnkaSlfRK8Nr0K/t4fql/IzmTKm2kRXjtX90qnSzUzzJKVuFl2yGt1AzBMud7d0Dpn7TzdbmsPPS/lp/Lh3tYauHqd8EHiBLxrArwFuepsIbz531e2K/teuHQ+/yXR+Zz0C351WsZ+AMVJexDcn8fgDN2zsd9N5cEb+GZQd6H3kVx/Pq4B3nCl7F/MSda3Y/z3Y34nwl68UD2haJ9xvO/eBOqzMAI7z65/fdLyMtALlXU2QvAAAAAElFTkSuQmCC"
+  },
+  "christmas|tidsrejsen": {
+    "id": "5jl2ASpLH6ch4vkD4xcpyq",
+    "title": "Tidsrejsen",
+    "artist": "Caroline Castell",
+    "year": 2014,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/5jl2ASpLH6ch4vkD4xcpyq",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABcUlEQVR4nMVW0W3lMAyjjf5TG2T/sbIBNQEL+rXF4fqA61UF6uQjMhJCCinKy/h79f60Bfze3lqrenV1NU6AGR5tlKgLqEqACd4LsAgWoS6xFn/iHzSEKn3r22d75mqg/vnel+o1Ci3gatYJ9pP39hf3lhfAj7AB3hM8OAtieOYJNMOjTRKWTFAY44mGBQF54hRPStGPTHES3QO8DYBGwyot3+F4j/Jj6LAkywY1rReyCVugKIljPozcsBz4Mb/hlSIdMshpfkfLECK/ZDnGo0w6qIoYZ3gvb3bQONf9P9/up/mRj5qttG8Evkf53UCx3Ijhn7bbA7zlUkyqr1MqLqin9fooJjYTNub+kt6wouuf8CtEMYrFMANprOesM3bB9AjGeo5hPXo4iEM/3ed80FcZlX7rHus5v+z4VBoYc79CFGMqZn+6eA/w9vtDU30/BvGe5WcfWw7P0ny+4ZwPwoWPD0794I8D75mav3m2/bxeATR7CwevX578AAAAAElFTkSuQmCC"
+  },
+  "christmas|der noget i december": {
+    "id": "0wm3wOmYpTILjqyHzDDJIp",
+    "title": "Der' Noget I December",
+    "artist": "Rasmus Seebach",
+    "year": 2015,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/0wm3wOmYpTILjqyHzDDJIp",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZUlEQVR4nM1WQWoDQQyTl9zlH+z/n7U/kF+gog3toSkU6kI7hIBNImzL0kwZn88cLyng73JV1V3T04M7wA6PNiDgnBN9B8eu5moMGuCMEmA/A8PA6Ef//SrX51wDnN/97vvcI8W1pkU0OgE2eOUC+BEOwGuDB+dIEMVwbWuHRwEUDVswwTWeDSsrGFSu68t3+rWCt6zvESzOCaKFa0LPsapPcRhKMkzS6/lBskAFWlryWy4C16nBrY+hZs2HDJH5yNz2m0VxkBRoLvs9gNOuC5iuFLv0U9gG0/H7Gu76PVDgFVeJdMGY/rGqT0qBMRlnjNrqLYoNZAgRuNevxVu92WxTa/0WPIyTQg2Xl/uMXJdxP9zustZvTkYYU6X380OoDRXxexJ7PmJTYSX3Rxbo2OEhaE/DjxFu/aqHsakEA7F29+UzJ2h0Te50/cb7YNyZHPJE4FK/uKWLp+tnZZbze0n9q/fuG12TB/pZO9HDAAAAAElFTkSuQmCC"
+  },
+  "christmas|santa s coming for us": {
+    "id": "1N1ZpYUJc9fwrqk53FGgWv",
+    "title": "Santa's Coming For Us",
+    "artist": "Sia",
+    "year": 2017,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/1N1ZpYUJc9fwrqk53FGgWv",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABX0lEQVR4nM2WwW0lMQxDKSN3qoP0X9Z0QFXABT23DfYQKEBWwMz/NgYPtGhLLuPvmPNlCvi9uapqNAqFeQdnxaONUqkxuAMsNVfDRQB5qne8j/eHDx7297X8g1cEUS5f5Pn6Gb4xZ0FDQK07wIZXrjdxb8SSZ8OD30BWzPtXOx5JKqfEME1teSIk0LQp5HW2+gDCsiKUO94BNBI8HGA++9n5C0eWRVtC1r7Ony1YsuKw9vlDMigqVgjY8sSIs8R4E1vOiofospyVg6GfFc+BXC5806llfRYadLOzYPSuPr/6ksWIvEdY2/MhxlYGlrG2+nDrQOoCqfV+oW6pirHONtzvPwV0K+CP5A8pLrz7GYjCs+IlkOw57XfrxwfSPwShoEanaZ71/QBpmQMiYOzrC946ePO3PW8JMZ1yJodlex9K9OBzSFZw2N8PLA96Bo1HS95UodGOE8As60v95/fdP4Pi+pSQh3StAAAAAElFTkSuQmCC"
+  },
+  "christmas|snowman": {
+    "id": "7uoFMmxln0GPXQ0AcCBXRq",
+    "title": "Snowman",
+    "artist": "Sia",
+    "year": 2017,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/7uoFMmxln0GPXQ0AcCBXRq",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXElEQVR4nM1WwW3EMAyjg/tTG2T/sbIBNQELOtdH218VoDWCg2XgCEqkmSzj++rjxxHwd2drrarV1dXYBWZ4tNECzj5RKTDBewGLQIHwalWKY8QvyzCwVLvAHK/YV//yv1/XK+RKDTC4KTDBW1431L2Ce834+YbBmfHt4hjgwRRA0ZAFE9QMz7JhQTcqPcVD+EG0lH6f4CfCpGmF6jHAW26gvIVtYhk10hcGtRkqVPf2GPFbrtaJK5ZBww/4xaQyPsLiVI/Ia0jRYu81wxNvLws3xSk/xi3QG3zer+LAxKlNPXE/RKRLBmqjHyM8psu4MB7UnB+hPFZ2GaDm/sPn1chW0/sGJAbScvw3zpcIu+23I2Y4v+P+JFgoXNWoBM0x4kdH4rh65/N4fsS+ZAn8ndTTfjdK8+QZYTR8/772r6o6QX2img/MT2+VN1fN8w9Oq3lpcpz3P47+1ffuB0GwD2Dm1NaIAAAAAElFTkSuQmCC"
+  },
+  "christmas|you make it feel like christmas": {
+    "id": "2OQ6a4CfUeYskpTTgyawyJ",
+    "title": "You Make It Feel Like Christmas",
+    "artist": "Gwen Stefani (feat. Blake Shelton)",
+    "year": 2017,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/2OQ6a4CfUeYskpTTgyawyJ",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaUlEQVR4nM1WW2oDQQyTl/7LN8j9j7U30JxARbMtlDbQEAdasywZsxF+yPKU8d3W8cMF/J2vqhq1Gr1wHY4RHm00qALROWCC9wYUsdBwldTFV9SAQGJ86r/3fMK5wNW/ffeQzwLYOgFfh+P+dw/5ynWle9kCeE7w4BjE3WfmoBkebTKJygCFMZ5sWhAobshjigelggZhjuOTaCVNOhmP4/PmiyQr0b2gH/J+QKQn4/oxYUFwck4BjmF8iKgwfQn6NL6MBykoNFT6fYzwlGypTIgcCmqop2JzZXT3CzN9TsWSIz8JOKxfeYF9guUGzhRzDfthZT7C6KjfsH645jcsdLoc8GOG58xGqmdG+ad4UWdtTketpvw7kqFv2ZbI+mW9Yn9oRah6RQY17C+dltDipc/jfoTCogKa8Kb1i7HBsztoPb6/bFNFpm9PxHLvfrC8kvZe5xrqAS4B3CTEXiOzfL9ceD9+/qf77jup4AOKwv+vBQAAAABJRU5ErkJggg=="
+  },
+  "christmas|christmas without you": {
+    "id": "1QLZKzC2pjP4ySf4ALrNhm",
+    "title": "Christmas Without You",
+    "artist": "Ava Max",
+    "year": 2018,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/1QLZKzC2pjP4ySf4ALrNhm",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZklEQVR4nM2WQc7dQAiDP6K399wg9z9WbuA5AZUnVRd/lzypZZGIWViAMVDNT9vXX0/w796qai3Iv47DDE/dsNZC+HWuAd4HSjzLS4gVhyEesLit6uokzhzPoDI+cAzxmiXWA/s+DhO86gL9cTfomeDRMSwjvY5n/bJqV+DgMWvvWb601G25w4qwZvHRrZTPLZmAaoRXHQ5YTVkVuNk8+JwusY8wjGqoN0KulSq6QzCz+n3YuiMM79V0TecBncCw3ab9BX7dyCfToKV5rll8smm5W1HeGK915OZWctWQD/pUUJ0gLWnYz3TyDB0n405BrxGe3hrme+gYxxfdpoARSMMUz8h2BkJS9xf6pUES+t0w/sZ85ozAtM5Uv9kfQvdeIptprt/MlaSa82DKxwW1MpfFFrtydFwzPMgagl5Riab30DHxwEOt7Vl8b/1e8Wb3aqiPi13FmdDsve+9ZvFl//yw/+re/QWPNAI7MQQFCQAAAABJRU5ErkJggg=="
+  },
+  "christmas|cozy little christmas": {
+    "id": "02FaKXXL7KUtRc7K0k54tL",
+    "title": "Cozy Little Christmas",
+    "artist": "Katy Perry",
+    "year": 2018,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/02FaKXXL7KUtRc7K0k54tL",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nMWW0W3EMAxDaSP/1Aa3/1jZgJ6ABXVXoGg/FaDCJYb98aAzGdrL+F1n/1kC/m9trVVnnUId9AQzHm0UqBJQmWDCu4BFQAUtwJXJHvXXVf3r5wmefR+kzSd4FrCgG3L1ZA94ywvp7FMH4D3hwSnIoBmtbc14tEnCcoDClNcgCwJFgxzyICIuhkl0o3vAu+IRnzyl5VOsoR5UdIBkuf+zhjxYEUX43sU97M+UFGEdc8/9ghAZ38ia64vYT4ESoqe82IWUEgfmdP92KIWbOGDl+x3nS50ETEXgw6JGPFhi54vJiDvPA9pt40iCQPeMZzNKJGbi5xlvJ0NvvOrus4N571F/SOopEcMcH2M/p/rYiK87UvesPyReOvLFIDW/Hxwuo1jQOdP9Syj7nfbx4TD/rs/44l3G0muo7/UeqEX1FWHsF3buJZwTNRn3iIfcD7J1iefx93E18Ad7eP97eu0LFIT9QOMWgTgAAAAASUVORK5CYII="
+  },
+  "christmas|tag mig med": {
+    "id": "4obYhnaKgcbCbkyW7WbjXr",
+    "title": "Tag Mig Med",
+    "artist": "Mads Langer",
+    "year": 2018,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/4obYhnaKgcbCbkyW7WbjXr",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABU0lEQVR4nM1WwW3DQAzjGf5TG2T/sbwBNQELnoM+2n4KGWiNwIkMhKAoir5lfL36+PYI+Ltna63C6uoC7uIY4dFGiSo0KgUmeCewiC7Cq+BafEYDoSCl5SfwzG6gSk/gWUBDF+XaxTHAW14AP8sGeE3w4FwQ95yZQjM82iRhyQSFMZ7oyCYgvzjFS6+Ogsab6DHFs9MmHY7gEM9ybpK3gE/MQ/uWXuExP9JUxmGlZ435ZRxUPlGTM34H+mKiqq/sSf/uvz9cjl1AZUMUM874naB6R+kuH+CH8NMmGgnn+2Hw7jW5gPl8LYliHB3DzP1iwmG3t3ieL04mh+D9ah/rR2CvcMJv59cxz2eHG3frM7z7/aH4jtURUD3Pe5O3/fzAPEBK75VL5mt43gDARefMAb2G+3beX8SKa177JHOM9ZOyt9uJ8/0FImGcs908w1v//Lz7AW3FCxU7xK2cAAAAAElFTkSuQmCC"
+  },
+  "christmas|christmas tree farm": {
+    "id": "2mvabkN1i2gLnGAPUVdwek",
+    "title": "Christmas Tree Farm",
+    "artist": "Taylor Swift",
+    "year": 2019,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/2mvabkN1i2gLnGAPUVdwek",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXUlEQVR4nM2W0W3EMAxDKaP/9Aa3/1jegJlABZWftod+tDyg1QGX2EAeJFGSXY2vdq2nLeDv9qpqb8DPmgUyHruBvTcd+SxWwHsDitCFzc2zvUDIA7CvFkubP/p2fbt3WCxRv/n2sy2gBZ6+gHrICyS86gLuMG0XwJPw0DbITjbphTIeIagdp9SUGPKabFENCGbnPMuqwRqa8jjO3TmkHPmKeKJTSFACOvdPI/FEa30V+weCsMBk+6e4XhqSK7Addp4/WGHrzFfw2kI01U133gvqWS4V90a3M6mMB7dst50cSeL8GeMi1N0gsb7TGR4HHGycv5kBHixuY7+tiCeXsPUw1ZoojJdTKK48P+N+s7lkPGXuXK6Ih3HOZ4jjzf2jh8sQfYT4sTIenEGra4HT/ljzv7E1nSJ1eh8aOz55z67tU2nF+dOH8Zflb+GqwoPYvhwcOvDsvvG09a/uu+/TTh3xfGe/WAAAAABJRU5ErkJggg=="
+  },
+  "christmas|gl delig jul": {
+    "id": "3Fhbr7oGVKSvyPVDW52FyP",
+    "title": "Glædelig Jul",
+    "artist": "Burhan G",
+    "year": 2019,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/3Fhbr7oGVKSvyPVDW52FyP",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZklEQVR4nM1WUWpEQQiLQ//jDd79j/VuEE9gibsU2v2rC+3wWHBgg8aYMRo/T52XK+Dv7iIiMyorCxNgh8duFICrLqQDLHOOBJAAKzTB2eEBkBqo1m/++/18zO+FUrKy34HXSCFA1+wAG7zoAPgVFsB7g4f2UUsUyQnOCo8CKDa6hSa4xOvBEvRA5To/IwEaKdO5ngXeAZR997SXquZOL+jJqyW12uVu+YOhesiTm7LlD6LJkzSC2feDEC0+Tarc1zsiVJvH0c9Z4B3g6s4bqEg2ufQruKt0obYtk7mt17Nr53vM8X4+0D2iIdQPGZ4VHp2XbcB5gm/Qi6a7Mo0mUFs/QMPJeUpA7PlzrWZxnHA9vz4eN0PNp/1+UAHgzhvpF+Ss8Dh+dVGXFe1N4bxhP0DlLVSYw7N+zxmd9Gsu5O69fO4bREll01/mdzzBqBujvcLWXw4qAokId4LppWi3b7xc/at99xM22xFQA9T9zQAAAABJRU5ErkJggg=="
+  },
+  "christmas|here": {
+    "id": "13S94fbOuw2M66UchaCz2k",
+    "title": "HERE (For Christmas)",
+    "artist": "Lukas Graham",
+    "year": 2019,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/13S94fbOuw2M66UchaCz2k",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaUlEQVR4nM2WXWoDMQyER0veRzfI/Y/lG4xPMGWcQKGhD0GB1iy72Cwf+hlJLuPn2tfLEfB3Z1XVBeRbZ4MZjzaIbsbzbDC0uRraa6OJzgYT3u28CxRLrX7Tll944maJfJxdr7/hjTML3PcNbJwNJrxyAfzWHsA189ehiruD9VTPMCHI8VM2JWrGMxmOASFsD3kkQClYSBjbR0GSDVmEPOYhwmMU/QBrpr9lLiUNz+zO9AdLxzoroaQ4zoeURMh54DFPRylIQihyzHM0HAE6wom918w+pr8cTxPLD/irY6OS3iREMx6sVDBjYsr4A/XmMzsilVPK14B3gzYa2xv3VVKvsZ6Pp2kIkU6Sco14jFCYEo5g0hWuES8rPYYS0rJmvBsyPzI2dhOZwdP4xV+mMZ86SW+9Zjww3f55z+JQf9d530sdSVvL0/vQWcJKFKvZ+kD8FAVmIEU0GtYvEEcjmZOZWfzqn993vwDwjw6Dq2aE3AAAAABJRU5ErkJggg=="
+  },
+  "christmas|like it s christmas": {
+    "id": "1OjmlSFuzYflWjSMTCyTJv",
+    "title": "Like It's Christmas",
+    "artist": "Jonas Brothers",
+    "year": 2019,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/1OjmlSFuzYflWjSMTCyTJv",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXElEQVR4nM2WQW7EIBRDDZq9ucHc/1jcwJzAlUlXnaUrtWSUDCyePt/GyTB+jjM/loC/WxtjrLMwMM65EzQ8mL4/mX4mangvYBBYWMDiM5kd744NMKyMiZZ3lBI9foVnrEWtjeWVCRreSFHf+0yhAHen7x0khUhsu9IXpkQYohRkzRMhgaZFZapWX70PgXOga0P09UFOkSDR988mRGengtT3jwao3OOcrn/RN2Jc3wTW12crXROQUkvecBTdb+VoJGA2q3x+AXvp5pSg/Fu79R8XfN5YcU3As+DBOcJpW4zNtFOtHqQIIpEQN6r2n+KVAJmnyv3aoCEr5FQ5u/qQ+BMTqrFzfT6QbebsRhuWeYUnngFaSYXk6qx4COu+zmky3PkLeeWnd7nU908377PtNk/nvS/vs3FkJvBnzdNY74TpUICz/77ipV7ntHpE3yjrZEKCuszTj6V/9b37BZ15CnlfrnPjAAAAAElFTkSuQmCC"
+  },
+  "christmas|make it to christmas": {
+    "id": "6RS6rcjnWrdfVuu2U2W2dj",
+    "title": "Make It To Christmas",
+    "artist": "Alessia Cara",
+    "year": 2019,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/6RS6rcjnWrdfVuu2U2W2dj",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZUlEQVR4nM2WwY1jMQxDn43c6Q7Sf1nugK5AC/rPZXZvowCzOjiQgRCSRVJ/FH/Hmf9cwe/djTHWGWexDjehg0epSnIVKimJO3gvGIIlagxqJZkNvHnPAyzwT/77PV73LAapsj6BVyyG4b21bjIbeKMGKe0rDmj35pvAynifxB/giyhXCZkuXlmlMkZWQY9/lJzjDlncQmcLj7QIKZOU16tvps+BfPAS1O7qY7HrnUYHHEcms4FHWJJu03Xk4TZfMmMsWYQz3fkGShjX/Wn6FWFJiopCHPK0+fL4qSPjp+/ZwJt4Lcf9ytTRavoVJesyOeq9z+jufP2I19hGn/CX8CTPGLX18O7dXouddWl2Wx9URBFOx2nU5N+8hFl3W/JWFhP9/eEszNhMBHz68yiproKvNcweHpJjzRcNd98vker2m4UjkNnGY3G0z1YclQ/w2Skxu7evD2Iselz1ruEW3vjPv3f/AHvt8s5Tv5aCAAAAAElFTkSuQmCC"
+  },
+  "christmas|julefeber": {
+    "id": "0Q7nzEj102gwTkql3azU8p",
+    "title": "Julefeber",
+    "artist": "Oh Land",
+    "year": 2020,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/0Q7nzEj102gwTkql3azU8p",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABW0lEQVR4nM2WQW7EMAwDqaB36gf9/7PyA+oFLOgAPbRHBWiF3ezah4EcUZTL+Blz/doC/m6vqnoahZo5C+x4tAG1xuxncS14H0ARaDRAP4trld8JjeQwExdW+SUmMNUrPKMbxI32WWDDKxfA7+UAvDc8+ARMUWL+a8ejRBjBCdrzcEA0LQo2t/kRDC255VXueBcE3xiVUEXOvj/uTlmNEVha6g+WIeCUF8/vteIxtKMbQrS29ZXyOdk51djxLnyyGy1CStst31+5b4BxFmFaYG/7TYgAzfOIvK8VD/la56R8od9okOngp8hrnp2aUmk7vnFeGc4zpqCtH3wgSmnoM27amuU8QjScchw9RzXb8yaOZSnttufhmIBPKeKF237LlaBnJn6V7Lb3DVRHfEd/UwO9MM+LFRNU7h073rOXUsQFS9HOtew38zHVCPqFeYkz32grsw47Xv3z++4XPRD8uAUnxuoAAAAASUVORK5CYII="
+  },
+  "christmas|julehjertets hemmelighed": {
+    "id": "1t11cr48B1olNdfs2TlxHE",
+    "title": "Julehjertets Hemmelighed",
+    "artist": "Malte Ebert",
+    "year": 2022,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/1t11cr48B1olNdfs2TlxHE",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbElEQVR4nMVWQW4EIQwzaO/OD+b/z5ofOC9wZba9tOphlVXLAZRIWAnYhmV8H71/pID/y621qldXV+MEmODBtEn5uWbSBO8BLAJFqEusBHuGB6ABpN16ae/+NWd3g4DGeA/AKJSAS6wT7AHe8kIq+xwN8J7dbwZE0H4GegNfAEsGKEzxLJoWBIoO8B7gLdfN5ZDFT7ZopF/k7Oy0ScsC5/0apCTTc73BsMxzjEEzpninJCkdOwoZ80UIYZhulSI17BcEIUhHwMPz2xDbAbwK8qU184NILPrNM3KqHPfrCFdULthHeHuGJxPKHN0l3kO/Mhabd0LWWG+Uc7fhMuPPs/pOzijdlRfkIO5RfQjtlHuJW035h2PJ8T8gAuZQv/t8Ce6F2PONSsd7hEdHcnXllYO6p+d3rCAaPgIOs/eovjMs3nUFrd7y51rVVN/PL8J+g58ii+fvxzr/gyY6skt1HOntcZzqq9bX9v5F7gPagAdf/4VcUQAAAABJRU5ErkJggg=="
+  },
+  "christmas|sig du ser mig": {
+    "id": "14PKbo4siqXvTvtQDQvgRm",
+    "title": "Sig Du Ser Mig (Julen Er Hjerternes Fest)",
+    "artist": "Rasmus Seebach",
+    "year": 2022,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/14PKbo4siqXvTvtQDQvgRm",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZUlEQVR4nM1WwW3gMAyjgv6pDbL/WNmAmoAHOn1dDyhQPXpGkMRCQtAiZbmMv8dcX0LA78Wqqqum0YMzwQ6PNgign+7OBEvO1Rg1QIwywT4HagMF/eTff8VuzDPQ/d1338c+AKM1WS6mM8EGr1wH6nME99nh4YXBrX4TOBs8mAIoGrJhgtrqQYNPqXt4mF47fhAgiBbIcL1WeJJtwmSWbnqJBwM2JMumveVHOnCHm7TlV64ULuPozgu09QuhyEBl0XleKzy8JowqeV3roaOBD7WQXethki9NKKja4TmVhlRboPf5k5wbeCBjw2uFxyQv/pMQ++3wTqygW+CNPnvqtcD7AJ52GYOBulxe+hmMGClhRuR1/WYka4hxcmldH0ytnT0wTtTWzyZDK7WRvUtLPSoJPN28p/is++8ZTTTVQu/65Yun4vj09Na9PW9YmBRdTh0dS19rfRF5ZaUPb/f7L6H/6rz7ByU/+MZ7jZaVAAAAAElFTkSuQmCC"
+  },
+  "christmas|juleshots": {
+    "id": "0UIbc6u4H4VyNFIroLApIp",
+    "title": "Juleshots",
+    "artist": "Suspekt",
+    "year": 2023,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/0UIbc6u4H4VyNFIroLApIp",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZklEQVR4nMVWQYrkQAxTFX2Xf5D/Pys/kF+gQRXYXXZu48C4m6IdaCHHkl3L+D96f3sE/N6ztVZhdXU1nmSP8GijQF1AVRJM8D7AIhoFrRJr8a13UAjPn/33b3zO6UYRy6oX8IzC1cKVqpPsAd7yAvgnbYD3BA9OQDx9PolmeLRJwpIBCmM82bQgQDTIIZ6VI7/yCdE9wNtoyGhY5eXuuV64wq2h8tHLPcMrGGijC6WjmD3ur4w01nqjv4ZJkSahaX83enGh0ffjDk3rFQ+/OEQe17uj4gqzBqpvcDYP8HQj3MQ4mTN+y40LigQLEJZn+w2GLJ1DUNqs8TyAzDNmnrr3DI+2IsCMwSPrPcIDASkjJtoL3z3CS5y1C8QjmOE9++POJGB1FomG/WXo8Tg483k+D0AepcRycYvmeFa+fPacXrhvXFi8O+9Pr8xTZf2m7Lk/kPtBrKEoUEN/fA7gP9i/erf9Hl8iXwT0m8aa0wAAAABJRU5ErkJggg=="
+  },
+  "christmas|valdes jul": {
+    "id": "6oQ5FpZJlBPPwNsYkAmx9V",
+    "title": "Valdes Jul",
+    "artist": "Christopher",
+    "year": 2023,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/6oQ5FpZJlBPPwNsYkAmx9V",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZUlEQVR4nM2Wy43gMAxDn4Pc6Q7Sf1npgKpACzq32aMG2DWCwPaB0IekvJqfq66/ruDf3a21dm0Wq+ocmOGpk/I2Et/hGuDdsJTNzudzuGZ4Z72g/Xs1rUfP8i/g3dDsLe8XvHNggrd6wSngFyfoneDRZyFZbmXvGZ5s0Vi28RzPshu1smOKdwMP1ZsqvLxhWD9LyROHLs04Xw6gut2ppKd43V83UkYpu2uEp87v8CZ+wLy//bGF9Hma780TX3lMdT2ohvpdHY3xAKa2QSO/pwlPojVJjvI87C8O6+IJkXDP8C7K7D5+H1fd5VH9SGQd4iXdqGMW381S7yhXxSPqmfWXPp4S0WF1NOKhPtCxKqfXaN7fPkI7mDpKuUZ4hH1qKaYvNNPb9z54qt4QJ9HN5tv3PngzzLWpBa75+2D3wrxiT/3gOn/vqEMsazjPycxVK8YSJ5zPS0IW6wyQYzEjvPWfv3f/AMZ0AN1GI2RSAAAAAElFTkSuQmCC"
+  },
+  "christmas|tidsrejsen 2": {
+    "id": "6GYyME16S63CNvpx75DkTu",
+    "title": "Tidsrejsen 2",
+    "artist": "Caroline Castell (feat. Jonah Blacksmith)",
+    "year": 2024,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/6GYyME16S63CNvpx75DkTu",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbUlEQVR4nM2WUWqDMQyDv4S+Kzfo/Y/130A5gYfyw2Dd0+bClkKKQytsy5Y9itez57cn+Lu3McbaY6+9Nsegg0epSlClshTDHbwHDIEX3staMWYDb55by6zlX/3363mc2wzE4iZ7vvzmh29lGPiSax1jNvBGDdCnuUFXj98cqlDpNtyvF4lyFch08cpK7WFkHcjZ889OuFD5xNHZwJsHk0F51a6x6fXbBD3HEDsBL8XT2cCjcEi9u9fJppv54yTNyZ7fwK9SfbLkyAzq+TfZW2vBvtInySI9/yyXkj5w/OzG60LYR6xM4p4tPMmpZqdPrG7+uKlwWiNVE9zZwkN2nDt3QN31r1KCSlG/pf5UTtaif2GkHW8ivhU1HLf5yLkFK+NXTf2bZyWoTSiOWMlNvVJ8e46MS+O9u/12SjiNcQZIvmd7ngvpegZtvWU/YGjUBc9INP156TRvJpNp6wt3uGdl0xHp3r7x7elf7bsfj/IMPXjuHC0AAAAASUVORK5CYII="
+  },
+  "christmas|julefred": {
+    "id": "4QuQvCiD9rgWRgfFvrMy1i",
+    "title": "Julefred",
+    "artist": "Anne Linnet",
+    "year": 2025,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/4QuQvCiD9rgWRgfFvrMy1i",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaElEQVR4nMVWQYotQQiLxezjDd79j1U30BNkiA3D58/Shin6wbMWIWpMGcL/p8+vK+Dv7iIiEZ3IxhOcFR4lZLESyHSADd4XEEQjUZ1QBt+pQSET5vhKTYXuB/UFPBXwQV2COcFZ4IUC4E/YAO8GD/JBcfpMB7XDo0Q6a4lgYY1XFFUo+B/WeFWCVQzTFJd4ZzA7oMq6GtmcFV4CYQGimp2eu7PAg9wJQqr5uYpnhcdpAmqQ1/09QEcp8CEYprfOFyRZqCKNt80XLOfsCSmt8w2FkLhAghd2hrvlR9kQVFR5hGvXj7q2UZlZos30LPBCYRN9kmXbCHupPwjTEZE1RnMWeMduKgRujpua7FnxgxXjYbMIQW31N/48hsXp9A7veT8sPDDbuln3Q8/ncXvDn+mRxTNtprfL97kjiveTsya8sm+4drcvRzBnXb+qGV4b9HJ+MUKZz+/5mPRuX/tn4Z1X8y9329/nG6VV7yv2BUyOAAAAAElFTkSuQmCC"
+  },
+  "christmas|tinka": {
+    "id": "5lfdk3SoWmqFc4FPYklQm4",
+    "title": "Tinka",
+    "artist": "Burhan G (feat. Frida Brygmann)",
+    "year": 2017,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/5lfdk3SoWmqFc4FPYklQm4",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABcElEQVR4nMWW220lMQxDj435lzq4/Zc1HVAVKKAnQYDd/Ql0sbHnARswQUsU7dX82Wr/NQW/N7fWylqVlcUZMMGjoztC/fz90QTvghVAooUiPdgDvH2+lSL5Ss2e8QO6FkGR78Brkpfgla30YA/wVi9wAJ9WEPcsv250EOftbr1BL9CSAcUYT+YnRCiaeAMeslRMM2LI77KWm6IrZcEM9XyhYvWLQqsfTe8BHo6dTloJJEdxj/DCj4Gaxs6gKR4GDOtPB3EP8DZFLFfGDZEVGsfPgomWxdyhIb+LZkXcRVHZ9ZO1+5/8OrqR83BIjvWcOgYNr8o6BPeIX9hfULtbhHO99OeuTzaG+91201ZyJ+73vN4CXB0+NR+/2SM8t2hDcWpkimccF69tMHyiaxa/cHp7NemNV431YguQSdoarOw94vcVuDtTuECY3w9I2VnqKZQ9Pi91irftzsN8XPjqkkEtX4mObKZ+9c31Z2v/x9wHFn76dHwwQwoAAAAASUVORK5CYII="
+  },
+  "christmas|dr mte mig en lille dr m": {
+    "id": "3WcK48G0JoYgyasnFbmgZ3",
+    "title": "Drømte Mig En Lille Drøm",
+    "artist": "Dicte",
+    "year": 2006,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/3WcK48G0JoYgyasnFbmgZ3",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZUlEQVR4nMVW0WlDMRCTTf7lDbL/WN1AN4GK7pVSmkBLL1CTkGfzImSfpPMyvo/aD0vA/62ttU6tOnUKPcEED6ZNykY/2NQE7wYsog7hWvBZfMkZCDhHOn/575M1owrA0Q/v/Wq/xsEdwh2+JvvJe/uXa8sL4Oe0AL7N6psBE1SX19YL9EJYMkBhjCeaFoQ8gVM8qD/NlA7RPcKzrm/IWdnyHuEx3CgptRj7bQNlu+7EOQVhzfScehiShGyX0FwvcJRy4eZ3j/AgghAiZ4hjPF3GEBHIF+jZzql9FFljfuyDi44beaw/SCHWxkNUqCE/WE0vmOGo6X7dde22FIIa83NUx+ilg2uP8JAoTSYwTubQv+h8Tv7FItn6uL5XKkfMQRzm6c61AOQi0nyVvrlH/IjLbbFdEMf+CF5HNJ17wjhPM3gWVXU14j3j545UWt095v0NUSCjnBzf0B+3BvyC/a9328fxDmUdF5+JGhPPAAAAAElFTkSuQmCC"
+  },
+  "christmas|vi nsker jer alle en gl delig jul": {
+    "id": "5ZqrAyHvzhg5RcYPjWgT5B",
+    "title": "Vi Ønsker Jer Alle En Glædelig Jul",
+    "artist": "Tommy Seebach (feat. Annette Heick)",
+    "year": 1989,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/5ZqrAyHvzhg5RcYPjWgT5B",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZklEQVR4nM2WwW1DMQxDKaN3aoPsP9bfgJ6ABZ2PomiP+kDrBIntw4MsUbTL+Dn2+rUF/N1eVXVmXVXvxRrxaGNv7E27s8CE9wEU0SBcBXfxkRwIV37OwTHn8XV1s6EneBY22hfozgITXrkAfi03wGvCgzNok0ZqbWvGYzCEFWbmGsZHWpQBgxA45ckIDc4nga4Zz6eoEhUcp/EFAREMNBFq1m87rfFKc+iFdnGkPxyhyFIqLORvDXgrInaj4dO9PfQD+OQOgiK/lEQzns6ZFV1HOWO94M6fKUfRU57gnNnvSTbWgFc+Bn212IhywNH9hriKElwqQSaVa8RjMhdSUIwI14zn2wDTb+P84TZS8rjgA/XNiAMeaNxB03ogTnUEyCA1zh/fri+do2voB9VAXeCF166UZM14Z0TSnWj7kfeBtjqZrIua+qnzTUVy103vyw/sAvOqKruYBh6+1749eO/pf3rvfgKnOfqqXB1DrQAAAABJRU5ErkJggg=="
+  },
+  "christmas|god jul": {
+    "id": "54JM48edMgazVCU3VNwj35",
+    "title": "God Jul",
+    "artist": "Andreas Odbjerg",
+    "year": 2021,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/54JM48edMgazVCU3VNwj35",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbklEQVR4nMWWQYolMQxDX8LfKzf49z9W3cA+gQalaRjmrwY3tBdVcRbCjiUly/wbvT+24Pf21lqH1adP85XsEZ5sDqp3wUnCBO8FS8Ch+uCTZI/qu5HajuvcZPMZ+7/2im7otDzEe0GO71C8j89N9gBveUEO8Csa9EzwcIIyKn8lNcOTLYHLFiqmeC5ZLgqVjDTE4/Z5V8Ia1vdCLLNwHy93D/mMK72ayvml0lm/L95t06aXL7Gn9UlWuTJYo5S7Z3impMxVqW843023DlQ/N49U9qi+UpiSn8oKC/cIT067cZZwb47ny+KMRJHwXG8ukfGqVKFiTf3KDScf1Mez+/IqVmFMbCauMNUv5kl558n99h7zhdC4YjEqiFj2CC8R/wNFekO+7PskeFb8hb4XO3O/d6gcEf8A/xQLqKpILVfxWG98cyVOw/j8bixadc3+R94H7byDpAdRQ31wTS8kzLKG+n1dwL+wf/Vt+xl/AKW2/80gbeg+AAAAAElFTkSuQmCC"
+  },
+  "christmas|stjernest v": {
+    "id": "3v2d3qpgx5s7cwpMg71i3O",
+    "title": "Stjernestøv",
+    "artist": "Jimmy Jørgensen (feat. Annika Aakjær, Chapper)",
+    "year": 2012,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/3v2d3qpgx5s7cwpMg71i3O",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABa0lEQVR4nMWWQYpDMQxD5dC9coPe/1j/BvIJNCiFLqar4s9MCg029OHYlusyfp9eHy7g/3xVtVG9sRsvY414tFGiStg7Bia8B1AENuHe8I6xRvGdowQHvYyFz7O+8hnVIPYtPAvY0BXsMdaAVy6Ab7MBXhMenAMRlFNrWzMebTIPtQPFlHdAFgSKJ4NrxJMMRcXOh5zx4ttmw9puVWOmtxMTREmWCZvD9yJFpZ1KKKaG9WXCOqjDHPeLIFMHmxYcv1ckIUi5eEP+dLqEOHEO8/cA1bvRZ7b0FS2vUXyO4BJbUmiM6+sjX8kMOfpbIx6V3kvHCBHxjPfIV8HYwub1zDhcs/ic+DJbkrw09RrxcDoGzhXgrB7ryOwJVwFPGnXHfnB1CowMK+qG/QDc+bcU1D2uR0ZAMnemfUbhGvOctnsN1qE+1uuiiuorQrmh/xjx+gz9qT7q7AdNdJaYRMfRfvrI0vKO9bvf/oXvB9uoCzllMeqbAAAAAElFTkSuQmCC"
+  },
+  "christmas|kongespil": {
+    "id": "0nQBmwUprs4LYyhECw44LH",
+    "title": "Kongespil",
+    "artist": "Hjalmer",
+    "year": 2019,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/0nQBmwUprs4LYyhECw44LH",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaUlEQVR4nM1WTa7eQAgzo7c3N5j7Hys3MCegMl83bfUWFZHaiRKFWVgGzE80fj91/rgC/t1dRGREJRIYAzs8dkO4SgFjYMk5EslCZZlg7vC+5isQXQj+LZdv7nizKkG9gddC4gEaShvY4EUH8HHTpwA+OzwMzC2D6gU9ZyJIEIKybJ4FHrrB1qAJTam141dA5kPY8QDump/YbVr+G4pniQeoITW62b3zFy2TM8Vm29zyc+DEHiWzybW/jpxfmp+jeBZ4B9YcipWPu4JTfFZ4z4XyBmBkotd6adOaSpOgZfyikVC4A073q97Vr9M6rIaes/uCnv1Mbm2u9UdQLl9RtKq15dctQ9JOb/sLXB+c2v2MjyW/Y0BdT3Lhsllv7AdIh1GW9HL+np/7AbqImkxjvx/UuAtVkHpjnqvN7kq13od8MtPuPndG8cFGL3RJeIhYg7IezwLvoCKc1ufTYoidv5/94JfzX+27PwA1I+41ACEXIQAAAABJRU5ErkJggg=="
+  },
+  "christmas|santa claus is coming to town": {
+    "id": "2QpN1ZVw8eJO5f7WcvUA1k",
+    "title": "Santa Claus Is Coming To Town",
+    "artist": "The Jackson 5",
+    "year": 1970,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/2QpN1ZVw8eJO5f7WcvUA1k",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbklEQVR4nM1WUYobUQyTh/zLN5j7H2tuIJ9Ai17an7bQZb3QDiHEj4yQbcl+Zfz6zPXbEfDvzqqqu6bRgxNgh0cb0q0S+gTY4L2AIsrzIy5+Rw1UhgfPV9790xmJmRv82/8+la/RPXNIdgJs8MqFn7yiPYDPLl/behQk4QTY4XWfphJPP5iE1wIPZkRHCDJMidrxG6D7IQyogXvXX1iiLVmxBiAv+ZGoumPesbjVywXUI04UzUry23whUGASP8nv+oEzXSjZtFK+Xf2ORGBZDCTy+1rgvTD3uJHZ0g8CiCU/g1RypbSu3wtoqjHtwv2eMdfSH/NGSs7NWfsjg8VyJEPs9YLoL/Y9PZbX+ot9A8k3u63+4DQ2uqYBLvldAVSTlf1Lx8HXCq9yJUgRI+We3uLlSpDFNsRkSq/3b+ihJ7qZIrf76DzSDfQtYXb+eJ3vBoYzuuMQbOeBGXfkc3Sjpf5wWht3ZHcu/Vb/+X33A8Yw7btuhFNVAAAAAElFTkSuQmCC"
+  },
+  "christmas|peace on earth little drummer boy": {
+    "id": "4QGDv8h0xaBkMzwUuUO8Tx",
+    "title": "Peace On Earth / Little Drummer Boy",
+    "artist": "Bing Crosby (feat. David Bowie)",
+    "year": 1977,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/4QGDv8h0xaBkMzwUuUO8Tx",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABWklEQVR4nM1WQY4cQQzCrb3jH/T/n9U/wC8gonqVQ6Jc4pGS0Vxc0iAMBVNl/PqZ67cj4N+dVVV3TaOBM2CDB9OmRNPyO1w7ztVoDl6G1bt9v16SZfh75Y9oqp65Za3xvgCjewRo0BmwwSsXwJ/jAHx2/Hxg7jmgZ7gWeBe6UQzHB8JkvBZ4sGGbEGSYspf3r4GuYVZVYc+Psg0lHWBYasdvODXsAca4t/cFVmKrpJdEkqwdHiIciITD6QVt/ZUZk2mJWPqLlBWsMHuvzdaP5273XcD0IIDY9ql4YABJ4la/aIbsDPLoqKW/fFX8hl77qxeT763RGg96Y5akUVjr53zProRCUHv9pAgXDT+QDycaAY2/3OcXcSNddRoBW7zzJHDK2YHVJ94H+aMTSlMR8drhAWDd2fSWZnZ9+p41U9PPc//Fb/+gH036tJY+4K9POhyjd37Uf/7e/QFNBQQgmalgtgAAAABJRU5ErkJggg=="
+  },
+  "christmas|where are you christmas": {
+    "id": "1msuiw6pnXYfxZ7Edyit9U",
+    "title": "Where Are You Christmas?",
+    "artist": "Faith Hill",
+    "year": 2000,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/1msuiw6pnXYfxZ7Edyit9U",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbElEQVR4nM2Wza3cQAyDPxl7lzpw/2W5A6kCBpy3yeHtKVGARBdDA5jQD8mZEN9jro8j+HdnEVERU1NwEnZ4KdF9981wEjZ4L4jEWKOpdsISD3hKGK7+0kwza1xdr/FeIKqmQaGTsMELBeSv1Ct5NnjI0RKZyq/kWuFlCikPXLYyt3hISpoWyu4d3kUzVZMIOuDe7ZczPNFfM3SVveNLWRRZDSPKdnOt6mvXp/S3Ey3n96IgJwlNuN+lfjHhWn0o09B7/rXB3OdXvzu8i+dGUQHvznf6PXpLcxk3273UR6gYRUPaSpnO5X3U06Ebgn72foXc4VkFtNex9QMLF8v3SG7vL3pvwYbVuNRrV1/CoaCN8PDx2tUnq9fTO5661C/v6dlHbc6w9VM/CVTckzl26fX9G+cWn6aYsClcOzzHk2K4u41+8RnXb51V+eHyPPcf/PstlLJlta9Lu8La//ipjsMaM2bnLx9H/9V79wc9kw8wuinSswAAAABJRU5ErkJggg=="
+  },
+  "christmas|christmas is all around": {
+    "id": "2bWizjWMdoTFUmMdaZsZsi",
+    "title": "Christmas Is All Around",
+    "artist": "Billy Mack",
+    "year": 2003,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/2bWizjWMdoTFUmMdaZsZsi",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXElEQVR4nM1WW2oEMQyTh/7LN+j9jzU3UE6gIk+/WvpRvNBmYXcdGGHrkUkZX9e5vm0Bf7dXVV0A5icFdni0ge5GJp/iWuC9AUWo1WyoU2CJB6D1Lpaav3r2+nFPOCzxU+tr15/RBM8MngIbvHIBz5hZB+C9wYOzYCqwTKEdHiFIFiCbErd4dHAc7oK96y9+qQg8JN5o9ZI/iBJsyPm3nxfmaCFC0lqPLJL09Jfva4UnEtFEMDP8Vo/3qOASde4zzr52/RkxcwSBYmlt/QdFZT+yrPUVJxmJXNKx9DOsETjTRpoIc63wKM1JwJg6RGqZD9CciDB9esufHc/NwQINidcKT7FL9E1v3OeNj1GGwrxKXpJf5WNE5h3ecz9Ag6cbeTNt8za0BYZKf9iff4xh5rxP4LbzZvU5DbctcXsferrEDdxdDekF/Mnjw7S3zgdivgSEUpTZ8Vf//L77AUUMDifShkdOAAAAAElFTkSuQmCC"
+  },
+  "christmas|christmas time don t let the bells end": {
+    "id": "46w8k81V0eSBx64XuVHxT2",
+    "title": "Christmas Time - Don't Let The Bells End",
+    "artist": "The Darkness",
+    "year": 2003,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/46w8k81V0eSBx64XuVHxT2",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYklEQVR4nM2WwW3FMAxDaePfqQ2y/1jegJ6ABe1/ak+FPtAKQRL58EBZsqVhfLc9fywBf7c2xqg9du3aOA56PNooUAVUxUGH9wIGARQ8Sqw4s6XvmEKMxNjET5u/WjPXzvcCZ4P3ArJ9A8ID13Fmgzc8gGzgtQ1w9fT5UGufDLtbzzBtkrBSKhSsHs+iaUGgaLR5EPPkjzA/oA9WZNFKxGzydCCQLIt0l0fKBMPC3cXZ5PmCopSROZs8RNrBxuvqS3KPwBtwe//EGycBmf39s0+gx/lMPhDgKUA7iZ4N3gSWC2LuqxrA6t1/OWV2akVSQne7XlLOB5RsBD17PFop5tPakhk143UKJQqpq3e2eDFEG3jOSI93+8cqARynkag5vzDa/DwoCtq7Wy+5CpLXe+RSibPBe503UVxPaM+nZq7NtddtxLPHs7AVFNPOH31gPthB+UwdYCu/dz542/v3P827X8SR8W0OqQoeAAAAAElFTkSuQmCC"
+  },
+  "christmas|merry christmas i don t want to fight tonight": {
+    "id": "6HA6r647BX7lOIDzQ3PBb9",
+    "title": "Merry Christmas - I Don't Want To Fight Tonight",
+    "artist": "Ramones",
+    "year": 1989,
+    "cat": "christmas",
+    "url": "https://open.spotify.com/track/6HA6r647BX7lOIDzQ3PBb9",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZklEQVR4nM2WwY3lMAxDn4J/pzv4/ZeVDugKNKAzs4fdoz6wYwQO5ANBWRTlav5e+/rnCP7fWVWtVXux4ATM8NTNNqxAJmCC94ISWoiu7VX6xB3cFlSflMf8gPc2i7IP4DXj18YGKWjtGV51gf6EG3RP8OgsG6v1HVwjPCXXVuM2LTTCuwja5i6viGYP9UI34ZR8Q5QhP7qdS6OlpN4a31/00titYHqMh/ukGX4pjGd4RMnIthXcMT8djlI+S9N6PJtTlUNvxu86EGWxq0J0jfXXLTk0RWQ4zrft1OO0bsdhrhGeYgYPu4hl7AcQpThCtvUBvZD+SK6Kr3rsL1opxiZdt7Q89PsNxS6pMjHp2fx9LDkqjqk+jnAN8F6c+VENd2UO76melT6LpaaDP6E/4giRzTHoof+9zq6SeHNj1mxePnhers7sZfn9gffBNo1CUGN/4TGW44A482mW7/Pg/dnz/03v3S96YgPOnopm3gAAAABJRU5ErkJggg=="
   }
 }

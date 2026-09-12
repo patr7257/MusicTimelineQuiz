@@ -12,13 +12,18 @@ Hitster board game.
 - 2 to 4 players, names entered per player.
 - Song categories plus All Mixed (Rock, Pop, Hip-Hop & R&B, Dance & Electronic, Soul/Funk/
   Disco, BANGERTIME, Happy Days, Danish, Festival, Disney, Movies & Musicals, Musik i
-  Gentofte, MGP (Børn), Eurovision), plus a year-span slider in setup to limit the deck to a
-  release-year range. Tick a single category ("Clear", then that tile) to play a themed deck
+  Gentofte, MGP (Børn), Eurovision, Christmas), plus a year-span slider in setup to limit the
+  deck to a release-year range. Tick a single category ("Clear", then that tile) to play a themed deck
   on its own, e.g. only the Musik i Gentofte festival lineup.
 - Two contest categories carry the CONTEST year, not the Spotify release year: `mgp` is DR's
   children's Melodi Grand Prix (season year, 2000 onwards) and `eurovision` covers 1990 to
   2026 (winners, runner-ups and iconic entries). The card year is the year the song was in
   the contest, which is what players place on the timeline.
+- `christmas` is 150 cards, 1942 to 2025: 100 English Christmas hits from Bing Crosby to Ed
+  Sheeran, plus 50 Danish ones (julekalender themes, Shu-bi-dua, Kim Larsen, Gasolin',
+  Rasmus Seebach, Mads Langer, Burhan G). Julekalender cards carry the AIRING year, not the
+  Spotify release year, the same rule as `mgp` and `eurovision`: Nissebanden i Grønland is
+  1989 even though Spotify only has the 2011 reissue.
 - QR codes link straight to the Spotify track and are baked into the database. The song QR
   can be shown fullscreen ("Show QR big"), and "Play here" plays the track through a hidden
   Spotify embed without revealing the answer.
