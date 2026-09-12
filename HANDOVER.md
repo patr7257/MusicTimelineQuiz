@@ -1,58 +1,59 @@
 # HANDOVER
 
 ## 1. Date, branch, PR, CI
-- Date: 2026-08-08
-- Branch: `feat/mgp-eurovision-categories` (squash-merged to `main` as `f86f15b`, local copy deleted at close, remote copy left in place)
-- PR: MusicTimelineQuiz #11 (MGP + Eurovision categories), squash-merged; closes issue #10
-- CI: repo has no CI checks; verification was `validate_seed.py`, `audit_deck.py`, and reading the built `songs.js` back through `window.HITSTER_DB`
+- Date: 2026-09-12
+- Branch: `feat/christmas-category` (squash-merged to `main` as `360efdb`, local and remote copies deleted at close)
+- PR: MusicTimelineQuiz #14 (Christmas category), squash-merged. Website side: PatrickRobelWeb #178, squash-merged as `c15e399`
+- CI: repo has no CI checks; verification was `validate_seed.py`, `audit_deck.py christmas`, `node --check songs.js`, and fetching the live `songs.js` back off production
 
 ## 2. TLDR of session outcome
-Done (all in PR #11, and live on production):
-- Two new filterable deck categories, both hand-curated: `mgp` "MGP (Børn)" 🎈 (50 cards, DR's children's Melodi Grand Prix) and `eurovision` "Eurovision" ✨ (75 cards, 1990 to 2026).
-- MGP is weighted at the early seasons on purpose: 42 cards from 2000 to 2013, 8 from 2014 on.
-- Eurovision is deliberately modern-only (1990 onwards): every winner in that window that Spotify DK carries, plus famous runner-ups (Cha Cha Cha, SloMo, SPACE MAN, Rim Tim Tagi Dim) and iconic entries (Dancing Lasha Tumbai, Run Away, Party For Everybody, Europapa, Espresso Macchiato).
-- Deck goes 844 -> 970 songs, 12 -> 14 categories. `songs.js` 662 KB -> 758 KB.
-- The frontend needed NO change: `renderCats()` in index.html is driven by `DB.categories`, and the 4-column tile grid just grew a row.
-- Website repo synced, committed and PUSHED, deploy verified by fetching the live `songs.js`: patrickrobel.dk/music-timeline-quiz serves both new tiles.
+Done, and live on production:
+- New filterable deck category `christmas` "Christmas" 🎄 `#2e9e5b`, 150 cards, 1942 to 2025.
+- 100 English cards: the standards (Bing Crosby, Nat King Cole, Brenda Lee, Elvis, Darlene Love, Eartha Kitt), the 70s and 80s radio canon (Slade, Wizzard, Elton John, Wham!, Band Aid, Queen, Chris Rea, Pogues, Shakin' Stevens), the soul and hip-hop side (Donny Hathaway, Stevie Wonder, James Brown, Clarence Carter, Run-D.M.C., Kurtis Blow) and the modern hits (Mariah, Bieber, Bublé, Ariana, Sia, Kelly Clarkson, Taylor Swift, Ed Sheeran).
+- 50 Danish cards: julekalender themes (Jul i Gammelby, Nissebanden, Pyrus, Bamses Julerejse, Jul i Juleland, Jul på Kronborg, Jesus & Josefine, Jul i Valhal, Absalons Hemmelighed, Pagten, Ludvig og Julemanden, Julestjerner, Tvillingerne og Julemanden, Tidsrejsen, Tinka, Theo og den magiske talisman, Kometernes Jul), the classics (Søren Banjomus, Den Himmelblå, Rap Jul, Endelig Jul Igen, Så' det jul, Gnags' Julesang, Vi ønsker jer alle en glædelig jul) and the modern ones (Rasmus Seebach, Mads Langer, Burhan G, Lukas Graham, Oh Land, Christopher, Suspekt, Anne Linnet).
+- Julekalender cards carry the AIRING year, not the Spotify reissue year, the same rule `mgp` and `eurovision` use for the contest year.
+- Deck goes 970 -> 1120 songs, 14 -> 15 categories. The frontend needed no change: `renderCats()` is driven by `DB.categories`.
+- Fixed a latent fetch-cache bug found while building (see gotchas). Two cards were silently unbuildable because of it.
+- Website repo synced, merged and deploy verified by fetching the live `songs.js`: 15 categories, 1120 songs, 150 in `christmas`.
 
-NOT done: the two categories were never played in a real game, only verified at the data level plus an HTTP fetch of the built files. No phone/host round was run with an MGP-only or Eurovision-only deck.
+NOT done: the Christmas deck has not been play-tested with phones.
 
 ## 3. Prioritized next steps
-1. Play one MGP-only and one Eurovision-only round to sanity-check the feel. The Eurovision deck packs 75 cards into 37 years, so timeline placement is deliberately tight; if it plays badly, swap a few picks for pre-1990 classics.
-2. MGP 2023 has NO card: the winner (Sophia, "Det' Bare Tanker") is not on Spotify DK. MGP 2005 (Nicolai Kielstrup) and 2009 (PelleB) winners are missing for the same reason, though those seasons are covered by other entries. If you want 2023 represented, pick a different song from that season.
-3. Carry-over: confirm the PRODUCTION Spotify redirect URI is registered (game URL + Vercel production URL in the Spotify app), or Connect Spotify fails on the live domain.
+1. Play a round on the Christmas deck before using it at a party: check card years read sensibly on the timeline and that the Danish julekalender cards are recognisable.
+2. Issue #15 "feat: chromecasting" holds the full research for getting the game screen onto a TV. Start there, not from scratch: a cast button cannot work from an iPhone, so the cheap route depends on which Chromecast model is on the TV.
+3. Carry-over: confirm the PRODUCTION Spotify redirect URI is registered (game URL plus the Vercel production URL in the Spotify app), or Connect Spotify fails on the live domain.
 4. Carry-over: decide on true server-side delete of finished games (needs a host-token delete-on-finish endpoint in patrickrobelweb) vs keeping the client-side list filter.
+5. Optional deck work: 32 old seed entries still never resolve on Spotify DK, so a plain `build_deck.py` always prompts for credentials. They could be retitled or dropped.
 
 ## 4. Verbatim resume commands (PowerShell)
 Rebuild the deck from cache with no credentials and no API calls:
 ```
-cd "C:\Users\pr\repos\1-Personal\MusicTimelineQuiz"; python tools\build_deck.py --no-fetch
+cd "C:\Users\pr\repos\1-Personal\MusicTimelineQuiz"; python tools/build_deck.py --no-fetch
 ```
-Sync the merged game into the website repo (then commit and push there):
+Gate any seed change (pre-build, then post-build, neither needs credentials):
+```
+cd "C:\Users\pr\repos\1-Personal\MusicTimelineQuiz"; python tools/validate_seed.py; python tools/audit_deck.py christmas
+```
+Sync the game into the website repo (then commit there; merging that is what deploys):
 ```
 cd "C:\Users\pr\repos\1-Personal\patrickrobelweb\website"; pnpm sync:music-timeline-quiz
 ```
-Audit only the new categories (no credentials needed):
-```
-cd "C:\Users\pr\repos\1-Personal\MusicTimelineQuiz"; python tools\audit_deck.py eurovision
-```
 
 ## 5. Gotchas discovered this session
-- A seed edit to `title`, `artist` or `year` does NOT reach `songs.js` for an already-resolved song. `build_deck.py`'s `try_reuse` returns the CACHED entry and only re-syncs `source`, and `deck.json` takes precedence over `fetch-cache.json` when both hold the key. Fixing the 2026 MGP title (a missing comma) meant patching BOTH `tools/deck.json` and `tools/fetch-cache.json`, then rebuilding. Cache keys are `"<cat>|<normalised title>"`, and norm strips punctuation, so a punctuation-only fix keeps the same key.
-- `mgp` and `eurovision` carry the CONTEST year, not the Spotify release year. That is safe: `audit_deck.py` only flags a release EARLIER than the seed year, and these recordings sit on LATER compilations.
-- Both blocks sit LAST in the seed's `songs` object, the opposite of `gentofte`. Order decides who wins a duplicate, and here the existing category should win: that is what keeps "Fly on the Wings of Love" and "Only Teardrops" in `danish`, with Eurovision carrying the other Danish entries (Rollo & King, Brinck, Basim, Rasmussen, Saba).
-- Spotify credits most MGP tracks as "MGP, <first name>", so `audit_deck.py` reports ARTIST_WORD_ONLY for them. Those are the real MGP recordings, not wrong matches. Same class of harmless flag: "Katrina & The Waves", "Charlotte Perrelli" (she was Nilsson in 1999), "Buranovskie Babushki", "Joost".
-- Search DOES resolve wrong recordings for generic titles: Emma's "Hater" (MGP 2022) matched an unrelated 2018 track by Emma and the Fragments and was dropped. Always run `audit_deck.py <category>` after adding one.
-- The seed was deliberately over-provisioned (72 MGP, 104 Eurovision candidates) for one credentialed build, then trimmed to exactly 50 and 75 and rebuilt with `--no-fetch`. Candidates that never resolved were removed from the seed rather than left behind, so they do not force a credential prompt on every future build.
-- `gh pr create` failed with "must be a collaborator" because the default gh config was active as `przrm`. `powershell -File "C:\Users\pr\.claude\scripts\gh-auth.ps1" -Mode fix` repaired it in one command.
+- **Fetch-cache key collision.** The cache keys on `cat + "|" + norm(title)` and `norm()` strips parentheticals, so two cards in one category whose titles differ only inside brackets share one slot. The later card overwrites it, the earlier one then reuses the wrong track id, and the second card is dropped as a duplicate. `validate_seed.py` cannot see it: it compares title plus artist, and the artists differ. Hit by "Christmas Time" vs "Christmas Time (Don't Let The Bells End)" and "Merry Christmas" vs "Merry Christmas (I Don't Want To Fight Tonight)". Fix is to move the qualifier outside the brackets. A stale `tools/deck.json` re-seeds the collided key on every rebuild, so that file has to be corrected too, not just the cache.
+- **Spotify search API changed.** `limit=50` is now rejected with `{"error":{"status":400,"message":"Invalid limit"}}`, max is 10, and `popularity` comes back 0 for every track under client credentials. Ranking candidates by popularity is no longer possible. `build_deck.py` already uses `limit=10`, so builds are unaffected.
+- **Resolving a card by hand.** When search cannot match a card, write a `cat|norm(title)` entry into `tools/fetch-cache.json` with the real track id and `qr_data_uri(url)`, then rebuild with `--no-fetch`. Track ids for cards that were built at least once can be read back out of `tools/audit_checkpoint.jsonl`, which is how two lost ids were recovered this session. 14 of the 150 Christmas cards were placed this way, and all 14 come back OK in the audit.
+- **Two accepted audit flags in `christmas`**, both cosmetic: Spotify dates Gene Autry's Rudolph 1947 against the 1949 recording (seed keeps 1949), and credits "Pretenders" without "The".
+- **Website repo pushes need the personal gh config.** That clone's `.git/config` sets `credential.helper !gh auth git-credential` with no config dir, which overrides the global pin to `gh-personal`, so git authenticates as `przrm` and a private `patr7257` repo answers "Repository not found". Prefix the command with `GH_CONFIG_DIR=C:\Users\pr\.config\gh-personal`, or remove that local line.
+- The stale handover claimed the website repo still needed the steal-phase sync. It did not: `songs.js` was the only file the sync changed, so that work had already shipped.
 
 ## 6. Open decisions waiting on Patrick
-- MGP 2023 has no card at all (see next-step 2): pick a substitute song from that season, or leave the gap?
-- Server-side delete of finished games: yes (build the endpoint in patrickrobelweb) or no (keep client filter)?
-- Carry-over from the July session: is a two-phone live check of the steal flow still wanted, or is desk-testing enough?
+- Chromecast: which model is on the TV decides everything (see issue #15). A Google TV device can sideload a browser and open the game URL with no code at all; an older dongle can only ever show a registered Cast receiver, which needs a native iOS app to launch from an iPhone.
+- Whether the TV should show a read-only display client instead of the authoritative host screen. That needs a new display-scoped projection, because the phone projection deliberately strips the current card and its answers.
+- Whether to remove the local `credential.helper` line in the patrickrobelweb clone so the global gh-personal pin wins.
 
 ## 7. Environment state
-- A local `python -m http.server 8099` was started to verify the built files over HTTP and was stopped in the same session. No Docker, no other ports, nothing left running.
-- Branches cleaned at close: `feat/mgp-eurovision-categories` deleted locally only. The remote branch of the same name still exists on GitHub (this repo does not auto-delete merged branches).
-- No scheduled jobs, cron entries, or background tasks were created.
-- Website repo (`patrickrobelweb`): `main` is committed AND pushed this session (`94202c7`), production is up to date. Nothing pending there.
+- No dev servers, Docker or localhost ports were started this session; nothing left running.
+- No cron jobs, scheduled tasks or wake timers were created.
+- Branches deleted at close, all with merged PRs: `feat/christmas-category` and `docs/handover-mgp-eurovision` (local and remote), `feat/mgp-eurovision-categories` (remote), and `feat/music-timeline-quiz-christmas-deck` in the website repo (local and remote). Both repos are now `main` only.
+- Single worktree per repo, both clean and synced with origin.
