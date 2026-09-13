@@ -75,6 +75,20 @@ checking PROTOCOL.md first.
 - `node scripts/check-picker.mjs` runs the real category block out of index.html against a DOM
   stub and the built deck: defaults, the two boxes, tile toggling, per-group All/None. Run it
   after touching `renderCats()`, the `group` fields, or the setup defaults.
+- `pick_best` prefers the release CLOSEST to the seed year (`seed_year` flows in from the
+  seed entry). This replaced popularity as the tie-break, which Spotify now reports as 0 for
+  every track under client credentials: without it every exact-title hit tied and the first
+  result won, usually a re-release. That is how the 2013 julekalender single "I En
+  Stjerneregn Af Sne" resolved to a 2026 re-recording of the same name. `audit_deck.py`
+  cannot catch that class (same title, same artist, later release), and the public embed page
+  carries no album name, so nothing credential-free distinguishes a reissue of the original
+  from a re-recording. Tests: `python tools/test_pick_best.py`.
+- `python tools/repick_versions.py [--only <cat>] [--dry-run]` re-resolves already-built cards
+  with that picker and swaps one in ONLY when the new track is strictly closer to the seed
+  year (`python tools/test_repick_versions.py` pins that rule). It skips any cache entry
+  marked `"pinned": true`, which is how a hand-chosen track id is protected from a later
+  search. Needs credentials, checkpoints after every card, resumable, then rebuild with
+  `--no-fetch`.
 - `python tools/build_deck.py --no-fetch` rebuilds `songs.js` from cache with no credentials
   and no API calls, skipping (and listing) seed songs with no cached track. 33 old seed
   entries have never resolved on Spotify DK, so a plain `build_deck.py` run always prompts

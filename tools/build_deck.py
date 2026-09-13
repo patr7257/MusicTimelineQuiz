@@ -142,15 +142,15 @@ def _do_search(token: str, q: str, market: str, tries: int = 0):
     return resp.json().get("tracks", {}).get("items", [])
 
 
-def resolve(token: str, title: str, artist: str, market: str = "DK"):
+def resolve(token: str, title: str, artist: str, market: str = "DK", seed_year=None):
     # Strict field query first; only fall back to a looser plain query when it fails.
     # The plain query is more forgiving for Danish titles (accents, punctuation), and
     # pick_best still enforces a real title + artist match, so loosening stays safe.
-    best = pick_best(_do_search(token, f'track:"{title}" artist:"{artist}"', market), title, artist)
+    best = pick_best(_do_search(token, f'track:"{title}" artist:"{artist}"', market), title, artist, seed_year)
     if best:
         return best
     time.sleep(0.6)  # these are two separate API calls, space them like any other call
-    return pick_best(_do_search(token, f"{title} {artist}", market), title, artist)
+    return pick_best(_do_search(token, f"{title} {artist}", market), title, artist, seed_year)
 
 
 _TITLE_SUFFIX_WORDS = {
@@ -182,7 +182,19 @@ def _title_matches(nt, ct):
     return all(w in _TITLE_SUFFIX_WORDS or w.isdigit() for w in leftover)
 
 
-def pick_best(items, title, artist):
+def release_year(item):
+    """The release year of a search hit's album, or None when Spotify omits it."""
+    date = (item.get("album") or {}).get("release_date") or ""
+    return int(date[:4]) if date[:4].isdigit() else None
+
+
+# How far a candidate's release year may sit from the seed year before the penalty
+# stops growing. Capped so year distance orders candidates that already matched on
+# title and artist, and never outranks an exact title match.
+YEAR_PENALTY_CAP = 60
+
+
+def pick_best(items, title, artist, seed_year=None):
     nt, na = norm(title), norm(artist)
     best, best_score = None, -1
     for it in items:
@@ -197,6 +209,15 @@ def pick_best(items, title, artist):
         score = it.get("popularity", 0)
         if cand_title == nt:
             score += 200
+        # Spotify returns popularity 0 for every track under client credentials, so
+        # without this the score is a flat tie between every exact-title hit and the
+        # first result wins, which is usually the newest re-release. Prefer the
+        # release closest to the seed year: for "I En Stjerneregn Af Sne" (2013) that
+        # is the julekalender single, not the 2026 re-recording of the same name.
+        if seed_year:
+            ry = release_year(it)
+            if ry:
+                score -= min(abs(ry - seed_year), YEAR_PENALTY_CAP)
         if best is None or score > best_score:
             best, best_score = it, score
     return best
@@ -291,10 +312,10 @@ def build_online(wait=False, no_fetch=False):
         if time.time() - token_at > 50 * 60:
             refresh_token("50 minutes since last token")
         try:
-            return resolve(token, e["title"], e["artist"])
+            return resolve(token, e["title"], e["artist"], seed_year=e.get("year"))
         except TokenExpired:
             refresh_token("search returned 401")
-            return resolve(token, e["title"], e["artist"])
+            return resolve(token, e["title"], e["artist"], seed_year=e.get("year"))
 
     def fetch_pass():
         songs = []
