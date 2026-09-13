@@ -376,6 +376,15 @@
     .cat-tile.on .chk { background: var(--tile-color, var(--orange)); border-color: transparent; color: var(--paper); }
     .cat-tools { display: flex; gap: 8px; margin-bottom: 10px; }
     .cat-tools button { padding: 6px 12px; font-size: 13px; }
+    .cat-group { border: 1px solid var(--line); padding: 16px 14px 14px; margin-top: 18px; position: relative; }
+    .cat-group:first-child { margin-top: 0; }
+    .cat-group.specials { border-style: dashed; border-color: var(--gold-deep); background: rgba(217,164,65,.07); }
+    .cat-group .legend { position: absolute; top: -9px; left: 12px; background: var(--paper); padding: 0 8px; font-family: var(--disp); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--brown); }
+    .cat-group.specials .legend { color: var(--gold-deep); background: linear-gradient(var(--paper), var(--paper)); }
+    .cat-group .gmeta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-bottom: 12px; font-size: 12px; color: rgba(59,42,30,.62); }
+    .cat-group .gmeta .spacer { flex: 1 1 auto; }
+    .cat-group .gbtn { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; background: none; border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; color: var(--brown); cursor: pointer; }
+    .cat-group .gbtn:hover { background: var(--paper-deep); }
     .cat-tile .em { font-size: 24px; display: block; line-height: 1; }
     .cat-tile .nm { display: block; font-family: var(--disp); font-size: 12px; margin-top: 7px; line-height: 1.2; color: var(--brown); }
     .cat-tile .ct { display: block; font-size: 10px; color: rgba(59,42,30,.65); margin-top: 3px; }
@@ -737,7 +746,7 @@
           <button class="btn ghost" id="catAll" type="button">Select all</button>
           <button class="btn ghost" id="catNone" type="button">Clear</button>
         </div>
-        <div class="cats" id="cats"></div>
+        <div id="cats"></div>
       </div>
 
       <div class="field">
@@ -1616,17 +1625,63 @@
         wrap.appendChild(inp);
       }
     }
+    // Category groups come from the deck data (`group` on each category in
+    // deck-seed.json), so a new category picks its own side without touching this
+    // function. A category with no group falls back to standard.
+    var CAT_GROUPS = [
+      { key: "standard", label: "Standard", hint: "The everyday deck, on by default" },
+      { key: "specials", label: "Specials", hint: "Themed decks, off until you pick one" }
+    ];
+    function catsInGroup(group) {
+      return DB.categories.filter(function (c) { return (c.group || "standard") === group; });
+    }
+    function defaultCats() {
+      var set = new Set();
+      catsInGroup("standard").forEach(function (c) { set.add(c.key); });
+      return set;
+    }
     function renderCats() {
       var wrap = $("cats"); wrap.innerHTML = "";
-      DB.categories.forEach(function (c) {
-        var n = songsForCat(c.key).length;
-        var el = document.createElement("button");
-        el.type = "button";
-        el.className = "cat-tile" + (setup.cats.has(c.key) ? " on" : "");
-        el.style.setProperty("--tile-color", c.color);
-        el.innerHTML = '<span class="chk">✓</span><span class="em">' + c.emoji + '</span><span class="nm">' + escapeHtml(c.label) + '</span><span class="ct">' + n + ' songs</span>';
-        el.onclick = function () { if (setup.cats.has(c.key)) setup.cats.delete(c.key); else setup.cats.add(c.key); renderCats(); validateSetup(); };
-        wrap.appendChild(el);
+      CAT_GROUPS.forEach(function (g) {
+        var cats = catsInGroup(g.key);
+        if (!cats.length) return;
+        var box = document.createElement("div");
+        box.className = "cat-group" + (g.key === "specials" ? " specials" : "");
+
+        var legend = document.createElement("span");
+        legend.className = "legend";
+        legend.textContent = g.label;
+        box.appendChild(legend);
+
+        var meta = document.createElement("div");
+        meta.className = "gmeta";
+        meta.innerHTML = '<span>' + escapeHtml(g.hint) + '</span><span class="spacer"></span>';
+        [["All", true], ["None", false]].forEach(function (pair) {
+          var b = document.createElement("button");
+          b.type = "button"; b.className = "gbtn"; b.textContent = pair[0];
+          b.onclick = function () {
+            cats.forEach(function (c) { if (pair[1]) setup.cats.add(c.key); else setup.cats.delete(c.key); });
+            renderCats(); validateSetup();
+          };
+          meta.appendChild(b);
+        });
+        box.appendChild(meta);
+
+        var grid = document.createElement("div");
+        grid.className = "cats";
+        cats.forEach(function (c) {
+          var n = songsForCat(c.key).length;
+          var el = document.createElement("button");
+          el.type = "button";
+          el.className = "cat-tile" + (setup.cats.has(c.key) ? " on" : "");
+          el.setAttribute("aria-pressed", setup.cats.has(c.key) ? "true" : "false");
+          el.style.setProperty("--tile-color", c.color);
+          el.innerHTML = '<span class="chk">✓</span><span class="em">' + c.emoji + '</span><span class="nm">' + escapeHtml(c.label) + '</span><span class="ct">' + n + ' songs</span>';
+          el.onclick = function () { if (setup.cats.has(c.key)) setup.cats.delete(c.key); else setup.cats.add(c.key); renderCats(); validateSetup(); };
+          grid.appendChild(el);
+        });
+        box.appendChild(grid);
+        wrap.appendChild(box);
       });
     }
     function validateSetup() {
@@ -3952,7 +4007,9 @@
     });
 
     // init
-    DB.categories.forEach(function (c) { setup.cats.add(c.key); });
+    // A new game opens on the Standard group only; the Specials (Christmas, Disney,
+    // Musik i Gentofte, MGP, Eurovision) are ticked on purpose, never by default.
+    setup.cats = defaultCats();
     $("catAll").onclick = function () { DB.categories.forEach(function (c) { setup.cats.add(c.key); }); renderCats(); validateSetup(); };
     $("catNone").onclick = function () { setup.cats.clear(); renderCats(); validateSetup(); };
     renderNames(); renderCats(); setupYearRange(); validateSetup();
