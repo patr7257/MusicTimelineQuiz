@@ -67,6 +67,14 @@ checking PROTOCOL.md first.
   `cat|norm(title)` entry into `tools/fetch-cache.json` with the real track id and
   `qr_data_uri(url)`, then rebuild with `--no-fetch`. Ids for already-built cards can be read
   back out of `tools/audit_checkpoint.jsonl`.
+- Every category in the seed carries a `group`, `standard` or `specials`. `build_deck.py`
+  copies the categories block verbatim, so the field reaches `songs.js` with no Python change,
+  and `renderCats()` renders one framed box per group. A new game ticks the standard group
+  only (`defaultCats()` in index.html). Put a new category on the right side in the SEED; do
+  not hardcode keys in the frontend.
+- `node scripts/check-picker.mjs` runs the real category block out of index.html against a DOM
+  stub and the built deck: defaults, the two boxes, tile toggling, per-group All/None. Run it
+  after touching `renderCats()`, the `group` fields, or the setup defaults.
 - `python tools/build_deck.py --no-fetch` rebuilds `songs.js` from cache with no credentials
   and no API calls, skipping (and listing) seed songs with no cached track. 33 old seed
   entries have never resolved on Spotify DK, so a plain `build_deck.py` run always prompts

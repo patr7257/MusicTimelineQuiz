@@ -10,11 +10,16 @@ Hitster board game.
 - Vinyl Lounge look: wood console, cream record-sleeve cards, Righteous display font
   (bundled in `fonts/`), themed scrollbars, fluid sizing.
 - 2 to 4 players, names entered per player.
-- Song categories plus All Mixed (Rock, Pop, Hip-Hop & R&B, Dance & Electronic, Soul/Funk/
-  Disco, BANGERTIME, Happy Days, Danish, Festival, Disney, Movies & Musicals, Musik i
-  Gentofte, MGP (Børn), Eurovision, Christmas), plus a year-span slider in setup to limit the
-  deck to a release-year range. Tick a single category ("Clear", then that tile) to play a themed deck
-  on its own, e.g. only the Musik i Gentofte festival lineup.
+- Categories are split into two framed groups in setup. **Standard** (Rock, Pop, Hip-Hop &
+  R&B, Dance & Electronic, Soul/Funk/Disco, BANGERTIME, Happy Days, Danish, Festival, Movies
+  & Musicals) is ticked when a new game opens, 709 songs. **Specials** (Disney, Musik i
+  Gentofte, MGP (Børn), Eurovision, Christmas) starts unticked, so a themed deck is always a
+  deliberate choice, never a surprise mixed into an ordinary game.
+- Each group has its own All and None, so playing one themed deck is two taps: Standard None,
+  then that tile. A year-span slider limits the deck to a release-year range on top.
+- Which group a category belongs to is data, not layout: the `group` field on each category in
+  `tools/deck-seed.json` flows through the build into `songs.js`, so a new category picks its
+  own side without any frontend change.
 - Two contest categories carry the CONTEST year, not the Spotify release year: `mgp` is DR's
   children's Melodi Grand Prix (season year, 2000 onwards) and `eurovision` covers 1990 to
   2026 (winners, runner-ups and iconic entries). The card year is the year the song was in

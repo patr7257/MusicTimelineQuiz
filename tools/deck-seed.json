@@ -1,20 +1,20 @@
 {
   "categories": [
-    { "key": "rock",   "label": "Rock",              "emoji": "🎸", "color": "#e8503a" },
-    { "key": "pop",     "label": "Pop",               "emoji": "🎤", "color": "#e75b9c" },
-    { "key": "hiphop",  "label": "Hip-Hop & R&B",     "emoji": "🎧", "color": "#c07bff" },
-    { "key": "dance",   "label": "Dance & Electronic","emoji": "🔊", "color": "#3ad0e8" },
-    { "key": "disco",   "label": "Soul, Funk & Disco","emoji": "🕺", "color": "#f0b429" },
-    { "key": "banger",  "label": "BANGERTIME",        "emoji": "🔥", "color": "#ff6a2b" },
-    { "key": "happy",   "label": "Happy Days",        "emoji": "☀️", "color": "#4fd18b" },
-    { "key": "danish",  "label": "Danish",            "emoji": "🇩🇰", "color": "#e63946" },
-    { "key": "festival","label": "Festival",          "emoji": "🎪", "color": "#a78bfa" },
-    { "key": "disney",  "label": "Disney",            "emoji": "🏰", "color": "#3ea6ff" },
-    { "key": "movie",   "label": "Movies & Musicals", "emoji": "🎬", "color": "#c9b037" },
-    { "key": "gentofte", "label": "Musik i Gentofte", "emoji": "🎡", "color": "#2fbf9f" },
-    { "key": "mgp",      "label": "MGP (Børn)",       "emoji": "🎈", "color": "#b8e02f" },
-    { "key": "eurovision", "label": "Eurovision",     "emoji": "✨", "color": "#4f7cff" },
-    { "key": "christmas", "label": "Christmas",     "emoji": "🎄", "color": "#2e9e5b" }
+    { "key": "rock",   "label": "Rock",              "emoji": "🎸", "color": "#e8503a", "group": "standard" },
+    { "key": "pop",     "label": "Pop",               "emoji": "🎤", "color": "#e75b9c", "group": "standard" },
+    { "key": "hiphop",  "label": "Hip-Hop & R&B",     "emoji": "🎧", "color": "#c07bff", "group": "standard" },
+    { "key": "dance",   "label": "Dance & Electronic","emoji": "🔊", "color": "#3ad0e8", "group": "standard" },
+    { "key": "disco",   "label": "Soul, Funk & Disco","emoji": "🕺", "color": "#f0b429", "group": "standard" },
+    { "key": "banger",  "label": "BANGERTIME",        "emoji": "🔥", "color": "#ff6a2b", "group": "standard" },
+    { "key": "happy",   "label": "Happy Days",        "emoji": "☀️", "color": "#4fd18b", "group": "standard" },
+    { "key": "danish",  "label": "Danish",            "emoji": "🇩🇰", "color": "#e63946", "group": "standard" },
+    { "key": "festival","label": "Festival",          "emoji": "🎪", "color": "#a78bfa", "group": "standard" },
+    { "key": "disney",  "label": "Disney",            "emoji": "🏰", "color": "#3ea6ff", "group": "specials" },
+    { "key": "movie",   "label": "Movies & Musicals", "emoji": "🎬", "color": "#c9b037", "group": "standard" },
+    { "key": "gentofte", "label": "Musik i Gentofte", "emoji": "🎡", "color": "#2fbf9f", "group": "specials" },
+    { "key": "mgp",      "label": "MGP (Børn)",       "emoji": "🎈", "color": "#b8e02f", "group": "specials" },
+    { "key": "eurovision", "label": "Eurovision",     "emoji": "✨", "color": "#4f7cff", "group": "specials" },
+    { "key": "christmas", "label": "Christmas",     "emoji": "🎄", "color": "#2e9e5b", "group": "specials" }
   ],
   "songs": {
     "gentofte": [
