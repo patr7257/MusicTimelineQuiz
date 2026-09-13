@@ -6,3 +6,6 @@ tools/gentofte_checkpoint.jsonl
 __pycache__/
 tools/enrich_dryrun*.log
 .claude/.codev-ack
+
+tools/repick_checkpoint.jsonl
+tools/repick_report.json

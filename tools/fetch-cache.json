@@ -6906,7 +6906,8 @@
     "year": 1985,
     "cat": "christmas",
     "url": "https://open.spotify.com/track/7LoFMtL7hxP9tr5HYyyUrJ",
-    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaUlEQVR4nM2W3Y0cMQyDPxv3TnUw/Ze1HdAVKKAvQH4uD0l0QCIsBpaxQ8gUxfFqfo6zP2zBv9tbaxXrFHV4T/YIT92U5QVUEiZ4b7AUIHqVXUn2qL4bNkV+ic3H2H+0Z85Bf/fuj7GhDQ9+4a6b7F//77f2Vi++VcYBvSZ4dAI3cusmnuGpWxLtbiEzxWurQ5tRVhrXZ9NhsFEWUzxb3TmmGjOvjwa37cvgvB+EQafEdNjWlD91UB1kkzL3AG9fTffiEV1lnplfpTIhjNNkS9PzhrZ0NWgdCXo6b0iOD8S2PK5PimIixIgFxniRSMY303tluId47avo9h3iGd5bHoUfzAPV5xP83i5elenl1AzvukrsNC4YwHF/E3qXi3SbssffD5+gLT85/Jn7vWOjuv489lOFsjt2iksP/Wrfpyi9cju4NO6p/kBe6e6DSnwCf77DG4+Zfz8gFF4RBng6b99deL8u/6f77hfnWgZXqhbOSwAAAABJRU5ErkJggg=="
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaUlEQVR4nM2W3Y0cMQyDPxv3TnUw/Ze1HdAVKKAvQH4uD0l0QCIsBpaxQ8gUxfFqfo6zP2zBv9tbaxXrFHV4T/YIT92U5QVUEiZ4b7AUIHqVXUn2qL4bNkV+ic3H2H+0Z85Bf/fuj7GhDQ9+4a6b7F//77f2Vi++VcYBvSZ4dAI3cusmnuGpWxLtbiEzxWurQ5tRVhrXZ9NhsFEWUzxb3TmmGjOvjwa37cvgvB+EQafEdNjWlD91UB1kkzL3AG9fTffiEV1lnplfpTIhjNNkS9PzhrZ0NWgdCXo6b0iOD8S2PK5PimIixIgFxniRSMY303tluId47avo9h3iGd5bHoUfzAPV5xP83i5elenl1AzvukrsNC4YwHF/E3qXi3SbssffD5+gLT85/Jn7vWOjuv489lOFsjt2iksP/Wrfpyi9cju4NO6p/kBe6e6DSnwCf77DG4+Zfz8gFF4RBng6b99deL8u/6f77hfnWgZXqhbOSwAAAABJRU5ErkJggg==",
+    "pinned": true
   },
   "christmas|merry christmas everyone": {
     "id": "2TE4xW3ImvpltVU0cPcKUn",
@@ -6996,7 +6997,8 @@
     "year": 2021,
     "cat": "christmas",
     "url": "https://open.spotify.com/track/3bH2Eu9A9ymI4UnGHRmoXg",
-    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nM1WUUoFQQxLl/ef3uDd/1h7g8wJIqngh6IiFXTg7U6HR0ibdLplvF/n+nAE/N1ZVXUB6KqaADs82iC6QWICLDlX4z73AaBOgA3eY56tp1gu9w+5fHKm581S+H39v+/PYNq0KEicQBu8cgF8Cw/Ae8cvC7aiLxNoV7+uU5r9bfU5O/8h1UvRDMSH4o4fPDaWTAoGtNPjgSMetPNGT+LXih8IUgQFWFrq8YBbYKuT7YmBsM23IbROEzhc3gflvl93PO2KwmdXP0XU+CbSkmu/mGlcyI5xtn5B8AKWi4ERe8tPuV4sjZtJbfHgIClIdlC1xFN6TprWne21wnO4jSgCJGzxghZ2BqPwst9gpiVmWM57Xb8sxsrJNT7Urn8rrQY8p3/zw36+YVKdPlnrwTHxIP1C/a55Ps/dcbZ1ezuPwi86xDkZH2u/zHRTBnBUXn4f4NV80x0ZHljyq3/+vfsCvTQPUJ+Ts7wAAAAASUVORK5CYII="
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZElEQVR4nM1WUUoFQQxLl/ef3uDd/1h7g8wJIqngh6IiFXTg7U6HR0ibdLplvF/n+nAE/N1ZVXUB6KqaADs82iC6QWICLDlX4z73AaBOgA3eY56tp1gu9w+5fHKm581S+H39v+/PYNq0KEicQBu8cgF8Cw/Ae8cvC7aiLxNoV7+uU5r9bfU5O/8h1UvRDMSH4o4fPDaWTAoGtNPjgSMetPNGT+LXih8IUgQFWFrq8YBbYKuT7YmBsM23IbROEzhc3gflvl93PO2KwmdXP0XU+CbSkmu/mGlcyI5xtn5B8AKWi4ERe8tPuV4sjZtJbfHgIClIdlC1xFN6TprWne21wnO4jSgCJGzxghZ2BqPwst9gpiVmWM57Xb8sxsrJNT7Urn8rrQY8p3/zw36+YVKdPlnrwTHxIP1C/a55Ps/dcbZ1ezuPwi86xDkZH2u/zHRTBnBUXn4f4NV80x0ZHljyq3/+vfsCvTQPUJ+Ts7wAAAAASUVORK5CYII=",
+    "pinned": true
   },
   "christmas|all alone on christmas": {
     "id": "5LcXgvFrPx26X8ZexNMT0s",
@@ -7314,13 +7316,14 @@
     "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYElEQVR4nMVWUWrFMAyTw/7lG7z7H6s3UE6goXSMsbGP4cICbZNAhSzbSsr4Pvb6sQX8315VdWZVVfdijfBoAxsbFPss1gDvDSiir4Z3w10c42W0N9r1t3/X73jaTRb6iRxZ2C/4QrSzZniVIPm53ACvCR6cQZuU7oVmeAR4Ag1m5hrikRZlQGAeDeNVXjdy2E75yQdOohSWU36EmHCpgEJz/ZLYvMIxUq4hP0OGYJxoZ/zSH1t94ABxv2b9cTiBjHBMuXgab5BigkysiIJrhOfQsuRIp3n9+SMb1jGXYf2V+3oB2+UGroi5h/nQ3XMJOgbzRP2lRY5lpVM0xFNI0WmNs6FpvzlZ4CnFE/V6wJ8VbmE5zm+lRHbQegdUw/wyrXFcP/byhP+RUOz0CDn0q7f70y41Gq7mA3cuxrNS1JXSXmP9fDevHafR1P+QZNyHXA6noX5fLrzn1PzPu+3P8Q6u7w9AUebbGAAAAABJRU5ErkJggg=="
   },
   "christmas|i en stjerneregn af sne": {
-    "id": "005M7f5amdAxyrVZ0J61az",
+    "id": "2MHiE76HdeJznaQtrLwBug",
     "title": "I En Stjerneregn Af Sne",
     "artist": "Mads Langer",
     "year": 2013,
     "cat": "christmas",
-    "url": "https://open.spotify.com/track/005M7f5amdAxyrVZ0J61az",
-    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABcUlEQVR4nM1WsY3kQAyjjM2pDtx/We6AqoAPzgIX7OGChw74n8CwHBAciqJcxueZ69sn4N99q6rumkYPToEdHm08ulUCToEl52rcHKDRp8AG73WezxCee/pvufyAx+LgfhiGazyjGwOo3CmwwSsXwK9yAD4bPDhHMkjzXVwrPNKwSIqmTC7xDFqEIMOUdngXCug7fklH4kLs+ElvAWULwlK/C42qZjpbdHu282tIqJsY1vEhdn4uINNbnqfhDMi17K/k6MYj4N5/UHwsynnHth/DVnfuWQNCu37AZ9QkZYwtYefnF26IYeeCy+XdPsr86nQlweWMnnb6PWhjygmrxtxbvySeIx3S4d/IF1k6EZObp7p2/AgqfkaETAZeO362z62TqeY+/6qanfs+QGdlXit+9CHFKMnTlWuB90rsZcE98csUqV/5v2Lyj9Ks8zSnJyxr7rOKL6z1U6TLGtnuD7znwwlSniHe9SNz+3H+q//dPwhk+iP1GLUHAAAAAElFTkSuQmCC"
+    "url": "https://open.spotify.com/track/2MHiE76HdeJznaQtrLwBug",
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABVklEQVR4nM1WwW3EMAyjjPypDW7/sbIBPQELOo8C7VMBWuPgg/IgKFFkUsbPs9evR8DfPauqbgBdVafADI820N0g9RRrgHcBRWijGY4pMJ9BgdK+ez6/69xCuUS+opEFgjsslQITvHIB/N49gPcED86BQ9JkCs3wCEHBg2RKHOI5pChHFUKc8lPWONRoWRjzkyjJxkFL52uEB0ZfgmJGOOR3QQErtbZOLHiUVxfwQRC121BHlzXAg0lFiPwizAv6gjp7o4xwjEdKiLo+smiuL2O6eCPuwBQvBnmGZzEO1jgP4HT72HfMjwmWbKGJBM04D04GnGBBrrF/fYASCFnmef4xLTNtH6O8oEdaVtjRL+wfsoHPO4THfGuExxgjaJHE+VszPIRUKL4xv3XuT92Am9bt6ffQOeobuFGN1jT/fN5uzlYfl2jGb1fhg2T9zr4M+dU//979AtEsFmOluOhBAAAAAElFTkSuQmCC",
+    "pinned": true
   },
   "christmas|julenat i bethlehem": {
     "id": "1u0bnRjkjtyJXLvAn2YmuB",
@@ -7572,7 +7575,8 @@
     "year": 2017,
     "cat": "christmas",
     "url": "https://open.spotify.com/track/5lfdk3SoWmqFc4FPYklQm4",
-    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABcElEQVR4nMWW220lMQxDj435lzq4/Zc1HVAVKKAnQYDd/Ql0sbHnARswQUsU7dX82Wr/NQW/N7fWylqVlcUZMMGjoztC/fz90QTvghVAooUiPdgDvH2+lSL5Ss2e8QO6FkGR78Brkpfgla30YA/wVi9wAJ9WEPcsv250EOftbr1BL9CSAcUYT+YnRCiaeAMeslRMM2LI77KWm6IrZcEM9XyhYvWLQqsfTe8BHo6dTloJJEdxj/DCj4Gaxs6gKR4GDOtPB3EP8DZFLFfGDZEVGsfPgomWxdyhIb+LZkXcRVHZ9ZO1+5/8OrqR83BIjvWcOgYNr8o6BPeIX9hfULtbhHO99OeuTzaG+91201ZyJ+73vN4CXB0+NR+/2SM8t2hDcWpkimccF69tMHyiaxa/cHp7NemNV431YguQSdoarOw94vcVuDtTuECY3w9I2VnqKZQ9Pi91irftzsN8XPjqkkEtX4mObKZ+9c31Z2v/x9wHFn76dHwwQwoAAAAASUVORK5CYII="
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABcElEQVR4nMWW220lMQxDj435lzq4/Zc1HVAVKKAnQYDd/Ql0sbHnARswQUsU7dX82Wr/NQW/N7fWylqVlcUZMMGjoztC/fz90QTvghVAooUiPdgDvH2+lSL5Ss2e8QO6FkGR78Brkpfgla30YA/wVi9wAJ9WEPcsv250EOftbr1BL9CSAcUYT+YnRCiaeAMeslRMM2LI77KWm6IrZcEM9XyhYvWLQqsfTe8BHo6dTloJJEdxj/DCj4Gaxs6gKR4GDOtPB3EP8DZFLFfGDZEVGsfPgomWxdyhIb+LZkXcRVHZ9ZO1+5/8OrqR83BIjvWcOgYNr8o6BPeIX9hfULtbhHO99OeuTzaG+91201ZyJ+73vN4CXB0+NR+/2SM8t2hDcWpkimccF69tMHyiaxa/cHp7NemNV431YguQSdoarOw94vcVuDtTuECY3w9I2VnqKZQ9Pi91irftzsN8XPjqkkEtX4mObKZ+9c31Z2v/x9wHFn76dHwwQwoAAAAASUVORK5CYII=",
+    "pinned": true
   },
   "christmas|dr mte mig en lille dr m": {
     "id": "3WcK48G0JoYgyasnFbmgZ3",
@@ -7581,7 +7585,8 @@
     "year": 2006,
     "cat": "christmas",
     "url": "https://open.spotify.com/track/3WcK48G0JoYgyasnFbmgZ3",
-    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZUlEQVR4nMVW0WlDMRCTTf7lDbL/WN1AN4GK7pVSmkBLL1CTkGfzImSfpPMyvo/aD0vA/62ttU6tOnUKPcEED6ZNykY/2NQE7wYsog7hWvBZfMkZCDhHOn/575M1owrA0Q/v/Wq/xsEdwh2+JvvJe/uXa8sL4Oe0AL7N6psBE1SX19YL9EJYMkBhjCeaFoQ8gVM8qD/NlA7RPcKzrm/IWdnyHuEx3CgptRj7bQNlu+7EOQVhzfScehiShGyX0FwvcJRy4eZ3j/AgghAiZ4hjPF3GEBHIF+jZzql9FFljfuyDi44beaw/SCHWxkNUqCE/WE0vmOGo6X7dde22FIIa83NUx+ilg2uP8JAoTSYwTubQv+h8Tv7FItn6uL5XKkfMQRzm6c61AOQi0nyVvrlH/IjLbbFdEMf+CF5HNJ17wjhPM3gWVXU14j3j545UWt095v0NUSCjnBzf0B+3BvyC/a9328fxDmUdF5+JGhPPAAAAAElFTkSuQmCC"
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZUlEQVR4nMVW0WlDMRCTTf7lDbL/WN1AN4GK7pVSmkBLL1CTkGfzImSfpPMyvo/aD0vA/62ttU6tOnUKPcEED6ZNykY/2NQE7wYsog7hWvBZfMkZCDhHOn/575M1owrA0Q/v/Wq/xsEdwh2+JvvJe/uXa8sL4Oe0AL7N6psBE1SX19YL9EJYMkBhjCeaFoQ8gVM8qD/NlA7RPcKzrm/IWdnyHuEx3CgptRj7bQNlu+7EOQVhzfScehiShGyX0FwvcJRy4eZ3j/AgghAiZ4hjPF3GEBHIF+jZzql9FFljfuyDi44beaw/SCHWxkNUqCE/WE0vmOGo6X7dde22FIIa83NUx+ilg2uP8JAoTSYwTubQv+h8Tv7FItn6uL5XKkfMQRzm6c61AOQi0nyVvrlH/IjLbbFdEMf+CF5HNJ17wjhPM3gWVXU14j3j545UWt095v0NUSCjnBzf0B+3BvyC/a9328fxDmUdF5+JGhPPAAAAAElFTkSuQmCC",
+    "pinned": true
   },
   "christmas|vi nsker jer alle en gl delig jul": {
     "id": "5ZqrAyHvzhg5RcYPjWgT5B",
@@ -7590,7 +7595,8 @@
     "year": 1989,
     "cat": "christmas",
     "url": "https://open.spotify.com/track/5ZqrAyHvzhg5RcYPjWgT5B",
-    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZklEQVR4nM2WwW1DMQxDKaN3aoPsP9bfgJ6ABZ2PomiP+kDrBIntw4MsUbTL+Dn2+rUF/N1eVXVmXVXvxRrxaGNv7E27s8CE9wEU0SBcBXfxkRwIV37OwTHn8XV1s6EneBY22hfozgITXrkAfi03wGvCgzNok0ZqbWvGYzCEFWbmGsZHWpQBgxA45ckIDc4nga4Zz6eoEhUcp/EFAREMNBFq1m87rfFKc+iFdnGkPxyhyFIqLORvDXgrInaj4dO9PfQD+OQOgiK/lEQzns6ZFV1HOWO94M6fKUfRU57gnNnvSTbWgFc+Bn212IhywNH9hriKElwqQSaVa8RjMhdSUIwI14zn2wDTb+P84TZS8rjgA/XNiAMeaNxB03ogTnUEyCA1zh/fri+do2voB9VAXeCF166UZM14Z0TSnWj7kfeBtjqZrIua+qnzTUVy103vyw/sAvOqKruYBh6+1749eO/pf3rvfgKnOfqqXB1DrQAAAABJRU5ErkJggg=="
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZklEQVR4nM2WwW1DMQxDKaN3aoPsP9bfgJ6ABZ2PomiP+kDrBIntw4MsUbTL+Dn2+rUF/N1eVXVmXVXvxRrxaGNv7E27s8CE9wEU0SBcBXfxkRwIV37OwTHn8XV1s6EneBY22hfozgITXrkAfi03wGvCgzNok0ZqbWvGYzCEFWbmGsZHWpQBgxA45ckIDc4nga4Zz6eoEhUcp/EFAREMNBFq1m87rfFKc+iFdnGkPxyhyFIqLORvDXgrInaj4dO9PfQD+OQOgiK/lEQzns6ZFV1HOWO94M6fKUfRU57gnNnvSTbWgFc+Bn212IhywNH9hriKElwqQSaVa8RjMhdSUIwI14zn2wDTb+P84TZS8rjgA/XNiAMeaNxB03ogTnUEyCA1zh/fri+do2voB9VAXeCF166UZM14Z0TSnWj7kfeBtjqZrIua+qnzTUVy103vyw/sAvOqKruYBh6+1749eO/pf3rvfgKnOfqqXB1DrQAAAABJRU5ErkJggg==",
+    "pinned": true
   },
   "christmas|god jul": {
     "id": "54JM48edMgazVCU3VNwj35",
@@ -7599,7 +7605,8 @@
     "year": 2021,
     "cat": "christmas",
     "url": "https://open.spotify.com/track/54JM48edMgazVCU3VNwj35",
-    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbklEQVR4nMWWQYolMQxDX8LfKzf49z9W3cA+gQalaRjmrwY3tBdVcRbCjiUly/wbvT+24Pf21lqH1adP85XsEZ5sDqp3wUnCBO8FS8Ch+uCTZI/qu5HajuvcZPMZ+7/2im7otDzEe0GO71C8j89N9gBveUEO8Csa9EzwcIIyKn8lNcOTLYHLFiqmeC5ZLgqVjDTE4/Z5V8Ia1vdCLLNwHy93D/mMK72ayvml0lm/L95t06aXL7Gn9UlWuTJYo5S7Z3impMxVqW843023DlQ/N49U9qi+UpiSn8oKC/cIT067cZZwb47ny+KMRJHwXG8ukfGqVKFiTf3KDScf1Mez+/IqVmFMbCauMNUv5kl558n99h7zhdC4YjEqiFj2CC8R/wNFekO+7PskeFb8hb4XO3O/d6gcEf8A/xQLqKpILVfxWG98cyVOw/j8bixadc3+R94H7byDpAdRQ31wTS8kzLKG+n1dwL+wf/Vt+xl/AKW2/80gbeg+AAAAAElFTkSuQmCC"
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbklEQVR4nMWWQYolMQxDX8LfKzf49z9W3cA+gQalaRjmrwY3tBdVcRbCjiUly/wbvT+24Pf21lqH1adP85XsEZ5sDqp3wUnCBO8FS8Ch+uCTZI/qu5HajuvcZPMZ+7/2im7otDzEe0GO71C8j89N9gBveUEO8Csa9EzwcIIyKn8lNcOTLYHLFiqmeC5ZLgqVjDTE4/Z5V8Ia1vdCLLNwHy93D/mMK72ayvml0lm/L95t06aXL7Gn9UlWuTJYo5S7Z3impMxVqW843023DlQ/N49U9qi+UpiSn8oKC/cIT067cZZwb47ny+KMRJHwXG8ukfGqVKFiTf3KDScf1Mez+/IqVmFMbCauMNUv5kl558n99h7zhdC4YjEqiFj2CC8R/wNFekO+7PskeFb8hb4XO3O/d6gcEf8A/xQLqKpILVfxWG98cyVOw/j8bixadc3+R94H7byDpAdRQ31wTS8kzLKG+n1dwL+wf/Vt+xl/AKW2/80gbeg+AAAAAElFTkSuQmCC",
+    "pinned": true
   },
   "christmas|stjernest v": {
     "id": "3v2d3qpgx5s7cwpMg71i3O",
@@ -7608,7 +7615,8 @@
     "year": 2012,
     "cat": "christmas",
     "url": "https://open.spotify.com/track/3v2d3qpgx5s7cwpMg71i3O",
-    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABa0lEQVR4nMWWQYpDMQxD5dC9coPe/1j/BvIJNCiFLqar4s9MCg029OHYlusyfp9eHy7g/3xVtVG9sRsvY414tFGiStg7Bia8B1AENuHe8I6xRvGdowQHvYyFz7O+8hnVIPYtPAvY0BXsMdaAVy6Ab7MBXhMenAMRlFNrWzMebTIPtQPFlHdAFgSKJ4NrxJMMRcXOh5zx4ttmw9puVWOmtxMTREmWCZvD9yJFpZ1KKKaG9WXCOqjDHPeLIFMHmxYcv1ckIUi5eEP+dLqEOHEO8/cA1bvRZ7b0FS2vUXyO4BJbUmiM6+sjX8kMOfpbIx6V3kvHCBHxjPfIV8HYwub1zDhcs/ic+DJbkrw09RrxcDoGzhXgrB7ryOwJVwFPGnXHfnB1CowMK+qG/QDc+bcU1D2uR0ZAMnemfUbhGvOctnsN1qE+1uuiiuorQrmh/xjx+gz9qT7q7AdNdJaYRMfRfvrI0vKO9bvf/oXvB9uoCzllMeqbAAAAAElFTkSuQmCC"
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABa0lEQVR4nMWWQYpDMQxD5dC9coPe/1j/BvIJNCiFLqar4s9MCg029OHYlusyfp9eHy7g/3xVtVG9sRsvY414tFGiStg7Bia8B1AENuHe8I6xRvGdowQHvYyFz7O+8hnVIPYtPAvY0BXsMdaAVy6Ab7MBXhMenAMRlFNrWzMebTIPtQPFlHdAFgSKJ4NrxJMMRcXOh5zx4ttmw9puVWOmtxMTREmWCZvD9yJFpZ1KKKaG9WXCOqjDHPeLIFMHmxYcv1ckIUi5eEP+dLqEOHEO8/cA1bvRZ7b0FS2vUXyO4BJbUmiM6+sjX8kMOfpbIx6V3kvHCBHxjPfIV8HYwub1zDhcs/ic+DJbkrw09RrxcDoGzhXgrB7ryOwJVwFPGnXHfnB1CowMK+qG/QDc+bcU1D2uR0ZAMnemfUbhGvOctnsN1qE+1uuiiuorQrmh/xjx+gz9qT7q7AdNdJaYRMfRfvrI0vKO9bvf/oXvB9uoCzllMeqbAAAAAElFTkSuQmCC",
+    "pinned": true
   },
   "christmas|kongespil": {
     "id": "0nQBmwUprs4LYyhECw44LH",
@@ -7617,7 +7625,8 @@
     "year": 2019,
     "cat": "christmas",
     "url": "https://open.spotify.com/track/0nQBmwUprs4LYyhECw44LH",
-    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaUlEQVR4nM1WTa7eQAgzo7c3N5j7Hys3MCegMl83bfUWFZHaiRKFWVgGzE80fj91/rgC/t1dRGREJRIYAzs8dkO4SgFjYMk5EslCZZlg7vC+5isQXQj+LZdv7nizKkG9gddC4gEaShvY4EUH8HHTpwA+OzwMzC2D6gU9ZyJIEIKybJ4FHrrB1qAJTam141dA5kPY8QDump/YbVr+G4pniQeoITW62b3zFy2TM8Vm29zyc+DEHiWzybW/jpxfmp+jeBZ4B9YcipWPu4JTfFZ4z4XyBmBkotd6adOaSpOgZfyikVC4A073q97Vr9M6rIaes/uCnv1Mbm2u9UdQLl9RtKq15dctQ9JOb/sLXB+c2v2MjyW/Y0BdT3Lhsllv7AdIh1GW9HL+np/7AbqImkxjvx/UuAtVkHpjnqvN7kq13od8MtPuPndG8cFGL3RJeIhYg7IezwLvoCKc1ufTYoidv5/94JfzX+27PwA1I+41ACEXIQAAAABJRU5ErkJggg=="
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABaUlEQVR4nM1WTa7eQAgzo7c3N5j7Hys3MCegMl83bfUWFZHaiRKFWVgGzE80fj91/rgC/t1dRGREJRIYAzs8dkO4SgFjYMk5EslCZZlg7vC+5isQXQj+LZdv7nizKkG9gddC4gEaShvY4EUH8HHTpwA+OzwMzC2D6gU9ZyJIEIKybJ4FHrrB1qAJTam141dA5kPY8QDump/YbVr+G4pniQeoITW62b3zFy2TM8Vm29zyc+DEHiWzybW/jpxfmp+jeBZ4B9YcipWPu4JTfFZ4z4XyBmBkotd6adOaSpOgZfyikVC4A073q97Vr9M6rIaes/uCnv1Mbm2u9UdQLl9RtKq15dctQ9JOb/sLXB+c2v2MjyW/Y0BdT3Lhsllv7AdIh1GW9HL+np/7AbqImkxjvx/UuAtVkHpjnqvN7kq13od8MtPuPndG8cFGL3RJeIhYg7IezwLvoCKc1ufTYoidv5/94JfzX+27PwA1I+41ACEXIQAAAABJRU5ErkJggg==",
+    "pinned": true
   },
   "christmas|santa claus is coming to town": {
     "id": "2QpN1ZVw8eJO5f7WcvUA1k",
@@ -7626,7 +7635,8 @@
     "year": 1970,
     "cat": "christmas",
     "url": "https://open.spotify.com/track/2QpN1ZVw8eJO5f7WcvUA1k",
-    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbklEQVR4nM1WUYobUQyTh/zLN5j7H2tuIJ9Ai17an7bQZb3QDiHEj4yQbcl+Zfz6zPXbEfDvzqqqu6bRgxNgh0cb0q0S+gTY4L2AIsrzIy5+Rw1UhgfPV9790xmJmRv82/8+la/RPXNIdgJs8MqFn7yiPYDPLl/behQk4QTY4XWfphJPP5iE1wIPZkRHCDJMidrxG6D7IQyogXvXX1iiLVmxBiAv+ZGoumPesbjVywXUI04UzUry23whUGASP8nv+oEzXSjZtFK+Xf2ORGBZDCTy+1rgvTD3uJHZ0g8CiCU/g1RypbSu3wtoqjHtwv2eMdfSH/NGSs7NWfsjg8VyJEPs9YLoL/Y9PZbX+ot9A8k3u63+4DQ2uqYBLvldAVSTlf1Lx8HXCq9yJUgRI+We3uLlSpDFNsRkSq/3b+ihJ7qZIrf76DzSDfQtYXb+eJ3vBoYzuuMQbOeBGXfkc3Sjpf5wWht3ZHcu/Vb/+X33A8Yw7btuhFNVAAAAAElFTkSuQmCC"
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbklEQVR4nM1WUYobUQyTh/zLN5j7H2tuIJ9Ai17an7bQZb3QDiHEj4yQbcl+Zfz6zPXbEfDvzqqqu6bRgxNgh0cb0q0S+gTY4L2AIsrzIy5+Rw1UhgfPV9790xmJmRv82/8+la/RPXNIdgJs8MqFn7yiPYDPLl/behQk4QTY4XWfphJPP5iE1wIPZkRHCDJMidrxG6D7IQyogXvXX1iiLVmxBiAv+ZGoumPesbjVywXUI04UzUry23whUGASP8nv+oEzXSjZtFK+Xf2ORGBZDCTy+1rgvTD3uJHZ0g8CiCU/g1RypbSu3wtoqjHtwv2eMdfSH/NGSs7NWfsjg8VyJEPs9YLoL/Y9PZbX+ot9A8k3u63+4DQ2uqYBLvldAVSTlf1Lx8HXCq9yJUgRI+We3uLlSpDFNsRkSq/3b+ihJ7qZIrf76DzSDfQtYXb+eJ3vBoYzuuMQbOeBGXfkc3Sjpf5wWht3ZHcu/Vb/+X33A8Yw7btuhFNVAAAAAElFTkSuQmCC",
+    "pinned": true
   },
   "christmas|peace on earth little drummer boy": {
     "id": "4QGDv8h0xaBkMzwUuUO8Tx",
@@ -7635,7 +7645,8 @@
     "year": 1977,
     "cat": "christmas",
     "url": "https://open.spotify.com/track/4QGDv8h0xaBkMzwUuUO8Tx",
-    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABWklEQVR4nM1WQY4cQQzCrb3jH/T/n9U/wC8gonqVQ6Jc4pGS0Vxc0iAMBVNl/PqZ67cj4N+dVVV3TaOBM2CDB9OmRNPyO1w7ztVoDl6G1bt9v16SZfh75Y9oqp65Za3xvgCjewRo0BmwwSsXwJ/jAHx2/Hxg7jmgZ7gWeBe6UQzHB8JkvBZ4sGGbEGSYspf3r4GuYVZVYc+Psg0lHWBYasdvODXsAca4t/cFVmKrpJdEkqwdHiIciITD6QVt/ZUZk2mJWPqLlBWsMHuvzdaP5273XcD0IIDY9ql4YABJ4la/aIbsDPLoqKW/fFX8hl77qxeT763RGg96Y5akUVjr53zProRCUHv9pAgXDT+QDycaAY2/3OcXcSNddRoBW7zzJHDK2YHVJ94H+aMTSlMR8drhAWDd2fSWZnZ9+p41U9PPc//Fb/+gH036tJY+4K9POhyjd37Uf/7e/QFNBQQgmalgtgAAAABJRU5ErkJggg=="
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABWklEQVR4nM1WQY4cQQzCrb3jH/T/n9U/wC8gonqVQ6Jc4pGS0Vxc0iAMBVNl/PqZ67cj4N+dVVV3TaOBM2CDB9OmRNPyO1w7ztVoDl6G1bt9v16SZfh75Y9oqp65Za3xvgCjewRo0BmwwSsXwJ/jAHx2/Hxg7jmgZ7gWeBe6UQzHB8JkvBZ4sGGbEGSYspf3r4GuYVZVYc+Psg0lHWBYasdvODXsAca4t/cFVmKrpJdEkqwdHiIciITD6QVt/ZUZk2mJWPqLlBWsMHuvzdaP5273XcD0IIDY9ql4YABJ4la/aIbsDPLoqKW/fFX8hl77qxeT763RGg96Y5akUVjr53zProRCUHv9pAgXDT+QDycaAY2/3OcXcSNddRoBW7zzJHDK2YHVJ94H+aMTSlMR8drhAWDd2fSWZnZ9+p41U9PPc//Fb/+gH036tJY+4K9POhyjd37Uf/7e/QFNBQQgmalgtgAAAABJRU5ErkJggg==",
+    "pinned": true
   },
   "christmas|where are you christmas": {
     "id": "1msuiw6pnXYfxZ7Edyit9U",
@@ -7644,7 +7655,8 @@
     "year": 2000,
     "cat": "christmas",
     "url": "https://open.spotify.com/track/1msuiw6pnXYfxZ7Edyit9U",
-    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbElEQVR4nM2Wza3cQAyDPxl7lzpw/2W5A6kCBpy3yeHtKVGARBdDA5jQD8mZEN9jro8j+HdnEVERU1NwEnZ4KdF9981wEjZ4L4jEWKOpdsISD3hKGK7+0kwza1xdr/FeIKqmQaGTsMELBeSv1Ct5NnjI0RKZyq/kWuFlCikPXLYyt3hISpoWyu4d3kUzVZMIOuDe7ZczPNFfM3SVveNLWRRZDSPKdnOt6mvXp/S3Ey3n96IgJwlNuN+lfjHhWn0o09B7/rXB3OdXvzu8i+dGUQHvznf6PXpLcxk3273UR6gYRUPaSpnO5X3U06Ebgn72foXc4VkFtNex9QMLF8v3SG7vL3pvwYbVuNRrV1/CoaCN8PDx2tUnq9fTO5661C/v6dlHbc6w9VM/CVTckzl26fX9G+cWn6aYsClcOzzHk2K4u41+8RnXb51V+eHyPPcf/PstlLJlta9Lu8La//ipjsMaM2bnLx9H/9V79wc9kw8wuinSswAAAABJRU5ErkJggg=="
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABbElEQVR4nM2Wza3cQAyDPxl7lzpw/2W5A6kCBpy3yeHtKVGARBdDA5jQD8mZEN9jro8j+HdnEVERU1NwEnZ4KdF9981wEjZ4L4jEWKOpdsISD3hKGK7+0kwza1xdr/FeIKqmQaGTsMELBeSv1Ct5NnjI0RKZyq/kWuFlCikPXLYyt3hISpoWyu4d3kUzVZMIOuDe7ZczPNFfM3SVveNLWRRZDSPKdnOt6mvXp/S3Ey3n96IgJwlNuN+lfjHhWn0o09B7/rXB3OdXvzu8i+dGUQHvznf6PXpLcxk3273UR6gYRUPaSpnO5X3U06Ebgn72foXc4VkFtNex9QMLF8v3SG7vL3pvwYbVuNRrV1/CoaCN8PDx2tUnq9fTO5661C/v6dlHbc6w9VM/CVTckzl26fX9G+cWn6aYsClcOzzHk2K4u41+8RnXb51V+eHyPPcf/PstlLJlta9Lu8La//ipjsMaM2bnLx9H/9V79wc9kw8wuinSswAAAABJRU5ErkJggg==",
+    "pinned": true
   },
   "christmas|christmas is all around": {
     "id": "2bWizjWMdoTFUmMdaZsZsi",
@@ -7653,7 +7665,8 @@
     "year": 2003,
     "cat": "christmas",
     "url": "https://open.spotify.com/track/2bWizjWMdoTFUmMdaZsZsi",
-    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXElEQVR4nM1WW2oEMQyTh/7LN+j9jzU3UE6gIk+/WvpRvNBmYXcdGGHrkUkZX9e5vm0Bf7dXVV0A5icFdni0ge5GJp/iWuC9AUWo1WyoU2CJB6D1Lpaav3r2+nFPOCzxU+tr15/RBM8MngIbvHIBz5hZB+C9wYOzYCqwTKEdHiFIFiCbErd4dHAc7oK96y9+qQg8JN5o9ZI/iBJsyPm3nxfmaCFC0lqPLJL09Jfva4UnEtFEMDP8Vo/3qOASde4zzr52/RkxcwSBYmlt/QdFZT+yrPUVJxmJXNKx9DOsETjTRpoIc63wKM1JwJg6RGqZD9CciDB9esufHc/NwQINidcKT7FL9E1v3OeNj1GGwrxKXpJf5WNE5h3ecz9Ag6cbeTNt8za0BYZKf9iff4xh5rxP4LbzZvU5DbctcXsferrEDdxdDekF/Mnjw7S3zgdivgSEUpTZ8Vf//L77AUUMDifShkdOAAAAAElFTkSuQmCC"
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABXElEQVR4nM1WW2oEMQyTh/7LN+j9jzU3UE6gIk+/WvpRvNBmYXcdGGHrkUkZX9e5vm0Bf7dXVV0A5icFdni0ge5GJp/iWuC9AUWo1WyoU2CJB6D1Lpaav3r2+nFPOCzxU+tr15/RBM8MngIbvHIBz5hZB+C9wYOzYCqwTKEdHiFIFiCbErd4dHAc7oK96y9+qQg8JN5o9ZI/iBJsyPm3nxfmaCFC0lqPLJL09Jfva4UnEtFEMDP8Vo/3qOASde4zzr52/RkxcwSBYmlt/QdFZT+yrPUVJxmJXNKx9DOsETjTRpoIc63wKM1JwJg6RGqZD9CciDB9esufHc/NwQINidcKT7FL9E1v3OeNj1GGwrxKXpJf5WNE5h3ecz9Ag6cbeTNt8za0BYZKf9iff4xh5rxP4LbzZvU5DbctcXsferrEDdxdDekF/Mnjw7S3zgdivgSEUpTZ8Vf//L77AUUMDifShkdOAAAAAElFTkSuQmCC",
+    "pinned": true
   },
   "christmas|christmas time don t let the bells end": {
     "id": "46w8k81V0eSBx64XuVHxT2",
@@ -7662,7 +7675,8 @@
     "year": 2003,
     "cat": "christmas",
     "url": "https://open.spotify.com/track/46w8k81V0eSBx64XuVHxT2",
-    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYklEQVR4nM2WwW3FMAxDaePfqQ2y/1jegJ6ABe1/ak+FPtAKQRL58EBZsqVhfLc9fywBf7c2xqg9du3aOA56PNooUAVUxUGH9wIGARQ8Sqw4s6XvmEKMxNjET5u/WjPXzvcCZ4P3ArJ9A8ID13Fmgzc8gGzgtQ1w9fT5UGufDLtbzzBtkrBSKhSsHs+iaUGgaLR5EPPkjzA/oA9WZNFKxGzydCCQLIt0l0fKBMPC3cXZ5PmCopSROZs8RNrBxuvqS3KPwBtwe//EGycBmf39s0+gx/lMPhDgKUA7iZ4N3gSWC2LuqxrA6t1/OWV2akVSQne7XlLOB5RsBD17PFop5tPakhk143UKJQqpq3e2eDFEG3jOSI93+8cqARynkag5vzDa/DwoCtq7Wy+5CpLXe+RSibPBe503UVxPaM+nZq7NtddtxLPHs7AVFNPOH31gPthB+UwdYCu/dz542/v3P827X8SR8W0OqQoeAAAAAElFTkSuQmCC"
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABYklEQVR4nM2WwW3FMAxDaePfqQ2y/1jegJ6ABe1/ak+FPtAKQRL58EBZsqVhfLc9fywBf7c2xqg9du3aOA56PNooUAVUxUGH9wIGARQ8Sqw4s6XvmEKMxNjET5u/WjPXzvcCZ4P3ArJ9A8ID13Fmgzc8gGzgtQ1w9fT5UGufDLtbzzBtkrBSKhSsHs+iaUGgaLR5EPPkjzA/oA9WZNFKxGzydCCQLIt0l0fKBMPC3cXZ5PmCopSROZs8RNrBxuvqS3KPwBtwe//EGycBmf39s0+gx/lMPhDgKUA7iZ4N3gSWC2LuqxrA6t1/OWV2akVSQne7XlLOB5RsBD17PFop5tPakhk143UKJQqpq3e2eDFEG3jOSI93+8cqARynkag5vzDa/DwoCtq7Wy+5CpLXe+RSibPBe503UVxPaM+nZq7NtddtxLPHs7AVFNPOH31gPthB+UwdYCu/dz542/v3P827X8SR8W0OqQoeAAAAAElFTkSuQmCC",
+    "pinned": true
   },
   "christmas|merry christmas i don t want to fight tonight": {
     "id": "6HA6r647BX7lOIDzQ3PBb9",
@@ -7671,6 +7685,7 @@
     "year": 1989,
     "cat": "christmas",
     "url": "https://open.spotify.com/track/6HA6r647BX7lOIDzQ3PBb9",
-    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZklEQVR4nM2WwY3lMAxDn4J/pzv4/ZeVDugKNKAzs4fdoz6wYwQO5ANBWRTlav5e+/rnCP7fWVWtVXux4ATM8NTNNqxAJmCC94ISWoiu7VX6xB3cFlSflMf8gPc2i7IP4DXj18YGKWjtGV51gf6EG3RP8OgsG6v1HVwjPCXXVuM2LTTCuwja5i6viGYP9UI34ZR8Q5QhP7qdS6OlpN4a31/00titYHqMh/ukGX4pjGd4RMnIthXcMT8djlI+S9N6PJtTlUNvxu86EGWxq0J0jfXXLTk0RWQ4zrft1OO0bsdhrhGeYgYPu4hl7AcQpThCtvUBvZD+SK6Kr3rsL1opxiZdt7Q89PsNxS6pMjHp2fx9LDkqjqk+jnAN8F6c+VENd2UO76melT6LpaaDP6E/4giRzTHoof+9zq6SeHNj1mxePnhers7sZfn9gffBNo1CUGN/4TGW44A482mW7/Pg/dnz/03v3S96YgPOnopm3gAAAABJRU5ErkJggg=="
+    "qr": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUAQAAAABdRz15AAABZklEQVR4nM2WwY3lMAxDn4J/pzv4/ZeVDugKNKAzs4fdoz6wYwQO5ANBWRTlav5e+/rnCP7fWVWtVXux4ATM8NTNNqxAJmCC94ISWoiu7VX6xB3cFlSflMf8gPc2i7IP4DXj18YGKWjtGV51gf6EG3RP8OgsG6v1HVwjPCXXVuM2LTTCuwja5i6viGYP9UI34ZR8Q5QhP7qdS6OlpN4a31/00titYHqMh/ukGX4pjGd4RMnIthXcMT8djlI+S9N6PJtTlUNvxu86EGWxq0J0jfXXLTk0RWQ4zrft1OO0bsdhrhGeYgYPu4hl7AcQpThCtvUBvZD+SK6Kr3rsL1opxiZdt7Q89PsNxS6pMjHp2fx9LDkqjqk+jnAN8F6c+VENd2UO76melT6LpaaDP6E/4giRzTHoof+9zq6SeHNj1mxePnhers7sZfn9gffBNo1CUGN/4TGW44A482mW7/Pg/dnz/03v3S96YgPOnopm3gAAAABJRU5ErkJggg==",
+    "pinned": true
   }
 }
